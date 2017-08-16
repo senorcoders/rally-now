@@ -6,10 +6,12 @@ import { AlertController } from 'ionic-angular';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import firebase from 'firebase';
 
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 
 export class HomePage {
   @ViewChild(Slides) slides: Slides;

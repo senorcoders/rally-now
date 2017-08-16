@@ -1,5 +1,5 @@
 {
-    "name": "rally-up-now",
+    "name": "social-login",
     "version": "0.0.1",
     "author": "Ionic Framework",
     "homepage": "http://ionicframework.com/",
@@ -53,8 +53,8 @@
     "cordova": {
         "plugins": {
             "cordova-plugin-facebook4": {
-                "APP_ID": "831382510351634",
-                "APP_NAME": "ionic-rally"
+                "APP_ID": "123456789",
+                "APP_NAME": "myApplication"
             },
             "cordova-plugin-buildinfo": {},
             "cordova-universal-links-plugin": {},
