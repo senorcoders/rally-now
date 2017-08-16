@@ -28,29 +28,22 @@ export class HomePage {
   facebookSignIn(){
     let provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithRedirect(provider).then(()=>{
-      firebase.auth().getRedirectResult().then((result)=>{
-        console.log(JSON.stringify(result));
+      firebase.auth().getRedirectResult().then((result)=>{        
+        let alert = this.alertCtrl.create({
+          title: 'Access Granted',
+          subTitle: JSON.stringify(result),
+          buttons: ['OK']
+        });
+        alert.present();
       }).catch(function(error){
-        console.log(JSON.stringify(error))
+        let alert = this.alertCtrl.create({
+          title: 'Error Access',
+          subTitle: JSON.stringify(error),
+          buttons: ['OK']
+        });
+        alert.present();
       })
     })
-    
-/*    let alert = this.alertCtrl.create({
-        title: 'New Friend!',
-        subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
-        buttons: ['OK']
-      });
-      alert.present();
-*/
-/*
-      this.fb.login(['public_profile', 'user_friends', 'email'])
-      .then((res: FacebookLoginResponse) => console.log('Logged into Facebook!', res))
-      .catch(e => console.log('Error logging into Facebook', e));*/
-    
-    
-      //this.fb.logEvent(this.fb.EVENTS.EVENT_NAME_ADDED_TO_CART);
     }
         
 }
-
-//https://api-project-237098324740.firebaseapp.com/__/auth/handler
