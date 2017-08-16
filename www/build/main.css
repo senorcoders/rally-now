@@ -30159,6 +30159,11 @@ page-feed ion-card .link {
   color: #4a90e2;
 }
 
+page-feed .button-clear-ios,
+page-feed ion-card .button-clear-ios {
+  color: #fff;
+}
+
 page-feed .token,
 page-feed ion-card .token {
   background-color: #e6e6e6;
@@ -30252,4 +30257,127 @@ page-home .button-clear-md-primary {
   color: #bababa;
   text-decoration: underline;
   font-size: 11px;
+}
+
+page-profile ion-header {
+  text-align: center;
+}
+
+page-profile ion-content {
+  background-color: #f2f2f2 !important;
+}
+
+page-profile .toolbar-background {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+page-profile p.white {
+  color: #fff;
+  margin: 0;
+}
+
+page-profile .button-outline-md-light,
+page-profile .button-outline-ios-light {
+  border-color: #222;
+  background-color: #fff;
+  color: #222;
+  font-weight: 400;
+  border-radius: 8px;
+  height: auto;
+  padding: 8px 20px;
+}
+
+page-profile .profile-img img {
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+}
+
+page-profile .profile-counts {
+  text-align: center;
+}
+
+page-profile .profile-counts p.small {
+  margin: 0;
+  font-size: 12px;
+}
+
+page-profile .profile-headshot h4 {
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+page-profile .profile-headshot p {
+  margin: 0;
+  font-size: 12px;
+}
+
+page-profile ion-card {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100% !important;
+  position: relative;
+}
+
+page-profile ion-card .fab-md-light, page-profile ion-card .fab-ios-light {
+  background: none;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+page-profile ion-card .blue-icon {
+  color: #4a90e2;
+}
+
+page-profile ion-card .inactive {
+  background-color: #dfdfdf;
+}
+
+page-profile ion-card .excerpt {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-transform: uppercase;
+  padding: 5px;
+}
+
+page-profile .profile-rep {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+.footer-icons {
+  text-align: center;
+  font-size: 22px;
+  background-color: #356eb1;
+  color: #fff;
+}
+
+.footer-icons button {
+  background: none;
+  font-size: 20px;
+  color: #fff;
+}
+
+.active-icons {
+  text-align: center;
+  font-size: 22px;
+  background-color: #fff;
+  color: #356eb1;
+}
+
+.white-footer {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  line-height: 29px;
+  padding-left: 10px;
 }
