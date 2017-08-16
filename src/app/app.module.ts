@@ -18,6 +18,7 @@ firebase.initializeApp({
   storageBucket: "api-project-237098324740.appspot.com",
   messagingSenderId: "237098324740"
 }); 
+
 @NgModule({
   declarations: [
     MyApp,
