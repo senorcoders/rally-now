@@ -1,0 +1,8 @@
+{
+  "name": "rally-up-now",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
