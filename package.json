@@ -52,11 +52,7 @@
   },
   "description": "An Ionic project",
   "cordova": {
-    "plugins": {
-      "cordova-plugin-facebook4": {
-        "APP_ID": "831382510351634",
-        "APP_NAME": "ionic-rally"
-      },
+    "plugins": {      
       "cordova-plugin-buildinfo": {},
       "cordova-universal-links-plugin": {},
       "cordova-plugin-browsertab": {},

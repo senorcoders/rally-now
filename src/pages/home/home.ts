@@ -3,7 +3,6 @@ import { NavController } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
-import { Facebook } from '@ionic-native/facebook';
 import { AngularFireAuth } from 'angularfire2/auth';
 import firebase from 'firebase';
 
@@ -35,28 +34,6 @@ export class HomePage {
     this.slides.pager = true;
     this.slides.paginationType = 'bullets';
   } 
-  
-  facebookSignIn(){
-    let provider = new firebase.auth.FacebookAuthProvider();
-    firebase.auth().signInWithRedirect(provider).then(()=>{
-      firebase.auth().getRedirectResult().then((result)=>{        
-        let alert = this.alertCtrl.create({
-          title: 'Access Granted',
-          subTitle: JSON.stringify(result),
-          buttons: ['OK']
-        });
-        alert.present();
-      }).catch(function(error){
-        let alert = this.alertCtrl.create({
-          title: 'Error Access',
-          subTitle: JSON.stringify(error),
-          buttons: ['OK']
-        });
-        alert.present();
-      })
-    })
-    }
-
     
   LoginWithFacebook(){
     this.fire.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())

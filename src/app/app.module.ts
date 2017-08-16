@@ -9,18 +9,8 @@ import { HomePage } from '../pages/home/home';
 
 import { AngularFireModule } from 'angularfire2'; 
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import firebase from  'firebase';
 
-
-firebase.initializeApp({
-  apiKey: "AIzaSyAbPJa7ktiKO0WUlF-Au-Ev4WG4Eih7SPQ",
-  authDomain: "api-project-237098324740.firebaseapp.com",
-  databaseURL: "https://api-project-237098324740.firebaseio.com",
-  projectId: "api-project-237098324740",
-  storageBucket: "api-project-237098324740.appspot.com",
-  messagingSenderId: "237098324740"
-}); 
 var config = {
   apiKey: "AIzaSyAbPJa7ktiKO0WUlF-Au-Ev4WG4Eih7SPQ",
   authDomain: "api-project-237098324740.firebaseapp.com",
@@ -49,7 +39,6 @@ var config = {
   providers: [
     StatusBar,
     SplashScreen,
-    Facebook,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
