@@ -1,0 +1,49 @@
+page-alerts {
+
+    ion-header {
+        text-align: center;
+    }
+    
+    .toolbar-background {
+        background-color: #4a90e2;
+        color: #fff;
+    }
+    ,
+    p.white {
+        color: #fff;
+        margin: 0;
+    }
+    .item-block {
+        border-bottom: 1px solid #c8c7cc;
+        .item-inner {
+            border: none !important;
+        }
+    }
+}
+
+.footer-icons {
+    text-align: center;
+    font-size: 22px;
+    background-color: #356eb1;
+    button {
+        background: none;
+        font-size: 20px;
+        color: #fff;
+    }
+}
+
+.active-icons {
+    text-align: center;
+    font-size: 22px;
+    background-color: #fff;
+    color: #356eb1;
+}
+
+.white-footer {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+    line-height: 29px;
+    padding-left: 10px;
+}

@@ -30051,6 +30051,57 @@ ion-navbar.toolbar {
   }
 }
 
+page-alerts ion-header {
+  text-align: center;
+}
+
+page-alerts .toolbar-background {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+page-alerts,
+page-alerts p.white {
+  color: #fff;
+  margin: 0;
+}
+
+page-alerts .item-block {
+  border-bottom: 1px solid #c8c7cc;
+}
+
+page-alerts .item-block .item-inner {
+  border: none !important;
+}
+
+.footer-icons {
+  text-align: center;
+  font-size: 22px;
+  background-color: #356eb1;
+}
+
+.footer-icons button {
+  background: none;
+  font-size: 20px;
+  color: #fff;
+}
+
+.active-icons {
+  text-align: center;
+  font-size: 22px;
+  background-color: #fff;
+  color: #356eb1;
+}
+
+.white-footer {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  line-height: 29px;
+  padding-left: 10px;
+}
+
 page-feed ion-header {
   text-align: center;
 }
@@ -30136,6 +30187,15 @@ page-feed ion-card .token-btn .button-clear-md {
   text-align: center;
   font-size: 22px;
   background-color: #356eb1;
+}
+
+.white-footer {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  line-height: 29px;
+  padding-left: 10px;
 }
 
 page-home ion-slides.slides {
