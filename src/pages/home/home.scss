@@ -12,11 +12,12 @@ page-home {
     },
     p.white {
         color: #fff;
+        margin: 0;
     },
     ion-button {
         background-color: red;
     },
-    .button-outline-md-facebook {
+    .button-outline-md-facebook, .button-outline-ios-facebook {
         border-color: #2A9FD8;
         color: #fff;
         background-color: #4a90e2;
@@ -24,7 +25,7 @@ page-home {
         text-transform: initial;
 
     },
-    .button-outline-md-twitter {
+    .button-outline-md-twitter, .button-outline-ios-twitter {
         color: #fff;
         background-color: #1fbdf7;
         border-color: #1fbdf7;
@@ -34,9 +35,10 @@ page-home {
     ion-icon{
     	margin-right: 10px;
     },
-    .button-clear-md-primary{
+    .button-clear-md-primary, .button-clear-ios-primary{
     	color: #bababa;
     	text-decoration: underline;
     	font-size: 11px;
     }
 }
+

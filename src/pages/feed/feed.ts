@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { AlertsPage } from '../alerts/alerts'
 import { ProfilePage } from '../profile/profile'
+import { PopoverController } from 'ionic-angular';
+import { OverlayPage } from '../overlay/overlay'
 
 @Component({
   selector: 'page-feed',
@@ -11,7 +13,7 @@ import { ProfilePage } from '../profile/profile'
 
 export class FeedPage {
 
-  constructor(public navCtrl: NavController,public alertCtrl: AlertController) { }
+  constructor(public navCtrl: NavController,public alertCtrl: AlertController, public popoverCtrl: PopoverController) { }
  	
  	 goToOtherPage() {
  
@@ -23,5 +25,9 @@ export class FeedPage {
     this.navCtrl.push(ProfilePage);
   }
 
+   presentPopover() {
+    let popover = this.popoverCtrl.create(OverlayPage);
+    popover.present();
+  }
         
 }

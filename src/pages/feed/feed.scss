@@ -1,80 +1,101 @@
 page-feed {
-    
+
     ion-header {
         text-align: center;
-    },
+    }
+    ,
     .toolbar-background {
         background-color: #4a90e2;
         color: #fff;
-    },
-    p.white{
+    }
+    ,
+    p.white {
         color: #fff;
         margin: 0;
-    },
-    .button-clear-md{
-       background-color: #4a90e2;
-        color: #fff; 
-    },
-    ion-card{
-        .card-md, .card-ios{
-          border-top: 10px solid #356eb1;
-        border-bottom: 10px solid #356eb1;
+    }
+    ,
+    .button-clear-md {
+        background-color: #4a90e2;
+        color: #fff;
+    }
+    ,
+    ion-card {
+        .card-md,
+        .card-ios {
+            border-top: 10px solid #356eb1;
+            border-bottom: 10px solid #356eb1;
             margin: 0;
-             width: 100%;
+            width: 100%;
         }
-        .item-md ion-avatar img, .item-ios ion-avatar img{
+        .item-md ion-avatar img,
+        .item-ios ion-avatar img {
             border-radius: 0;
         }
 
-        .fab-md-light, .fab-ios-light{
+        .fab-md-light,
+        .fab-ios-light {
             background: none;
-             border: none;
+            border: none;
             box-shadow: none;
         }
-      
-        .blue{
-             background-color: #4a90e2;
+
+        .blue {
+            background-color: #4a90e2;
             border-right: 1px solid #fff;
         }
 
-        .link{
+        .link {
             color: #4a90e2;
         }
-        .button-clear-ios{
+        .button-clear-ios {
             color: #fff;
         }
 
-        .token{
+        .token {
             background-color: #e6e6e6;
-            border:none;
-            p{
+            border: none;
+            p {
                 line-height: 40px;
                 font-weight: 500;
                 padding-left: 5px;
             }
         }
 
-        .token-btn{
+        .token-btn {
             background-color: #d3cfcf;
             border: none;
-            .button-clear-md{
-            background-color: #d3cfcf;
+            .button-clear-md {
+                background-color: #d3cfcf;
             }
         }
-    }  
+    }
 }
 
- .footer-icons{
+.footer-icons {
 
-        text-align: center;
-         font-size: 22px;
-        background-color: #356eb1;
-    }
-    .white-footer {
+    text-align: center;
+    font-size: 22px;
+    background-color: #356eb1;
+}
+
+.white-footer {
     font-size: 1.7rem;
     font-weight: 600;
     color: #fff;
     margin: 0;
     line-height: 29px;
     padding-left: 10px;
+}
+
+.popover-ios .popover-content, .popover-md .popover-content {
+    bottom: 40px;
+    left: 0 !important;
+    width: 100% !important;
+    top: 48% !important;
+    top: 52% !important;
+    background-color: #4a87e2; 
+    border-radius: 0;
+    button {
+        margin: 0;
+    }
 }

@@ -9,6 +9,8 @@ import { HomePage } from '../pages/home/home';
 import { FeedPage } from '../pages/feed/feed';
 import { AlertsPage } from '../pages/alerts/alerts';
 import { ProfilePage } from '../pages/profile/profile';
+import { OverlayPage } from '../pages/overlay/overlay';
+
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 
 import firebase from  'firebase';
@@ -28,7 +30,8 @@ firebase.initializeApp({
     HomePage,
     FeedPage,
     AlertsPage,
-    ProfilePage
+    ProfilePage,
+    OverlayPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ firebase.initializeApp({
     HomePage,
     FeedPage,
     AlertsPage,
-    ProfilePage
+    ProfilePage,
+    OverlayPage
   ],
   providers: [
     StatusBar,

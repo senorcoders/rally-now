@@ -30124,7 +30124,8 @@ page-feed .button-clear-md {
   color: #fff;
 }
 
-page-feed .card-md, page-feed .card-ios,
+page-feed .card-md,
+page-feed .card-ios,
 page-feed ion-card .card-md,
 page-feed ion-card .card-ios {
   border-top: 10px solid #356eb1;
@@ -30133,13 +30134,15 @@ page-feed ion-card .card-ios {
   width: 100%;
 }
 
-page-feed .item-md ion-avatar img, page-feed .item-ios ion-avatar img,
+page-feed .item-md ion-avatar img,
+page-feed .item-ios ion-avatar img,
 page-feed ion-card .item-md ion-avatar img,
 page-feed ion-card .item-ios ion-avatar img {
   border-radius: 0;
 }
 
-page-feed .fab-md-light, page-feed .fab-ios-light,
+page-feed .fab-md-light,
+page-feed .fab-ios-light,
 page-feed ion-card .fab-md-light,
 page-feed ion-card .fab-ios-light {
   background: none;
@@ -30203,6 +30206,20 @@ page-feed ion-card .token-btn .button-clear-md {
   padding-left: 10px;
 }
 
+.popover-ios .popover-content, .popover-md .popover-content {
+  bottom: 40px;
+  left: 0 !important;
+  width: 100% !important;
+  top: 48% !important;
+  top: 52% !important;
+  background-color: #4a87e2;
+  border-radius: 0;
+}
+
+.popover-ios .popover-content button, .popover-md .popover-content button {
+  margin: 0;
+}
+
 page-home ion-slides.slides {
   height: auto;
   margin-bottom: 50px !important;
@@ -30222,6 +30239,7 @@ page-home .toolbar-background {
 page-home,
 page-home p.white {
   color: #fff;
+  margin: 0;
 }
 
 page-home,
@@ -30230,7 +30248,7 @@ page-home ion-button {
 }
 
 page-home,
-page-home .button-outline-md-facebook {
+page-home .button-outline-md-facebook, page-home .button-outline-ios-facebook {
   border-color: #2A9FD8;
   color: #fff;
   background-color: #4a90e2;
@@ -30239,7 +30257,7 @@ page-home .button-outline-md-facebook {
 }
 
 page-home,
-page-home .button-outline-md-twitter {
+page-home .button-outline-md-twitter, page-home .button-outline-ios-twitter {
   color: #fff;
   background-color: #1fbdf7;
   border-color: #1fbdf7;
@@ -30253,10 +30271,16 @@ page-home ion-icon {
 }
 
 page-home,
-page-home .button-clear-md-primary {
+page-home .button-clear-md-primary, page-home .button-clear-ios-primary {
   color: #bababa;
   text-decoration: underline;
   font-size: 11px;
+}
+
+.popover-ios .popover-content {
+  bottom: 40px;
+  left: 0 !important;
+  width: 100% !important;
 }
 
 page-profile ion-header {
