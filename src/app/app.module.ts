@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { FeedPage } from '../pages/feed/feed';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 
 import firebase from  'firebase';
@@ -22,7 +23,8 @@ firebase.initializeApp({
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    FeedPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ firebase.initializeApp({
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    FeedPage
   ],
   providers: [
     StatusBar,

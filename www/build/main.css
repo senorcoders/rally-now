@@ -30051,6 +30051,93 @@ ion-navbar.toolbar {
   }
 }
 
+page-feed ion-header {
+  text-align: center;
+}
+
+page-feed,
+page-feed .toolbar-background {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+page-feed,
+page-feed p.white {
+  color: #fff;
+  margin: 0;
+}
+
+page-feed,
+page-feed .button-clear-md {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+page-feed .card-md, page-feed .card-ios,
+page-feed ion-card .card-md,
+page-feed ion-card .card-ios {
+  border-top: 10px solid #356eb1;
+  border-bottom: 10px solid #356eb1;
+  margin: 0;
+  width: 100%;
+}
+
+page-feed .item-md ion-avatar img, page-feed .item-ios ion-avatar img,
+page-feed ion-card .item-md ion-avatar img,
+page-feed ion-card .item-ios ion-avatar img {
+  border-radius: 0;
+}
+
+page-feed .fab-md-light, page-feed .fab-ios-light,
+page-feed ion-card .fab-md-light,
+page-feed ion-card .fab-ios-light {
+  background: none;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+page-feed .blue,
+page-feed ion-card .blue {
+  background-color: #4a90e2;
+  border-right: 1px solid #fff;
+}
+
+page-feed .link,
+page-feed ion-card .link {
+  color: #4a90e2;
+}
+
+page-feed .token,
+page-feed ion-card .token {
+  background-color: #e6e6e6;
+  border: none;
+}
+
+page-feed .token p,
+page-feed ion-card .token p {
+  line-height: 40px;
+  font-weight: 500;
+  padding-left: 5px;
+}
+
+page-feed .token-btn,
+page-feed ion-card .token-btn {
+  background-color: #d3cfcf;
+  border: none;
+}
+
+page-feed .token-btn .button-clear-md,
+page-feed ion-card .token-btn .button-clear-md {
+  background-color: #d3cfcf;
+}
+
+.footer-icons {
+  text-align: center;
+  font-size: 22px;
+  background-color: #356eb1;
+}
+
 page-home ion-slides.slides {
   height: auto;
   margin-bottom: 50px !important;
