@@ -1,5 +1,42 @@
 page-home {
     ion-slides.slides {
         height: auto;
+        margin-bottom: 50px !important;
+    },
+    ion-header {
+        text-align: center;
+    },
+    .toolbar-background {
+        background-color: #4a90e2;
+        color: #fff;
+    },
+    p.white {
+        color: #fff;
+    },
+    ion-button {
+        background-color: red;
+    },
+    .button-outline-md-facebook {
+        border-color: #2A9FD8;
+        color: #fff;
+        background-color: #4a90e2;
+        border-radius: 8px;
+        text-transform: initial;
+
+    },
+    .button-outline-md-twitter {
+        color: #fff;
+        background-color: #1fbdf7;
+        border-color: #1fbdf7;
+        border-radius: 8px;
+        text-transform: initial;
+    },
+    ion-icon{
+    	margin-right: 10px;
+    },
+    .button-clear-md-primary{
+    	color: #bababa;
+    	text-decoration: underline;
+    	font-size: 11px;
     }
 }

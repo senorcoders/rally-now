@@ -87,4 +87,5 @@
         <variable name="APP_ID" value="831382510351634" />
         <variable name="APP_NAME" value="ionic-rally" />
     </plugin>
+    <engine name="ios" spec="~4.4.0" />
 </widget>

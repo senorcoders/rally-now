@@ -30053,4 +30053,56 @@ ion-navbar.toolbar {
 
 page-home ion-slides.slides {
   height: auto;
+  margin-bottom: 50px !important;
+}
+
+page-home,
+page-home ion-header {
+  text-align: center;
+}
+
+page-home,
+page-home .toolbar-background {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+page-home,
+page-home p.white {
+  color: #fff;
+}
+
+page-home,
+page-home ion-button {
+  background-color: red;
+}
+
+page-home,
+page-home .button-outline-md-facebook {
+  border-color: #2A9FD8;
+  color: #fff;
+  background-color: #4a90e2;
+  border-radius: 8px;
+  text-transform: initial;
+}
+
+page-home,
+page-home .button-outline-md-twitter {
+  color: #fff;
+  background-color: #1fbdf7;
+  border-color: #1fbdf7;
+  border-radius: 8px;
+  text-transform: initial;
+}
+
+page-home,
+page-home ion-icon {
+  margin-right: 10px;
+}
+
+page-home,
+page-home .button-clear-md-primary {
+  color: #bababa;
+  text-decoration: underline;
+  font-size: 11px;
 }
