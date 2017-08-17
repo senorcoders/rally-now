@@ -8,7 +8,7 @@ import { FeedPage } from '../pages/feed/feed';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = FeedPage;
+  rootPage:any = HomePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
