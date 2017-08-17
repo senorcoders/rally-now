@@ -30280,12 +30280,11 @@ page-feed ion-card .token-btn .button-clear-md {
 }
 
 .popover-ios .popover-content, .popover-md .popover-content {
-  bottom: 40px;
   left: 0 !important;
   width: 100% !important;
-  top: 48% !important;
-  top: 52% !important;
+  top: 16% !important;
   border-radius: 0;
+  bottom: 40px;
 }
 
 .popover-ios .popover-content button, .popover-md .popover-content button {
@@ -30618,25 +30617,14 @@ page-organizations ion-card .token-btn .button-clear-md {
   padding-left: 10px;
 }
 
-.popover-ios .popover-content,
-.popover-md .popover-content {
-  bottom: 40px;
-  left: 0 !important;
-  width: 100% !important;
-  top: 48% !important;
-  top: 52% !important;
-  border-radius: 0;
-}
-
-.popover-ios .popover-content button,
-.popover-md .popover-content button {
-  margin: 0;
-}
-
 .popover-ios .popover-content {
   bottom: 40px;
   left: 0 !important;
   width: 100% !important;
+}
+
+.page-overlay .button {
+  height: 50px;
 }
 
 page-profile ion-header {
