@@ -30102,6 +30102,79 @@ page-alerts .item-block .item-inner {
   padding-left: 10px;
 }
 
+page-events .toolbar-background {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+page-events ion-title {
+  color: #fff;
+}
+
+page-events p.white {
+  color: #fff;
+  margin: 0;
+}
+
+page-events ion-content {
+  background-color: #f2f2f2 !important;
+}
+
+page-events ion-card {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100% !important;
+  position: relative;
+}
+
+page-events ion-card .button {
+  border-radius: 0;
+  height: 29px;
+  font-size: 13px;
+}
+
+page-events ion-card ion-col {
+  padding: 5px 0 !important;
+}
+
+page-events ion-card ion-card-content h3 {
+  font-weight: 600 !important;
+  font-size: 1.3em !important;
+}
+
+page-events ion-card ion-card-content p,
+page-events ion-card ion-card-content strong {
+  font-size: 11px !important;
+}
+
+page-events ion-card .fab-md-light,
+page-events ion-card .fab-ios-light {
+  background: none;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.footer-icons {
+  text-align: center;
+  font-size: 22px;
+  background-color: #356eb1;
+  color: #fff;
+}
+
+.footer-icons button {
+  background: none;
+  font-size: 20px;
+  color: #fff;
+}
+
+.active-icons {
+  text-align: center;
+  font-size: 22px;
+  background-color: #fff;
+  color: #356eb1;
+}
+
 page-feed ion-header {
   text-align: center;
 }
@@ -30175,9 +30248,9 @@ page-feed ion-card .token {
 
 page-feed .token p,
 page-feed ion-card .token p {
-  line-height: 40px;
   font-weight: 500;
   padding-left: 5px;
+  padding-top: 10px;
 }
 
 page-feed .token-btn,
@@ -30217,6 +30290,81 @@ page-feed ion-card .token-btn .button-clear-md {
 
 .popover-ios .popover-content button, .popover-md .popover-content button {
   margin: 0;
+}
+
+page-friendsactivity ion-content {
+  background-color: #f2f2f2 !important;
+}
+
+page-friendsactivity .toolbar-background {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+page-friendsactivity p.white {
+  color: #fff;
+  margin: 0;
+}
+
+page-friendsactivity p.blue {
+  color: #4a90e2;
+}
+
+page-friendsactivity ion-card {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100% !important;
+  position: relative;
+}
+
+page-friendsactivity ion-card .fab-md-light,
+page-friendsactivity ion-card .fab-ios-light {
+  background: none;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+page-friendsactivity ion-card .blue-icon {
+  color: #4a90e2;
+}
+
+page-friendsactivity ion-card .inactive {
+  background-color: #dfdfdf;
+}
+
+page-friendsactivity ion-card .friend-headshot {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  bottom: 0;
+  left: 10px;
+  bottom: 10px;
+  border: 3px solid #fff;
+}
+
+page-friendsactivity ion-card .heart-btn {
+  margin: 0;
+}
+
+page-friendsactivity .profile-rep {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+.footer-icons {
+  text-align: center;
+  font-size: 22px;
+  background-color: #356eb1;
+  color: #fff;
+}
+
+.footer-icons button {
+  background: none;
+  font-size: 20px;
+  color: #fff;
 }
 
 page-home ion-slides.slides {
@@ -30304,6 +30452,185 @@ page-linked-accounts ion-item.item.item-block .item-button {
 
 page-linked-accounts .item-ios [item-start] {
   margin: 8px 5px 8px 0 !important;
+}
+
+page-organizations ion-header {
+  text-align: center;
+}
+
+page-organizations .toolbar-background {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+page-organizations ion-content {
+  background-color: #f2f2f2 !important;
+}
+
+page-organizations p.white {
+  color: #fff;
+  margin: 0;
+}
+
+page-organizations .button-clear-md {
+  background-color: #4a90e2;
+  color: #fff;
+  height: 30px;
+}
+
+page-organizations .action-btn {
+  height: auto;
+  padding: 5px 10px;
+  background: transparent;
+  color: #222;
+  border: 1px solid #222;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+page-organizations .simple-card {
+  position: relative;
+}
+
+page-organizations .simple-card .button {
+  border-radius: 0;
+  height: 29px;
+  font-size: 13px;
+}
+
+page-organizations .simple-card ion-col {
+  padding: 5px 0 !important;
+}
+
+page-organizations .simple-card ion-card-content h3 {
+  font-weight: 600 !important;
+  font-size: 1.3em !important;
+}
+
+page-organizations .simple-card ion-card-content p,
+page-organizations .simple-card ion-card-content strong {
+  font-size: 11px !important;
+}
+
+page-organizations ion-card {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+
+page-organizations ion-card .item-md ion-avatar img,
+page-organizations ion-card .item-ios ion-avatar img {
+  border-radius: 0;
+}
+
+page-organizations ion-card .organization-bg {
+  height: 240px;
+  position: relative;
+}
+
+page-organizations ion-card .organization-bg .bottom-excerpt {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  font-weight: 600;
+}
+
+page-organizations ion-card .organization-bg .bottom-excerpt p {
+  font-size: 17px;
+}
+
+page-organizations ion-card .days-excerpt {
+  position: absolute;
+  padding: 10px;
+  background: #e7b157;
+  font-weight: 600;
+}
+
+page-organizations ion-card .railled-excerpt {
+  position: absolute;
+  right: 0;
+  padding: 20px;
+  background: #4a90e2;
+  font-weight: 600;
+}
+
+page-organizations ion-card .railled-excerpt p strong {
+  font-size: 20px;
+}
+
+page-organizations ion-card .fab-md-light,
+page-organizations ion-card .fab-ios-light {
+  background: none;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+page-organizations ion-card .blue {
+  background-color: #4a90e2;
+  border-right: 1px solid #fff;
+}
+
+page-organizations ion-card .link {
+  color: #4a90e2;
+  line-height: 30px;
+}
+
+page-organizations ion-card .button-clear-ios {
+  color: #fff;
+  height: 30px;
+}
+
+page-organizations ion-card .token {
+  background-color: #e6e6e6;
+  border: none;
+}
+
+page-organizations ion-card .token p {
+  font-weight: 500;
+  padding-left: 5px;
+  padding-top: 10px;
+}
+
+page-organizations ion-card .token-btn {
+  background-color: #d3cfcf;
+  border: none;
+}
+
+page-organizations ion-card .token-btn .button-clear-md {
+  background-color: #d3cfcf;
+}
+
+.footer-icons {
+  text-align: center;
+  font-size: 22px;
+  background-color: #356eb1;
+}
+
+.white-footer {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  line-height: 29px;
+  padding-left: 10px;
+}
+
+.popover-ios .popover-content,
+.popover-md .popover-content {
+  bottom: 40px;
+  left: 0 !important;
+  width: 100% !important;
+  top: 48% !important;
+  top: 52% !important;
+  border-radius: 0;
+}
+
+.popover-ios .popover-content button,
+.popover-md .popover-content button {
+  margin: 0;
 }
 
 .popover-ios .popover-content {

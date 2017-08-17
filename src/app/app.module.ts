@@ -9,6 +9,9 @@ import { FeedPage } from '../pages/feed/feed';
 import { AlertsPage } from '../pages/alerts/alerts';
 import { ProfilePage } from '../pages/profile/profile';
 import { OverlayPage } from '../pages/overlay/overlay';
+import { EventsPage } from '../pages/events/events';
+import { OrganizationsPage } from '../pages/organizations/organizations';
+import { FriendsactivityPage } from '../pages/friendsactivity/friendsactivity';
 import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -32,7 +35,10 @@ var config = {
         FeedPage,
         AlertsPage,
         ProfilePage,
-        OverlayPage
+        OverlayPage,
+        EventsPage,
+        FriendsactivityPage,
+        OrganizationsPage
     ],
     imports: [
         BrowserModule,
@@ -47,7 +53,10 @@ var config = {
         FeedPage,
         AlertsPage,
         ProfilePage,
-        OverlayPage
+        OverlayPage,
+        EventsPage,
+        FriendsactivityPage,
+        OrganizationsPage
     ],
     providers: [
         StatusBar,
