@@ -1,0 +1,29 @@
+page-linked-accounts {
+    ion-item.item.item-block {        
+        color: #666;
+        border-bottom: 1px solid #c1c1c1;
+        .item-inner {
+            border-bottom: 0px solid #fff !important;            
+        }
+        ion-icon, .item-button {
+            min-height: 1.8rem;
+            font-size: 1.8rem;
+            line-height: 1;            
+        }
+        h2 {
+            font-size: 1.2rem !important;
+            font-weight: 600;
+        }
+        .item-button {
+            margin: 11px 8px 9px 0;
+            font-size: 1rem !important;
+            color: #666;
+        }
+        
+    }
+    .item-ios [item-start] {
+        margin: 8px 5px 8px 0 !important;
+    }
+    
+
+}
