@@ -9,47 +9,51 @@ import { FeedPage } from '../pages/feed/feed';
 import { AlertsPage } from '../pages/alerts/alerts';
 import { ProfilePage } from '../pages/profile/profile';
 import { OverlayPage } from '../pages/overlay/overlay';
-import firebase from  'firebase';
-import { AngularFireModule } from 'angularfire2'; 
+import firebase from 'firebase';
+import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { Push } from '@ionic-native/push';
+
+
 
 var config = {
-  apiKey: "AIzaSyAbPJa7ktiKO0WUlF-Au-Ev4WG4Eih7SPQ",
-  authDomain: "api-project-237098324740.firebaseapp.com",
-  databaseURL: "https://api-project-237098324740.firebaseio.com",
-  projectId: "api-project-237098324740",
-  storageBucket: "api-project-237098324740.appspot.com",
-  messagingSenderId: "237098324740"
+    apiKey: "AIzaSyCji0mJw_7CYYcVupmz3TDP0Q6ABOOpcbE",
+    authDomain: "test-144e3.firebaseapp.com",
+    databaseURL: "https://test-144e3.firebaseio.com",
+    projectId: "test-144e3",
+    storageBucket: "test-144e3.appspot.com",
+    messagingSenderId: "924920604639"
 };
 
 @NgModule({
-  declarations: [
-    MyApp,
-    HomePage,
-    FeedPage,
-    AlertsPage,
-    ProfilePage,
-    OverlayPage
-  ],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp),
-     AngularFireModule.initializeApp(config),
-    AngularFireAuthModule,
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage,
-    FeedPage,
-    AlertsPage,
-    ProfilePage,
-    OverlayPage
-  ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
-  ]
+    declarations: [
+        MyApp,
+        HomePage,
+        FeedPage,
+        AlertsPage,
+        ProfilePage,
+        OverlayPage
+    ],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot(MyApp),
+        AngularFireModule.initializeApp(config),
+        AngularFireAuthModule,
+    ],
+    bootstrap: [IonicApp],
+    entryComponents: [
+        MyApp,
+        HomePage,
+        FeedPage,
+        AlertsPage,
+        ProfilePage,
+        OverlayPage
+    ],
+    providers: [
+        StatusBar,
+        SplashScreen,
+        Push,
+        { provide: ErrorHandler, useClass: IonicErrorHandler }
+    ]
 })
 export class AppModule {}
