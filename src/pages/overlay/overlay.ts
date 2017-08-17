@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { EventsPage } from '../events/events';
 import { FriendsactivityPage } from '../friendsactivity/friendsactivity';
 import { OrganizationsPage } from '../organizations/organizations';
+import { CandidatesPage } from '../candidates/candidates';
 
 @Component({
   selector: 'page-overlay',
@@ -24,6 +25,10 @@ export class OverlayPage {
 
   goToOrganizations(){
   	this.navCtrl.push(OrganizationsPage);
+  }
+
+  goToCandidates(){
+    this.navCtrl.push(CandidatesPage);
   }
 
         
