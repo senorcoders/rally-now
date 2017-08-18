@@ -38,10 +38,9 @@ ProfilePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-profile',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/profile/profile.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title text-left>\n      <p class="white">Rally</p>\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="goToRequests()" >\n        <ion-icon name="ios-person"></ion-icon>\n      </button>\n    </ion-buttons>\n     <ion-buttons end>\n      <button ion-button icon-only (click)="goToSettings()">\n        <ion-icon name="ios-cog-outline"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-row padding>\n    <ion-col col-4 class="profile-headshot">\n    <ion-avatar item-start class="profile-img">\n      <img src="assets/img/login-image.jpg">\n    </ion-avatar>\n    <h4>Sally Smith</h4>\n    <p>Washington, DC</p>\n    </ion-col>\n    <ion-col col-8 class="profile-counts">\n      <ion-row>\n        <ion-col>\n          <h4>103</h4>\n          <p class="small">Friends</p>\n        </ion-col>\n        <ion-col>\n        <h4>32</h4>\n        <p class="small">Candidates</p>\n        </ion-col>\n         <ion-col>\n        <h4>19</h4>\n        <p class="small">Organizations</p>\n        </ion-col>\n      </ion-row>\n      <button ion-button color="light" outline>Edit Profile </button>\n\n    </ion-col>\n    <ion-col col-8>\n    <p>I like cool things</p>\n    </ion-col>\n     <ion-col col-4>\n        <button ion-button color="light" outline>My Reps</button>\n\n    </ion-col>  \n  </ion-row>\n\n    <ion-card>\n       <ion-fab right top style="top: -8px;\n    right: 0;">\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>  \n    <ion-row>\n\n      <ion-col col-5 class="profile-rep" style="background: url(\'assets/img/login-image.jpg\');">\n      </ion-col>\n      <ion-col col-7>\n        <ion-card-content>\n        <h5 style="font-weight: 500;\n    font-size: 16px;">Feed Item Title</h5>\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>\n        <p>via website.com</p>\n        </ion-card-content>\n      </ion-col>\n    </ion-row>\n\n     <ion-fab right bottom style="bottom: 0;\n    right: 0;">\n    <button class="blue-icon" ion-fab color="light"><ion-icon name="ios-heart"></ion-icon></button>\n  </ion-fab> \n  \n</ion-card>\n\n  <ion-card>\n       <ion-fab right top style="top: -8px;\n    right: 0;">\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>  \n    <ion-row>\n\n      <ion-col col-5 class="profile-rep" style="background: url(\'assets/img/login-image.jpg\');">\n        <p class="excerpt">Private</p>\n      </ion-col>\n      <ion-col col-7 class="inactive">\n        <ion-card-content>\n        <h5 style="font-weight: 500;\n    font-size: 16px;">Sally Smith</h5>\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>\n        </ion-card-content>\n      </ion-col>\n    </ion-row>\n\n     <ion-fab right bottom style="bottom: 0;\n    right: 0;">\n    <button class="blue-icon" ion-fab color="light"><ion-icon name="logo-usd"></ion-icon></button>\n  </ion-fab> \n  \n</ion-card>\n\n   <ion-card>\n       <ion-fab right top style="top: -8px;\n    right: 0;">\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>  \n    <ion-row>\n\n      <ion-col col-5 class="profile-rep" style="background: url(\'assets/img/login-image.jpg\');">\n      </ion-col>\n      <ion-col col-7>\n        <ion-card-content>\n        <h5 style="font-weight: 500;\n    font-size: 16px;">Sally Smith</h5>\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>\n        </ion-card-content>\n      </ion-col>\n    </ion-row>\n\n     <ion-fab right bottom style="bottom: 0;\n    right: 0;">\n    <button class="blue-icon" ion-fab color="light"><ion-icon name="md-call"></ion-icon></button>\n  </ion-fab> \n  \n</ion-card>\n    \n</ion-content>\n\n<ion-footer>\n  <ion-toolbar style="min-height: auto; padding: 0;">\n    <ion-row> \n      <ion-col col-2 class="footer-icons">\n          <ion-icon name="ios-home"></ion-icon>\n      </ion-col>\n      <ion-col col-6>\n            <p class="white-footer">Profile</p>\n      </ion-col>\n      <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">\n        <ion-icon name="ios-notifications"></ion-icon>\n      </ion-col>\n      <ion-col class="active-icons">\n        <ion-icon name="ios-person"></ion-icon>\n\n      </ion-col>\n    </ion-row>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/profile/profile.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
 ], ProfilePage);
 
-var _a;
 //# sourceMappingURL=profile.js.map
 
 /***/ }),
@@ -253,39 +252,43 @@ webpackEmptyAsyncContext.id = 158;
 var map = {
 	"../pages/candidates/candidates.module": [
 		442,
-		18
+		20
 	],
 	"../pages/events/events.module": [
 		439,
-		17
+		19
 	],
 	"../pages/favorites/favorites.module": [
 		447,
-		14
+		16
+	],
+	"../pages/find-friends/find-friends.module": [
+		453,
+		7
 	],
 	"../pages/friends-request/friends-request.module": [
 		449,
-		13
+		15
 	],
 	"../pages/friendsactivity/friendsactivity.module": [
 		440,
-		4
+		12
 	],
 	"../pages/linked-accounts/linked-accounts.module": [
 		443,
-		1
+		11
 	],
 	"../pages/organizations/organizations.module": [
 		441,
-		3
+		10
 	],
 	"../pages/settings/settings.module": [
 		451,
-		0
+		9
 	],
 	"../pages/takeaction/takeaction.module": [
 		445,
-		2
+		8
 	]
 };
 function webpackAsyncContext(req) {
@@ -504,15 +507,19 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_favorites_favorites__ = __webpack_require__(448);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_friends_request_friends_request__ = __webpack_require__(450);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_settings_settings__ = __webpack_require__(452);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_angularfire2__ = __webpack_require__(134);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_angularfire2_auth__ = __webpack_require__(246);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_push__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_linked_accounts_linked_accounts__ = __webpack_require__(444);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_find_friends_find_friends__ = __webpack_require__(454);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_angularfire2__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_angularfire2_auth__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__ionic_native_push__ = __webpack_require__(245);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -564,7 +571,9 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_15__pages_takeaction_takeaction__["a" /* TakeactionPage */],
             __WEBPACK_IMPORTED_MODULE_16__pages_favorites_favorites__["a" /* FavoritesPage */],
             __WEBPACK_IMPORTED_MODULE_17__pages_friends_request_friends_request__["a" /* FriendsRequestPage */],
-            __WEBPACK_IMPORTED_MODULE_18__pages_settings_settings__["a" /* SettingsPage */]
+            __WEBPACK_IMPORTED_MODULE_18__pages_settings_settings__["a" /* SettingsPage */],
+            __WEBPACK_IMPORTED_MODULE_19__pages_linked_accounts_linked_accounts__["a" /* LinkedAccountsPage */],
+            __WEBPACK_IMPORTED_MODULE_20__pages_find_friends_find_friends__["a" /* FindFriendsPage */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -578,11 +587,12 @@ AppModule = __decorate([
                     { loadChildren: '../pages/takeaction/takeaction.module#TakeactionPageModule', name: 'TakeactionPage', segment: 'takeaction', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/favorites/favorites.module#FavoritesPageModule', name: 'FavoritesPage', segment: 'favorites', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/friends-request/friends-request.module#FriendsRequestPageModule', name: 'FriendsRequestPage', segment: 'friends-request', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] }
+                    { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/find-friends/find-friends.module#FindFriendsPageModule', name: 'FindFriendsPage', segment: 'find-friends', priority: 'low', defaultHistory: [] }
                 ]
             }),
-            __WEBPACK_IMPORTED_MODULE_19_angularfire2__["a" /* AngularFireModule */].initializeApp(config),
-            __WEBPACK_IMPORTED_MODULE_20_angularfire2_auth__["b" /* AngularFireAuthModule */],
+            __WEBPACK_IMPORTED_MODULE_21_angularfire2__["a" /* AngularFireModule */].initializeApp(config),
+            __WEBPACK_IMPORTED_MODULE_22_angularfire2_auth__["b" /* AngularFireAuthModule */],
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
         entryComponents: [
@@ -599,12 +609,14 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_15__pages_takeaction_takeaction__["a" /* TakeactionPage */],
             __WEBPACK_IMPORTED_MODULE_16__pages_favorites_favorites__["a" /* FavoritesPage */],
             __WEBPACK_IMPORTED_MODULE_17__pages_friends_request_friends_request__["a" /* FriendsRequestPage */],
-            __WEBPACK_IMPORTED_MODULE_18__pages_settings_settings__["a" /* SettingsPage */]
+            __WEBPACK_IMPORTED_MODULE_18__pages_settings_settings__["a" /* SettingsPage */],
+            __WEBPACK_IMPORTED_MODULE_19__pages_linked_accounts_linked_accounts__["a" /* LinkedAccountsPage */],
+            __WEBPACK_IMPORTED_MODULE_20__pages_find_friends_find_friends__["a" /* FindFriendsPage */]
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
             __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
-            __WEBPACK_IMPORTED_MODULE_21__ionic_native_push__["a" /* Push */],
+            __WEBPACK_IMPORTED_MODULE_23__ionic_native_push__["a" /* Push */],
             { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] }
         ]
     })
@@ -784,6 +796,66 @@ HomePage = __decorate([
 
 /***/ }),
 
+/***/ 444:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LinkedAccountsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the LinkedAccountsPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var LinkedAccountsPage = (function () {
+    function LinkedAccountsPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.LinkedAccounts = [
+            {
+                id: 1,
+                name: 'Facebook',
+                icon: 'logo-facebook',
+                username: 'Milton Espinoza'
+            },
+            {
+                id: 1,
+                name: 'Twitter',
+                icon: 'logo-twitter',
+                username: 'milton404'
+            }
+        ];
+    }
+    LinkedAccountsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad LinkedAccountsPage');
+    };
+    return LinkedAccountsPage;
+}());
+LinkedAccountsPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-linked-accounts',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/linked-accounts/linked-accounts.html"*/'<!--\n  Generated template for the LinkedAccountsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-toolbar  color="primary">\n      <ion-title>Rally</ion-title>\n    </ion-toolbar>\n</ion-header>\n\n\n<ion-content no-padding>\n  <ion-list>\n      <ion-item ion-item *ngFor="let account of LinkedAccounts">\n        <ion-icon name="{{account.icon}}" item-start></ion-icon>\n        <h2 item-start>{{ account.name }}</h2>\n        <button  (click)="itemSelected(account)" ion-button clear item-end>\n          {{ account.username }}           \n        </button>\n        <ion-icon ios="ios-arrow-forward" md="ios-arrow-forward" item-end></ion-icon>\n      </ion-item>\n    </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/linked-accounts/linked-accounts.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+], LinkedAccountsPage);
+
+//# sourceMappingURL=linked-accounts.js.map
+
+/***/ }),
+
 /***/ 446:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -929,6 +1001,8 @@ FriendsRequestPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__linked_accounts_linked_accounts__ = __webpack_require__(444);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__find_friends_find_friends__ = __webpack_require__(454);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -938,6 +1012,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
+
 
 
 /**
@@ -954,17 +1030,70 @@ var SettingsPage = (function () {
     SettingsPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad SettingsPage');
     };
+    SettingsPage.prototype.goToLinkedAccounts = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__linked_accounts_linked_accounts__["a" /* LinkedAccountsPage */]);
+    };
+    SettingsPage.prototype.findFriends = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__find_friends_find_friends__["a" /* FindFriendsPage */]);
+    };
     return SettingsPage;
 }());
 SettingsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-settings',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/settings/settings.html"*/'<!--\n  Generated template for the SettingsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title><p class="white">Rally</p></ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n<ion-list>\n\n  <ion-item>Find Friends\n	<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n</ion-list>\n<ion-list>\n  <ion-list-header>\n    Account\n  </ion-list-header>\n  <ion-item>Change Password\n		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n  <ion-item>\n  		<ion-label> Private Account</ion-label>\n  	  <ion-toggle  checked="false"></ion-toggle>\n</ion-item>\n</ion-list>\n<ion-list>\n  <ion-list-header>\n    Settings\n  </ion-list-header>\n  <ion-item>Linked Accounts\n		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n  <ion-item>Push Notification Settings\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n<ion-item>Cellular Data Usage\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n<ion-item>Edit Profile\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n</ion-list>\n\n<ion-list>\n  <ion-list-header>\n    Support\n  </ion-list-header>\n  <ion-item>Help Center\n		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n  <ion-item>Report a Problem\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n</ion-list>\n\n<ion-list>\n  <ion-list-header>\n    About\n  </ion-list-header>\n  <ion-item>Blog\n		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n  <ion-item>Privacy Policy\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n <ion-item>Terms\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n\n</ion-list>\n\n<ion-list>\n  <ion-item>Log Out</ion-item>\n</ion-list>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar style="min-height: auto; padding: 0;">\n    <ion-row> \n      <ion-col col-2 class="footer-icons">\n          <ion-icon name="ios-home"></ion-icon>\n      </ion-col>\n      <ion-col col-6>\n            <p class="white-footer">Settings</p>\n      </ion-col>\n      <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">\n        <ion-icon name="ios-notifications"></ion-icon>\n      </ion-col>\n      <ion-col class="footer-icons">\n        <ion-icon name="ios-person"></ion-icon>\n\n      </ion-col>\n    </ion-row>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/settings/settings.html"*/,
+        selector: 'page-settings',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/settings/settings.html"*/'<!--\n  Generated template for the SettingsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title><p class="white">Rally</p></ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n<ion-list>\n\n  <ion-item (click)="findFriends()">Find Friends\n	<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n</ion-list>\n<ion-list>\n  <ion-list-header>\n    Account\n  </ion-list-header>\n  <ion-item>Change Password\n		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n  <ion-item>\n  		<ion-label> Private Account</ion-label>\n  	  <ion-toggle  checked="false"></ion-toggle>\n</ion-item>\n</ion-list>\n<ion-list>\n  <ion-list-header>\n    Settings\n  </ion-list-header>\n  <ion-item (click)="goToLinkedAccounts()">Linked Accounts\n		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n  <ion-item>Push Notification Settings\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n<ion-item>Cellular Data Usage\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n<ion-item>Edit Profile\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n</ion-list>\n\n<ion-list>\n  <ion-list-header>\n    Support\n  </ion-list-header>\n  <ion-item>Help Center\n		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n  <ion-item>Report a Problem\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n</ion-list>\n\n<ion-list>\n  <ion-list-header>\n    About\n  </ion-list-header>\n  <ion-item>Blog\n		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n  <ion-item>Privacy Policy\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n <ion-item>Terms\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n\n</ion-list>\n\n<ion-list>\n  <ion-item>Log Out</ion-item>\n</ion-list>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar style="min-height: auto; padding: 0;">\n    <ion-row> \n      <ion-col col-2 class="footer-icons">\n          <ion-icon name="ios-home"></ion-icon>\n      </ion-col>\n      <ion-col col-6>\n            <p class="white-footer">Settings</p>\n      </ion-col>\n      <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">\n        <ion-icon name="ios-notifications"></ion-icon>\n      </ion-col>\n      <ion-col class="footer-icons">\n        <ion-icon name="ios-person"></ion-icon>\n\n      </ion-col>\n    </ion-row>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/settings/settings.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object])
 ], SettingsPage);
 
+var _a, _b;
 //# sourceMappingURL=settings.js.map
+
+/***/ }),
+
+/***/ 454:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FindFriendsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the FindFriendsPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var FindFriendsPage = (function () {
+    function FindFriendsPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    FindFriendsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad FindFriendsPage');
+    };
+    return FindFriendsPage;
+}());
+FindFriendsPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-find-friends',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/find-friends/find-friends.html"*/'<!--\n  Generated template for the SettingsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title><p class="white">Rally</p></ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n<ion-list>\n\n  <ion-item>\n  	<ion-icon item-start name="ios-mail"></ion-icon>\n  	via Email\n	<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n   <ion-item>\n  	<ion-icon item-start name="logo-facebook"></ion-icon>\n  	Find Facebook Friends\n	<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n   <ion-item>\n  	<ion-icon item-start name="logo-twitter"></ion-icon>\n  	Find Twitter Friends\n	<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n   <ion-item>\n  	<ion-icon item-start name="ios-person"></ion-icon>\n  	From My Contacts\n	<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n</ion-list>\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar style="min-height: auto; padding: 0;">\n    <ion-row> \n      <ion-col col-2 class="footer-icons">\n          <ion-icon name="ios-home"></ion-icon>\n      </ion-col>\n      <ion-col col-6>\n            <p class="white-footer">Find Friends</p>\n      </ion-col>\n      <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">\n        <ion-icon name="ios-notifications"></ion-icon>\n      </ion-col>\n      <ion-col class="footer-icons">\n        <ion-icon name="ios-person"></ion-icon>\n\n      </ion-col>\n    </ion-row>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/find-friends/find-friends.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+], FindFriendsPage);
+
+//# sourceMappingURL=find-friends.js.map
 
 /***/ })
 

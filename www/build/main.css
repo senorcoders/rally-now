@@ -30581,6 +30581,16 @@ page-feed ion-card .token-btn .button-clear-md {
   margin: 0;
 }
 
+page-find-friends .toolbar-background {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+page-find-friends p.white {
+  color: #fff;
+  margin: 0;
+}
+
 page-friends-request ion-content {
   background-color: #f2f2f2 !important;
 }

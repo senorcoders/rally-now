@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LinkedAccountsPage } from '../linked-accounts/linked-accounts';
+import { FindFriendsPage } from '../find-friends/find-friends';
 
 /**
  * Generated class for the SettingsPage page.
@@ -20,6 +22,13 @@ export class SettingsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SettingsPage');
+  }
+   goToLinkedAccounts(){
+  	this.navCtrl.push(LinkedAccountsPage);
+  }
+
+  findFriends(){
+  	this.navCtrl.push(FindFriendsPage);
   }
 
 }

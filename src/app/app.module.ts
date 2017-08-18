@@ -17,6 +17,8 @@ import { TakeactionPage } from '../pages/takeaction/takeaction';
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { FriendsRequestPage } from '../pages/friends-request/friends-request';
 import { SettingsPage } from '../pages/settings/settings';
+import { LinkedAccountsPage } from '../pages/linked-accounts/linked-accounts';
+import { FindFriendsPage } from '../pages/find-friends/find-friends';
 import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -48,7 +50,9 @@ var config = {
         TakeactionPage,
         FavoritesPage,
         FriendsRequestPage,
-        SettingsPage
+        SettingsPage,
+        LinkedAccountsPage,
+        FindFriendsPage
     ],
     imports: [
         BrowserModule,
@@ -71,7 +75,9 @@ var config = {
         TakeactionPage,
         FavoritesPage,
         FriendsRequestPage,
-        SettingsPage
+        SettingsPage,
+        LinkedAccountsPage,
+        FindFriendsPage
     ],
     providers: [
         StatusBar,
