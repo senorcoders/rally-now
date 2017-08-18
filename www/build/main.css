@@ -30824,6 +30824,68 @@ page-linked-accounts .item-ios [item-start] {
   margin: 8px 5px 8px 0 !important;
 }
 
+page-my-reps .toolbar-background {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+page-my-reps p.white {
+  color: #fff;
+  margin: 0;
+}
+
+page-my-reps .action-btn {
+  height: auto;
+  padding: 5px 10px;
+  background: #fff;
+  color: #9e9191;
+  border: 1px solid #9e9191;
+  font-size: 12px;
+  text-transform: uppercase;
+  min-width: 80px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 5px;
+}
+
+page-my-reps .list-ios > .item-block:first-child,
+page-my-reps .list-md > .item-block:first-child {
+  border-top: none !important;
+}
+
+page-my-reps .list-title {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+page-my-reps .search-btn {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+page-my-reps .search-btn .button {
+  width: 80%;
+  padding: 10px;
+}
+
+page-my-reps ion-item {
+  border-bottom: 0 !important;
+  background-color: transparent !important;
+}
+
+page-my-reps ion-item .item-inner,
+page-my-reps ion-item ion-avatar {
+  border-bottom: 1px solid #c8c7cc !important;
+}
+
+page-my-reps ion-item ion-avatar {
+  margin: 0 !important;
+  padding: 8px 16px 8px 0;
+}
+
 page-organizations ion-header {
   text-align: center;
 }
