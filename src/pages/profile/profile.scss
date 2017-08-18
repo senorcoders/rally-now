@@ -20,9 +20,12 @@ page-profile {
         background-color: #fff;
         color: #222;
         font-weight: 400;
-        border-radius: 8px;
+        border-radius: 5px;
         height: auto;
-        padding: 8px 20px;
+        padding: 8px 10px;
+        font-size: 11px;
+        text-transform: uppercase;
+        width: 80%;
     }
     .profile-img {
         img {
@@ -51,27 +54,28 @@ page-profile {
     }
     ion-card {
         margin-left: 0 !important;
-        margin-right: 0 !important; 
+        margin-right: 0 !important;
         width: 100% !important;
         position: relative;
-         .fab-md-light, .fab-ios-light{
+        .fab-md-light,
+        .fab-ios-light {
             background: none;
-             border: none;
+            border: none;
             box-shadow: none;
         }
-        .blue-icon{
+        .blue-icon {
             color: #4a90e2;
         }
         .inactive {
             background-color: #dfdfdf;
         }
-        .excerpt{
+        .excerpt {
             position: absolute;
             width: 100%;
             bottom: 0;
             left: 0;
             text-align: center;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             color: #fff;
             text-transform: uppercase;
             padding: 5px;
@@ -110,4 +114,9 @@ page-profile {
     margin: 0;
     line-height: 29px;
     padding-left: 10px;
+}
+
+.bar-button-default-ios,
+.bar-button-default-md {
+    color: #fff;
 }

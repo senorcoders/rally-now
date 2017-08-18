@@ -31012,9 +31012,12 @@ page-profile .button-outline-ios-light {
   background-color: #fff;
   color: #222;
   font-weight: 400;
-  border-radius: 8px;
+  border-radius: 5px;
   height: auto;
-  padding: 8px 20px;
+  padding: 8px 10px;
+  font-size: 11px;
+  text-transform: uppercase;
+  width: 80%;
 }
 
 page-profile .profile-img img {
@@ -31049,7 +31052,8 @@ page-profile ion-card {
   position: relative;
 }
 
-page-profile ion-card .fab-md-light, page-profile ion-card .fab-ios-light {
+page-profile ion-card .fab-md-light,
+page-profile ion-card .fab-ios-light {
   background: none;
   border: none;
   -webkit-box-shadow: none;
@@ -31109,6 +31113,11 @@ page-profile .profile-rep {
   margin: 0;
   line-height: 29px;
   padding-left: 10px;
+}
+
+.bar-button-default-ios,
+.bar-button-default-md {
+  color: #fff;
 }
 
 page-takeaction ion-header {

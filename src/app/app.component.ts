@@ -4,7 +4,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { FeedPage } from '../pages/feed/feed';
-import { FriendsRequestPage } from '../pages/friends-request/friends-request';
 
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
@@ -12,7 +11,7 @@ import { Push, PushObject, PushOptions } from '@ionic-native/push';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = FriendsRequestPage;
+  rootPage:any = FeedPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public push: Push, public alertCtrl: AlertController) {
     platform.ready().then(() => {
