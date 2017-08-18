@@ -30595,6 +30595,63 @@ page-friends-request p.white {
   margin: 0;
 }
 
+page-friends-request .action-btn {
+  height: auto;
+  padding: 5px 10px;
+  background: #fff;
+  color: #9e9191;
+  border: 1px solid #9e9191;
+  font-size: 12px;
+  text-transform: uppercase;
+  min-width: 80px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 5px;
+}
+
+page-friends-request .list-ios > .item-block:first-child,
+page-friends-request .list-md > .item-block:first-child {
+  border-top: none !important;
+}
+
+page-friends-request .list-title {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+page-friends-request .search-btn {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+page-friends-request .search-btn .button {
+  width: 80%;
+  padding: 10px;
+}
+
+page-friends-request ion-item {
+  border-bottom: 0 !important;
+  background-color: transparent !important;
+}
+
+page-friends-request ion-item .item-inner,
+page-friends-request ion-item ion-avatar {
+  border-bottom: 1px solid #c8c7cc !important;
+}
+
+page-friends-request ion-item ion-avatar {
+  margin: 0 !important;
+  padding: 8px 16px 8px 0;
+}
+
+.button {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 page-friendsactivity ion-content {
   background-color: #f2f2f2 !important;
 }

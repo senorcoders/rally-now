@@ -10,4 +10,48 @@ page-friends-request {
         color: #fff;
         margin: 0;
     }
+    .action-btn {
+        height: auto;
+        padding: 5px 10px;
+        background: #fff;
+        color: #9e9191;
+        border: 1px solid #9e9191;
+        font-size: 12px;
+        text-transform: uppercase;
+        min-width: 80px;
+        box-shadow: none;
+        border-radius: 5px;
+    }
+    .list-ios>.item-block:first-child,
+    .list-md>.item-block:first-child {
+        border-top: none !important;
+    }
+    .list-title {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 11px;
+    }
+    .search-btn {
+        justify-content: center;
+        .button {
+            width: 80%;
+            padding: 10px;
+        }
+    }
+    ion-item {
+        border-bottom: 0 !important;
+        background-color: transparent !important;
+        .item-inner,
+        ion-avatar {
+            border-bottom: 1px solid #c8c7cc !important;
+        }
+        ion-avatar {
+            margin: 0 !important;
+            padding: 8px 16px 8px 0;
+        }
+    }
+}
+
+.button {
+    box-shadow: none;
 }
