@@ -16,6 +16,7 @@ import { CandidatesPage } from '../pages/candidates/candidates';
 import { TakeactionPage } from '../pages/takeaction/takeaction';
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { FriendsRequestPage } from '../pages/friends-request/friends-request';
+import { SettingsPage } from '../pages/settings/settings';
 import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -46,7 +47,8 @@ var config = {
         CandidatesPage,
         TakeactionPage,
         FavoritesPage,
-        FriendsRequestPage
+        FriendsRequestPage,
+        SettingsPage
     ],
     imports: [
         BrowserModule,
@@ -68,7 +70,8 @@ var config = {
         CandidatesPage,
         TakeactionPage,
         FavoritesPage,
-        FriendsRequestPage
+        FriendsRequestPage,
+        SettingsPage
     ],
     providers: [
         StatusBar,

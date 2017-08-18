@@ -31120,6 +31120,16 @@ page-profile .profile-rep {
   color: #fff;
 }
 
+page-settings .toolbar-background {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+page-settings p.white {
+  color: #fff;
+  margin: 0;
+}
+
 page-takeaction ion-header {
   text-align: center;
 }
