@@ -30579,6 +30579,13 @@ page-feed ion-card .token-btn .button-clear-md {
   margin: 0;
 }
 
+.popover-ios .popover-content button .button-inner, .popover-md .popover-content button .button-inner {
+  -webkit-box-pack: start;
+  -webkit-justify-content: start;
+  -ms-flex-pack: start;
+  justify-content: start;
+}
+
 page-find-friends .toolbar-background {
   background-color: #4a90e2;
   color: #fff;
@@ -31055,6 +31062,13 @@ page-organizations ion-card .token-btn .button-clear-md {
 
 .page-overlay .button {
   height: 50px;
+}
+
+.page-overlay .button .button-inner {
+  -webkit-box-pack: start;
+  -webkit-justify-content: start;
+  -ms-flex-pack: start;
+  justify-content: start;
 }
 
 page-privacy-policy .toolbar-background {
