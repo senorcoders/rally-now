@@ -1,14 +1,14 @@
 webpackJsonp([11],{
 
-/***/ 439:
+/***/ 440:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EventsPageModule", function() { return EventsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FriendsactivityPageModule", function() { return FriendsactivityPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__events__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__friendsactivity__ = __webpack_require__(148);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var EventsPageModule = (function () {
-    function EventsPageModule() {
+var FriendsactivityPageModule = (function () {
+    function FriendsactivityPageModule() {
     }
-    return EventsPageModule;
+    return FriendsactivityPageModule;
 }());
-EventsPageModule = __decorate([
+FriendsactivityPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__events__["a" /* EventsPage */],
+            __WEBPACK_IMPORTED_MODULE_2__friendsactivity__["a" /* FriendsactivityPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__events__["a" /* EventsPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__friendsactivity__["a" /* FriendsactivityPage */]),
         ],
     })
-], EventsPageModule);
+], FriendsactivityPageModule);
 
-//# sourceMappingURL=events.module.js.map
+//# sourceMappingURL=friendsactivity.module.js.map
 
 /***/ })
 

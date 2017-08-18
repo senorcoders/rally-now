@@ -4,13 +4,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { FeedPage } from '../pages/feed/feed';
+import { FriendsRequestPage } from '../pages/friends-request/friends-request';
+
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = FeedPage;
+  rootPage:any = FriendsRequestPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public push: Push, public alertCtrl: AlertController) {
     platform.ready().then(() => {
