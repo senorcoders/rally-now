@@ -5,6 +5,7 @@ import { FriendsactivityPage } from '../friendsactivity/friendsactivity';
 import { OrganizationsPage } from '../organizations/organizations';
 import { CandidatesPage } from '../candidates/candidates';
 import { TakeactionPage } from '../takeaction/takeaction';
+import { FavoritesPage } from '../favorites/favorites';
 
 @Component({
   selector: 'page-overlay',
@@ -34,6 +35,10 @@ export class OverlayPage {
 
   goToTakeAction(){
     this.navCtrl.push(TakeactionPage);
+  }
+
+  goToFavorites(){
+    this.navCtrl.push(FavoritesPage);
   }
 
         

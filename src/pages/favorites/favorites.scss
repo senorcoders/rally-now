@@ -1,0 +1,205 @@
+page-favorites {
+	.toolbar-background {
+        background-color: #4a90e2;
+        color: #fff;
+    }
+    ion-title {
+        color: #fff;
+    }
+    p.white {
+        color: #fff;
+        margin: 0;
+    }
+     p.blue{
+    	color: #4a90e2;	
+    }
+     .profile-rep {
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+    }
+    .red-btn{
+    	background-color: #d0021b !important;
+    }
+	
+    ion-content {
+        background-color: #f2f2f2 !important;
+         .fab-md-light,
+        .fab-ios-light {
+            background: none;
+            border: none;
+            box-shadow: none;
+        }
+        .favorites {
+            margin-right: 0 !important;
+            margin-left: 0 !important;
+            width: 100% !important;
+            ion-card-header {
+                max-width: 90%;
+                overflow: visible;
+                white-space: initial;
+            }
+            .button-clear-md,
+            .button-clear-ios {
+                background-color: #4a90e2;
+                color: #fff;
+                height: 30px;
+            }
+           
+
+            .blue {
+                background-color: #4a90e2;
+                border-right: 1px solid #fff;
+            }
+            .ion-logo-twitter {
+                background: #4a90e2;
+                padding: 5px;
+                border-radius: 50%;
+                height: 25px;
+                width: 25px;
+                color: #fff;
+            }
+            ion-item{
+            	padding-left: 0 !important;
+            	h2{
+            		font-size: 13px !important;
+            	}
+            }
+        }
+
+         .action-btn {
+        height: auto;
+        padding: 5px 10px;
+        background: transparent;
+        color: #222;
+        border: 1px solid #222;
+        font-size: 12px;
+        text-transform: uppercase;
+        box-shadow: none;
+    }
+
+
+    .takeAction{
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        width: 100% !important;
+        position: relative;
+        .item-md ion-avatar img,
+        .item-ios ion-avatar img {
+            border-radius: 0;
+        }
+        .organization-bg {
+            height: 240px;
+            position: relative;
+            .bottom-excerpt {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                padding: 10px;
+                font-weight: 600;
+                p {
+                    font-size: 17px;
+                }
+            }
+        }
+        .days-excerpt {
+            position: absolute;
+            padding: 10px;
+            background: #e7b157;
+            font-weight: 600;
+        }
+        .railled-excerpt {
+            position: absolute;
+            right: 0;
+            padding: 20px;
+            background: #4a90e2;
+            font-weight: 600;
+            p {
+                strong {
+                    font-size: 20px;
+                }
+            }
+        }
+       
+
+        .blue {
+            background-color: #4a90e2;
+            border-right: 1px solid #fff;
+        }
+
+        .link {
+            color: #4a90e2;
+            line-height: 30px;
+        }
+        .button-clear-ios {
+            color: #fff;
+            height: 30px;
+        }
+
+        .grayBg {
+            background-color: #4a4a4a;
+            padding: 10px;
+        }
+        ion-list {
+            ion-item {
+                border-bottom: 1px solid #c8c7cc !important;
+            }
+        }
+    }
+
+    .friendsActivity{
+    	margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        position: relative;
+       
+        .blue-icon {
+            color: #4a90e2;
+        }
+        .inactive {
+            background-color: #dfdfdf;
+        }
+        .friend-headshot {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            bottom: 0;
+            left: 10px;
+            bottom: 10px;
+            border: 3px solid #fff;
+        }
+        .heart-btn{
+        	margin: 0;
+        }
+    }
+
+    .simple-card {
+    	margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        position: relative;
+        .button {
+            border-radius: 0;
+            height: 29px;
+            font-size: 13px;
+        }
+        ion-col {
+            padding: 5px 0 !important;
+        }
+        ion-card-content {
+            h3 {
+                font-weight: 600 !important;
+                font-size: 1.3em !important;
+            }
+            p,
+            strong {
+                font-size: 11px !important;
+            }
+        }
+    }
+    }
+
+   
+}

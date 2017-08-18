@@ -30242,6 +30242,229 @@ page-events ion-card .fab-ios-light {
   color: #356eb1;
 }
 
+page-favorites .toolbar-background {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+page-favorites ion-title {
+  color: #fff;
+}
+
+page-favorites p.white {
+  color: #fff;
+  margin: 0;
+}
+
+page-favorites p.blue {
+  color: #4a90e2;
+}
+
+page-favorites .profile-rep {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+page-favorites .red-btn {
+  background-color: #d0021b !important;
+}
+
+page-favorites ion-content {
+  background-color: #f2f2f2 !important;
+}
+
+page-favorites ion-content .fab-md-light,
+page-favorites ion-content .fab-ios-light {
+  background: none;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+page-favorites ion-content .favorites {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+
+page-favorites ion-content .favorites ion-card-header {
+  max-width: 90%;
+  overflow: visible;
+  white-space: initial;
+}
+
+page-favorites ion-content .favorites .button-clear-md,
+page-favorites ion-content .favorites .button-clear-ios {
+  background-color: #4a90e2;
+  color: #fff;
+  height: 30px;
+}
+
+page-favorites ion-content .favorites .blue {
+  background-color: #4a90e2;
+  border-right: 1px solid #fff;
+}
+
+page-favorites ion-content .favorites .ion-logo-twitter {
+  background: #4a90e2;
+  padding: 5px;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  color: #fff;
+}
+
+page-favorites ion-content .favorites ion-item {
+  padding-left: 0 !important;
+}
+
+page-favorites ion-content .favorites ion-item h2 {
+  font-size: 13px !important;
+}
+
+page-favorites ion-content .action-btn {
+  height: auto;
+  padding: 5px 10px;
+  background: transparent;
+  color: #222;
+  border: 1px solid #222;
+  font-size: 12px;
+  text-transform: uppercase;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+page-favorites ion-content .takeAction {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  width: 100% !important;
+  position: relative;
+}
+
+page-favorites ion-content .takeAction .item-md ion-avatar img,
+page-favorites ion-content .takeAction .item-ios ion-avatar img {
+  border-radius: 0;
+}
+
+page-favorites ion-content .takeAction .organization-bg {
+  height: 240px;
+  position: relative;
+}
+
+page-favorites ion-content .takeAction .organization-bg .bottom-excerpt {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  font-weight: 600;
+}
+
+page-favorites ion-content .takeAction .organization-bg .bottom-excerpt p {
+  font-size: 17px;
+}
+
+page-favorites ion-content .takeAction .days-excerpt {
+  position: absolute;
+  padding: 10px;
+  background: #e7b157;
+  font-weight: 600;
+}
+
+page-favorites ion-content .takeAction .railled-excerpt {
+  position: absolute;
+  right: 0;
+  padding: 20px;
+  background: #4a90e2;
+  font-weight: 600;
+}
+
+page-favorites ion-content .takeAction .railled-excerpt p strong {
+  font-size: 20px;
+}
+
+page-favorites ion-content .takeAction .blue {
+  background-color: #4a90e2;
+  border-right: 1px solid #fff;
+}
+
+page-favorites ion-content .takeAction .link {
+  color: #4a90e2;
+  line-height: 30px;
+}
+
+page-favorites ion-content .takeAction .button-clear-ios {
+  color: #fff;
+  height: 30px;
+}
+
+page-favorites ion-content .takeAction .grayBg {
+  background-color: #4a4a4a;
+  padding: 10px;
+}
+
+page-favorites ion-content .takeAction ion-list ion-item {
+  border-bottom: 1px solid #c8c7cc !important;
+}
+
+page-favorites ion-content .friendsActivity {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100% !important;
+  position: relative;
+}
+
+page-favorites ion-content .friendsActivity .blue-icon {
+  color: #4a90e2;
+}
+
+page-favorites ion-content .friendsActivity .inactive {
+  background-color: #dfdfdf;
+}
+
+page-favorites ion-content .friendsActivity .friend-headshot {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  bottom: 0;
+  left: 10px;
+  bottom: 10px;
+  border: 3px solid #fff;
+}
+
+page-favorites ion-content .friendsActivity .heart-btn {
+  margin: 0;
+}
+
+page-favorites ion-content .simple-card {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100% !important;
+  position: relative;
+}
+
+page-favorites ion-content .simple-card .button {
+  border-radius: 0;
+  height: 29px;
+  font-size: 13px;
+}
+
+page-favorites ion-content .simple-card ion-col {
+  padding: 5px 0 !important;
+}
+
+page-favorites ion-content .simple-card ion-card-content h3 {
+  font-weight: 600 !important;
+  font-size: 1.3em !important;
+}
+
+page-favorites ion-content .simple-card ion-card-content p,
+page-favorites ion-content .simple-card ion-card-content strong {
+  font-size: 11px !important;
+}
+
 page-feed ion-header {
   text-align: center;
 }
@@ -30849,6 +31072,8 @@ page-takeaction .action-btn {
   border: 1px solid #222;
   font-size: 12px;
   text-transform: uppercase;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 page-takeaction ion-card {
