@@ -30816,3 +30816,117 @@ page-profile .profile-rep {
   line-height: 29px;
   padding-left: 10px;
 }
+
+page-takeaction ion-header {
+  text-align: center;
+}
+
+page-takeaction .toolbar-background {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+page-takeaction ion-content {
+  background-color: #f2f2f2 !important;
+}
+
+page-takeaction p.white {
+  color: #fff;
+  margin: 0;
+}
+
+page-takeaction .button-clear-md {
+  background-color: #4a90e2;
+  color: #fff;
+  height: 30px;
+}
+
+page-takeaction .action-btn {
+  height: auto;
+  padding: 5px 10px;
+  background: transparent;
+  color: #222;
+  border: 1px solid #222;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+page-takeaction ion-card {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+
+page-takeaction ion-card .item-md ion-avatar img,
+page-takeaction ion-card .item-ios ion-avatar img {
+  border-radius: 0;
+}
+
+page-takeaction ion-card .organization-bg {
+  height: 240px;
+  position: relative;
+}
+
+page-takeaction ion-card .organization-bg .bottom-excerpt {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  font-weight: 600;
+}
+
+page-takeaction ion-card .organization-bg .bottom-excerpt p {
+  font-size: 17px;
+}
+
+page-takeaction ion-card .days-excerpt {
+  position: absolute;
+  padding: 10px;
+  background: #e7b157;
+  font-weight: 600;
+}
+
+page-takeaction ion-card .railled-excerpt {
+  position: absolute;
+  right: 0;
+  padding: 20px;
+  background: #4a90e2;
+  font-weight: 600;
+}
+
+page-takeaction ion-card .railled-excerpt p strong {
+  font-size: 20px;
+}
+
+page-takeaction ion-card .fab-md-light,
+page-takeaction ion-card .fab-ios-light {
+  background: none;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+page-takeaction ion-card .blue {
+  background-color: #4a90e2;
+  border-right: 1px solid #fff;
+}
+
+page-takeaction ion-card .link {
+  color: #4a90e2;
+  line-height: 30px;
+}
+
+page-takeaction ion-card .button-clear-ios {
+  color: #fff;
+  height: 30px;
+}
+
+page-takeaction ion-card .grayBg {
+  background-color: #4a4a4a;
+  padding: 10px;
+}
+
+page-takeaction ion-card ion-list ion-item {
+  border-bottom: 1px solid #c8c7cc !important;
+}

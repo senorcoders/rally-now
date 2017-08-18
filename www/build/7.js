@@ -1,14 +1,14 @@
 webpackJsonp([7],{
 
-/***/ 439:
+/***/ 445:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FriendsactivityPageModule", function() { return FriendsactivityPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TakeactionPageModule", function() { return TakeactionPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__friendsactivity__ = __webpack_require__(440);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__takeaction__ = __webpack_require__(446);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var FriendsactivityPageModule = (function () {
-    function FriendsactivityPageModule() {
+var TakeactionPageModule = (function () {
+    function TakeactionPageModule() {
     }
-    return FriendsactivityPageModule;
+    return TakeactionPageModule;
 }());
-FriendsactivityPageModule = __decorate([
+TakeactionPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__friendsactivity__["a" /* FriendsactivityPage */],
+            __WEBPACK_IMPORTED_MODULE_2__takeaction__["a" /* TakeactionPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__friendsactivity__["a" /* FriendsactivityPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__takeaction__["a" /* TakeactionPage */]),
         ],
     })
-], FriendsactivityPageModule);
+], TakeactionPageModule);
 
-//# sourceMappingURL=friendsactivity.module.js.map
+//# sourceMappingURL=takeaction.module.js.map
 
 /***/ })
 

@@ -13,6 +13,7 @@ import { EventsPage } from '../pages/events/events';
 import { OrganizationsPage } from '../pages/organizations/organizations';
 import { FriendsactivityPage } from '../pages/friendsactivity/friendsactivity';
 import { CandidatesPage } from '../pages/candidates/candidates';
+import { TakeactionPage } from '../pages/takeaction/takeaction';
 import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -40,7 +41,8 @@ var config = {
         EventsPage,
         FriendsactivityPage,
         OrganizationsPage,
-        CandidatesPage
+        CandidatesPage,
+        TakeactionPage
     ],
     imports: [
         BrowserModule,
@@ -59,7 +61,8 @@ var config = {
         EventsPage,
         FriendsactivityPage,
         OrganizationsPage,
-        CandidatesPage
+        CandidatesPage,
+        TakeactionPage
     ],
     providers: [
         StatusBar,
