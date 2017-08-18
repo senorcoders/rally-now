@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LinkedAccountsPage } from '../linked-accounts/linked-accounts';
 import { FindFriendsPage } from '../find-friends/find-friends';
+import { TermsPage } from '../terms/terms';
+import { PrivacyPolicyPage } from '../privacy-policy/privacy-policy';
 
 /**
  * Generated class for the SettingsPage page.
@@ -29,6 +31,13 @@ export class SettingsPage {
 
   findFriends(){
   	this.navCtrl.push(FindFriendsPage);
+  }
+  goToTerms(){
+  	this.navCtrl.push(TermsPage);
+  }
+
+  goToPrivacy(){
+  	this.navCtrl.push(PrivacyPolicyPage);
   }
 
 }

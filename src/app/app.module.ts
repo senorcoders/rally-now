@@ -19,6 +19,8 @@ import { FriendsRequestPage } from '../pages/friends-request/friends-request';
 import { SettingsPage } from '../pages/settings/settings';
 import { LinkedAccountsPage } from '../pages/linked-accounts/linked-accounts';
 import { FindFriendsPage } from '../pages/find-friends/find-friends';
+import { TermsPage } from '../pages/terms/terms';
+import { PrivacyPolicyPage } from '../pages/privacy-policy/privacy-policy';
 import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -52,7 +54,9 @@ var config = {
         FriendsRequestPage,
         SettingsPage,
         LinkedAccountsPage,
-        FindFriendsPage
+        FindFriendsPage,
+        TermsPage,
+        PrivacyPolicyPage
     ],
     imports: [
         BrowserModule,
@@ -77,7 +81,9 @@ var config = {
         FriendsRequestPage,
         SettingsPage,
         LinkedAccountsPage,
-        FindFriendsPage
+        FindFriendsPage,
+        TermsPage,
+        PrivacyPolicyPage
     ],
     providers: [
         StatusBar,
