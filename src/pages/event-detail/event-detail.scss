@@ -1,3 +1,12 @@
 page-event-detail {
-
+    .time {
+        top: 63px;
+        left: 0px;
+        button {
+            padding: 1em;
+            background-color: rgba(255, 167, 0, 0.64);
+            color: #fff;
+            font-weight: 600;
+        }
+    }
 }
