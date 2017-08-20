@@ -6,48 +6,59 @@ page-event-detail {
             font-weight: 800;
             font-size: 1em;
         }
-    }
-    .time {
-        top: 47px;
-        left: 0px;
-        button {
-            padding: 1em;
-            background-color: rgba(255, 167, 0, 0.64);
-            color: #fff;
-            font-weight: 600;
+        .time {
+            top: 47px;
+            left: 0px;
+            button {
+                padding: 1em;
+                background-color: rgba(255, 167, 0, 0.64);
+                color: #fff;
+                font-weight: 600;
+            }
         }
-    }
-    .caption {
-        background-color: #e2dede;
-        padding: 1em 1em;
-        font-size: 0.8em;
-        top: -5px;
-        position: relative;
-    }
-    .cta {
-        span {
-            font-size: 1em;
-            vertical-align: -webkit-baseline-middle;
-            font-weight: 900;
+        .caption {
+            background-color: #e2dede;
+            padding: 1em 1em;
+            font-size: 0.8em;
+            top: -5px;
+            position: relative;
+        }
+        .cta {
+            span {
+                font-size: 1em;
+                vertical-align: -webkit-baseline-middle;
+                font-weight: 900;
+                color: #666;
+            }
+            button{
+                background-color: red !important;
+                height: 28px;
+                font-size: 0.9em;
+                width: 80% !important;
+                text-align: center;            
+                span {
+                    color: #fff;
+                }            
+            }
+        }
+        .address {
+            font-size: 0.8em;
             color: #666;
         }
-        button{
-            background-color: red !important;
-            height: 28px;
-            font-size: 0.9em;
-            width: 80% !important;
-            text-align: center;            
-            span {
-                color: #fff;
-            }            
+        .hour{
+            font-size: 0.8em;
+            color: #666;
         }
-    }
-    .address {
-        font-size: 0.8em;
-        color: #666;
-    }
-    .hour{
-        font-size: 0.8em;
-        color: #666;
+        .content {
+            color: #666;
+            border-top: solid 1px #666;
+            h2 {
+                font-size: 1.1em;
+            }
+        }
+        .add-calendar {
+            background-color: #666;
+            font-size: 0.9em;
+        }
     }
 }
