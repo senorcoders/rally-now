@@ -1,6 +1,14 @@
 page-event-detail {
+    .event{
+        .title {
+            vertical-align: sub;
+            color: #666;
+            font-weight: 800;
+            font-size: 1em;
+        }
+    }
     .time {
-        top: 63px;
+        top: 47px;
         left: 0px;
         button {
             padding: 1em;
@@ -9,4 +17,30 @@ page-event-detail {
             font-weight: 600;
         }
     }
+    .caption {
+        background-color: #e2dede;
+        padding: 1em 1em;
+        font-size: 0.8em;
+        top: -5px;
+        position: relative;
+    }
+    .cta {
+        span {
+            font-size: 1em;
+            vertical-align: -webkit-baseline-middle;
+            font-weight: 900;
+            color: #666;
+        }
+        button{
+            background-color: red !important;
+            height: 28px;
+            font-size: 0.9em;
+            width: 80% !important;
+            text-align: center;            
+            span {
+                color: #fff;
+            }            
+        }
+    }
+    
 }

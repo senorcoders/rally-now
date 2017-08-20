@@ -23,14 +23,14 @@
 
 <ion-content no-padding>
   <div class="event">     
-    <div class="title" no-padding no-margin>
+    <div class="header" no-padding no-margin>
       <ion-grid>
         <ion-row>
           <ion-col col-2 col-sm>
               <img src="assets/img/login-image.jpg">
           </ion-col>
           <ion-col col-10 col-sm>
-            Call Senate on Gun Control Prop 101
+            <span class="title">Call Senate on Gun Control Prop 101</span>
           </ion-col>              
         </ion-row>
       </ion-grid>
@@ -46,12 +46,12 @@
     <div class="caption">Bob Smith, Leroy Jenkins and 3,213 others attending</div>
     <div class="cta">
         <ion-grid>
-          <ion-row>
+          <ion-row padding-bottom>
             <ion-col col-8 col-sm>
-                Satuday October 1st, 2017
+                <span padding-vertical>Satuday October 1st, 2017</span>
             </ion-col>
-            <ion-col col-4 col-sm>
-                <button ion-button color="danger">Action</button>
+            <ion-col col-4 col-sm no-padding >
+                <button ion-button text-uppercase>Action</button>
             </ion-col>              
           </ion-row>
           <ion-row>
@@ -69,10 +69,39 @@
         </div>
     </div>
     <button ion-button full>Add to my calendar</button>
-    <button ion-button full>Count me in</button>
     <button ion-button full icon-left>
         <ion-icon name="home"></ion-icon>
         Count me in
       </button>
   </div>
 </ion-content>
+
+<ion-footer no-padding>
+    <ion-toolbar no-padding color="primary">
+        <ion-grid no-padding>
+            <ion-row>
+              <ion-col col-2 col-sm>
+                  <button ion-button icon-only>
+                    <ion-icon name="home"></ion-icon>
+                  </button>
+              </ion-col>
+              <ion-col col-6 col-sm>
+                  <ion-item color="primary">
+                    <ion-label fixed>Events</ion-label>
+                    <ion-input type="text" value=""></ion-input>
+                  </ion-item>
+              </ion-col> 
+              <ion-col col-2 col-sm>
+                  <button ion-button icon-only>
+                      <ion-icon ios="ios-notifications" md="ios-notifications"></ion-icon>
+                    </button>
+              </ion-col>
+              <ion-col col-2 col-sm>
+                  <button ion-button icon-only>
+                      <ion-icon ios="ios-person" md="ios-person"></ion-icon>                      
+                    </button>
+              </ion-col>             
+            </ion-row>
+          </ion-grid>
+    </ion-toolbar>
+  </ion-footer>
