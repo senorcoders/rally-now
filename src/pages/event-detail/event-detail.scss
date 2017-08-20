@@ -31,7 +31,6 @@ page-event-detail {
                 color: #666;
             }
             button{
-                background-color: red !important;
                 height: 28px;
                 font-size: 0.9em;
                 width: 80% !important;
@@ -59,6 +58,10 @@ page-event-detail {
         .add-calendar {
             background-color: #666;
             font-size: 0.9em;
+        }
+        button.count-me-in {
+            padding: 2.5em 0em;
+            font-size: 1.2em;
         }
     }
 }
