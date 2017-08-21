@@ -31222,6 +31222,37 @@ page-settings p.white {
   margin: 0;
 }
 
+page-streaks-history .toolbar-background {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+page-streaks-history p.white {
+  color: #fff;
+  margin: 0;
+}
+
+page-streaks-history .flame-bg {
+  background: red;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+page-streaks-history .flame-bg p {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+page-streaks-history .flame-bg .icon {
+  font-size: 4em;
+  color: #ffc12b;
+}
+
+page-streaks-history .star-row .icon {
+  color: #f5a623;
+  font-size: 2em;
+}
+
 page-takeaction ion-header {
   text-align: center;
 }

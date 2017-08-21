@@ -22,6 +22,7 @@ import { FindFriendsPage } from '../pages/find-friends/find-friends';
 import { TermsPage } from '../pages/terms/terms';
 import { PrivacyPolicyPage } from '../pages/privacy-policy/privacy-policy';
 import { MyRepsPage } from '../pages/my-reps/my-reps';
+import { StreaksHistoryPage } from '../pages/streaks-history/streaks-history';
 import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -58,7 +59,8 @@ var config = {
         FindFriendsPage,
         TermsPage,
         PrivacyPolicyPage,
-        MyRepsPage
+        MyRepsPage,
+        StreaksHistoryPage
     ],
     imports: [
         BrowserModule,
@@ -86,7 +88,8 @@ var config = {
         FindFriendsPage,
         TermsPage,
         PrivacyPolicyPage,
-        MyRepsPage
+        MyRepsPage,
+        StreaksHistoryPage
     ],
     providers: [
         StatusBar,

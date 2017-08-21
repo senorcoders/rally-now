@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { SettingsPage } from '../settings/settings';
 import { FriendsRequestPage } from '../friends-request/friends-request';
 import { MyRepsPage } from '../my-reps/my-reps';
+import { StreaksHistoryPage } from '../streaks-history/streaks-history';
+
 
 @Component({
   selector: 'page-profile',
@@ -22,6 +24,10 @@ export class ProfilePage {
 
   goToReps(){
   	this.navCtrl.push(MyRepsPage);
+  }
+
+  goToStreaks(){
+    this.navCtrl.push(StreaksHistoryPage);
   }
 
         
