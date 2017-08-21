@@ -5,7 +5,7 @@ import { FriendsRequestPage } from '../friends-request/friends-request';
 import { MyRepsPage } from '../my-reps/my-reps';
 import { StreaksHistoryPage } from '../streaks-history/streaks-history';
 import { FollowedOrganizationsPage } from '../followed-organizations/followed-organizations';
-
+import { FollowedCandidatesPage } from '../followed-candidates/followed-candidates';
 
 
 @Component({
@@ -34,6 +34,10 @@ export class ProfilePage {
 
   goToFollowedOrganizations(){
     this.navCtrl.push(FollowedOrganizationsPage);
+  }
+
+  goToFollowedCandidates(){
+    this.navCtrl.push(FollowedCandidatesPage);
   }
 
         

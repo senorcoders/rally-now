@@ -30549,6 +30549,32 @@ page-find-friends p.white {
   margin: 0;
 }
 
+page-followed-candidates .toolbar-background {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+page-followed-candidates p.white {
+  color: #fff;
+  margin: 0;
+}
+
+page-followed-candidates ion-content p {
+  font-size: 12px;
+  text-align: center;
+  color: #7b7878;
+}
+
+page-followed-candidates ion-content img {
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+}
+
+page-followed-candidates ion-content ion-list {
+  margin-bottom: 0 !important;
+}
+
 page-followed-organizations .toolbar-background {
   background-color: #4a90e2;
   color: #fff;
@@ -30563,6 +30589,14 @@ page-followed-organizations ion-content p {
   font-size: 12px;
   text-align: center;
   color: #7b7878;
+}
+
+page-followed-organizations ion-content ion-list {
+  margin-bottom: 0 !important;
+}
+
+.list-header-md {
+  border-bottom: 0.55px solid #c8c7cc;
 }
 
 page-friends-request ion-content {

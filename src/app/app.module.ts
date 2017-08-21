@@ -24,6 +24,7 @@ import { PrivacyPolicyPage } from '../pages/privacy-policy/privacy-policy';
 import { MyRepsPage } from '../pages/my-reps/my-reps';
 import { StreaksHistoryPage } from '../pages/streaks-history/streaks-history';
 import { FollowedOrganizationsPage } from '../pages/followed-organizations/followed-organizations';
+import { FollowedCandidatesPage } from '../pages/followed-candidates/followed-candidates';
 import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -62,7 +63,8 @@ var config = {
         PrivacyPolicyPage,
         MyRepsPage,
         StreaksHistoryPage,
-        FollowedOrganizationsPage
+        FollowedOrganizationsPage,
+        FollowedCandidatesPage
     ],
     imports: [
         BrowserModule,
@@ -92,7 +94,8 @@ var config = {
         PrivacyPolicyPage,
         MyRepsPage,
         StreaksHistoryPage,
-        FollowedOrganizationsPage
+        FollowedOrganizationsPage,
+        FollowedCandidatesPage
     ],
     providers: [
         StatusBar,

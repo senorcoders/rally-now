@@ -1,4 +1,4 @@
-page-followed-organizations {
+page-followed-candidates {
     .toolbar-background {
         background-color: #4a90e2;
         color: #fff;
@@ -13,12 +13,13 @@ page-followed-organizations {
             text-align: center;
             color: #7b7878;
         }
+        img {
+            border-radius: 50%;
+            height: 70px;
+            width: 70px;
+        }
         ion-list {
             margin-bottom: 0 !important;
         }
     }
-}
-
-.list-header-md {
-    border-bottom: 0.55px solid #c8c7cc;
 }
