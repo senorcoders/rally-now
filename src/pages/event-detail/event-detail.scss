@@ -63,5 +63,13 @@ page-event-detail {
             padding: 2.5em 0em;
             font-size: 1.2em;
         }
+        .events {
+            padding: 0px !important;
+            margin: 0px !important;
+            height: 100% !important;
+            span {
+                text-align: left;
+            }
+        }
     }
 }
