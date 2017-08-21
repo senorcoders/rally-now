@@ -63,7 +63,6 @@ var config = {
         FindFriendsPage,
         TermsPage,
         PrivacyPolicyPage,
-    
         EventDetailPage,
         HomeFiltersPage,
         MyRepsPage,
@@ -97,7 +96,6 @@ var config = {
         FindFriendsPage,
         TermsPage,
         PrivacyPolicyPage,
-        
         EventDetailPage,
         HomeFiltersPage,
         MyRepsPage,

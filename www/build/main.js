@@ -1146,7 +1146,6 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_20__pages_find_friends_find_friends__["a" /* FindFriendsPage */],
             __WEBPACK_IMPORTED_MODULE_21__pages_terms_terms__["a" /* TermsPage */],
             __WEBPACK_IMPORTED_MODULE_22__pages_privacy_policy_privacy_policy__["a" /* PrivacyPolicyPage */],
-            Event - Detail,
             __WEBPACK_IMPORTED_MODULE_23__pages_event_detail_event_detail__["a" /* EventDetailPage */],
             __WEBPACK_IMPORTED_MODULE_24__pages_home_filters_home_filters__["a" /* HomeFiltersPage */],
             __WEBPACK_IMPORTED_MODULE_25__pages_my_reps_my_reps__["a" /* MyRepsPage */],
