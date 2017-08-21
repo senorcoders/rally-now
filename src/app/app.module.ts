@@ -63,9 +63,9 @@ var config = {
         FindFriendsPage,
         TermsPage,
         PrivacyPolicyPage,
-        Event-Detail
+    
         EventDetailPage,
-        HomeFiltersPage
+        HomeFiltersPage,
         MyRepsPage,
         StreaksHistoryPage,
         FollowedOrganizationsPage,
@@ -97,9 +97,9 @@ var config = {
         FindFriendsPage,
         TermsPage,
         PrivacyPolicyPage,
-        Event-Detail
+        
         EventDetailPage,
-        HomeFiltersPage
+        HomeFiltersPage,
         MyRepsPage,
         StreaksHistoryPage,
         FollowedOrganizationsPage,

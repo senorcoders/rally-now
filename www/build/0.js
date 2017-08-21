@@ -1,14 +1,14 @@
 webpackJsonp([0],{
 
-/***/ 463:
+/***/ 450:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FollowedOrganizationsPageModule", function() { return FollowedOrganizationsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TermsPageModule", function() { return TermsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__followed_organizations__ = __webpack_require__(464);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__terms__ = __webpack_require__(149);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var FollowedOrganizationsPageModule = (function () {
-    function FollowedOrganizationsPageModule() {
+var TermsPageModule = (function () {
+    function TermsPageModule() {
     }
-    return FollowedOrganizationsPageModule;
+    return TermsPageModule;
 }());
-FollowedOrganizationsPageModule = __decorate([
+TermsPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__followed_organizations__["a" /* FollowedOrganizationsPage */],
+            __WEBPACK_IMPORTED_MODULE_2__terms__["a" /* TermsPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__followed_organizations__["a" /* FollowedOrganizationsPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__terms__["a" /* TermsPage */]),
         ],
     })
-], FollowedOrganizationsPageModule);
+], TermsPageModule);
 
-//# sourceMappingURL=followed-organizations.module.js.map
+//# sourceMappingURL=terms.module.js.map
 
 /***/ })
 
