@@ -21,6 +21,8 @@ import { LinkedAccountsPage } from '../pages/linked-accounts/linked-accounts';
 import { FindFriendsPage } from '../pages/find-friends/find-friends';
 import { TermsPage } from '../pages/terms/terms';
 import { PrivacyPolicyPage } from '../pages/privacy-policy/privacy-policy';
+import { EventDetailPage } from '../pages/event-detail/event-detail';
+import { HomeFiltersPage } from '../pages/home-filters/home-filters';
 import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -56,7 +58,9 @@ var config = {
         LinkedAccountsPage,
         FindFriendsPage,
         TermsPage,
-        PrivacyPolicyPage
+        PrivacyPolicyPage,
+        EventDetailPage,
+        HomeFiltersPage
     ],
     imports: [
         BrowserModule,
@@ -83,7 +87,9 @@ var config = {
         LinkedAccountsPage,
         FindFriendsPage,
         TermsPage,
-        PrivacyPolicyPage
+        PrivacyPolicyPage,
+        EventDetailPage,
+        HomeFiltersPage
     ],
     providers: [
         StatusBar,
