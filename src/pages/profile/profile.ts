@@ -4,6 +4,8 @@ import { SettingsPage } from '../settings/settings';
 import { FriendsRequestPage } from '../friends-request/friends-request';
 import { MyRepsPage } from '../my-reps/my-reps';
 import { StreaksHistoryPage } from '../streaks-history/streaks-history';
+import { FollowedOrganizationsPage } from '../followed-organizations/followed-organizations';
+
 
 
 @Component({
@@ -28,6 +30,10 @@ export class ProfilePage {
 
   goToStreaks(){
     this.navCtrl.push(StreaksHistoryPage);
+  }
+
+  goToFollowedOrganizations(){
+    this.navCtrl.push(FollowedOrganizationsPage);
   }
 
         

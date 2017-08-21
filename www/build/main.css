@@ -30074,33 +30074,6 @@ page-alerts .item-block .item-inner {
   border: none !important;
 }
 
-.footer-icons {
-  text-align: center;
-  font-size: 22px;
-  background-color: #356eb1;
-}
-
-.footer-icons button {
-  background: none;
-  font-size: 20px;
-  color: #fff;
-}
-
-.active-icons {
-  text-align: center;
-  font-size: 22px;
-  background-color: #fff;
-  color: #356eb1;
-}
-
-.white-footer {
-  font-size: 1.7rem;
-  color: #fff;
-  margin: 0;
-  line-height: 29px;
-  padding-left: 10px;
-}
-
 page-candidates .toolbar-background {
   background-color: #4a90e2;
   color: #fff;
@@ -30219,26 +30192,6 @@ page-events ion-card .fab-ios-light {
   border: none;
   -webkit-box-shadow: none;
   box-shadow: none;
-}
-
-.footer-icons {
-  text-align: center;
-  font-size: 22px;
-  background-color: #356eb1;
-  color: #fff;
-}
-
-.footer-icons button {
-  background: none;
-  font-size: 20px;
-  color: #fff;
-}
-
-.active-icons {
-  text-align: center;
-  font-size: 22px;
-  background-color: #fff;
-  color: #356eb1;
 }
 
 page-favorites .toolbar-background {
@@ -30560,7 +30513,7 @@ page-feed ion-card .token-btn .button-clear-md {
 }
 
 .white-footer {
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   color: #fff;
   margin: 0;
   line-height: 29px;
@@ -30594,6 +30547,22 @@ page-find-friends .toolbar-background {
 page-find-friends p.white {
   color: #fff;
   margin: 0;
+}
+
+page-followed-organizations .toolbar-background {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+page-followed-organizations p.white {
+  color: #fff;
+  margin: 0;
+}
+
+page-followed-organizations ion-content p {
+  font-size: 12px;
+  text-align: center;
+  color: #7b7878;
 }
 
 page-friends-request ion-content {
@@ -31040,20 +31009,6 @@ page-organizations ion-card .token-btn .button-clear-md {
   background-color: #d3cfcf;
 }
 
-.footer-icons {
-  text-align: center;
-  font-size: 22px;
-  background-color: #356eb1;
-}
-
-.white-footer {
-  font-size: 1.7rem;
-  color: #fff;
-  margin: 0;
-  line-height: 29px;
-  padding-left: 10px;
-}
-
 .popover-ios .popover-content {
   bottom: 40px;
   left: 0 !important;
@@ -31179,32 +31134,11 @@ page-profile .profile-rep {
   background-position: center !important;
 }
 
-.footer-icons {
-  text-align: center;
-  font-size: 22px;
-  background-color: #356eb1;
-  color: #fff;
-}
-
-.footer-icons button {
-  background: none;
-  font-size: 20px;
-  color: #fff;
-}
-
 .active-icons {
   text-align: center;
   font-size: 22px;
   background-color: #fff;
   color: #356eb1;
-}
-
-.white-footer {
-  font-size: 1.7rem;
-  color: #fff;
-  margin: 0;
-  line-height: 29px;
-  padding-left: 10px;
 }
 
 .bar-button-default-ios,

@@ -1,14 +1,14 @@
-webpackJsonp([8],{
+webpackJsonp([30],{
 
-/***/ 448:
+/***/ 458:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LinkedAccountsPageModule", function() { return LinkedAccountsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CandidatesPageModule", function() { return CandidatesPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__linked_accounts__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__candidates__ = __webpack_require__(157);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,25 +18,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LinkedAccountsPageModule = (function () {
-    function LinkedAccountsPageModule() {
+var CandidatesPageModule = (function () {
+    function CandidatesPageModule() {
     }
-    return LinkedAccountsPageModule;
+    return CandidatesPageModule;
 }());
-LinkedAccountsPageModule = __decorate([
+CandidatesPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__linked_accounts__["a" /* LinkedAccountsPage */],
+            __WEBPACK_IMPORTED_MODULE_2__candidates__["a" /* CandidatesPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__linked_accounts__["a" /* LinkedAccountsPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__candidates__["a" /* CandidatesPage */]),
         ],
     })
-], LinkedAccountsPageModule);
+], CandidatesPageModule);
 
-//# sourceMappingURL=linked-accounts.module.js.map
+//# sourceMappingURL=candidates.module.js.map
 
 /***/ })
 
 });
-//# sourceMappingURL=8.js.map
+//# sourceMappingURL=30.js.map
