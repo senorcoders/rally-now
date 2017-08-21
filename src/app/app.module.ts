@@ -21,6 +21,8 @@ import { LinkedAccountsPage } from '../pages/linked-accounts/linked-accounts';
 import { FindFriendsPage } from '../pages/find-friends/find-friends';
 import { TermsPage } from '../pages/terms/terms';
 import { PrivacyPolicyPage } from '../pages/privacy-policy/privacy-policy';
+import { EventDetailPage } from '../pages/event-detail/event-detail';
+import { HomeFiltersPage } from '../pages/home-filters/home-filters';
 import { MyRepsPage } from '../pages/my-reps/my-reps';
 import { StreaksHistoryPage } from '../pages/streaks-history/streaks-history';
 import { FollowedOrganizationsPage } from '../pages/followed-organizations/followed-organizations';
@@ -60,6 +62,9 @@ var config = {
         FindFriendsPage,
         TermsPage,
         PrivacyPolicyPage,
+        Event-Detail
+        EventDetailPage,
+        HomeFiltersPage
         MyRepsPage,
         StreaksHistoryPage,
         FollowedOrganizationsPage
@@ -90,6 +95,9 @@ var config = {
         FindFriendsPage,
         TermsPage,
         PrivacyPolicyPage,
+        Event-Detail
+        EventDetailPage,
+        HomeFiltersPage
         MyRepsPage,
         StreaksHistoryPage,
         FollowedOrganizationsPage
