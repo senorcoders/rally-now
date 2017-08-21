@@ -16,6 +16,23 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content class="content" padding color="primary">
+  <ion-list>
+    <ion-item class="no-border" color="primary">
+      <ion-input class="search" type="text" placeholder="Search term"></ion-input>
+    </ion-item>          
+  </ion-list>
+  <div class="subtitle">
+    Feed Item Types
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Favorites</button></ion-col>
+      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Candidates</button></ion-col>
+      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Actions</button></ion-col>
+      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Events</button></ion-col>
+      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Organizations</button></ion-col>
+      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Friend's Activity</button></ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
