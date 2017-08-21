@@ -20,7 +20,9 @@
   <ion-row padding>
     <ion-col col-4 class="profile-headshot">
     <ion-avatar item-start class="profile-img">
+     <button ion-button icon-only (click)="goToStreaks()" style="height: auto;">
       <img src="assets/img/login-image.jpg">
+      </button>
     </ion-avatar>
     <h4>Sally Smith</h4>
     <p>Washington, DC</p>
@@ -35,7 +37,7 @@
         <h4>32</h4>
         <p class="small">Candidates</p>
         </ion-col>
-         <ion-col>
+         <ion-col (click)="goToFollowedOrganizations()">
         <h4>19</h4>
         <p class="small">Organizations</p>
         </ion-col>
@@ -47,7 +49,7 @@
     <p>I like cool things</p>
     </ion-col>
      <ion-col col-4>
-        <button ion-button color="light" outline>My Reps</button>
+        <button ion-button color="light" outline (click)="goToReps()">My Reps</button>
 
     </ion-col>  
   </ion-row>

@@ -23,6 +23,9 @@ import { TermsPage } from '../pages/terms/terms';
 import { PrivacyPolicyPage } from '../pages/privacy-policy/privacy-policy';
 import { EventDetailPage } from '../pages/event-detail/event-detail';
 import { HomeFiltersPage } from '../pages/home-filters/home-filters';
+import { MyRepsPage } from '../pages/my-reps/my-reps';
+import { StreaksHistoryPage } from '../pages/streaks-history/streaks-history';
+import { FollowedOrganizationsPage } from '../pages/followed-organizations/followed-organizations';
 import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -59,8 +62,12 @@ var config = {
         FindFriendsPage,
         TermsPage,
         PrivacyPolicyPage,
+        Event-Detail
         EventDetailPage,
         HomeFiltersPage
+        MyRepsPage,
+        StreaksHistoryPage,
+        FollowedOrganizationsPage
     ],
     imports: [
         BrowserModule,
@@ -88,8 +95,12 @@ var config = {
         FindFriendsPage,
         TermsPage,
         PrivacyPolicyPage,
+        Event-Detail
         EventDetailPage,
         HomeFiltersPage
+        MyRepsPage,
+        StreaksHistoryPage,
+        FollowedOrganizationsPage
     ],
     providers: [
         StatusBar,

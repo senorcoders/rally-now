@@ -8,5 +8,8 @@
 .page-overlay{
 	.button{
 		height: 50px;
+		.button-inner{
+			justify-content: start;
+		}
 	}
 }

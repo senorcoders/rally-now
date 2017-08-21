@@ -2,6 +2,12 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { SettingsPage } from '../settings/settings';
 import { FriendsRequestPage } from '../friends-request/friends-request';
+import { MyRepsPage } from '../my-reps/my-reps';
+import { StreaksHistoryPage } from '../streaks-history/streaks-history';
+import { FollowedOrganizationsPage } from '../followed-organizations/followed-organizations';
+
+
+
 @Component({
   selector: 'page-profile',
   templateUrl: 'profile.html'
@@ -16,6 +22,18 @@ export class ProfilePage {
 
   goToRequests(){
   	this.navCtrl.push(FriendsRequestPage);
+  }
+
+  goToReps(){
+  	this.navCtrl.push(MyRepsPage);
+  }
+
+  goToStreaks(){
+    this.navCtrl.push(StreaksHistoryPage);
+  }
+
+  goToFollowedOrganizations(){
+    this.navCtrl.push(FollowedOrganizationsPage);
   }
 
         

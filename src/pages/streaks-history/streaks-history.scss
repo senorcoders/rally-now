@@ -1,0 +1,31 @@
+page-streaks-history {
+    .toolbar-background {
+        background-color: #4a90e2;
+        color: #fff;
+    }
+    p.white {
+        color: #fff;
+        margin: 0;
+    }
+
+    .flame-bg {
+        background: red;
+        padding: 60px 20px;
+        text-align: center;
+        p {
+            font-weight: 600;
+            font-size: 17px;
+        }
+        .icon {
+            font-size: 4em;
+            color: #ffc12b;
+        }
+    }
+
+    .star-row{
+    	.icon{
+    		color: #f5a623;
+    		font-size: 2em;
+    	}
+    }
+}

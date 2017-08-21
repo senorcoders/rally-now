@@ -30074,34 +30074,6 @@ page-alerts .item-block .item-inner {
   border: none !important;
 }
 
-.footer-icons {
-  text-align: center;
-  font-size: 22px;
-  background-color: #356eb1;
-}
-
-.footer-icons button {
-  background: none;
-  font-size: 20px;
-  color: #fff;
-}
-
-.active-icons {
-  text-align: center;
-  font-size: 22px;
-  background-color: #fff;
-  color: #356eb1;
-}
-
-.white-footer {
-  font-size: 1.7rem;
-  font-weight: 600;
-  color: #fff;
-  margin: 0;
-  line-height: 29px;
-  padding-left: 10px;
-}
-
 page-candidates .toolbar-background {
   background-color: #4a90e2;
   color: #fff;
@@ -30220,26 +30192,6 @@ page-events ion-card .fab-ios-light {
   border: none;
   -webkit-box-shadow: none;
   box-shadow: none;
-}
-
-.footer-icons {
-  text-align: center;
-  font-size: 22px;
-  background-color: #356eb1;
-  color: #fff;
-}
-
-.footer-icons button {
-  background: none;
-  font-size: 20px;
-  color: #fff;
-}
-
-.active-icons {
-  text-align: center;
-  font-size: 22px;
-  background-color: #fff;
-  color: #356eb1;
 }
 
 page-favorites .toolbar-background {
@@ -30561,8 +30513,7 @@ page-feed ion-card .token-btn .button-clear-md {
 }
 
 .white-footer {
-  font-size: 1.7rem;
-  font-weight: 600;
+  font-size: 1.4rem;
   color: #fff;
   margin: 0;
   line-height: 29px;
@@ -30581,6 +30532,13 @@ page-feed ion-card .token-btn .button-clear-md {
   margin: 0;
 }
 
+.popover-ios .popover-content button .button-inner, .popover-md .popover-content button .button-inner {
+  -webkit-box-pack: start;
+  -webkit-justify-content: start;
+  -ms-flex-pack: start;
+  justify-content: start;
+}
+
 page-find-friends .toolbar-background {
   background-color: #4a90e2;
   color: #fff;
@@ -30589,6 +30547,22 @@ page-find-friends .toolbar-background {
 page-find-friends p.white {
   color: #fff;
   margin: 0;
+}
+
+page-followed-organizations .toolbar-background {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+page-followed-organizations p.white {
+  color: #fff;
+  margin: 0;
+}
+
+page-followed-organizations ion-content p {
+  font-size: 12px;
+  text-align: center;
+  color: #7b7878;
 }
 
 page-friends-request ion-content {
@@ -30824,6 +30798,68 @@ page-linked-accounts .item-ios [item-start] {
   margin: 8px 5px 8px 0 !important;
 }
 
+page-my-reps .toolbar-background {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+page-my-reps p.white {
+  color: #fff;
+  margin: 0;
+}
+
+page-my-reps .action-btn {
+  height: auto;
+  padding: 5px 10px;
+  background: #fff;
+  color: #9e9191;
+  border: 1px solid #9e9191;
+  font-size: 12px;
+  text-transform: uppercase;
+  min-width: 80px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 5px;
+}
+
+page-my-reps .list-ios > .item-block:first-child,
+page-my-reps .list-md > .item-block:first-child {
+  border-top: none !important;
+}
+
+page-my-reps .list-title {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+page-my-reps .search-btn {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+page-my-reps .search-btn .button {
+  width: 80%;
+  padding: 10px;
+}
+
+page-my-reps ion-item {
+  border-bottom: 0 !important;
+  background-color: transparent !important;
+}
+
+page-my-reps ion-item .item-inner,
+page-my-reps ion-item ion-avatar {
+  border-bottom: 1px solid #c8c7cc !important;
+}
+
+page-my-reps ion-item ion-avatar {
+  margin: 0 !important;
+  padding: 8px 16px 8px 0;
+}
+
 page-organizations ion-header {
   text-align: center;
 }
@@ -30973,21 +31009,6 @@ page-organizations ion-card .token-btn .button-clear-md {
   background-color: #d3cfcf;
 }
 
-.footer-icons {
-  text-align: center;
-  font-size: 22px;
-  background-color: #356eb1;
-}
-
-.white-footer {
-  font-size: 1.7rem;
-  font-weight: 600;
-  color: #fff;
-  margin: 0;
-  line-height: 29px;
-  padding-left: 10px;
-}
-
 .popover-ios .popover-content {
   bottom: 40px;
   left: 0 !important;
@@ -30996,6 +31017,13 @@ page-organizations ion-card .token-btn .button-clear-md {
 
 .page-overlay .button {
   height: 50px;
+}
+
+.page-overlay .button .button-inner {
+  -webkit-box-pack: start;
+  -webkit-justify-content: start;
+  -ms-flex-pack: start;
+  justify-content: start;
 }
 
 page-privacy-policy .toolbar-background {
@@ -31106,33 +31134,11 @@ page-profile .profile-rep {
   background-position: center !important;
 }
 
-.footer-icons {
-  text-align: center;
-  font-size: 22px;
-  background-color: #356eb1;
-  color: #fff;
-}
-
-.footer-icons button {
-  background: none;
-  font-size: 20px;
-  color: #fff;
-}
-
 .active-icons {
   text-align: center;
   font-size: 22px;
   background-color: #fff;
   color: #356eb1;
-}
-
-.white-footer {
-  font-size: 1.7rem;
-  font-weight: 600;
-  color: #fff;
-  margin: 0;
-  line-height: 29px;
-  padding-left: 10px;
 }
 
 .bar-button-default-ios,
@@ -31148,6 +31154,37 @@ page-settings .toolbar-background {
 page-settings p.white {
   color: #fff;
   margin: 0;
+}
+
+page-streaks-history .toolbar-background {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+page-streaks-history p.white {
+  color: #fff;
+  margin: 0;
+}
+
+page-streaks-history .flame-bg {
+  background: red;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+page-streaks-history .flame-bg p {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+page-streaks-history .flame-bg .icon {
+  font-size: 4em;
+  color: #ffc12b;
+}
+
+page-streaks-history .star-row .icon {
+  color: #f5a623;
+  font-size: 2em;
 }
 
 page-takeaction ion-header {
