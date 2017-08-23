@@ -13,15 +13,15 @@ page-edit-profile {
     }
     ion-item.item.item-block {
         border-bottom: #d4cdcd 1px solid;
-    }
-    .item-block .item-inner {
-        border-bottom: 0px solid #c8c7cc !important;
-        min-height: 0px;
-    }
-    ion-item.item.item-block {
         color: #585859;
         font-size: 0.9em;
+
+        .item-inner {
+            border-bottom: 0px solid #c8c7cc !important;
+            min-height: 0px;
+        }
     }
+    
     ion-icon.icon.icon-ios.ion-ios-pricetag.item-icon {
         font-size: 1.8em;
         margin-top: 4px;
@@ -30,8 +30,6 @@ page-edit-profile {
     ion-list-header.item.item-ios.list-header {
         font-size: 0.8em;
         color: #c8c7cc;
-    }
-    ion-list-header.item.item-md.list-header.list-header-md {
         font-size: 0.8em !important;
         margin-bottom: 0px;
         border-top: 0px #fff solid;
