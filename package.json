@@ -28,6 +28,7 @@
         "@ionic/storage": "2.0.1",
         "angularfire2": "^4.0.0-rc.2",
         "cordova-android": "^6.2.3",
+        "cordova-ios": "^4.4.0",
         "cordova-plugin-browsertab": "^0.2.0",
         "cordova-plugin-buildinfo": "^1.1.0",
         "cordova-plugin-compat": "^1.1.0",
@@ -46,7 +47,9 @@
         "phonegap-plugin-push": "^2.0.0",
         "promise-polyfill": "6.0.2",
         "rxjs": "5.4.0",
+        "source-map": "^0.5.7",
         "sw-toolbox": "3.6.0",
+        "tsutils": "^2.8.1",
         "zone.js": "0.8.12"
     },
     "devDependencies": {
@@ -72,7 +75,8 @@
             }
         },
         "platforms": [
-            "android"
+            "android",
+            "ios"
         ]
     }
 }
