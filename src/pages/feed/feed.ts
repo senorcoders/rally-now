@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { AlertsPage } from '../alerts/alerts'
 import { ProfilePage } from '../profile/profile'
+import { HomeFiltersPage } from '../home-filters/home-filters';
 import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay'
 
@@ -23,6 +24,11 @@ export class FeedPage {
    goToProfile() {
  
     this.navCtrl.push(ProfilePage);
+  }
+
+   goToHomeFilter() {
+ 
+    this.navCtrl.push(HomeFiltersPage);
   }
 
    presentPopover() {
