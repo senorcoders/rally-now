@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { LinkedAccountsPage } from '../linked-accounts/linked-accounts';
 /**
  * Generated class for the UnlinkFacebookPage page.
  *
@@ -22,4 +22,7 @@ export class UnlinkFacebookPage {
     console.log('ionViewDidLoad UnlinkFacebookPage');
   }
 
+  goBack(){
+    this.navCtrl.push(LinkedAccountsPage);
+  }
 }
