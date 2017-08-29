@@ -29,6 +29,7 @@ import { FollowedOrganizationsPage } from '../pages/followed-organizations/follo
 import { FollowedCandidatesPage } from '../pages/followed-candidates/followed-candidates';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 import { UnlinkTwitterPage } from '../pages/unlink-twitter/unlink-twitter';
+import { UnlinkFacebookPage } from '../pages/unlink-facebook/unlink-facebook';
 import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -72,7 +73,8 @@ var config = {
         FollowedOrganizationsPage,
         FollowedCandidatesPage,
         EditProfilePage,
-        UnlinkTwitterPage
+        UnlinkTwitterPage,
+        UnlinkFacebookPage
     ],
     imports: [
         BrowserModule,
@@ -107,7 +109,8 @@ var config = {
         FollowedOrganizationsPage,
         FollowedCandidatesPage,
         EditProfilePage,
-        UnlinkTwitterPage
+        UnlinkTwitterPage,
+        UnlinkFacebookPage
     ],
     providers: [
         StatusBar,
