@@ -746,6 +746,7 @@ FollowedCandidatesPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeFiltersPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__feed_feed__ = __webpack_require__(82);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -755,6 +756,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 /**
@@ -768,6 +770,9 @@ var HomeFiltersPage = (function () {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
     }
+    HomeFiltersPage.prototype.goToFeed = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__feed_feed__["a" /* FeedPage */]);
+    };
     HomeFiltersPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad HomeFiltersPage');
     };
@@ -776,11 +781,12 @@ var HomeFiltersPage = (function () {
 HomeFiltersPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home-filters',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/home-filters/home-filters.html"*/'<!--\n  Generated template for the HomeFiltersPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-toolbar color="primary">    \n    <ion-title>Filter Feeds</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only color="royal">\n        <ion-icon (click)="goToFeeds()" ios="md-close" md="md-close"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content class="content" padding color="primary">\n  <ion-list>\n    <ion-item class="no-border" color="primary" no-padding>\n      <ion-input class="search" type="text" placeholder="Search term"></ion-input>\n    </ion-item>          \n  </ion-list>\n  <div class="subtitle" text-uppercase>\n    Feed Item Types\n  </div>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Favorites</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Candidates</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Actions</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Events</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Organizations</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Friend\'s Activity</button></ion-col>\n    </ion-row>\n  </ion-grid>\n  <div class="subtitle" padding-top text-uppercase>\n    Issues - Touch to change\n  </div>\n  <div class="issues" padding-vertical>\n      Lorem Ipsum es un texto de marcador de posición comúnmente utilizado en las industrias gráficas, gráficas y editoriales para previsualizar diseños y maquetas visuales.\n  </div>\n</ion-content>\n\n<ion-footer>\n    <div class="search-btn" padding>\n        <button class="feed-type" text-uppercas block ion-button color="light">Search</button>\n    </div>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/home-filters/home-filters.html"*/,
+        selector: 'page-home-filters',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/home-filters/home-filters.html"*/'<!--\n  Generated template for the HomeFiltersPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-toolbar color="primary">    \n    <ion-title>Filter Feeds</ion-title>\n    <ion-buttons end>\n      <button (click)="goToFeed()" ion-button icon-only color="royal">\n        <ion-icon (click)="goToFeeds()" ios="md-close" md="md-close"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content class="content" padding color="primary">\n  <ion-list>\n    <ion-item class="no-border" color="primary" no-padding>\n      <ion-input class="search" type="text" placeholder="Search term"></ion-input>\n    </ion-item>          \n  </ion-list>\n  <div class="subtitle" text-uppercase>\n    Feed Item Types\n  </div>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Favorites</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Candidates</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Actions</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Events</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Organizations</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Friend\'s Activity</button></ion-col>\n    </ion-row>\n  </ion-grid>\n  <div class="subtitle" padding-top text-uppercase>\n    Issues - Touch to change\n  </div>\n  <div class="issues" padding-vertical>\n      Lorem Ipsum es un texto de marcador de posición comúnmente utilizado en las industrias gráficas, gráficas y editoriales para previsualizar diseños y maquetas visuales.\n  </div>\n</ion-content>\n\n<ion-footer>\n    <div class="search-btn" padding>\n        <button class="feed-type" text-uppercas block ion-button color="light">Search</button>\n    </div>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/home-filters/home-filters.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object])
 ], HomeFiltersPage);
 
+var _a, _b;
 //# sourceMappingURL=home-filters.js.map
 
 /***/ }),
@@ -1494,6 +1500,52 @@ UnlinkTwitterPage = __decorate([
 
 /***/ }),
 
+/***/ 307:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UnlinkFacebookPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the UnlinkFacebookPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var UnlinkFacebookPage = (function () {
+    function UnlinkFacebookPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    UnlinkFacebookPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad UnlinkFacebookPage');
+    };
+    return UnlinkFacebookPage;
+}());
+UnlinkFacebookPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-unlink-facebook',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/unlink-facebook/unlink-facebook.html"*/'<!--\n  Generated template for the UnlinkFacebookPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    \n          <ion-toolbar color="primary">\n            <ion-buttons start>\n              <button ion-button icon-only>\n                  <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>\n              </button>\n            </ion-buttons>\n        \n            <ion-title>Rally</ion-title>\n        \n          </ion-toolbar>\n    \n    </ion-header>\n    \n    \n    <ion-content no-padding >\n      <ion-list >          \n        <ion-item ion-item>\n          <ion-icon name="logo-facebook" item-start></ion-icon>\n          <button ion-button clear item-start no-padding>\n            Share To\n          </button>\n       \n        \n          <button ion-button clear item-end no-padding>\n            Timeline (default)\n          </button>\n          <ion-icon ios="ios-arrow-forward" md="md-arrow-forward" item-end></ion-icon>\n        </ion-item>\n      </ion-list>\n      \n      <ion-list >\n          <ion-list-header>\n              Account\n            </ion-list-header>\n        <ion-item ion-item>\n          <ion-icon name="logo-facebook" item-start></ion-icon>\n          <button ion-button clear item-start>\n            Unlink\n          </button>\n        </ion-item>\n      </ion-list>\n    </ion-content>\n    '/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/unlink-facebook/unlink-facebook.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+], UnlinkFacebookPage);
+
+//# sourceMappingURL=unlink-facebook.js.map
+
+/***/ }),
+
 /***/ 308:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1547,15 +1599,17 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_call_call__ = __webpack_require__(169);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_report_problem_report_problem__ = __webpack_require__(155);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_unlink_twitter_unlink_twitter__ = __webpack_require__(306);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_angularfire2__ = __webpack_require__(458);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_angularfire2_auth__ = __webpack_require__(262);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__ionic_native_push__ = __webpack_require__(459);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_unlink_facebook_unlink_facebook__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_angularfire2__ = __webpack_require__(458);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_angularfire2_auth__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__ionic_native_push__ = __webpack_require__(459);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1634,10 +1688,11 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_27__pages_followed_organizations_followed_organizations__["a" /* FollowedOrganizationsPage */],
             __WEBPACK_IMPORTED_MODULE_28__pages_followed_candidates_followed_candidates__["a" /* FollowedCandidatesPage */],
             __WEBPACK_IMPORTED_MODULE_29__pages_edit_profile_edit_profile__["a" /* EditProfilePage */],
+            __WEBPACK_IMPORTED_MODULE_33__pages_unlink_twitter_unlink_twitter__["a" /* UnlinkTwitterPage */],
+            __WEBPACK_IMPORTED_MODULE_34__pages_unlink_facebook_unlink_facebook__["a" /* UnlinkFacebookPage */],
             __WEBPACK_IMPORTED_MODULE_30__pages_push_notifications_settings_push_notifications_settings__["a" /* PushNotificationsSettingsPage */],
             __WEBPACK_IMPORTED_MODULE_31__pages_call_call__["a" /* CallPage */],
-            __WEBPACK_IMPORTED_MODULE_32__pages_report_problem_report_problem__["a" /* ReportProblemPage */],
-            __WEBPACK_IMPORTED_MODULE_33__pages_unlink_twitter_unlink_twitter__["a" /* UnlinkTwitterPage */]
+            __WEBPACK_IMPORTED_MODULE_32__pages_report_problem_report_problem__["a" /* ReportProblemPage */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -1669,8 +1724,8 @@ AppModule = __decorate([
                     { loadChildren: '../pages/unlink-facebook/unlink-facebook.module#UnlinkFacebookPageModule', name: 'UnlinkFacebookPage', segment: 'unlink-facebook', priority: 'low', defaultHistory: [] }
                 ]
             }),
-            __WEBPACK_IMPORTED_MODULE_34_angularfire2__["a" /* AngularFireModule */].initializeApp(config),
-            __WEBPACK_IMPORTED_MODULE_35_angularfire2_auth__["b" /* AngularFireAuthModule */],
+            __WEBPACK_IMPORTED_MODULE_35_angularfire2__["a" /* AngularFireModule */].initializeApp(config),
+            __WEBPACK_IMPORTED_MODULE_36_angularfire2_auth__["b" /* AngularFireAuthModule */],
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicApp */]],
         entryComponents: [
@@ -1699,15 +1754,16 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_27__pages_followed_organizations_followed_organizations__["a" /* FollowedOrganizationsPage */],
             __WEBPACK_IMPORTED_MODULE_28__pages_followed_candidates_followed_candidates__["a" /* FollowedCandidatesPage */],
             __WEBPACK_IMPORTED_MODULE_29__pages_edit_profile_edit_profile__["a" /* EditProfilePage */],
+            __WEBPACK_IMPORTED_MODULE_33__pages_unlink_twitter_unlink_twitter__["a" /* UnlinkTwitterPage */],
+            __WEBPACK_IMPORTED_MODULE_34__pages_unlink_facebook_unlink_facebook__["a" /* UnlinkFacebookPage */],
             __WEBPACK_IMPORTED_MODULE_30__pages_push_notifications_settings_push_notifications_settings__["a" /* PushNotificationsSettingsPage */],
             __WEBPACK_IMPORTED_MODULE_31__pages_call_call__["a" /* CallPage */],
-            __WEBPACK_IMPORTED_MODULE_32__pages_report_problem_report_problem__["a" /* ReportProblemPage */],
-            __WEBPACK_IMPORTED_MODULE_33__pages_unlink_twitter_unlink_twitter__["a" /* UnlinkTwitterPage */]
+            __WEBPACK_IMPORTED_MODULE_32__pages_report_problem_report_problem__["a" /* ReportProblemPage */]
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
             __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
-            __WEBPACK_IMPORTED_MODULE_36__ionic_native_push__["a" /* Push */],
+            __WEBPACK_IMPORTED_MODULE_37__ionic_native_push__["a" /* Push */],
             { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicErrorHandler */] }
         ]
     })
