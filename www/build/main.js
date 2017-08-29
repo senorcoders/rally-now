@@ -1235,91 +1235,99 @@ webpackEmptyAsyncContext.id = 177;
 var map = {
 	"../pages/call/call.module": [
 		474,
-		16
+		47
 	],
 	"../pages/candidates/candidates.module": [
 		473,
-		11
+		46
 	],
 	"../pages/edit-profile/edit-profile.module": [
 		478,
-		1
+		45
 	],
 	"../pages/event-detail/event-detail.module": [
 		477,
-		21
+		44
 	],
 	"../pages/events/events.module": [
 		470,
-		14
+		43
 	],
 	"../pages/favorites/favorites.module": [
 		476,
-		20
+		42
 	],
 	"../pages/find-friends/find-friends.module": [
 		458,
-		15
+		41
 	],
 	"../pages/followed-candidates/followed-candidates.module": [
 		468,
-		2
+		40
 	],
 	"../pages/followed-organizations/followed-organizations.module": [
 		467,
-		8
+		39
 	],
 	"../pages/friends-request/friends-request.module": [
 		464,
-		4
+		38
 	],
 	"../pages/friendsactivity/friendsactivity.module": [
 		471,
-		10
+		37
 	],
 	"../pages/home-filters/home-filters.module": [
 		469,
-		13
+		36
 	],
 	"../pages/linked-accounts/linked-accounts.module": [
 		457,
-		9
+		35
 	],
 	"../pages/my-reps/my-reps.module": [
 		465,
-		3
+		34
 	],
 	"../pages/organizations/organizations.module": [
 		472,
-		17
+		33
 	],
 	"../pages/privacy-policy/privacy-policy.module": [
 		460,
-		6
+		32
 	],
 	"../pages/push-notifications-settings/push-notifications-settings.module": [
 		461,
-		18
+		31
 	],
 	"../pages/report-problem/report-problem.module": [
 		462,
-		19
+		30
 	],
 	"../pages/settings/settings.module": [
 		463,
-		5
+		29
 	],
 	"../pages/streaks-history/streaks-history.module": [
 		466,
-		12
+		28
 	],
 	"../pages/takeaction/takeaction.module": [
 		475,
-		7
+		27
 	],
 	"../pages/terms/terms.module": [
 		459,
-		0
+		26
+	],
+	"../pages/unlink-facebook/unlink-facebook.module": [
+		480,
+		24
+	],
+	"../pages/unlink-twitter/unlink-twitter.module": [
+		481,
+		25
 	]
 };
 function webpackAsyncContext(req) {
@@ -1552,15 +1560,17 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_push_notifications_settings_push_notifications_settings__ = __webpack_require__(153);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_call_call__ = __webpack_require__(168);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_report_problem_report_problem__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_angularfire2__ = __webpack_require__(455);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_angularfire2_auth__ = __webpack_require__(261);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__ionic_native_push__ = __webpack_require__(456);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_unlink_twitter_unlink_twitter__ = __webpack_require__(479);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_angularfire2__ = __webpack_require__(455);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_angularfire2_auth__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__ionic_native_push__ = __webpack_require__(456);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1640,7 +1650,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_29__pages_edit_profile_edit_profile__["a" /* EditProfilePage */],
             __WEBPACK_IMPORTED_MODULE_30__pages_push_notifications_settings_push_notifications_settings__["a" /* PushNotificationsSettingsPage */],
             __WEBPACK_IMPORTED_MODULE_31__pages_call_call__["a" /* CallPage */],
-            __WEBPACK_IMPORTED_MODULE_32__pages_report_problem_report_problem__["a" /* ReportProblemPage */]
+            __WEBPACK_IMPORTED_MODULE_32__pages_report_problem_report_problem__["a" /* ReportProblemPage */],
+            __WEBPACK_IMPORTED_MODULE_33__pages_unlink_twitter_unlink_twitter__["a" /* UnlinkTwitterPage */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -1667,11 +1678,13 @@ AppModule = __decorate([
                     { loadChildren: '../pages/edit-profile/edit-profile.module#EditProfilePageModule', name: 'EditProfilePage', segment: 'edit-profile', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/call/call.module#CallPageModule', name: 'CallPage', segment: 'call', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/push-notifications-settings/push-notifications-settings.module#PushNotificationsSettingsPageModule', name: 'PushNotificationsSettingsPage', segment: 'push-notifications-settings', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/report-problem/report-problem.module#ReportProblemPageModule', name: 'ReportProblemPage', segment: 'report-problem', priority: 'low', defaultHistory: [] }
+                    { loadChildren: '../pages/report-problem/report-problem.module#ReportProblemPageModule', name: 'ReportProblemPage', segment: 'report-problem', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/unlink-facebook/unlink-facebook.module#UnlinkFacebookPageModule', name: 'UnlinkFacebookPage', segment: 'unlink-facebook', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/unlink-twitter/unlink-twitter.module#UnlinkTwitterPageModule', name: 'UnlinkTwitterPage', segment: 'unlink-twitter', priority: 'low', defaultHistory: [] }
                 ]
             }),
-            __WEBPACK_IMPORTED_MODULE_33_angularfire2__["a" /* AngularFireModule */].initializeApp(config),
-            __WEBPACK_IMPORTED_MODULE_34_angularfire2_auth__["b" /* AngularFireAuthModule */],
+            __WEBPACK_IMPORTED_MODULE_34_angularfire2__["a" /* AngularFireModule */].initializeApp(config),
+            __WEBPACK_IMPORTED_MODULE_35_angularfire2_auth__["b" /* AngularFireAuthModule */],
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicApp */]],
         entryComponents: [
@@ -1702,12 +1715,13 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_29__pages_edit_profile_edit_profile__["a" /* EditProfilePage */],
             __WEBPACK_IMPORTED_MODULE_30__pages_push_notifications_settings_push_notifications_settings__["a" /* PushNotificationsSettingsPage */],
             __WEBPACK_IMPORTED_MODULE_31__pages_call_call__["a" /* CallPage */],
-            __WEBPACK_IMPORTED_MODULE_32__pages_report_problem_report_problem__["a" /* ReportProblemPage */]
+            __WEBPACK_IMPORTED_MODULE_32__pages_report_problem_report_problem__["a" /* ReportProblemPage */],
+            __WEBPACK_IMPORTED_MODULE_33__pages_unlink_twitter_unlink_twitter__["a" /* UnlinkTwitterPage */]
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
             __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
-            __WEBPACK_IMPORTED_MODULE_35__ionic_native_push__["a" /* Push */],
+            __WEBPACK_IMPORTED_MODULE_36__ionic_native_push__["a" /* Push */],
             { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicErrorHandler */] }
         ]
     })
@@ -1853,6 +1867,52 @@ HomePage = __decorate([
 ], HomePage);
 
 //# sourceMappingURL=home.js.map
+
+/***/ }),
+
+/***/ 479:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UnlinkTwitterPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the UnlinkTwitterPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var UnlinkTwitterPage = (function () {
+    function UnlinkTwitterPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    UnlinkTwitterPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad UnlinkTwitterPage');
+    };
+    return UnlinkTwitterPage;
+}());
+UnlinkTwitterPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-unlink-twitter',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/unlink-twitter/unlink-twitter.html"*/'<!--\n  Generated template for the UnlinkTwitterPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n      <ion-toolbar color="primary">\n        <ion-buttons start>\n          <button ion-button icon-only>\n              <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>\n          </button>\n        </ion-buttons>\n    \n        <ion-title>Rally</ion-title>\n    \n      </ion-toolbar>\n\n</ion-header>\n\n\n<ion-content no-padding>\n  <ion-list >\n    <ion-list-header>\n        Account\n    </ion-list-header>\n    <ion-item ion-item >\n      <ion-icon name="logo-twitter" item-start></ion-icon>\n      <button ion-button clear item-start>\n        Twitter\n      </button>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/unlink-twitter/unlink-twitter.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+], UnlinkTwitterPage);
+
+//# sourceMappingURL=unlink-twitter.js.map
 
 /***/ }),
 

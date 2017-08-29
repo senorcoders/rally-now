@@ -34415,3 +34415,68 @@ page-terms p.white {
   color: #fff;
   margin: 0;
 }
+
+page-unlink-twitter ionic-list-header ion-label.label {
+  font-size: 0.8em !important;
+  color: #666;
+  padding: 0px;
+  margin: 0px;
+}
+
+page-unlink-twitter ionic-list-header .input-wrapper {
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+page-unlink-twitter ion-item.item.item-block {
+  color: #666;
+  border-bottom: 1px solid #c1c1c1;
+  min-height: 2rem !important;
+}
+
+page-unlink-twitter ion-item.item.item-block .item-inner {
+  border-bottom: 0px solid #fff !important;
+}
+
+page-unlink-twitter ion-item.item.item-block ion-icon, page-unlink-twitter ion-item.item.item-block .item-button {
+  min-height: 1.8rem;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+page-unlink-twitter ion-item.item.item-block h2 {
+  font-size: 1.2rem !important;
+  font-weight: 600;
+}
+
+page-unlink-twitter ion-item.item.item-block .item-button {
+  margin: 11px 8px 2px 0;
+  font-size: 1rem !important;
+  color: #666;
+}
+
+page-unlink-twitter ion-item.item.item-block .label-ios {
+  margin: 15px 8px 0px 0;
+  color: #666;
+  font-size: 0.8em;
+}
+
+page-unlink-twitter ion-item.item.item-block label {
+  margin: 15px 8px 0px 0;
+  color: #666;
+  font-size: 0.8em;
+}
+
+page-unlink-twitter .label-ios, page-unlink-twitter .label-md {
+  margin: 15px 8px 0px 0;
+  font-size: 0.8em;
+  color: #a09d9d;
+}
+
+page-unlink-twitter .item [item-start] {
+  margin: 0px 5px 8px 0 !important;
+}
+
+page-unlink-twitter .item-ios [item-start] {
+  margin: 8px 5px 8px 0 !important;
+}

@@ -1,14 +1,14 @@
 webpackJsonp([40],{
 
-/***/ 477:
+/***/ 468:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EventDetailPageModule", function() { return EventDetailPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FollowedCandidatesPageModule", function() { return FollowedCandidatesPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__event_detail__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__followed_candidates__ = __webpack_require__(160);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var EventDetailPageModule = (function () {
-    function EventDetailPageModule() {
+var FollowedCandidatesPageModule = (function () {
+    function FollowedCandidatesPageModule() {
     }
-    return EventDetailPageModule;
+    return FollowedCandidatesPageModule;
 }());
-EventDetailPageModule = __decorate([
+FollowedCandidatesPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__event_detail__["a" /* EventDetailPage */],
+            __WEBPACK_IMPORTED_MODULE_2__followed_candidates__["a" /* FollowedCandidatesPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__event_detail__["a" /* EventDetailPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__followed_candidates__["a" /* FollowedCandidatesPage */]),
         ],
     })
-], EventDetailPageModule);
+], FollowedCandidatesPageModule);
 
-//# sourceMappingURL=event-detail.module.js.map
+//# sourceMappingURL=followed-candidates.module.js.map
 
 /***/ })
 
