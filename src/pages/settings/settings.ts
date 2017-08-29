@@ -4,6 +4,8 @@ import { LinkedAccountsPage } from '../linked-accounts/linked-accounts';
 import { FindFriendsPage } from '../find-friends/find-friends';
 import { TermsPage } from '../terms/terms';
 import { PrivacyPolicyPage } from '../privacy-policy/privacy-policy';
+import { PushNotificationsSettingsPage } from '../push-notifications-settings/push-notifications-settings';
+
 
 /**
  * Generated class for the SettingsPage page.
@@ -38,6 +40,10 @@ export class SettingsPage {
 
   goToPrivacy(){
   	this.navCtrl.push(PrivacyPolicyPage);
+  }
+
+  pushSettings(){
+    this.navCtrl.push(PushNotificationsSettingsPage);
   }
 
 }
