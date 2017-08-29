@@ -28,6 +28,9 @@ import { StreaksHistoryPage } from '../pages/streaks-history/streaks-history';
 import { FollowedOrganizationsPage } from '../pages/followed-organizations/followed-organizations';
 import { FollowedCandidatesPage } from '../pages/followed-candidates/followed-candidates';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
+import { PushNotificationsSettingsPage } from '../pages/push-notifications-settings/push-notifications-settings';
+import { CallPage } from '../pages/call/call';
+import { ReportProblemPage } from '../pages/report-problem/report-problem';
 import { UnlinkTwitterPage } from '../pages/unlink-twitter/unlink-twitter';
 import { UnlinkFacebookPage } from '../pages/unlink-facebook/unlink-facebook';
 import firebase from 'firebase';
@@ -74,7 +77,10 @@ var config = {
         FollowedCandidatesPage,
         EditProfilePage,
         UnlinkTwitterPage,
-        UnlinkFacebookPage
+        UnlinkFacebookPage,
+        PushNotificationsSettingsPage,
+        CallPage,
+        ReportProblemPage
     ],
     imports: [
         BrowserModule,
@@ -110,7 +116,10 @@ var config = {
         FollowedCandidatesPage,
         EditProfilePage,
         UnlinkTwitterPage,
-        UnlinkFacebookPage
+        UnlinkFacebookPage,
+        PushNotificationsSettingsPage,
+        CallPage,
+        ReportProblemPage
     ],
     providers: [
         StatusBar,

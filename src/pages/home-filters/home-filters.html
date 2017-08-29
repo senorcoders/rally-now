@@ -8,8 +8,8 @@
   <ion-toolbar color="primary">    
     <ion-title>Filter Feeds</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only color="royal">
-        <ion-icon ios="md-close" md="md-close"></ion-icon>
+      <button (click)="goToFeed()" ion-button icon-only color="royal">
+        <ion-icon (click)="goToFeeds()" ios="md-close" md="md-close"></ion-icon>
       </button>
     </ion-buttons>
   </ion-toolbar>

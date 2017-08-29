@@ -1,0 +1,35 @@
+page-call {
+    .toolbar-background {
+        background-color: #4a90e2;
+        color: #fff;
+    }
+    p.white {
+        color: #fff;
+        margin: 0;
+    }
+    .bordered {
+        border-bottom: 1px solid #000;
+    }
+
+    .bob-headshot {
+        height: 70px;
+        width: 70px;
+        border-radius: 50%;
+        background-color: green;
+        margin: 0 auto;
+        margin-right: 0;
+    }
+
+    .gray {
+        color: gray;
+        margin: 0;
+    }
+
+    h3 {
+        margin: 5px 0;
+    }
+
+    .bob-button{
+    	min-height: 70px;
+    }
+}
