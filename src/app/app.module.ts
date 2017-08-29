@@ -28,6 +28,7 @@ import { StreaksHistoryPage } from '../pages/streaks-history/streaks-history';
 import { FollowedOrganizationsPage } from '../pages/followed-organizations/followed-organizations';
 import { FollowedCandidatesPage } from '../pages/followed-candidates/followed-candidates';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
+import { UnlinkTwitterPage } from '../pages/unlink-twitter/unlink-twitter';
 import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -70,7 +71,8 @@ var config = {
         StreaksHistoryPage,
         FollowedOrganizationsPage,
         FollowedCandidatesPage,
-        EditProfilePage
+        EditProfilePage,
+        UnlinkTwitterPage
     ],
     imports: [
         BrowserModule,
@@ -104,7 +106,8 @@ var config = {
         StreaksHistoryPage,
         FollowedOrganizationsPage,
         FollowedCandidatesPage,
-        EditProfilePage
+        EditProfilePage,
+        UnlinkTwitterPage
     ],
     providers: [
         StatusBar,
