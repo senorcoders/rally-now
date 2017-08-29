@@ -1,4 +1,4 @@
-webpackJsonp([19],{
+webpackJsonp([22],{
 
 /***/ 109:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -6,7 +6,7 @@ webpackJsonp([19],{
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AlertsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile_profile__ = __webpack_require__(67);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -48,13 +48,13 @@ AlertsPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OverlayPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__events_events__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__friendsactivity_friendsactivity__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__organizations_organizations__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__candidates_candidates__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__takeaction_takeaction__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__favorites_favorites__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__events_events__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__friendsactivity_friendsactivity__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__organizations_organizations__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__candidates_candidates__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__takeaction_takeaction__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__favorites_favorites__ = __webpack_require__(169);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -113,7 +113,7 @@ OverlayPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LinkedAccountsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -173,7 +173,7 @@ LinkedAccountsPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FindFriendsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -219,7 +219,7 @@ FindFriendsPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TermsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -265,7 +265,7 @@ TermsPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PrivacyPolicyPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -305,13 +305,13 @@ PrivacyPolicyPage = __decorate([
 
 /***/ }),
 
-/***/ 153:
+/***/ 155:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__linked_accounts_linked_accounts__ = __webpack_require__(149);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__find_friends_find_friends__ = __webpack_require__(150);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__terms_terms__ = __webpack_require__(151);
@@ -371,13 +371,13 @@ SettingsPage = __decorate([
 
 /***/ }),
 
-/***/ 154:
+/***/ 156:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FriendsRequestPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -417,13 +417,13 @@ FriendsRequestPage = __decorate([
 
 /***/ }),
 
-/***/ 155:
+/***/ 157:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyRepsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -463,13 +463,13 @@ MyRepsPage = __decorate([
 
 /***/ }),
 
-/***/ 156:
+/***/ 158:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StreaksHistoryPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -509,13 +509,13 @@ StreaksHistoryPage = __decorate([
 
 /***/ }),
 
-/***/ 157:
+/***/ 159:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FollowedOrganizationsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -555,13 +555,13 @@ FollowedOrganizationsPage = __decorate([
 
 /***/ }),
 
-/***/ 158:
+/***/ 160:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FollowedCandidatesPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -601,105 +601,13 @@ FollowedCandidatesPage = __decorate([
 
 /***/ }),
 
-/***/ 159:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the EventsPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var EventsPage = (function () {
-    function EventsPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    EventsPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad EventsPage');
-    };
-    return EventsPage;
-}());
-EventsPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-events',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/events/events.html"*/'<!--\n  Generated template for the EventsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title><p class="white">Rally</p></ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only>\n        <ion-icon name="ios-search"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n	<ion-row padding>\n		<h4 style="color: #545353;">October</h4>\n	</ion-row>\n	<ion-card>\n	<ion-fab right top style="top: -8px;\n    right: 0;">\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>\n\n  <ion-card-header>\n    Saturday October 1st, 2017\n  </ion-card-header>\n\n  <ion-card-content>\n  	<ion-row>\n  		<ion-col col-6>\n    		<button ion-button color="danger">ACTION</button>\n    	</ion-col>\n    	<ion-col text-right col-6 style="line-height: 35px;">\n    		Attending\n    	</ion-col>\n  	</ion-row>\n    <h3>Call Senate on Gun Control Prop 101</h3>\n    <ion-row>\n    	\n    	<ion-col col-8>\n    		<p class="street">\n    			123 Main Street, Washington DC, 12345\n    		</p>\n    		\n    	</ion-col>\n    	<ion-col col-4>\n    		<strong>10:00am - 12:00pm</strong>\n    	</ion-col>\n    </ion-row>\n  </ion-card-content>\n\n</ion-card>\n\n<ion-card>\n	<ion-fab right top style="top: -8px;\n    right: 0;">\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>\n\n  <ion-card-header>\n    Saturday October 1st, 2017\n  </ion-card-header>\n\n  <ion-card-content>\n  	<ion-row>\n  		<ion-col col-6>\n    		<button ion-button>LOCATION EVENT</button>\n    	</ion-col>\n    	<ion-col text-right col-6 style="line-height: 35px;">\n    		Attending w/319 Others\n    	</ion-col>\n  	</ion-row>\n    <h3>No on 123 Rally</h3>\n    <ion-row>\n    	\n    	<ion-col col-8>\n    		<p class="street">\n    			123 Main Street, Washington DC, 12345\n    		</p>\n    		\n    	</ion-col>\n    	<ion-col col-4>\n    		<strong>10:00am - 12:00pm</strong>\n    	</ion-col>\n    </ion-row>\n  </ion-card-content>\n\n</ion-card>\n\n<ion-row padding>\n		<h4 style="color: #545353;">November</h4>\n	</ion-row>\n\n	<ion-card>\n	<ion-fab right top style="top: -8px;\n    right: 0;">\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>\n\n  <ion-card-header>\n   Thursday November 21st, 2017\n  </ion-card-header>\n\n  <ion-card-content>\n  	<ion-row>\n  		<ion-col col-6>\n    		<button ion-button color="secondary">OTHER</button>\n    	</ion-col>\n    	<ion-col text-right col-6 style="line-height: 35px;">\n    		Attending \n    	</ion-col>\n  	</ion-row>\n    <h3>All Voices on Deck for Peace</h3>\n    <ion-row>\n    	\n    	<ion-col col-8>\n    		<p class="street">\n    			123 Main Street, Washington DC, 12345\n    		</p>\n    		\n    	</ion-col>\n    	<ion-col col-4>\n    		<strong>10:00am - 12:00pm</strong>\n    	</ion-col>\n    </ion-row>\n  </ion-card-content>\n\n</ion-card>\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar style="min-height: auto; padding: 0;">\n    <ion-row> \n      <ion-col col-2 class="footer-icons">\n          <ion-icon name="ios-home"></ion-icon>\n      </ion-col>\n      <ion-col col-6>\n            <p class="white-footer">Events</p>\n      </ion-col>\n      <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">\n        <ion-icon name="ios-notifications"></ion-icon>\n      </ion-col>\n      <ion-col class="footer-icons">\n        <ion-icon name="ios-person"></ion-icon>\n\n      </ion-col>\n    </ion-row>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/events/events.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
-], EventsPage);
-
-//# sourceMappingURL=events.js.map
-
-/***/ }),
-
-/***/ 160:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FriendsactivityPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the FriendsactivityPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var FriendsactivityPage = (function () {
-    function FriendsactivityPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    FriendsactivityPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad FriendsactivityPage');
-    };
-    return FriendsactivityPage;
-}());
-FriendsactivityPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-friendsactivity',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/friendsactivity/friendsactivity.html"*/'<!--\n  Generated template for the FriendsactivityPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title><p class="white">Rally</p></ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only>\n        <ion-icon name="ios-search"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n	 <ion-card>\n       <ion-fab right top style="top: 4px;\n    right: 0;">\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>  \n    <ion-row>\n\n      <ion-col col-5 class="profile-rep" style="background: url(\'assets/img/login-image.jpg\');">\n      	<img class="friend-headshot" src="assets/img/login-image.jpg" alt="">\n      </ion-col>\n      <ion-col col-7>\n       <ion-card-header>\n   			 Bob Smith\n  		</ion-card-header>\n        <ion-card-content>\n        <h5 style="font-weight: 500;\n    font-size: 16px;">Feed Item Title</h5>\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque saepe error ipsa quasi, nobis a.</p>\n        </ion-card-content>\n      </ion-col>\n    </ion-row>\n    <ion-row padding>\n    	<p class="blue">371 Likes, 12 Shares</p>\n    </ion-row>\n\n     <ion-fab right bottom style="bottom: 50px;\n    right: 0;">\n    <button class="blue-icon" ion-fab color="light"><ion-icon name="md-call"></ion-icon></button>\n  </ion-fab> \n\n  <button ion-button full class="heart-btn"><ion-icon name="ios-heart"></ion-icon></button>\n\n  \n</ion-card>\n\n<ion-card>\n       <ion-fab right top style="top: 4px;\n    right: 0;">\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>  \n    <ion-row>\n\n      <ion-col col-5 class="profile-rep" style="background: url(\'assets/img/login-image.jpg\');">\n      	<img class="friend-headshot" src="assets/img/login-image.jpg" alt="">\n      </ion-col>\n      <ion-col col-7>\n       <ion-card-header>\n   			 Leroy Jenkins\n  		</ion-card-header>\n        <ion-card-content>\n        <h5 style="font-weight: 500;\n    font-size: 16px;">Feed Item Title</h5>\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque saepe error ipsa quasi, nobis a.</p>\n        </ion-card-content>\n      </ion-col>\n    </ion-row>\n    <ion-row padding>\n    	<p class="blue">371 Likes, 12 Shares</p>\n    </ion-row>\n\n     <ion-fab right bottom style="bottom: 50px;\n    right: 0;">\n    <button class="blue-icon" ion-fab color="light"><ion-icon name="ios-print"></ion-icon></button>\n  </ion-fab> \n\n  <button ion-button full class="heart-btn"><ion-icon name="ios-heart"></ion-icon></button>\n\n  \n</ion-card>\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar style="min-height: auto; padding: 0;">\n    <ion-row> \n      <ion-col col-2 class="footer-icons">\n          <ion-icon name="ios-home"></ion-icon>\n      </ion-col>\n      <ion-col col-6>\n            <p class="white-footer">Friend\'s Activity</p>\n      </ion-col>\n      <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">\n        <ion-icon name="ios-notifications"></ion-icon>\n      </ion-col>\n      <ion-col class="footer-icons">\n        <ion-icon name="ios-person"></ion-icon>\n\n      </ion-col>\n    </ion-row>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/friendsactivity/friendsactivity.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
-], FriendsactivityPage);
-
-//# sourceMappingURL=friendsactivity.js.map
-
-/***/ }),
-
 /***/ 161:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OrganizationsPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeFiltersPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -712,30 +620,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the OrganizationsPage page.
+ * Generated class for the HomeFiltersPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-var OrganizationsPage = (function () {
-    function OrganizationsPage(navCtrl, navParams) {
+var HomeFiltersPage = (function () {
+    function HomeFiltersPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
     }
-    OrganizationsPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad OrganizationsPage');
+    HomeFiltersPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad HomeFiltersPage');
     };
-    return OrganizationsPage;
+    return HomeFiltersPage;
 }());
-OrganizationsPage = __decorate([
+HomeFiltersPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-organizations',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/organizations/organizations.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      <p class="white">Rally</p>\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only>\n        <ion-icon name="ios-search"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-card>\n\n      <ion-fab right top>\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>\n\n    <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg">\n    </ion-avatar>\n    <h2>ACLU</h2>\n    </ion-item>\n    \n  <div class="organization-bg" style="background: url(\'assets/img/login-image.jpg\');">\n  		<div class="days-excerpt">\n  			<p class="white">2 Days Remaining</p>\n  		</div>\n  		<div class="railled-excerpt">\n  			<p class="white"><strong>1215</strong><br> Railled</p>\n  		</div>\n  		<div class="bottom-excerpt">\n  			<p class="white">Support the Dream Act</p>\n  		</div>\n  </div>\n\n\n  <ion-card-content>\n    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime molestias facere natus blanditiis temporibus dolorem ipsum maiores ipsam sequi recusandae?</p>\n    <ion-row>\n    	<ion-col col-8>\n    		    <p class="link">371 Likes, 212 Shares</p>\n    	</ion-col>\n    	<ion-col col-4>\n    		<button ion-button color="dark" class="action-btn">Take action</button>\n    	</ion-col>\n    </ion-row>\n  </ion-card-content>\n   <ion-row>\n      <ion-col class="token" col-8>\n      <p>You\'ve token action on this 3 times</p>\n      </ion-col>\n      <ion-col col-4 class="token-btn">\n        <button ion-button icon-left clear full style="height: 30px; font-weight: 600;\n    font-size: 13px;">\n          I\'M DONE\n      </button>\n      </ion-col>\n    </ion-row>\n\n  <ion-row>\n    <ion-col class="blue">\n      <button ion-button icon-left clear full>\n        <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>\n      </button>\n    </ion-col>\n    <ion-col class="blue">\n      <button ion-button icon-left clear full>\n        <ion-icon name="ios-share"></ion-icon>\n      </button>\n    </ion-col>\n   \n  </ion-row>\n\n</ion-card>\n\n<ion-card class="simple-card">\n	<ion-fab right top style="top: -8px;\n    right: 0;">\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>\n\n  <ion-card-header>\n    Saturday October 1st, 2017\n  </ion-card-header>\n\n  <ion-card-content>\n  	<ion-row>\n  		<ion-col col-6>\n    		<button ion-button color="danger">ACTION</button>\n    	</ion-col>\n    	<ion-col text-right col-6 style="line-height: 35px;">\n    		Attending\n    	</ion-col>\n  	</ion-row>\n    <h3>Call Senate on Gun Control Prop 101</h3>\n    <ion-row>\n    	\n    	<ion-col col-8>\n    		<p class="street">\n    			123 Main Street, Washington DC, 12345\n    		</p>\n    		\n    	</ion-col>\n    	<ion-col col-4>\n    		<strong>10:00am - 12:00pm</strong>\n    	</ion-col>\n    </ion-row>\n  </ion-card-content>\n\n</ion-card>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar style="min-height: auto; padding: 0;">\n    <ion-row> \n      <ion-col col-2 class="footer-icons">\n          <ion-icon name="ios-home"></ion-icon>\n      </ion-col>\n      <ion-col col-6>\n            <p class="white-footer">My Organizations</p>\n      </ion-col>\n      <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">\n        <ion-icon name="ios-notifications"></ion-icon>\n      </ion-col>\n      <ion-col class="footer-icons">\n        <ion-icon name="ios-person"></ion-icon>\n\n      </ion-col>\n    </ion-row>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/organizations/organizations.html"*/,
+        selector: 'page-home-filters',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/home-filters/home-filters.html"*/'<!--\n  Generated template for the HomeFiltersPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-toolbar color="primary">    \n    <ion-title>Filter Feeds</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only color="royal">\n        <ion-icon ios="md-close" md="md-close"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content class="content" padding color="primary">\n  <ion-list>\n    <ion-item class="no-border" color="primary" no-padding>\n      <ion-input class="search" type="text" placeholder="Search term"></ion-input>\n    </ion-item>          \n  </ion-list>\n  <div class="subtitle" text-uppercase>\n    Feed Item Types\n  </div>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Favorites</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Candidates</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Actions</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Events</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Organizations</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Friend\'s Activity</button></ion-col>\n    </ion-row>\n  </ion-grid>\n  <div class="subtitle" padding-top text-uppercase>\n    Issues - Touch to change\n  </div>\n  <div class="issues" padding-vertical>\n      Lorem Ipsum es un texto de marcador de posición comúnmente utilizado en las industrias gráficas, gráficas y editoriales para previsualizar diseños y maquetas visuales.\n  </div>\n</ion-content>\n\n<ion-footer>\n    <div class="search-btn" padding>\n        <button class="feed-type" text-uppercas block ion-button color="light">Search</button>\n    </div>\n</ion-footer>'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/home-filters/home-filters.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
-], OrganizationsPage);
+], HomeFiltersPage);
 
-//# sourceMappingURL=organizations.js.map
+//# sourceMappingURL=home-filters.js.map
 
 /***/ }),
 
@@ -743,261 +651,9 @@ OrganizationsPage = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CandidatesPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the CandidatesPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var CandidatesPage = (function () {
-    function CandidatesPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    CandidatesPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad CandidatesPage');
-    };
-    return CandidatesPage;
-}());
-CandidatesPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-candidates',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/candidates/candidates.html"*/'<!--\n  Generated template for the CandidatesPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar>\n        <ion-title>\n            <p class="white">Rally</p>\n        </ion-title>\n        <ion-buttons end>\n      <button ion-button icon-only>\n        <ion-icon name="ios-search"></ion-icon>\n      </button>\n    </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-card>\n        <ion-fab right top>\n            <button ion-fab color="light">\n                <ion-icon name="ios-more"></ion-icon>\n            </button>\n            <ion-fab-list side="left">\n                <button ion-fab>\n                    <ion-icon name="logo-facebook"></ion-icon>\n                </button>\n                <button ion-fab>\n                    <ion-icon name="logo-twitter"></ion-icon>\n                </button>\n                <button ion-fab>\n                    <ion-icon name="logo-vimeo"></ion-icon>\n                </button>\n                <button ion-fab>\n                    <ion-icon name="logo-googleplus"></ion-icon>\n                </button>\n            </ion-fab-list>\n        </ion-fab>\n        <ion-card-header>\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur aut sed voluptate.\n        </ion-card-header>\n        <ion-card-content>\n            <ion-row>\n                <ion-col col-8>\n                    <ion-item>\n                        <ion-avatar item-start>\n                            <img src="assets/img/login-image.jpg">\n                        </ion-avatar>\n                        <h2>Senator Bob Jones</h2>\n                        <p>12:33pm</p>\n                    </ion-item>\n                </ion-col>\n                <ion-col col-4 text-right style="line-height: 50px;">\n\n                    <ion-icon name="logo-twitter"></ion-icon>\n                </ion-col>\n            </ion-row>\n        </ion-card-content>\n        <ion-row>\n            <ion-col class="blue">\n                <button ion-button icon-left clear full>\n                    <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>\n                </button>\n            </ion-col>\n            <ion-col class="blue">\n                <button ion-button icon-left clear full>\n                    <ion-icon name="ios-share"></ion-icon>\n                </button>\n            </ion-col>\n        </ion-row>\n    </ion-card>\n</ion-content>\n<ion-footer>\n    <ion-toolbar style="min-height: auto; padding: 0;">\n        <ion-row>\n            <ion-col col-2 class="footer-icons">\n                <ion-icon name="ios-home"></ion-icon>\n            </ion-col>\n            <ion-col col-6>\n                <p class="white-footer">Candidates</p>\n            </ion-col>\n            <ion-col col-2 class="footer-icons" style="border-right: 1px solid #fff;">\n                <ion-icon name="ios-notifications"></ion-icon>\n            </ion-col>\n            <ion-col class="footer-icons">\n                <ion-icon name="ios-person"></ion-icon>\n            </ion-col>\n        </ion-row>\n    </ion-toolbar>\n</ion-footer>'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/candidates/candidates.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
-], CandidatesPage);
-
-//# sourceMappingURL=candidates.js.map
-
-/***/ }),
-
-/***/ 163:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TakeactionPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the TakeactionPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var TakeactionPage = (function () {
-    function TakeactionPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    TakeactionPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad TakeactionPage');
-    };
-    return TakeactionPage;
-}());
-TakeactionPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-takeaction',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/takeaction/takeaction.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      <p class="white">Rally</p>\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only>\n        <ion-icon name="ios-more"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n  \n</ion-header>\n\n<ion-content>\n  <ion-card>\n\n      <ion-fab right top>\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>\n\n    <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg">\n    </ion-avatar>\n    <h2>NAACP</h2>\n    </ion-item>\n    \n  <div class="organization-bg" style="background: url(\'assets/img/login-image.jpg\');">\n  		\n  		<div class="railled-excerpt">\n  			<p class="white"><strong>711</strong><br> Railled</p>\n  		</div>\n  		<div class="bottom-excerpt">\n  			<p class="white">DEMOCRACY AWAKENING</p>\n  		</div>\n  </div>\n\n\n  <ion-card-content>\n    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime molestias facere natus blanditiis temporibus dolorem ipsum maiores ipsam sequi recusandae?</p>\n    <p class="link">371 Likes, 212 Shares</p>\n    	\n  </ion-card-content>\n  	<ion-row class="grayBg">\n  		<p class="white">Sarah Jenkins, Jeremy Cohen and 58 of your friends railled</p>\n  	</ion-row>\n  	<ion-list>\n  	 <ion-item>\n      Why it\'s important\n   	 <ion-icon name="ios-add" item-end></ion-icon>\n  </ion-item>\n  <ion-item>\n      What to say (talking points)\n   	 <ion-icon name="ios-add" item-end></ion-icon>\n  </ion-item>\n  <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg" style="border-radius: 50%;">\n    </ion-avatar>\n    <h2>Bob Representative</h2>\n    <button item-end ion-button color="dark" class="action-btn">Contact</button>\n  </ion-item>\n   <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg" style="border-radius: 50%;">\n    </ion-avatar>\n    <h2>Bob Representative</h2>\n    <button item-end ion-button color="dark" class="action-btn">Contact</button>\n  </ion-item>\n   <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg" style="border-radius: 50%;">\n    </ion-avatar>\n    <h2>Bob Representative</h2>\n    <button item-end ion-button color="dark" class="action-btn">Contact</button>\n  </ion-item>\n</ion-list>\n\n  <ion-row>\n    <ion-col class="blue">\n      <button ion-button icon-left clear full>\n        <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>\n      </button>\n    </ion-col>\n    <ion-col class="blue">\n      <button ion-button icon-left clear full>\n        <ion-icon name="ios-share"></ion-icon>\n      </button>\n    </ion-col>\n   \n  </ion-row>\n\n</ion-card>\n\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar style="min-height: auto; padding: 0;">\n    <ion-row> \n      <ion-col col-2 class="footer-icons">\n          <ion-icon name="ios-home"></ion-icon>\n      </ion-col>\n      <ion-col col-6>\n            <p class="white-footer">Take Action</p>\n      </ion-col>\n      <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">\n        <ion-icon name="ios-notifications"></ion-icon>\n      </ion-col>\n      <ion-col class="footer-icons">\n        <ion-icon name="ios-person"></ion-icon>\n\n      </ion-col>\n    </ion-row>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/takeaction/takeaction.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
-], TakeactionPage);
-
-//# sourceMappingURL=takeaction.js.map
-
-/***/ }),
-
-/***/ 164:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FavoritesPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the FavoritesPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var FavoritesPage = (function () {
-    function FavoritesPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    FavoritesPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad FavoritesPage');
-    };
-    return FavoritesPage;
-}());
-FavoritesPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-favorites',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/favorites/favorites.html"*/'<!--\n  Generated template for the CandidatesPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar>\n        <ion-title>\n            <p class="white">Rally</p>\n        </ion-title>\n        <ion-buttons end>\n      <button ion-button icon-only>\n        <ion-icon name="ios-search"></ion-icon>\n      </button>\n    </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-card class="favorites">\n        <ion-fab right top>\n            <button ion-fab color="light">\n                <ion-icon name="ios-more"></ion-icon>\n            </button>\n            <ion-fab-list side="left">\n                <button ion-fab>\n                    <ion-icon name="logo-facebook"></ion-icon>\n                </button>\n                <button ion-fab>\n                    <ion-icon name="logo-twitter"></ion-icon>\n                </button>\n                <button ion-fab>\n                    <ion-icon name="logo-vimeo"></ion-icon>\n                </button>\n                <button ion-fab>\n                    <ion-icon name="logo-googleplus"></ion-icon>\n                </button>\n            </ion-fab-list>\n        </ion-fab>\n        <ion-card-header>\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur aut sed voluptate.\n        </ion-card-header>\n        <ion-card-content>\n            <ion-row>\n                <ion-col col-8>\n                    <ion-item>\n                        <ion-avatar item-start>\n                            <img src="assets/img/login-image.jpg">\n                        </ion-avatar>\n                        <h2>Senator Bob Jones</h2>\n                        <p>12:33pm</p>\n                    </ion-item>\n                </ion-col>\n                <ion-col col-4 text-right style="line-height: 50px;">\n\n                    <ion-icon name="logo-twitter"></ion-icon>\n                </ion-col>\n            </ion-row>\n        </ion-card-content>\n        <ion-row>\n            <ion-col class="blue red-btn">\n                <button ion-button icon-left clear full class="red-btn">\n                    <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>\n                </button>\n            </ion-col>\n            <ion-col class="blue">\n                <button ion-button icon-left clear full>\n                    <ion-icon name="ios-share"></ion-icon>\n                </button>\n            </ion-col>\n        </ion-row>\n    </ion-card>\n\n    <ion-card class="takeAction">\n\n      <ion-fab right top style="top: 0;">\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>\n\n    <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg">\n    </ion-avatar>\n    <h2>NAACP</h2>\n    </ion-item>\n    \n  <div class="organization-bg" style="background: url(\'assets/img/login-image.jpg\');">\n  		\n  		<div class="railled-excerpt">\n  			<p class="white"><strong>711</strong><br> Railled</p>\n  		</div>\n  		<div class="bottom-excerpt">\n  			<p class="white">DEMOCRACY AWAKENING</p>\n  		</div>\n  </div>\n\n\n  <ion-card-content>\n    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime molestias facere natus blanditiis temporibus dolorem ipsum maiores ipsam sequi recusandae?</p>\n    <p class="link">371 Likes, 212 Shares</p>\n    	\n  </ion-card-content>\n  \n\n  <ion-row>\n    <ion-col class="blue red-btn">\n      <button ion-button icon-left clear full class="red-btn">\n        <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>\n      </button>\n    </ion-col>\n    <ion-col class="blue">\n      <button ion-button icon-left clear full>\n        <ion-icon name="ios-share"></ion-icon>\n      </button>\n    </ion-col>\n   \n  </ion-row>\n  	<ion-row class="grayBg">\n  		<p class="white">Sarah Jenkins, Jeremy Cohen and 58 of your friends railled</p>\n  	</ion-row>\n\n</ion-card>\n\n <ion-card class="friendsActivity">\n       <ion-fab right top style="top: 0;\n    right: 0;">\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>  \n    <ion-row>\n\n      <ion-col col-5 class="profile-rep" style="background: url(\'assets/img/login-image.jpg\');">\n      	<img class="friend-headshot" src="assets/img/login-image.jpg" alt="">\n      </ion-col>\n      <ion-col col-7>\n\n        <ion-card-content>\n        <h5 style="font-weight: 500;\n    font-size: 16px;">Feed Item Title</h5>\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque saepe error ipsa quasi, nobis a.</p>\n        </ion-card-content>\n      </ion-col>\n    </ion-row>\n    <ion-row padding>\n    	<p class="blue">371 Likes, 12 Shares</p>\n    </ion-row>\n\n    \n\n  <button ion-button full class="heart-btn red-btn"><ion-icon name="ios-heart"></ion-icon></button>\n\n  \n</ion-card>\n<ion-card class="simple-card">\n	<ion-fab right top style="top: -8px;\n    right: 0;">\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>\n\n  <ion-card-header>\n    Saturday October 1st, 2017\n  </ion-card-header>\n\n  <ion-card-content>\n  	<ion-row>\n  		<ion-col col-6>\n    		<button ion-button color="danger">ACTION</button>\n    	</ion-col>\n    	<ion-col text-right col-6 style="line-height: 35px;">\n    		Attending\n    	</ion-col>\n  	</ion-row>\n    <h3>Call Senate on Gun Control Prop 101</h3>\n    <ion-row>\n    	\n    	<ion-col col-8>\n    		<p class="street">\n    			123 Main Street, Washington DC, 12345\n    		</p>\n    		\n    	</ion-col>\n    	<ion-col col-4>\n    		<strong>10:00am - 12:00pm</strong>\n    	</ion-col>\n    </ion-row>\n  </ion-card-content>\n\n</ion-card>\n</ion-content>\n<ion-footer>\n    <ion-toolbar style="min-height: auto; padding: 0;">\n        <ion-row>\n            <ion-col col-2 class="footer-icons">\n                <ion-icon name="ios-home"></ion-icon>\n            </ion-col>\n            <ion-col col-6>\n                <p class="white-footer">Favorites</p>\n            </ion-col>\n            <ion-col col-2 class="footer-icons" style="border-right: 1px solid #fff;">\n                <ion-icon name="ios-notifications"></ion-icon>\n            </ion-col>\n            <ion-col class="footer-icons">\n                <ion-icon name="ios-person"></ion-icon>\n            </ion-col>\n        </ion-row>\n    </ion-toolbar>\n</ion-footer>'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/favorites/favorites.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
-], FavoritesPage);
-
-//# sourceMappingURL=favorites.js.map
-
-/***/ }),
-
-/***/ 172:
-/***/ (function(module, exports) {
-
-function webpackEmptyAsyncContext(req) {
-	// Here Promise.resolve().then() is used instead of new Promise() to prevent
-	// uncatched exception popping up in devtools
-	return Promise.resolve().then(function() {
-		throw new Error("Cannot find module '" + req + "'.");
-	});
-}
-webpackEmptyAsyncContext.keys = function() { return []; };
-webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 172;
-
-/***/ }),
-
-/***/ 213:
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"../pages/candidates/candidates.module": [
-		467,
-		18
-	],
-	"../pages/edit-profile/edit-profile.module": [
-		472,
-		17
-	],
-	"../pages/event-detail/event-detail.module": [
-		470,
-		16
-	],
-	"../pages/events/events.module": [
-		464,
-		15
-	],
-	"../pages/favorites/favorites.module": [
-		469,
-		14
-	],
-	"../pages/find-friends/find-friends.module": [
-		455,
-		13
-	],
-	"../pages/followed-candidates/followed-candidates.module": [
-		463,
-		12
-	],
-	"../pages/followed-organizations/followed-organizations.module": [
-		462,
-		11
-	],
-	"../pages/friends-request/friends-request.module": [
-		459,
-		10
-	],
-	"../pages/friendsactivity/friendsactivity.module": [
-		465,
-		9
-	],
-	"../pages/home-filters/home-filters.module": [
-		471,
-		8
-	],
-	"../pages/linked-accounts/linked-accounts.module": [
-		454,
-		7
-	],
-	"../pages/my-reps/my-reps.module": [
-		460,
-		6
-	],
-	"../pages/organizations/organizations.module": [
-		466,
-		5
-	],
-	"../pages/privacy-policy/privacy-policy.module": [
-		457,
-		4
-	],
-	"../pages/settings/settings.module": [
-		458,
-		3
-	],
-	"../pages/streaks-history/streaks-history.module": [
-		461,
-		2
-	],
-	"../pages/takeaction/takeaction.module": [
-		468,
-		1
-	],
-	"../pages/terms/terms.module": [
-		456,
-		0
-	]
-};
-function webpackAsyncContext(req) {
-	var ids = map[req];
-	if(!ids)
-		return Promise.reject(new Error("Cannot find module '" + req + "'."));
-	return __webpack_require__.e(ids[1]).then(function() {
-		return __webpack_require__(ids[0]);
-	});
-};
-webpackAsyncContext.keys = function webpackAsyncContextKeys() {
-	return Object.keys(map);
-};
-webpackAsyncContext.id = 213;
-module.exports = webpackAsyncContext;
-
-/***/ }),
-
-/***/ 256:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FeedPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__alerts_alerts__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__profile_profile__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__overlay_overlay__ = __webpack_require__(110);
@@ -1046,13 +702,403 @@ FeedPage = __decorate([
 
 /***/ }),
 
-/***/ 300:
+/***/ 163:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the EventsPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var EventsPage = (function () {
+    function EventsPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    EventsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad EventsPage');
+    };
+    return EventsPage;
+}());
+EventsPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-events',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/events/events.html"*/'<!--\n  Generated template for the EventsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title><p class="white">Rally</p></ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only>\n        <ion-icon name="ios-search"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n	<ion-row padding>\n		<h4 style="color: #545353;">October</h4>\n	</ion-row>\n	<ion-card>\n	<ion-fab right top style="top: -8px;\n    right: 0;">\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>\n\n  <ion-card-header>\n    Saturday October 1st, 2017\n  </ion-card-header>\n\n  <ion-card-content>\n  	<ion-row>\n  		<ion-col col-6>\n    		<button ion-button color="danger">ACTION</button>\n    	</ion-col>\n    	<ion-col text-right col-6 style="line-height: 35px;">\n    		Attending\n    	</ion-col>\n  	</ion-row>\n    <h3>Call Senate on Gun Control Prop 101</h3>\n    <ion-row>\n    	\n    	<ion-col col-8>\n    		<p class="street">\n    			123 Main Street, Washington DC, 12345\n    		</p>\n    		\n    	</ion-col>\n    	<ion-col col-4>\n    		<strong>10:00am - 12:00pm</strong>\n    	</ion-col>\n    </ion-row>\n  </ion-card-content>\n\n</ion-card>\n\n<ion-card>\n	<ion-fab right top style="top: -8px;\n    right: 0;">\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>\n\n  <ion-card-header>\n    Saturday October 1st, 2017\n  </ion-card-header>\n\n  <ion-card-content>\n  	<ion-row>\n  		<ion-col col-6>\n    		<button ion-button>LOCATION EVENT</button>\n    	</ion-col>\n    	<ion-col text-right col-6 style="line-height: 35px;">\n    		Attending w/319 Others\n    	</ion-col>\n  	</ion-row>\n    <h3>No on 123 Rally</h3>\n    <ion-row>\n    	\n    	<ion-col col-8>\n    		<p class="street">\n    			123 Main Street, Washington DC, 12345\n    		</p>\n    		\n    	</ion-col>\n    	<ion-col col-4>\n    		<strong>10:00am - 12:00pm</strong>\n    	</ion-col>\n    </ion-row>\n  </ion-card-content>\n\n</ion-card>\n\n<ion-row padding>\n		<h4 style="color: #545353;">November</h4>\n	</ion-row>\n\n	<ion-card>\n	<ion-fab right top style="top: -8px;\n    right: 0;">\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>\n\n  <ion-card-header>\n   Thursday November 21st, 2017\n  </ion-card-header>\n\n  <ion-card-content>\n  	<ion-row>\n  		<ion-col col-6>\n    		<button ion-button color="secondary">OTHER</button>\n    	</ion-col>\n    	<ion-col text-right col-6 style="line-height: 35px;">\n    		Attending \n    	</ion-col>\n  	</ion-row>\n    <h3>All Voices on Deck for Peace</h3>\n    <ion-row>\n    	\n    	<ion-col col-8>\n    		<p class="street">\n    			123 Main Street, Washington DC, 12345\n    		</p>\n    		\n    	</ion-col>\n    	<ion-col col-4>\n    		<strong>10:00am - 12:00pm</strong>\n    	</ion-col>\n    </ion-row>\n  </ion-card-content>\n\n</ion-card>\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar style="min-height: auto; padding: 0;">\n    <ion-row> \n      <ion-col col-2 class="footer-icons">\n          <ion-icon name="ios-home"></ion-icon>\n      </ion-col>\n      <ion-col col-6>\n            <p class="white-footer">Events</p>\n      </ion-col>\n      <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">\n        <ion-icon name="ios-notifications"></ion-icon>\n      </ion-col>\n      <ion-col class="footer-icons">\n        <ion-icon name="ios-person"></ion-icon>\n\n      </ion-col>\n    </ion-row>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/events/events.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+], EventsPage);
+
+//# sourceMappingURL=events.js.map
+
+/***/ }),
+
+/***/ 164:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FriendsactivityPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the FriendsactivityPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var FriendsactivityPage = (function () {
+    function FriendsactivityPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    FriendsactivityPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad FriendsactivityPage');
+    };
+    return FriendsactivityPage;
+}());
+FriendsactivityPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-friendsactivity',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/friendsactivity/friendsactivity.html"*/'<!--\n  Generated template for the FriendsactivityPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title><p class="white">Rally</p></ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only>\n        <ion-icon name="ios-search"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n	 <ion-card>\n       <ion-fab right top style="top: 4px;\n    right: 0;">\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>  \n    <ion-row>\n\n      <ion-col col-5 class="profile-rep" style="background: url(\'assets/img/login-image.jpg\');">\n      	<img class="friend-headshot" src="assets/img/login-image.jpg" alt="">\n      </ion-col>\n      <ion-col col-7>\n       <ion-card-header>\n   			 Bob Smith\n  		</ion-card-header>\n        <ion-card-content>\n        <h5 style="font-weight: 500;\n    font-size: 16px;">Feed Item Title</h5>\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque saepe error ipsa quasi, nobis a.</p>\n        </ion-card-content>\n      </ion-col>\n    </ion-row>\n    <ion-row padding>\n    	<p class="blue">371 Likes, 12 Shares</p>\n    </ion-row>\n\n     <ion-fab right bottom style="bottom: 50px;\n    right: 0;">\n    <button class="blue-icon" ion-fab color="light"><ion-icon name="md-call"></ion-icon></button>\n  </ion-fab> \n\n  <button ion-button full class="heart-btn"><ion-icon name="ios-heart"></ion-icon></button>\n\n  \n</ion-card>\n\n<ion-card>\n       <ion-fab right top style="top: 4px;\n    right: 0;">\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>  \n    <ion-row>\n\n      <ion-col col-5 class="profile-rep" style="background: url(\'assets/img/login-image.jpg\');">\n      	<img class="friend-headshot" src="assets/img/login-image.jpg" alt="">\n      </ion-col>\n      <ion-col col-7>\n       <ion-card-header>\n   			 Leroy Jenkins\n  		</ion-card-header>\n        <ion-card-content>\n        <h5 style="font-weight: 500;\n    font-size: 16px;">Feed Item Title</h5>\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque saepe error ipsa quasi, nobis a.</p>\n        </ion-card-content>\n      </ion-col>\n    </ion-row>\n    <ion-row padding>\n    	<p class="blue">371 Likes, 12 Shares</p>\n    </ion-row>\n\n     <ion-fab right bottom style="bottom: 50px;\n    right: 0;">\n    <button class="blue-icon" ion-fab color="light"><ion-icon name="ios-print"></ion-icon></button>\n  </ion-fab> \n\n  <button ion-button full class="heart-btn"><ion-icon name="ios-heart"></ion-icon></button>\n\n  \n</ion-card>\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar style="min-height: auto; padding: 0;">\n    <ion-row> \n      <ion-col col-2 class="footer-icons">\n          <ion-icon name="ios-home"></ion-icon>\n      </ion-col>\n      <ion-col col-6>\n            <p class="white-footer">Friend\'s Activity</p>\n      </ion-col>\n      <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">\n        <ion-icon name="ios-notifications"></ion-icon>\n      </ion-col>\n      <ion-col class="footer-icons">\n        <ion-icon name="ios-person"></ion-icon>\n\n      </ion-col>\n    </ion-row>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/friendsactivity/friendsactivity.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+], FriendsactivityPage);
+
+//# sourceMappingURL=friendsactivity.js.map
+
+/***/ }),
+
+/***/ 165:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OrganizationsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the OrganizationsPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var OrganizationsPage = (function () {
+    function OrganizationsPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    OrganizationsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad OrganizationsPage');
+    };
+    return OrganizationsPage;
+}());
+OrganizationsPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-organizations',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/organizations/organizations.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      <p class="white">Rally</p>\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only>\n        <ion-icon name="ios-search"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-card>\n\n      <ion-fab right top>\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>\n\n    <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg">\n    </ion-avatar>\n    <h2>ACLU</h2>\n    </ion-item>\n    \n  <div class="organization-bg" style="background: url(\'assets/img/login-image.jpg\');">\n  		<div class="days-excerpt">\n  			<p class="white">2 Days Remaining</p>\n  		</div>\n  		<div class="railled-excerpt">\n  			<p class="white"><strong>1215</strong><br> Railled</p>\n  		</div>\n  		<div class="bottom-excerpt">\n  			<p class="white">Support the Dream Act</p>\n  		</div>\n  </div>\n\n\n  <ion-card-content>\n    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime molestias facere natus blanditiis temporibus dolorem ipsum maiores ipsam sequi recusandae?</p>\n    <ion-row>\n    	<ion-col col-8>\n    		    <p class="link">371 Likes, 212 Shares</p>\n    	</ion-col>\n    	<ion-col col-4>\n    		<button ion-button color="dark" class="action-btn">Take action</button>\n    	</ion-col>\n    </ion-row>\n  </ion-card-content>\n   <ion-row>\n      <ion-col class="token" col-8>\n      <p>You\'ve token action on this 3 times</p>\n      </ion-col>\n      <ion-col col-4 class="token-btn">\n        <button ion-button icon-left clear full style="height: 30px; font-weight: 600;\n    font-size: 13px;">\n          I\'M DONE\n      </button>\n      </ion-col>\n    </ion-row>\n\n  <ion-row>\n    <ion-col class="blue">\n      <button ion-button icon-left clear full>\n        <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>\n      </button>\n    </ion-col>\n    <ion-col class="blue">\n      <button ion-button icon-left clear full>\n        <ion-icon name="ios-share"></ion-icon>\n      </button>\n    </ion-col>\n   \n  </ion-row>\n\n</ion-card>\n\n<ion-card class="simple-card">\n	<ion-fab right top style="top: -8px;\n    right: 0;">\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>\n\n  <ion-card-header>\n    Saturday October 1st, 2017\n  </ion-card-header>\n\n  <ion-card-content>\n  	<ion-row>\n  		<ion-col col-6>\n    		<button ion-button color="danger">ACTION</button>\n    	</ion-col>\n    	<ion-col text-right col-6 style="line-height: 35px;">\n    		Attending\n    	</ion-col>\n  	</ion-row>\n    <h3>Call Senate on Gun Control Prop 101</h3>\n    <ion-row>\n    	\n    	<ion-col col-8>\n    		<p class="street">\n    			123 Main Street, Washington DC, 12345\n    		</p>\n    		\n    	</ion-col>\n    	<ion-col col-4>\n    		<strong>10:00am - 12:00pm</strong>\n    	</ion-col>\n    </ion-row>\n  </ion-card-content>\n\n</ion-card>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar style="min-height: auto; padding: 0;">\n    <ion-row> \n      <ion-col col-2 class="footer-icons">\n          <ion-icon name="ios-home"></ion-icon>\n      </ion-col>\n      <ion-col col-6>\n            <p class="white-footer">My Organizations</p>\n      </ion-col>\n      <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">\n        <ion-icon name="ios-notifications"></ion-icon>\n      </ion-col>\n      <ion-col class="footer-icons">\n        <ion-icon name="ios-person"></ion-icon>\n\n      </ion-col>\n    </ion-row>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/organizations/organizations.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+], OrganizationsPage);
+
+//# sourceMappingURL=organizations.js.map
+
+/***/ }),
+
+/***/ 166:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CandidatesPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the CandidatesPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var CandidatesPage = (function () {
+    function CandidatesPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    CandidatesPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad CandidatesPage');
+    };
+    return CandidatesPage;
+}());
+CandidatesPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-candidates',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/candidates/candidates.html"*/'<!--\n  Generated template for the CandidatesPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar>\n        <ion-title>\n            <p class="white">Rally</p>\n        </ion-title>\n        <ion-buttons end>\n      <button ion-button icon-only>\n        <ion-icon name="ios-search"></ion-icon>\n      </button>\n    </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-card>\n        <ion-fab right top>\n            <button ion-fab color="light">\n                <ion-icon name="ios-more"></ion-icon>\n            </button>\n            <ion-fab-list side="left">\n                <button ion-fab>\n                    <ion-icon name="logo-facebook"></ion-icon>\n                </button>\n                <button ion-fab>\n                    <ion-icon name="logo-twitter"></ion-icon>\n                </button>\n                <button ion-fab>\n                    <ion-icon name="logo-vimeo"></ion-icon>\n                </button>\n                <button ion-fab>\n                    <ion-icon name="logo-googleplus"></ion-icon>\n                </button>\n            </ion-fab-list>\n        </ion-fab>\n        <ion-card-header>\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur aut sed voluptate.\n        </ion-card-header>\n        <ion-card-content>\n            <ion-row>\n                <ion-col col-8>\n                    <ion-item>\n                        <ion-avatar item-start>\n                            <img src="assets/img/login-image.jpg">\n                        </ion-avatar>\n                        <h2>Senator Bob Jones</h2>\n                        <p>12:33pm</p>\n                    </ion-item>\n                </ion-col>\n                <ion-col col-4 text-right style="line-height: 50px;">\n\n                    <ion-icon name="logo-twitter"></ion-icon>\n                </ion-col>\n            </ion-row>\n        </ion-card-content>\n        <ion-row>\n            <ion-col class="blue">\n                <button ion-button icon-left clear full>\n                    <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>\n                </button>\n            </ion-col>\n            <ion-col class="blue">\n                <button ion-button icon-left clear full>\n                    <ion-icon name="ios-share"></ion-icon>\n                </button>\n            </ion-col>\n        </ion-row>\n    </ion-card>\n</ion-content>\n<ion-footer>\n    <ion-toolbar style="min-height: auto; padding: 0;">\n        <ion-row>\n            <ion-col col-2 class="footer-icons">\n                <ion-icon name="ios-home"></ion-icon>\n            </ion-col>\n            <ion-col col-6>\n                <p class="white-footer">Candidates</p>\n            </ion-col>\n            <ion-col col-2 class="footer-icons" style="border-right: 1px solid #fff;">\n                <ion-icon name="ios-notifications"></ion-icon>\n            </ion-col>\n            <ion-col class="footer-icons">\n                <ion-icon name="ios-person"></ion-icon>\n            </ion-col>\n        </ion-row>\n    </ion-toolbar>\n</ion-footer>'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/candidates/candidates.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+], CandidatesPage);
+
+//# sourceMappingURL=candidates.js.map
+
+/***/ }),
+
+/***/ 167:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TakeactionPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the TakeactionPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var TakeactionPage = (function () {
+    function TakeactionPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    TakeactionPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad TakeactionPage');
+    };
+    return TakeactionPage;
+}());
+TakeactionPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-takeaction',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/takeaction/takeaction.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      <p class="white">Rally</p>\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only>\n        <ion-icon name="ios-more"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n  \n</ion-header>\n\n<ion-content>\n  <ion-card>\n\n      <ion-fab right top>\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>\n\n    <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg">\n    </ion-avatar>\n    <h2>NAACP</h2>\n    </ion-item>\n    \n  <div class="organization-bg" style="background: url(\'assets/img/login-image.jpg\');">\n  		\n  		<div class="railled-excerpt">\n  			<p class="white"><strong>711</strong><br> Railled</p>\n  		</div>\n  		<div class="bottom-excerpt">\n  			<p class="white">DEMOCRACY AWAKENING</p>\n  		</div>\n  </div>\n\n\n  <ion-card-content>\n    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime molestias facere natus blanditiis temporibus dolorem ipsum maiores ipsam sequi recusandae?</p>\n    <p class="link">371 Likes, 212 Shares</p>\n    	\n  </ion-card-content>\n  	<ion-row class="grayBg">\n  		<p class="white">Sarah Jenkins, Jeremy Cohen and 58 of your friends railled</p>\n  	</ion-row>\n  	<ion-list>\n  	 <ion-item>\n      Why it\'s important\n   	 <ion-icon name="ios-add" item-end></ion-icon>\n  </ion-item>\n  <ion-item>\n      What to say (talking points)\n   	 <ion-icon name="ios-add" item-end></ion-icon>\n  </ion-item>\n  <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg" style="border-radius: 50%;">\n    </ion-avatar>\n    <h2>Bob Representative</h2>\n    <button item-end ion-button color="dark" class="action-btn">Contact</button>\n  </ion-item>\n   <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg" style="border-radius: 50%;">\n    </ion-avatar>\n    <h2>Bob Representative</h2>\n    <button item-end ion-button color="dark" class="action-btn">Contact</button>\n  </ion-item>\n   <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg" style="border-radius: 50%;">\n    </ion-avatar>\n    <h2>Bob Representative</h2>\n    <button item-end ion-button color="dark" class="action-btn">Contact</button>\n  </ion-item>\n</ion-list>\n\n  <ion-row>\n    <ion-col class="blue">\n      <button ion-button icon-left clear full>\n        <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>\n      </button>\n    </ion-col>\n    <ion-col class="blue">\n      <button ion-button icon-left clear full>\n        <ion-icon name="ios-share"></ion-icon>\n      </button>\n    </ion-col>\n   \n  </ion-row>\n\n</ion-card>\n\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar style="min-height: auto; padding: 0;">\n    <ion-row> \n      <ion-col col-2 class="footer-icons">\n          <ion-icon name="ios-home"></ion-icon>\n      </ion-col>\n      <ion-col col-6>\n            <p class="white-footer">Take Action</p>\n      </ion-col>\n      <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">\n        <ion-icon name="ios-notifications"></ion-icon>\n      </ion-col>\n      <ion-col class="footer-icons">\n        <ion-icon name="ios-person"></ion-icon>\n\n      </ion-col>\n    </ion-row>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/takeaction/takeaction.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+], TakeactionPage);
+
+//# sourceMappingURL=takeaction.js.map
+
+/***/ }),
+
+/***/ 169:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FavoritesPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the FavoritesPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var FavoritesPage = (function () {
+    function FavoritesPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    FavoritesPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad FavoritesPage');
+    };
+    return FavoritesPage;
+}());
+FavoritesPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-favorites',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/favorites/favorites.html"*/'<!--\n  Generated template for the CandidatesPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar>\n        <ion-title>\n            <p class="white">Rally</p>\n        </ion-title>\n        <ion-buttons end>\n      <button ion-button icon-only>\n        <ion-icon name="ios-search"></ion-icon>\n      </button>\n    </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-card class="favorites">\n        <ion-fab right top>\n            <button ion-fab color="light">\n                <ion-icon name="ios-more"></ion-icon>\n            </button>\n            <ion-fab-list side="left">\n                <button ion-fab>\n                    <ion-icon name="logo-facebook"></ion-icon>\n                </button>\n                <button ion-fab>\n                    <ion-icon name="logo-twitter"></ion-icon>\n                </button>\n                <button ion-fab>\n                    <ion-icon name="logo-vimeo"></ion-icon>\n                </button>\n                <button ion-fab>\n                    <ion-icon name="logo-googleplus"></ion-icon>\n                </button>\n            </ion-fab-list>\n        </ion-fab>\n        <ion-card-header>\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur aut sed voluptate.\n        </ion-card-header>\n        <ion-card-content>\n            <ion-row>\n                <ion-col col-8>\n                    <ion-item>\n                        <ion-avatar item-start>\n                            <img src="assets/img/login-image.jpg">\n                        </ion-avatar>\n                        <h2>Senator Bob Jones</h2>\n                        <p>12:33pm</p>\n                    </ion-item>\n                </ion-col>\n                <ion-col col-4 text-right style="line-height: 50px;">\n\n                    <ion-icon name="logo-twitter"></ion-icon>\n                </ion-col>\n            </ion-row>\n        </ion-card-content>\n        <ion-row>\n            <ion-col class="blue red-btn">\n                <button ion-button icon-left clear full class="red-btn">\n                    <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>\n                </button>\n            </ion-col>\n            <ion-col class="blue">\n                <button ion-button icon-left clear full>\n                    <ion-icon name="ios-share"></ion-icon>\n                </button>\n            </ion-col>\n        </ion-row>\n    </ion-card>\n\n    <ion-card class="takeAction">\n\n      <ion-fab right top style="top: 0;">\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>\n\n    <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg">\n    </ion-avatar>\n    <h2>NAACP</h2>\n    </ion-item>\n    \n  <div class="organization-bg" style="background: url(\'assets/img/login-image.jpg\');">\n  		\n  		<div class="railled-excerpt">\n  			<p class="white"><strong>711</strong><br> Railled</p>\n  		</div>\n  		<div class="bottom-excerpt">\n  			<p class="white">DEMOCRACY AWAKENING</p>\n  		</div>\n  </div>\n\n\n  <ion-card-content>\n    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime molestias facere natus blanditiis temporibus dolorem ipsum maiores ipsam sequi recusandae?</p>\n    <p class="link">371 Likes, 212 Shares</p>\n    	\n  </ion-card-content>\n  \n\n  <ion-row>\n    <ion-col class="blue red-btn">\n      <button ion-button icon-left clear full class="red-btn">\n        <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>\n      </button>\n    </ion-col>\n    <ion-col class="blue">\n      <button ion-button icon-left clear full>\n        <ion-icon name="ios-share"></ion-icon>\n      </button>\n    </ion-col>\n   \n  </ion-row>\n  	<ion-row class="grayBg">\n  		<p class="white">Sarah Jenkins, Jeremy Cohen and 58 of your friends railled</p>\n  	</ion-row>\n\n</ion-card>\n\n <ion-card class="friendsActivity">\n       <ion-fab right top style="top: 0;\n    right: 0;">\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>  \n    <ion-row>\n\n      <ion-col col-5 class="profile-rep" style="background: url(\'assets/img/login-image.jpg\');">\n      	<img class="friend-headshot" src="assets/img/login-image.jpg" alt="">\n      </ion-col>\n      <ion-col col-7>\n\n        <ion-card-content>\n        <h5 style="font-weight: 500;\n    font-size: 16px;">Feed Item Title</h5>\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque saepe error ipsa quasi, nobis a.</p>\n        </ion-card-content>\n      </ion-col>\n    </ion-row>\n    <ion-row padding>\n    	<p class="blue">371 Likes, 12 Shares</p>\n    </ion-row>\n\n    \n\n  <button ion-button full class="heart-btn red-btn"><ion-icon name="ios-heart"></ion-icon></button>\n\n  \n</ion-card>\n<ion-card class="simple-card">\n	<ion-fab right top style="top: -8px;\n    right: 0;">\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>\n\n  <ion-card-header>\n    Saturday October 1st, 2017\n  </ion-card-header>\n\n  <ion-card-content>\n  	<ion-row>\n  		<ion-col col-6>\n    		<button ion-button color="danger">ACTION</button>\n    	</ion-col>\n    	<ion-col text-right col-6 style="line-height: 35px;">\n    		Attending\n    	</ion-col>\n  	</ion-row>\n    <h3>Call Senate on Gun Control Prop 101</h3>\n    <ion-row>\n    	\n    	<ion-col col-8>\n    		<p class="street">\n    			123 Main Street, Washington DC, 12345\n    		</p>\n    		\n    	</ion-col>\n    	<ion-col col-4>\n    		<strong>10:00am - 12:00pm</strong>\n    	</ion-col>\n    </ion-row>\n  </ion-card-content>\n\n</ion-card>\n</ion-content>\n<ion-footer>\n    <ion-toolbar style="min-height: auto; padding: 0;">\n        <ion-row>\n            <ion-col col-2 class="footer-icons">\n                <ion-icon name="ios-home"></ion-icon>\n            </ion-col>\n            <ion-col col-6>\n                <p class="white-footer">Favorites</p>\n            </ion-col>\n            <ion-col col-2 class="footer-icons" style="border-right: 1px solid #fff;">\n                <ion-icon name="ios-notifications"></ion-icon>\n            </ion-col>\n            <ion-col class="footer-icons">\n                <ion-icon name="ios-person"></ion-icon>\n            </ion-col>\n        </ion-row>\n    </ion-toolbar>\n</ion-footer>'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/favorites/favorites.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+], FavoritesPage);
+
+//# sourceMappingURL=favorites.js.map
+
+/***/ }),
+
+/***/ 177:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 177;
+
+/***/ }),
+
+/***/ 218:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"../pages/candidates/candidates.module": [
+		473,
+		42
+	],
+	"../pages/edit-profile/edit-profile.module": [
+		478,
+		41
+	],
+	"../pages/event-detail/event-detail.module": [
+		477,
+		40
+	],
+	"../pages/events/events.module": [
+		470,
+		39
+	],
+	"../pages/favorites/favorites.module": [
+		476,
+		38
+	],
+	"../pages/find-friends/find-friends.module": [
+		458,
+		37
+	],
+	"../pages/followed-candidates/followed-candidates.module": [
+		468,
+		36
+	],
+	"../pages/followed-organizations/followed-organizations.module": [
+		467,
+		35
+	],
+	"../pages/friends-request/friends-request.module": [
+		464,
+		34
+	],
+	"../pages/friendsactivity/friendsactivity.module": [
+		471,
+		33
+	],
+	"../pages/home-filters/home-filters.module": [
+		469,
+		32
+	],
+	"../pages/linked-accounts/linked-accounts.module": [
+		457,
+		31
+	],
+	"../pages/my-reps/my-reps.module": [
+		465,
+		30
+	],
+	"../pages/organizations/organizations.module": [
+		472,
+		29
+	],
+	"../pages/privacy-policy/privacy-policy.module": [
+		460,
+		28
+	],
+	"../pages/settings/settings.module": [
+		463,
+		27
+	],
+	"../pages/streaks-history/streaks-history.module": [
+		466,
+		26
+	],
+	"../pages/takeaction/takeaction.module": [
+		475,
+		25
+	],
+	"../pages/terms/terms.module": [
+		459,
+		24
+	]
+};
+function webpackAsyncContext(req) {
+	var ids = map[req];
+	if(!ids)
+		return Promise.reject(new Error("Cannot find module '" + req + "'."));
+	return __webpack_require__.e(ids[1]).then(function() {
+		return __webpack_require__(ids[0]);
+	});
+};
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = 218;
+module.exports = webpackAsyncContext;
+
+/***/ }),
+
+/***/ 303:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1142,59 +1188,13 @@ EventDetailPage = __decorate([
 
 /***/ }),
 
-/***/ 301:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeFiltersPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the HomeFiltersPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var HomeFiltersPage = (function () {
-    function HomeFiltersPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    HomeFiltersPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad HomeFiltersPage');
-    };
-    return HomeFiltersPage;
-}());
-HomeFiltersPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home-filters',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/home-filters/home-filters.html"*/'<!--\n  Generated template for the HomeFiltersPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-toolbar color="primary">    \n    <ion-title>Filter Feeds</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only color="royal">\n        <ion-icon ios="md-close" md="md-close"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content class="content" padding color="primary">\n  <ion-list>\n    <ion-item class="no-border" color="primary" no-padding>\n      <ion-input class="search" type="text" placeholder="Search term"></ion-input>\n    </ion-item>          \n  </ion-list>\n  <div class="subtitle" text-uppercase>\n    Feed Item Types\n  </div>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Favorites</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Candidates</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Actions</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Events</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Organizations</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Friend\'s Activity</button></ion-col>\n    </ion-row>\n  </ion-grid>\n  <div class="subtitle" padding-top text-uppercase>\n    Issues - Touch to change\n  </div>\n  <div class="issues" padding-vertical>\n      Lorem Ipsum es un texto de marcador de posición comúnmente utilizado en las industrias gráficas, gráficas y editoriales para previsualizar diseños y maquetas visuales.\n  </div>\n</ion-content>\n\n<ion-footer>\n    <div class="search-btn" padding>\n        <button class="feed-type" text-uppercas block ion-button color="light">Search</button>\n    </div>\n</ion-footer>'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/home-filters/home-filters.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
-], HomeFiltersPage);
-
-//# sourceMappingURL=home-filters.js.map
-
-/***/ }),
-
-/***/ 302:
+/***/ 304:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__alerts_alerts__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__profile_profile__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__overlay_overlay__ = __webpack_require__(110);
@@ -1254,13 +1254,13 @@ EditProfilePage = __decorate([
 
 /***/ }),
 
-/***/ 303:
+/***/ 305:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(304);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(322);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(324);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -1268,44 +1268,44 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 322:
+/***/ 324:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(253);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(255);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(371);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(372);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_feed_feed__ = __webpack_require__(256);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(258);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(260);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(373);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(374);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_feed_feed__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_alerts_alerts__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_profile_profile__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_overlay_overlay__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_events_events__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_organizations_organizations__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_friendsactivity_friendsactivity__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_candidates_candidates__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_takeaction_takeaction__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_favorites_favorites__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_friends_request_friends_request__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_settings_settings__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_events_events__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_organizations_organizations__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_friendsactivity_friendsactivity__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_candidates_candidates__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_takeaction_takeaction__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_favorites_favorites__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_friends_request_friends_request__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_settings_settings__ = __webpack_require__(155);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_linked_accounts_linked_accounts__ = __webpack_require__(149);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_find_friends_find_friends__ = __webpack_require__(150);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_terms_terms__ = __webpack_require__(151);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_privacy_policy_privacy_policy__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_event_detail_event_detail__ = __webpack_require__(300);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_home_filters_home_filters__ = __webpack_require__(301);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_my_reps_my_reps__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_streaks_history_streaks_history__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_followed_organizations_followed_organizations__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_followed_candidates_followed_candidates__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_edit_profile_edit_profile__ = __webpack_require__(302);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_angularfire2__ = __webpack_require__(136);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_angularfire2_auth__ = __webpack_require__(258);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__ionic_native_push__ = __webpack_require__(257);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_event_detail_event_detail__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_home_filters_home_filters__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_my_reps_my_reps__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_streaks_history_streaks_history__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_followed_organizations_followed_organizations__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_followed_candidates_followed_candidates__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_edit_profile_edit_profile__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_angularfire2__ = __webpack_require__(455);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_angularfire2_auth__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__ionic_native_push__ = __webpack_require__(456);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1401,6 +1401,7 @@ AppModule = __decorate([
                     { loadChildren: '../pages/streaks-history/streaks-history.module#StreaksHistoryPageModule', name: 'StreaksHistoryPage', segment: 'streaks-history', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/followed-organizations/followed-organizations.module#FollowedOrganizationsPageModule', name: 'FollowedOrganizationsPage', segment: 'followed-organizations', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/followed-candidates/followed-candidates.module#FollowedCandidatesPageModule', name: 'FollowedCandidatesPage', segment: 'followed-candidates', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/home-filters/home-filters.module#HomeFiltersPageModule', name: 'HomeFiltersPage', segment: 'home-filters', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/events/events.module#EventsPageModule', name: 'EventsPage', segment: 'events', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/friendsactivity/friendsactivity.module#FriendsactivityPageModule', name: 'FriendsactivityPage', segment: 'friendsactivity', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/organizations/organizations.module#OrganizationsPageModule', name: 'OrganizationsPage', segment: 'organizations', priority: 'low', defaultHistory: [] },
@@ -1408,7 +1409,6 @@ AppModule = __decorate([
                     { loadChildren: '../pages/takeaction/takeaction.module#TakeactionPageModule', name: 'TakeactionPage', segment: 'takeaction', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/favorites/favorites.module#FavoritesPageModule', name: 'FavoritesPage', segment: 'favorites', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/event-detail/event-detail.module#EventDetailPageModule', name: 'EventDetailPage', segment: 'event-detail', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/home-filters/home-filters.module#HomeFiltersPageModule', name: 'HomeFiltersPage', segment: 'home-filters', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/edit-profile/edit-profile.module#EditProfilePageModule', name: 'EditProfilePage', segment: 'edit-profile', priority: 'low', defaultHistory: [] }
                 ]
             }),
@@ -1456,16 +1456,16 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 371:
+/***/ 373:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(255);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(253);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_feed_feed__ = __webpack_require__(256);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(260);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(258);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_feed_feed__ = __webpack_require__(162);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1498,23 +1498,22 @@ var MyApp = (function () {
 MyApp = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/app/app.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
 ], MyApp);
 
-var _a, _b, _c, _d;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
 
-/***/ 372:
+/***/ 374:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(258);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(391);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(392);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1602,13 +1601,13 @@ HomePage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings_settings__ = __webpack_require__(153);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__friends_request_friends_request__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__my_reps_my_reps__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__streaks_history_streaks_history__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__followed_organizations_followed_organizations__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__followed_candidates_followed_candidates__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings_settings__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__friends_request_friends_request__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__my_reps_my_reps__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__streaks_history_streaks_history__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__followed_organizations_followed_organizations__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__followed_candidates_followed_candidates__ = __webpack_require__(160);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1661,5 +1660,5 @@ ProfilePage = __decorate([
 
 /***/ })
 
-},[303]);
+},[305]);
 //# sourceMappingURL=main.js.map
