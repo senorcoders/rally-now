@@ -746,6 +746,7 @@ FollowedCandidatesPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeFiltersPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__feed_feed__ = __webpack_require__(162);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -755,6 +756,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 /**
@@ -768,6 +770,9 @@ var HomeFiltersPage = (function () {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
     }
+    HomeFiltersPage.prototype.goToFeed = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__feed_feed__["a" /* FeedPage */]);
+    };
     HomeFiltersPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad HomeFiltersPage');
     };
@@ -776,11 +781,12 @@ var HomeFiltersPage = (function () {
 HomeFiltersPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home-filters',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/home-filters/home-filters.html"*/'<!--\n  Generated template for the HomeFiltersPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-toolbar color="primary">    \n    <ion-title>Filter Feeds</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only color="royal">\n        <ion-icon (click)="goToFeeds()" ios="md-close" md="md-close"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content class="content" padding color="primary">\n  <ion-list>\n    <ion-item class="no-border" color="primary" no-padding>\n      <ion-input class="search" type="text" placeholder="Search term"></ion-input>\n    </ion-item>          \n  </ion-list>\n  <div class="subtitle" text-uppercase>\n    Feed Item Types\n  </div>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Favorites</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Candidates</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Actions</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Events</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Organizations</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Friend\'s Activity</button></ion-col>\n    </ion-row>\n  </ion-grid>\n  <div class="subtitle" padding-top text-uppercase>\n    Issues - Touch to change\n  </div>\n  <div class="issues" padding-vertical>\n      Lorem Ipsum es un texto de marcador de posición comúnmente utilizado en las industrias gráficas, gráficas y editoriales para previsualizar diseños y maquetas visuales.\n  </div>\n</ion-content>\n\n<ion-footer>\n    <div class="search-btn" padding>\n        <button class="feed-type" text-uppercas block ion-button color="light">Search</button>\n    </div>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/home-filters/home-filters.html"*/,
+        selector: 'page-home-filters',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/home-filters/home-filters.html"*/'<!--\n  Generated template for the HomeFiltersPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-toolbar color="primary">    \n    <ion-title>Filter Feeds</ion-title>\n    <ion-buttons end>\n      <button (click)="goToFeed()" ion-button icon-only color="royal">\n        <ion-icon (click)="goToFeeds()" ios="md-close" md="md-close"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content class="content" padding color="primary">\n  <ion-list>\n    <ion-item class="no-border" color="primary" no-padding>\n      <ion-input class="search" type="text" placeholder="Search term"></ion-input>\n    </ion-item>          \n  </ion-list>\n  <div class="subtitle" text-uppercase>\n    Feed Item Types\n  </div>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Favorites</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Candidates</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Actions</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Events</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Organizations</button></ion-col>\n      <ion-col col-6><button class="feed-type" text-uppercas block ion-button color="light">Friend\'s Activity</button></ion-col>\n    </ion-row>\n  </ion-grid>\n  <div class="subtitle" padding-top text-uppercase>\n    Issues - Touch to change\n  </div>\n  <div class="issues" padding-vertical>\n      Lorem Ipsum es un texto de marcador de posición comúnmente utilizado en las industrias gráficas, gráficas y editoriales para previsualizar diseños y maquetas visuales.\n  </div>\n</ion-content>\n\n<ion-footer>\n    <div class="search-btn" padding>\n        <button class="feed-type" text-uppercas block ion-button color="light">Search</button>\n    </div>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/home-filters/home-filters.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object])
 ], HomeFiltersPage);
 
+var _a, _b;
 //# sourceMappingURL=home-filters.js.map
 
 /***/ }),
