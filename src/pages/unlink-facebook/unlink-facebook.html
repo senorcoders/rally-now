@@ -5,14 +5,47 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>unlink-facebook</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
-</ion-content>
+    
+          <ion-toolbar color="primary">
+            <ion-buttons start>
+              <button ion-button icon-only>
+                  <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+              </button>
+            </ion-buttons>
+        
+            <ion-title>Rally</ion-title>
+        
+          </ion-toolbar>
+    
+    </ion-header>
+    
+    
+    <ion-content no-padding >
+      <ion-list >          
+        <ion-item ion-item>
+          <ion-icon name="logo-facebook" item-start></ion-icon>
+          <button ion-button clear item-start no-padding>
+            Share To
+          </button>
+       
+        
+          <button ion-button clear item-end no-padding>
+            Timeline (default)
+          </button>
+          <ion-icon ios="ios-arrow-forward" md="md-arrow-forward" item-end></ion-icon>
+        </ion-item>
+      </ion-list>
+      
+      <ion-list >
+          <ion-list-header>
+              Account
+            </ion-list-header>
+        <ion-item ion-item>
+          <ion-icon name="logo-facebook" item-start></ion-icon>
+          <button ion-button clear item-start>
+            Unlink
+          </button>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+    
