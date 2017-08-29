@@ -1,6 +1,6 @@
-webpackJsonp([22],{
+webpackJsonp([25],{
 
-/***/ 109:
+/***/ 110:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -42,7 +42,7 @@ AlertsPage = __decorate([
 
 /***/ }),
 
-/***/ 110:
+/***/ 111:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50,11 +50,11 @@ AlertsPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__events_events__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__friendsactivity_friendsactivity__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__organizations_organizations__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__candidates_candidates__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__takeaction_takeaction__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__favorites_favorites__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__friendsactivity_friendsactivity__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__organizations_organizations__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__candidates_candidates__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__takeaction_takeaction__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__favorites_favorites__ = __webpack_require__(170);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -107,7 +107,7 @@ OverlayPage = __decorate([
 
 /***/ }),
 
-/***/ 149:
+/***/ 150:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -167,7 +167,7 @@ LinkedAccountsPage = __decorate([
 
 /***/ }),
 
-/***/ 150:
+/***/ 151:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -213,7 +213,7 @@ FindFriendsPage = __decorate([
 
 /***/ }),
 
-/***/ 151:
+/***/ 152:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -259,7 +259,7 @@ TermsPage = __decorate([
 
 /***/ }),
 
-/***/ 152:
+/***/ 153:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -305,7 +305,7 @@ PrivacyPolicyPage = __decorate([
 
 /***/ }),
 
-/***/ 153:
+/***/ 154:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -351,7 +351,7 @@ PushNotificationsSettingsPage = __decorate([
 
 /***/ }),
 
-/***/ 154:
+/***/ 155:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -401,19 +401,19 @@ ReportProblemPage = __decorate([
 
 /***/ }),
 
-/***/ 155:
+/***/ 156:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__linked_accounts_linked_accounts__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__find_friends_find_friends__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__terms_terms__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__privacy_policy_privacy_policy__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__push_notifications_settings_push_notifications_settings__ = __webpack_require__(153);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__report_problem_report_problem__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__linked_accounts_linked_accounts__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__find_friends_find_friends__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__terms_terms__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__privacy_policy_privacy_policy__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__push_notifications_settings_push_notifications_settings__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__report_problem_report_problem__ = __webpack_require__(155);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -509,7 +509,7 @@ SettingsPage = __decorate([
 
 /***/ }),
 
-/***/ 156:
+/***/ 157:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -555,7 +555,7 @@ FriendsRequestPage = __decorate([
 
 /***/ }),
 
-/***/ 157:
+/***/ 158:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -601,7 +601,7 @@ MyRepsPage = __decorate([
 
 /***/ }),
 
-/***/ 158:
+/***/ 159:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -647,7 +647,7 @@ StreaksHistoryPage = __decorate([
 
 /***/ }),
 
-/***/ 159:
+/***/ 160:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -693,7 +693,7 @@ FollowedOrganizationsPage = __decorate([
 
 /***/ }),
 
-/***/ 160:
+/***/ 161:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -739,7 +739,7 @@ FollowedCandidatesPage = __decorate([
 
 /***/ }),
 
-/***/ 161:
+/***/ 162:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -782,66 +782,6 @@ HomeFiltersPage = __decorate([
 ], HomeFiltersPage);
 
 //# sourceMappingURL=home-filters.js.map
-
-/***/ }),
-
-/***/ 162:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FeedPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__alerts_alerts__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__profile_profile__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_filters_home_filters__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__overlay_overlay__ = __webpack_require__(110);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-var FeedPage = (function () {
-    function FeedPage(navCtrl, alertCtrl, popoverCtrl) {
-        this.navCtrl = navCtrl;
-        this.alertCtrl = alertCtrl;
-        this.popoverCtrl = popoverCtrl;
-    }
-    FeedPage.prototype.goToOtherPage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__alerts_alerts__["a" /* AlertsPage */]);
-    };
-    FeedPage.prototype.goToProfile = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__profile_profile__["a" /* ProfilePage */]);
-    };
-    FeedPage.prototype.goToHomeFilter = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__home_filters_home_filters__["a" /* HomeFiltersPage */]);
-    };
-    FeedPage.prototype.presentPopover = function () {
-        var popover = this.popoverCtrl.create(__WEBPACK_IMPORTED_MODULE_5__overlay_overlay__["a" /* OverlayPage */]);
-        popover.present();
-    };
-    return FeedPage;
-}());
-FeedPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-feed',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/feed/feed.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            <p class="white">Rally</p>\n        </ion-title>\n        <ion-buttons end>\n            <button  (click)="goToHomeFilter()" ion-button icon-only>\n                <ion-icon name="ios-search"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-card>\n        <ion-fab right top>\n            <button ion-fab color="light">\n                <ion-icon name="ios-more"></ion-icon>\n            </button>\n            <ion-fab-list side="left">\n                <button ion-fab>\n                    <ion-icon name="logo-facebook"></ion-icon>\n                </button>\n                <button ion-fab>\n                    <ion-icon name="logo-twitter"></ion-icon>\n                </button>\n                <button ion-fab>\n                    <ion-icon name="logo-vimeo"></ion-icon>\n                </button>\n                <button ion-fab>\n                    <ion-icon name="logo-googleplus"></ion-icon>\n                </button>\n            </ion-fab-list>\n        </ion-fab>\n        <ion-item>\n            <ion-avatar item-start>\n                <img src="assets/img/login-image.jpg">\n            </ion-avatar>\n            <h2>ACLU</h2>\n        </ion-item>\n        <img src="assets/img/login-image.jpg">\n        <ion-card-content>\n            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime molestias facere natus blanditiis temporibus dolorem ipsum maiores ipsam sequi recusandae?</p>\n            <p class="link">371 Likes, 212 Shares</p>\n        </ion-card-content>\n        <ion-row>\n            <ion-col class="token" col-8>\n                <p>You\'ve token action on this 3 times</p>\n            </ion-col>\n            <ion-col col-4 class="token-btn">\n                <button ion-button icon-left clear full style="height: 30px;     font-weight: 600;\n    font-size: 13px;">\n                    I\'M DONE\n                </button>\n            </ion-col>\n        </ion-row>\n        <ion-row>\n            <ion-col class="blue">\n                <button ion-button icon-left clear full>\n                    <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>\n                </button>\n            </ion-col>\n            <ion-col class="blue">\n                <button ion-button icon-left clear full>\n                    <ion-icon name="ios-share"></ion-icon>\n                </button>\n            </ion-col>\n        </ion-row>\n    </ion-card>\n</ion-content>\n<ion-footer>\n    <ion-toolbar style="min-height: auto; padding: 0;">\n        <ion-row>\n            <ion-col col-8>\n                <p (click)="presentPopover()" class="white-footer">Home</p>\n            </ion-col>\n            <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">\n                <button (click)="goToOtherPage()">\n                    <ion-icon name="ios-notifications"></ion-icon>\n                </button>\n            </ion-col>\n            <ion-col class="footer-icons">\n                <button (click)="goToProfile()">\n                    <ion-icon name="ios-person"></ion-icon>\n                </button>\n            </ion-col>\n        </ion-row>\n    </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/feed/feed.html"*/
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* PopoverController */]])
-], FeedPage);
-
-//# sourceMappingURL=feed.js.map
 
 /***/ }),
 
@@ -891,7 +831,7 @@ EventsPage = __decorate([
 
 /***/ }),
 
-/***/ 164:
+/***/ 165:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -937,7 +877,7 @@ FriendsactivityPage = __decorate([
 
 /***/ }),
 
-/***/ 165:
+/***/ 166:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -983,7 +923,7 @@ OrganizationsPage = __decorate([
 
 /***/ }),
 
-/***/ 166:
+/***/ 167:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1029,14 +969,14 @@ CandidatesPage = __decorate([
 
 /***/ }),
 
-/***/ 167:
+/***/ 168:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TakeactionPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__call_call__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__call_call__ = __webpack_require__(169);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1120,7 +1060,7 @@ TakeactionPage = __decorate([
 
 /***/ }),
 
-/***/ 168:
+/***/ 169:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1166,7 +1106,7 @@ CallPage = __decorate([
 
 /***/ }),
 
-/***/ 169:
+/***/ 170:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1212,7 +1152,7 @@ FavoritesPage = __decorate([
 
 /***/ }),
 
-/***/ 177:
+/***/ 178:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -1225,109 +1165,109 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 177;
+webpackEmptyAsyncContext.id = 178;
 
 /***/ }),
 
-/***/ 218:
+/***/ 219:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/call/call.module": [
-		474,
-		47
+		478,
+		50
 	],
 	"../pages/candidates/candidates.module": [
-		473,
-		46
+		477,
+		49
 	],
 	"../pages/edit-profile/edit-profile.module": [
-		478,
-		45
+		482,
+		48
 	],
 	"../pages/event-detail/event-detail.module": [
-		477,
-		44
+		481,
+		47
 	],
 	"../pages/events/events.module": [
-		470,
-		43
+		474,
+		46
 	],
 	"../pages/favorites/favorites.module": [
-		476,
-		42
+		480,
+		45
 	],
 	"../pages/find-friends/find-friends.module": [
-		458,
-		41
+		461,
+		44
 	],
 	"../pages/followed-candidates/followed-candidates.module": [
-		468,
-		40
+		471,
+		43
 	],
 	"../pages/followed-organizations/followed-organizations.module": [
-		467,
-		39
+		470,
+		42
 	],
 	"../pages/friends-request/friends-request.module": [
-		464,
-		38
+		467,
+		41
 	],
 	"../pages/friendsactivity/friendsactivity.module": [
-		471,
-		37
+		475,
+		40
 	],
 	"../pages/home-filters/home-filters.module": [
-		469,
-		36
+		472,
+		39
 	],
 	"../pages/linked-accounts/linked-accounts.module": [
-		457,
-		35
+		460,
+		38
 	],
 	"../pages/my-reps/my-reps.module": [
-		465,
-		34
+		468,
+		37
 	],
 	"../pages/organizations/organizations.module": [
-		472,
-		33
+		476,
+		36
 	],
 	"../pages/privacy-policy/privacy-policy.module": [
-		460,
-		32
+		463,
+		35
 	],
 	"../pages/push-notifications-settings/push-notifications-settings.module": [
-		461,
-		31
+		464,
+		34
 	],
 	"../pages/report-problem/report-problem.module": [
-		462,
-		30
+		465,
+		33
 	],
 	"../pages/settings/settings.module": [
-		463,
-		29
+		466,
+		32
 	],
 	"../pages/streaks-history/streaks-history.module": [
-		466,
-		28
+		469,
+		31
 	],
 	"../pages/takeaction/takeaction.module": [
-		475,
-		27
+		479,
+		30
 	],
 	"../pages/terms/terms.module": [
-		459,
-		26
+		462,
+		29
 	],
 	"../pages/unlink-facebook/unlink-facebook.module": [
-		480,
-		24
+		484,
+		27
 	],
 	"../pages/unlink-twitter/unlink-twitter.module": [
-		481,
-		25
+		483,
+		28
 	]
 };
 function webpackAsyncContext(req) {
@@ -1341,12 +1281,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 218;
+webpackAsyncContext.id = 219;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 303:
+/***/ 304:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1442,16 +1382,16 @@ EventDetailPage = __decorate([
 
 /***/ }),
 
-/***/ 304:
+/***/ 305:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__alerts_alerts__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__alerts_alerts__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__profile_profile__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__overlay_overlay__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__overlay_overlay__ = __webpack_require__(111);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1508,13 +1448,59 @@ EditProfilePage = __decorate([
 
 /***/ }),
 
-/***/ 305:
+/***/ 306:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UnlinkTwitterPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the UnlinkTwitterPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var UnlinkTwitterPage = (function () {
+    function UnlinkTwitterPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    UnlinkTwitterPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad UnlinkTwitterPage');
+    };
+    return UnlinkTwitterPage;
+}());
+UnlinkTwitterPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-unlink-twitter',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/unlink-twitter/unlink-twitter.html"*/'<!--\n  Generated template for the UnlinkTwitterPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n      <ion-toolbar color="primary">\n        <ion-buttons start>\n          <button ion-button icon-only>\n              <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>\n          </button>\n        </ion-buttons>\n    \n        <ion-title>Rally</ion-title>\n    \n      </ion-toolbar>\n\n</ion-header>\n\n\n<ion-content no-padding>\n  <ion-list >\n    <ion-list-header>\n        Account\n    </ion-list-header>\n    <ion-item ion-item >\n      <ion-icon name="logo-twitter" item-start></ion-icon>\n      <button ion-button clear item-start>\n        Twitter\n      </button>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/unlink-twitter/unlink-twitter.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+], UnlinkTwitterPage);
+
+//# sourceMappingURL=unlink-twitter.js.map
+
+/***/ }),
+
+/***/ 308:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(306);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(324);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(327);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -1522,7 +1508,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 324:
+/***/ 327:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1530,40 +1516,40 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(258);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(260);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(373);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(374);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_feed_feed__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_alerts_alerts__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(376);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(377);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_feed_feed__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_alerts_alerts__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_profile_profile__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_overlay_overlay__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_overlay_overlay__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_events_events__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_organizations_organizations__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_friendsactivity_friendsactivity__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_candidates_candidates__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_takeaction_takeaction__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_favorites_favorites__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_friends_request_friends_request__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_settings_settings__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_linked_accounts_linked_accounts__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_find_friends_find_friends__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_terms_terms__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_privacy_policy_privacy_policy__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_event_detail_event_detail__ = __webpack_require__(303);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_home_filters_home_filters__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_my_reps_my_reps__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_streaks_history_streaks_history__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_followed_organizations_followed_organizations__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_followed_candidates_followed_candidates__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_edit_profile_edit_profile__ = __webpack_require__(304);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_push_notifications_settings_push_notifications_settings__ = __webpack_require__(153);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_call_call__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_report_problem_report_problem__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_unlink_twitter_unlink_twitter__ = __webpack_require__(479);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_angularfire2__ = __webpack_require__(455);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_angularfire2_auth__ = __webpack_require__(261);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__ionic_native_push__ = __webpack_require__(456);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_organizations_organizations__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_friendsactivity_friendsactivity__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_candidates_candidates__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_takeaction_takeaction__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_favorites_favorites__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_friends_request_friends_request__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_settings_settings__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_linked_accounts_linked_accounts__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_find_friends_find_friends__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_terms_terms__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_privacy_policy_privacy_policy__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_event_detail_event_detail__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_home_filters_home_filters__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_my_reps_my_reps__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_streaks_history_streaks_history__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_followed_organizations_followed_organizations__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_followed_candidates_followed_candidates__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_edit_profile_edit_profile__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_push_notifications_settings_push_notifications_settings__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_call_call__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_report_problem_report_problem__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_unlink_twitter_unlink_twitter__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_angularfire2__ = __webpack_require__(458);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_angularfire2_auth__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__ionic_native_push__ = __webpack_require__(459);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1661,6 +1647,8 @@ AppModule = __decorate([
                     { loadChildren: '../pages/find-friends/find-friends.module#FindFriendsPageModule', name: 'FindFriendsPage', segment: 'find-friends', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/terms/terms.module#TermsPageModule', name: 'TermsPage', segment: 'terms', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/privacy-policy/privacy-policy.module#PrivacyPolicyPageModule', name: 'PrivacyPolicyPage', segment: 'privacy-policy', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/push-notifications-settings/push-notifications-settings.module#PushNotificationsSettingsPageModule', name: 'PushNotificationsSettingsPage', segment: 'push-notifications-settings', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/report-problem/report-problem.module#ReportProblemPageModule', name: 'ReportProblemPage', segment: 'report-problem', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/friends-request/friends-request.module#FriendsRequestPageModule', name: 'FriendsRequestPage', segment: 'friends-request', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/my-reps/my-reps.module#MyRepsPageModule', name: 'MyRepsPage', segment: 'my-reps', priority: 'low', defaultHistory: [] },
@@ -1672,15 +1660,13 @@ AppModule = __decorate([
                     { loadChildren: '../pages/friendsactivity/friendsactivity.module#FriendsactivityPageModule', name: 'FriendsactivityPage', segment: 'friendsactivity', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/organizations/organizations.module#OrganizationsPageModule', name: 'OrganizationsPage', segment: 'organizations', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/candidates/candidates.module#CandidatesPageModule', name: 'CandidatesPage', segment: 'candidates', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/call/call.module#CallPageModule', name: 'CallPage', segment: 'call', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/takeaction/takeaction.module#TakeactionPageModule', name: 'TakeactionPage', segment: 'takeaction', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/favorites/favorites.module#FavoritesPageModule', name: 'FavoritesPage', segment: 'favorites', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/event-detail/event-detail.module#EventDetailPageModule', name: 'EventDetailPage', segment: 'event-detail', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/edit-profile/edit-profile.module#EditProfilePageModule', name: 'EditProfilePage', segment: 'edit-profile', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/call/call.module#CallPageModule', name: 'CallPage', segment: 'call', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/push-notifications-settings/push-notifications-settings.module#PushNotificationsSettingsPageModule', name: 'PushNotificationsSettingsPage', segment: 'push-notifications-settings', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/report-problem/report-problem.module#ReportProblemPageModule', name: 'ReportProblemPage', segment: 'report-problem', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/unlink-facebook/unlink-facebook.module#UnlinkFacebookPageModule', name: 'UnlinkFacebookPage', segment: 'unlink-facebook', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/unlink-twitter/unlink-twitter.module#UnlinkTwitterPageModule', name: 'UnlinkTwitterPage', segment: 'unlink-twitter', priority: 'low', defaultHistory: [] }
+                    { loadChildren: '../pages/unlink-twitter/unlink-twitter.module#UnlinkTwitterPageModule', name: 'UnlinkTwitterPage', segment: 'unlink-twitter', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/unlink-facebook/unlink-facebook.module#UnlinkFacebookPageModule', name: 'UnlinkFacebookPage', segment: 'unlink-facebook', priority: 'low', defaultHistory: [] }
                 ]
             }),
             __WEBPACK_IMPORTED_MODULE_34_angularfire2__["a" /* AngularFireModule */].initializeApp(config),
@@ -1731,16 +1717,16 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 373:
+/***/ 376:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(260);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(258);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_feed_feed__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_feed_feed__ = __webpack_require__(82);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1780,15 +1766,15 @@ MyApp = __decorate([
 
 /***/ }),
 
-/***/ 374:
+/***/ 377:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(261);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(392);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(395);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1870,52 +1856,6 @@ HomePage = __decorate([
 
 /***/ }),
 
-/***/ 479:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UnlinkTwitterPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the UnlinkTwitterPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var UnlinkTwitterPage = (function () {
-    function UnlinkTwitterPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    UnlinkTwitterPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad UnlinkTwitterPage');
-    };
-    return UnlinkTwitterPage;
-}());
-UnlinkTwitterPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-unlink-twitter',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/unlink-twitter/unlink-twitter.html"*/'<!--\n  Generated template for the UnlinkTwitterPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n      <ion-toolbar color="primary">\n        <ion-buttons start>\n          <button ion-button icon-only>\n              <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>\n          </button>\n        </ion-buttons>\n    \n        <ion-title>Rally</ion-title>\n    \n      </ion-toolbar>\n\n</ion-header>\n\n\n<ion-content no-padding>\n  <ion-list >\n    <ion-list-header>\n        Account\n    </ion-list-header>\n    <ion-item ion-item >\n      <ion-icon name="logo-twitter" item-start></ion-icon>\n      <button ion-button clear item-start>\n        Twitter\n      </button>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/unlink-twitter/unlink-twitter.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
-], UnlinkTwitterPage);
-
-//# sourceMappingURL=unlink-twitter.js.map
-
-/***/ }),
-
 /***/ 67:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1923,12 +1863,12 @@ UnlinkTwitterPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings_settings__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__friends_request_friends_request__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__my_reps_my_reps__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__streaks_history_streaks_history__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__followed_organizations_followed_organizations__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__followed_candidates_followed_candidates__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings_settings__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__friends_request_friends_request__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__my_reps_my_reps__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__streaks_history_streaks_history__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__followed_organizations_followed_organizations__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__followed_candidates_followed_candidates__ = __webpack_require__(161);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1979,7 +1919,67 @@ ProfilePage = __decorate([
 
 //# sourceMappingURL=profile.js.map
 
+/***/ }),
+
+/***/ 82:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FeedPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__alerts_alerts__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__profile_profile__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_filters_home_filters__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__overlay_overlay__ = __webpack_require__(111);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+var FeedPage = (function () {
+    function FeedPage(navCtrl, alertCtrl, popoverCtrl) {
+        this.navCtrl = navCtrl;
+        this.alertCtrl = alertCtrl;
+        this.popoverCtrl = popoverCtrl;
+    }
+    FeedPage.prototype.goToOtherPage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__alerts_alerts__["a" /* AlertsPage */]);
+    };
+    FeedPage.prototype.goToProfile = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__profile_profile__["a" /* ProfilePage */]);
+    };
+    FeedPage.prototype.goToHomeFilter = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__home_filters_home_filters__["a" /* HomeFiltersPage */]);
+    };
+    FeedPage.prototype.presentPopover = function () {
+        var popover = this.popoverCtrl.create(__WEBPACK_IMPORTED_MODULE_5__overlay_overlay__["a" /* OverlayPage */]);
+        popover.present();
+    };
+    return FeedPage;
+}());
+FeedPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-feed',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/feed/feed.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            <p class="white">Rally</p>\n        </ion-title>\n        <ion-buttons end>\n            <button  (click)="goToHomeFilter()" ion-button icon-only>\n                <ion-icon name="ios-search"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-card>\n        <ion-fab right top>\n            <button ion-fab color="light">\n                <ion-icon name="ios-more"></ion-icon>\n            </button>\n            <ion-fab-list side="left">\n                <button ion-fab>\n                    <ion-icon name="logo-facebook"></ion-icon>\n                </button>\n                <button ion-fab>\n                    <ion-icon name="logo-twitter"></ion-icon>\n                </button>\n                <button ion-fab>\n                    <ion-icon name="logo-vimeo"></ion-icon>\n                </button>\n                <button ion-fab>\n                    <ion-icon name="logo-googleplus"></ion-icon>\n                </button>\n            </ion-fab-list>\n        </ion-fab>\n        <ion-item>\n            <ion-avatar item-start>\n                <img src="assets/img/login-image.jpg">\n            </ion-avatar>\n            <h2>ACLU</h2>\n        </ion-item>\n        <img src="assets/img/login-image.jpg">\n        <ion-card-content>\n            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime molestias facere natus blanditiis temporibus dolorem ipsum maiores ipsam sequi recusandae?</p>\n            <p class="link">371 Likes, 212 Shares</p>\n        </ion-card-content>\n        <ion-row>\n            <ion-col class="token" col-8>\n                <p>You\'ve token action on this 3 times</p>\n            </ion-col>\n            <ion-col col-4 class="token-btn">\n                <button ion-button icon-left clear full style="height: 30px;     font-weight: 600;\n    font-size: 13px;">\n                    I\'M DONE\n                </button>\n            </ion-col>\n        </ion-row>\n        <ion-row>\n            <ion-col class="blue">\n                <button ion-button icon-left clear full>\n                    <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>\n                </button>\n            </ion-col>\n            <ion-col class="blue">\n                <button ion-button icon-left clear full>\n                    <ion-icon name="ios-share"></ion-icon>\n                </button>\n            </ion-col>\n        </ion-row>\n    </ion-card>\n</ion-content>\n<ion-footer>\n    <ion-toolbar style="min-height: auto; padding: 0;">\n        <ion-row>\n            <ion-col col-8>\n                <p (click)="presentPopover()" class="white-footer">Home</p>\n            </ion-col>\n            <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">\n                <button (click)="goToOtherPage()">\n                    <ion-icon name="ios-notifications"></ion-icon>\n                </button>\n            </ion-col>\n            <ion-col class="footer-icons">\n                <button (click)="goToProfile()">\n                    <ion-icon name="ios-person"></ion-icon>\n                </button>\n            </ion-col>\n        </ion-row>\n    </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/feed/feed.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* PopoverController */]])
+], FeedPage);
+
+//# sourceMappingURL=feed.js.map
+
 /***/ })
 
-},[305]);
+},[308]);
 //# sourceMappingURL=main.js.map
