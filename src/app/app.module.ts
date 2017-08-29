@@ -33,6 +33,7 @@ import { CallPage } from '../pages/call/call';
 import { ReportProblemPage } from '../pages/report-problem/report-problem';
 import { UnlinkTwitterPage } from '../pages/unlink-twitter/unlink-twitter';
 import { FilterEventsPage } from '../pages/filter-events/filter-events';
+import { UnlinkFacebookPage } from '../pages/unlink-facebook/unlink-facebook';
 import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -76,11 +77,14 @@ var config = {
         FollowedOrganizationsPage,
         FollowedCandidatesPage,
         EditProfilePage,
+        UnlinkTwitterPage,
+        UnlinkFacebookPage,
         PushNotificationsSettingsPage,
         CallPage,
         ReportProblemPage,
         UnlinkTwitterPage,
-        FilterEventsPage
+        FilterEventsPage,
+        ReportProblemPage
     ],
     imports: [
         BrowserModule,
@@ -115,11 +119,14 @@ var config = {
         FollowedOrganizationsPage,
         FollowedCandidatesPage,
         EditProfilePage,
+        UnlinkTwitterPage,
+        UnlinkFacebookPage,
         PushNotificationsSettingsPage,
         CallPage,
         ReportProblemPage,
         UnlinkTwitterPage,
-        FilterEventsPage
+        FilterEventsPage,
+        ReportProblemPage
     ],
     providers: [
         StatusBar,

@@ -1,14 +1,14 @@
 webpackJsonp([1],{
 
-/***/ 483:
+/***/ 484:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FilterEventsPageModule", function() { return FilterEventsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UnlinkFacebookPageModule", function() { return UnlinkFacebookPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__filter_events__ = __webpack_require__(484);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__unlink_facebook__ = __webpack_require__(307);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var FilterEventsPageModule = (function () {
-    function FilterEventsPageModule() {
+var UnlinkFacebookPageModule = (function () {
+    function UnlinkFacebookPageModule() {
     }
-    return FilterEventsPageModule;
+    return UnlinkFacebookPageModule;
 }());
-FilterEventsPageModule = __decorate([
+UnlinkFacebookPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__filter_events__["a" /* FilterEventsPage */],
+            __WEBPACK_IMPORTED_MODULE_2__unlink_facebook__["a" /* UnlinkFacebookPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__filter_events__["a" /* FilterEventsPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__unlink_facebook__["a" /* UnlinkFacebookPage */]),
         ],
     })
-], FilterEventsPageModule);
+], UnlinkFacebookPageModule);
 
-//# sourceMappingURL=filter-events.module.js.map
+//# sourceMappingURL=unlink-facebook.module.js.map
 
 /***/ })
 

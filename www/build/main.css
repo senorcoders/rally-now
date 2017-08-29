@@ -34445,6 +34445,89 @@ page-terms p.white {
   margin: 0;
 }
 
+page-unlink-facebook ion-content {
+  background: #3b5998 !important;
+}
+
+page-unlink-facebook ionic-list-header ion-label.label {
+  font-size: 0.8em !important;
+  color: #666;
+  padding: 0px;
+  margin: 0px;
+}
+
+page-unlink-facebook ionic-list-header .input-wrapper {
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+page-unlink-facebook ion-list-header.item.item-md.list-header.list-header-md {
+  background-color: #3b5998 !important;
+  border-bottom-color: #3b5998 !important;
+}
+
+page-unlink-facebook ion-item.item.item-block {
+  color: #666;
+  border-bottom: 1px solid #c1c1c1;
+  min-height: 2rem !important;
+}
+
+page-unlink-facebook ion-item.item.item-block .item-inner {
+  border-bottom: 0px solid #fff !important;
+}
+
+page-unlink-facebook ion-item.item.item-block ion-icon, page-unlink-facebook ion-item.item.item-block .item-button {
+  min-height: 1.8rem;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+page-unlink-facebook ion-item.item.item-block h2 {
+  font-size: 1.2rem !important;
+  font-weight: 600;
+}
+
+page-unlink-facebook ion-item.item.item-block .item-button {
+  margin: 11px 0px 7px 0 !important;
+  font-size: 1rem !important;
+  color: #666;
+  padding: 0px 0px !important;
+}
+
+page-unlink-facebook ion-item.item.item-block .item-button[item-end] {
+  margin: 11px 10px 7px 0 !important;
+}
+
+page-unlink-facebook ion-item.item.item-block .label-ios {
+  margin: 15px 8px 0px 0;
+  color: #666;
+  font-size: 0.8em;
+}
+
+page-unlink-facebook ion-item.item.item-block label {
+  margin: 15px 8px 0px 0;
+  color: #666;
+  font-size: 0.8em;
+}
+
+page-unlink-facebook .label-ios, page-unlink-facebook .label-md {
+  margin: 15px 8px 0px 0;
+  font-size: 0.8em;
+  color: #a09d9d;
+}
+
+page-unlink-facebook .item [item-start] {
+  margin: 0px 5px 0px 0 !important;
+}
+
+page-unlink-facebook .item-ios [item-start] {
+  margin: 0px 5px 0px 0 !important;
+}
+
+page-unlink-facebook .item-button [item-end] {
+  padding: 0px 15px 0px 10px !important;
+}
+
 page-unlink-twitter ionic-list-header ion-label.label {
   font-size: 0.8em !important;
   color: #666;
