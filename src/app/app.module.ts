@@ -30,6 +30,7 @@ import { FollowedCandidatesPage } from '../pages/followed-candidates/followed-ca
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 import { PushNotificationsSettingsPage } from '../pages/push-notifications-settings/push-notifications-settings';
 import { CallPage } from '../pages/call/call';
+import { ReportProblemPage } from '../pages/report-problem/report-problem';
 import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -74,7 +75,8 @@ var config = {
         FollowedCandidatesPage,
         EditProfilePage,
         PushNotificationsSettingsPage,
-        CallPage
+        CallPage,
+        ReportProblemPage
     ],
     imports: [
         BrowserModule,
@@ -110,7 +112,8 @@ var config = {
         FollowedCandidatesPage,
         EditProfilePage,
         PushNotificationsSettingsPage,
-        CallPage
+        CallPage,
+        ReportProblemPage
     ],
     providers: [
         StatusBar,

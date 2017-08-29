@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { LinkedAccountsPage } from '../linked-accounts/linked-accounts';
 import { FindFriendsPage } from '../find-friends/find-friends';
 import { TermsPage } from '../terms/terms';
 import { PrivacyPolicyPage } from '../privacy-policy/privacy-policy';
 import { PushNotificationsSettingsPage } from '../push-notifications-settings/push-notifications-settings';
+import { ReportProblemPage } from '../report-problem/report-problem';
+
 
 
 /**
@@ -21,7 +23,7 @@ import { PushNotificationsSettingsPage } from '../push-notifications-settings/pu
 })
 export class SettingsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
@@ -44,6 +46,11 @@ export class SettingsPage {
 
   pushSettings(){
     this.navCtrl.push(PushNotificationsSettingsPage);
+  }
+
+   presentModal() {
+    let modal = this.modalCtrl.create(ReportProblemPage);
+    modal.present();
   }
 
 }

@@ -34245,6 +34245,10 @@ page-push-notifications-settings p.white {
   margin: 0;
 }
 
+page-report-problem .grayBg {
+  background: #d8d8d8;
+}
+
 page-settings .toolbar-background {
   background-color: #4a90e2;
   color: #fff;
