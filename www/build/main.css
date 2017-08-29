@@ -33553,6 +33553,35 @@ page-feed ion-card .token-btn .button-clear-md {
   justify-content: start;
 }
 
+page-filter-events .toolbar-background, page-filter-events ion-content {
+  background-color: #4a90e2 !important;
+  color: #fff !important;
+}
+
+page-filter-events p.white {
+  color: #fff;
+  margin: 0;
+}
+
+page-filter-events .range-ios .range-bar-active, page-filter-events .range-md .range-bar-active {
+  background: #fff;
+}
+
+page-filter-events .filter-btn {
+  background: white;
+  color: #222222;
+  border-radius: 10px;
+  font-size: 14px;
+  padding: 10px;
+  -webkit-transition: none;
+  transition: none;
+}
+
+page-filter-events .footer-md::before, page-filter-events .tabs-md[tabsPlacement="bottom"] > .tabbar::before, page-filter-events .footer-ios .toolbar-ios:first-child .toolbar-background-ios {
+  background: none;
+  border: none;
+}
+
 page-find-friends .toolbar-background {
   background-color: #4a90e2;
   color: #fff;

@@ -1,14 +1,14 @@
 webpackJsonp([12],{
 
-/***/ 466:
+/***/ 457:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StreaksHistoryPageModule", function() { return StreaksHistoryPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LinkedAccountsPageModule", function() { return LinkedAccountsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__streaks_history__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__linked_accounts__ = __webpack_require__(149);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var StreaksHistoryPageModule = (function () {
-    function StreaksHistoryPageModule() {
+var LinkedAccountsPageModule = (function () {
+    function LinkedAccountsPageModule() {
     }
-    return StreaksHistoryPageModule;
+    return LinkedAccountsPageModule;
 }());
-StreaksHistoryPageModule = __decorate([
+LinkedAccountsPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__streaks_history__["a" /* StreaksHistoryPage */],
+            __WEBPACK_IMPORTED_MODULE_2__linked_accounts__["a" /* LinkedAccountsPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__streaks_history__["a" /* StreaksHistoryPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__linked_accounts__["a" /* LinkedAccountsPage */]),
         ],
     })
-], StreaksHistoryPageModule);
+], LinkedAccountsPageModule);
 
-//# sourceMappingURL=streaks-history.module.js.map
+//# sourceMappingURL=linked-accounts.module.js.map
 
 /***/ })
 

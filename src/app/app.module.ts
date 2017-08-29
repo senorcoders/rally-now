@@ -32,6 +32,7 @@ import { PushNotificationsSettingsPage } from '../pages/push-notifications-setti
 import { CallPage } from '../pages/call/call';
 import { ReportProblemPage } from '../pages/report-problem/report-problem';
 import { UnlinkTwitterPage } from '../pages/unlink-twitter/unlink-twitter';
+import { FilterEventsPage } from '../pages/filter-events/filter-events';
 import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -78,7 +79,8 @@ var config = {
         PushNotificationsSettingsPage,
         CallPage,
         ReportProblemPage,
-        UnlinkTwitterPage
+        UnlinkTwitterPage,
+        FilterEventsPage
     ],
     imports: [
         BrowserModule,
@@ -116,7 +118,8 @@ var config = {
         PushNotificationsSettingsPage,
         CallPage,
         ReportProblemPage,
-        UnlinkTwitterPage
+        UnlinkTwitterPage,
+        FilterEventsPage
     ],
     providers: [
         StatusBar,
