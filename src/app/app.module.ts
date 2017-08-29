@@ -29,6 +29,7 @@ import { FollowedOrganizationsPage } from '../pages/followed-organizations/follo
 import { FollowedCandidatesPage } from '../pages/followed-candidates/followed-candidates';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 import { PushNotificationsSettingsPage } from '../pages/push-notifications-settings/push-notifications-settings';
+import { CallPage } from '../pages/call/call';
 import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -72,7 +73,8 @@ var config = {
         FollowedOrganizationsPage,
         FollowedCandidatesPage,
         EditProfilePage,
-        PushNotificationsSettingsPage
+        PushNotificationsSettingsPage,
+        CallPage
     ],
     imports: [
         BrowserModule,
@@ -107,7 +109,8 @@ var config = {
         FollowedOrganizationsPage,
         FollowedCandidatesPage,
         EditProfilePage,
-        PushNotificationsSettingsPage
+        PushNotificationsSettingsPage,
+        CallPage
     ],
     providers: [
         StatusBar,

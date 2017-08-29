@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ActionSheetController } from 'ionic-angular';
+import { CallPage } from '../call/call';
+
+
 
 /**
  * Generated class for the TakeactionPage page.
@@ -15,11 +19,52 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TakeactionPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TakeactionPage');
+  }
+
+  presentActionSheet() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Contact Bob Representative',
+      buttons: [
+        {
+          text: 'Call',
+          handler: () => {
+             this.navCtrl.push(CallPage);
+          }
+        },{
+          text: 'Post on Facebook',
+          handler: () => {
+            console.log('Post on Facebook clicked');
+          }
+        },{
+          text: 'Post message via Twitter',
+          handler: () => {
+            console.log('Post message via Twitter clicked');
+          }
+        },{
+          text: 'Send a Fax',
+          handler: () => {
+            console.log('Send a Fax clicked');
+          }
+        },{
+          text: 'Email',
+          handler: () => {
+            console.log('Email clicked');
+          }
+        },{
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
   }
 
 }

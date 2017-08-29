@@ -797,6 +797,7 @@ CandidatesPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TakeactionPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__call_call__ = __webpack_require__(476);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -808,6 +809,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 /**
  * Generated class for the TakeactionPage page.
  *
@@ -815,21 +818,63 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var TakeactionPage = (function () {
-    function TakeactionPage(navCtrl, navParams) {
+    function TakeactionPage(navCtrl, navParams, actionSheetCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.actionSheetCtrl = actionSheetCtrl;
     }
     TakeactionPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad TakeactionPage');
+    };
+    TakeactionPage.prototype.presentActionSheet = function () {
+        var _this = this;
+        var actionSheet = this.actionSheetCtrl.create({
+            title: 'Contact Bob Representative',
+            buttons: [
+                {
+                    text: 'Call',
+                    handler: function () {
+                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__call_call__["a" /* CallPage */]);
+                    }
+                }, {
+                    text: 'Post on Facebook',
+                    handler: function () {
+                        console.log('Post on Facebook clicked');
+                    }
+                }, {
+                    text: 'Post message via Twitter',
+                    handler: function () {
+                        console.log('Post message via Twitter clicked');
+                    }
+                }, {
+                    text: 'Send a Fax',
+                    handler: function () {
+                        console.log('Send a Fax clicked');
+                    }
+                }, {
+                    text: 'Email',
+                    handler: function () {
+                        console.log('Email clicked');
+                    }
+                }, {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: function () {
+                        console.log('Cancel clicked');
+                    }
+                }
+            ]
+        });
+        actionSheet.present();
     };
     return TakeactionPage;
 }());
 TakeactionPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-takeaction',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/takeaction/takeaction.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      <p class="white">Rally</p>\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only>\n        <ion-icon name="ios-more"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n  \n</ion-header>\n\n<ion-content>\n  <ion-card>\n\n      <ion-fab right top>\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>\n\n    <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg">\n    </ion-avatar>\n    <h2>NAACP</h2>\n    </ion-item>\n    \n  <div class="organization-bg" style="background: url(\'assets/img/login-image.jpg\');">\n  		\n  		<div class="railled-excerpt">\n  			<p class="white"><strong>711</strong><br> Railled</p>\n  		</div>\n  		<div class="bottom-excerpt">\n  			<p class="white">DEMOCRACY AWAKENING</p>\n  		</div>\n  </div>\n\n\n  <ion-card-content>\n    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime molestias facere natus blanditiis temporibus dolorem ipsum maiores ipsam sequi recusandae?</p>\n    <p class="link">371 Likes, 212 Shares</p>\n    	\n  </ion-card-content>\n  	<ion-row class="grayBg">\n  		<p class="white">Sarah Jenkins, Jeremy Cohen and 58 of your friends railled</p>\n  	</ion-row>\n  	<ion-list>\n  	 <ion-item>\n      Why it\'s important\n   	 <ion-icon name="ios-add" item-end></ion-icon>\n  </ion-item>\n  <ion-item>\n      What to say (talking points)\n   	 <ion-icon name="ios-add" item-end></ion-icon>\n  </ion-item>\n  <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg" style="border-radius: 50%;">\n    </ion-avatar>\n    <h2>Bob Representative</h2>\n    <button item-end ion-button color="dark" class="action-btn">Contact</button>\n  </ion-item>\n   <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg" style="border-radius: 50%;">\n    </ion-avatar>\n    <h2>Bob Representative</h2>\n    <button item-end ion-button color="dark" class="action-btn">Contact</button>\n  </ion-item>\n   <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg" style="border-radius: 50%;">\n    </ion-avatar>\n    <h2>Bob Representative</h2>\n    <button item-end ion-button color="dark" class="action-btn">Contact</button>\n  </ion-item>\n</ion-list>\n\n  <ion-row>\n    <ion-col class="blue">\n      <button ion-button icon-left clear full>\n        <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>\n      </button>\n    </ion-col>\n    <ion-col class="blue">\n      <button ion-button icon-left clear full>\n        <ion-icon name="ios-share"></ion-icon>\n      </button>\n    </ion-col>\n   \n  </ion-row>\n\n</ion-card>\n\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar style="min-height: auto; padding: 0;">\n    <ion-row> \n      <ion-col col-2 class="footer-icons">\n          <ion-icon name="ios-home"></ion-icon>\n      </ion-col>\n      <ion-col col-6>\n            <p class="white-footer">Take Action</p>\n      </ion-col>\n      <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">\n        <ion-icon name="ios-notifications"></ion-icon>\n      </ion-col>\n      <ion-col class="footer-icons">\n        <ion-icon name="ios-person"></ion-icon>\n\n      </ion-col>\n    </ion-row>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/takeaction/takeaction.html"*/,
+        selector: 'page-takeaction',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/takeaction/takeaction.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      <p class="white">Rally</p>\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only>\n        <ion-icon name="ios-more"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n  \n</ion-header>\n\n<ion-content>\n  <ion-card>\n\n      <ion-fab right top>\n    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>\n    <ion-fab-list side="left">\n      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>\n      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>\n    </ion-fab-list>\n  </ion-fab>\n\n    <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg">\n    </ion-avatar>\n    <h2>NAACP</h2>\n    </ion-item>\n    \n  <div class="organization-bg" style="background: url(\'assets/img/login-image.jpg\');">\n  		\n  		<div class="railled-excerpt">\n  			<p class="white"><strong>711</strong><br> Railled</p>\n  		</div>\n  		<div class="bottom-excerpt">\n  			<p class="white">DEMOCRACY AWAKENING</p>\n  		</div>\n  </div>\n\n\n  <ion-card-content>\n    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime molestias facere natus blanditiis temporibus dolorem ipsum maiores ipsam sequi recusandae?</p>\n    <p class="link">371 Likes, 212 Shares</p>\n    	\n  </ion-card-content>\n  	<ion-row class="grayBg">\n  		<p class="white">Sarah Jenkins, Jeremy Cohen and 58 of your friends railled</p>\n  	</ion-row>\n  	<ion-list>\n  	 <ion-item>\n      Why it\'s important\n   	 <ion-icon name="ios-add" item-end></ion-icon>\n  </ion-item>\n  <ion-item>\n      What to say (talking points)\n   	 <ion-icon name="ios-add" item-end></ion-icon>\n  </ion-item>\n  <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg" style="border-radius: 50%;">\n    </ion-avatar>\n    <h2>Bob Representative</h2>\n    <button (click)="presentActionSheet()" item-end ion-button color="dark" class="action-btn">Contact</button>\n  </ion-item>\n   <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg" style="border-radius: 50%;">\n    </ion-avatar>\n    <h2>Bob Representative</h2>\n    <button item-end ion-button color="dark" class="action-btn">Contact</button>\n  </ion-item>\n   <ion-item>\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg" style="border-radius: 50%;">\n    </ion-avatar>\n    <h2>Bob Representative</h2>\n    <button item-end ion-button color="dark" class="action-btn">Contact</button>\n  </ion-item>\n</ion-list>\n\n  <ion-row>\n    <ion-col class="blue">\n      <button ion-button icon-left clear full>\n        <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>\n      </button>\n    </ion-col>\n    <ion-col class="blue">\n      <button ion-button icon-left clear full>\n        <ion-icon name="ios-share"></ion-icon>\n      </button>\n    </ion-col>\n   \n  </ion-row>\n\n</ion-card>\n\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar style="min-height: auto; padding: 0;">\n    <ion-row> \n      <ion-col col-2 class="footer-icons">\n          <ion-icon name="ios-home"></ion-icon>\n      </ion-col>\n      <ion-col col-6>\n            <p class="white-footer">Take Action</p>\n      </ion-col>\n      <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">\n        <ion-icon name="ios-notifications"></ion-icon>\n      </ion-col>\n      <ion-col class="footer-icons">\n        <ion-icon name="ios-person"></ion-icon>\n\n      </ion-col>\n    </ion-row>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/takeaction/takeaction.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]])
 ], TakeactionPage);
 
 //# sourceMappingURL=takeaction.js.map
@@ -903,85 +948,89 @@ webpackEmptyAsyncContext.id = 172;
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"../pages/call/call.module": [
+		475,
+		0
+	],
 	"../pages/candidates/candidates.module": [
 		467,
-		40
+		42
 	],
 	"../pages/edit-profile/edit-profile.module": [
 		472,
-		39
+		41
 	],
 	"../pages/event-detail/event-detail.module": [
 		470,
-		38
+		18
 	],
 	"../pages/events/events.module": [
 		464,
-		37
+		17
 	],
 	"../pages/favorites/favorites.module": [
 		469,
-		36
+		16
 	],
 	"../pages/find-friends/find-friends.module": [
 		455,
-		35
+		15
 	],
 	"../pages/followed-candidates/followed-candidates.module": [
 		463,
-		34
+		14
 	],
 	"../pages/followed-organizations/followed-organizations.module": [
 		462,
-		33
+		13
 	],
 	"../pages/friends-request/friends-request.module": [
 		459,
-		32
+		12
 	],
 	"../pages/friendsactivity/friendsactivity.module": [
 		465,
-		31
+		11
 	],
 	"../pages/home-filters/home-filters.module": [
 		471,
-		30
+		10
 	],
 	"../pages/linked-accounts/linked-accounts.module": [
 		454,
-		29
+		9
 	],
 	"../pages/my-reps/my-reps.module": [
 		460,
-		28
+		8
 	],
 	"../pages/organizations/organizations.module": [
 		466,
-		27
+		7
 	],
 	"../pages/privacy-policy/privacy-policy.module": [
 		457,
-		26
+		6
 	],
 	"../pages/push-notifications-settings/push-notifications-settings.module": [
 		473,
-		21
+		5
 	],
 	"../pages/settings/settings.module": [
 		458,
-		25
+		4
 	],
 	"../pages/streaks-history/streaks-history.module": [
 		461,
-		24
+		3
 	],
 	"../pages/takeaction/takeaction.module": [
 		468,
-		23
+		2
 	],
 	"../pages/terms/terms.module": [
 		456,
-		22
+		1
 	]
 };
 function webpackAsyncContext(req) {
@@ -1313,15 +1362,17 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_followed_candidates_followed_candidates__ = __webpack_require__(158);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_edit_profile_edit_profile__ = __webpack_require__(301);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_push_notifications_settings_push_notifications_settings__ = __webpack_require__(474);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_angularfire2__ = __webpack_require__(136);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32_angularfire2_auth__ = __webpack_require__(257);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__ionic_native_push__ = __webpack_require__(453);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_call_call__ = __webpack_require__(476);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32_angularfire2__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_angularfire2_auth__ = __webpack_require__(257);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__ionic_native_push__ = __webpack_require__(453);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1397,7 +1448,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_27__pages_followed_organizations_followed_organizations__["a" /* FollowedOrganizationsPage */],
             __WEBPACK_IMPORTED_MODULE_28__pages_followed_candidates_followed_candidates__["a" /* FollowedCandidatesPage */],
             __WEBPACK_IMPORTED_MODULE_29__pages_edit_profile_edit_profile__["a" /* EditProfilePage */],
-            __WEBPACK_IMPORTED_MODULE_30__pages_push_notifications_settings_push_notifications_settings__["a" /* PushNotificationsSettingsPage */]
+            __WEBPACK_IMPORTED_MODULE_30__pages_push_notifications_settings_push_notifications_settings__["a" /* PushNotificationsSettingsPage */],
+            __WEBPACK_IMPORTED_MODULE_31__pages_call_call__["a" /* CallPage */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -1422,11 +1474,12 @@ AppModule = __decorate([
                     { loadChildren: '../pages/event-detail/event-detail.module#EventDetailPageModule', name: 'EventDetailPage', segment: 'event-detail', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/home-filters/home-filters.module#HomeFiltersPageModule', name: 'HomeFiltersPage', segment: 'home-filters', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/edit-profile/edit-profile.module#EditProfilePageModule', name: 'EditProfilePage', segment: 'edit-profile', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/push-notifications-settings/push-notifications-settings.module#PushNotificationsSettingsPageModule', name: 'PushNotificationsSettingsPage', segment: 'push-notifications-settings', priority: 'low', defaultHistory: [] }
+                    { loadChildren: '../pages/push-notifications-settings/push-notifications-settings.module#PushNotificationsSettingsPageModule', name: 'PushNotificationsSettingsPage', segment: 'push-notifications-settings', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/call/call.module#CallPageModule', name: 'CallPage', segment: 'call', priority: 'low', defaultHistory: [] }
                 ]
             }),
-            __WEBPACK_IMPORTED_MODULE_31_angularfire2__["a" /* AngularFireModule */].initializeApp(config),
-            __WEBPACK_IMPORTED_MODULE_32_angularfire2_auth__["b" /* AngularFireAuthModule */],
+            __WEBPACK_IMPORTED_MODULE_32_angularfire2__["a" /* AngularFireModule */].initializeApp(config),
+            __WEBPACK_IMPORTED_MODULE_33_angularfire2_auth__["b" /* AngularFireAuthModule */],
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicApp */]],
         entryComponents: [
@@ -1455,12 +1508,13 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_27__pages_followed_organizations_followed_organizations__["a" /* FollowedOrganizationsPage */],
             __WEBPACK_IMPORTED_MODULE_28__pages_followed_candidates_followed_candidates__["a" /* FollowedCandidatesPage */],
             __WEBPACK_IMPORTED_MODULE_29__pages_edit_profile_edit_profile__["a" /* EditProfilePage */],
-            __WEBPACK_IMPORTED_MODULE_30__pages_push_notifications_settings_push_notifications_settings__["a" /* PushNotificationsSettingsPage */]
+            __WEBPACK_IMPORTED_MODULE_30__pages_push_notifications_settings_push_notifications_settings__["a" /* PushNotificationsSettingsPage */],
+            __WEBPACK_IMPORTED_MODULE_31__pages_call_call__["a" /* CallPage */]
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
             __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
-            __WEBPACK_IMPORTED_MODULE_33__ionic_native_push__["a" /* Push */],
+            __WEBPACK_IMPORTED_MODULE_34__ionic_native_push__["a" /* Push */],
             { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicErrorHandler */] }
         ]
     })
@@ -1652,6 +1706,52 @@ PushNotificationsSettingsPage = __decorate([
 ], PushNotificationsSettingsPage);
 
 //# sourceMappingURL=push-notifications-settings.js.map
+
+/***/ }),
+
+/***/ 476:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CallPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the CallPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var CallPage = (function () {
+    function CallPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    CallPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad CallPage');
+    };
+    return CallPage;
+}());
+CallPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-call',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/call/call.html"*/'<!--\n  Generated template for the CallPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title><p class="white">Rally</p></ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n	<ion-row padding class="bordered">\n		<ion-col col-8>\n			<p class="gray">Calling this office</p>\n			<h3>Bob Representative</h3>\n			<p class="gray"><ion-icon name="ios-call"></ion-icon> (123) 456-7890</p>		\n		</ion-col>\n		<ion-col col-4>\n			<div class="bob-headshot"></div>\n		</ion-col>\n		<ion-col col-12>\n			This is your local representative in the house.\n		</ion-col>\n	</ion-row>\n\n	<ion-row padding>\n		<ion-list>\n			<ion-list-header style="border: none; padding-left: 0;">Talking Points</ion-list-header>\n			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit eos veniam pariatur expedita aut fugit dicta maxime iure temporibus molestiae.</p>\n\n			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis cumque fuga placeat quidem tenetur rerum sed provident ab, quisquam similique?</p>\n\n		</ion-list>\n	</ion-row>\n\n</ion-content>\n\n<ion-footer>\n	<ion-row no-padding>\n		<ion-col no-padding style="border-right: 1px solid #fff;">\n			  <button ion-button full class="bob-button">\n			  <ion-icon name="md-call" style="font-size: 40px;"></ion-icon>\n			  </button>\n\n		</ion-col>\n		<ion-col no-padding>\n			 <button ion-button full class="bob-button">\n			  <ion-icon name="md-close" style="font-size: 40px;"></ion-icon>\n			  </button>\n		</ion-col>\n	</ion-row>\n  <button style="margin: 0;" ion-button full color="danger">Trouble getting through?</button>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/call/call.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+], CallPage);
+
+//# sourceMappingURL=call.js.map
 
 /***/ }),
 
