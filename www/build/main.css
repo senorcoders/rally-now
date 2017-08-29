@@ -32896,6 +32896,42 @@ page-alerts .item-block .item-inner {
   border: none !important;
 }
 
+page-call .toolbar-background {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+page-call p.white {
+  color: #fff;
+  margin: 0;
+}
+
+page-call .bordered {
+  border-bottom: 1px solid #000;
+}
+
+page-call .bob-headshot {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background-color: green;
+  margin: 0 auto;
+  margin-right: 0;
+}
+
+page-call .gray {
+  color: gray;
+  margin: 0;
+}
+
+page-call h3 {
+  margin: 5px 0;
+}
+
+page-call .bob-button {
+  min-height: 70px;
+}
+
 page-candidates .toolbar-background {
   background-color: #4a90e2;
   color: #fff;
@@ -34197,6 +34233,20 @@ page-profile .profile-rep {
 .bar-button-default-ios,
 .bar-button-default-md {
   color: #fff;
+}
+
+page-push-notifications-settings .toolbar-background {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+page-push-notifications-settings p.white {
+  color: #fff;
+  margin: 0;
+}
+
+page-report-problem .grayBg {
+  background: #d8d8d8;
 }
 
 page-settings .toolbar-background {

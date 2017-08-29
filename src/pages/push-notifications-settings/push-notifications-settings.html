@@ -1,0 +1,93 @@
+<!--
+  Generated template for the PushNotificationsSettingsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title><p class="white">Rally</p></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+<ion-list>
+
+  <ion-item >
+  	<ion-label>Events <br> <p style="font-size: 10px;">Scheduled</p></ion-label>
+  	  <ion-toggle color="secondary" checked="true"></ion-toggle>
+  </ion-item>
+
+  <ion-item >
+  	<ion-label>Action Reminders <br> <p style="font-size: 10px;">Scheduled</p></ion-label>
+  	  <ion-toggle color="secondary" checked="true"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+      <ion-range min="-200" max="200" pin="true" [(ngModel)]="structure" color="dark">
+        <p range-left style="font-size: 10px;" >Sunday</p>
+        <ion-icon range-right name="md-close"></ion-icon>
+      </ion-range>
+    </ion-item>
+     <ion-item>
+      <ion-range min="-200" max="200" pin="true" [(ngModel)]="structure" color="dark">
+        <p range-left style="font-size: 10px;" >Monday</p>
+        <ion-icon range-right name="md-close"></ion-icon>
+      </ion-range>
+    </ion-item>
+
+  <ion-item >
+  	<ion-label>Urgent Action Reminders <br> <p style="font-size: 10px;">As it happens</p></ion-label>
+  	  <ion-toggle color="secondary" checked="true"></ion-toggle>
+  </ion-item>
+  <ion-item >
+  	<ion-label>Follow-up Tasks <br> <p style="font-size: 10px;">Once a day</p></ion-label>
+  	  <ion-toggle color="secondary" checked="true"></ion-toggle>
+  </ion-item>
+
+  <ion-item >
+  	<ion-label>Follow-up Success Stories <br> <p style="font-size: 10px;">Once a day</p> </ion-label>
+  	  <ion-toggle color="secondary" checked="true"></ion-toggle>
+  </ion-item>
+
+  <ion-item >
+  	<ion-label>Friend Activity <br> <p style="font-size: 10px;">As it happens</p></ion-label>
+  	  <ion-toggle color="secondary" checked="true"></ion-toggle>
+  </ion-item>
+
+  <ion-item >
+  	<ion-label>Organization Activity <br> <p style="font-size: 10px;">As it happens</p></ion-label>
+  	  <ion-toggle color="secondary" checked="true"></ion-toggle>
+  </ion-item>
+
+  <ion-item >
+  	<ion-label>Candidate Activity <br> <p style="font-size: 10px;">As it happens</p></ion-label>
+  	  <ion-toggle color="secondary"  checked="true"></ion-toggle>
+  </ion-item>
+</ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar style="min-height: auto; padding: 0;">
+    <ion-row> 
+      <ion-col col-2 class="footer-icons">
+          <ion-icon name="ios-home"></ion-icon>
+      </ion-col>
+      <ion-col col-6>
+            <p class="white-footer">Push Notification Settings</p>
+      </ion-col>
+      <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">
+        <ion-icon name="ios-notifications"></ion-icon>
+      </ion-col>
+      <ion-col class="footer-icons">
+        <ion-icon name="ios-person"></ion-icon>
+
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
