@@ -1,3 +1,58 @@
 page-unlink-twitter {
-
+    ionic-list-header{
+        ion-label.label {
+            font-size: 0.8em !important;
+            color: #666;
+            padding: 0px;
+            margin: 0px;
+        }    
+        .input-wrapper {
+            margin: 0px !important;
+            padding: 0px !important;
+        }
+    }
+        
+    ion-item.item.item-block {        
+        color: #666;
+        border-bottom: 1px solid #c1c1c1;
+        min-height: 2rem !important;
+        .item-inner {
+            border-bottom: 0px solid #fff !important;            
+        }
+        ion-icon, .item-button {
+            min-height: 1.8rem;
+            font-size: 1.8rem;
+            line-height: 1;            
+        }
+        h2 {
+            font-size: 1.2rem !important;
+            font-weight: 600;
+        }
+        .item-button {
+            margin: 11px 8px 2px 0;
+            font-size: 1rem !important;
+            color: #666;
+        }
+        .label-ios {
+            margin: 15px 8px 0px 0;
+            color: #666;
+            font-size: 0.8em;
+        }
+        label {
+            margin: 15px 8px 0px 0;
+            color: #666;
+            font-size: 0.8em;
+        }
+    }
+    .label-ios,.label-md {
+        margin: 15px 8px 0px 0;
+        font-size: 0.8em;
+        color: #a09d9d;
+    }
+    .item [item-start] {
+        margin: 0px 5px 8px 0 !important;
+    }
+    .item-ios [item-start] {
+        margin: 8px 5px 8px 0 !important;
+    }
 }
