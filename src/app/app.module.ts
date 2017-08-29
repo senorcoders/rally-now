@@ -32,6 +32,7 @@ import { PushNotificationsSettingsPage } from '../pages/push-notifications-setti
 import { CallPage } from '../pages/call/call';
 import { ReportProblemPage } from '../pages/report-problem/report-problem';
 import { UnlinkTwitterPage } from '../pages/unlink-twitter/unlink-twitter';
+import { FilterEventsPage } from '../pages/filter-events/filter-events';
 import { UnlinkFacebookPage } from '../pages/unlink-facebook/unlink-facebook';
 import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
@@ -80,6 +81,9 @@ var config = {
         UnlinkFacebookPage,
         PushNotificationsSettingsPage,
         CallPage,
+        ReportProblemPage,
+        UnlinkTwitterPage,
+        FilterEventsPage,
         ReportProblemPage
     ],
     imports: [
@@ -119,6 +123,9 @@ var config = {
         UnlinkFacebookPage,
         PushNotificationsSettingsPage,
         CallPage,
+        ReportProblemPage,
+        UnlinkTwitterPage,
+        FilterEventsPage,
         ReportProblemPage
     ],
     providers: [
