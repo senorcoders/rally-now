@@ -342,10 +342,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var SettingsPage = (function () {
-    function SettingsPage(navCtrl, navParams, modalCtrl) {
+    function SettingsPage(navCtrl, navParams, modalCtrl, actionSheetCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.modalCtrl = modalCtrl;
+        this.actionSheetCtrl = actionSheetCtrl;
     }
     SettingsPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad SettingsPage');
@@ -365,20 +366,50 @@ var SettingsPage = (function () {
     SettingsPage.prototype.pushSettings = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__push_notifications_settings_push_notifications_settings__["a" /* PushNotificationsSettingsPage */]);
     };
-    SettingsPage.prototype.presentModal = function () {
-        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_7__report_problem_report_problem__["a" /* ReportProblemPage */]);
-        modal.present();
+    SettingsPage.prototype.presentActionSheet = function () {
+        var _this = this;
+        var actionSheet = this.actionSheetCtrl.create({
+            buttons: [
+                {
+                    text: 'Spam or Abuse',
+                    handler: function () {
+                        var modal = _this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_7__report_problem_report_problem__["a" /* ReportProblemPage */]);
+                        modal.present();
+                    }
+                }, {
+                    text: 'Something Is not working',
+                    handler: function () {
+                        var modal = _this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_7__report_problem_report_problem__["a" /* ReportProblemPage */]);
+                        modal.present();
+                    }
+                }, {
+                    text: 'General Feedback',
+                    handler: function () {
+                        var modal = _this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_7__report_problem_report_problem__["a" /* ReportProblemPage */]);
+                        modal.present();
+                    }
+                }, {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: function () {
+                        console.log('Cancel clicked');
+                    }
+                }
+            ]
+        });
+        actionSheet.present();
     };
     return SettingsPage;
 }());
 SettingsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-settings',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/settings/settings.html"*/'<!--\n  Generated template for the SettingsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title><p class="white">Rally</p></ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n<ion-list>\n\n  <ion-item (click)="findFriends()">Find Friends\n	<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n</ion-list>\n<ion-list>\n  <ion-list-header>\n    Account\n  </ion-list-header>\n  <ion-item>Change Password\n		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n  <ion-item>\n  		<ion-label> Private Account</ion-label>\n  	  <ion-toggle  checked="false"></ion-toggle>\n</ion-item>\n</ion-list>\n<ion-list>\n  <ion-list-header>\n    Settings\n  </ion-list-header>\n  <ion-item (click)="goToLinkedAccounts()">Linked Accounts\n		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n  <ion-item (click)="pushSettings()">Push Notification Settings\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n<ion-item>Cellular Data Usage\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n<ion-item>Edit Profile\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n</ion-list>\n\n<ion-list>\n  <ion-list-header>\n    Support\n  </ion-list-header>\n  <ion-item>Help Center\n		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n  <ion-item (click)="presentModal()">Report a Problem\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n</ion-list>\n\n<ion-list>\n  <ion-list-header>\n    About\n  </ion-list-header>\n  <ion-item>Blog\n		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n  <ion-item (click)="goToPrivacy()">Privacy Policy\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n <ion-item (click)="goToTerms()">Terms\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n\n</ion-list>\n\n<ion-list>\n  <ion-item>Log Out</ion-item>\n</ion-list>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar style="min-height: auto; padding: 0;">\n    <ion-row> \n      <ion-col col-2 class="footer-icons">\n          <ion-icon name="ios-home"></ion-icon>\n      </ion-col>\n      <ion-col col-6>\n            <p class="white-footer">Settings</p>\n      </ion-col>\n      <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">\n        <ion-icon name="ios-notifications"></ion-icon>\n      </ion-col>\n      <ion-col class="footer-icons">\n        <ion-icon name="ios-person"></ion-icon>\n\n      </ion-col>\n    </ion-row>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/settings/settings.html"*/,
+        selector: 'page-settings',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/settings/settings.html"*/'<!--\n  Generated template for the SettingsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title><p class="white">Rally</p></ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n<ion-list>\n\n  <ion-item (click)="findFriends()">Find Friends\n	<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n</ion-list>\n<ion-list>\n  <ion-list-header>\n    Account\n  </ion-list-header>\n  <ion-item>Change Password\n		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n  <ion-item>\n  		<ion-label> Private Account</ion-label>\n  	  <ion-toggle  checked="false"></ion-toggle>\n</ion-item>\n</ion-list>\n<ion-list>\n  <ion-list-header>\n    Settings\n  </ion-list-header>\n  <ion-item (click)="goToLinkedAccounts()">Linked Accounts\n		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n  <ion-item (click)="pushSettings()">Push Notification Settings\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n<ion-item>Cellular Data Usage\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n<ion-item>Edit Profile\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n</ion-list>\n\n<ion-list>\n  <ion-list-header>\n    Support\n  </ion-list-header>\n  <ion-item>Help Center\n		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n  <ion-item (click)="presentActionSheet()">Report a Problem\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n</ion-list>\n\n<ion-list>\n  <ion-list-header>\n    About\n  </ion-list-header>\n  <ion-item>Blog\n		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n  </ion-item>\n  <ion-item (click)="goToPrivacy()">Privacy Policy\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n <ion-item (click)="goToTerms()">Terms\n  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>\n</ion-item>\n\n</ion-list>\n\n<ion-list>\n  <ion-item>Log Out</ion-item>\n</ion-list>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar style="min-height: auto; padding: 0;">\n    <ion-row> \n      <ion-col col-2 class="footer-icons">\n          <ion-icon name="ios-home"></ion-icon>\n      </ion-col>\n      <ion-col col-6>\n            <p class="white-footer">Settings</p>\n      </ion-col>\n      <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">\n        <ion-icon name="ios-notifications"></ion-icon>\n      </ion-col>\n      <ion-col class="footer-icons">\n        <ion-icon name="ios-person"></ion-icon>\n\n      </ion-col>\n    </ion-row>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/settings/settings.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]) === "function" && _d || Object])
 ], SettingsPage);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=settings.js.map
 
 /***/ }),
@@ -1796,23 +1827,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var ReportProblemPage = (function () {
-    function ReportProblemPage(navCtrl, navParams) {
+    function ReportProblemPage(navCtrl, navParams, viewCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
     }
     ReportProblemPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad ReportProblemPage');
+    };
+    ReportProblemPage.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
     };
     return ReportProblemPage;
 }());
 ReportProblemPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-report-problem',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/report-problem/report-problem.html"*/'<!--\n  Generated template for the ReportProblemPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-toolbar>\n     <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary">Cancel</span>\n      </button>\n    </ion-buttons>\n    <ion-buttons end>\n    	 <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" >Send</span>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n	<ion-row class="grayBg">\n		<ion-col padding>\n			<p>SOMETHING ISN\'T WORKING</p>\n			<p>Briefly explain what happened.</p>\n		</ion-col>\n	</ion-row>\n	<ion-list>\n  <ion-item style="border: none;">\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg">\n    </ion-avatar>\n   <ion-textarea type="text" placeholder="Write something here..."></ion-textarea>\n\n  </ion-item>\n</ion-list>\n  \n</ion-content>'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/report-problem/report-problem.html"*/,
+        selector: 'page-report-problem',template:/*ion-inline-start:"/Users/dayana/Sites/rally-up/src/pages/report-problem/report-problem.html"*/'<!--\n  Generated template for the ReportProblemPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-toolbar>\n     <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary">Cancel</span>\n      </button>\n    </ion-buttons>\n    <ion-buttons end>\n    	 <button ion-button>\n        <span ion-text color="primary" >Send</span>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n	<ion-row class="grayBg">\n		<ion-col padding>\n			<p>SOMETHING ISN\'T WORKING</p>\n			<p>Briefly explain what happened.</p>\n		</ion-col>\n	</ion-row>\n	<ion-list>\n  <ion-item style="border: none;">\n    <ion-avatar item-start>\n      <img src="assets/img/login-image.jpg">\n    </ion-avatar>\n   <ion-textarea type="text" placeholder="Write something here..."></ion-textarea>\n\n  </ion-item>\n</ion-list>\n  \n</ion-content>'/*ion-inline-end:"/Users/dayana/Sites/rally-up/src/pages/report-problem/report-problem.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]) === "function" && _c || Object])
 ], ReportProblemPage);
 
+var _a, _b, _c;
 //# sourceMappingURL=report-problem.js.map
 
 /***/ }),

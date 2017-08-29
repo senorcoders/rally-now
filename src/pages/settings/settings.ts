@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ActionSheetController } from 'ionic-angular';
 import { LinkedAccountsPage } from '../linked-accounts/linked-accounts';
 import { FindFriendsPage } from '../find-friends/find-friends';
 import { TermsPage } from '../terms/terms';
@@ -23,7 +23,7 @@ import { ReportProblemPage } from '../report-problem/report-problem';
 })
 export class SettingsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public actionSheetCtrl: ActionSheetController) {
   }
 
   ionViewDidLoad() {
@@ -48,9 +48,39 @@ export class SettingsPage {
     this.navCtrl.push(PushNotificationsSettingsPage);
   }
 
-   presentModal() {
-    let modal = this.modalCtrl.create(ReportProblemPage);
-    modal.present();
+    presentActionSheet() {
+    let actionSheet = this.actionSheetCtrl.create({
+      buttons: [
+        {
+          text: 'Spam or Abuse',
+          handler: () => {
+            let modal = this.modalCtrl.create(ReportProblemPage);
+            modal.present();
+          }
+        },{
+          text: 'Something Is not working',
+          handler: () => {
+            let modal = this.modalCtrl.create(ReportProblemPage);
+            modal.present();
+          }
+        },{
+          text: 'General Feedback',
+          handler: () => {
+            let modal = this.modalCtrl.create(ReportProblemPage);
+            modal.present();
+          }
+        },{
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
   }
+
+  
 
 }
