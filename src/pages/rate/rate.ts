@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { FeedPage } from '../feed/feed';
 /**
  * Generated class for the RatePage page.
  *
@@ -22,4 +22,7 @@ export class RatePage {
     console.log('ionViewDidLoad RatePage');
   }
 
+  goBack(){
+    this.navCtrl.push(FeedPage);
+  }
 }
