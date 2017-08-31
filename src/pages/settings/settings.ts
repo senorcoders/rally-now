@@ -6,7 +6,7 @@ import { TermsPage } from '../terms/terms';
 import { PrivacyPolicyPage } from '../privacy-policy/privacy-policy';
 import { PushNotificationsSettingsPage } from '../push-notifications-settings/push-notifications-settings';
 import { ReportProblemPage } from '../report-problem/report-problem';
-
+import { ChangePasswordPage } from '../change-password/change-password';
 
 
 /**
@@ -81,6 +81,8 @@ export class SettingsPage {
     actionSheet.present();
   }
 
-  
+  goToChangePassword(){
+  	this.navCtrl.push(ChangePasswordPage);
+  }
 
 }
