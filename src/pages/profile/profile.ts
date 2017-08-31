@@ -6,6 +6,7 @@ import { MyRepsPage } from '../my-reps/my-reps';
 import { StreaksHistoryPage } from '../streaks-history/streaks-history';
 import { FollowedOrganizationsPage } from '../followed-organizations/followed-organizations';
 import { FollowedCandidatesPage } from '../followed-candidates/followed-candidates';
+import { EditProfilePage } from '../edit-profile/edit-profile';
 
 
 @Component({
@@ -38,6 +39,10 @@ export class ProfilePage {
 
   goToFollowedCandidates(){
     this.navCtrl.push(FollowedCandidatesPage);
+  }
+  
+  goToEditProfile(){
+    this.navCtrl.push(EditProfilePage);
   }
 
         

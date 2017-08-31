@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { UnlinkFacebookPage } from  '../unlink-facebook/unlink-facebook';
+import { UnlinkTwitterPage } from '../unlink-twitter/unlink-twitter';
+import { SettingsPage } from '../settings/settings';
 /**
  * Generated class for the LinkedAccountsPage page.
  *
@@ -37,4 +39,15 @@ export class LinkedAccountsPage {
     console.log('ionViewDidLoad LinkedAccountsPage');
   }
 
+  goToAccount(accountName){
+    if (accountName == 'Facebook') {
+      this.navCtrl.push(UnlinkFacebookPage);
+    } else {
+      this.navCtrl.push(UnlinkTwitterPage);
+    }
+  }
+
+  goBack(){
+    this.navCtrl.push(SettingsPage);
+  }
 }
