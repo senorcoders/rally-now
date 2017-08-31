@@ -35,6 +35,7 @@ import { UnlinkTwitterPage } from '../pages/unlink-twitter/unlink-twitter';
 import { FilterEventsPage } from '../pages/filter-events/filter-events';
 import { UnlinkFacebookPage } from '../pages/unlink-facebook/unlink-facebook';
 import { RatePage } from '../pages/rate/rate';
+import { ChangePasswordPage } from '../pages/change-password/change-password';
 import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -86,7 +87,8 @@ var config = {
         UnlinkTwitterPage,
         FilterEventsPage,
         ReportProblemPage,
-        RatePage
+        RatePage,
+        ChangePasswordPage
     ],
     imports: [
         BrowserModule,
@@ -129,7 +131,8 @@ var config = {
         UnlinkTwitterPage,
         FilterEventsPage,
         ReportProblemPage,
-        RatePage
+        RatePage,
+        ChangePasswordPage
     ],
     providers: [
         StatusBar,
