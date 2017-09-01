@@ -1,1 +1,42 @@
-webpackJsonp([0],{365:function(l,n,u){"use strict";function e(l){return o._25(0,[(l()(),o._24(null,["\n"])),(l()(),o._5(0,null,null,11,"ion-header",[],null,null,null,null,null)),o._4(16384,null,0,p.a,[m.a,o.k,o.F,[2,f.a]],null,null),(l()(),o._24(null,["\n\n  "])),(l()(),o._5(0,null,null,7,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,g.b,g.a)),o._4(49152,null,0,b.a,[y.a,[2,f.a],[2,w.a],m.a,o.k,o.F],null,null),(l()(),o._24(3,["\n    "])),(l()(),o._5(0,null,3,3,"ion-title",[],null,null,null,F.b,F.a)),o._4(49152,null,0,M.a,[m.a,o.k,o.F,[2,P.a],[2,b.a]],null,null),(l()(),o._5(0,null,0,1,"p",[["class","white"]],null,null,null,null,null)),(l()(),o._24(null,["Rally"])),(l()(),o._24(3,["\n  "])),(l()(),o._24(null,["\n\n"])),(l()(),o._24(null,["\n\n\n"])),(l()(),o._5(0,null,null,5,"ion-content",[["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,k.b,k.a)),o._4(4374528,null,0,O.a,[m.a,L.a,j.a,o.k,o.F,y.a,v.a,o.z,[2,f.a],[2,w.a]],null,null),(l()(),o._24(1,["\n\t"])),(l()(),o._5(0,null,1,1,"p",[],null,null,null,null,null)),(l()(),o._24(null,["Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem deserunt perspiciatis, optio, nemo repellat magni sit id aspernatur cumque labore omnis esse perferendis harum! Reiciendis cum architecto et fugit fugiat officia dolores quod quos molestias adipisci sint, eaque, nobis nisi."])),(l()(),o._24(1,["\n"])),(l()(),o._24(null,["\n\n"])),(l()(),o._5(0,null,null,38,"ion-footer",[],null,null,null,null,null)),o._4(16384,null,0,N.a,[m.a,o.k,o.F,[2,f.a]],null,null),(l()(),o._24(null,["\n  "])),(l()(),o._5(0,null,null,34,"ion-toolbar",[["class","toolbar"],["style","min-height: auto; padding: 0;"]],[[2,"statusbar-padding",null]],null,null,I.b,I.a)),o._4(49152,null,0,P.a,[m.a,o.k,o.F],null,null),(l()(),o._24(3,["\n    "])),(l()(),o._5(0,null,3,30,"ion-row",[["class","row"]],null,null,null,null,null)),o._4(16384,null,0,T.a,[],null,null),(l()(),o._24(null,[" \n      "])),(l()(),o._5(0,null,null,5,"ion-col",[["class","footer-icons col"],["col-2",""]],null,null,null,null,null)),o._4(16384,null,0,z.a,[],null,null),(l()(),o._24(null,["\n          "])),(l()(),o._5(0,null,null,1,"ion-icon",[["name","ios-home"],["role","img"]],[[2,"hide",null]],null,null,null,null)),o._4(147456,null,0,A.a,[m.a,o.k,o.F],{name:[0,"name"]},null),(l()(),o._24(null,["\n      "])),(l()(),o._24(null,["\n      "])),(l()(),o._5(0,null,null,5,"ion-col",[["class","col"],["col-6",""]],null,null,null,null,null)),o._4(16384,null,0,z.a,[],null,null),(l()(),o._24(null,["\n            "])),(l()(),o._5(0,null,null,1,"p",[["class","white-footer"]],null,null,null,null,null)),(l()(),o._24(null,["Terms"])),(l()(),o._24(null,["\n      "])),(l()(),o._24(null,["\n      "])),(l()(),o._5(0,null,null,5,"ion-col",[["class","footer-icons col"],["col-2",""],["style","border-right: 1px solid;"]],null,null,null,null,null)),o._4(16384,null,0,z.a,[],null,null),(l()(),o._24(null,["\n        "])),(l()(),o._5(0,null,null,1,"ion-icon",[["name","ios-notifications"],["role","img"]],[[2,"hide",null]],null,null,null,null)),o._4(147456,null,0,A.a,[m.a,o.k,o.F],{name:[0,"name"]},null),(l()(),o._24(null,["\n      "])),(l()(),o._24(null,["\n      "])),(l()(),o._5(0,null,null,5,"ion-col",[["class","footer-icons col"]],null,null,null,null,null)),o._4(16384,null,0,z.a,[],null,null),(l()(),o._24(null,["\n        "])),(l()(),o._5(0,null,null,1,"ion-icon",[["name","ios-person"],["role","img"]],[[2,"hide",null]],null,null,null,null)),o._4(147456,null,0,A.a,[m.a,o.k,o.F],{name:[0,"name"]},null),(l()(),o._24(null,["\n\n      "])),(l()(),o._24(null,["\n    "])),(l()(),o._24(3,["\n  "])),(l()(),o._24(null,["\n"])),(l()(),o._24(null,["\n"]))],function(l,n){l(n,34,0,"ios-home");l(n,48,0,"ios-notifications");l(n,55,0,"ios-person")},function(l,n){l(n,4,0,o._18(n,5)._hidden,o._18(n,5)._sbPadding),l(n,14,0,o._18(n,15).statusbarPadding,o._18(n,15)._hasRefresher),l(n,24,0,o._18(n,25)._sbPadding),l(n,33,0,o._18(n,34)._hidden),l(n,47,0,o._18(n,48)._hidden),l(n,54,0,o._18(n,55)._hidden)})}Object.defineProperty(n,"__esModule",{value:!0});var o=u(0),i=(u(7),u(235)),t=function(){return function(){}}(),_=u(23),a=u(57),r=u(141),s=u(218),c=u(219),d=u(220),h=u(221),p=u(50),m=u(1),f=u(6),g=u(78),b=u(27),y=u(8),w=u(15),F=u(77),M=u(35),P=u(26),k=u(58),O=u(24),L=u(3),j=u(11),v=u(25),N=u(61),I=u(109),T=u(60),z=u(59),A=u(22),B=u(31),R=[],q=o._3({encapsulation:2,styles:R,data:{}}),D=o._2("page-terms",i.a,function(l){return o._25(0,[(l()(),o._5(0,null,null,1,"page-terms",[],null,null,null,e,q)),o._4(49152,null,0,i.a,[w.a,B.a],null,null)],null,null)},{},{},[]),E=u(76);u.d(n,"TermsPageModuleNgFactory",function(){return K});var x=this&&this.__extends||function(){var l=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(l,n){l.__proto__=n}||function(l,n){for(var u in n)n.hasOwnProperty(u)&&(l[u]=n[u])};return function(n,u){function e(){this.constructor=n}l(n,u),n.prototype=null===u?Object.create(u):(e.prototype=u.prototype,new e)}}(),C=function(l){function n(n){return l.call(this,n,[s.a,c.a,d.a,h.a,D],[])||this}return x(n,l),Object.defineProperty(n.prototype,"_NgLocalization_7",{get:function(){return null==this.__NgLocalization_7&&(this.__NgLocalization_7=new _.i(this.parent.get(o.u))),this.__NgLocalization_7},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"_ɵi_8",{get:function(){return null==this.__ɵi_8&&(this.__ɵi_8=new a.k),this.__ɵi_8},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"_FormBuilder_9",{get:function(){return null==this.__FormBuilder_9&&(this.__FormBuilder_9=new a.c),this.__FormBuilder_9},enumerable:!0,configurable:!0}),n.prototype.createInternal=function(){return this._CommonModule_0=new _.b,this._ɵba_1=new a.j,this._FormsModule_2=new a.d,this._ReactiveFormsModule_3=new a.i,this._IonicModule_4=new r.a,this._IonicPageModule_5=new r.b,this._TermsPageModule_6=new t,this._LAZY_LOADED_TOKEN_10=i.a,this._TermsPageModule_6},n.prototype.getInternal=function(l,n){return l===_.b?this._CommonModule_0:l===a.j?this._ɵba_1:l===a.d?this._FormsModule_2:l===a.i?this._ReactiveFormsModule_3:l===r.a?this._IonicModule_4:l===r.b?this._IonicPageModule_5:l===t?this._TermsPageModule_6:l===_.j?this._NgLocalization_7:l===a.k?this._ɵi_8:l===a.c?this._FormBuilder_9:l===E.a?this._LAZY_LOADED_TOKEN_10:n},n.prototype.destroyInternal=function(){},n}(o._0),K=new o.w(C,t)}});
+webpackJsonp([0],{
+
+/***/ 456:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TermsPageModule", function() { return TermsPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__terms__ = __webpack_require__(151);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var TermsPageModule = (function () {
+    function TermsPageModule() {
+    }
+    return TermsPageModule;
+}());
+TermsPageModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_2__terms__["a" /* TermsPage */],
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__terms__["a" /* TermsPage */]),
+        ],
+    })
+], TermsPageModule);
+
+//# sourceMappingURL=terms.module.js.map
+
+/***/ })
+
+});
+//# sourceMappingURL=0.js.map
