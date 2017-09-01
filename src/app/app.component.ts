@@ -4,6 +4,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { FeedPage } from '../pages/feed/feed';
+import {
+  Push,
+  PushToken
+} from '@ionic/cloud-angular';
+
 
 //import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
@@ -13,13 +18,17 @@ import { FeedPage } from '../pages/feed/feed';
 export class MyApp {
   rootPage:any = FeedPage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,  public alertCtrl: AlertController) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,  public alertCtrl: AlertController, public push: Push) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
       //this.pushsetup();
+      this.push.rx.notification()
+        .subscribe((msg) => {
+          alert(msg.title + ': ' + msg.text);
+      });
     });
   }
 
@@ -54,5 +63,7 @@ export class MyApp {
  
   // pushObject.on('error').subscribe(error => alert('Error with Push plugin' + error));
   // }
+
+  
 }
 

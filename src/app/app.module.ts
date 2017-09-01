@@ -53,10 +53,23 @@ var config = {
     messagingSenderId: "924920604639"
 };
 
+
 const cloudSettings: CloudSettings = {
   'core': {
-	    'app_id': '6a339c20'
-	}
+    'app_id': '6a339c20',
+  },
+  'push': {
+    'sender_id': '924920604639',
+    'pluginConfig': {
+      'ios': {
+        'badge': true,
+        'sound': true
+      },
+      'android': {
+        'iconColor': '#343434'
+      }
+    }
+  }
 };
 
 @NgModule({
@@ -102,7 +115,7 @@ const cloudSettings: CloudSettings = {
         IonicModule.forRoot(MyApp),
         AngularFireModule.initializeApp(config),
         AngularFireAuthModule,
-				IonicModule.forRoot(MyApp),
+				//IonicModule.forRoot(MyApp),
 				CloudModule.forRoot(cloudSettings)
     ],
     bootstrap: [IonicApp],

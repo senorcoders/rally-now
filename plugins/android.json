@@ -41,6 +41,10 @@
         },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "phonegap-plugin-push": {
+            "SENDER_ID": "924920604639",
+            "PACKAGE_NAME": "io.ionic.starter"
         }
     },
     "dependent_plugins": {

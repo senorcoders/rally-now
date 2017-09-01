@@ -89,6 +89,7 @@ ext {
 
 // PLUGIN GRADLE EXTENSIONS START
 apply from: "cordova-plugin-browsertab/starter-BrowserTab.gradle"
+apply from: "phonegap-plugin-push/starter-push.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras = file('build-extras.gradle').exists()
@@ -252,6 +253,9 @@ dependencies {
     releaseCompile(project(path: "CordovaLib", configuration: "release"))
     compile "com.android.support:customtabs:23.3.0"
     compile "com.facebook.android:facebook-android-sdk:4.+"
+    compile "com.android.support:support-v13:23+"
+    compile "com.google.android.gms:play-services-gcm:11+"
+    compile "me.leolin:ShortcutBadger:1.1.14@aar"
     // SUB-PROJECT DEPENDENCIES END
 }
 
