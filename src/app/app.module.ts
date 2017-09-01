@@ -27,6 +27,7 @@ import { MyRepsPage } from '../pages/my-reps/my-reps';
 import { StreaksHistoryPage } from '../pages/streaks-history/streaks-history';
 import { FollowedOrganizationsPage } from '../pages/followed-organizations/followed-organizations';
 import { FollowedCandidatesPage } from '../pages/followed-candidates/followed-candidates';
+import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -50,8 +51,26 @@ var config = {
         FeedPage,
         AlertsPage,
         ProfilePage,
-        OverlayPage
-        
+        OverlayPage,
+        EventsPage,
+        FriendsactivityPage,
+        OrganizationsPage,
+        CandidatesPage,
+        TakeactionPage,
+        FavoritesPage,
+        FriendsRequestPage,
+        SettingsPage,
+        LinkedAccountsPage,
+        FindFriendsPage,
+        TermsPage,
+        PrivacyPolicyPage,
+        EventDetailPage,
+        HomeFiltersPage,
+        MyRepsPage,
+        StreaksHistoryPage,
+        FollowedOrganizationsPage,
+        FollowedCandidatesPage,
+        EditProfilePage
     ],
     imports: [
         BrowserModule,
@@ -66,7 +85,26 @@ var config = {
         FeedPage,
         AlertsPage,
         ProfilePage,
-        OverlayPage
+        OverlayPage,
+        EventsPage,
+        FriendsactivityPage,
+        OrganizationsPage,
+        CandidatesPage,
+        TakeactionPage,
+        FavoritesPage,
+        FriendsRequestPage,
+        SettingsPage,
+        LinkedAccountsPage,
+        FindFriendsPage,
+        TermsPage,
+        PrivacyPolicyPage,
+        EventDetailPage,
+        HomeFiltersPage,
+        MyRepsPage,
+        StreaksHistoryPage,
+        FollowedOrganizationsPage,
+        FollowedCandidatesPage,
+        EditProfilePage
     ],
     providers: [
         StatusBar,
