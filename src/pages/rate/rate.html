@@ -1,0 +1,63 @@
+<!--
+  Generated template for the RatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      <ion-buttons start (click)="goBack()">
+          <button ion-button clear >
+              Cancel
+          </button>
+        </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+  <div class="rate-section">
+    <h6 text-center color="light">Rate your experience</h6>
+
+      <div class="rating" padding>
+          
+          <ion-icon ios="ios-star" md="md-star"></ion-icon>
+          <ion-icon ios="ios-star" md="md-star"></ion-icon>
+          <ion-icon ios="ios-star" md="md-star"></ion-icon>
+          <ion-icon ios="ios-star-half" md="md-star-half"></ion-icon>
+          <ion-icon ios="ios-star-outline" md="md-star-outline"></ion-icon>
+  
+      </div>
+
+      <div class="rate-message">Great</div>
+
+    
+  </div>
+  <div class="options">
+    <button ion-button full color="orange1" no-margin>Spoke with a staffer</button>
+    <button ion-button full color="orange2" no-margin>Left a Message</button>
+    <button ion-button full color="orange3" no-margin>The line was busy</button>
+    <button ion-button full color="orange4" no-margin>Voicemail full</button>
+    <button ion-button full color="orange5" no-margin>Wrong Number</button>
+    <button ion-button full color="orange6" no-margin>Other</button>
+  </div>
+
+  <div class="comment" padding>
+      <button ion-button block>Touch to add a comment</button>      
+  </div>
+
+  <ion-row>
+      <ion-col class="blue border-right">
+          <button ion-button icon-left clear full>
+              Ask me later
+          </button>
+      </ion-col>
+      <ion-col class="blue" >
+          <button ion-button icon-left clear full >
+              Submit & Close
+          </button>
+      </ion-col>
+  </ion-row>
+</ion-content>

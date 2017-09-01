@@ -6,6 +6,7 @@ import { ProfilePage } from '../profile/profile'
 import { HomeFiltersPage } from '../home-filters/home-filters';
 import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay'
+import { RatePage } from '../rate/rate';
 
 @Component({
   selector: 'page-feed',
@@ -35,5 +36,8 @@ export class FeedPage {
     let popover = this.popoverCtrl.create(OverlayPage);
     popover.present();
   }
-        
+  
+  goToRatePage() {
+    this.navCtrl.push(RatePage);
+  }
 }

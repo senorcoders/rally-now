@@ -1,3 +1,4 @@
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -34,6 +35,8 @@ import { ReportProblemPage } from '../pages/report-problem/report-problem';
 import { UnlinkTwitterPage } from '../pages/unlink-twitter/unlink-twitter';
 import { FilterEventsPage } from '../pages/filter-events/filter-events';
 import { UnlinkFacebookPage } from '../pages/unlink-facebook/unlink-facebook';
+import { RatePage } from '../pages/rate/rate';
+import { ChangePasswordPage } from '../pages/change-password/change-password';
 import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -48,6 +51,12 @@ var config = {
     projectId: "test-144e3",
     storageBucket: "test-144e3.appspot.com",
     messagingSenderId: "924920604639"
+};
+
+const cloudSettings: CloudSettings = {
+  'core': {
+	    'app_id': '6a339c20'
+	}
 };
 
 @NgModule({
@@ -84,13 +93,17 @@ var config = {
         ReportProblemPage,
         UnlinkTwitterPage,
         FilterEventsPage,
-        ReportProblemPage
+        ReportProblemPage,
+        RatePage,
+        ChangePasswordPage
     ],
     imports: [
         BrowserModule,
         IonicModule.forRoot(MyApp),
         AngularFireModule.initializeApp(config),
         AngularFireAuthModule,
+				IonicModule.forRoot(MyApp),
+				CloudModule.forRoot(cloudSettings)
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -126,7 +139,9 @@ var config = {
         ReportProblemPage,
         UnlinkTwitterPage,
         FilterEventsPage,
-        ReportProblemPage
+        ReportProblemPage,
+        RatePage,
+        ChangePasswordPage
     ],
     providers: [
         StatusBar,

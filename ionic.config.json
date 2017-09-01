@@ -1,6 +1,6 @@
 {
   "name": "rally-up-now",
-  "app_id": "",
+  "app_id": "6a339c20",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

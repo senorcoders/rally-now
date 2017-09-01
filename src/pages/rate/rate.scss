@@ -1,0 +1,48 @@
+page-rate {
+    .rate-section {
+        background-color: #666;
+        padding: 2em 0px;
+        .rating{
+            text-align: center;
+            ion-icon {
+                color: #f5a623;
+                font-size: 2em;
+                padding: 0px 5px;
+            }
+        }
+        h6{
+            color: #fff;
+        }
+        .rate-message {
+            text-align: center;
+            font-size: 2em;
+            color: #fff;
+        }        
+    }
+    .options button{
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
+    .comment{
+        background-color: #ccc;
+        button {
+            color: #ccc;
+            background-color: #fff;
+            padding: 1.8em 0em;
+            margin: 0px 0px;
+        }
+    }
+    .blue {
+        background-color: #4a90e2;
+        &.border-right{
+            border-right: 1px solid #fff;
+        }
+        color: #fff;
+        .button-inner{
+            color: #fff;
+        }
+    }
+    button.back-button {
+        display: none !important;
+    }
+}
