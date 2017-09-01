@@ -1,3 +1,4 @@
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -51,6 +52,12 @@ var config = {
     messagingSenderId: "924920604639"
 };
 
+const cloudSettings: CloudSettings = {
+  'core': {
+	    'app_id': '6a339c20'
+	}
+};
+
 @NgModule({
     declarations: [
         MyApp,
@@ -93,6 +100,8 @@ var config = {
         IonicModule.forRoot(MyApp),
         AngularFireModule.initializeApp(config),
         AngularFireAuthModule,
+				IonicModule.forRoot(MyApp),
+				CloudModule.forRoot(cloudSettings)
     ],
     bootstrap: [IonicApp],
     entryComponents: [
