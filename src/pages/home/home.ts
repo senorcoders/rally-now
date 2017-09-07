@@ -4,6 +4,7 @@ import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { FeedPage } from '../feed/feed';
 import firebase from 'firebase';
 
 @Component({
@@ -62,4 +63,8 @@ export class HomePage {
   Logout(){
     this.fire.auth.signOut();
   }
+
+  goToFeed() {    
+       this.navCtrl.push(FeedPage);
+     }
 }
