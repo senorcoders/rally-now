@@ -102,7 +102,6 @@ const cloudSettings: CloudSettings = {
         IonicModule.forRoot(MyApp),
         AngularFireModule.initializeApp(config),
         AngularFireAuthModule,
-				IonicModule.forRoot(MyApp),
 				CloudModule.forRoot(cloudSettings)
     ],
     bootstrap: [IonicApp],
