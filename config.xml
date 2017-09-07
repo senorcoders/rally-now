@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MyApp</name>
+<widget id="com.senorcoders.rallyup" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Rally Up</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
     <universal-links>
@@ -92,8 +92,8 @@
     <plugin name="cordova-plugin-whitelist" spec="^1.3.1" />
     <plugin name="cordova-universal-links-plugin" spec="^1.2.1" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
-    <engine name="ios" spec="~4.3.1" />
     <plugin name="phonegap-plugin-push" spec="~1.10.5">
-        <variable name="SENDER_ID" value="924920604639" />
+        <variable name="SENDER_ID" value="1017475098724" />
     </plugin>
+    <engine name="ios" spec="~4.3.1" />
 </widget>

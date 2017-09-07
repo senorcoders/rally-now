@@ -101,11 +101,11 @@
     "phonegap-plugin-push": {
         "source": {
             "type": "registry",
-            "id": "phonegap-plugin-push@1.10.5"
+            "id": "phonegap-plugin-push@~1.10.5"
         },
         "is_top_level": true,
         "variables": {
-            "SENDER_ID": "924920604639"
+            "SENDER_ID": "1017475098724"
         }
     }
 }
