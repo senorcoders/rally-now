@@ -24,7 +24,7 @@ export class ChangePasswordPage {
   }
 
   goToSettings(){
-    this.navCtrl.push(SettingsPage);
+    this.navCtrl.setRoot(SettingsPage);
   }
 
 }

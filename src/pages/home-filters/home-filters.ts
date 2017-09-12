@@ -21,7 +21,7 @@ export class HomeFiltersPage {
 
 	goToFeed() {
 
-    this.navCtrl.push(FeedPage);
+    this.navCtrl.setRoot(FeedPage);
 	}
 
   ionViewDidLoad() {

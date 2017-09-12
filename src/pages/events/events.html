@@ -5,171 +5,184 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title><p class="white">Rally</p></ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="filterEvents()">
-        <ion-icon name="ios-search" ></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
-
+    <ion-navbar>
+        <ion-title>
+            <p class="white">Rally</p>
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="filterEvents()">
+                <ion-icon name="ios-search"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
-
-
 <ion-content>
-	<ion-row padding>
-		<h4 style="color: #545353;">October</h4>
-	</ion-row>
-	<ion-card>
-	<ion-fab right top style="top: -8px;
-    right: 0;">
-    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
-    <ion-fab-list side="left">
-      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
-    </ion-fab-list>
-  </ion-fab>
-
-  <ion-card-header>
-    Saturday October 1st, 2017
-  </ion-card-header>
-
-  <ion-card-content>
-  	<ion-row>
-  		<ion-col col-6>
-    		<button ion-button color="danger">ACTION</button>
-    	</ion-col>
-    	<ion-col text-right col-6 style="line-height: 35px;">
-    		Attending
-    	</ion-col>
-  	</ion-row>
-    <h3>Call Senate on Gun Control Prop 101</h3>
-    <ion-row>
-    	
-    	<ion-col col-8>
-    		<p class="street">
-    			123 Main Street, Washington DC, 12345
-    		</p>
-    		
-    	</ion-col>
-    	<ion-col col-4>
-    		<strong>10:00am - 12:00pm</strong>
-    	</ion-col>
+    <ion-row padding>
+        <h4 style="color: #545353;">October</h4>
     </ion-row>
-  </ion-card-content>
-
-</ion-card>
-
-<ion-card>
-	<ion-fab right top style="top: -8px;
+    <ion-card>
+        <ion-fab right top style="top: -8px;
     right: 0;">
-    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
-    <ion-fab-list side="left">
-      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
-    </ion-fab-list>
-  </ion-fab>
-
-  <ion-card-header>
-    Saturday October 1st, 2017
-  </ion-card-header>
-
-  <ion-card-content>
-  	<ion-row>
-  		<ion-col col-6>
-    		<button ion-button>LOCATION EVENT</button>
-    	</ion-col>
-    	<ion-col text-right col-6 style="line-height: 35px;">
-    		Attending w/319 Others
-    	</ion-col>
-  	</ion-row>
-    <h3>No on 123 Rally</h3>
-    <ion-row>
-    	
-    	<ion-col col-8>
-    		<p class="street">
-    			123 Main Street, Washington DC, 12345
-    		</p>
-    		
-    	</ion-col>
-    	<ion-col col-4>
-    		<strong>10:00am - 12:00pm</strong>
-    	</ion-col>
-    </ion-row>
-  </ion-card-content>
-
-</ion-card>
-
-<ion-row padding>
-		<h4 style="color: #545353;">November</h4>
-	</ion-row>
-
-	<ion-card>
-	<ion-fab right top style="top: -8px;
+            <button ion-fab color="light">
+                <ion-icon name="ios-more"></ion-icon>
+            </button>
+            <ion-fab-list side="left">
+                <button ion-fab>
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </button>
+                <button ion-fab>
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </button>
+                <button ion-fab>
+                    <ion-icon name="logo-vimeo"></ion-icon>
+                </button>
+                <button ion-fab>
+                    <ion-icon name="logo-googleplus"></ion-icon>
+                </button>
+            </ion-fab-list>
+        </ion-fab>
+        <ion-card-header>
+            Saturday October 1st, 2017
+        </ion-card-header>
+        <ion-card-content>
+            <ion-row>
+                <ion-col col-6>
+                    <button ion-button color="danger">ACTION</button>
+                </ion-col>
+                <ion-col text-right col-6 style="line-height: 35px;">
+                    Attending
+                </ion-col>
+            </ion-row>
+            <h3>Call Senate on Gun Control Prop 101</h3>
+            <ion-row>
+                <ion-col col-8>
+                    <p class="street">
+                        123 Main Street, Washington DC, 12345
+                    </p>
+                </ion-col>
+                <ion-col col-4>
+                    <strong>10:00am - 12:00pm</strong>
+                </ion-col>
+            </ion-row>
+        </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-fab right top style="top: -8px;
     right: 0;">
-    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
-    <ion-fab-list side="left">
-      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
-    </ion-fab-list>
-  </ion-fab>
-
-  <ion-card-header>
-   Thursday November 21st, 2017
-  </ion-card-header>
-
-  <ion-card-content>
-  	<ion-row>
-  		<ion-col col-6>
-    		<button ion-button color="secondary">OTHER</button>
-    	</ion-col>
-    	<ion-col text-right col-6 style="line-height: 35px;">
-    		Attending 
-    	</ion-col>
-  	</ion-row>
-    <h3>All Voices on Deck for Peace</h3>
-    <ion-row>
-    	
-    	<ion-col col-8>
-    		<p class="street">
-    			123 Main Street, Washington DC, 12345
-    		</p>
-    		
-    	</ion-col>
-    	<ion-col col-4>
-    		<strong>10:00am - 12:00pm</strong>
-    	</ion-col>
+            <button ion-fab color="light">
+                <ion-icon name="ios-more"></ion-icon>
+            </button>
+            <ion-fab-list side="left">
+                <button ion-fab>
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </button>
+                <button ion-fab>
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </button>
+                <button ion-fab>
+                    <ion-icon name="logo-vimeo"></ion-icon>
+                </button>
+                <button ion-fab>
+                    <ion-icon name="logo-googleplus"></ion-icon>
+                </button>
+            </ion-fab-list>
+        </ion-fab>
+        <ion-card-header>
+            Saturday October 1st, 2017
+        </ion-card-header>
+        <ion-card-content>
+            <ion-row>
+                <ion-col col-6>
+                    <button ion-button>LOCATION EVENT</button>
+                </ion-col>
+                <ion-col text-right col-6 style="line-height: 35px;">
+                    Attending w/319 Others
+                </ion-col>
+            </ion-row>
+            <h3>No on 123 Rally</h3>
+            <ion-row>
+                <ion-col col-8>
+                    <p class="street">
+                        123 Main Street, Washington DC, 12345
+                    </p>
+                </ion-col>
+                <ion-col col-4>
+                    <strong>10:00am - 12:00pm</strong>
+                </ion-col>
+            </ion-row>
+        </ion-card-content>
+    </ion-card>
+    <ion-row padding>
+        <h4 style="color: #545353;">November</h4>
     </ion-row>
-  </ion-card-content>
-
-</ion-card>
-
+    <ion-card>
+        <ion-fab right top style="top: -8px;
+    right: 0;">
+            <button ion-fab color="light">
+                <ion-icon name="ios-more"></ion-icon>
+            </button>
+            <ion-fab-list side="left">
+                <button ion-fab>
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </button>
+                <button ion-fab>
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </button>
+                <button ion-fab>
+                    <ion-icon name="logo-vimeo"></ion-icon>
+                </button>
+                <button ion-fab>
+                    <ion-icon name="logo-googleplus"></ion-icon>
+                </button>
+            </ion-fab-list>
+        </ion-fab>
+        <ion-card-header>
+            Thursday November 21st, 2017
+        </ion-card-header>
+        <ion-card-content>
+            <ion-row>
+                <ion-col col-6>
+                    <button ion-button color="secondary">OTHER</button>
+                </ion-col>
+                <ion-col text-right col-6 style="line-height: 35px;">
+                    Attending
+                </ion-col>
+            </ion-row>
+            <h3>All Voices on Deck for Peace</h3>
+            <ion-row>
+                <ion-col col-8>
+                    <p class="street">
+                        123 Main Street, Washington DC, 12345
+                    </p>
+                </ion-col>
+                <ion-col col-4>
+                    <strong>10:00am - 12:00pm</strong>
+                </ion-col>
+            </ion-row>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
-
 <ion-footer>
-  <ion-toolbar style="min-height: auto; padding: 0;">
-    <ion-row> 
-      <ion-col col-2 class="footer-icons">
-          <ion-icon name="ios-home"></ion-icon>
-      </ion-col>
-      <ion-col col-6>
-            <p class="white-footer">Events</p>
-      </ion-col>
-      <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">
-        <ion-icon name="ios-notifications"></ion-icon>
-      </ion-col>
-      <ion-col class="footer-icons">
-        <ion-icon name="ios-person"></ion-icon>
-
-      </ion-col>
-    </ion-row>
-  </ion-toolbar>
+    <ion-toolbar style="min-height: auto; padding: 0;">
+        <ion-row>
+            <ion-col col-2 class="footer-icons">
+                <button (click)="goToHome()">
+                    <ion-icon name="ios-home"></ion-icon>
+                </button>
+            </ion-col>
+            <ion-col col-6>
+                <p class="white-footer">Events</p>
+            </ion-col>
+            <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">
+                <button (click)="goToAlerts()">
+                    <ion-icon name="ios-notifications"></ion-icon>
+                </button>
+            </ion-col>
+            <ion-col class="footer-icons">
+                <button (click)="goToProfile()">
+                    <ion-icon name="ios-person"></ion-icon>
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
 </ion-footer>

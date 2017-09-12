@@ -7,6 +7,9 @@ import { StreaksHistoryPage } from '../streaks-history/streaks-history';
 import { FollowedOrganizationsPage } from '../followed-organizations/followed-organizations';
 import { FollowedCandidatesPage } from '../followed-candidates/followed-candidates';
 import { EditProfilePage } from '../edit-profile/edit-profile';
+import { FeedPage } from '../feed/feed';
+import { AlertsPage } from '../alerts/alerts';
+
 
 
 @Component({
@@ -43,6 +46,14 @@ export class ProfilePage {
   
   goToEditProfile(){
     this.navCtrl.push(EditProfilePage);
+  }
+
+  goToHome(){
+    this.navCtrl.setRoot(FeedPage);
+  }
+
+  goToAlerts(){
+    this.navCtrl.setRoot(AlertsPage);
   }
 
         

@@ -34,7 +34,7 @@ export class EditProfilePage {
    
       goToProfile() {
     
-       this.navCtrl.push(ProfilePage);
+       this.navCtrl.setRoot(ProfilePage);
      }
    
       presentPopover() {

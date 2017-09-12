@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
-import { ProfilePage } from '../profile/profile'
+import { ProfilePage } from '../profile/profile';
+import { FeedPage } from '../feed/feed'
+
 
 
 @Component({
@@ -16,7 +18,12 @@ export class AlertsPage {
   }
   goToProfile() {
  
-    this.navCtrl.push(ProfilePage);
+    this.navCtrl.setRoot(ProfilePage);
+  }
+
+
+  goToHome(){
+  	this.navCtrl.setRoot(FeedPage);
   }
  
 

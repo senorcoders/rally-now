@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, App, ViewController} from 'ionic-angular';
 import { EventsPage } from '../events/events';
 import { FriendsactivityPage } from '../friendsactivity/friendsactivity';
 import { OrganizationsPage } from '../organizations/organizations';
 import { CandidatesPage } from '../candidates/candidates';
 import { TakeactionPage } from '../takeaction/takeaction';
 import { FavoritesPage } from '../favorites/favorites';
+
 
 @Component({
   selector: 'page-overlay',
@@ -14,31 +15,38 @@ import { FavoritesPage } from '../favorites/favorites';
 
 export class OverlayPage {
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController, private app:App, public viewCtrl:ViewController) {}
   
  	goToEvents() {
  
-    this.navCtrl.push(EventsPage);
+    this.app.getRootNav().setRoot(EventsPage);
+     this.viewCtrl.dismiss();
   }
 
   goToFriendsActivity(){
-  	this.navCtrl.push(FriendsactivityPage);
+  	this.app.getRootNav().setRoot(FriendsactivityPage);
+    this.viewCtrl.dismiss();
   }
 
   goToOrganizations(){
-  	this.navCtrl.push(OrganizationsPage);
+  	this.app.getRootNav().setRoot(OrganizationsPage);
+    this.viewCtrl.dismiss();
   }
 
   goToCandidates(){
-    this.navCtrl.push(CandidatesPage);
+    this.app.getRootNav().setRoot(CandidatesPage);
+    this.viewCtrl.dismiss();
   }
 
   goToTakeAction(){
-    this.navCtrl.push(TakeactionPage);
+    this.app.getRootNav().setRoot(TakeactionPage);
+        this.viewCtrl.dismiss();
+
   }
 
   goToFavorites(){
-    this.navCtrl.push(FavoritesPage);
+    this.app.getRootNav().setRoot(FavoritesPage);
+    this.viewCtrl.dismiss();
   }
 
         

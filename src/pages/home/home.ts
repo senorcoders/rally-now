@@ -5,6 +5,7 @@ import { Slides } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import firebase from 'firebase';
+import { FeedPage } from '../feed/feed';
 
 @Component({
   selector: 'page-home',
@@ -13,7 +14,7 @@ import firebase from 'firebase';
 
 export class HomePage {
   @ViewChild(Slides) slides: Slides;
-  facebookLoggedIn = false;
+  facebookLoggedIn = false; 
   provider =  {
     loggedin: false,
     name: '',
@@ -61,5 +62,9 @@ export class HomePage {
    
   Logout(){
     this.fire.auth.signOut();
+  }
+
+  skip(){
+    this.navCtrl.setRoot(FeedPage);
   }
 }

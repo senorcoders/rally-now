@@ -15,21 +15,22 @@ import { RatePage } from '../rate/rate';
 
 export class FeedPage {
 
-  constructor(public navCtrl: NavController,public alertCtrl: AlertController, public popoverCtrl: PopoverController) { }
- 	
+  constructor(public navCtrl: NavController,public alertCtrl: AlertController, public popoverCtrl: PopoverController) { 
+  }
+
  	 goToOtherPage() {
  
-    this.navCtrl.push(AlertsPage);
+    this.navCtrl.setRoot(AlertsPage);
   }
 
    goToProfile() {
  
-    this.navCtrl.push(ProfilePage);
+    this.navCtrl.setRoot(ProfilePage);
   }
 
    goToHomeFilter() {
  
-    this.navCtrl.push(HomeFiltersPage);
+    this.navCtrl.setRoot(HomeFiltersPage);
   }
 
    presentPopover() {

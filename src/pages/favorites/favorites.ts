@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FeedPage } from '../feed/feed';
+import { AlertsPage } from '../alerts/alerts';
+import { ProfilePage } from '../profile/profile';
 
 /**
  * Generated class for the FavoritesPage page.
@@ -20,6 +23,18 @@ export class FavoritesPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FavoritesPage');
+  }
+
+   goToHome(){
+    this.navCtrl.setRoot(FeedPage);
+  }
+
+  goToAlerts(){
+    this.navCtrl.setRoot(AlertsPage);
+  }
+
+  goToProfile(){
+    this.navCtrl.setRoot(ProfilePage);
   }
 
 }

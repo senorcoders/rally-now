@@ -48,6 +48,6 @@ export class LinkedAccountsPage {
   }
 
   goBack(){
-    this.navCtrl.push(SettingsPage);
+    this.navCtrl.setRoot(SettingsPage);
   }
 }

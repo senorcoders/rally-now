@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FeedPage } from '../feed/feed';
+import { AlertsPage } from '../alerts/alerts';
+import { ProfilePage } from '../profile/profile';
+
 
 /**
  * Generated class for the FriendsactivityPage page.
@@ -20,6 +24,18 @@ export class FriendsactivityPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FriendsactivityPage');
+  }
+
+   goToHome(){
+    this.navCtrl.setRoot(FeedPage);
+  }
+
+  goToAlerts(){
+    this.navCtrl.setRoot(AlertsPage);
+  }
+
+  goToProfile(){
+    this.navCtrl.setRoot(ProfilePage);
   }
 
 }

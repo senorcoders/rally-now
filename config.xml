@@ -96,4 +96,5 @@
         <variable name="SENDER_ID" value="1017475098724" />
     </plugin>
     <engine name="ios" spec="~4.3.1" />
+    <allow-navigation href="http://192.168.8.107:8100" />
 </widget>

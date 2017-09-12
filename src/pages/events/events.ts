@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { FilterEventsPage } from '../filter-events/filter-events';
+import { FeedPage } from '../feed/feed';
+import { AlertsPage } from '../alerts/alerts';
+import { ProfilePage } from '../profile/profile';
+
+
 
 
 /**
@@ -18,6 +23,7 @@ import { FilterEventsPage } from '../filter-events/filter-events';
 export class EventsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+
   }
 
   ionViewDidLoad() {
@@ -27,6 +33,18 @@ export class EventsPage {
    filterEvents() {
     let modal = this.modalCtrl.create(FilterEventsPage);
     modal.present();
+  }
+
+   goToHome(){
+    this.navCtrl.setRoot(FeedPage);
+  }
+
+  goToAlerts(){
+    this.navCtrl.setRoot(AlertsPage);
+  }
+
+  goToProfile(){
+    this.navCtrl.setRoot(ProfilePage);
   }
 
 }

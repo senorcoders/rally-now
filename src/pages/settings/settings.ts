@@ -7,6 +7,9 @@ import { PrivacyPolicyPage } from '../privacy-policy/privacy-policy';
 import { PushNotificationsSettingsPage } from '../push-notifications-settings/push-notifications-settings';
 import { ReportProblemPage } from '../report-problem/report-problem';
 import { ChangePasswordPage } from '../change-password/change-password';
+import { FeedPage } from '../feed/feed';
+import { AlertsPage } from '../alerts/alerts';
+import { ProfilePage } from '../profile/profile';
 
 
 /**
@@ -83,6 +86,18 @@ export class SettingsPage {
 
   goToChangePassword(){
   	this.navCtrl.push(ChangePasswordPage);
+  }
+
+    goToHome(){
+    this.navCtrl.setRoot(FeedPage);
+  }
+
+  goToAlerts(){
+    this.navCtrl.setRoot(AlertsPage);
+  }
+
+  goToProfile(){
+    this.navCtrl.setRoot(ProfilePage);
   }
 
 }

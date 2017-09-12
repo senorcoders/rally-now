@@ -103,21 +103,26 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar style="min-height: auto; padding: 0;">
-    <ion-row> 
-      <ion-col col-2 class="footer-icons">
-          <ion-icon name="ios-home"></ion-icon>
-      </ion-col>
-      <ion-col col-6>
-            <p class="white-footer">Take Action</p>
-      </ion-col>
-      <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">
-        <ion-icon name="ios-notifications"></ion-icon>
-      </ion-col>
-      <ion-col class="footer-icons">
-        <ion-icon name="ios-person"></ion-icon>
-
-      </ion-col>
-    </ion-row>
-  </ion-toolbar>
+    <ion-toolbar style="min-height: auto; padding: 0;">
+        <ion-row>
+            <ion-col col-2 class="footer-icons">
+                <button (click)="goToHome()">
+                    <ion-icon name="ios-home"></ion-icon>
+                </button>
+            </ion-col>
+            <ion-col col-6>
+                <p class="white-footer">Take Action</p>
+            </ion-col>
+            <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">
+                <button (click)="goToAlerts()">
+                    <ion-icon name="ios-notifications"></ion-icon>
+                </button>
+            </ion-col>
+            <ion-col class="footer-icons">
+                <button (click)="goToProfile()">
+                    <ion-icon name="ios-person"></ion-icon>
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
 </ion-footer>

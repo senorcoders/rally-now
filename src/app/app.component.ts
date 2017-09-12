@@ -3,7 +3,7 @@ import { Platform, AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
-import { FeedPage } from '../pages/feed/feed';
+//import { FeedPage } from '../pages/feed/feed';
 // import {
 //   Push,
 //   PushToken
@@ -16,16 +16,17 @@ import { Push, PushObject, PushOptions } from '@ionic-native/push';
     templateUrl: 'app.html'
 })
 export class MyApp {
-    rootPage: any = FeedPage;
+    rootPage: any = HomePage;
 
-    constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public alertCtrl: AlertController, private push: Push) {
-        platform.ready().then(() => {
-            // Okay, so the platform is ready and our plugins are available.
-            // Here you can do any higher level native things you might need.
+
+    constructor(public platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public alertCtrl: AlertController, private push: Push) {
+          platform.ready().then((readySource) => {
+
+            console.log("Platform Ready from ", readySource);
             statusBar.styleDefault();
-            splashScreen.hide();
+            //splashScreen.hide();
             this.pushsetup();
-
+           
           
         });
     }

@@ -23,6 +23,6 @@ export class RatePage {
   }
 
   goBack(){
-    this.navCtrl.push(FeedPage);
+    this.navCtrl.setRoot(FeedPage);
   }
 }
