@@ -4,8 +4,8 @@ import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
-import firebase from 'firebase';
 import { FeedPage } from '../feed/feed';
+import firebase from 'firebase';
 
 @Component({
   selector: 'page-home',
@@ -64,7 +64,8 @@ export class HomePage {
     this.fire.auth.signOut();
   }
 
-  skip(){
-    this.navCtrl.setRoot(FeedPage);
-  }
+ 
+  goToFeed() {    
+       this.navCtrl.setRoot(FeedPage);
+     }
 }
