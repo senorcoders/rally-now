@@ -10,6 +10,8 @@ import { ChangePasswordPage } from '../change-password/change-password';
 import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
+import { PopoverController } from 'ionic-angular';
+import { OverlayPage } from '../overlay/overlay'
 
 
 /**
@@ -26,7 +28,7 @@ import { ProfilePage } from '../profile/profile';
 })
 export class SettingsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public actionSheetCtrl: ActionSheetController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public actionSheetCtrl: ActionSheetController, public popoverCtrl: PopoverController) {
   }
 
   ionViewDidLoad() {
@@ -99,5 +101,9 @@ export class SettingsPage {
   goToProfile(){
     this.navCtrl.setRoot(ProfilePage);
   }
+  presentPopover() {
+       let popover = this.popoverCtrl.create(OverlayPage);
+       popover.present();
+     }
 
 }

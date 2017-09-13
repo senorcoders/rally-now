@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular';
 import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
+import { OverlayPage } from '../overlay/overlay'
+
 
 /**
  * Generated class for the FavoritesPage page.
@@ -18,7 +20,7 @@ import { ProfilePage } from '../profile/profile';
 })
 export class FavoritesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController) {
   }
 
   ionViewDidLoad() {
@@ -36,5 +38,10 @@ export class FavoritesPage {
   goToProfile(){
     this.navCtrl.setRoot(ProfilePage);
   }
+
+   presentPopover() {
+       let popover = this.popoverCtrl.create(OverlayPage);
+       popover.present();
+     }
 
 }

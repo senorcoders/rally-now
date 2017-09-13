@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, PopoverController } from 'ionic-angular';
 import { FilterEventsPage } from '../filter-events/filter-events';
 import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
+import { OverlayPage } from '../overlay/overlay'
+
 
 
 
@@ -22,7 +24,7 @@ import { ProfilePage } from '../profile/profile';
 })
 export class EventsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController,  public popoverCtrl: PopoverController) {
 
   }
 
@@ -46,5 +48,10 @@ export class EventsPage {
   goToProfile(){
     this.navCtrl.setRoot(ProfilePage);
   }
+
+   presentPopover() {
+       let popover = this.popoverCtrl.create(OverlayPage);
+       popover.present();
+     }
 
 }

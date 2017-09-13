@@ -5,54 +5,56 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title><p class="white">Rally</p></ion-title>
-  </ion-navbar>
-
+    <ion-navbar>
+        <ion-title>
+            <p class="white">Rally</p>
+        </ion-title>
+    </ion-navbar>
 </ion-header>
-
-
 <ion-content>
-	<ion-row padding class="bordered">
-		<ion-col col-8>
-			<p class="gray">Calling this office</p>
-			<h3>Bob Representative</h3>
-			<p class="gray"><ion-icon name="ios-call"></ion-icon> (123) 456-7890</p>		
-		</ion-col>
-		<ion-col col-4>
-			<div class="bob-headshot"></div>
-		</ion-col>
-		<ion-col col-12>
-			This is your local representative in the house.
-		</ion-col>
-	</ion-row>
-
-	<ion-row padding>
-		<ion-list>
-			<ion-list-header style="border: none; padding-left: 0;">Talking Points</ion-list-header>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit eos veniam pariatur expedita aut fugit dicta maxime iure temporibus molestiae.</p>
-
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis cumque fuga placeat quidem tenetur rerum sed provident ab, quisquam similique?</p>
-
-		</ion-list>
-	</ion-row>
-
+    <ion-row padding class="bordered">
+        <ion-col col-8>
+            <p class="gray">Calling this office</p>
+            <h3>Bob Representative</h3>
+            <p class="gray">
+                <ion-icon name="ios-call"></ion-icon> (123) 456-7890</p>
+        </ion-col>
+        <ion-col col-4>
+            <div class="bob-headshot"></div>
+        </ion-col>
+        <ion-col col-12>
+            This is your local representative in the house.
+        </ion-col>
+    </ion-row>
+    <ion-row padding>
+        <ion-list>
+            <ion-list-header style="border: none; padding-left: 0;">Talking Points</ion-list-header>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit eos veniam pariatur expedita aut fugit dicta maxime iure temporibus molestiae.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis cumque fuga placeat quidem tenetur rerum sed provident ab, quisquam similique?</p>
+        </ion-list>
+    </ion-row>
 </ion-content>
-
 <ion-footer>
-	<ion-row no-padding>
-		<ion-col no-padding style="border-right: 1px solid #fff;">
-			  <button ion-button full class="bob-button">
-			  <ion-icon name="md-call" style="font-size: 40px;"></ion-icon>
-			  </button>
-
-		</ion-col>
-		<ion-col no-padding>
-			 <button ion-button full class="bob-button">
-			  <ion-icon name="md-close" style="font-size: 40px;"></ion-icon>
-			  </button>
-		</ion-col>
-	</ion-row>
-  <button style="margin: 0;" ion-button full color="danger">Trouble getting through?</button>
+    <ion-toolbar style="min-height: auto; padding: 0;" color="primary">
+        <ion-row>
+            <ion-col col-2 class="footer-icons" style="border-right: 0px solid;">
+                <button (click)="goToHome()">
+                    <ion-icon name="ios-home"></ion-icon>
+                </button>
+            </ion-col>
+            <ion-col col-6>
+                <p (click)="presentPopover()" class="white-footer">Trouble?</p>
+            </ion-col>
+            <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">
+                <button (click)="goToAlerts()">
+                    <ion-icon name="ios-notifications"></ion-icon>
+                </button>
+            </ion-col>
+            <ion-col class="footer-icons">
+                <button (click)="goToProfile()">
+                    <ion-icon name="ios-person"></ion-icon>
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
 </ion-footer>

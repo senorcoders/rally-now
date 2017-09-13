@@ -34,21 +34,24 @@
       <ion-list-header>
         PUBLIC INFORMATION
       </ion-list-header>
-      <ion-item>
-        <ion-icon ios="ios-pricetag" md="ios-pricetag" item-start></ion-icon>
-          Sally Smith
+       <ion-item>
+         <ion-icon ios="ios-pricetag" md="ios-pricetag" item-start></ion-icon>
+
+          <ion-input placeholder="Sally Smith" clearInput></ion-input>
       </ion-item>
+
+    
       <ion-item>
           <ion-icon ios="md-globe" md="md-globe" item-start></ion-icon>
-            http://sally-smith.com
+          <ion-input placeholder="http://sally-smith.com" clearInput></ion-input>          
       </ion-item>
       <ion-item>
           <ion-icon ios="md-information-circle" md="md-information-circle" item-start></ion-icon>
-            I like cool things
+          <ion-input placeholder="I like cool things" clearInput></ion-input>
       </ion-item>
       <ion-item>
           <ion-icon ios="md-map" md="md-map" item-start></ion-icon>
-            Phoenix, AZ
+          <ion-input placeholder="Phoenix, AZ" clearInput></ion-input>
       </ion-item>
       <ion-item>
           <ion-label>Hide my profile from search</ion-label>
@@ -63,19 +66,20 @@
         </ion-list-header>
         <ion-item>
             <ion-icon ios="ios-mail" md="md-mail" item-start></ion-icon>
-            me@sallysmith.com
+            <ion-input placeholder="me@sallysmith.com" clearInput></ion-input>
         </ion-item>
         <ion-item>
             <ion-icon ios="ios-phone-portrait" md="md-phone-portrait" item-start></ion-icon>
-              (123) 456-7890
+            <ion-input placeholder="(123) 346-7890" clearInput></ion-input>
         </ion-item>
         <ion-item>
             <ion-icon ios="ios-person" md="md-person" item-start></ion-icon>
-              Female
+            <ion-input placeholder="Female" clearInput></ion-input>
         </ion-item>
         <ion-item>
             <ion-icon ios="ios-home" md="md-home" item-start></ion-icon>
-              123 main St. #12345, Washington DC, 12345
+            <ion-input placeholder="123 main St. #12345, Washington DC, 12345" clearInput></ion-input>
+              
         </ion-item>        
       </ion-list>
 
@@ -85,7 +89,7 @@
     <ion-toolbar style="min-height: auto; padding: 0;" color="primary">
         <ion-row>
             <ion-col col-2 class="footer-icons" style="border-right: 0px solid;">
-                <button (click)="goToOtherPage()">
+                <button (click)="goToHome()">
                     <ion-icon name="ios-home"></ion-icon>
                 </button>
             </ion-col>
@@ -93,7 +97,7 @@
                 <p (click)="presentPopover()" class="white-footer">Edit Profile</p>
             </ion-col>
             <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">
-                <button (click)="goToOtherPage()">
+                <button (click)="goToAlerts()">
                     <ion-icon name="ios-notifications"></ion-icon>
                 </button>
             </ion-col>

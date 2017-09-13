@@ -9,6 +9,8 @@ import { FollowedCandidatesPage } from '../followed-candidates/followed-candidat
 import { EditProfilePage } from '../edit-profile/edit-profile';
 import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
+import { PopoverController } from 'ionic-angular';
+import { OverlayPage } from '../overlay/overlay'
 
 
 
@@ -19,7 +21,7 @@ import { AlertsPage } from '../alerts/alerts';
 
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController, public popoverCtrl: PopoverController) {}
  	 goToSettings(){
   	this.navCtrl.push(SettingsPage);
   }
@@ -55,6 +57,11 @@ export class ProfilePage {
   goToAlerts(){
     this.navCtrl.setRoot(AlertsPage);
   }
+
+  presentPopover() {
+       let popover = this.popoverCtrl.create(OverlayPage);
+       popover.present();
+     }
 
         
 }

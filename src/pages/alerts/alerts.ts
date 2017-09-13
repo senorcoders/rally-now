@@ -3,7 +3,8 @@ import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
 import { FeedPage } from '../feed/feed'
-
+import { PopoverController } from 'ionic-angular';
+import { OverlayPage } from '../overlay/overlay'
 
 
 @Component({
@@ -13,7 +14,7 @@ import { FeedPage } from '../feed/feed'
 
 export class AlertsPage {
 
-  constructor(public navCtrl: NavController,public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController,public alertCtrl: AlertController, public popoverCtrl: PopoverController) {
 
   }
   goToProfile() {
@@ -25,6 +26,11 @@ export class AlertsPage {
   goToHome(){
   	this.navCtrl.setRoot(FeedPage);
   }
+
+   presentPopover() {
+       let popover = this.popoverCtrl.create(OverlayPage);
+       popover.present();
+     }
  
 
         

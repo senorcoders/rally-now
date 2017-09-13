@@ -5,6 +5,8 @@ import { CallPage } from '../call/call';
 import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
+import { PopoverController } from 'ionic-angular';
+import { OverlayPage } from '../overlay/overlay'
 
 
 /**
@@ -21,7 +23,7 @@ import { ProfilePage } from '../profile/profile';
 })
 export class TakeactionPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController, public popoverCtrl: PopoverController) {
   }
 
   ionViewDidLoad() {
@@ -80,5 +82,10 @@ export class TakeactionPage {
   goToProfile(){
     this.navCtrl.setRoot(ProfilePage);
   }
+
+  presentPopover() {
+       let popover = this.popoverCtrl.create(OverlayPage);
+       popover.present();
+     }
 
 }
