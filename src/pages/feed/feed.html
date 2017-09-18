@@ -11,7 +11,7 @@
     </ion-navbar>
 </ion-header>
 <ion-content>
-    <ion-card>
+    <ion-card *ngFor="let organization of organizationsData">
         <ion-fab right top>
             <button ion-fab color="light">
                 <ion-icon name="ios-more"></ion-icon>
@@ -35,7 +35,7 @@
             <ion-avatar item-start>
                 <img src="assets/img/login-image.jpg">
             </ion-avatar>
-            <h2>ACLU</h2>
+            <h2>{{organization.name}}</h2>
         </ion-item>
         <img src="assets/img/login-image.jpg">
         <ion-card-content>

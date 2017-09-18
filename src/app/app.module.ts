@@ -44,6 +44,8 @@ import { ImagePicker } from '@ionic-native/image-picker';
 import { UserData } from '../providers/user-data';
 import { IonicStorageModule } from '@ionic/storage';
 import { PublicFeedPage } from '../pages/public-feed/public-feed';
+import { OrganizationsProvider } from '../providers/organizations/organizations';
+import {HttpModule} from '@angular/http';
 
 
 
@@ -126,6 +128,7 @@ firebase.initializeApp(config);
         IonicModule.forRoot(MyApp),
         AngularFireModule.initializeApp(config),
         IonicStorageModule.forRoot(),
+        HttpModule,
         AngularFireAuthModule,
                 //IonicModule.forRoot(MyApp),
                 CloudModule.forRoot(cloudSettings)
@@ -174,7 +177,8 @@ firebase.initializeApp(config);
         SplashScreen,
         { provide: ErrorHandler, useClass: IonicErrorHandler },
         ImagePicker,
-        UserData
+        UserData,
+        OrganizationsProvider
     ]
 })
 export class AppModule {}

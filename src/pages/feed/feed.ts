@@ -7,6 +7,8 @@ import { HomeFiltersPage } from '../home-filters/home-filters';
 import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay'
 import { RatePage } from '../rate/rate';
+import { OrganizationsProvider } from '../../providers/organizations/organizations';
+
 
 @Component({
   selector: 'page-feed',
@@ -14,8 +16,15 @@ import { RatePage } from '../rate/rate';
 })
 
 export class FeedPage {
+  organizationsData:any;
 
-  constructor(public navCtrl: NavController,public alertCtrl: AlertController, public popoverCtrl: PopoverController) { 
+  constructor(
+    public navCtrl: NavController,
+    public alertCtrl: AlertController, 
+    public popoverCtrl: PopoverController,
+    private httpProvider:OrganizationsProvider) { 
+
+    this.getdata();
   }
 
  	 goToOtherPage() {
@@ -41,4 +50,19 @@ export class FeedPage {
   goToRatePage() {
     this.navCtrl.push(RatePage);
   }
+
+  getdata(){
+  this.httpProvider.getJsonData().subscribe(
+    result => {
+      this.organizationsData=result;
+      console.log("Success : "+ result);
+    },
+    err =>{
+      console.error("Error : "+err);
+    } ,
+    () => {
+      console.log('getData completed');
+    }
+  );
+}
 }
