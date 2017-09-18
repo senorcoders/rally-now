@@ -11,6 +11,8 @@ import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
 import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay'
+import { UserData } from '../../providers/user-data';
+
 
 
 
@@ -21,7 +23,49 @@ import { OverlayPage } from '../overlay/overlay'
 
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public popoverCtrl: PopoverController) {}
+  profileURL:any;
+  name:string;
+  location:string;
+  description:string;
+
+  constructor(
+    public navCtrl: NavController, 
+    public popoverCtrl: PopoverController,
+    public userData: UserData
+    ) {}
+
+ ngAfterViewInit(){
+      this.getProfilePicture();
+      this.getUsername();
+      this.getLocation();
+      this.getDescription();
+  }
+
+  getProfilePicture(){
+      this.userData.getPhotoUrl().then((image) => {
+          console.log(image);
+          this.profileURL = image;
+      }); 
+   }
+
+   getUsername(){
+     this.userData.getUsername().then((username) => {
+       this.name = username;
+     }); 
+   }
+
+   getLocation(){
+     this.userData.getLocation().then((location) => {
+       this.location = location;
+     }); 
+   }
+
+   getDescription(){
+     this.userData.getDescription().then((description) => {
+       this.description = description;
+     }); 
+   }
+
  	 goToSettings(){
   	this.navCtrl.push(SettingsPage);
   }

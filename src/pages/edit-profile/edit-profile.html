@@ -24,9 +24,9 @@
 <ion-content padding>
     <div text-center>
       <ion-avatar class="img-avatar">
-          <img src="assets/img/login-image.jpg">
+          <img src="{{profileURL}}">
       </ion-avatar>
-      <button ion-button clear>Change Profile Photo</button>
+      <button ion-button clear (click)="changeProfilePicture()">Change Profile Photo</button>
   
     </div>
 
@@ -37,7 +37,7 @@
        <ion-item>
          <ion-icon ios="ios-pricetag" md="ios-pricetag" item-start></ion-icon>
 
-          <ion-input placeholder="Sally Smith" clearInput></ion-input>
+          <ion-input value="{{name}}" placeholder="Sally Smith" clearInput></ion-input>
       </ion-item>
 
     
@@ -47,11 +47,11 @@
       </ion-item>
       <ion-item>
           <ion-icon ios="md-information-circle" md="md-information-circle" item-start></ion-icon>
-          <ion-input placeholder="I like cool things" clearInput></ion-input>
+          <ion-input value="{{description}}" placeholder="I like cool things" clearInput></ion-input>
       </ion-item>
       <ion-item>
           <ion-icon ios="md-map" md="md-map" item-start></ion-icon>
-          <ion-input placeholder="Phoenix, AZ" clearInput></ion-input>
+          <ion-input value="{{location}}" placeholder="Phoenix, AZ" clearInput></ion-input>
       </ion-item>
       <ion-item>
           <ion-label>Hide my profile from search</ion-label>
@@ -66,7 +66,7 @@
         </ion-list-header>
         <ion-item>
             <ion-icon ios="ios-mail" md="md-mail" item-start></ion-icon>
-            <ion-input placeholder="me@sallysmith.com" clearInput></ion-input>
+            <ion-input value="{{email}}" placeholder="me@sallysmith.com" clearInput></ion-input>
         </ion-item>
         <ion-item>
             <ion-icon ios="ios-phone-portrait" md="md-phone-portrait" item-start></ion-icon>
@@ -74,7 +74,7 @@
         </ion-item>
         <ion-item>
             <ion-icon ios="ios-person" md="md-person" item-start></ion-icon>
-            <ion-input placeholder="Female" clearInput></ion-input>
+            <ion-input value="{{gender}}" placeholder="Female" clearInput></ion-input>
         </ion-item>
         <ion-item>
             <ion-icon ios="ios-home" md="md-home" item-start></ion-icon>

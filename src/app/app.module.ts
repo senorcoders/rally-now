@@ -37,21 +37,28 @@ import { FilterEventsPage } from '../pages/filter-events/filter-events';
 import { UnlinkFacebookPage } from '../pages/unlink-facebook/unlink-facebook';
 import { RatePage } from '../pages/rate/rate';
 import { ChangePasswordPage } from '../pages/change-password/change-password';
-import firebase from 'firebase';
+import * as firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { Push } from '@ionic-native/push';
+import { ImagePicker } from '@ionic-native/image-picker';
+import { UserData } from '../providers/user-data';
+import { IonicStorageModule } from '@ionic/storage';
+import { PublicFeedPage } from '../pages/public-feed/public-feed';
+
+
+
 
 
 
 var config = {
-    apiKey: "AIzaSyCji0mJw_7CYYcVupmz3TDP0Q6ABOOpcbE",
-    authDomain: "test-144e3.firebaseapp.com",
-    databaseURL: "https://test-144e3.firebaseio.com",
-    projectId: "test-144e3",
-    storageBucket: "test-144e3.appspot.com",
-    messagingSenderId: "924920604639"
-};
+   apiKey: "AIzaSyD72XPFvI7g9btbl20FGsCuoRF5rOqOFyM",
+    authDomain: "rally-up-12c9b.firebaseapp.com",
+    databaseURL: "https://rally-up-12c9b.firebaseio.com",
+    projectId: "rally-up-12c9b",
+    storageBucket: "rally-up-12c9b.appspot.com",
+    messagingSenderId: "1017475098724"
+  };
+
 
 
 const cloudSettings: CloudSettings = {
@@ -71,6 +78,9 @@ const cloudSettings: CloudSettings = {
     }
   }
 };
+
+firebase.initializeApp(config);
+
 
 @NgModule({
     declarations: [
@@ -108,12 +118,14 @@ const cloudSettings: CloudSettings = {
         FilterEventsPage,
         ReportProblemPage,
         RatePage,
-        ChangePasswordPage
+        ChangePasswordPage,
+        PublicFeedPage
     ],
     imports: [
         BrowserModule,
         IonicModule.forRoot(MyApp),
         AngularFireModule.initializeApp(config),
+        IonicStorageModule.forRoot(),
         AngularFireAuthModule,
                 //IonicModule.forRoot(MyApp),
                 CloudModule.forRoot(cloudSettings)
@@ -154,13 +166,15 @@ const cloudSettings: CloudSettings = {
         FilterEventsPage,
         ReportProblemPage,
         RatePage,
-        ChangePasswordPage
+        ChangePasswordPage,
+        PublicFeedPage
     ],
     providers: [
         StatusBar,
         SplashScreen,
-        Push,
-        { provide: ErrorHandler, useClass: IonicErrorHandler }
+        { provide: ErrorHandler, useClass: IonicErrorHandler },
+        ImagePicker,
+        UserData
     ]
 })
 export class AppModule {}

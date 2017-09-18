@@ -98,16 +98,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "phonegap-plugin-push": {
-        "source": {
-            "type": "registry",
-            "id": "phonegap-plugin-push@~1.10.5"
-        },
-        "is_top_level": true,
-        "variables": {
-            "SENDER_ID": "1017475098724"
-        }
-    },
     "cordova-plugin-fcm": {
         "source": {
             "type": "registry",
@@ -115,5 +105,15 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "com.synconset.imagepicker": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-telerik-imagepicker"
+        },
+        "is_top_level": true,
+        "variables": {
+            "PHOTO_LIBRARY_USAGE_DESCRIPTION": "choose profile picture"
+        }
     }
 }

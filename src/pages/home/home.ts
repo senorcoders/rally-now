@@ -6,6 +6,10 @@ import { AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FeedPage } from '../feed/feed';
 import firebase from 'firebase';
+import { Storage } from '@ionic/storage';
+import { PublicFeedPage } from '../public-feed/public-feed';
+
+
 
 @Component({
   selector: 'page-home',
@@ -20,11 +24,15 @@ export class HomePage {
     name: '',
     profilePicture : '',
     email: false
-  }
+  };
+   HAS_LOGGED_IN = 'hasLoggedIn';
+
   constructor(
     private fire: AngularFireAuth,
     public navCtrl: NavController,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+   public storage: Storage,
+
   ) {
 
   }
@@ -43,7 +51,17 @@ export class HomePage {
       this.provider.loggedin = true;
       this.provider.name = res.user.displayName;
       this.provider.email = res.user.email;
+      this.storage.set('UID', res.user.uid);
+      this.storage.set('DISPLAYNAME', res.user.displayName);
+      this.storage.set('USERNAME', res.user.username);
+      this.storage.set('PHOTOURL', res.user.photoURL);
+      this.storage.set('PROVIDER', res.user.providerId);
+      this.storage.set('EMAIL', res.user.email);
+      this.storage.set('LOCATION', res.additionalUserInfo.profile.locale);
+      this.storage.set('GENDER', res.additionalUserInfo.profile.gender);
+      this.storage.set(this.HAS_LOGGED_IN, true);
       console.log(res);
+      this.navCtrl.setRoot(FeedPage);
     })
   }
 
@@ -51,11 +69,21 @@ export class HomePage {
     this.fire.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider())
     .then( res=> {
       console.log('From --Twitter--');
-      console.log(res);
       /*this.provider.loggedin = true;
       this.provider.name = res.user.displayName;
       this.provider.emai = res.user.email;
       this.provider.profilePicture = res.user.photoURL;*/
+      this.storage.set('UID', res.user.uid);
+      this.storage.set('DISPLAYNAME', res.user.displayName);
+      this.storage.set('USERNAME', res.user.username);
+      this.storage.set('PHOTOURL', res.user.photoURL);
+      this.storage.set('PROVIDER', res.user.providerId);
+      this.storage.set('EMAIL', res.user.email);
+      this.storage.set('LOCATION', res.additionalUserInfo.profile.location);
+      this.storage.set('DESCRIPTION', res.additionalUserInfo.profile.description);
+      this.storage.set(this.HAS_LOGGED_IN, true);
+      console.log(res);
+      this.navCtrl.setRoot(FeedPage);
     })
     
   }
@@ -66,6 +94,6 @@ export class HomePage {
 
  
   goToFeed() {    
-       this.navCtrl.setRoot(FeedPage);
+       this.navCtrl.setRoot(PublicFeedPage);
      }
 }
