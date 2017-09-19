@@ -47,6 +47,8 @@ import { PublicFeedPage } from '../pages/public-feed/public-feed';
 import { OrganizationsProvider } from '../providers/organizations/organizations';
 import {HttpModule} from '@angular/http';
 import { Camera } from '@ionic-native/camera';
+import { Facebook } from '@ionic-native/facebook'
+
 
 
 var config = {
@@ -176,7 +178,8 @@ firebase.initializeApp(config);
         ImagePicker,
         UserData,
         OrganizationsProvider,
-        Camera
+        Camera,
+        Facebook
     ]
 })
 export class AppModule {}

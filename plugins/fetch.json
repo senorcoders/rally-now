@@ -2,12 +2,12 @@
     "cordova-plugin-facebook4": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-facebook4@^1.9.1"
+            "id": "cordova-plugin-facebook4"
         },
         "is_top_level": true,
         "variables": {
-            "APP_ID": "831382510351634",
-            "APP_NAME": "ionic-rally"
+            "APP_ID": "163624830854172",
+            "APP_NAME": "Rally U"
         }
     },
     "cordova-plugin-console": {
