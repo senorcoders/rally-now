@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1017475098724",
+    "firebase_url": "https://rally-up-12c9b.firebaseio.com",
+    "project_id": "rally-up-12c9b",
+    "storage_bucket": "rally-up-12c9b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1017475098724:android:61903af5b6ed8c65",
+        "android_client_info": {
+          "package_name": "com.senorcoders.rallyup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1017475098724-obbae9nk3cfjtghqjtoapc8qr6dqsa75.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACVlTEJsijAIU9ziwAxN21CxUd1UarOIY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -46,10 +46,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { PublicFeedPage } from '../pages/public-feed/public-feed';
 import { OrganizationsProvider } from '../providers/organizations/organizations';
 import {HttpModule} from '@angular/http';
-
-
-
-
+import { Camera } from '@ionic-native/camera';
 
 
 var config = {
@@ -178,7 +175,8 @@ firebase.initializeApp(config);
         { provide: ErrorHandler, useClass: IonicErrorHandler },
         ImagePicker,
         UserData,
-        OrganizationsProvider
+        OrganizationsProvider,
+        Camera
     ]
 })
 export class AppModule {}

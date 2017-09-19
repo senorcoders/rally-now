@@ -115,5 +115,13 @@
         "variables": {
             "PHOTO_LIBRARY_USAGE_DESCRIPTION": "choose profile picture"
         }
+    },
+    "cordova-plugin-camera": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-camera"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
