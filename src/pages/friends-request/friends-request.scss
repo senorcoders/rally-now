@@ -50,6 +50,17 @@ page-friends-request {
             padding: 8px 16px 8px 0;
         }
     }
+
+      .spinner-container {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    ion-searchbar{
+            border: none !important;
+    background: no-repeat !important;
+    }
 }
 
 .button {

@@ -123,5 +123,18 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "twitter-connect-plugin": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/chroa/twitter-connect-plugin",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {
+            "FABRIC_KEY": "3c645ae4b4b4f24dc1bb3bdba248f53e7a904d79",
+            "TWITTER_KEY": "mX4bWG9qdpR8eRcDO3AjbbLKI",
+            "TWITTER_SECRET": "RkghHyvOiYsLLDhynTGm1gjZUBtEyn0OMNzmt61rmWGqfnSb0Y"
+        }
     }
 }

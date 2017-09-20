@@ -12,6 +12,10 @@ import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
 import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay'
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Storage } from '@ionic/storage';
+import { HomePage } from '../home/home';
+
 
 
 /**
@@ -28,7 +32,18 @@ import { OverlayPage } from '../overlay/overlay'
 })
 export class SettingsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public actionSheetCtrl: ActionSheetController, public popoverCtrl: PopoverController) {
+  HAS_LOGGED_IN = 'hasLoggedIn';
+
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public modalCtrl: ModalController, 
+    public actionSheetCtrl: ActionSheetController, 
+    public popoverCtrl: PopoverController,
+    private fire: AngularFireAuth,
+    public storage: Storage,
+    ) {
   }
 
   ionViewDidLoad() {
@@ -105,5 +120,20 @@ export class SettingsPage {
        let popover = this.popoverCtrl.create(OverlayPage);
        popover.present();
      }
+
+      Logout(){
+        this.fire.auth.signOut();
+        this.storage.remove('UID');
+        this.storage.remove('DISPLAYNAME');
+        this.storage.remove('USERNAME');
+        this.storage.remove('PHOTOURL');
+        this.storage.remove('PROVIDER');
+        this.storage.remove('EMAIL');
+        this.storage.remove('LOCATION');
+        this.storage.remove('GENDER');
+        this.storage.remove('DESCRIPTION');
+        this.storage.set(this.HAS_LOGGED_IN, false);
+        this.navCtrl.setRoot(HomePage);
+  }
 
 }

@@ -8,7 +8,8 @@ import { FeedPage } from '../feed/feed';
 import firebase from 'firebase';
 import { Storage } from '@ionic/storage';
 import { PublicFeedPage } from '../public-feed/public-feed';
-import { Facebook } from '@ionic-native/facebook';
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
+import { TwitterConnect } from '@ionic-native/twitter-connect';
 
 
 
@@ -33,8 +34,9 @@ export class HomePage {
     private fire: AngularFireAuth,
     public navCtrl: NavController,
     public alertCtrl: AlertController,
-   public storage: Storage,
-   private facebook: Facebook
+    public storage: Storage,
+    private facebook: Facebook,
+    private twitter: TwitterConnect
 
   ) {
 
@@ -47,43 +49,19 @@ export class HomePage {
     this.slides.paginationType = 'bullets';
   } 
     
-  // LoginWithFacebook(){
-  //   //let fbProvider = new firebase.auth.FacebookAuthProvider();
+ 
 
-  //   this.fire.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
-  //   .then( res=>{
-  //     console.log('From --Facebook--');
-  //     this.provider.loggedin = true;
-  //     this.provider.name = res.user.displayName;
-  //     this.provider.email = res.user.email;
-  //     this.storage.set('UID', res.user.uid);
-  //     this.storage.set('DISPLAYNAME', res.user.displayName);
-  //     this.storage.set('USERNAME', res.user.username);
-  //     this.storage.set('PHOTOURL', res.user.photoURL);
-  //     this.storage.set('PROVIDER', res.user.providerId);
-  //     this.storage.set('EMAIL', res.user.email);
-  //     this.storage.set('LOCATION', res.additionalUserInfo.profile.locale);
-  //     this.storage.set('GENDER', res.additionalUserInfo.profile.gender);
-  //     this.storage.set(this.HAS_LOGGED_IN, true);
-  //     console.log(res);
-  //     this.navCtrl.setRoot(FeedPage);
-  //   });
-
-
-  // }
-
-  facebookLogin(){
+  facebookLogin(): void{
     console.log("Hola Facebook 3");
-    this.facebook.login(['email', 'public_profile']).then( (response) => {
-        const facebookCredential = firebase.auth.FacebookAuthProvider
-            .credential(response.authResponse.accessToken);
 
-        firebase.auth().signInWithCredential(facebookCredential)
-        .then((success) => {
-            console.log("Firebase success: " + success.email);
-                this.provider.loggedin = true;
-                this.provider.name = success.displayName;
-                this.provider.email = success.email;
+    this.facebook.login(['public_profile', 'user_friends', 'email'])
+    .then((res: FacebookLoginResponse) => {
+      console.log('Logged into Facebook!', res);
+      const facebookCredential = firebase.auth.FacebookAuthProvider
+            .credential(res.authResponse.accessToken);
+       firebase.auth().signInWithCredential(facebookCredential)
+        .then(success => {
+                console.log("Firebase success: " + success);
                 this.storage.set('UID', success.uid);
                 this.storage.set('DISPLAYNAME', success.displayName);
                 this.storage.set('USERNAME', success.username);
@@ -94,43 +72,20 @@ export class HomePage {
                 this.storage.set('GENDER', success.profile.gender);
                 this.storage.set(this.HAS_LOGGED_IN, true);
                 this.navCtrl.setRoot(FeedPage);
-        })
-        .catch((error) => {
-            console.log("Firebase failure: " + JSON.stringify(error));
-        });
+        });     
+    }).catch(e => console.log('Error logging into Facebook', e));
 
-    }).catch((error) => { console.log(error) });
 }
 
-  // TwitterSignIn(){
-  //   console.log("Hola Twitter");
-  //   this.fire.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider())
-  //   .then( res=> {
-  //     console.log('From --Twitter--');
-  //     /*this.provider.loggedin = true;
-  //     this.provider.name = res.user.displayName;
-  //     this.provider.emai = res.user.email;
-  //     this.provider.profilePicture = res.user.photoURL;*/
-  //     this.storage.set('UID', res.user.uid);
-  //     this.storage.set('DISPLAYNAME', res.user.displayName);
-  //     this.storage.set('USERNAME', res.user.username);
-  //     this.storage.set('PHOTOURL', res.user.photoURL);
-  //     this.storage.set('PROVIDER', res.user.providerId);
-  //     this.storage.set('EMAIL', res.user.email);
-  //     this.storage.set('LOCATION', res.additionalUserInfo.profile.location);
-  //     this.storage.set('DESCRIPTION', res.additionalUserInfo.profile.description);
-  //     this.storage.set(this.HAS_LOGGED_IN, true);
-  //     console.log(res);
-  //     this.navCtrl.setRoot(FeedPage);
-  //   })
-    
-  // }
 
-  twitterLogin(){
-    let accessToken = '152740563-GxpWzlIXahQZZpJLjg8jIrrGSn5DMAmztUZSAJE3';
-      let secretKey = '1tKbcwAqnPTDoFXlIGiqVHRBcQDoOzEpMkOjZ7p0t5QJz';
-      const twitterCreds = firebase.auth.TwitterAuthProvider.credential(accessToken, secretKey);
-        firebase.auth().signInWithCredential(twitterCreds).then((res) => {
+
+twLogin(): void {
+  this.twitter.login().then( response => {
+    const twitterCredential = firebase.auth.TwitterAuthProvider
+        .credential(response.token, response.secret);
+
+    firebase.auth().signInWithCredential(twitterCredential)
+    .then( res => {
           this.storage.set('UID', res.uid);
           this.storage.set('DISPLAYNAME', res.displayName);
           this.storage.set('USERNAME', res.username);
@@ -141,11 +96,14 @@ export class HomePage {
           this.storage.set('DESCRIPTION', res.description);
           this.storage.set(this.HAS_LOGGED_IN, true);
           console.log(res);
-          this.navCtrl.setRoot(FeedPage);        
-        }, (err) => {
-          console.log('Login not successful' + err);
-        })
-  }
+          this.navCtrl.setRoot(FeedPage);
+    });
+  }, error => {
+    console.log("Error connecting to twitter: ", error);
+  });
+}
+
+ 
    
   Logout(){
     this.fire.auth.signOut();

@@ -48,6 +48,9 @@ import { OrganizationsProvider } from '../providers/organizations/organizations'
 import {HttpModule} from '@angular/http';
 import { Camera } from '@ionic-native/camera';
 import { Facebook } from '@ionic-native/facebook'
+import { DataProvider } from '../providers/data/data';
+import { TwitterConnect } from '@ionic-native/twitter-connect';
+
 
 
 
@@ -179,7 +182,9 @@ firebase.initializeApp(config);
         UserData,
         OrganizationsProvider,
         Camera,
-        Facebook
+        Facebook,
+        DataProvider,
+        TwitterConnect
     ]
 })
 export class AppModule {}
