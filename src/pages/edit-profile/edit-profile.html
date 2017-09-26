@@ -13,7 +13,7 @@
     </ion-buttons>
     <ion-title>Rally</ion-title>
     <ion-buttons end (click)="goToProfile()">
-      <button ion-button icon-only color="royal" clear>
+      <button ion-button icon-only color="royal" clear (click)="updateProfile()">
         Done
       </button>
     </ion-buttons>
@@ -24,7 +24,7 @@
 <ion-content padding>
     <div text-center>
       <ion-avatar class="img-avatar">
-          <img src="{{profileURL}}">
+          <img src="{{user.photoURL}}">
       </ion-avatar>
       <button ion-button clear (click)="capture()">Change Profile Photo</button>
   
@@ -32,26 +32,26 @@
 
     <ion-list>
       <ion-list-header>
-        PUBLIC INFORMATION
+        PUBLIC INFORMATION 
       </ion-list-header>
        <ion-item>
          <ion-icon ios="ios-pricetag" md="ios-pricetag" item-start></ion-icon>
 
-          <ion-input value="{{name}}" placeholder="Sally Smith" clearInput></ion-input>
+          <ion-input value="{{user.diplayName}}" placeholder="Sally Smith" clearInput [(ngModel)]="user.displayName"></ion-input>
       </ion-item>
 
     
       <ion-item>
           <ion-icon ios="md-globe" md="md-globe" item-start></ion-icon>
-          <ion-input placeholder="http://sally-smith.com" clearInput></ion-input>          
+          <ion-input value={{user.website}} placeholder="http://sally-smith.com" clearInput [(ngModel)]="user.website"></ion-input>          
       </ion-item>
       <ion-item>
           <ion-icon ios="md-information-circle" md="md-information-circle" item-start></ion-icon>
-          <ion-input value="{{description}}" placeholder="I like cool things" clearInput></ion-input>
+          <ion-input value="{{user.description}}" placeholder="I like cool things" clearInput [(ngModel)]="user.description"></ion-input>
       </ion-item>
       <ion-item>
           <ion-icon ios="md-map" md="md-map" item-start></ion-icon>
-          <ion-input value="{{location}}" placeholder="Phoenix, AZ" clearInput></ion-input>
+          <ion-input value="{{user.location}}" placeholder="Phoenix, AZ" clearInput [(ngModel)]="user.location"></ion-input>
       </ion-item>
       <ion-item>
           <ion-label>Hide my profile from search</ion-label>
@@ -66,19 +66,16 @@
         </ion-list-header>
         <ion-item>
             <ion-icon ios="ios-mail" md="md-mail" item-start></ion-icon>
-            <ion-input value="{{email}}" placeholder="me@sallysmith.com" clearInput></ion-input>
+            <ion-input value="{{user.email}}" placeholder="me@sallysmith.com" clearInput [(ngModel)]="user.email"></ion-input>
         </ion-item>
         <ion-item>
             <ion-icon ios="ios-phone-portrait" md="md-phone-portrait" item-start></ion-icon>
-            <ion-input placeholder="(123) 346-7890" clearInput></ion-input>
+            <ion-input value={{user.phone}} placeholder="(123) 346-7890" clearInput [(ngModel)]="user.phone"></ion-input>
         </ion-item>
-        <ion-item>
-            <ion-icon ios="ios-person" md="md-person" item-start></ion-icon>
-            <ion-input value="{{gender}}" placeholder="Female" clearInput></ion-input>
-        </ion-item>
+     
         <ion-item>
             <ion-icon ios="ios-home" md="md-home" item-start></ion-icon>
-            <ion-input placeholder="123 main St. #12345, Washington DC, 12345" clearInput></ion-input>
+            <ion-input value={{user.address}} placeholder="123 main St. #12345, Washington DC, 12345" clearInput [(ngModel)]="user.address"></ion-input>
               
         </ion-item>        
       </ion-list>

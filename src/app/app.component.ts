@@ -5,13 +5,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { UserData } from '../providers/user-data';
 import { FeedPage } from '../pages/feed/feed';
-// import {
-//   Push,
-//   PushToken
-// } from '@ionic/cloud-angular';
+//import { FCM } from '@ionic-native/fcm';
 
 
-//import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
 @Component({
     templateUrl: 'app.html'
@@ -25,30 +21,40 @@ export class MyApp {
     	statusBar: StatusBar, 
     	splashScreen: SplashScreen, 
     	public alertCtrl: AlertController,
-    	public userData: UserData
+    	public userData: UserData,
+      //private fcm: FCM
     	) {
        this.userData.hasLoggedIn().then((hasLoggedIn) => {
       
-      if(hasLoggedIn){
-        this.rootPage = FeedPage;
-      }
-      else{
-        this.rootPage = HomePage;
-      }
-    });
+                if(hasLoggedIn){
+                  this.rootPage = FeedPage;
+                }
+                else{
+                  this.rootPage = HomePage;
+                }
+        });
           platform.ready().then((readySource) => {
 
             console.log("Platform Ready from ", readySource);
             statusBar.styleDefault();
-            //splashScreen.hide();
-           
-          
+            //    this.fcm.getToken().then(token => {
+            //   // save this server-side and use it to push notifications to this device
+            //   console.log(`Obtained token:` + token);
+            //   this.fcm.subscribeToTopic('all');
+            // }, error => {
+            //   console.error(`Error: ` + error);
+            // });
+
+
         });
+
+
+          // fcm.onNotification().subscribe(data=>{
+          //   if(data.wasTapped){
+          //     console.log("Received in background" + data);
+          //   } else {
+          //     console.log("Received in foreground" +  data);
+          //   };
+          // })   
     }
-
-      
-
-  
-
-
 }

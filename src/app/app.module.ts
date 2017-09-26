@@ -37,7 +37,7 @@ import { FilterEventsPage } from '../pages/filter-events/filter-events';
 import { UnlinkFacebookPage } from '../pages/unlink-facebook/unlink-facebook';
 import { RatePage } from '../pages/rate/rate';
 import { ChangePasswordPage } from '../pages/change-password/change-password';
-import * as firebase from 'firebase';
+import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { ImagePicker } from '@ionic-native/image-picker';
@@ -50,9 +50,9 @@ import { Camera } from '@ionic-native/camera';
 import { Facebook } from '@ionic-native/facebook'
 import { DataProvider } from '../providers/data/data';
 import { TwitterConnect } from '@ionic-native/twitter-connect';
+import {AngularFireDatabase} from 'angularfire2/database';
 
-
-
+//import { FCM } from '@ionic-native/fcm';
 
 var config = {
    apiKey: "AIzaSyD72XPFvI7g9btbl20FGsCuoRF5rOqOFyM",
@@ -64,24 +64,6 @@ var config = {
   };
 
 
-
-const cloudSettings: CloudSettings = {
-  'core': {
-    'app_id': '6a339c20',
-  },
-  'push': {
-    'sender_id': '924920604639',
-    'pluginConfig': {
-      'ios': {
-        'badge': true,
-        'sound': true
-      },
-      'android': {
-        'iconColor': '#343434'
-      }
-    }
-  }
-};
 
 firebase.initializeApp(config);
 
@@ -132,8 +114,6 @@ firebase.initializeApp(config);
         IonicStorageModule.forRoot(),
         HttpModule,
         AngularFireAuthModule,
-                //IonicModule.forRoot(MyApp),
-                CloudModule.forRoot(cloudSettings)
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -184,7 +164,8 @@ firebase.initializeApp(config);
         Camera,
         Facebook,
         DataProvider,
-        TwitterConnect
+        TwitterConnect,
+        AngularFireDatabase
     ]
 })
 export class AppModule {}

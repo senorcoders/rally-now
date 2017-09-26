@@ -17,6 +17,7 @@ import { OrganizationsProvider } from '../../providers/organizations/organizatio
 
 export class FeedPage {
   organizationsData:any;
+  endpoint:string = 'organization';
 
   constructor(
     public navCtrl: NavController,
@@ -52,7 +53,7 @@ export class FeedPage {
   }
 
   getdata(){
-  this.httpProvider.getJsonData().subscribe(
+  this.httpProvider.getJsonData(this.endpoint).subscribe(
     result => {
       this.organizationsData=result;
       console.log("Success : "+ result);
@@ -65,4 +66,13 @@ export class FeedPage {
     }
   );
 }
+
+doRefresh(refresher) {
+  this.getdata();
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
 }

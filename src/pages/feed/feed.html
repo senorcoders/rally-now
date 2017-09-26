@@ -11,6 +11,14 @@
     </ion-navbar>
 </ion-header>
 <ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+     <ion-refresher-content
+      pullingText="Pull down to Refresh"
+      pullingIcon="arrow-dropdown"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
     <ion-card *ngFor="let organization of organizationsData">
         <ion-fab right top>
             <button ion-fab color="light">

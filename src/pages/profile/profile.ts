@@ -12,6 +12,7 @@ import { AlertsPage } from '../alerts/alerts';
 import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay'
 import { UserData } from '../../providers/user-data';
+import { AngularFireDatabase } from 'angularfire2/database/database';
 
 
 
@@ -27,44 +28,40 @@ export class ProfilePage {
   name:string;
   location:string;
   description:string;
+   user={
+    displayName: '',
+    photoURL: '',
+    location: '',
+    description: '',
+  };
 
   constructor(
     public navCtrl: NavController, 
     public popoverCtrl: PopoverController,
-    public userData: UserData
+    public userData: UserData,
+    public af:AngularFireDatabase
     ) {}
 
  ngAfterViewInit(){
-      this.getProfilePicture();
-      this.getUsername();
-      this.getLocation();
-      this.getDescription();
+      this.getUID();
   }
 
-  getProfilePicture(){
-      this.userData.getPhotoUrl().then((image) => {
-          console.log(image);
-          this.profileURL = image;
-      }); 
-   }
+  getUID(){
+       this.userData.getUid().then((uid) => {
+         console.log(uid);
+          this.af.database.ref('users/'+uid)
+           .on('value', snapshot => {
+             console.log(snapshot.val().displayName);
+             this.user.displayName = snapshot.val().displayName;
+             this.user.photoURL = snapshot.val().photoURL;
+             this.user.location = snapshot.val().location || '';
+             this.user.description = snapshot.val().description || '';
+           });
+       });
+     }
 
-   getUsername(){
-     this.userData.getUsername().then((username) => {
-       this.name = username;
-     }); 
-   }
 
-   getLocation(){
-     this.userData.getLocation().then((location) => {
-       this.location = location;
-     }); 
-   }
-
-   getDescription(){
-     this.userData.getDescription().then((description) => {
-       this.description = description;
-     }); 
-   }
+ 
 
  	 goToSettings(){
   	this.navCtrl.push(SettingsPage);

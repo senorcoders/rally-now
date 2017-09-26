@@ -9,7 +9,7 @@
             <path url="/__/auth/callback" />
         </host>
     </universal-links>
-    <content original-src="index.html" src="http://192.168.8.103:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="*" />
     <allow-navigation href="http://ionic.local/*" />
@@ -82,6 +82,7 @@
         <splash height="1024" src="resources/ios/splash/Default-Portrait~ipad.png" width="768" />
         <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
+        <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
     <plugin name="cordova-plugin-browsertab" spec="^0.2.0" />
     <plugin name="cordova-plugin-buildinfo" spec="^1.1.0" />
@@ -115,5 +116,8 @@
         <variable name="TWITTER_SECRET" value="RkghHyvOiYsLLDhynTGm1gjZUBtEyn0OMNzmt61rmWGqfnSb0Y" />
     </plugin>
     <allow-navigation href="http://192.168.8.103:8100" />
+    <allow-navigation href="http://192.168.8.101:8100" />
+    <allow-navigation href="http://192.168.88.32:8100" />
+    <allow-navigation href="http://192.168.8.105:8100" />
     <engine name="ios" spec="~4.3.1" />
 </widget>

@@ -20,12 +20,12 @@
   <ion-row padding>
     <ion-col col-4 class="profile-headshot">
     <ion-avatar item-start class="profile-img">
-     <button ion-button transparent icon-only (click)="goToStreaks()" style="height: auto; background: transparent;">
-      <img src="{{profileURL}}">
+     <button ion-button transparent icon-only (click)="goToStreaks()" style="background: transparent; height: auto;">
+          <img src="{{user.photoURL}}">
       </button>
     </ion-avatar>
-    <h4>{{name}}</h4>
-    <p>{{location}}</p>
+    <h4>{{user.displayName}}</h4>
+    <p>{{user.location}}</p>
     </ion-col>
     <ion-col col-8 class="profile-counts">
       <ion-row>
@@ -46,7 +46,7 @@
 
     </ion-col>
     <ion-col col-8>
-    <p>{{description}}</p>
+    <p>{{user.description}}</p>
     </ion-col>
      <ion-col col-4>
         <button ion-button color="light" outline (click)="goToReps()">My Reps</button>

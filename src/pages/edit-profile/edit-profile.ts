@@ -6,22 +6,15 @@ import { ProfilePage } from '../profile/profile'
 import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay'
 import { FeedPage } from '../feed/feed';
-import { ImagePicker } from '@ionic-native/image-picker';
 import { UserData } from '../../providers/user-data';
 import firebase from 'firebase';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Storage } from '@ionic/storage';
+import { FirebaseListObservable} from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database/database';
 
 
 
-
-
-/**
- * Generated class for the EditProfilePage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -46,77 +39,72 @@ export class EditProfilePage {
     quality: 100
   };
 
-  profileURL:any;
-  name:string;
-  email:string;
-  gender:string;
-  location:string;
-  description:string;
+  
+
   captureDataUrl: string;
+  website:string;
+  user={
+    displayName: '',
+    photoURL: '',
+    email: '',
+    location: '',
+    description: '',
+    website: '',
+    phone: '',
+    address:'',
+    uid: ''
+  };
+
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public alertCtrl: AlertController, 
     public popoverCtrl: PopoverController,
-    private imagePicker: ImagePicker,
     public userData: UserData,
     private camera: Camera,
-    public storage: Storage,) {
+    public storage: Storage,
+    public af:AngularFireDatabase) {
 
-       
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditProfilePage');
   }
   ngAfterViewInit(){
-      this.getProfilePicture();
-      this.getUsername();
-      this.getEmail();
-      this.getGender();
-      this.getLocation();
-      this.getDescription();
+      this.getUID();     
   }
  
+  
    
-   getProfilePicture(){
-      this.userData.getPhotoUrl().then((image) => {
-          console.log(image);
-          this.profileURL = image;
-      }); 
-   }
+ 
 
-   getUsername(){
-     this.userData.getUsername().then((username) => {
-       this.name = username;
-     }); 
-   }
+  
 
-   getEmail(){
-     this.userData.getEmail().then((email) => {
-       this.email = email;
-     }); 
-   }
-
-    getGender(){
-     this.userData.getGender().then((gender) => {
-       this.gender = gender;
-     }); 
-   }
-
-   getLocation(){
-     this.userData.getLocation().then((location) => {
-       this.location = location;
-     }); 
-   }
-
-   getDescription(){
-     this.userData.getDescription().then((description) => {
-       this.description = description;
-     }); 
-   }
+  
      
+     getUID(){
+       this.userData.getUid().then((uid) => {
+         console.log(uid);
+          this.af.database.ref('users/'+uid)
+           .on('value', snapshot => {
+             console.log(snapshot.val().displayName);
+             this.user.displayName = snapshot.val().displayName;
+             this.user.photoURL = snapshot.val().photoURL;
+             this.user.uid = snapshot.val().uid;
+             this.user.address = snapshot.val().address || '';
+             this.user.email = snapshot.val().email || '';
+             this.user.location = snapshot.val().location || '';
+             this.user.phone = snapshot.val().phone || '';
+             this.user.website = snapshot.val().website || '';
+             this.user.description = snapshot.val().description || '';
+           });
+       });
+     }
+
+     updateProfile(){
+       this.af.database.ref('users/'+this.user.uid).set(this.user);
+     }
    
       presentPopover() {
        let popover = this.popoverCtrl.create(OverlayPage);
@@ -136,24 +124,6 @@ export class EditProfilePage {
   }
 
  
-
-  // changeProfilePicture(){
-  //   this.imagePicker.getPictures(this.options).then((results) => {
-  //     for (var i = 0; i < results.length; i++) {
-  //         console.log('Image URI: ' + results[i]);
-  //         this.captureDataUrl = 'data:image/jpeg;base64,' + results[i];
-  //         //this.profileURL = results[i];
-  //         // let user:any = firebase.auth().currentUser;
-  //         // user.updateProfile({
-  //         //   photoURL: results[i]
-  //         // }).then(function() {
-  //         //   // Update successful.
-  //         // }, function(error) {
-  //         //   // An error happened.
-  //         // });
-  //     }
-  //   }, (err) => { });
-  // }
 
    capture() {
     const cameraOptions: CameraOptions = {
