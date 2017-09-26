@@ -7,16 +7,6 @@ import { ProfilePage } from '../profile/profile';
 import { OverlayPage } from '../overlay/overlay'
 
 
-
-
-
-/**
- * Generated class for the EventsPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-events',

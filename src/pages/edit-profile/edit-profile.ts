@@ -74,14 +74,6 @@ export class EditProfilePage {
   ngAfterViewInit(){
       this.getUID();     
   }
- 
-  
-   
- 
-
-  
-
-  
      
      getUID(){
        this.userData.getUid().then((uid) => {

@@ -6,7 +6,9 @@ page-feed {
     ion-header {
         text-align: center;
     }
-    ,
+    ion-content{
+    top: 60px;
+}
     .toolbar-background {
         background-color: #4a90e2;
         color: #fff;
@@ -102,3 +104,4 @@ page-feed {
         }
     }
 }
+
