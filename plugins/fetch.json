@@ -128,5 +128,15 @@
             "TWITTER_KEY": "mX4bWG9qdpR8eRcDO3AjbbLKI",
             "TWITTER_SECRET": "RkghHyvOiYsLLDhynTGm1gjZUBtEyn0OMNzmt61rmWGqfnSb0Y"
         }
+    },
+    "cordova-plugin-customurlscheme": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-customurlscheme"
+        },
+        "is_top_level": true,
+        "variables": {
+            "URL_SCHEME": "com.senorcoders.rallyup"
+        }
     }
 }

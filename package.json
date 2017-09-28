@@ -4,10 +4,12 @@
     "author": "Ionic Framework",
     "homepage": "http://ionicframework.com/",
     "private": true,
-    "proxies": [{
-    "path": "/api",
-    "proxyUrl": "http://104.131.22.8:3000"
-  }],
+    "proxies": [
+        {
+            "path": "/api",
+            "proxyUrl": "http://104.131.22.8:3000"
+        }
+    ],
     "scripts": {
         "clean": "ionic-app-scripts clean",
         "build": "ionic-app-scripts build",

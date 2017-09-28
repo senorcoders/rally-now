@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class OrganizationsProvider {
-	base:string = 'http://104.131.22.8:3000/api/';
+	base:string = 'http://138.68.19.227:3000/api/';
 	data:any = {};
 
 
@@ -30,9 +30,12 @@ export class OrganizationsProvider {
     	headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
     	headers.append('Access-Control-Max-Age', '1728000');
     	let options = new RequestOptions({ headers: headers });
-		let userData = JSON.stringify({fname: data.displayName, photo_url: data.photoURL});
+		let userData = JSON.stringify({fname: data.displayName, photo_url: data.photoURL, api_token: 'e85abcad-00ae-4124-8bfe-e4473338fa98'});
+		console.log(this.base + endpoint, userData, options);
 		this.http.post(this.base + endpoint, userData, options)
+			.map(res => res.json())
 			.subscribe(data => {
+				console.log(data);
 				this.data.response = data["_body"];
 			}, error => {
 				console.log("Error", error);
@@ -40,7 +43,7 @@ export class OrganizationsProvider {
 	}
 
 	updateUser(endpoint, data):void{
-		this.http.put(this.base + endpoint, data, Headers)
+		this.http.put(this.base + endpoint , data, Headers)
 			.subscribe(data => {
 				this.data.response = data["_body"];
 			}, error => {
