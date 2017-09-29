@@ -53,6 +53,7 @@ import { TwitterConnect } from '@ionic-native/twitter-connect';
 import {AngularFireDatabase} from 'angularfire2/database';
 import { HeaderComponent } from '../components/header/header';
 import { FilterHeaderComponent } from '../components/filter-header/filter-header';
+import { RallyFooterComponent } from '../components/rally-footer/rally-footer';
 
 
 
@@ -111,7 +112,8 @@ firebase.initializeApp(config);
         ChangePasswordPage,
         PublicFeedPage,
         HeaderComponent,
-        FilterHeaderComponent
+        FilterHeaderComponent,
+        RallyFooterComponent
     ],
     imports: [
         BrowserModule,

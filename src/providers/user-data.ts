@@ -56,7 +56,11 @@ export class UserData {
       return value;
     });
   };
-
+  getApiRallyID(): Promise<string> {
+    return this.storage.get('APIRALLYID').then((value) => {
+      return value;
+    });
+  };
 
   getEmail(): Promise<string> {
     return this.storage.get('EMAIL').then((value) => {

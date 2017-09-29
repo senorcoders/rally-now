@@ -71,7 +71,6 @@ export class HomePage {
     userRef.once('value', function (snapshot){
       if (snapshot.hasChildren()) {
        console.log('Usuario ya existe');
-       that.httpProvider.saveNewUser(that.endpoint, that.user);
        that.navCtrl.setRoot(FeedPage);
       } else{
         console.log('Nuevo Usuario');
@@ -86,36 +85,6 @@ export class HomePage {
   facebookLogin(): void{
     console.log("Hola Facebook 3");
 
-    // this.facebook.login(['public_profile', 'user_friends', 'email'])
-    // .then((res: FacebookLoginResponse) => {
-    //   console.log('Logged into Facebook!', res);
-    //   const facebookCredential = firebase.auth.FacebookAuthProvider
-    //         .credential(res.authResponse.accessToken);
-    //    firebase.auth().signInWithCredential(facebookCredential)
-    //     .then(success => {
-    //             console.log("Firebase success: " + success);
-    //             this.storage.set('UID', success.uid);
-    //             this.storage.set('DISPLAYNAME', success.displayName);
-    //             this.storage.set('USERNAME', success.username);
-    //             this.storage.set('PHOTOURL', success.photoURL);
-    //             this.storage.set('PROVIDER', success.providerData.providerId);
-    //             this.storage.set('EMAIL', success.email);
-    //             this.storage.set('LOCATION', success.profile.locale);
-    //             this.storage.set('GENDER', success.profile.gender);
-    //             this.storage.set(this.HAS_LOGGED_IN, true);
-    //            this.navCtrl.setRoot(FeedPage);
-    //     });     
-    // }).catch(e => console.log('Error logging into Facebook', e));
-
-    // let provider = new firebase.auth.FacebookAuthProvider();
-
-    // firebase.auth().signInWithRedirect(provider).then(()=>{
-    //   firebase.auth().getRedirectResult().then((result)=>{
-    //     alert(JSON.stringify(result));
-    //   }).catch(function(error){
-    //     alert(JSON.stringify(error));
-    //   });
-    // });
 
     this.facebook.login(["email", "public_profile"]).then((loginResponse) => {
         let credential = firebase.auth.FacebookAuthProvider.credential(loginResponse.authResponse.accessToken);
@@ -138,7 +107,9 @@ export class HomePage {
           console.log(res);
           this.checkIfUserExists(res.uid);
         })
-    })
+    }, error => {
+      console.log("Error connecting to Facebook", error);
+    });
 
 }
 
@@ -151,6 +122,7 @@ twLogin(): void {
 
     firebase.auth().signInWithCredential(twitterCredential)
     .then( res => {
+          console.log(res);
           this.storage.set('UID', res.uid);
           this.user.uid = res.uid;
           this.storage.set('DISPLAYNAME', res.displayName);
@@ -165,7 +137,6 @@ twLogin(): void {
           this.storage.set('LOCATION', res.location);
           this.storage.set('DESCRIPTION', res.description);
           this.storage.set(this.HAS_LOGGED_IN, true);
-          console.log(res);
           this.checkIfUserExists(res.uid);
           
     });

@@ -12,7 +12,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Storage } from '@ionic/storage';
 import { FirebaseListObservable} from 'angularfire2/database';
 import { AngularFireDatabase } from 'angularfire2/database/database';
-
+import { OrganizationsProvider } from '../../providers/organizations/organizations';
 
 
 
@@ -52,8 +52,10 @@ export class EditProfilePage {
     website: '',
     phone: '',
     address:'',
-    uid: ''
+    uid: '',
+    apiRallyID: ''
   };
+  endpoint:string = 'users/';
 
 
   constructor(
@@ -64,7 +66,9 @@ export class EditProfilePage {
     public userData: UserData,
     private camera: Camera,
     public storage: Storage,
-    public af:AngularFireDatabase) {
+    public af:AngularFireDatabase,
+    private httpProvider:OrganizationsProvider
+) {
 
   }
 
@@ -72,7 +76,7 @@ export class EditProfilePage {
     console.log('ionViewDidLoad EditProfilePage');
   }
   ngAfterViewInit(){
-      this.getUID();     
+      this.getUID(); 
   }
      
      getUID(){
@@ -90,12 +94,32 @@ export class EditProfilePage {
              this.user.phone = snapshot.val().phone || '';
              this.user.website = snapshot.val().website || '';
              this.user.description = snapshot.val().description || '';
+             this.user.apiRallyID = snapshot.val().apiRallyID || '';
            });
        });
      }
 
+
+ //      getApiRallyID(){
+ //    this.userData.getApiRallyID().then((id) => {
+ //        this.user.apiRallyID = id;
+ //        this.saveApiRallyID(id);
+ //    });
+ //  }
+
+
+
+ //  saveApiRallyID(rallyID){
+ //     let user:any = firebase.auth().currentUser;
+ //     console.log("FirebaseUSer", user['uid']);
+ //     this.af.database.ref('users/'+user['uid']).update({
+ //         apiRallyID : rallyID
+ //     });
+ // }
+
      updateProfile(){
        this.af.database.ref('users/'+this.user.uid).set(this.user);
+       this.httpProvider.updateUser(this.endpoint + this.user.apiRallyID, this.user);
      }
    
       presentPopover() {

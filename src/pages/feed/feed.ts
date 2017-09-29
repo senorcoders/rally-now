@@ -10,6 +10,8 @@ import { RatePage } from '../rate/rate';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
 
 
+
+
 @Component({
   selector: 'page-feed',
   templateUrl: 'feed.html'
@@ -27,6 +29,8 @@ export class FeedPage {
 
     this.getdata();
   }
+
+ 
 
  	 goToOtherPage() {
  
@@ -75,4 +79,7 @@ doRefresh(refresher) {
       refresher.complete();
     }, 2000);
   }
+
+ 
+
 }
