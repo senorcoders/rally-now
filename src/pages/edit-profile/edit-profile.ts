@@ -12,7 +12,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Storage } from '@ionic/storage';
 import { FirebaseListObservable} from 'angularfire2/database';
 import { AngularFireDatabase } from 'angularfire2/database/database';
-import { OrganizationsProvider } from '../../providers/organizations/organizations';
+import { UsersProvider } from '../../providers/users/users';
 
 
 
@@ -56,6 +56,8 @@ export class EditProfilePage {
     apiRallyID: ''
   };
   endpoint:string = 'users/';
+  toggle: boolean = false;
+
 
 
   constructor(
@@ -67,7 +69,7 @@ export class EditProfilePage {
     private camera: Camera,
     public storage: Storage,
     public af:AngularFireDatabase,
-    private httpProvider:OrganizationsProvider
+    private httpProvider:UsersProvider
 ) {
 
   }
@@ -99,23 +101,6 @@ export class EditProfilePage {
        });
      }
 
-
- //      getApiRallyID(){
- //    this.userData.getApiRallyID().then((id) => {
- //        this.user.apiRallyID = id;
- //        this.saveApiRallyID(id);
- //    });
- //  }
-
-
-
- //  saveApiRallyID(rallyID){
- //     let user:any = firebase.auth().currentUser;
- //     console.log("FirebaseUSer", user['uid']);
- //     this.af.database.ref('users/'+user['uid']).update({
- //         apiRallyID : rallyID
- //     });
- // }
 
      updateProfile(){
        this.af.database.ref('users/'+this.user.uid).set(this.user);
@@ -195,6 +180,12 @@ export class EditProfilePage {
 
     // clear the previous photo data in the variable
     this.captureDataUrl = "";
+  }
+
+  onUpdateToggle($event){
+    console.log($event);
+    this.toggle = !this.toggle;
+    console.log(!this.toggle);
   }
 
 

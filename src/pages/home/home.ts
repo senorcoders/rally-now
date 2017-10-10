@@ -5,13 +5,14 @@ import { Slides } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FeedPage } from '../feed/feed';
+import { EditProfilePage } from '../edit-profile/edit-profile';
 import firebase from 'firebase';
 import { Storage } from '@ionic/storage';
 import { PublicFeedPage } from '../public-feed/public-feed';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { TwitterConnect } from '@ionic-native/twitter-connect';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
-import { OrganizationsProvider } from '../../providers/organizations/organizations';
+import { UsersProvider } from '../../providers/users/users';
 
 
 
@@ -37,6 +38,10 @@ export class HomePage {
      photoURL: '',
      provider: '',
      email: '',
+     searchable: '1',
+     hide_activity: '1',
+    
+
    };
    endpoint:string = 'users/';
 
@@ -50,7 +55,7 @@ export class HomePage {
     private facebook: Facebook,
     private twitter: TwitterConnect,
     private db: AngularFireDatabase,
-    private httpProvider:OrganizationsProvider
+    private httpProvider:UsersProvider
 
   ) {
       this.users = db.list('/users');
@@ -76,7 +81,7 @@ export class HomePage {
         console.log('Nuevo Usuario');
           that.db.database.ref('users/'+that.user.uid).set(that.user);
           that.httpProvider.saveNewUser(that.endpoint, that.user);
-          that.navCtrl.setRoot(FeedPage);
+          that.navCtrl.setRoot(EditProfilePage);
       }
     });
   }

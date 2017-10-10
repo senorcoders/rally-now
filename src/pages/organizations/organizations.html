@@ -2,7 +2,7 @@
 
 
 <ion-content>
-  <ion-card>
+  <ion-card *ngFor="let organization of organizations">
 
       <ion-fab right top>
     <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
@@ -18,7 +18,7 @@
     <ion-avatar item-start>
       <img src="assets/img/login-image.jpg">
     </ion-avatar>
-    <h2>ACLU</h2>
+    <h2>{{organization.name}}</h2>
     </ion-item>
     
   <div class="organization-bg" style="background: url('assets/img/login-image.jpg');">
@@ -35,7 +35,7 @@
 
 
   <ion-card-content>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime molestias facere natus blanditiis temporibus dolorem ipsum maiores ipsam sequi recusandae?</p>
+    <p>{{organization.description}}</p>
     <ion-row>
     	<ion-col col-8>
     		    <p class="link">371 Likes, 212 Shares</p>
@@ -72,7 +72,7 @@
   </ion-row>
 
 </ion-card>
-
+<!-- 
 <ion-card class="simple-card">
 	<ion-fab right top style="top: -8px;
     right: 0;">
@@ -113,7 +113,7 @@
     </ion-row>
   </ion-card-content>
 
-</ion-card>
+</ion-card> -->
 </ion-content>
 
 <ion-footer>

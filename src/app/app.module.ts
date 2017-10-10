@@ -54,7 +54,8 @@ import {AngularFireDatabase} from 'angularfire2/database';
 import { HeaderComponent } from '../components/header/header';
 import { FilterHeaderComponent } from '../components/filter-header/filter-header';
 import { RallyFooterComponent } from '../components/rally-footer/rally-footer';
-
+import { PublicProfilePage } from '../pages/public-profile/public-profile';
+import { UsersProvider } from '../providers/users/users';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -113,7 +114,8 @@ firebase.initializeApp(config);
         PublicFeedPage,
         HeaderComponent,
         FilterHeaderComponent,
-        RallyFooterComponent
+        RallyFooterComponent,
+        PublicProfilePage
     ],
     imports: [
         BrowserModule,
@@ -160,7 +162,8 @@ firebase.initializeApp(config);
         ReportProblemPage,
         RatePage,
         ChangePasswordPage,
-        PublicFeedPage
+        PublicFeedPage,
+        PublicProfilePage
     ],
     providers: [
         StatusBar,
@@ -173,7 +176,8 @@ firebase.initializeApp(config);
         Facebook,
         DataProvider,
         TwitterConnect,
-        AngularFireDatabase
+        AngularFireDatabase,
+    UsersProvider
     ]
 })
 export class AppModule {}

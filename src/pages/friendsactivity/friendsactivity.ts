@@ -5,6 +5,8 @@ import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
 import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay'
+import { PublicProfilePage } from '../public-profile/public-profile';
+
 
 
 /**
@@ -43,6 +45,12 @@ export class FriendsactivityPage {
    presentPopover() {
        let popover = this.popoverCtrl.create(OverlayPage);
        popover.present();
+     }
+
+     goToPublicProfile(){
+       this.navCtrl.push(PublicProfilePage, {
+          param1: '825eaf5e-2782-467e-8e34-70576d55e321'
+    });
      }
 
 }

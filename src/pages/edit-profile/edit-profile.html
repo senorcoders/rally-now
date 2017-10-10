@@ -56,6 +56,11 @@
       <ion-item>
           <ion-label>Hide my profile from search</ion-label>
         <ion-icon ios="ios-lock" md="md-lock" item-start></ion-icon>        
+        <ion-toggle  [(ngModel)]="toggle" (ionChange)="onUpdateToggle($event)"  item-end ></ion-toggle>      
+      </ion-item>
+      <ion-item>
+          <ion-label>Hide my activity</ion-label>
+        <ion-icon ios="ios-lock" md="md-lock" item-start></ion-icon>        
         <ion-toggle checked="false" item-end></ion-toggle>      
       </ion-item>
     </ion-list>

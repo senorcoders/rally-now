@@ -1,0 +1,89 @@
+page-public-profile {
+ ion-header {
+        text-align: center;
+    }
+    ion-content {
+        background-color: #f2f2f2 !important;
+        top: 60px !important;
+    }
+    .toolbar-background {
+        background-color: #4a90e2;
+        color: #fff;
+    }
+    p.white {
+        color: #fff;
+        margin: 0;
+    }
+    .button-outline-md-light,
+    .button-outline-ios-light {
+        border-color: #222;
+        background-color: #fff;
+        color: #222;
+        font-weight: 400;
+        border-radius: 5px;
+        height: auto;
+        padding: 8px 10px;
+        font-size: 11px;
+        text-transform: uppercase;
+        width: 80%;
+    }
+    .profile-img {
+        img {
+            border-radius: 50%;
+            height: 80px;
+            width: 80px;
+        }
+    }
+    .profile-counts {
+        text-align: center;
+
+        p.small {
+            margin: 0;
+            font-size: 12px;
+        }
+    }
+    .profile-headshot {
+        h4 {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+        p {
+            margin: 0;
+            font-size: 12px;
+        }
+    }
+    ion-card {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        position: relative;
+        .fab-md-light,
+        .fab-ios-light {
+            background: none;
+            border: none;
+            box-shadow: none;
+        }
+        .blue-icon {
+            color: #4a90e2;
+        }
+        .inactive {
+            background-color: #dfdfdf;
+        }
+        .excerpt {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            text-transform: uppercase;
+            padding: 5px;
+        }
+    }
+    .profile-rep {
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+    }
+}
