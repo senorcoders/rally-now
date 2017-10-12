@@ -40,11 +40,13 @@ export class ProfilePage {
     public popoverCtrl: PopoverController,
     public userData: UserData,
     public af:AngularFireDatabase
-    ) {}
+    ) {
+            this.getUID();
 
- ngAfterViewInit(){
-      this.getUID();
   }
+
+ // ngAfterViewInit(){
+ //  }
 
   getUID(){
        this.userData.getUid().then((uid) => {

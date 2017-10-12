@@ -3,7 +3,9 @@ import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-an
 import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
-import { OverlayPage } from '../overlay/overlay'
+import { OverlayPage } from '../overlay/overlay' ;
+import { OrganizationsProvider } from '../../providers/organizations/organizations';
+
 
 
 /**
@@ -20,7 +22,14 @@ import { OverlayPage } from '../overlay/overlay'
 })
 export class FavoritesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController) {
+  favorites: any;
+  endpoint:string = 'favorites/3727141b-8962-453c-b7b9-7a9755d63c9a';
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public popoverCtrl: PopoverController,
+    private httpProvider:OrganizationsProvider) {
   }
 
   ionViewDidLoad() {
@@ -43,5 +52,20 @@ export class FavoritesPage {
        let popover = this.popoverCtrl.create(OverlayPage);
        popover.present();
      }
+
+       getdata(){
+  this.httpProvider.getJsonData(this.endpoint).subscribe(
+    result => {
+      this.favorites=result['favorites'];
+      console.log("Favorites : "+ result['favorites']);
+    },
+    err =>{
+      console.error("Error : "+err);
+    } ,
+    () => {
+      console.log('Favorites completed');
+    }
+  );
+}
 
 }

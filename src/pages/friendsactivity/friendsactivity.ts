@@ -6,9 +6,9 @@ import { ProfilePage } from '../profile/profile';
 import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay'
 import { PublicProfilePage } from '../public-profile/public-profile';
+import { OrganizationsProvider } from '../../providers/organizations/organizations';
 
-
-
+ 
 /**
  * Generated class for the FriendsactivityPage page.
  *
@@ -23,7 +23,18 @@ import { PublicProfilePage } from '../public-profile/public-profile';
 })
 export class FriendsactivityPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController) {
+    activitiesData:any;
+    endpoint:string = 'friends_activity/825eaf5e-2782-467e-8e34-70576d55e321';
+
+
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public popoverCtrl: PopoverController,
+    private httpProvider:OrganizationsProvider) {
+        this.getdata();
+
   }
 
   ionViewDidLoad() {
@@ -52,5 +63,20 @@ export class FriendsactivityPage {
           param1: '825eaf5e-2782-467e-8e34-70576d55e321'
     });
      }
+
+      getdata(){
+  this.httpProvider.getJsonData(this.endpoint).subscribe(
+    result => {
+      this.activitiesData=result['friends_activity'];
+      console.log("Friends Activities : "+ result['friends_activity'][0].user_id[0]['name']);
+    },
+    err =>{
+      console.error("Error : "+err);
+    } ,
+    () => {
+      console.log('getData completed');
+    }
+  );
+}
 
 }

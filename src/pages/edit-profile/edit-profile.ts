@@ -43,7 +43,7 @@ export class EditProfilePage {
 
   captureDataUrl: string;
   website:string;
-  user={
+  user:any={
     displayName: '',
     photoURL: '',
     email: '',
@@ -53,10 +53,12 @@ export class EditProfilePage {
     phone: '',
     address:'',
     uid: '',
-    apiRallyID: ''
+    apiRallyID: '',
+    searchable: '',
+    hide_activity: ''
   };
   endpoint:string = 'users/';
-  toggle: boolean = false;
+  toggle: any;
 
 
 
@@ -79,6 +81,9 @@ export class EditProfilePage {
   }
   ngAfterViewInit(){
       this.getUID(); 
+      console.log(this.toggle);
+
+
   }
      
      getUID(){
@@ -97,6 +102,13 @@ export class EditProfilePage {
              this.user.website = snapshot.val().website || '';
              this.user.description = snapshot.val().description || '';
              this.user.apiRallyID = snapshot.val().apiRallyID || '';
+             this.user.searchable = snapshot.val().searchable || '1';
+             this.user.hide_activity = snapshot.val().hide_activity;
+             if (snapshot.val().hide_activity == 1) {
+               this.toggle = false;
+             }else{
+               this.toggle = true;
+             }
            });
        });
      }
@@ -146,6 +158,14 @@ export class EditProfilePage {
   }
 
 
+  updatePhotoFirebase(url){
+     this.af.database.ref('users/'+this.user.uid).update({
+       photoURL: url
+     });
+
+
+  }
+
    upload() {
     let storageRef = firebase.storage().ref();
 
@@ -155,16 +175,11 @@ export class EditProfilePage {
     const imageRef = storageRef.child(`images/${filename}.jpg`);
     imageRef.putString(this.captureDataUrl, firebase.storage.StringFormat.DATA_URL).then((snapshot)=> {
       console.log(snapshot.downloadURL);
-      this.showSuccesfulUploadAlert();
-      let user:any = firebase.auth().currentUser;
-          user.updateProfile({
-            photoURL: snapshot.downloadURL
-          }).then(function() {
-
-          }, function(error) {
-            // An error happened.
-          });
+       this.updatePhotoFirebase(snapshot.downloadURL);
        this.storage.set('PHOTOURL', snapshot.downloadURL);
+       // this.user.photoURL = snapshot.downloadURL;
+      this.showSuccesfulUploadAlert();
+
 
     });
 
@@ -182,11 +197,20 @@ export class EditProfilePage {
     this.captureDataUrl = "";
   }
 
-  onUpdateToggle($event){
-    console.log($event);
-    this.toggle = !this.toggle;
-    console.log(!this.toggle);
+  onUpdateToggle(){
+    if (this.toggle.checked == false) {
+        console.log('No cambia de estado');
+       //this.user.hide_activity = 1;
+
+    }else{
+      this.user.hide_activity = 0;
+    }
+    
   }
+
+
+
+
 
 
 }

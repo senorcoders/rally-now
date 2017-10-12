@@ -37,6 +37,18 @@ export class UsersProvider {
 	}
 
 
+  getRallyID(){
+      let user:any = firebase.auth().currentUser;
+      let userID;
+      this.af.database.ref('users/'+user['uid']).once('value', snapshot=>{
+        userID = snapshot.val().apiRallyID;
+      });
+
+      return userID;
+
+  }
+
+
 	saveNewUser(endpoint, data):void{
 		var headers = new Headers();
     	headers.append('Content-Type', 'application/json' );
@@ -45,9 +57,9 @@ export class UsersProvider {
     	headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
     	headers.append('Access-Control-Max-Age', '1728000');
     	let options = new RequestOptions({ headers: headers });
-		let userData = JSON.stringify({fname: data.displayName, photo_url: data.photoURL, searchable: data.searchable, hide_activity: data.hide_activity});
+		let userData = JSON.stringify({fname: data.displayName, photo_url: encodeURI(data.photoURL), searchable: data.searchable, hide_activity: data.hide_activity});
 		console.log(this.base + endpoint, userData, options);
-		this.http.post(this.base + endpoint, userData, options)
+		this.http.post(encodeURI(this.base + endpoint), userData, options)
 			.map(res => res.json())
 			.subscribe(data => {
 				console.log(data);
@@ -68,12 +80,14 @@ export class UsersProvider {
     	headers.append('Access-Control-Max-Age', '1728000');
     	let userData = JSON.stringify({
     		fname: data.displayName, 
-    		photo_url: data.photoURL,
+    		photo_url: encodeURI(data.photoURL),
     		country: data.location,
-    		description: data.description
+    		description: data.description,
+        searchable: data.searchable,
+        hide_activity: data.hide_activity
     		});
     	let options = new RequestOptions({ headers: headers });
-		this.http.put(this.base + endpoint, userData, options)
+		this.http.put(encodeURI(this.base + endpoint), userData, options)
 			.subscribe(data => {
 				console.log(data);
 				this.data.response = data["_body"];
@@ -81,5 +95,34 @@ export class UsersProvider {
 				console.log("Error", error);
 			});
 	}
+
+
+	followFriend(endpoint, currentUserRallyID, friendRallyID):void{
+    var headers = new Headers();
+      headers.append('Content-Type', 'application/json' );
+      headers.append('Access-Control-Allow-Origin', '*');
+      headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+      headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+      headers.append('Access-Control-Max-Age', '1728000');
+      let options = new RequestOptions({ headers: headers });
+    let actionData = JSON.stringify({follower_id: currentUserRallyID, following_id: friendRallyID});
+    console.log(this.base + endpoint, actionData, options);
+    this.http.post(encodeURI(this.base + endpoint), actionData, options)
+      .map(res => res.json())
+      .subscribe(data => {
+        console.log(data);
+        this.saveFollowRecordID(data.following_id, data.id);
+        this.data.response = data["_body"];
+      }, error => {
+        console.log("Error", error);
+      });
+  }
+
+  saveFollowRecordID(friendID, recordID){
+    let user:any = firebase.auth().currentUser;
+     let followRef = this.af.database.ref('follow/'+user['uid']+'/'+friendID).set({
+       friendIDRecord: recordID
+     });
+  }
 
 }

@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
+import { NavController, AlertController, PopoverController, LoadingController } from 'ionic-angular';
 import { AlertsPage } from '../alerts/alerts'
 import { ProfilePage } from '../profile/profile'
 import { HomeFiltersPage } from '../home-filters/home-filters';
-import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay'
 import { RatePage } from '../rate/rate';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
-
+ 
 
 
 
@@ -19,15 +17,23 @@ import { OrganizationsProvider } from '../../providers/organizations/organizatio
 
 export class FeedPage {
   organizationsData:any;
-  endpoint:string = 'organization';
+  endpoint:string = 'homefeed/825eaf5e-2782-467e-8e34-70576d55e321';
+  loading:any;
 
   constructor(
     public navCtrl: NavController,
     public alertCtrl: AlertController, 
     public popoverCtrl: PopoverController,
-    private httpProvider:OrganizationsProvider) { 
+    private httpProvider:OrganizationsProvider,
+    public loadingCtrl: LoadingController) { 
 
-    this.getdata();
+       this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
+
+      this.loading.present();
+     this.getdata();
+
   }
 
  
@@ -59,8 +65,9 @@ export class FeedPage {
   getdata(){
   this.httpProvider.getJsonData(this.endpoint).subscribe(
     result => {
-      this.organizationsData=result;
-      console.log("Success : "+ result);
+      this.organizationsData=result['My_Organizations'];
+      console.log("Success : "+ result['My_Organizations']);
+      this.loading.dismiss();
     },
     err =>{
       console.error("Error : "+err);

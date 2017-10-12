@@ -4,7 +4,9 @@ import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
 import { PopoverController } from 'ionic-angular';
-import { OverlayPage } from '../overlay/overlay'
+import { OverlayPage } from '../overlay/overlay';
+import { UsersProvider } from '../../providers/users/users';
+
 /**
  * Generated class for the FindFriendsPage page.
  *
@@ -19,7 +21,13 @@ import { OverlayPage } from '../overlay/overlay'
 })
 export class FindFriendsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController) {
+ 
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public popoverCtrl: PopoverController,
+    ) {
   }
 
   ionViewDidLoad() {
@@ -42,5 +50,8 @@ export class FindFriendsPage {
        let popover = this.popoverCtrl.create(OverlayPage);
        popover.present();
      }
+
+
+   
 
 }

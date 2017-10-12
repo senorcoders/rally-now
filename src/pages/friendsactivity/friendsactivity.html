@@ -9,7 +9,7 @@
 
 
 <ion-content>
-	 <ion-card>
+	 <ion-card *ngFor="let activity of activitiesData">
        <ion-fab right top style="top: 4px;
     right: 0;">
     <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
@@ -27,12 +27,12 @@
       </ion-col>
       <ion-col col-7>
        <ion-card-header>
-   			 <button (click)="goToPublicProfile()">Bob Smith</button>
+   			 <button (click)="goToPublicProfile()">{{activity.user_id[0]['name']}}</button>
   		</ion-card-header>
         <ion-card-content>
         <h5 style="font-weight: 500;
-    font-size: 16px;">Feed Item Title</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque saepe error ipsa quasi, nobis a.</p>
+    font-size: 16px;">{{activity.title}}</h5>
+        <p>{{activity.description}}</p>
         </ion-card-content>
       </ion-col>
     </ion-row>
@@ -50,7 +50,7 @@
   
 </ion-card>
 
-<ion-card>
+<!-- <ion-card>
        <ion-fab right top style="top: 4px;
     right: 0;">
     <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
@@ -89,7 +89,7 @@
   <button ion-button full class="heart-btn"><ion-icon name="ios-heart"></ion-icon></button>
 
   
-</ion-card>
+</ion-card> -->
 
 </ion-content>
 

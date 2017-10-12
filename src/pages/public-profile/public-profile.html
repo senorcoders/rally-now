@@ -30,7 +30,7 @@
             <p>{{user.description}}</p>
         </ion-col>
     </ion-row>
-    <div *ngIf="hidden == '1';then content else other_content"></div>
+    <div *ngIf="hidden == '0';then content else other_content"></div>
     <ng-template #content>
         <ion-card>
             <ion-fab right top style="top: -8px;

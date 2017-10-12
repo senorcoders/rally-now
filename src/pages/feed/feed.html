@@ -9,6 +9,7 @@
       refreshingText="Refreshing...">
     </ion-refresher-content>
   </ion-refresher>
+
     <ion-card *ngFor="let organization of organizationsData">
         <ion-fab right top>
             <button ion-fab color="light">
@@ -37,7 +38,7 @@
         </ion-item>
         <img src="assets/img/login-image.jpg">
         <ion-card-content>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime molestias facere natus blanditiis temporibus dolorem ipsum maiores ipsam sequi recusandae?</p>
+            <p>{{organization.description}}</p>
             <p class="link">371 Likes, 212 Shares</p>
         </ion-card-content>
         <ion-row>
