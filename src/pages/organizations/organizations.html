@@ -18,7 +18,7 @@
     <ion-avatar item-start>
       <img src="assets/img/login-image.jpg">
     </ion-avatar>
-    <h2>{{organization.name}}</h2>
+    <button style="background: none;" (click)="goToOrganizationProfile(organization.id)"><h2>{{organization.name}}</h2></button>
     </ion-item>
     
   <div class="organization-bg" style="background: url('assets/img/login-image.jpg');">

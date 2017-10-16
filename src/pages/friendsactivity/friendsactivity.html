@@ -27,7 +27,7 @@
       </ion-col>
       <ion-col col-7>
        <ion-card-header>
-   			 <button (click)="goToPublicProfile()">{{activity.user_id[0]['name']}}</button>
+   			 <button (click)="goToPublicProfile(activity.user_id[0]['id'])" style="background: none;">{{activity.user_id[0]['name']}}</button>
   		</ion-card-header>
         <ion-card-content>
         <h5 style="font-weight: 500;

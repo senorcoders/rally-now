@@ -7,7 +7,7 @@
                     <img src="{{user.photo_url}}">
                 </button>
             </ion-avatar>
-            <h4>{{user.fname}}</h4>
+            <h4>{{user.name}}</h4>
             <p>{{user.country}}</p>
         </ion-col>
         <ion-col col-8 class="profile-counts">
@@ -25,9 +25,16 @@
                     <p class="small">Organizations</p>
                 </ion-col>
             </ion-row>
+          
         </ion-col>
         <ion-col col-8>
             <p>{{user.description}}</p>
+        </ion-col>
+        <ion-col col-4>
+                  <ion-row class="follow-user-button">
+                <button ion-button (click)="addFollowRecordFirebase(user.id)">{{buttonFollowTest}}</button>
+
+            </ion-row>
         </ion-col>
     </ion-row>
     <div *ngIf="hidden == '0';then content else other_content"></div>

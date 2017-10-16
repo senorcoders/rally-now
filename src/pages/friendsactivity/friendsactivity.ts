@@ -58,9 +58,9 @@ export class FriendsactivityPage {
        popover.present();
      }
 
-     goToPublicProfile(){
+     goToPublicProfile(userID){
        this.navCtrl.push(PublicProfilePage, {
-          param1: '825eaf5e-2782-467e-8e34-70576d55e321'
+          param1: userID
     });
      }
  

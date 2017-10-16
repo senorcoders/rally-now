@@ -6,6 +6,8 @@ import { ProfilePage } from '../profile/profile';
 import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
+import { OrganizationProfilePage } from '../organization-profile/organization-profile';
+
 
 /**
  * Generated class for the OrganizationsPage page.
@@ -14,7 +16,7 @@ import { OrganizationsProvider } from '../../providers/organizations/organizatio
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage() 
 @Component({
   selector: 'page-organizations',
   templateUrl: 'organizations.html',
@@ -68,4 +70,11 @@ export class OrganizationsPage {
     }
   );
 }
+
+
+ goToOrganizationProfile(organizationID){
+       this.navCtrl.push(OrganizationProfilePage, {
+          organizationID: organizationID
+    });
+     }
 }

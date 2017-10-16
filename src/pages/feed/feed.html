@@ -5,53 +5,11 @@
         <ion-refresher-content pullingText="Pull down to Refresh" pullingIcon="arrow-dropdown" refreshingSpinner="circles" refreshingText="Refreshing...">
         </ion-refresher-content>
     </ion-refresher>
-    <ion-card *ngFor="let organization of organizationsData">
-        <ion-fab right top>
-            <button ion-fab color="light">
-                <ion-icon name="ios-more"></ion-icon>
-            </button>
-            <ion-fab-list side="left">
-                <button ion-fab>
-                    <ion-icon name="logo-facebook"></ion-icon>
-                </button>
-                <button ion-fab>
-                    <ion-icon name="logo-twitter"></ion-icon>
-                </button>
-                <button ion-fab>
-                    <ion-icon name="logo-vimeo"></ion-icon>
-                </button>
-                <button ion-fab>
-                    <ion-icon name="logo-googleplus"></ion-icon>
-                </button>
-            </ion-fab-list>
-        </ion-fab>
-        <ion-item>
-            <ion-avatar item-start>
-                <img src="assets/img/login-image.jpg">
-            </ion-avatar>
-            <button (click)="goToOrganizationProfile(organization.id)" style="background: none;">
-                <h2 style="font-weight: 700;">{{organization.name}}</h2></button>
-        </ion-item>
-        <ion-row col-10 offset-2>
-            <ion-card-content>
-                <p>{{organization.description}}</p>
-                <p>via.webiste.com</p>
-                <p class="link">371 Likes, 212 Shares</p>
-            </ion-card-content>
-        </ion-row>
-        <ion-row>
-            <ion-col class="blue">
-                <button ion-button icon-left clear full (click)="goToRatePage()">
-                    <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>
-                </button>
-            </ion-col>
-            <ion-col class="blue" style="border-right: none;">
-                <button ion-button icon-left clear full>
-                    <ion-icon name="ios-share"></ion-icon>
-                </button>
-            </ion-col>
-        </ion-row>
-    </ion-card>
+
+   
+
+
+  
   
       <ion-card style="position: relative;" *ngFor="let objective of objectives" class="objectives-card ">
 
@@ -126,8 +84,55 @@
 
 </ion-card>
 
+  <ion-card *ngFor="let organization of organizationsData" style="position: relative;">
+        <ion-fab right top>
+            <button ion-fab color="light">
+                <ion-icon name="ios-more"></ion-icon>
+            </button>
+            <ion-fab-list side="left">
+                <button ion-fab>
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </button>
+                <button ion-fab>
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </button>
+                <button ion-fab>
+                    <ion-icon name="logo-vimeo"></ion-icon>
+                </button>
+                <button ion-fab>
+                    <ion-icon name="logo-googleplus"></ion-icon>
+                </button>
+            </ion-fab-list>
+        </ion-fab>
+        <ion-item>
+            <ion-avatar item-start>
+                <img src="assets/img/login-image.jpg">
+            </ion-avatar>
+            <button (click)="goToOrganizationProfile(organization.id)" style="background: none;">
+                <h2 style="font-weight: 700;">{{organization.name}}</h2></button>
+        </ion-item>
+        <ion-row col-10 offset-2>
+            <ion-card-content>
+                <p>{{organization.description}}</p>
+                <p>via.webiste.com</p>
+                <p class="link">371 Likes, 212 Shares</p>
+            </ion-card-content>
+        </ion-row>
+        <ion-row>
+            <ion-col class="blue">
+                <button ion-button icon-left clear full (click)="goToRatePage()">
+                    <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>
+                </button>
+            </ion-col>
+            <ion-col class="blue" style="border-right: none;">
+                <button ion-button icon-left clear full>
+                    <ion-icon name="ios-share"></ion-icon>
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-card>
 
- <ion-card *ngFor="let friend of fiends" style="position: relative;" class="friends-card">
+      <ion-card *ngFor="let friend of fiends" style="position: relative;" class="friends-card">
        <ion-fab right top style="top: 4px;
     right: 0;">
     <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
