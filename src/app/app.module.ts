@@ -1,4 +1,4 @@
-import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+// import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -56,7 +56,7 @@ import { FilterHeaderComponent } from '../components/filter-header/filter-header
 import { RallyFooterComponent } from '../components/rally-footer/rally-footer';
 import { PublicProfilePage } from '../pages/public-profile/public-profile';
 import { UsersProvider } from '../providers/users/users';
-
+import { OrganizationProfilePage } from '../pages/organization-profile/organization-profile';
 
 //import { FCM } from '@ionic-native/fcm';
 
@@ -115,7 +115,8 @@ firebase.initializeApp(config);
         HeaderComponent,
         FilterHeaderComponent,
         RallyFooterComponent,
-        PublicProfilePage
+        PublicProfilePage,
+        OrganizationProfilePage
     ],
     imports: [
         BrowserModule,
@@ -163,7 +164,8 @@ firebase.initializeApp(config);
         RatePage,
         ChangePasswordPage,
         PublicFeedPage,
-        PublicProfilePage
+        PublicProfilePage,
+        OrganizationProfilePage
     ],
     providers: [
         StatusBar,

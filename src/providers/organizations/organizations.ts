@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions  } from '@angular/http';
+import { Http  } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
-import firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database/database';
 
 

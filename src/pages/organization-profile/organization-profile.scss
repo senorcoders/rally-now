@@ -1,5 +1,5 @@
-page-organizations {
-    ion-content{
+page-organization-profile {
+ion-content{
     top: 60px;
     }
     ion-header {
@@ -135,7 +135,38 @@ page-organizations {
             }
         }
     }
+
+    .profile-headshot {
+        h4 {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+        p {
+            margin: 0;
+            font-size: 12px;
+        }
+    }
+ 
+    .profile-counts {
+        text-align: center;
+
+        p.small {
+            margin: 0;
+            font-size: 12px;
+        }
+    }
+
+    .button-outline-md-light,
+    .button-outline-ios-light {
+        border-color: #222;
+        background-color: #fff;
+        color: #222;
+        font-weight: 400;
+        border-radius: 5px;
+        height: auto;
+        padding: 8px 10px;
+        font-size: 11px;
+        text-transform: uppercase;
+        width: 80%;
+    }
 }
-
-
-

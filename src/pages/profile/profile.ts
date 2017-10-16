@@ -41,12 +41,15 @@ export class ProfilePage {
     public userData: UserData,
     public af:AngularFireDatabase
     ) {
-            this.getUID();
+           
 
   }
 
  // ngAfterViewInit(){
  //  }
+ ionViewDidLoad(){
+    this.getUID();
+ }
 
   getUID(){
        this.userData.getUid().then((uid) => {

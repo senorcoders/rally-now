@@ -9,7 +9,7 @@ import { EditProfilePage } from '../edit-profile/edit-profile';
 import firebase from 'firebase';
 import { Storage } from '@ionic/storage';
 import { PublicFeedPage } from '../public-feed/public-feed';
-import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
+import { Facebook } from '@ionic-native/facebook';
 import { TwitterConnect } from '@ionic-native/twitter-connect';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import { UsersProvider } from '../../providers/users/users';

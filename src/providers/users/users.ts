@@ -4,6 +4,8 @@ import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
 import firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database/database';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
 
 
 
@@ -17,10 +19,12 @@ import { AngularFireDatabase } from 'angularfire2/database/database';
 export class UsersProvider {
 	base:string = 'http://138.68.19.227:3000/api/';
 	data:any = {};
+  recordID:any;
 
 
   constructor(public http: Http, public storage: Storage, public af:AngularFireDatabase) {
     console.log('Hello Users Provider');
+    this.getIDonLoad();
   }
 
   	getJsonData(endpoint){
@@ -36,16 +40,22 @@ export class UsersProvider {
 		});
 	}
 
+  getIDonLoad(){
+    let user:any = firebase.auth().currentUser;
+    if (user) {
+      this.af.database.ref('users/'+user['uid']).once('value', snapshot=>{
+        this.recordID = snapshot.val().apiRallyID;
+        });
+    } else{
+      console.log("Usuario no esta logueado");
+    }
+      
+  }
 
   getRallyID(){
-      let user:any = firebase.auth().currentUser;
-      let userID;
-      this.af.database.ref('users/'+user['uid']).once('value', snapshot=>{
-        userID = snapshot.val().apiRallyID;
-      });
-
-      return userID;
-
+      
+         return this.recordID;
+      
   }
 
 
@@ -111,18 +121,63 @@ export class UsersProvider {
       .map(res => res.json())
       .subscribe(data => {
         console.log(data);
-        this.saveFollowRecordID(data.following_id, data.id);
+        this.saveFollowRecordID(data.following_id, data.id, 'follow');
         this.data.response = data["_body"];
       }, error => {
         console.log("Error", error);
       });
   }
 
-  saveFollowRecordID(friendID, recordID){
+  saveFollowRecordID(friendID, recordID, path){
     let user:any = firebase.auth().currentUser;
-     let followRef = this.af.database.ref('follow/'+user['uid']+'/'+friendID).set({
+    this.af.database.ref(path+'/'+user['uid']+'/'+friendID).set({
        friendIDRecord: recordID
      });
+  }
+
+
+  removeFollowRecordID(recordID, path){
+    let user:any = firebase.auth().currentUser;
+    this.af.database.ref(path+'/'+user['uid']+'/'+recordID).remove();
+  }
+
+  followOrganization(endpoint, currentUserRallyID, organizationID):void{
+    var headers = new Headers();
+      headers.append('Content-Type', 'application/json' );
+      headers.append('Access-Control-Allow-Origin', '*');
+      headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+      headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+      headers.append('Access-Control-Max-Age', '1728000');
+      let options = new RequestOptions({ headers: headers });
+    let actionData = JSON.stringify({follower_id: currentUserRallyID, organization_id: organizationID});
+    console.log(this.base + endpoint, actionData, options);
+    this.http.post(encodeURI(this.base + endpoint), actionData, options)
+      .map(res => res.json())
+      .subscribe(data => {
+        console.log(data);
+        this.saveFollowRecordID(data.organization_id, data.id, 'organizations');
+        this.data.response = data["_body"];
+      }, error => {
+        console.log("Error", error);
+      });
+  }
+
+  unfollowOrganization(endpoint, recordID){
+     var headers = new Headers();
+      headers.append('Content-Type', 'application/json' );
+      let options = new RequestOptions({ headers: headers });
+     this.http.delete(this.base + endpoint + '/' + recordID, options)
+      .subscribe(data => {
+        console.log(data);
+      }, error => {
+        console.log("Error", error);
+      });
+      
+  }
+
+   handleError(error) {
+      console.error(error);
+      return Observable.throw(error.json().error || 'Server error');
   }
 
 }

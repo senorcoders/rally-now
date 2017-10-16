@@ -5,7 +5,6 @@ import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
 import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay';
-import { UsersProvider } from '../../providers/users/users';
 
 /**
  * Generated class for the FindFriendsPage page.

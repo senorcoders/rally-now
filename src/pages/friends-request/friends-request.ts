@@ -5,7 +5,7 @@ import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
 import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay';
-import { DataProvider } from '../../providers/data/data';
+import { DataProvider } from '../../providers/data/data'; 
 import 'rxjs/add/operator/debounceTime';
 import { FormControl } from '@angular/forms';
 import { UsersProvider } from '../../providers/users/users';

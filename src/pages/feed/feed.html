@@ -1,15 +1,10 @@
-
-<rally-header></rally-header>
+<rally-header>
+</rally-header>
 <ion-content>
     <ion-refresher (ionRefresh)="doRefresh($event)">
-     <ion-refresher-content
-      pullingText="Pull down to Refresh"
-      pullingIcon="arrow-dropdown"
-      refreshingSpinner="circles"
-      refreshingText="Refreshing...">
-    </ion-refresher-content>
-  </ion-refresher>
-
+        <ion-refresher-content pullingText="Pull down to Refresh" pullingIcon="arrow-dropdown" refreshingSpinner="circles" refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
     <ion-card *ngFor="let organization of organizationsData">
         <ion-fab right top>
             <button ion-fab color="light">
@@ -34,23 +29,15 @@
             <ion-avatar item-start>
                 <img src="assets/img/login-image.jpg">
             </ion-avatar>
-            <h2>{{organization.name}}</h2>
+            <button (click)="goToOrganizationProfile(organization.id)" style="background: none;">
+                <h2 style="font-weight: 700;">{{organization.name}}</h2></button>
         </ion-item>
-        <img src="assets/img/login-image.jpg">
-        <ion-card-content>
-            <p>{{organization.description}}</p>
-            <p class="link">371 Likes, 212 Shares</p>
-        </ion-card-content>
-        <ion-row>
-            <ion-col class="token" col-8>
-                <p>You've token action on this 3 times</p>
-            </ion-col>
-            <ion-col col-4 class="token-btn">
-                <button ion-button icon-left clear full style="height: 30px;     font-weight: 600;
-    font-size: 13px;">
-                    I'M DONE
-                </button>
-            </ion-col>
+        <ion-row col-10 offset-2>
+            <ion-card-content>
+                <p>{{organization.description}}</p>
+                <p>via.webiste.com</p>
+                <p class="link">371 Likes, 212 Shares</p>
+            </ion-card-content>
         </ion-row>
         <ion-row>
             <ion-col class="blue">
@@ -58,13 +45,129 @@
                     <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>
                 </button>
             </ion-col>
-            <ion-col class="blue">
+            <ion-col class="blue" style="border-right: none;">
                 <button ion-button icon-left clear full>
                     <ion-icon name="ios-share"></ion-icon>
                 </button>
             </ion-col>
         </ion-row>
     </ion-card>
+  
+      <ion-card style="position: relative;" *ngFor="let objective of objectives" class="objectives-card ">
+
+      <ion-fab right top>
+    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
+    <ion-item>
+    <ion-avatar item-start>
+      <img src="assets/img/login-image.jpg">
+    </ion-avatar>
+    <button (click)="goToOrganizationProfile(objective.organization_id)" style="background: none;">
+        <h2>{{objective.organization['name']}}</h2>
+    </button>
+    </ion-item>
+    
+  <div class="organization-bg" style="background: url('assets/img/login-image.jpg');">
+        <div class="days-excerpt">
+            <p class="white">2 Days Remaining</p>
+        </div>
+        <div class="railled-excerpt">
+            <p class="white"><strong>1215</strong><br> Railled</p>
+        </div>
+        <div class="bottom-excerpt">
+            <p class="white">{{objective.title}}</p>
+        </div>
+  </div>
+
+
+  <ion-card-content>
+    <p>{{objective.description}}</p>
+    <ion-row>
+        <ion-col col-8>
+                <p class="link">371 Likes, 212 Shares</p>
+        </ion-col>
+        <ion-col col-4>
+            <button ion-button color="dark" class="action-btn">Take action</button>
+        </ion-col>
+    </ion-row>
+  </ion-card-content>
+   <ion-row>
+      <ion-col class="token" col-8>
+      <p>You've token action on this 3 times</p>
+      </ion-col>
+      <ion-col col-4 class="token-btn">
+        <button ion-button icon-left clear full style="height: 30px; font-weight: 600;
+    font-size: 13px;">
+          I'M DONE
+      </button>
+      </ion-col>
+    </ion-row>
+
+  <ion-row>
+    <ion-col class="blue">
+      <button ion-button icon-left clear full>
+        <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>
+      </button>
+    </ion-col>
+    <ion-col class="blue" style="border-right: none;">
+      <button ion-button icon-left clear full>
+        <ion-icon name="ios-share"></ion-icon>
+      </button>
+    </ion-col>
+   
+  </ion-row>
+
+</ion-card>
+
+
+ <ion-card *ngFor="let friend of fiends" style="position: relative;" class="friends-card">
+       <ion-fab right top style="top: 4px;
+    right: 0;">
+    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>  
+    <ion-row>
+
+      <ion-col col-5 class="profile-rep" style="background: url('assets/img/login-image.jpg');">
+        <img class="friend-headshot" src="{{friend.user_id[0]['photo_url']}}" alt="">
+      </ion-col>
+      <ion-col col-7>
+       <ion-card-header>
+             <button style="background: none;" (click)="goToPublicProfile(friend.user_id[0]['id'])" >{{friend.user_id[0]['name']}}</button>
+        </ion-card-header>
+        <ion-card-content>
+        <h5 style="font-weight: 500;
+    font-size: 16px;">{{friend.title}}</h5>
+        <p>{{friend.description}}</p>
+        </ion-card-content>
+      </ion-col>
+    </ion-row>
+    <ion-row padding>
+        <p class="link">371 Likes, 12 Shares</p>
+    </ion-row>
+
+     <ion-fab right bottom style="bottom: 50px;
+    right: 0;">
+    <button class="blue-icon" ion-fab color="light"><ion-icon name="md-call"></ion-icon></button>
+  </ion-fab> 
+
+  <button ion-button full class="heart-btn"><ion-icon name="ios-heart"></ion-icon></button>
+
+  
+</ion-card>
+
 </ion-content>
 <ion-footer>
     <ion-toolbar style="min-height: auto; padding: 0;">

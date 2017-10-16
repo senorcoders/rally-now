@@ -6,7 +6,8 @@ import { HomeFiltersPage } from '../home-filters/home-filters';
 import { OverlayPage } from '../overlay/overlay'
 import { RatePage } from '../rate/rate';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
- 
+import { OrganizationProfilePage } from '../organization-profile/organization-profile';
+import { PublicProfilePage } from '../public-profile/public-profile';
 
 
 
@@ -19,6 +20,8 @@ export class FeedPage {
   organizationsData:any;
   endpoint:string = 'homefeed/825eaf5e-2782-467e-8e34-70576d55e321';
   loading:any;
+  objectives:any;
+  fiends:any;
 
   constructor(
     public navCtrl: NavController,
@@ -66,6 +69,8 @@ export class FeedPage {
   this.httpProvider.getJsonData(this.endpoint).subscribe(
     result => {
       this.organizationsData=result['My_Organizations'];
+      this.objectives=result['Objectives'];
+      this.fiends=result['friends_activity'];
       console.log("Success : "+ result['My_Organizations']);
       this.loading.dismiss();
     },
@@ -86,6 +91,19 @@ doRefresh(refresher) {
       refresher.complete();
     }, 2000);
   }
+
+
+   goToOrganizationProfile(organizationID){
+       this.navCtrl.push(OrganizationProfilePage, {
+          organizationID: organizationID
+    });
+     }
+
+     goToPublicProfile(userID){
+       this.navCtrl.push(PublicProfilePage, {
+          param1: userID
+    });
+     }
 
  
 

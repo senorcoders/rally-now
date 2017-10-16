@@ -63,7 +63,7 @@ export class FriendsactivityPage {
           param1: '825eaf5e-2782-467e-8e34-70576d55e321'
     });
      }
-
+ 
       getdata(){
   this.httpProvider.getJsonData(this.endpoint).subscribe(
     result => {

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { Events, NavController } from 'ionic-angular';
+import { Events } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { FeedPage } from '../pages/feed/feed';
-import { HomePage } from '../pages/home/home';
+// import { FeedPage } from '../pages/feed/feed';
+// import { HomePage } from '../pages/home/home';
 import firebase from 'firebase';
 
 @Injectable()

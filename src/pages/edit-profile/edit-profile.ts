@@ -10,7 +10,7 @@ import { UserData } from '../../providers/user-data';
 import firebase from 'firebase';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Storage } from '@ionic/storage';
-import { FirebaseListObservable} from 'angularfire2/database';
+// import { FirebaseListObservable} from 'angularfire2/database';
 import { AngularFireDatabase } from 'angularfire2/database/database';
 import { UsersProvider } from '../../providers/users/users';
 
@@ -76,10 +76,10 @@ export class EditProfilePage {
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EditProfilePage');
-  }
-  ngAfterViewInit(){
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad EditProfilePage');
+  // }
+  ionViewDidLoad(){
       this.getUID(); 
       console.log(this.toggle);
 
@@ -207,6 +207,8 @@ export class EditProfilePage {
     }
     
   }
+
+  
 
 
 
