@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, PopoverController, LoadingController } from 'ionic-angular';
+import { NavController, AlertController, PopoverController, LoadingController, ActionSheetController } from 'ionic-angular';
 import { AlertsPage } from '../alerts/alerts'
 import { ProfilePage } from '../profile/profile'
 import { HomeFiltersPage } from '../home-filters/home-filters';
@@ -8,6 +8,7 @@ import { RatePage } from '../rate/rate';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
 import { OrganizationProfilePage } from '../organization-profile/organization-profile';
 import { PublicProfilePage } from '../public-profile/public-profile';
+import { SocialShareProvider } from '../../providers/social-share/social-share';
 
 
 
@@ -28,7 +29,9 @@ export class FeedPage {
     public alertCtrl: AlertController, 
     public popoverCtrl: PopoverController,
     private httpProvider:OrganizationsProvider,
-    public loadingCtrl: LoadingController) { 
+    public loadingCtrl: LoadingController,
+    public actionSheetCtrl: ActionSheetController,
+    private shareProvider:SocialShareProvider) { 
 
        this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
@@ -104,6 +107,53 @@ doRefresh(refresher) {
           param1: userID
     });
      }
+
+
+     shareController(title, imgURI) {
+   const actionSheet = this.actionSheetCtrl.create({
+     title: 'Share with',
+     buttons: [
+       {
+         text: 'Facebook',
+         icon: 'logo-facebook',
+         handler: () => {
+           this.shareProvider.facebookShare(title, imgURI);
+         }
+       },
+       {
+         text: 'Twitter',
+         icon: 'logo-twitter',
+         handler: () => {
+           this.shareProvider.twitterShare(title, imgURI);
+         }
+       },
+       {
+         text: 'Whatsapp',
+         icon: 'logo-whatsapp',
+         handler: () => {
+           this.shareProvider.whatsappShare(title, imgURI);
+         }
+       },
+       {
+         text: 'Others',
+         icon: 'md-share',
+         handler: () => {
+           console.log('Archive clicked');
+           this.shareProvider.otherShare(title, imgURI);
+         }
+       },
+       {
+         text: 'Cancel',
+         role: 'cancel',
+         handler: () => {
+           console.log('Cancel clicked');
+         }
+       }
+     ]
+   });
+
+   actionSheet.present();
+ }
 
  
 

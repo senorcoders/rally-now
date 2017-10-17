@@ -1,4 +1,4 @@
-// import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -57,8 +57,32 @@ import { RallyFooterComponent } from '../components/rally-footer/rally-footer';
 import { PublicProfilePage } from '../pages/public-profile/public-profile';
 import { UsersProvider } from '../providers/users/users';
 import { OrganizationProfilePage } from '../pages/organization-profile/organization-profile';
+import { Push } from '@ionic-native/push';
+import { Device } from '@ionic-native/device';
+import { NotificationProvider } from '../providers/notification/notification';
+import { SocialShareProvider } from '../providers/social-share/social-share';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 //import { FCM } from '@ionic-native/fcm';
+
+    const cloudSettings: CloudSettings = {
+      'core': {
+        'app_id': '6a339c20',
+      },
+      'push': {
+        'sender_id': '1017475098724',
+        'pluginConfig': {
+          'ios': {
+            'badge': true,
+            'sound': true
+          },
+          'android': {
+            'iconColor': '#343434'
+          }
+        }
+    }
+
+   };
 
 var config = {
    apiKey: "AIzaSyD72XPFvI7g9btbl20FGsCuoRF5rOqOFyM",
@@ -69,7 +93,7 @@ var config = {
     messagingSenderId: "1017475098724"
   };
 
-
+   
 
 firebase.initializeApp(config);
 
@@ -125,6 +149,8 @@ firebase.initializeApp(config);
         IonicStorageModule.forRoot(),
         HttpModule,
         AngularFireAuthModule,
+        CloudModule.forRoot(cloudSettings)
+
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -179,7 +205,12 @@ firebase.initializeApp(config);
         DataProvider,
         TwitterConnect,
         AngularFireDatabase,
-    UsersProvider
+    UsersProvider,
+    NotificationProvider,
+    Push,
+    Device,
+    SocialShareProvider,
+    SocialSharing
     ]
 })
 export class AppModule {}

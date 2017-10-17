@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { UserData } from '../providers/user-data';
 import { FeedPage } from '../pages/feed/feed';
+import { NotificationProvider } from '../providers/notification/notification';
+
 //import { FCM } from '@ionic-native/fcm';
 
 
@@ -22,6 +24,7 @@ export class MyApp {
     	splashScreen: SplashScreen, 
     	public alertCtrl: AlertController,
     	public userData: UserData,
+      noti: NotificationProvider
       //private fcm: FCM
     	) {
        this.userData.hasLoggedIn().then((hasLoggedIn) => {
@@ -37,24 +40,12 @@ export class MyApp {
 
             console.log("Platform Ready from ", readySource);
             statusBar.styleDefault();
-            //    this.fcm.getToken().then(token => {
-            //   // save this server-side and use it to push notifications to this device
-            //   console.log(`Obtained token:` + token);
-            //   this.fcm.subscribeToTopic('all');
-            // }, error => {
-            //   console.error(`Error: ` + error);
-            // });
+            noti.init();
 
 
         });
 
 
-          // fcm.onNotification().subscribe(data=>{
-          //   if(data.wasTapped){
-          //     console.log("Received in background" + data);
-          //   } else {
-          //     console.log("Received in foreground" +  data);
-          //   };
-          // })   
+            
     }
 }

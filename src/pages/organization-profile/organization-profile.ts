@@ -123,7 +123,7 @@ presentToast(message) {
     }
 
     unfollow(recordID){
-      this.httpProvider.unfollowOrganization(this.organizationEndpoint, recordID);
+      //this.httpProvider.unfollowOrganization(this.organizationEndpoint, recordID);
       //this.httpProvider.removeFollowRecordID(this.organizationID, 'organizations');
     }
     
