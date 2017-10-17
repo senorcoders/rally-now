@@ -101,7 +101,7 @@
     "com.synconset.imagepicker": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-telerik-imagepicker"
+            "id": "com.synconset.imagepicker@~2.1.8"
         },
         "is_top_level": true,
         "variables": {
@@ -111,10 +111,13 @@
     "cordova-plugin-camera": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-camera"
+            "id": "cordova-plugin-camera@~2.4.1"
         },
         "is_top_level": true,
-        "variables": {}
+        "variables": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": " "
+        }
     },
     "twitter-connect-plugin": {
         "source": {
@@ -132,17 +135,20 @@
     "cordova-plugin-customurlscheme": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-customurlscheme"
+            "id": "cordova-plugin-customurlscheme@~4.3.0"
         },
         "is_top_level": true,
         "variables": {
-            "URL_SCHEME": "com.senorcoders.rallyup"
+            "URL_SCHEME": "com.senorcoders.rallyup",
+            "ANDROID_SCHEME": " ",
+            "ANDROID_HOST": " ",
+            "ANDROID_PATHPREFIX": "/"
         }
     },
     "phonegap-plugin-push": {
         "source": {
             "type": "registry",
-            "id": "phonegap-plugin-push@1.10.5"
+            "id": "phonegap-plugin-push@~1.10.5"
         },
         "is_top_level": true,
         "variables": {

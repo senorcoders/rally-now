@@ -11,7 +11,7 @@
 <ion-content>
 	<ion-row padding class="search-btn">
 <!-- 		<button  ion-button color="dark" class="action-btn">Search for friends	</button>
- -->    <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar>
+ -->    <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar> 
 
 	</ion-row>
   <div *ngIf="searching" class="spinner-container">
@@ -44,15 +44,15 @@
 	<ion-item>
 		<p class="list-title">Suggested Friends</p>
 	</ion-item>
-  <ion-item *ngFor="let friend of friends">
+  <ion-item >
     <ion-avatar item-start>
-      <img src="{{friend.photo_url}}" style="width: 70px; height: 70px;">
+      <img src="assets/img/login-image.jpg" style="width: 70px; height: 70px;">
     </ion-avatar>
-    <h2>{{friend.name}}</h2>
+    <h2>Bob Miller</h2>
     <p>Friends with Lenny Lewis</p>
     <ion-row item-end text-right style="max-width: 80px;">
     	<ion-col col-12 style="padding: 0;">
-    	<button ion-button color="dark" class="action-btn" (click)="addFollowRecordFirebase(friend.id)">{{buttonFollowText}}</button>
+    	<button ion-button color="dark" class="action-btn" >REQUEST</button>
 		</ion-col>
 	
     </ion-row>

@@ -62,7 +62,7 @@ import { Device } from '@ionic-native/device';
 import { NotificationProvider } from '../providers/notification/notification';
 import { SocialShareProvider } from '../providers/social-share/social-share';
 import { SocialSharing } from '@ionic-native/social-sharing';
-
+import { SearchResultsPage } from '../pages/search-results/search-results';
 //import { FCM } from '@ionic-native/fcm';
 
     const cloudSettings: CloudSettings = {
@@ -140,7 +140,8 @@ firebase.initializeApp(config);
         FilterHeaderComponent,
         RallyFooterComponent,
         PublicProfilePage,
-        OrganizationProfilePage
+        OrganizationProfilePage,
+        SearchResultsPage
     ],
     imports: [
         BrowserModule,
@@ -191,7 +192,8 @@ firebase.initializeApp(config);
         ChangePasswordPage,
         PublicFeedPage,
         PublicProfilePage,
-        OrganizationProfilePage
+        OrganizationProfilePage,
+        SearchResultsPage
     ],
     providers: [
         StatusBar,

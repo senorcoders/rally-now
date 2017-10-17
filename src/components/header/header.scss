@@ -6,8 +6,29 @@ rally-header {
         padding: 2px 55px !important;
         color: #fff !important;
     }
+
+    .spinner-container {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    
    
 }
+
+.results-content{
+    
+    	z-index: 9999;
+    }
+
+    .list-title {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 11px;
+    }
+
+    
 
 .toolbar-ios{
 	margin-top: 20px;

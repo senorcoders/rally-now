@@ -1,7 +1,43 @@
 <ion-header>
     <ion-navbar>
     
-      <ion-searchbar no-padding class="rally-search"></ion-searchbar>
+      <ion-searchbar no-padding class="rally-search" [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"    
+></ion-searchbar>
 
     </ion-navbar>
 </ion-header>
+
+<ion-content *ngIf="searching" class="results-content" padding>
+	<!-- <div class="spinner-container"> 
+        <ion-spinner></ion-spinner>
+    </div> -->
+    <ion-list>
+	<ion-item >
+		<p class="list-title">Results for {{searchTerm}} in users</p>
+	</ion-item>
+
+  <ion-item *ngFor="let user of users">
+    <ion-avatar item-start (click)="goToPublicProfile(user.id)">
+      <img src="{{user.photo_url}}" style="width: 70px; height: 70px;">
+    </ion-avatar>
+   <button (click)="goToPublicProfile(user.id)" style="background: none;"><h2>{{user.name}}</h2></button> 
+  
+  </ion-item>
+ 
+</ion-list>
+
+ <ion-list>
+	<ion-item >
+		<p class="list-title">Results for {{searchTerm}} in Organizations</p>
+	</ion-item>
+
+  <ion-item *ngFor="let organization of organizations">
+    <ion-avatar item-start (click)="goToOrganizationProfile(organization.organization_id)" >
+      <img src="assets/img/login-image.jpg" style="width: 70px; height: 70px;">
+    </ion-avatar>
+    <button (click)="goToOrganizationProfile(organization.organization_id)" style="background: none;"><h2>{{organization.organization['name']}}</h2></button>
+  
+  </ion-item>
+ 
+</ion-list>
+</ion-content>
