@@ -1,7 +1,7 @@
 <ion-header>
     <ion-navbar>
     
-      <ion-searchbar no-padding class="rally-search" [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"    
+      <ion-searchbar no-padding class="rally-search" [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"   [showCancelButton]="shouldShowCancel" (ionCancel)="cancel()"
 ></ion-searchbar>
 
     </ion-navbar>
@@ -36,6 +36,7 @@
       <img src="assets/img/login-image.jpg" style="width: 70px; height: 70px;">
     </ion-avatar>
     <button (click)="goToOrganizationProfile(organization.organization_id)" style="background: none;"><h2>{{organization.organization['name']}}</h2></button>
+    <p>{{organization.title}}</p>
   
   </ion-item>
  

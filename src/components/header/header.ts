@@ -4,6 +4,7 @@ import { SearchResultsPage } from '../../pages/search-results/search-results';
 import { ModalController, NavController } from 'ionic-angular';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
 import { PublicProfilePage } from '../../pages/public-profile/public-profile';
+import { OrganizationProfilePage } from '../../pages/organization-profile/organization-profile';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { PublicProfilePage } from '../../pages/public-profile/public-profile';
 export class HeaderComponent {
 
   searching: any = false;
+  shouldShowCancel: any = false;
   searchTerm: string = '';
   searchControl: FormControl;
   endpoint: string = 'search/';
@@ -31,6 +33,7 @@ export class HeaderComponent {
     console.log('ionViewDidLoad FriendsRequestPage');
      this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
           this.searching = false; 
+          this.shouldShowCancel = false;
         });
 
   }
@@ -43,8 +46,10 @@ export class HeaderComponent {
   onSearchInput(){
   		if (this.searchTerm === "") {
   			this.searching = false;
+        this.shouldShowCancel = false;
   		} else{
   			this.searching = true;
+        this.shouldShowCancel = true;
   			this.getdata();
   		}
         
@@ -70,6 +75,17 @@ export class HeaderComponent {
        this.navCtrl.push(PublicProfilePage, {
           param1: userID
     	});
+     }
+
+
+      goToOrganizationProfile(organizationID){
+       this.navCtrl.push(OrganizationProfilePage, {
+          organizationID: organizationID
+    });
+     }
+
+     cancel(){
+       this.searching = false;
      }
 
    

@@ -63,10 +63,10 @@ export class OrganizationProfilePage {
   checkOrganizationStatus(){
    let user:any = firebase.auth().currentUser;
     let orgRef = this.db.database.ref('organizations/'+user['uid']+'/'+this.organizationID);
-    orgRef.once('value', snapshot=>{
+    orgRef.on('value', snapshot=>{
       if (snapshot.hasChildren()) {
        console.log('Unfollow');
-       this.buttonFollowTest = 'Unfollow';
+       this.buttonFollowTest = 'Following';
        
       } else{
         console.log('Follow');
