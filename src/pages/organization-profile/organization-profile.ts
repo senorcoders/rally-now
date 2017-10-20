@@ -103,7 +103,7 @@ presentToast(message) {
      followRef.once('value', snapshot=>{
        if (snapshot.hasChildren()) {
          console.log('You already follow this org');
-         //this.getOrganizationFollowRecordID();
+         this.getOrganizationFollowRecordID();
          this.presentToast('You already follow this organization');
 
        }else{
@@ -136,8 +136,8 @@ presentToast(message) {
 
     unfollow(recordID){
 
-      //this.httpProvider.unfollowOrganization(this.organizationEndpoint, recordID);
-      //this.httpProvider.removeFollowRecordID(this.organizationID, 'organizations');
+      this.httpProvider.unfollowOrganization(this.organizationEndpoint, recordID);
+      this.httpProvider.removeFollowRecordID(this.organizationID, 'organizations');
     }
     
 

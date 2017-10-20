@@ -35,6 +35,7 @@ export class NotificationProvider {
 		  return this.push.saveToken(t);
 		}).then((t: PushToken) => {
 		  console.log('Token saved:', t.token);
+      this.saveToken(t.token);
 		});
 
     
@@ -46,6 +47,7 @@ export class NotificationProvider {
     const headers = new Headers();
     headers.append("Accept", 'application/json');
     headers.append('Content-Type', 'application/json' );
+
     const options = new RequestOptions({ headers });
 
     // this is our payload for the POST request to server
@@ -55,11 +57,11 @@ export class NotificationProvider {
         uuid: this.device.uuid,
         token
     };
-    const url = "http://138.68.19.227:8000/notification/notify";
-
+    const url = "http://138.68.19.227:8000/devices";
+    console.log(device);
     this.http.post(url, {device}, options)
         .subscribe(data => {
-            console.log('token saved');
+            console.log('token saved', data);
         }, error => {
             console.log('error saving token', error);
         });

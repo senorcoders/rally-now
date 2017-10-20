@@ -34,13 +34,14 @@ export class MyApp {
                 }
                 else{
                   this.rootPage = HomePage;
+                  noti.init();
+
                 }
         });
           platform.ready().then((readySource) => {
 
             console.log("Platform Ready from ", readySource);
             statusBar.styleDefault();
-            noti.init();
 
 
         });
