@@ -63,6 +63,7 @@ import { NotificationProvider } from '../providers/notification/notification';
 import { SocialShareProvider } from '../providers/social-share/social-share';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { SearchResultsPage } from '../pages/search-results/search-results';
+import {OrganizationActionPage} from '../pages/organization-action/organization-action';
 //import { FCM } from '@ionic-native/fcm';
 
     const cloudSettings: CloudSettings = {
@@ -141,7 +142,8 @@ firebase.initializeApp(config);
         RallyFooterComponent,
         PublicProfilePage,
         OrganizationProfilePage,
-        SearchResultsPage
+        SearchResultsPage,
+        OrganizationActionPage
     ],
     imports: [
         BrowserModule,
@@ -193,7 +195,8 @@ firebase.initializeApp(config);
         PublicFeedPage,
         PublicProfilePage,
         OrganizationProfilePage,
-        SearchResultsPage
+        SearchResultsPage,
+        OrganizationActionPage
     ],
     providers: [
         StatusBar,

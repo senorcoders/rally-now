@@ -18,7 +18,7 @@
     <ion-avatar item-start>
       <img src="assets/img/login-image.jpg">
     </ion-avatar>
-    <h2>NAACP</h2>
+    <h2>{{orgName}}</h2>
     </ion-item>
     
   <div class="organization-bg" style="background: url('assets/img/login-image.jpg');">
@@ -27,17 +27,17 @@
   			<p class="white"><strong>711</strong><br> Railled</p>
   		</div>
   		<div class="bottom-excerpt">
-  			<p class="white">DEMOCRACY AWAKENING</p>
+  			<p class="white">{{objTitle}}</p>
   		</div>
   </div>
 
 
   <ion-card-content>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime molestias facere natus blanditiis temporibus dolorem ipsum maiores ipsam sequi recusandae?</p>
+    <p>{{orgDescription}}</p>
     <p class="link">371 Likes, 212 Shares</p>
     	
   </ion-card-content>
-  	
+  
   	<ion-list>
   	 <ion-item>
       Why it's important
@@ -89,27 +89,5 @@
 
 </ion-content>
 
-<ion-footer>
-    <ion-toolbar style="min-height: auto; padding: 0;">
-        <ion-row>
-            <ion-col col-2 class="footer-icons">
-                <button (click)="goToHome()">
-                    <ion-icon name="ios-home"></ion-icon>
-                </button>
-            </ion-col>
-            <ion-col col-6>
-                <p class="white-footer" (click)="presentPopover()">Take Action</p>
-            </ion-col>
-            <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">
-                <button (click)="goToAlerts()">
-                    <ion-icon name="ios-notifications"></ion-icon>
-                </button>
-            </ion-col>
-            <ion-col class="footer-icons">
-                <button (click)="goToProfile()">
-                    <ion-icon name="ios-person"></ion-icon>
-                </button>
-            </ion-col>
-        </ion-row>
-    </ion-toolbar>
-</ion-footer>
+<rally-footer name="{{objTitle}}"></rally-footer>
+

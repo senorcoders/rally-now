@@ -5,6 +5,7 @@ import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
 import { OverlayPage } from '../overlay/overlay'
+import { UsersProvider } from '../../providers/users/users';
 
 
 @IonicPage()
@@ -13,9 +14,16 @@ import { OverlayPage } from '../overlay/overlay'
   templateUrl: 'events.html',
 })
 export class EventsPage {
+  endpoint:string = 'events';
+  events:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController,  public popoverCtrl: PopoverController) {
-
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public modalCtrl: ModalController,  
+    public popoverCtrl: PopoverController,
+    private httpProvider: UsersProvider) {
+      this.getdata();
   }
 
   ionViewDidLoad() {
@@ -43,5 +51,19 @@ export class EventsPage {
        let popover = this.popoverCtrl.create(OverlayPage);
        popover.present();
      }
+
+       getdata(){
+  this.httpProvider.getJsonData(this.endpoint).subscribe(
+    result => {
+      this.events=result;
+    },
+    err =>{
+      console.error("Error : "+err);
+    } ,
+    () => {
+      console.log('getData completed');
+    }
+  );
+}
 
 }

@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { OrganizationsProvider } from '../../providers/organizations/organizations';
+import { OrganizationProfilePage } from '../organization-profile/organization-profile';
 
 
-/**
- * Generated class for the PublicFeedPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,13 +11,36 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'public-feed.html',
 })
 export class PublicFeedPage {
+	endpoint:string = 'homefeed';
+	objectives:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private httpProvider:OrganizationsProvider) {
+  	this.getdata();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PublicFeedPage');
   }
+
+      getdata(){
+  this.httpProvider.getJsonData(this.endpoint).subscribe(
+    result => {
+      this.objectives=result['Objectives'];
+    },
+    err =>{
+      console.error("Error : "+err);
+    } ,
+    () => {
+      console.log('getData completed');
+    }
+  );
+}
+
+ goToOrganizationProfile(organizationID){
+       this.navCtrl.push(OrganizationProfilePage, {
+          organizationID: organizationID
+    });
+     }
 
 
 }

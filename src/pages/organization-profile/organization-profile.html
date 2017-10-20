@@ -22,7 +22,7 @@
    
     <ion-col col-8 class="profile-counts">
         <button ion-button color="light" outline>This is my organization</button>
-        <button ion-button color="light" outline (click)="addFollowRecordFirebase(dataID)">{{buttonFollowTest}}</button>
+        <button *ngIf="login" ion-button color="light" outline (click)="addFollowRecordFirebase(dataID)">{{buttonFollowTest}}</button>
     </ion-col>
     <ion-col col-12>
     <p>{{description}}</p>
@@ -32,7 +32,7 @@
       
   </ion-row>
 
-  <ion-card style="position: relative;" >
+  <ion-card style="position: relative;" *ngFor="let objective of objectives">
 
       <ion-fab right top>
     <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
@@ -48,7 +48,7 @@
     <ion-avatar item-start>
       <img src="assets/img/login-image.jpg">
     </ion-avatar>
-    <h2>{{name}}</h2>
+    <h2>{{objective.organization['name']}}</h2>
     </ion-item>
     
   <div class="organization-bg" style="background: url('assets/img/login-image.jpg');">
@@ -59,13 +59,13 @@
   			<p class="white"><strong>1215</strong><br> Railled</p>
   		</div>
   		<div class="bottom-excerpt">
-  			<p class="white">{{short_desc}}</p>
+  			<p class="white">{{objective.title}}</p>
   		</div>
   </div>
 
 
   <ion-card-content>
-    <p>{{description}}</p>
+    <p>{{objective.organization['description']}}</p>
     <ion-row>
     	<ion-col col-8>
     		    <p class="link">371 Likes, 212 Shares</p>

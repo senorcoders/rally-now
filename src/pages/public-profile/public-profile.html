@@ -32,7 +32,7 @@
         </ion-col>
         <ion-col col-4>
                   <ion-row class="follow-user-button">
-                <button ion-button (click)="addFollowRecordFirebase(user.id)">{{buttonFollowTest}}</button>
+                <button *ngIf="login" ion-button (click)="addFollowRecordFirebase(user.id)">{{buttonFollowTest}}</button>
 
             </ion-row>
         </ion-col>

@@ -3,14 +3,13 @@
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
---> 
+-->
 <filter-header></filter-header>
-
 <ion-content>
     <ion-row padding>
         <h4 style="color: #545353;">October</h4>
     </ion-row>
-    <ion-card>
+    <ion-card style="position: relative;" *ngFor="let event of events">
         <ion-fab right top style="top: -8px;
     right: 0;">
             <button ion-fab color="light">
@@ -31,126 +30,37 @@
                 </button>
             </ion-fab-list>
         </ion-fab>
-        <ion-card-header>
-            Saturday October 1st, 2017
-        </ion-card-header>
+    
+        <ion-item>
+            <ion-avatar item-start>
+                <img src="{{event.image_url}}" style="border-radius: 0 !important;">
+            </ion-avatar>
+            <h2>Saturday October 1st, 2017</h2>
+        </ion-item>
         <ion-card-content>
             <ion-row>
                 <ion-col col-6>
-                    <button ion-button color="danger">ACTION</button>
+                    
                 </ion-col>
                 <ion-col text-right col-6 style="line-height: 35px;">
                     Attending
                 </ion-col>
             </ion-row>
-            <h3>Call Senate on Gun Control Prop 101</h3>
+            <h3>{{event.title}}</h3>
             <ion-row>
                 <ion-col col-8>
                     <p class="street">
-                        123 Main Street, Washington DC, 12345
+                        {{event.locations}}
                     </p>
                 </ion-col>
                 <ion-col col-4>
-                    <strong>10:00am - 12:00pm</strong>
+                    <strong>{{event.event_time}}</strong>
                 </ion-col>
             </ion-row>
         </ion-card-content>
     </ion-card>
-    <ion-card>
-        <ion-fab right top style="top: -8px;
-    right: 0;">
-            <button ion-fab color="light">
-                <ion-icon name="ios-more"></ion-icon>
-            </button>
-            <ion-fab-list side="left">
-                <button ion-fab>
-                    <ion-icon name="logo-facebook"></ion-icon>
-                </button>
-                <button ion-fab>
-                    <ion-icon name="logo-twitter"></ion-icon>
-                </button>
-                <button ion-fab>
-                    <ion-icon name="logo-vimeo"></ion-icon>
-                </button>
-                <button ion-fab>
-                    <ion-icon name="logo-googleplus"></ion-icon>
-                </button>
-            </ion-fab-list>
-        </ion-fab>
-        <ion-card-header>
-            Saturday October 1st, 2017
-        </ion-card-header>
-        <ion-card-content>
-            <ion-row>
-                <ion-col col-6>
-                    <button ion-button>LOCATION EVENT</button>
-                </ion-col>
-                <ion-col text-right col-6 style="line-height: 35px;">
-                    Attending w/319 Others
-                </ion-col>
-            </ion-row>
-            <h3>No on 123 Rally</h3>
-            <ion-row>
-                <ion-col col-8>
-                    <p class="street">
-                        123 Main Street, Washington DC, 12345
-                    </p>
-                </ion-col>
-                <ion-col col-4>
-                    <strong>10:00am - 12:00pm</strong>
-                </ion-col>
-            </ion-row>
-        </ion-card-content>
-    </ion-card>
-    <ion-row padding>
-        <h4 style="color: #545353;">November</h4>
-    </ion-row>
-    <ion-card>
-        <ion-fab right top style="top: -8px;
-    right: 0;">
-            <button ion-fab color="light">
-                <ion-icon name="ios-more"></ion-icon>
-            </button>
-            <ion-fab-list side="left">
-                <button ion-fab>
-                    <ion-icon name="logo-facebook"></ion-icon>
-                </button>
-                <button ion-fab>
-                    <ion-icon name="logo-twitter"></ion-icon>
-                </button>
-                <button ion-fab>
-                    <ion-icon name="logo-vimeo"></ion-icon>
-                </button>
-                <button ion-fab>
-                    <ion-icon name="logo-googleplus"></ion-icon>
-                </button>
-            </ion-fab-list>
-        </ion-fab>
-        <ion-card-header>
-            Thursday November 21st, 2017
-        </ion-card-header>
-        <ion-card-content>
-            <ion-row>
-                <ion-col col-6>
-                    <button ion-button color="secondary">OTHER</button>
-                </ion-col>
-                <ion-col text-right col-6 style="line-height: 35px;">
-                    Attending
-                </ion-col>
-            </ion-row>
-            <h3>All Voices on Deck for Peace</h3>
-            <ion-row>
-                <ion-col col-8>
-                    <p class="street">
-                        123 Main Street, Washington DC, 12345
-                    </p>
-                </ion-col>
-                <ion-col col-4>
-                    <strong>10:00am - 12:00pm</strong>
-                </ion-col>
-            </ion-row>
-        </ion-card-content>
-    </ion-card>
+    
+   
 </ion-content>
 <ion-footer>
     <ion-toolbar style="min-height: auto; padding: 0;">

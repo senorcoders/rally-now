@@ -7,6 +7,7 @@ import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
 import { OrganizationProfilePage } from '../organization-profile/organization-profile';
+import { UsersProvider } from '../../providers/users/users';
 
 
 /**
@@ -23,7 +24,8 @@ import { OrganizationProfilePage } from '../organization-profile/organization-pr
 })
 export class OrganizationsPage {
   organizations: any;
-  endpoint:string = 'my_organizations/7f18fd43-98a3-40c3-a548-694252588de3';
+  endpoint:string = 'my_organizations/';
+  myApiRallyID:any;
 
 
 
@@ -31,8 +33,16 @@ export class OrganizationsPage {
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public popoverCtrl: PopoverController,
-    private httpProvider:OrganizationsProvider) {
-    this.getdata();
+    private httpProvider:OrganizationsProvider,
+    private rallyProvider:UsersProvider) {
+    this.rallyProvider.returnRallyUserId()
+      .then(user => {
+        console.log(user);
+        this.myApiRallyID = user.apiRallyID;
+        this.getdata();
+
+      });
+
   }
 
   ionViewDidLoad() {
@@ -57,7 +67,7 @@ export class OrganizationsPage {
      }
 
      getdata(){
-  this.httpProvider.getJsonData(this.endpoint).subscribe(
+  this.httpProvider.getJsonData(this.endpoint + this.myApiRallyID).subscribe(
     result => {
       this.organizations=result['My_Organizations'];
       console.log("Success : "+ result['My_Organizations']);

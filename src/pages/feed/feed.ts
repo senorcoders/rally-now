@@ -9,8 +9,7 @@ import { OrganizationsProvider } from '../../providers/organizations/organizatio
 import { OrganizationProfilePage } from '../organization-profile/organization-profile';
 import { PublicProfilePage } from '../public-profile/public-profile';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
-
-
+import { OrganizationActionPage } from '../organization-action/organization-action';
 
 @Component({
   selector: 'page-feed',
@@ -108,6 +107,15 @@ doRefresh(refresher) {
     });
      }
 
+     goToActionPage(objectiveID){
+       this.navCtrl.push(OrganizationActionPage, {
+          objectiveID: objectiveID
+    });
+     }
+
+     share(title, imgURI){
+       this.shareProvider.otherShare(title, imgURI);
+     }
 
      shareController(title, imgURI) {
    const actionSheet = this.actionSheetCtrl.create({

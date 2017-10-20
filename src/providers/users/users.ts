@@ -52,6 +52,24 @@ export class UsersProvider {
       
   }
 
+  returnRallyUserId(): any{
+
+     return new Promise( (resolve, reject) => {
+          let user:any = firebase.auth().currentUser;
+          if (user) {
+            this.af.database.ref('users/'+user['uid']).once('value').then(function(snapshot){
+              resolve(snapshot.val());
+            })
+          } else{
+            console.log("Usuario no esta logueado");
+          }
+
+      });
+    
+
+
+  }
+
   getRallyID(){
       
          return this.recordID;
@@ -94,7 +112,8 @@ export class UsersProvider {
     		country: data.location,
     		description: data.description,
         searchable: data.searchable,
-        hide_activity: data.hide_activity
+        hide_activity: data.hide_activity,
+        email: data.email,
     		});
     	let options = new RequestOptions({ headers: headers });
 		this.http.put(encodeURI(this.base + endpoint), userData, options)

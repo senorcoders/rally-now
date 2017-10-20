@@ -5,15 +5,9 @@
         <ion-refresher-content pullingText="Pull down to Refresh" pullingIcon="arrow-dropdown" refreshingSpinner="circles" refreshingText="Refreshing...">
         </ion-refresher-content>
     </ion-refresher>
-
-   
-
-
-  
-  
       <ion-card style="position: relative;" *ngFor="let objective of objectives" class="objectives-card ">
 
-      <ion-fab right top>
+    <ion-fab right top>
     <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
     <ion-fab-list side="left">
       <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
@@ -52,20 +46,15 @@
                 <p class="link">371 Likes, 212 Shares</p>
         </ion-col>
         <ion-col col-4>
-            <button ion-button color="dark" class="action-btn">Take action</button>
+            <button ion-button color="dark" class="action-btn" (click)="goToActionPage(objective.id)">Take action</button>
         </ion-col>
     </ion-row>
   </ion-card-content>
    <ion-row>
-      <ion-col class="token" col-8>
+      <ion-col class="token" col-12>
       <p>You've token action on this 3 times</p>
       </ion-col>
-      <ion-col col-4 class="token-btn">
-        <button ion-button icon-left clear full style="height: 30px; font-weight: 600;
-    font-size: 13px;">
-          I'M DONE
-      </button>
-      </ion-col>
+    
     </ion-row>
 
   <ion-row>
@@ -75,7 +64,7 @@
       </button>
     </ion-col>
     <ion-col class="blue" style="border-right: none;">
-      <button ion-button icon-left clear full (click)="shareController(objective.title, 'https://sjdsdirectoryapp.senorcoders.com/ufittapp/IMG_20170802_124650.jpg')">
+      <button ion-button icon-left clear full (click)="share(objective.title, 'https://sjdsdirectoryapp.senorcoders.com/ufittapp/IMG_20170802_124650.jpg')">
         <ion-icon name="ios-share"></ion-icon>
       </button>
     </ion-col>
@@ -125,7 +114,7 @@
                 </button>
             </ion-col>
             <ion-col class="blue" style="border-right: none;">
-                <button ion-button icon-left clear full (click)="shareController(organization.description, 'https://sjdsdirectoryapp.senorcoders.com/ufittapp/IMG_20170802_124650.jpg')">
+                <button ion-button icon-left clear full (click)="share(organization.description, 'https://sjdsdirectoryapp.senorcoders.com/ufittapp/IMG_20170802_124650.jpg')">
                     <ion-icon name="ios-share"></ion-icon>
                 </button>
             </ion-col>

@@ -17,6 +17,7 @@ export class PublicProfilePage {
   hidden:any;
   followEndpoint:string= 'following_users';
   buttonFollowTest:string;
+  login:any = true;
 
   constructor(
     public navCtrl: NavController, 
@@ -35,8 +36,9 @@ export class PublicProfilePage {
 
   checkUserStatus(){
    let user:any = firebase.auth().currentUser;
-    let orgRef = this.db.database.ref('follow/'+user['uid']+'/'+this.parameter);
-    orgRef.on('value', snapshot=>{
+     if (user) {
+       let orgRef = this.db.database.ref('follow/'+user['uid']+'/'+this.parameter);
+        orgRef.on('value', snapshot=>{
       if (snapshot.hasChildren()) {
        console.log('Unfollow');
        this.buttonFollowTest = 'Unfollow';
@@ -47,6 +49,10 @@ export class PublicProfilePage {
           
       }
     });
+     } else{
+       this.login = false;
+     }
+    
   }
 
   getdata(){

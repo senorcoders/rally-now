@@ -3,11 +3,13 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { UsersProvider } from '../../providers/users/users';
 import {AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
+import { OrganizationsProvider } from '../../providers/organizations/organizations';
+
 /**
  * Generated class for the OrganizationProfilePage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
+ * on Ionic pages and navigation. 
  */ 
 
 @IonicPage()
@@ -17,19 +19,22 @@ import firebase from 'firebase';
 })
 export class OrganizationProfilePage {
 	organizationID:string;
-	endpoint:string = 'organizations/';
+	endpoint:string = 'organization/';
 	name:string;
 	description:string;
 	short_desc:string;
 	organizationEndpoint:any = 'following_organizations';
 	dataID:any;
   buttonFollowTest:string;
+  login:any = true;
+  objectives:any;
 
 
   constructor(
   	public navCtrl: NavController, 
   	public navParams: NavParams, 
   	private httpProvider:UsersProvider,
+    private orgProvider:OrganizationsProvider,
   	public toastCtrl: ToastController,
   	private db: AngularFireDatabase) {
   	this.organizationID = navParams.get('organizationID');
@@ -43,13 +48,14 @@ export class OrganizationProfilePage {
   }
 
   getdata(){
-  this.httpProvider.getJsonData(this.endpoint + this.organizationID).subscribe(
+  this.orgProvider.getJsonData(this.endpoint + this.organizationID).subscribe(
     result => {
-      this.name=result.name;
-      this.description=result.description;
-      this.short_desc=result.short_desc;
-      this.dataID=result.id;
-      console.log("Success : "+ result.name);
+      this.name=result.organization[0]['name'];
+      this.description=result.organization[0]['description'];
+      this.short_desc=result.organization[0]['short_desc'];
+      this.dataID=result.organization[0]['id'];
+      this.objectives = result.objectives;
+      console.log("Success : "+ JSON.stringify(result.organization[0]['name']) );
     },
     err =>{
       console.error("Error : "+err);
@@ -62,11 +68,12 @@ export class OrganizationProfilePage {
 
   checkOrganizationStatus(){
    let user:any = firebase.auth().currentUser;
-    let orgRef = this.db.database.ref('organizations/'+user['uid']+'/'+this.organizationID);
+     if (user) {
+       let orgRef = this.db.database.ref('organizations/'+user['uid']+'/'+this.organizationID);
     orgRef.on('value', snapshot=>{
       if (snapshot.hasChildren()) {
        console.log('Unfollow');
-       this.buttonFollowTest = 'Following';
+       this.buttonFollowTest = 'Unfollow';
        
       } else{
         console.log('Follow');
@@ -74,6 +81,11 @@ export class OrganizationProfilePage {
           
       }
     });
+     }else{
+       console.log("No logueado");
+       this.login = false;
+     }
+    
   }
 
 
@@ -91,7 +103,7 @@ presentToast(message) {
      followRef.once('value', snapshot=>{
        if (snapshot.hasChildren()) {
          console.log('You already follow this org');
-         this.getOrganizationFollowRecordID();
+         //this.getOrganizationFollowRecordID();
          this.presentToast('You already follow this organization');
 
        }else{
@@ -123,6 +135,7 @@ presentToast(message) {
     }
 
     unfollow(recordID){
+
       //this.httpProvider.unfollowOrganization(this.organizationEndpoint, recordID);
       //this.httpProvider.removeFollowRecordID(this.organizationID, 'organizations');
     }
