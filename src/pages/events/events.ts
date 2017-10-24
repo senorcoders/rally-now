@@ -6,6 +6,7 @@ import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
 import { OverlayPage } from '../overlay/overlay'
 import { UsersProvider } from '../../providers/users/users';
+import {EventDetailPage} from '../event-detail/event-detail';
 
 
 @IonicPage()
@@ -64,6 +65,14 @@ export class EventsPage {
       console.log('getData completed');
     }
   );
+}
+
+
+goToEventDetail(eventID){
+  console.log(eventID);
+  this.navCtrl.push(EventDetailPage, {
+          eventID: eventID
+    });
 }
 
 }

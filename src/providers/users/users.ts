@@ -8,13 +8,6 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 
 
-
-/*
-  Generated class for the OrganizationsProvider provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular DI.
-*/
 @Injectable()
 export class UsersProvider {
 	base:string = 'http://138.68.19.227:3000/api/';
@@ -56,6 +49,7 @@ export class UsersProvider {
 
      return new Promise( (resolve, reject) => {
           let user:any = firebase.auth().currentUser;
+          console.log(user);
           if (user) {
             this.af.database.ref('users/'+user['uid']).once('value').then(function(snapshot){
               resolve(snapshot.val());
@@ -197,6 +191,48 @@ export class UsersProvider {
    handleError(error) {
       console.error(error);
       return Observable.throw(error.json().error || 'Server error');
+  }
+
+
+  addFavorites(endpoint, goal_id, action_type_id, user_id):void{
+    var headers = new Headers();
+      headers.append('Content-Type', 'application/json' );
+      headers.append('Access-Control-Allow-Origin', '*');
+      headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+      headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+      headers.append('Access-Control-Max-Age', '1728000');
+      let options = new RequestOptions({ headers: headers });
+    let userData = JSON.stringify({action_type_id:action_type_id, goal_id:goal_id, user_id: user_id});
+    console.log(this.base + endpoint, userData, options);
+    this.http.post(encodeURI(this.base + endpoint), userData, options)
+      .map(res => res.json())
+      .subscribe(data => {
+        console.log("POST FAV", data);
+        this.data.response = data["_body"];
+      }, error => {
+        console.log("Error", error);
+      });
+  } 
+
+
+  hideObjective(endpoint, user_id, objective_id):void{
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/json' );
+      headers.append('Access-Control-Allow-Origin', '*');
+      headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+      headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+      headers.append('Access-Control-Max-Age', '1728000');
+      let options = new RequestOptions({ headers: headers });
+      let userData = JSON.stringify({user_id:user_id, objective_id:objective_id});
+      this.http.post(encodeURI(this.base + endpoint), userData, options)
+      .map(res => res.json())
+      .subscribe(data => {
+        console.log("HIDE OBJ", data);
+        this.data.response = data["_body"];
+      }, error => {
+        console.log("Error", error);
+      });
+
   }
 
 }

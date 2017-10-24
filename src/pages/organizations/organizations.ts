@@ -40,7 +40,7 @@ export class OrganizationsPage {
         console.log(user);
         this.myApiRallyID = user.apiRallyID;
         this.getdata();
-
+ 
       });
 
   }

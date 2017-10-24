@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, PopoverController, LoadingController, ActionSheetController } from 'ionic-angular';
+import { NavController, AlertController, PopoverController, LoadingController, ActionSheetController, ToastController } from 'ionic-angular';
 import { AlertsPage } from '../alerts/alerts'
 import { ProfilePage } from '../profile/profile'
 import { HomeFiltersPage } from '../home-filters/home-filters';
@@ -10,6 +10,9 @@ import { OrganizationProfilePage } from '../organization-profile/organization-pr
 import { PublicProfilePage } from '../public-profile/public-profile';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
 import { OrganizationActionPage } from '../organization-action/organization-action';
+import { UsersProvider } from '../../providers/users/users';
+import {AngularFireDatabase} from 'angularfire2/database';
+import firebase from 'firebase';
 
 @Component({
   selector: 'page-feed',
@@ -18,10 +21,13 @@ import { OrganizationActionPage } from '../organization-action/organization-acti
 
 export class FeedPage {
   organizationsData:any;
-  endpoint:string = 'homefeed/825eaf5e-2782-467e-8e34-70576d55e321';
+  endpoint:string = 'homefeed/';
   loading:any;
   objectives:any;
   fiends:any;
+  favEndpoint:any = 'actions';
+  myrallyID:any;
+  hide_enpoint:any = 'hide_objective';
 
   constructor(
     public navCtrl: NavController,
@@ -30,15 +36,23 @@ export class FeedPage {
     private httpProvider:OrganizationsProvider,
     public loadingCtrl: LoadingController,
     public actionSheetCtrl: ActionSheetController,
-    private shareProvider:SocialShareProvider) { 
-
-       this.loading = this.loadingCtrl.create({
+    private shareProvider:SocialShareProvider,
+    private usersProv: UsersProvider,
+    public toastCtrl: ToastController,
+    private db: AngularFireDatabase) { 
+      this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
+      }); 
+        this.loading.present();
+        this.usersProv.returnRallyUserId()
+      .then(user => {
+        console.log(" Usuario",user);
+        this.myrallyID = user.apiRallyID;
+        this.getdata();
+
       });
 
-      this.loading.present();
-     this.getdata();
-
+     
   }
 
  
@@ -68,12 +82,13 @@ export class FeedPage {
   }
 
   getdata(){
-  this.httpProvider.getJsonData(this.endpoint).subscribe(
+  this.httpProvider.getJsonData(this.endpoint + this.myrallyID).subscribe(
     result => {
       this.organizationsData=result['My_Organizations'];
       this.objectives=result['Objectives'];
       this.fiends=result['friends_activity'];
       console.log("Success : "+ result['My_Organizations']);
+      console.log("Goal ID", JSON.stringify(result['Objectives'][1].title));
       this.loading.dismiss();
     },
     err =>{
@@ -162,6 +177,42 @@ doRefresh(refresher) {
 
    actionSheet.present();
  }
+
+  presentToast(message) {
+      let toast = this.toastCtrl.create({
+        message: message,
+        duration: 3000
+      });
+      toast.present();
+    }
+
+ addToFav(goal_id, action_type_id){
+   this.usersProv.addFavorites(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
+   this.usersProv.saveFollowRecordID(goal_id, goal_id, 'favorites');
+   this.presentToast('Added to Favorites');
+ }
+
+ 
+
+ addFavRecordFirebase(goal_id, action_type_id){
+     let user:any = firebase.auth().currentUser;
+     let favRef = this.db.database.ref('favorites/'+user['uid']+'/'+goal_id);
+     favRef.once('value', snapshot=>{
+       if (snapshot.hasChildren()) {
+         console.log('Already added to favorties');
+         this.presentToast('Already added to favorties');
+
+       }else{
+        this.addToFav(goal_id, action_type_id);
+         this.presentToast('Added to Favorites');
+       }
+     });
+    }
+
+    hideItem(objective_id){
+        this.usersProv.hideObjective(this.hide_enpoint, this.myrallyID, objective_id);
+    }
+    
 
  
 

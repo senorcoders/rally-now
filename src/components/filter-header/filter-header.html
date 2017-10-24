@@ -9,7 +9,7 @@
             </ion-col>
         </ion-row>
       </ion-grid> -->
-      <ion-searchbar no-padding class="rally-search"></ion-searchbar>
+      <ion-searchbar no-padding class="rally-search" [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar>
       <ion-buttons end>
       		<button ion-button icon-only>
       			<ion-icon name="ios-funnel"></ion-icon>

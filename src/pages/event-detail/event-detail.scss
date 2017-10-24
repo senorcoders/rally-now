@@ -1,4 +1,30 @@
 page-event-detail {
+     .button-clear-md, .button-clear-ios {
+        background-color: #4a90e2;
+        color: #fff;
+        height: 30px;
+    }
+    ion-header {
+        text-align: center;
+    }
+
+    .toolbar-background {
+        background-color: #4a90e2;
+        color: #fff;
+    }
+    ion-content {
+        background-color: #f2f2f2 !important;
+        top:60px;
+    }
+
+    p.white {
+        color: #fff;
+        margin: 0;
+    }
+    .blue {
+            background-color: #4a90e2;
+            border-right: 1px solid #fff;
+        }
     .event{
         .title {
             vertical-align: sub;

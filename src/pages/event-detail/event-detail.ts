@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Platform, ActionSheetController } from 'ionic-angular';
+import { UsersProvider } from '../../providers/users/users';
 
-/**
- * Generated class for the EventDetailPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -16,8 +12,24 @@ import { Platform, ActionSheetController } from 'ionic-angular';
 })
 export class EventDetailPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public platform: Platform,
-    public actionsheetCtrl: ActionSheetController) {
+  eventID:any;
+  endpoint:any = 'events/';
+  title:any;
+  event_time:any;
+  description:any;
+  image_url:any;
+  locations:any;
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public platform: Platform,
+    public actionsheetCtrl: ActionSheetController,
+    private httpProvider: UsersProvider) {
+        this.eventID = navParams.get('eventID');
+        console.log("Evento ID", navParams.get('eventID'));
+        this.getdata();
+
   }
 
   ionViewDidLoad() {
@@ -70,5 +82,24 @@ export class EventDetailPage {
     });
     actionSheet.present();
   }
+
+
+     getdata(){
+  this.httpProvider.getJsonData(this.endpoint + this.eventID).subscribe(
+    result => {
+      this.title = result.title;
+      this.locations = result.locations;
+      this.event_time = result.event_time;
+      this.description = result.description;
+      this.image_url = result.image_url;
+    },
+    err =>{
+      console.error("Error : "+err);
+    } ,
+    () => {
+      console.log('getData completed');
+    }
+  );
+}
 
 }

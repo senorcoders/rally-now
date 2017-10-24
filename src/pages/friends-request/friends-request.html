@@ -12,7 +12,7 @@
 	<ion-row padding class="search-btn">
 <!-- 		<button  ion-button color="dark" class="action-btn">Search for friends	</button>
  -->    <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar> 
-
+ 
 	</ion-row>
   <div *ngIf="searching" class="spinner-container">
         <ion-spinner></ion-spinner>

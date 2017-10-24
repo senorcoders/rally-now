@@ -14,7 +14,7 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'page-friends-request',
   templateUrl: 'friends-request.html',
-})
+}) 
 export class FriendsRequestPage {
   searchTerm: string = '';
   items: any;

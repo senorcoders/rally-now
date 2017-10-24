@@ -43,6 +43,16 @@ page-events {
             border: none;
             box-shadow: none;
         }
+
+        .blue-card {
+            background-color: #4a90e2;
+            border-right: 1px solid #fff;
+        }
+
+        
+        .button-clear-ios, .button-clear-md {
+            color: #fff;
+        }
     }
 }
 
