@@ -25,13 +25,13 @@
                     <p class="small">Organizations</p>
                 </ion-col>
             </ion-row>
-          
+
         </ion-col>
         <ion-col col-8>
             <p>{{user.description}}</p>
         </ion-col>
         <ion-col col-4>
-                  <ion-row class="follow-user-button">
+            <ion-row class="follow-user-button">
                 <button *ngIf="login" ion-button (click)="addFollowRecordFirebase(user.id)">{{buttonFollowTest}}</button>
 
             </ion-row>
@@ -167,7 +167,7 @@
                     This is a private account
                 </ion-item>
             </ion-list>
-            
+
         </ion-row>
     </ng-template>
 </ion-content>

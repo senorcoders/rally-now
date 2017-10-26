@@ -18,13 +18,17 @@ export class PublicProfilePage {
   followEndpoint:string= 'following_users';
   buttonFollowTest:string;
   login:any = true;
+  notificationsEndpoint:any = 'devices';
+  alertsEndpoint:any = 'ux_events';
+  
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     private httpProvider:UsersProvider,
     private db: AngularFireDatabase,
-    public toastCtrl: ToastController) {
+    public toastCtrl: ToastController,
+  ) {
   	this.parameter = navParams.get('param1');
   	this.getdata();
     this.checkUserStatus();
@@ -84,19 +88,64 @@ presentToast(message) {
      followRef.once('value', snapshot=>{
        if (snapshot.hasChildren()) {
          console.log('You already follow this user');
-         this.presentToast('You already follow this user');
+         this.getFollowRecordID();
+         this.presentToast('You are not following this user anymore');
 
        }else{
-         this.followFriend(friendID);
+         //this.followFriend(friendID);
+         this.getDeviceID(friendID);
          this.presentToast('Follow user successfully');
        }
      });
     }
 
+    getDeviceID(user_id){
+      //Reemplazar por parametro despues
+      this.httpProvider.getJsonData(this.notificationsEndpoint+'?user_id='+this.httpProvider.getRallyID())
+        .subscribe(result => {
+            console.log(result[0].registration_id);
+            this.saveNotification(user_id, result[0].registration_id);
+        }, err => {
+          console.error("Error: " +err);
+        }, () => {
+          console.log("Data Completed");
+        });
+    }
+
+    saveNotification(user_id, registration_id){
+      const msg = 'Hola Mundo';
+      this.httpProvider.sendNotification(registration_id, msg);
+      
+      // this.httpProvider.saveNotification(user_id, registration_id, msg,  this.alertsEndpoint);
+      // this.followFriend(user_id);
+
+    }
 
      followFriend(friendID){
       this.httpProvider.followFriend(this.followEndpoint, this.httpProvider.getRallyID(), friendID );
       console.log(this.httpProvider.getRallyID());
+    }
+
+
+    getFollowRecordID(){
+      this.httpProvider.getJsonData(this.followEndpoint+'?follower_id='+this.httpProvider.getRallyID()+'&following_id='+this.parameter).subscribe(
+  result => {
+    console.log("Delete User ID : "+ result[0].id);
+    this.unFollowFriend(result[0].id);
+  },
+  err =>{
+    console.error("Error : "+err);
+  } ,
+  () => {
+    console.log('getData completed');
+  }
+
+  );
+  }
+
+    unFollowFriend(recordID){
+      this.httpProvider.unfollowOrganization(this.followEndpoint, recordID);
+      this.httpProvider.removeFollowRecordID(this.parameter, 'follow');
     }
 
 }

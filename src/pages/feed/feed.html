@@ -64,7 +64,7 @@
     </ion-row>
 
   <ion-row>
-    <ion-col class="blue">
+    <ion-col class="blue" [ngStyle]="{'background-color': buttonColorRender(objective?.goals[0]?.id)}">
       <button ion-button icon-left clear full (click)="addFavRecordFirebase(objective?.goals[0]?.id,'a7033506-b29d-4544-81f1-6dce063e6ba2')">
         <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>
       </button>

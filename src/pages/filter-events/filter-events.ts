@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
+import { EventsPage } from '../events/events';
 
-/**
- * Generated class for the FilterEventsPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -26,8 +21,13 @@ export class FilterEventsPage {
   }
 
   public event = {
-    month: '1990-02-19',
+    month: '2017-10-01',
     timeStarts: '07:43',
-    timeEnds: '1990-02-20'
+    timeEnds: '2017-12-31'
 }
+
+goToEvents(){
+ 
+   this.navCtrl.setRoot(EventsPage);
+ }
 }

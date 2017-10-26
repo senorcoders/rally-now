@@ -11,7 +11,7 @@
       </ion-grid> -->
       <ion-searchbar no-padding class="rally-search" [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar>
       <ion-buttons end>
-      		<button ion-button icon-only>
+      		<button ion-button icon-only (click)="goToEventFilter()">
       			<ion-icon name="ios-funnel"></ion-icon>
       		</button>
       </ion-buttons>

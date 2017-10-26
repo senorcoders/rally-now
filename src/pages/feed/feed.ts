@@ -28,6 +28,7 @@ export class FeedPage {
   favEndpoint:any = 'actions';
   myrallyID:any;
   hide_enpoint:any = 'hide_objective';
+  buttonColor:string = 'red';
 
   constructor(
     public navCtrl: NavController,
@@ -38,7 +39,7 @@ export class FeedPage {
     public actionSheetCtrl: ActionSheetController,
     private shareProvider:SocialShareProvider,
     private usersProv: UsersProvider,
-    public toastCtrl: ToastController,
+    public toastCtrl: ToastController, 
     private db: AngularFireDatabase) { 
       this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
@@ -51,6 +52,7 @@ export class FeedPage {
         this.getdata();
 
       });
+
 
      
   }
@@ -90,6 +92,8 @@ export class FeedPage {
       console.log("Success : "+ result['My_Organizations']);
       console.log("Goal ID", JSON.stringify(result['Objectives'][1].title));
       this.loading.dismiss();
+      console.log("Prueba", this.buttonColorRender('52a3bc0f-4a63-4f73-a403-821fc0935214'));
+
     },
     err =>{
       console.error("Error : "+err);
@@ -213,6 +217,40 @@ doRefresh(refresher) {
         this.usersProv.hideObjective(this.hide_enpoint, this.myrallyID, objective_id);
     }
     
+
+   checkFavStatus(goal_id){
+   return new Promise( (resolve, reject) => {
+
+       let user:any = firebase.auth().currentUser;
+         if (user) {
+         let favRef = this.db.database.ref('favorites/'+user['uid']+'/'+goal_id);
+            favRef.once('value', snapshot=>{
+              if (snapshot.exists()) {
+               resolve('red');
+               
+              } else{
+                 resolve('#4a90e2');       
+              }
+            });
+         }
+      });
+    
+  }
+
+    resolvePromise(goal_id){
+      return this.checkFavStatus(goal_id)
+      .then(value => {
+        return value;
+      });
+    }
+  
+ public async buttonColorRender(goal_id){
+    
+    let color = await this.resolvePromise(goal_id);
+    return color;
+
+
+  }
 
  
 

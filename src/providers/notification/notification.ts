@@ -3,31 +3,25 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Device } from '@ionic-native/device';
 import { Push, PushOptions, PushToken} from '@ionic/cloud-angular';
+import {UsersProvider} from '../users/users';
 
 
-
-
-
-/*
-  Generated class for the NotificationProvider provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular DI.
-*/
 @Injectable()
 export class NotificationProvider {
 
-
+  endpoint:string = 'devices';
+  myRallyID:any;
 
   constructor(
   	public http: Http,
   	public push: Push,
-    public device: Device) {
-    console.log('Hello NotificationProvider Provider');
+    public device: Device,
+    private httpProvider: UsersProvider) {
+    
   }
 
 
-  init(){
+  init(rallyID){
   	
   
 
@@ -35,14 +29,15 @@ export class NotificationProvider {
 		  return this.push.saveToken(t);
 		}).then((t: PushToken) => {
 		  console.log('Token saved:', t.token);
-      this.saveToken(t.token);
+      this.saveToken(t.token, rallyID);
 		});
 
     
   }
 
 
-  saveToken (token) {
+  saveToken (token, rallyID) {
+    console.log("Desde notication Provider", rallyID);
     // build the headers for our api call to make sure we send json data type to our api
     const headers = new Headers();
     headers.append("Accept", 'application/json');
@@ -58,6 +53,7 @@ export class NotificationProvider {
         token
     };
     const url = "http://138.68.19.227:8000/devices";
+
     console.log(device);
     this.http.post(url, {device}, options)
         .subscribe(data => {
@@ -65,6 +61,7 @@ export class NotificationProvider {
         }, error => {
             console.log('error saving token', error);
         });
+    this.httpProvider.saveDevice(this.device.uuid, rallyID,  this.endpoint);
 }
 
 }

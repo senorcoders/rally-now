@@ -13,6 +13,7 @@ export class UsersProvider {
 	base:string = 'http://138.68.19.227:3000/api/';
 	data:any = {};
   recordID:any;
+  senorcodersEndpoint:any = 'https://sjdsdirectoryapp.senorcoders.com/rally/index.php';
 
 
   constructor(public http: Http, public storage: Storage, public af:AngularFireDatabase) {
@@ -34,29 +35,37 @@ export class UsersProvider {
 	}
 
   getIDonLoad(){
-    let user:any = firebase.auth().currentUser;
+   firebase.auth().onAuthStateChanged(user => {
+
     if (user) {
-      this.af.database.ref('users/'+user['uid']).once('value', snapshot=>{
+      let usuario:any = firebase.auth().currentUser;
+
+      this.af.database.ref('users/'+usuario['uid']).once('value', snapshot=>{
         this.recordID = snapshot.val().apiRallyID;
         });
     } else{
       console.log("Usuario no esta logueado");
     }
+     });
       
   }
 
   returnRallyUserId(): any{
 
      return new Promise( (resolve, reject) => {
-          let user:any = firebase.auth().currentUser;
-          console.log(user);
+
+       firebase.auth().onAuthStateChanged(user => {
           if (user) {
-            this.af.database.ref('users/'+user['uid']).once('value').then(function(snapshot){
+             let usuario:any = firebase.auth().currentUser;
+
+            this.af.database.ref('users/'+usuario['uid']).once('value').then(function(snapshot){
               resolve(snapshot.val());
             })
-          } else{
+          } else {
             console.log("Usuario no esta logueado");
           }
+        });
+
 
       });
     
@@ -94,7 +103,7 @@ export class UsersProvider {
 	}
 
 	updateUser(endpoint, data):void{
-		var headers = new Headers();
+		  var headers = new Headers();
     	headers.append('Content-Type', 'application/json' );
     	headers.append('Access-Control-Allow-Origin', '*');
     	headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
@@ -233,6 +242,76 @@ export class UsersProvider {
         console.log("Error", error);
       });
 
+  }
+
+
+  saveDevice(registration_id, user_id, endpoint):void{
+    console.log("Desde user Provider", user_id);
+    var headers = new Headers();
+      headers.append('Content-Type', 'application/json' );
+      headers.append('Access-Control-Allow-Origin', '*');
+      headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+      headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+      headers.append('Access-Control-Max-Age', '1728000');
+      var d1 = new Date();
+      d1.toUTCString();
+      Math.floor(d1.getTime()/ 1000);
+      var d2 = new Date(d1.getUTCFullYear(),  d1.getUTCMonth(), d1.getUTCDate(), d1.getUTCHours(), d1.getUTCMinutes(), d1.getUTCSeconds());
+
+      let options = new RequestOptions({ headers: headers });
+      let userData = JSON.stringify({registration_id:registration_id, user_id:user_id, created_at:d2.toUTCString(), updated_at:d2.toUTCString()});
+      console.log(userData);
+      this.http.post(encodeURI(this.base + endpoint), userData, options)
+      .map(res => res.json())
+      .subscribe(data => {
+        console.log("DEVICE", data);
+        this.data.response = data["_body"];
+      }, error => {
+        console.log("Error", error);
+      });
+  }
+
+
+  saveNotification(user_id, device_id, msg, endpoint):void{
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json' );
+    headers.append('Access-Control-Allow-Origin', '*');
+    headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+    headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+    headers.append('Access-Control-Max-Age', '1728000');
+    var d1 = new Date();
+    d1.toUTCString();
+    Math.floor(d1.getTime()/ 1000);
+    var d2 = new Date(d1.getUTCFullYear(),  d1.getUTCMonth(), d1.getUTCDate(), d1.getUTCHours(), d1.getUTCMinutes(), d1.getUTCSeconds());
+
+    let options = new RequestOptions({ headers: headers });
+    let userData = JSON.stringify({device_id:device_id, user_id:user_id, created_at:d2.toUTCString(), updated_at:d2.toUTCString(), data:msg});
+    console.log(userData);
+    this.http.post(encodeURI(this.base + endpoint), userData, options)
+    .map(res => res.json())
+    .subscribe(data => {
+      console.log("NOTIFICATION", data);
+      this.data.response = data["_body"];
+    }, error => {
+      console.log("Error", error);
+    });
+  }
+  sendNotification(device_id, msg){
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json' );
+    headers.append('Access-Control-Allow-Origin', '*');
+    headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+    let options = new RequestOptions({ headers: headers });
+    
+    let userData = JSON.stringify({device_id:device_id, msg:msg});
+    
+      this.http.post(encodeURI(this.senorcodersEndpoint), userData, options)
+      .map(res => res.json())
+      .subscribe(data => {
+        console.log("In senorcoders", data);
+      }, error => {
+        console.log("Error", error);
+      });
   }
 
 }

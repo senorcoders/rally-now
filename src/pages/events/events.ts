@@ -7,6 +7,9 @@ import { ProfilePage } from '../profile/profile';
 import { OverlayPage } from '../overlay/overlay'
 import { UsersProvider } from '../../providers/users/users';
 import {EventDetailPage} from '../event-detail/event-detail';
+import 'rxjs/add/operator/debounceTime';
+import { FormControl } from '@angular/forms';
+import { Storage } from '@ionic/storage';
 
 
 @IonicPage()
@@ -17,18 +20,32 @@ import {EventDetailPage} from '../event-detail/event-detail';
 export class EventsPage {
   endpoint:string = 'events';
   events:any;
+  searchTerm: string = '';
+  searchControl: FormControl;
+  searching: any = false;
+
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public modalCtrl: ModalController,  
     public popoverCtrl: PopoverController,
-    private httpProvider: UsersProvider) {
-      this.getdata();
+    private httpProvider: UsersProvider,
+    public storage: Storage) {
+      this.searchControl = new FormControl();
+
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventsPage');
+    this.getdata();
+     this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
+          this.searching = false;
+          this.getdata();
+        });
+
+   
   }
 
    filterEvents() {
@@ -56,7 +73,13 @@ export class EventsPage {
        getdata(){
   this.httpProvider.getJsonData(this.endpoint).subscribe(
     result => {
-      this.events=result;
+     this.events = result.filter((item) => {
+            return item.title.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+        });  
+     this.storage.set('EVENTS', result);
+
+     //this.filterItems(this.searchTerm); 
+      
     },
     err =>{
       console.error("Error : "+err);
@@ -74,5 +97,29 @@ goToEventDetail(eventID){
           eventID: eventID
     });
 }
+
+goToEventFilter(){
+      this.navCtrl.push(FilterEventsPage);
+    }
+
+     onSearchInput(){
+        this.searching = true;
+    }
+
+    //  setFilteredItems() {
+ 
+    //     this.events = this.getdata(this.searchTerm);
+    //     console.log(this.events);
+ 
+    // }
+
+
+    // filterItems(searchTerm){
+
+    //     return this.events.filter((item) => {
+    //         return item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+    //     });  
+ 
+    // }
 
 }

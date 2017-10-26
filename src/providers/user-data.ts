@@ -84,4 +84,10 @@ export class UserData {
       return value;
     });
   };
+
+  getEvents(): Promise<string> {
+    return this.storage.get('EVENTS').then((value) => {
+      return value;
+    });
+  };
 }

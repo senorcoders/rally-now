@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import 'rxjs/add/operator/debounceTime';
 import { FormControl } from '@angular/forms';
 import { UsersProvider } from '../../providers/users/users';
+import {FilterEventsPage} from '../../pages/filter-events/filter-events';
+import { NavController, NavParams} from 'ionic-angular';
 
 @Component({
   selector: 'filter-header',
@@ -16,7 +18,7 @@ export class FilterHeaderComponent {
   endpoint:string = 'events';
 
 
-  constructor(private httpProvider: UsersProvider) {
+  constructor(private httpProvider: UsersProvider, public navCtrl: NavController, public navParams: NavParams) {
     console.log('Hello FilterHeaderComponent Component');
     this.searchControl = new FormControl();
 
@@ -51,6 +53,10 @@ export class FilterHeaderComponent {
             return item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
         });     
  
+    }
+
+    goToEventFilter(){
+      this.navCtrl.push(FilterEventsPage);
     }
 
 }

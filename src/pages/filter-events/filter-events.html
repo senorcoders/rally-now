@@ -44,15 +44,15 @@
             <ion-datetime displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="event.timeEnds"></ion-datetime>
         </ion-item>
     </ion-list>
-    <ion-list>
+   <!--  <ion-list>
     	<ion-list-header style="border:none; background-color: #4a90e2; color: #fff; text-transform: uppercase;">
     		Search
         </ion-list-header>
         <ion-searchbar style="background: transparent;" (input)="getItems($event)"></ion-searchbar>
-     </ion-list>
+     </ion-list> -->
 </ion-content>
 <ion-footer padding>
     <ion-toolbar>
-        <button ion-button full class="filter-btn">FILTER</button>
+        <button ion-button full class="filter-btn" (click)="goToEvents()">APPLY FILTER</button>
     </ion-toolbar>
 </ion-footer>

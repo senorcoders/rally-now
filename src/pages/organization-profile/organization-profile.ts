@@ -5,12 +5,6 @@ import {AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
 
-/**
- * Generated class for the OrganizationProfilePage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation. 
- */ 
 
 @IonicPage()
 @Component({
@@ -104,7 +98,7 @@ presentToast(message) {
        if (snapshot.hasChildren()) {
          console.log('You already follow this org');
          this.getOrganizationFollowRecordID();
-         this.presentToast('You already follow this organization');
+         this.presentToast('You are not following this organization anymore');
 
        }else{
          this.followOrg(organizationID);

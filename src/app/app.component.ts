@@ -6,11 +6,14 @@ import { HomePage } from '../pages/home/home';
 import { UserData } from '../providers/user-data';
 import { FeedPage } from '../pages/feed/feed';
 import { NotificationProvider } from '../providers/notification/notification';
-
+import { Storage } from '@ionic/storage';
+import firebase from 'firebase';
+import {UsersProvider} from '../providers/users/users';
+import {Push} from '@ionic/cloud-angular';
 //import { FCM } from '@ionic-native/fcm';
 
 
-
+ 
 @Component({
     templateUrl: 'app.html'
 })
@@ -24,7 +27,10 @@ export class MyApp {
     	splashScreen: SplashScreen, 
     	public alertCtrl: AlertController,
     	public userData: UserData,
-      noti: NotificationProvider
+      noti: NotificationProvider,
+      public storage:Storage,
+      private httpProvider:UsersProvider,
+      public push: Push,
       //private fcm: FCM
     	) {
        this.userData.hasLoggedIn().then((hasLoggedIn) => {
@@ -34,17 +40,42 @@ export class MyApp {
                 }
                 else{
                   this.rootPage = HomePage;
-                  noti.init();
+                  
 
                 }
-        });
+        }); 
           platform.ready().then((readySource) => {
 
             console.log("Platform Ready from ", readySource);
             statusBar.styleDefault();
+          firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+               this.storage.get('introShown').then((result) => {
+               if (result) {
+                 console.log('Not First Time');
+               }else{
+                 this.httpProvider.returnRallyUserId()
+                   .then(user => {
+                     console.log("Usuario desde Notificaciones", user.apiRallyID);
+                     noti.init(user.apiRallyID);
 
+                   });
+                 console.log('First Time');
+                
+                 this.storage.set('introShown', true);
 
-        });
+               }
+            });
+              this.push.rx.notification()
+                .subscribe((msg) => {
+                 console.log('I received awesome push: ' + msg);
+                });
+            }else{
+              console.log("No estas logueado para notificaciones");
+            }
+            
+          });
+         });
 
 
             

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
 import { CallPage } from '../call/call';
 import { FeedPage } from '../feed/feed';
@@ -7,14 +7,13 @@ import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
 import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay'
+import { UsersProvider } from '../../providers/users/users';
+import { OrganizationProfilePage } from '../organization-profile/organization-profile';
+import { OrganizationActionPage } from '../organization-action/organization-action';
+import {AngularFireDatabase} from 'angularfire2/database';
+import firebase from 'firebase';
+import { SocialShareProvider } from '../../providers/social-share/social-share';
 
-
-/**
- * Generated class for the TakeactionPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -23,7 +22,29 @@ import { OverlayPage } from '../overlay/overlay'
 })
 export class TakeactionPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController, public popoverCtrl: PopoverController) {
+  endpoint:string = 'objectives';
+  objectives:any;
+  myrallyID:any;
+  favEndpoint:any = 'actions';
+
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public actionSheetCtrl: ActionSheetController, 
+    public popoverCtrl: PopoverController,
+    private httpProvider:UsersProvider,
+    public toastCtrl: ToastController,
+    private db: AngularFireDatabase,
+    private shareProvider:SocialShareProvider) {
+
+     this.httpProvider.returnRallyUserId()
+      .then(user => {
+        console.log(" Usuario",user);
+        this.myrallyID = user.apiRallyID;
+        this.getdata();
+
+      });
   }
 
   ionViewDidLoad() {
@@ -86,6 +107,73 @@ export class TakeactionPage {
   presentPopover() {
        let popover = this.popoverCtrl.create(OverlayPage);
        popover.present();
+     }
+
+
+      getdata(){
+  this.httpProvider.getJsonData(this.endpoint).subscribe(
+    result => {
+      this.objectives=result;
+      console.log("Objectives", JSON.stringify(result));
+    },
+    err =>{
+      console.error("Error : "+err);
+    } ,
+    () => {
+      console.log('getData completed');
+    }
+  );
+}
+
+
+goToOrganizationProfile(organizationID){
+       this.navCtrl.push(OrganizationProfilePage, {
+          organizationID: organizationID
+    });
+     }
+
+
+     goToActionPage(objectiveID){
+       this.navCtrl.push(OrganizationActionPage, {
+          objectiveID: objectiveID
+    });
+     }
+
+
+      addToFav(goal_id, action_type_id){
+   this.httpProvider.addFavorites(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
+   this.httpProvider.saveFollowRecordID(goal_id, goal_id, 'favorites');
+   this.presentToast('Added to Favorites');
+ }
+
+ 
+
+ presentToast(message) {
+      let toast = this.toastCtrl.create({
+        message: message,
+        duration: 3000
+      });
+      toast.present();
+    }
+
+ addFavRecordFirebase(goal_id, action_type_id){
+     let user:any = firebase.auth().currentUser;
+     let favRef = this.db.database.ref('favorites/'+user['uid']+'/'+goal_id);
+     favRef.once('value', snapshot=>{
+       if (snapshot.hasChildren()) {
+         console.log('Already added to favorties');
+         this.presentToast('Already added to favorties');
+
+       }else{
+        this.addToFav(goal_id, action_type_id);
+         this.presentToast('Added to Favorites');
+       }
+     });
+    }
+
+
+   share(title, imgURI){
+       this.shareProvider.otherShare(title, imgURI);
      }
 
 }
