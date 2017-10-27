@@ -176,4 +176,21 @@ goToOrganizationProfile(organizationID){
        this.shareProvider.otherShare(title, imgURI);
      }
 
+     findInLoop(actions){
+      if (actions != null){
+        
+        var found = actions.some(el => {
+          return el.user_id[0].id== this.myrallyID;
+        });
+        if (!found){
+          console.log("No encontrado", found);
+          
+        }else{
+          return 'red';
+          
+        }
+      }
+     
+    }
+
 }

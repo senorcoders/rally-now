@@ -1,29 +1,30 @@
 page-feed {
-    i{
+    .org-card {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+    i {
         font-size: 28px !important;
     }
-
     ion-header {
         text-align: center;
     }
-    ion-content{
-    top: 60px;
-}
+    ion-content {
+        top: 60px;
+    }
     .toolbar-background {
         background-color: #4a90e2;
         color: #fff;
     }
-    ,
     p.white {
         color: #fff;
         margin: 0;
     }
-    ,
     .button-clear-md {
         background-color: #4a90e2;
         color: #fff;
     }
-    ,
     ion-card {
         .card-md,
         .card-ios {
@@ -36,36 +37,31 @@ page-feed {
         .item-ios ion-avatar img {
             border-radius: 0;
         }
-
         .fab-md-light,
         .fab-ios-light {
             background: none;
             border: none;
             box-shadow: none;
         }
-
         .blue {
             background-color: #4a90e2;
             border-right: 1px solid #fff;
         }
-
         .link {
             color: #4a90e2;
         }
         .button-clear-ios {
             color: #fff;
         }
-
         .token {
             background-color: #e6e6e6;
             border: none;
             p {
                 font-weight: 500;
                 padding-left: 5px;
-                padding-top: 10px;  
+                padding-top: 10px;
             }
         }
-
         .token-btn {
             background-color: #d3cfcf;
             border: none;
@@ -74,9 +70,7 @@ page-feed {
             }
         }
     }
-
-
-       .objectives-card{
+    .objectives-card {
         margin-right: 0 !important;
         margin-left: 0 !important;
         width: 100% !important;
@@ -123,12 +117,10 @@ page-feed {
             border: none;
             box-shadow: none;
         }
-
         .blue {
             background-color: #4a90e2;
             border-right: 1px solid #fff;
         }
-
         .link {
             color: #4a90e2;
             line-height: 30px;
@@ -137,7 +129,6 @@ page-feed {
             color: #fff;
             height: 30px;
         }
-
         .token {
             background-color: #e6e6e6;
             border: none;
@@ -147,7 +138,6 @@ page-feed {
                 padding-top: 10px;
             }
         }
-
         .token-btn {
             background-color: #d3cfcf;
             border: none;
@@ -155,32 +145,30 @@ page-feed {
                 background-color: #d3cfcf;
             }
         }
-
-         .button-outline-md-light,
-    .button-outline-ios-light {
-        border-color: #222;
-        background-color: #fff;
-        color: #222;
-        font-weight: 400;
-        border-radius: 5px;
-        height: auto;
-        padding: 8px 10px;
-        font-size: 11px;
-        text-transform: uppercase;
-        width: 80%;
+        .button-outline-md-light,
+        .button-outline-ios-light {
+            border-color: #222;
+            background-color: #fff;
+            color: #222;
+            font-weight: 400;
+            border-radius: 5px;
+            height: auto;
+            padding: 8px 10px;
+            font-size: 11px;
+            text-transform: uppercase;
+            width: 80%;
+        }
+        .action-btn {
+            height: auto;
+            padding: 5px 10px;
+            background: transparent;
+            color: #222;
+            border: 1px solid #222;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
     }
-       .action-btn {
-        height: auto;
-        padding: 5px 10px;
-        background: transparent;
-        color: #222;
-        border: 1px solid #222;
-        font-size: 12px;
-        text-transform: uppercase;
-    }
-    }
-
-    .friends-card{
+    .friends-card {
         margin-left: 0 !important;
         margin-right: 0 !important;
         width: 100% !important;
@@ -207,32 +195,26 @@ page-feed {
             bottom: 10px;
             border: 3px solid #fff;
         }
-        .heart-btn{
+        .heart-btn {
             margin: 0;
         }
-
-         .profile-rep {
-        background-size: cover !important;
-        background-repeat: no-repeat !important;
-        background-position: center !important;
+        .profile-rep {
+            background-size: cover !important;
+            background-repeat: no-repeat !important;
+            background-position: center !important;
+        }
     }
+    .follow-user-button {
+        padding: 20px 0;
+        text-align: right;
+        float: right;
+        button {
+            border-radius: 15px !important;
+        }
     }
-   
-   .follow-user-button{
-    padding: 20px 0;
-    text-align: right;
-    float: right;
-    button{
-        border-radius: 15px !important;
-    }
-
-   }
-    
 }
 
-
 .footer-icons {
-
     text-align: center;
     font-size: 22px;
     background-color: #356eb1;
@@ -246,7 +228,8 @@ page-feed {
     padding-left: 10px;
 }
 
-.popover-ios .popover-content, .popover-md .popover-content {
+.popover-ios .popover-content,
+.popover-md .popover-content {
     left: 0 !important;
     width: 100% !important;
     top: 5% !important;
@@ -254,9 +237,8 @@ page-feed {
     bottom: 40px;
     button {
         margin: 0;
-        .button-inner{
+        .button-inner {
             justify-content: start;
         }
     }
 }
-

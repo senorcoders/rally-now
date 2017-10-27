@@ -56,9 +56,7 @@ export class FeedPage {
 
      
   }
-
- 
-
+  
  	 goToOtherPage() {
  
     this.navCtrl.setRoot(AlertsPage);
@@ -220,12 +218,12 @@ doRefresh(refresher) {
 
    checkFavStatus(goal_id){
    return new Promise( (resolve, reject) => {
-
+    
        let user:any = firebase.auth().currentUser;
          if (user) {
          let favRef = this.db.database.ref('favorites/'+user['uid']+'/'+goal_id);
             favRef.once('value', snapshot=>{
-              if (snapshot.exists()) {
+              if (snapshot.hasChildren()) {
                resolve('red');
                
               } else{
@@ -247,11 +245,28 @@ doRefresh(refresher) {
  public async buttonColorRender(goal_id){
     
     let color = await this.resolvePromise(goal_id);
+    console.log("Color Button", color);
     return color;
 
 
   }
 
+  findInLoop(actions){
+    if (actions != null){
+      
+      var found = actions.some(el => {
+        return el.user_id[0].id== this.myrallyID;
+      });
+      if (!found){
+        console.log("No encontrado", found);
+        
+      }else{
+        return 'red';
+        
+      }
+    }
+   
+  }
  
 
 }
