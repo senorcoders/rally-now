@@ -187,27 +187,11 @@ doRefresh(refresher) {
 
  addToFav(goal_id, action_type_id){
    this.usersProv.addFavorites(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
-   //this.usersProv.saveFollowRecordID(this.myrallyID, goal_id, 'favorites');
    this.presentToast('Added to Favorites');
  }
 
  
 
-//  addFavRecordFirebase(goal_id, action_type_id){
-//      let user:any = firebase.auth().currentUser;
-//      let favRef = this.db.database.ref('favorites/'+user['uid']+'/'+goal_id);
-//      favRef.once('value', snapshot=>{
-//        if (snapshot.hasChildren()) {
-//          console.log('Already added to favorties');
-//          this.getFavID(goal_id);
-//          this.presentToast('Removed from favorties');
-
-//        }else{
-//         this.addToFav(goal_id, action_type_id);
-//          this.presentToast('Added to Favorites');
-//        }
-//      });
-//     }
 
 
 

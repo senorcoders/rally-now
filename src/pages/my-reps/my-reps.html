@@ -9,125 +9,29 @@
 
 
 <ion-content>
-	
-<ion-list>
-<ion-item>
-		<p class="list-title">Federal</p>
-	</ion-item>
-  <ion-item>
-    <ion-avatar item-start>
-      <img src="assets/img/login-image.jpg" style="width: 70px; height: 70px;">
-    </ion-avatar>
-    <h2>Bob Representative</h2>
-    <ion-row item-end text-right style="max-width: 80px;">
-    	<ion-col col-12 style="padding: 0;">
-    	<button ion-button color="dark" class="action-btn">Follow</button>
-		</ion-col>
-		<ion-col col-12 style="padding: 0;">
-    	<button ion-button color="dark" class="action-btn">Contact</button>
-		</ion-col>
-    </ion-row>
-  </ion-item>
-  <ion-item>
-    <ion-avatar item-start>
-      <img src="assets/img/login-image.jpg" style="width: 70px; height: 70px;">
-    </ion-avatar>
-    <h2>Bob Representative</h2>
-    <ion-row item-end text-right style="max-width: 80px;">
-    	<ion-col col-12 style="padding: 0;">
-    	<button ion-button color="dark" class="action-btn">Follow</button>
-		</ion-col>
-		<ion-col col-12 style="padding: 0;">
-    	<button ion-button color="dark" class="action-btn">Contact</button>
-		</ion-col>
-    </ion-row>
-  </ion-item>
- 
-</ion-list>
 
-<ion-list>
-	<ion-item>
-		<p class="list-title">State</p>
-	</ion-item>
-  <ion-item>
-    <ion-avatar item-start>
-      <img src="assets/img/login-image.jpg" style="width: 70px; height: 70px;">
-    </ion-avatar>
-    <h2>Bob Representative</h2>
-    <ion-row item-end text-right style="max-width: 80px;">
-    	<ion-col col-12 style="padding: 0;">
-    	<button ion-button color="dark" class="action-btn">Follow</button>
-		</ion-col>
-		<ion-col col-12 style="padding: 0;">
-    	<button ion-button color="dark" class="action-btn">Contact</button>
-		</ion-col>
-    </ion-row>
-  </ion-item>
-    <ion-item>
-    <ion-avatar item-start>
-      <img src="assets/img/login-image.jpg" style="width: 70px; height: 70px;">
-    </ion-avatar>
-    <h2>Bob Representative</h2>
-    <ion-row item-end text-right style="max-width: 80px;">
-    	<ion-col col-12 style="padding: 0;">
-    	<button ion-button color="dark" class="action-btn">Follow</button>
-		</ion-col>
-		<ion-col col-12 style="padding: 0;">
-    	<button ion-button color="dark" class="action-btn">Contact</button>
-		</ion-col>
-    </ion-row>
-  </ion-item>
-    <ion-item>
-    <ion-avatar item-start>
-      <img src="assets/img/login-image.jpg" style="width: 70px; height: 70px;">
-    </ion-avatar>
-    <h2>Bob Representative</h2>
-    <ion-row item-end text-right style="max-width: 80px;">
-    	<ion-col col-12 style="padding: 0;">
-    	<button ion-button color="dark" class="action-btn">Follow</button>
-		</ion-col>
-		<ion-col col-12 style="padding: 0;">
-    	<button ion-button color="dark" class="action-btn">Contact</button>
-		</ion-col>
-    </ion-row>
-  </ion-item>
- 
-</ion-list>
+    <ion-list>
+        <ion-item>
+            <p class="list-title">Federal</p>
+        </ion-item>
+        <ion-item *ngFor="let rep of representatives">
+            <ion-avatar item-start>
+                <img src="{{rep.photo_url}}" style="width: 70px; height: 70px;">
+            </ion-avatar>
+            <h2>{{rep.name}}</h2>
+            <ion-row item-end text-right style="max-width: 80px;">
+                <ion-col col-12 style="padding: 0;">
+                    <button ion-button color="dark" class="action-btn">Follow</button>
+                </ion-col>
+                <ion-col col-12 style="padding: 0;">
+                    <button (click)="presentActionSheet(rep.phones_number[0].number)" ion-button color="dark" class="action-btn">Contact</button>
+                </ion-col>
+            </ion-row>
+        </ion-item>
 
-<ion-list>
-<ion-item>
-		<p class="list-title">Local</p>
-	</ion-item>
-  <ion-item>
-    <ion-avatar item-start>
-      <img src="assets/img/login-image.jpg" style="width: 70px; height: 70px;">
-    </ion-avatar>
-    <h2>Bob Representative</h2>
-    <ion-row item-end text-right style="max-width: 80px;">
-    	<ion-col col-12 style="padding: 0;">
-    	<button ion-button color="dark" class="action-btn">Follow</button>
-		</ion-col>
-		<ion-col col-12 style="padding: 0;">
-    	<button ion-button color="dark" class="action-btn">Contact</button>
-		</ion-col>
-    </ion-row>
-  </ion-item>
-  <ion-item>
-    <ion-avatar item-start>
-      <img src="assets/img/login-image.jpg" style="width: 70px; height: 70px;">
-    </ion-avatar>
-    <h2>Bob Representative</h2>
-    <ion-row item-end text-right style="max-width: 80px;">
-    	<ion-col col-12 style="padding: 0;">
-    	<button ion-button color="dark" class="action-btn">Follow</button>
-		</ion-col>
-		<ion-col col-12 style="padding: 0;">
-    	<button ion-button color="dark" class="action-btn">Contact</button>
-		</ion-col>
-    </ion-row>
-  </ion-item>
- 
-</ion-list>
+
+    </ion-list>
+
 
 </ion-content>
 <ion-footer>
@@ -154,4 +58,3 @@
         </ion-row>
     </ion-toolbar>
 </ion-footer>
-
