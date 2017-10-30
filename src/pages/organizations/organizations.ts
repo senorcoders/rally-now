@@ -10,13 +10,6 @@ import { OrganizationProfilePage } from '../organization-profile/organization-pr
 import { UsersProvider } from '../../providers/users/users';
 
 
-/**
- * Generated class for the OrganizationsPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-
 @IonicPage() 
 @Component({
   selector: 'page-organizations',
@@ -34,7 +27,8 @@ export class OrganizationsPage {
     public navParams: NavParams, 
     public popoverCtrl: PopoverController,
     private httpProvider:OrganizationsProvider,
-    private rallyProvider:UsersProvider) {
+    private rallyProvider:UsersProvider,
+    ) {
     this.rallyProvider.returnRallyUserId()
       .then(user => {
         console.log(user);
@@ -48,6 +42,8 @@ export class OrganizationsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrganizationsPage');
   }
+
+  
   
  goToHome(){
     this.navCtrl.setRoot(FeedPage);

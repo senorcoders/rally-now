@@ -13,7 +13,7 @@ export class UsersProvider {
 	base:string = 'http://138.68.19.227:3000/api/';
 	data:any = {};
   recordID:any;
-  senorcodersEndpoint:any = 'https://sjdsdirectoryapp.senorcoders.com/rally/index.php';
+  senorcodersEndpoint:any = 'http://senorcoders.com/rally/';
 
 
   constructor(public http: Http, public storage: Storage, public af:AngularFireDatabase) {
@@ -197,6 +197,7 @@ export class UsersProvider {
       
   }
 
+  
    handleError(error) {
       console.error(error);
       return Observable.throw(error.json().error || 'Server error');
@@ -217,6 +218,7 @@ export class UsersProvider {
       .map(res => res.json())
       .subscribe(data => {
         console.log("POST FAV", data);
+        this.saveFollowRecordID(data.id, data.id, 'favorites');
         this.data.response = data["_body"];
       }, error => {
         console.log("Error", error);
@@ -300,7 +302,6 @@ export class UsersProvider {
     var headers = new Headers();
     headers.append('Content-Type', 'application/json' );
     headers.append('Access-Control-Allow-Origin', '*');
-    headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
     let options = new RequestOptions({ headers: headers });
     
     let userData = JSON.stringify({device_id:device_id, msg:msg});

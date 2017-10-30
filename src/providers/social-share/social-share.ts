@@ -42,7 +42,16 @@ export class SocialShareProvider {
 			}).catch((error) => {
 				console.log('Error', error);
 			})
-	}
+  }
+  
+  shareViaEmail(){
+    this.socialSharing.shareViaEmail("Hola desde Rally", "Rally", ["dayana@senorcoders.com"])
+    .then(() =>{
+      console.log('Success');
+    }).catch((error) => {
+      console.log('Error', error);
+    })
+  }
 
 
 }

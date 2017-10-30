@@ -87,10 +87,7 @@ export class FeedPage {
       this.organizationsData=result['My_Organizations'];
       this.objectives=result['Objectives'];
       this.fiends=result['friends_activity'];
-      console.log("Success : "+ result['My_Organizations']);
-      console.log("Goal ID", JSON.stringify(result['Objectives'][1].title));
       this.loading.dismiss();
-      console.log("Prueba", this.buttonColorRender('52a3bc0f-4a63-4f73-a403-821fc0935214'));
 
     },
     err =>{
@@ -190,29 +187,56 @@ doRefresh(refresher) {
 
  addToFav(goal_id, action_type_id){
    this.usersProv.addFavorites(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
-   this.usersProv.saveFollowRecordID(goal_id, goal_id, 'favorites');
+   //this.usersProv.saveFollowRecordID(this.myrallyID, goal_id, 'favorites');
    this.presentToast('Added to Favorites');
  }
 
  
 
- addFavRecordFirebase(goal_id, action_type_id){
-     let user:any = firebase.auth().currentUser;
-     let favRef = this.db.database.ref('favorites/'+user['uid']+'/'+goal_id);
-     favRef.once('value', snapshot=>{
-       if (snapshot.hasChildren()) {
-         console.log('Already added to favorties');
-         this.presentToast('Already added to favorties');
+//  addFavRecordFirebase(goal_id, action_type_id){
+//      let user:any = firebase.auth().currentUser;
+//      let favRef = this.db.database.ref('favorites/'+user['uid']+'/'+goal_id);
+//      favRef.once('value', snapshot=>{
+//        if (snapshot.hasChildren()) {
+//          console.log('Already added to favorties');
+//          this.getFavID(goal_id);
+//          this.presentToast('Removed from favorties');
 
-       }else{
-        this.addToFav(goal_id, action_type_id);
-         this.presentToast('Added to Favorites');
-       }
-     });
-    }
+//        }else{
+//         this.addToFav(goal_id, action_type_id);
+//          this.presentToast('Added to Favorites');
+//        }
+//      });
+//     }
 
-    hideItem(objective_id){
+
+
+  getFavID(goal_id, action_type_id){
+    this.usersProv.getJsonData(this.favEndpoint+'?goal_id='+goal_id+'&action_type_id=a7033506-b29d-4544-81f1-6dce063e6ba2&user_id='+this.myrallyID).subscribe(
+      result => {
+        console.log("Aqui", result);
+        
+        if(result != "" ){
+          this.removeFav(result[0].id);
+          this.presentToast('Removed from favorites');
+        }else{
+          this.addToFav(goal_id, action_type_id);
+          this.presentToast('Added to Favorites');
+        }
+      },
+      err =>{
+        console.error("Error : "+err);
+      } ,
+      () => {
+        console.log('getData completed');
+      }
+
+      );
+}
+
+    hideItem(objective_id, index){
         this.usersProv.hideObjective(this.hide_enpoint, this.myrallyID, objective_id);
+        (this.objectives).splice(index, 1);
     }
     
 
@@ -254,11 +278,11 @@ doRefresh(refresher) {
   findInLoop(actions){
     if (actions != null){
       
-      var found = actions.some(el => {
+      var found = actions.some(el => { 
         return el.user_id[0].id== this.myrallyID;
       });
       if (!found){
-        console.log("No encontrado", found);
+        //console.log("No encontrado", found);
         
       }else{
         return 'red';
@@ -267,6 +291,14 @@ doRefresh(refresher) {
     }
    
   }
+
+
+
+
+removeFav(recordID){
+  this.usersProv.unfollowOrganization(this.favEndpoint, recordID);
+  this.usersProv.removeFollowRecordID(recordID, 'favorites');
+}
  
 
 }

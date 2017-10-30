@@ -101,7 +101,7 @@ presentToast(message) {
 
     getDeviceID(user_id){
       //Reemplazar por parametro despues
-      this.httpProvider.getJsonData(this.notificationsEndpoint+'?user_id='+this.httpProvider.getRallyID())
+      this.httpProvider.getJsonData(this.notificationsEndpoint+'?user_id='+user_id)
         .subscribe(result => {
             console.log(result[0].registration_id);
             this.saveNotification(user_id, result[0].registration_id);
@@ -114,11 +114,11 @@ presentToast(message) {
 
     saveNotification(user_id, registration_id){
       const msg = 'Hola Mundo';
-      this.httpProvider.sendNotification(registration_id, msg);
-      
-      // this.httpProvider.saveNotification(user_id, registration_id, msg,  this.alertsEndpoint);
-      // this.followFriend(user_id);
-
+      this.httpProvider.returnRallyUserId().then(user => {
+        this.httpProvider.saveNotification(user_id, registration_id, user.displayName + " is following you",  this.alertsEndpoint);
+        this.followFriend(user_id);
+      });
+      //this.httpProvider.sendNotification(registration_id, msg);
     }
 
      followFriend(friendID){

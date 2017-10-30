@@ -34,7 +34,7 @@
                 <p class="white"><strong>{{objective.rallies}}</strong><br> Railled</p>
             </div>
             <div class="bottom-excerpt">
-                <p class="white">{{objective.title}}</p>
+                <p class="white">{{objective?.title}}</p>
             </div>
         </div>
 
@@ -56,7 +56,7 @@
             </ion-col>
             <ion-col col-4 class="token-btn">
                 <button ion-button icon-left clear full style="height: 30px; font-weight: 600;
-    font-size: 13px;" (click)="hideItem(objective.id)">
+    font-size: 13px;" (click)="hideItem(objective.id, i)">
           I'M DONE
       </button>
             </ion-col>
@@ -65,7 +65,7 @@
 
         <ion-row>
             <ion-col class="blue" [ngStyle]="{'background-color': findInLoop(objective?.goals[0]?.actions)}">
-                <button ion-button icon-left clear full (click)="addFavRecordFirebase(objective?.goals[0]?.id,'a7033506-b29d-4544-81f1-6dce063e6ba2')" [ngStyle]="{'background-color': findInLoop(objective?.goals[0]?.actions)}">
+                <button ion-button icon-left clear full (click)="getFavID(objective?.goals[0]?.id,'a7033506-b29d-4544-81f1-6dce063e6ba2')" [ngStyle]="{'background-color': findInLoop(objective?.goals[0]?.actions)}">
         <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>
       </button>
             </ion-col>

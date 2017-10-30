@@ -64,6 +64,8 @@ import { SocialShareProvider } from '../providers/social-share/social-share';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { SearchResultsPage } from '../pages/search-results/search-results';
 import {OrganizationActionPage} from '../pages/organization-action/organization-action';
+import { CallNumber } from '@ionic-native/call-number';
+
 //import { FCM } from '@ionic-native/fcm';
 
     const cloudSettings: CloudSettings = {
@@ -215,7 +217,8 @@ firebase.initializeApp(config);
     Push,
     Device,
     SocialShareProvider,
-    SocialSharing
+    SocialSharing,
+    CallNumber
     ]
 })
 export class AppModule {}

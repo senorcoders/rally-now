@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, ActionSheetController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
 import {AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
+import { CallNumber } from '@ionic-native/call-number';
 
 
 @IonicPage()
@@ -32,7 +33,9 @@ export class OrganizationActionPage {
     private httpProvider:UsersProvider,
     public toastCtrl: ToastController,
     private db: AngularFireDatabase,
-    private shareProvider:SocialShareProvider) {
+    private shareProvider:SocialShareProvider,
+    public actionSheetCtrl: ActionSheetController,
+    private callNumber: CallNumber) {
   	  	this.objectiveID = navParams.get('objectiveID');
   	  	this.httpProvider.returnRallyUserId()
       .then(user => {
@@ -47,6 +50,52 @@ export class OrganizationActionPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrganizationActionPage');
+  }
+
+  presentActionSheet() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Contact Bob Representative',
+      buttons: [
+        {
+          text: 'Call',
+          handler: () => {
+            this.callNumber.callNumber("18001010101", true)
+            .then(() => console.log('Launched dialer!'))
+            .catch((error) => console.log('Error launching dialer', error));
+          }
+        },{
+          text: 'Post on Facebook',
+          handler: () => {
+            console.log('Post on Facebook clicked');
+            this.shareProvider.facebookShare("Hola desde Rally up", "http://via.placeholder.com/350x150");
+          }
+        },{
+          text: 'Post message via Twitter',
+          handler: () => {
+            console.log('Post message via Twitter clicked');
+            this.shareProvider.twitterShare("Hola desde Rally up", "http://via.placeholder.com/350x150");
+          }
+        },{
+          text: 'Send a Fax',
+          handler: () => {
+            console.log('Send a Fax clicked');
+          }
+        },{
+          text: 'Email',
+          handler: () => {
+            console.log('Email clicked');
+            this.shareProvider.shareViaEmail();
+          }
+        },{
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
   }
 
   getdata(){
