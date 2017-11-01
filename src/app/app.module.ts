@@ -65,6 +65,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 import { SearchResultsPage } from '../pages/search-results/search-results';
 import {OrganizationActionPage} from '../pages/organization-action/organization-action';
 import { CallNumber } from '@ionic-native/call-number';
+import { EventsResultPage } from '../pages/events-result/events-result';
 
 //import { FCM } from '@ionic-native/fcm';
 
@@ -145,7 +146,8 @@ firebase.initializeApp(config);
         PublicProfilePage,
         OrganizationProfilePage,
         SearchResultsPage,
-        OrganizationActionPage
+        OrganizationActionPage,
+        EventsResultPage
     ],
     imports: [
         BrowserModule,
@@ -198,7 +200,8 @@ firebase.initializeApp(config);
         PublicProfilePage,
         OrganizationProfilePage,
         SearchResultsPage,
-        OrganizationActionPage
+        OrganizationActionPage,
+        EventsResultPage
     ],
     providers: [
         StatusBar,
@@ -218,7 +221,8 @@ firebase.initializeApp(config);
     Device,
     SocialShareProvider,
     SocialSharing,
-    CallNumber
+    CallNumber,
+    
     ]
 })
 export class AppModule {}

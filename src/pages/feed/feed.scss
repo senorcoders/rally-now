@@ -7,6 +7,9 @@ page-feed {
     i {
         font-size: 28px !important;
     }
+    .red {
+        background-color: red;
+    }
     ion-header {
         text-align: center;
     }
@@ -17,13 +20,25 @@ page-feed {
         background-color: #4a90e2;
         color: #fff;
     }
+    .btn-50 {
+        width: 50%;
+        height: 50px;
+        margin: 0;
+    }
     p.white {
         color: #fff;
+        margin: 0;
+    }
+    .no-space {
+        padding: 0;
         margin: 0;
     }
     .button-clear-md {
         background-color: #4a90e2;
         color: #fff;
+    }
+    .right-border {
+        border-right: 1px solid #fff;
     }
     ion-card {
         .card-md,

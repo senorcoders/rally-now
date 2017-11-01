@@ -1,17 +1,12 @@
 <ion-header>
     <ion-navbar>
-        <ion-searchbar no-padding class="rally-search" [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar>
-        <ion-buttons end>
-            <button ion-button icon-only (click)="goToEventFilter()">
-                <ion-icon name="ios-funnel"></ion-icon>
-            </button>
-        </ion-buttons>
+        <p class="white">Rally</p>
 
     </ion-navbar>
 </ion-header>
 <ion-content>
     <ion-row padding>
-        <h4 style="color: #545353;">October</h4>
+        <h4 style="color: #545353;">Events from {{startDate}} to {{endDate}}</h4>
     </ion-row>
     <div *ngIf="searching" class="spinner-container">
         <ion-spinner></ion-spinner>

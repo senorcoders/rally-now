@@ -1,5 +1,6 @@
 page-filter-events {
-	.toolbar-background, ion-content{
+    .toolbar-background,
+    ion-content {
         background-color: #4a90e2 !important;
         color: #fff !important;
     }
@@ -7,20 +8,27 @@ page-filter-events {
         color: #fff;
         margin: 0;
     }
-    .range-ios .range-bar-active, .range-md .range-bar-active{
-    	background: #fff;
+    .range-ios .range-bar-active,
+    .range-md .range-bar-active {
+        background: #fff;
     }
-
-    .filter-btn{
-    	background: rgb(255, 255, 255);
-    color: rgb(34, 34, 34);
-    border-radius: 10px;
-    font-size: 14px;
-    padding: 10px;
-    transition: none;
+    .filter-btn {
+        background: rgb(255, 255, 255);
+        color: rgb(34, 34, 34);
+        border-radius: 10px;
+        font-size: 14px;
+        padding: 10px;
+        transition: none;
     }
-    .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before, .footer-ios .toolbar-ios:first-child .toolbar-background-ios{
-    	background: none;
-    	border:none;
+    .footer-md::before,
+    .tabs-md[tabsPlacement="bottom"]>.tabbar::before,
+    .footer-ios .toolbar-ios:first-child .toolbar-background-ios {
+        background: none;
+        border: none;
+    }
+    .zip-input {
+        .text-input {
+            text-align: right;
+        }
     }
 }

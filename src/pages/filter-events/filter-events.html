@@ -1,9 +1,3 @@
-<!--
-  Generated template for the FilterEventsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
     <ion-toolbar>
         <ion-title start>
@@ -17,41 +11,46 @@
     </ion-toolbar>
 </ion-header>
 <ion-content>
+
     <ion-list>
-        <ion-list-header style="border:none; background-color: #4a90e2; color: #fff; text-transform: uppercase;">
+        <ion-list-header style=" background-color: #4a90e2; color: #fff; text-transform: uppercase;">
+            Events
+        </ion-list-header>
+        <ion-item style="background: #4a90e2">
+            <ion-label style="color: #fff;">ZIPCODE</ion-label>
+            <ion-input [(ngModel)]="zipcode" style="color: #fff; font-size:40px;" class="zip-input"></ion-input>
+        </ion-item>
+        <ion-list-header style="background-color: #4a90e2; color: #fff; text-transform: uppercase;">
+            Date Range
+        </ion-list-header>
+        <ion-item style="background: #4a90e2">
+            <ion-label style="color: #fff;">Start Date</ion-label>
+            <ion-datetime style="color: #fff;" displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="event.month"></ion-datetime>
+        </ion-item>
+        <ion-item style="background: #4a90e2">
+            <ion-label style="color: #fff;">End Date</ion-label>
+            <ion-datetime style="color: #fff;" displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="event.timeEnds"></ion-datetime>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-list-header style=" background-color: #4a90e2; color: #fff; text-transform: uppercase;">
             Distance from me
         </ion-list-header>
         <ion-item style="border:none; background-color: #4a90e2; color: #fff;">
             <ion-range [(ngModel)]="structure" style="color: #fff;">
-                <p range-right class="white">50 MILES</p>
+                <p range-right class="white">{{structure}} MILES</p>
             </ion-range>
         </ion-item>
-        <ion-list-header style="border:none; background-color: #4a90e2; color: #fff; text-transform: uppercase;">
-            Event types - Touch to change
-        </ion-list-header>
-        <p padding>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat eveniet rem non possimus, ipsam reprehenderit ut omnis ab saepe ad.</p>
+
     </ion-list>
-    <ion-list>
-        <ion-list-header style="border:none; background-color: #4a90e2; color: #fff; text-transform: uppercase;">
-            Date Range
-        </ion-list-header>
-        <ion-item>
-            <ion-label>Start Date</ion-label>
-            <ion-datetime displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="event.month"></ion-datetime>
-        </ion-item>
-        <ion-item>
-            <ion-label>End Date</ion-label>
-            <ion-datetime displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="event.timeEnds"></ion-datetime>
-        </ion-item>
-    </ion-list>
-   <!--  <ion-list>
+    <!--  <ion-list>
     	<ion-list-header style="border:none; background-color: #4a90e2; color: #fff; text-transform: uppercase;">
     		Search
         </ion-list-header>
         <ion-searchbar style="background: transparent;" (input)="getItems($event)"></ion-searchbar>
      </ion-list> -->
 </ion-content>
-<ion-footer padding>
+<ion-footer padding style="background:#4a90e2;">
     <ion-toolbar>
         <button ion-button full class="filter-btn" (click)="goToEvents()">APPLY FILTER</button>
     </ion-toolbar>

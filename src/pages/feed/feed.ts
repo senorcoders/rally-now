@@ -190,12 +190,10 @@ doRefresh(refresher) {
    this.presentToast('Added to Favorites');
  }
 
- 
+  getFavID($event, goal_id, action_type_id){
+    console.log($event);
 
-
-
-
-  getFavID(goal_id, action_type_id){
+    
     this.usersProv.getJsonData(this.favEndpoint+'?goal_id='+goal_id+'&action_type_id=a7033506-b29d-4544-81f1-6dce063e6ba2&user_id='+this.myrallyID).subscribe(
       result => {
         console.log("Aqui", result);
@@ -203,13 +201,18 @@ doRefresh(refresher) {
         if(result != "" ){
           this.removeFav(result[0].id);
           this.presentToast('Removed from favorites');
+          $event.srcElement.style.backgroundColor = '#4a90e2';
+          $event.srcElement.offsetParent.style.backgroundColor = '#4a90e2';
+          
         }else{
           this.addToFav(goal_id, action_type_id);
-          this.presentToast('Added to Favorites');
+          $event.srcElement.style.backgroundColor = 'red';
+          $event.srcElement.offsetParent.style.backgroundColor = 'red';
+          
         }
       },
       err =>{
-        console.error("Error : "+err);
+        console.error("Error : "+err);         
       } ,
       () => {
         console.log('getData completed');
@@ -266,7 +269,7 @@ doRefresh(refresher) {
         return el.user_id[0].id== this.myrallyID;
       });
       if (!found){
-        //console.log("No encontrado", found);
+        return '#4a90e2';
         
       }else{
         return 'red';
