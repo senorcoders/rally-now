@@ -150,6 +150,24 @@ export class UsersProvider {
       });
   }
 
+  followRep(endpoint, currentUserRallyID, repID){
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json' );
+    headers.append('Access-Control-Allow-Origin', '*');
+    headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+    headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+    headers.append('Access-Control-Max-Age', '1728000');
+    let options = new RequestOptions({ headers: headers });
+    let actionData = JSON.stringify({user_id: currentUserRallyID, representative_id: repID});
+    this.http.post(encodeURI(this.base + endpoint), actionData, options)
+    .map(res => res.json())
+    .subscribe(data => {
+      console.log(data);
+      this.data.response = data["_body"];
+    }, error => {
+      console.log("Error", error);
+    });
+  }
   saveFollowRecordID(friendID, recordID, path){
     let user:any = firebase.auth().currentUser;
     this.af.database.ref(path+'/'+user['uid']+'/'+friendID).set({
@@ -196,6 +214,8 @@ export class UsersProvider {
       });
       
   }
+
+ 
 
   
    handleError(error) {

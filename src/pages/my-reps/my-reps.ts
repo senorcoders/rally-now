@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController, ToastController } from 'ionic-angular';
 import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
@@ -19,6 +19,8 @@ export class MyRepsPage {
 
   endpoint:string = 'representatives';
   representatives:any;
+  currentRallyID:any;
+  followEndpoint:any = 'following_representative';
 
   constructor(
     public navCtrl: NavController, 
@@ -27,8 +29,12 @@ export class MyRepsPage {
     private httpProvider:UsersProvider,
     private shareProvider:SocialShareProvider,
     public actionSheetCtrl: ActionSheetController,
-    private callNumber: CallNumber) {
-      this.getdata();
+    private callNumber: CallNumber,
+    public toastCtrl: ToastController) {
+      this.httpProvider.returnRallyUserId().then(user =>{
+          this.currentRallyID = user.apiRallyID;
+          this.getdata();
+      });
   }
 
   ionViewDidLoad() {
@@ -112,6 +118,48 @@ export class MyRepsPage {
           console.log('getData completed');
         }
       );
+    }
+
+    presentToast(message) {
+      let toast = this.toastCtrl.create({
+        message: message,
+        duration: 3000
+      });
+      toast.present();
+    }
+    followRep(repID){
+      console.log("Rep ID", repID);
+      
+      this.httpProvider.getJsonData(this.followEndpoint+'?user_id='+this.currentRallyID+'&representative_id='+repID)
+        .subscribe(
+          result => {
+            
+            if (result != ""){              
+              this.unFollowRep(result[0].id);
+            } else{
+              this.saveRepInApi(repID);
+            }
+          },
+      err =>{
+        console.error("Error : "+err);         
+      } ,
+      () => {
+        console.log('getData completed');
+      }
+        );
+    }
+
+    saveRepInApi(repID){
+        this.httpProvider.followRep(this.followEndpoint, this.currentRallyID, repID);
+        this.presentToast('Representative added');
+        
+
+    }
+
+
+    unFollowRep(recordID){
+      this.httpProvider.unfollowOrganization(this.followEndpoint, recordID);
+      this.presentToast('Representative removed');
     }
 
 }
