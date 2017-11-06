@@ -69,39 +69,39 @@ export class ProfilePage {
  
 
  	 goToSettings(){
-  	this.navCtrl.push(SettingsPage);
+  	this.navCtrl.push(SettingsPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   goToRequests(){
-  	this.navCtrl.push(FriendsRequestPage);
+  	this.navCtrl.push(FriendsRequestPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   goToReps(){
-  	this.navCtrl.push(MyRepsPage);
+  	this.navCtrl.push(MyRepsPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   goToStreaks(){
-    this.navCtrl.push(StreaksHistoryPage);
+    this.navCtrl.push(StreaksHistoryPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   goToFollowedOrganizations(){
-    this.navCtrl.push(FollowedOrganizationsPage);
+    this.navCtrl.push(FollowedOrganizationsPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   goToFollowedCandidates(){
-    this.navCtrl.push(FollowedCandidatesPage);
+    this.navCtrl.push(FollowedCandidatesPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
   
   goToEditProfile(){
-    this.navCtrl.push(EditProfilePage);
+    this.navCtrl.push(EditProfilePage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   goToHome(){
-    this.navCtrl.setRoot(FeedPage);
+    this.navCtrl.setRoot(FeedPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   goToAlerts(){
-    this.navCtrl.setRoot(AlertsPage);
+    this.navCtrl.setRoot(AlertsPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   presentPopover() {

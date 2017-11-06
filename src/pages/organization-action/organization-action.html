@@ -37,16 +37,18 @@
             <p class="link">371 Likes, 212 Shares</p>
 
         </ion-card-content>
-
         <ion-list>
-            <ion-item>
-                Why it's important
-                <ion-icon name="ios-add" item-end></ion-icon>
+            <ion-item text-wrap *ngFor="let d of information; let i=index" (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
+                {{d.title}}
+                <ion-icon [name]="isGroupShown(i) ? 'ios-remove' : 'ios-add'" item-end></ion-icon>
+
+                <div *ngIf="isGroupShown(i)" class="hidden-div">
+                    <p>{{d.description}}</p>
+                </div>
             </ion-item>
-            <ion-item>
-                What to say (talking points)
-                <ion-icon name="ios-add" item-end></ion-icon>
-            </ion-item>
+        </ion-list>
+        <ion-list>
+
             <ion-item>
                 <ion-avatar item-start>
                     <img src="assets/img/login-image.jpg" style="border-radius: 50%;">

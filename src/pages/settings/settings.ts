@@ -17,14 +17,6 @@ import { Storage } from '@ionic/storage';
 import { HomePage } from '../home/home';
 
 
-
-/**
- * Generated class for the SettingsPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-settings',
@@ -50,22 +42,22 @@ export class SettingsPage {
     console.log('ionViewDidLoad SettingsPage');
   }
    goToLinkedAccounts(){
-  	this.navCtrl.push(LinkedAccountsPage);
+  	this.navCtrl.push(LinkedAccountsPage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   findFriends(){
-  	this.navCtrl.push(FindFriendsPage);
+  	this.navCtrl.push(FindFriendsPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
   goToTerms(){
-  	this.navCtrl.push(TermsPage);
+  	this.navCtrl.push(TermsPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   goToPrivacy(){
-  	this.navCtrl.push(PrivacyPolicyPage);
+  	this.navCtrl.push(PrivacyPolicyPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   pushSettings(){
-    this.navCtrl.push(PushNotificationsSettingsPage);
+    this.navCtrl.push(PushNotificationsSettingsPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
     presentActionSheet() {
@@ -102,19 +94,19 @@ export class SettingsPage {
   }
 
   goToChangePassword(){
-  	this.navCtrl.push(ChangePasswordPage);
+  	this.navCtrl.push(ChangePasswordPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
     goToHome(){
-    this.navCtrl.setRoot(FeedPage);
+    this.navCtrl.setRoot(FeedPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   goToAlerts(){
-    this.navCtrl.setRoot(AlertsPage);
+    this.navCtrl.setRoot(AlertsPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   goToProfile(){
-    this.navCtrl.setRoot(ProfilePage);
+    this.navCtrl.setRoot(ProfilePage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
   presentPopover() {
        let popover = this.popoverCtrl.create(OverlayPage);

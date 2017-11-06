@@ -59,12 +59,12 @@ export class FeedPage {
   
  	 goToOtherPage() {
  
-    this.navCtrl.setRoot(AlertsPage);
+    this.navCtrl.setRoot(AlertsPage,{}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
    goToProfile() {
  
-    this.navCtrl.setRoot(ProfilePage);
+    this.navCtrl.setRoot(ProfilePage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
    goToHomeFilter() {
@@ -78,7 +78,7 @@ export class FeedPage {
   }
   
   goToRatePage() {
-    this.navCtrl.push(RatePage);
+    this.navCtrl.push(RatePage,  {}, {animate: true, direction: 'forward'});
   }
 
   getdata(){
@@ -112,19 +112,19 @@ doRefresh(refresher) {
    goToOrganizationProfile(organizationID){
        this.navCtrl.push(OrganizationProfilePage, {
           organizationID: organizationID
-    });
+    }, {animate:true,animation:'transition',duration:500,direction:'forward'});
      }
 
      goToPublicProfile(userID){
        this.navCtrl.push(PublicProfilePage, {
           param1: userID
-    });
+    }, {animate:true,animation:'transition',duration:500,direction:'forward'});
      }
 
      goToActionPage(objectiveID){
        this.navCtrl.push(OrganizationActionPage, {
           objectiveID: objectiveID
-    });
+    }, {animate:true,animation:'transition',duration:500,direction:'forward'});
      }
 
      share(title, imgURI){

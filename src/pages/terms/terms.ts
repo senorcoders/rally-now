@@ -6,12 +6,6 @@ import { ProfilePage } from '../profile/profile';
 import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay'
 
-/**
- * Generated class for the TermsPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -28,15 +22,15 @@ export class TermsPage {
   }
 
    goToHome(){
-    this.navCtrl.setRoot(FeedPage);
+    this.navCtrl.setRoot(FeedPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   goToAlerts(){
-    this.navCtrl.setRoot(AlertsPage);
+    this.navCtrl.setRoot(AlertsPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   goToProfile(){
-    this.navCtrl.setRoot(ProfilePage);
+    this.navCtrl.setRoot(ProfilePage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   presentPopover() {

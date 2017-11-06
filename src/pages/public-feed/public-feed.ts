@@ -39,7 +39,7 @@ export class PublicFeedPage {
  goToOrganizationProfile(organizationID){
        this.navCtrl.push(OrganizationProfilePage, {
           organizationID: organizationID
-    });
+    },  {animate:true,animation:'transition',duration:500,direction:'forward'});
      }
 
 

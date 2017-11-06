@@ -92,15 +92,15 @@ export class TakeactionPage {
   }
 
    goToHome(){
-    this.navCtrl.setRoot(FeedPage);
+    this.navCtrl.setRoot(FeedPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   goToAlerts(){
-    this.navCtrl.setRoot(AlertsPage);
+    this.navCtrl.setRoot(AlertsPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   goToProfile(){
-    this.navCtrl.setRoot(ProfilePage);
+    this.navCtrl.setRoot(ProfilePage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   presentPopover() {
@@ -128,14 +128,14 @@ export class TakeactionPage {
 goToOrganizationProfile(organizationID){
        this.navCtrl.push(OrganizationProfilePage, {
           organizationID: organizationID
-    });
+    },  {animate:true,animation:'transition',duration:500,direction:'forward'});
      }
 
 
      goToActionPage(objectiveID){
        this.navCtrl.push(OrganizationActionPage, {
           objectiveID: objectiveID
-    });
+    }, {animate:true,animation:'transition',duration:500,direction:'forward'});
      }
 
 

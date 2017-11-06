@@ -9,7 +9,7 @@
             <path url="/__/auth/callback" />
         </host>
     </universal-links>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.8.108:8100" />
     <access origin="*" />
     <allow-navigation href="*" />
     <allow-navigation href="http://ionic.local/*" />
@@ -142,4 +142,5 @@
     </plugin>
     <plugin name="cordova-plugin-x-socialsharing" spec="~5.1.8" />
     <allow-navigation href="http://192.168.88.40:8100" />
+    <allow-navigation href="http://192.168.8.108:8100" />
 </widget>

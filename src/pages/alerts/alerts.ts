@@ -34,12 +34,12 @@ export class AlertsPage {
   }
   goToProfile() {
  
-    this.navCtrl.setRoot(ProfilePage);
+    this.navCtrl.setRoot(ProfilePage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
 
   goToHome(){
-  	this.navCtrl.setRoot(FeedPage);
+  	this.navCtrl.setRoot(FeedPage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
    presentPopover() {

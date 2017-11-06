@@ -27,19 +27,19 @@ export class RallyFooterComponent {
   }
 
    goToHome(){
-    this.navCtrl.setRoot(FeedPage);
+    this.navCtrl.setRoot(FeedPage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   goToAlerts(){
-    this.navCtrl.setRoot(AlertsPage);
+    this.navCtrl.setRoot(AlertsPage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   goToProfile(){
-    this.navCtrl.setRoot(ProfilePage);
+    this.navCtrl.setRoot(ProfilePage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
   presentPopover() {
        let popover = this.popoverCtrl.create(OverlayPage);
        popover.present();
-     }
+     } 
 
 }

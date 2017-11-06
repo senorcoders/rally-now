@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LinkedAccountsPage } from '../linked-accounts/linked-accounts';
-/**
- * Generated class for the UnlinkTwitterPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -23,7 +18,7 @@ export class UnlinkTwitterPage {
   }
 
   goBack(){
-    this.navCtrl.push(LinkedAccountsPage);
+    this.navCtrl.push(LinkedAccountsPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
 }
