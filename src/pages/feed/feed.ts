@@ -13,6 +13,7 @@ import { OrganizationActionPage } from '../organization-action/organization-acti
 import { UsersProvider } from '../../providers/users/users';
 import {AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
+import { Network } from '@ionic-native/network';
 
 @Component({
   selector: 'page-feed',
@@ -40,22 +41,33 @@ export class FeedPage {
     private shareProvider:SocialShareProvider,
     private usersProv: UsersProvider,
     public toastCtrl: ToastController, 
-    private db: AngularFireDatabase) { 
+    private db: AngularFireDatabase,
+    private network: Network) {
+      console.log("Network", this.network.type);
+      
       this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
       }); 
         this.loading.present();
+        if(this.network.type == 'wifi'){
         this.usersProv.returnRallyUserId()
       .then(user => {
         console.log(" Usuario",user);
         this.myrallyID = user.apiRallyID;
-        this.getdata();
-
+         
+            this.getdata();
       });
+    }else{
+      this.loading.dismiss();
+      console.log("Not a wifi network");
+      
+    }
 
 
      
   }
+
+  
   
  	 goToOtherPage() {
  

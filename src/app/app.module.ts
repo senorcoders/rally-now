@@ -66,6 +66,8 @@ import { SearchResultsPage } from '../pages/search-results/search-results';
 import {OrganizationActionPage} from '../pages/organization-action/organization-action';
 import { CallNumber } from '@ionic-native/call-number';
 import { EventsResultPage } from '../pages/events-result/events-result';
+import { Network } from '@ionic-native/network';
+import { CellularDataUsagePage } from '../pages/cellular-data-usage/cellular-data-usage';
 
 //import { FCM } from '@ionic-native/fcm';
 
@@ -147,7 +149,8 @@ firebase.initializeApp(config);
         OrganizationProfilePage,
         SearchResultsPage,
         OrganizationActionPage,
-        EventsResultPage
+        EventsResultPage,
+        CellularDataUsagePage
     ],
     imports: [
         BrowserModule,
@@ -201,7 +204,8 @@ firebase.initializeApp(config);
         OrganizationProfilePage,
         SearchResultsPage,
         OrganizationActionPage,
-        EventsResultPage
+        EventsResultPage,
+        CellularDataUsagePage
     ],
     providers: [
         StatusBar,
@@ -222,6 +226,7 @@ firebase.initializeApp(config);
     SocialShareProvider,
     SocialSharing,
     CallNumber,
+    Network
     
     ]
 })

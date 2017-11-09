@@ -7,76 +7,76 @@
 <rally-header></rally-header>
 
 <ion-content>
-<ion-list>
+    <ion-list>
 
-  <ion-item (click)="findFriends()">Find Friends
-	<ion-icon item-end name="ios-arrow-forward"></ion-icon>
-  </ion-item>
-</ion-list>
-<ion-list>
-  <ion-list-header>
-    Account
-  </ion-list-header>
-  <ion-item (click)="goToChangePassword()">Change Password
-		<ion-icon item-end name="ios-arrow-forward"></ion-icon>
-  </ion-item>
-  <ion-item>
-  		<ion-label> Private Account</ion-label>
-  	  <ion-toggle  checked="false"></ion-toggle>
-</ion-item>
-</ion-list>
-<ion-list>
-  <ion-list-header>
-    Settings
-  </ion-list-header>
-  <ion-item (click)="goToLinkedAccounts()">Linked Accounts
-		<ion-icon item-end name="ios-arrow-forward"></ion-icon>
-  </ion-item>
-  <ion-item (click)="pushSettings()">Push Notification Settings
-  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>
-</ion-item>
-<ion-item>Cellular Data Usage
-  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>
-</ion-item>
-<ion-item>Edit Profile
-  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>
-</ion-item>
-</ion-list>
+        <ion-item (click)="findFriends()">Find Friends
+            <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-list-header>
+            Account
+        </ion-list-header>
+        <ion-item (click)="goToChangePassword()">Change Password
+            <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+        </ion-item>
+        <ion-item>
+            <ion-label> Private Account</ion-label>
+            <ion-toggle checked="false"></ion-toggle>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-list-header>
+            Settings
+        </ion-list-header>
+        <ion-item (click)="goToLinkedAccounts()">Linked Accounts
+            <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+        </ion-item>
+        <ion-item (click)="pushSettings()">Push Notification Settings
+            <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+        </ion-item>
+        <ion-item (click)="goToLessData()">Cellular Data Usage
+            <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+        </ion-item>
+        <ion-item>Edit Profile
+            <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+        </ion-item>
+    </ion-list>
 
-<ion-list>
-  <ion-list-header>
-    Support
-  </ion-list-header>
-  <ion-item>Help Center
-		<ion-icon item-end name="ios-arrow-forward"></ion-icon>
-  </ion-item>
-  <ion-item (click)="presentActionSheet()">Report a Problem
-  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>
-</ion-item>
-</ion-list>
+    <ion-list>
+        <ion-list-header>
+            Support
+        </ion-list-header>
+        <ion-item>Help Center
+            <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+        </ion-item>
+        <ion-item (click)="presentActionSheet()">Report a Problem
+            <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+        </ion-item>
+    </ion-list>
 
-<ion-list>
-  <ion-list-header>
-    About
-  </ion-list-header>
-  <ion-item>Blog
-		<ion-icon item-end name="ios-arrow-forward"></ion-icon>
-  </ion-item>
-  <ion-item (click)="goToPrivacy()">Privacy Policy
-  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>
-</ion-item>
- <ion-item (click)="goToTerms()">Terms
-  		<ion-icon item-end name="ios-arrow-forward"></ion-icon>
-</ion-item>
+    <ion-list>
+        <ion-list-header>
+            About
+        </ion-list-header>
+        <ion-item>Blog
+            <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+        </ion-item>
+        <ion-item (click)="goToPrivacy()">Privacy Policy
+            <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+        </ion-item>
+        <ion-item (click)="goToTerms()">Terms
+            <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+        </ion-item>
 
-</ion-list>
+    </ion-list>
 
-<ion-list (click)="Logout()">
-  <ion-item>Log Out</ion-item>
-</ion-list>
-<ion-list (click)="Logout()">
-  <ion-item>Log Out</ion-item>
-</ion-list>
+    <ion-list (click)="Logout()">
+        <ion-item>Log Out</ion-item>
+    </ion-list>
+    <ion-list (click)="Logout()">
+        <ion-item>Log Out</ion-item>
+    </ion-list>
 </ion-content>
 
 <!-- <rally-footer name="Settings"></rally-footer>

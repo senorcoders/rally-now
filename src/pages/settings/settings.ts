@@ -15,6 +15,7 @@ import { OverlayPage } from '../overlay/overlay'
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../home/home';
+import { CellularDataUsagePage } from '../cellular-data-usage/cellular-data-usage';
 
 
 @IonicPage()
@@ -107,6 +108,9 @@ export class SettingsPage {
 
   goToProfile(){
     this.navCtrl.setRoot(ProfilePage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+  }
+  goToLessData(){
+    this.navCtrl.push(CellularDataUsagePage);
   }
   presentPopover() {
        let popover = this.popoverCtrl.create(OverlayPage);

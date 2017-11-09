@@ -126,7 +126,27 @@ export class UsersProvider {
 			}, error => {
 				console.log("Error", error);
 			});
-	}
+  }
+  
+  enableLessData(endpoint, less_data){
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json' );
+    headers.append('Access-Control-Allow-Origin', '*');
+    headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+    headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+    headers.append('Access-Control-Max-Age', '1728000');
+    let userData = JSON.stringify({
+      less_data: less_data
+      });
+    let options = new RequestOptions({ headers: headers });
+  this.http.put(encodeURI(this.base + endpoint), userData, options)
+    .subscribe(data => {
+      console.log(data);
+      this.data.response = data["_body"];
+    }, error => {
+      console.log("Error", error);
+    });
+  }
 
 
 	followFriend(endpoint, currentUserRallyID, friendRallyID):void{

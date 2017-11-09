@@ -33,6 +33,7 @@
         "@ionic-native/facebook": "^4.1.0",
         "@ionic-native/fcm": "^4.2.1",
         "@ionic-native/image-picker": "^4.2.1",
+        "@ionic-native/network": "^4.3.3",
         "@ionic-native/push": "^4.3.1",
         "@ionic-native/social-sharing": "^4.3.1",
         "@ionic-native/splash-screen": "3.12.1",

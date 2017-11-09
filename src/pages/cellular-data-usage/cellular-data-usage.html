@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title text-left>
+            <p class="white">Rally</p>
+        </ion-title>
+
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-item>
+        <ion-label class="bold-label"> Use Less Data</ion-label>
+        <ion-toggle (ionChange)="onToggle()" [(ngModel)]="toggle" checked="{{toggleStatus}}"></ion-toggle>
+    </ion-item>
+    <p padding text-wrap>Using less cellular data may affect your experience on Rally (ex. photos may take longer load).</p>
+</ion-content>
+<rally-footer name="Cellular Data Usage"></rally-footer>
