@@ -14,7 +14,7 @@
         </ion-buttons>
         <ion-buttons end>
             <button ion-button icon-only (click)="goToSettings()">
-        <ion-icon name="ios-cog-outline"></ion-icon>
+        <ion-icon name="ios-cog"></ion-icon>
       </button>
         </ion-buttons>
     </ion-navbar>
@@ -34,15 +34,15 @@
         <ion-col col-8 class="profile-counts">
             <ion-row>
                 <ion-col>
-                    <h4>103</h4>
+                    <h4>{{user.friends_count}}</h4>
                     <p class="small">Friends</p>
                 </ion-col>
                 <ion-col (click)="goToFollowedCandidates()">
-                    <h4>32</h4>
+                    <h4>{{user.followers_count}}</h4>
                     <p class="small">Followers</p>
                 </ion-col>
                 <ion-col (click)="goToFollowedOrganizations()">
-                    <h4>19</h4>
+                    <h4>{{user.organizations_count}}</h4>
                     <p class="small">Organizations</p>
                 </ion-col>
             </ion-row>
@@ -55,6 +55,18 @@
         <ion-col col-4>
             <button ion-button color="light" outline (click)="goToReps()">My Reps</button>
 
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col col-12>
+            <ion-list>
+                <ion-list-header class="simple-title">
+                    MY IMPACT
+                </ion-list-header>
+                <ion-item>Actions Taken <span item-end>{{user.actions_taken}}</span> </ion-item>
+                <ion-item>Shares <span item-end>{{user.shares}}</span> </ion-item>
+
+            </ion-list>
         </ion-col>
     </ion-row>
 

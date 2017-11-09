@@ -17,62 +17,15 @@
     </ion-row>
     <ion-row padding class="star-row">
         <ion-col col-12>
-            <p>Current Streak: <strong>17 Days</strong></p>
+            <p>Current Streak: <strong>{{starCount}} Days</strong></p>
             <ion-row>
-                <ion-col col-2>
+                <ion-col col-2 *ngFor="let star of starArray">
                     <ion-icon name="star"></ion-icon>
                 </ion-col>
-                <ion-col col-2>
-                    <ion-icon name="star"></ion-icon>
-                </ion-col>
-                <ion-col col-2>
-                    <ion-icon name="star"></ion-icon>
-                </ion-col>
-                <ion-col col-2>
-                    <ion-icon name="star"></ion-icon>
-                </ion-col>
-                <ion-col col-2>
-                    <ion-icon name="star"></ion-icon>
-                </ion-col>
-                <ion-col col-2>
-                    <ion-icon name="star"></ion-icon>
-                </ion-col>
-                <ion-col col-2>
-                    <ion-icon name="star"></ion-icon>
-                </ion-col>
-                <ion-col col-2>
-                    <ion-icon name="star"></ion-icon>
-                </ion-col>
-                <ion-col col-2>
-                    <ion-icon name="star"></ion-icon>
-                </ion-col>
-                <ion-col col-2>
-                    <ion-icon name="star"></ion-icon>
-                </ion-col>
-                <ion-col col-2>
-                    <ion-icon name="star"></ion-icon>
-                </ion-col>
-                <ion-col col-2>
-                    <ion-icon name="star"></ion-icon>
-                </ion-col>
-                <ion-col col-2>
-                    <ion-icon name="star"></ion-icon>
-                </ion-col>
-                <ion-col col-2>
-                    <ion-icon name="star"></ion-icon>
-                </ion-col>
-                <ion-col col-2>
-                    <ion-icon name="star"></ion-icon>
-                </ion-col>
-                <ion-col col-2>
-                    <ion-icon name="star"></ion-icon>
-                </ion-col>
-                <ion-col col-2>
-                    <ion-icon name="star"></ion-icon>
-                </ion-col>
+
             </ion-row>
         </ion-col>
-        <ion-col col-12>
+        <!-- <ion-col col-12>
             <p>Previous Streak: <strong>6 Days</strong></p>
             <ion-row>
                 <ion-col col-2>
@@ -97,15 +50,14 @@
         </ion-col>
         <ion-col col-12>
             <p>Longest Streak: <strong>32 Days</strong></p>
-        </ion-col>
+        </ion-col> -->
     </ion-row>
     <ion-list>
         <ion-list-header>
             My Impact
         </ion-list-header>
-        <ion-item>Actions Taken <span item-end>93</span></ion-item>
-        <ion-item>Shares <span item-end>64</span></ion-item>
-        <ion-item>Comments <span item-end>31</span></ion-item>
+        <ion-item>Actions Taken <span item-end>{{actions_taken}}</span></ion-item>
+        <ion-item>Shares <span item-end>{{shares}}</span></ion-item>
     </ion-list>
 </ion-content>
 <ion-footer>

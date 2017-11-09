@@ -1,7 +1,11 @@
 page-profile {
-
     ion-header {
         text-align: center;
+    }
+    .simple-title {
+        border: none;
+        background: transparent;
+        margin-bottom: 0px !important;
     }
     ion-content {
         background-color: #f2f2f2 !important;
@@ -37,7 +41,6 @@ page-profile {
     }
     .profile-counts {
         text-align: center;
-
         p.small {
             margin: 0;
             font-size: 12px;
@@ -89,15 +92,12 @@ page-profile {
     }
 }
 
-
-
 .active-icons {
     text-align: center;
     font-size: 22px;
     background-color: #fff;
     color: #356eb1;
 }
-
 
 .bar-button-default-ios,
 .bar-button-default-md {
