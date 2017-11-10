@@ -16,6 +16,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../home/home';
 import { CellularDataUsagePage } from '../cellular-data-usage/cellular-data-usage';
+import { EditProfilePage } from '../edit-profile/edit-profile';
 
 
 @IonicPage()
@@ -132,4 +133,7 @@ export class SettingsPage {
         this.navCtrl.setRoot(HomePage);
   }
 
+  goToEditProfile(){
+    this.navCtrl.push(EditProfilePage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+  }
 }
