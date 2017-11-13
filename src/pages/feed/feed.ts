@@ -14,6 +14,8 @@ import { UsersProvider } from '../../providers/users/users';
 import {AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
 import { Network } from '@ionic-native/network';
+import { Storage } from '@ionic/storage';
+import { UserData } from '../../providers/user-data';
 
 @Component({
   selector: 'page-feed',
@@ -30,6 +32,8 @@ export class FeedPage {
   myrallyID:any;
   hide_enpoint:any = 'hide_objective';
   buttonColor:string = 'red';
+  userEndpoint:any = 'users/';
+  enabled:boolean = false;
 
   constructor(
     public navCtrl: NavController,
@@ -42,29 +46,50 @@ export class FeedPage {
     private usersProv: UsersProvider,
     public toastCtrl: ToastController, 
     private db: AngularFireDatabase,
-    private network: Network) {
+    private network: Network,
+    private storage: Storage,
+    private storageProvider: UserData) {
       console.log("Network", this.network.type);
       
       this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
       }); 
         this.loading.present();
-        if(this.network.type == 'wifi'){
+       
         this.usersProv.returnRallyUserId()
       .then(user => {
         console.log(" Usuario",user);
         this.myrallyID = user.apiRallyID;
          
-            this.getdata();
+            this.getDataStatus();
       });
-    }else{
-      this.loading.dismiss();
-      console.log("Not a wifi network");
-      
-    }
+   
+  
+  }
 
-
-     
+  getDataStatus(){
+    this.usersProv.getJsonData(this.userEndpoint+this.myrallyID).subscribe(
+      result => {
+          console.log("OPT", result.less_data);
+          if(result.less_data === true && this.network.type != 'wifi'){
+              console.log("Save Data");
+              this.storageProvider.getHomeFeedJson().then( savedJson => {
+                  console.log(JSON.stringify(savedJson));
+                  this.organizationsData=savedJson['My_Organizations'];
+                  this.objectives=savedJson['Objectives'];
+                  this.fiends=savedJson['friends_activity'];
+                  this.enabled = true;
+                  this.loading.dismiss();
+                  
+              });
+              
+              
+          } else{
+            this.getdata();
+          }
+          
+      }
+    );
   }
 
   
@@ -99,6 +124,7 @@ export class FeedPage {
       this.organizationsData=result['My_Organizations'];
       this.objectives=result['Objectives'];
       this.fiends=result['friends_activity'];
+      this.storage.set("homefeed", result);
       this.loading.dismiss();
 
     },
@@ -112,7 +138,7 @@ export class FeedPage {
 }
 
 doRefresh(refresher) {
-  this.getdata();
+  this.getDataStatus();
 
     setTimeout(() => {
       console.log('Async operation has ended');

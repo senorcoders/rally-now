@@ -35,6 +35,13 @@ export class UserData {
     });
   };
 
+
+  getHomeFeedJson(): Promise<string> {
+    return this.storage.get('homefeed').then((value) => {
+      return value;
+    });
+  };
+
   hasLoggedIn(): Promise<boolean> {
     return this.storage.get(this.HAS_LOGGED_IN).then((value) => {
       return value === true;

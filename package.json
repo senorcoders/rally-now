@@ -41,6 +41,7 @@
         "@ionic-native/twitter-connect": "^4.2.1",
         "@ionic/cloud-angular": "^0.12.0",
         "@ionic/storage": "2.0.1",
+        "angular2-moment": "^1.7.0",
         "angularfire2": "^4.0.0-rc.2",
         "cordova-android": "^6.2.3",
         "cordova-ios": "^4.4.0",

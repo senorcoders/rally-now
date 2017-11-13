@@ -1,6 +1,13 @@
 <rally-header>
 </rally-header>
 <ion-content>
+    <ion-row class="data-row" *ngIf="enabled">
+        <ion-item>
+            You're in data saving mode
+            <ion-icon name="ios-close" item-end></ion-icon>
+        </ion-item>
+
+    </ion-row>
     <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content pullingText="Pull down to Refresh" pullingIcon="arrow-dropdown" refreshingSpinner="circles" refreshingText="Refreshing...">
         </ion-refresher-content>
@@ -12,8 +19,7 @@
             <ion-fab-list side="left">
                 <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
                 <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
-                <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
-                <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+                <button ion-fab (click)="hideItem(objective.id, i)"><ion-icon name="md-done-all"></ion-icon></button>
             </ion-fab-list>
         </ion-fab>
 
@@ -24,6 +30,7 @@
             <button (click)="goToOrganizationProfile(objective.organization_id)" style="background: none;">
         <h2>{{objective.organization['name']}}</h2>
     </button>
+            <p>{{objective.created_at | amTimeAgo}}</p>
         </ion-item>
 
         <div class="organization-bg" style="background: url('assets/img/login-image.jpg');">
@@ -51,7 +58,7 @@
             </ion-row>
         </ion-card-content>
         <ion-row>
-            <ion-col class="token" col-8>
+            <!-- <ion-col class="token" col-8>
                 <p>You've taken action on this 3 times</p>
             </ion-col>
             <ion-col col-4 class="token-btn">
@@ -59,7 +66,7 @@
     font-size: 13px;" (click)="hideItem(objective.id, i)">
           I'M DONE
       </button>
-            </ion-col>
+            </ion-col> -->
 
         </ion-row>
 
@@ -101,6 +108,7 @@
             </ion-avatar>
             <button (click)="goToOrganizationProfile(organization.id)" style="background: none;">
                 <h2 style="font-weight: 700;">{{organization.name}}</h2></button>
+            <p>{{organization.created_at | amTimeAgo}}</p>
         </ion-item>
         <ion-row col-10 offset-2>
             <ion-card-content>
@@ -142,6 +150,7 @@
             <ion-col col-7>
                 <ion-card-header>
                     <button style="background: none;" (click)="goToPublicProfile(friend.user_id[0]['id'])">{{friend.user_id[0]['name']}}</button>
+                    <p>{{friend.created_at | amTimeAgo}}</p>
                 </ion-card-header>
                 <ion-card-content>
                     <h5 style="font-weight: 500;

@@ -68,6 +68,7 @@ import { CallNumber } from '@ionic-native/call-number';
 import { EventsResultPage } from '../pages/events-result/events-result';
 import { Network } from '@ionic-native/network';
 import { CellularDataUsagePage } from '../pages/cellular-data-usage/cellular-data-usage';
+import { MomentModule } from 'angular2-moment';
 
 //import { FCM } from '@ionic-native/fcm';
 
@@ -159,7 +160,8 @@ firebase.initializeApp(config);
         IonicStorageModule.forRoot(),
         HttpModule,
         AngularFireAuthModule,
-        CloudModule.forRoot(cloudSettings)
+        CloudModule.forRoot(cloudSettings),
+        MomentModule
 
     ],
     bootstrap: [IonicApp],

@@ -1,4 +1,14 @@
 page-feed {
+    .data-row {
+        background: red;
+        ion-item {
+            color: #fff;
+            padding: 0 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: transparent;
+        }
+    }
     .org-card {
         margin-left: 0;
         margin-right: 0;
