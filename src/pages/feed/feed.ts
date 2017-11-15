@@ -34,6 +34,8 @@ export class FeedPage {
   buttonColor:string = 'red';
   userEndpoint:any = 'users/';
   enabled:boolean = false;
+  likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
+  likesCount: number;
 
   constructor(
     public navCtrl: NavController,
@@ -232,7 +234,7 @@ doRefresh(refresher) {
     console.log($event);
 
     
-    this.usersProv.getJsonData(this.favEndpoint+'?goal_id='+goal_id+'&action_type_id=a7033506-b29d-4544-81f1-6dce063e6ba2&user_id='+this.myrallyID).subscribe(
+    this.usersProv.getJsonData(this.favEndpoint+'?goal_id='+goal_id+'&action_type_id='+this.likeAction+'&user_id='+this.myrallyID).subscribe(
       result => {
         console.log("Aqui", result);
         
@@ -241,11 +243,13 @@ doRefresh(refresher) {
           this.presentToast('Removed from favorites');
           $event.srcElement.style.backgroundColor = '#4a90e2';
           $event.srcElement.offsetParent.style.backgroundColor = '#4a90e2';
+          this.likeAction--;
           
         }else{
-          this.addToFav(goal_id, action_type_id);
+         this.addToFav(goal_id, action_type_id);
           $event.srcElement.style.backgroundColor = 'red';
           $event.srcElement.offsetParent.style.backgroundColor = 'red';
+          this.likeAction++;
           
         }
       },
@@ -304,8 +308,12 @@ doRefresh(refresher) {
     if (actions != null){
       
       var found = actions.some(el => { 
-        return el.user_id[0].id== this.myrallyID;
+        if(el.action_type_id === this.likeAction){
+          return el.user_id[0].id== this.myrallyID;
+        }
+        
       });
+      
       if (!found){
         return '#4a90e2';
         
@@ -324,6 +332,7 @@ removeFav(recordID){
   this.usersProv.unfollowOrganization(this.favEndpoint, recordID);
   this.usersProv.removeFollowRecordID(recordID, 'favorites');
 }
- 
+
+
 
 }

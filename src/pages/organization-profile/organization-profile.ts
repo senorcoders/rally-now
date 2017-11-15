@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, ActionSheetController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
 import {AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
@@ -30,7 +30,8 @@ export class OrganizationProfilePage {
   	private httpProvider:UsersProvider,
     private orgProvider:OrganizationsProvider,
   	public toastCtrl: ToastController,
-  	private db: AngularFireDatabase) {
+    private db: AngularFireDatabase,
+    public actionSheetCtrl: ActionSheetController) {
   	this.organizationID = navParams.get('organizationID');
   	this.getdata();
     this.checkOrganizationStatus();
@@ -97,8 +98,8 @@ presentToast(message) {
      followRef.once('value', snapshot=>{
        if (snapshot.hasChildren()) {
          console.log('You already follow this org');
-         this.getOrganizationFollowRecordID();
-         this.presentToast('You are not following this organization anymore');
+         this.unFollowActionSheet();
+         //this.presentToast('You are not following this organization anymore');
 
        }else{
          this.followOrg(organizationID);
@@ -133,6 +134,30 @@ presentToast(message) {
       this.httpProvider.unfollowOrganization(this.organizationEndpoint, recordID);
       this.httpProvider.removeFollowRecordID(this.organizationID, 'organizations');
     }
-    
+    unFollowActionSheet() {
+      
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Unfollow ' + this.name + '?' ,
+      cssClass: 'title-img',      
+      buttons: [
+        {
+          text: 'Unfollow',
+          role: 'destructive',
+          handler: () => {
+            console.log('Destructive clicked');
+            this.getOrganizationFollowRecordID();
+            
+          }
+        },{
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
 
 }

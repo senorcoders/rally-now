@@ -34,9 +34,9 @@
         </ion-item>
 
         <div class="organization-bg" style="background: url('assets/img/login-image.jpg');">
-            <div class="days-excerpt">
+            <!-- <div class="days-excerpt">
                 <p class="white">{{objective?.goals[0]?.description}}</p>
-            </div>
+            </div> -->
             <div class="railled-excerpt">
                 <p class="white"><strong>{{objective.rallies}}</strong><br> Rallied</p>
             </div>
@@ -71,7 +71,7 @@
         </ion-row>
 
         <ion-row>
-            <button class="btn-50 right-border" ion-button icon-left clear full (click)="getFavID($event, objective?.goals[0]?.id,'a7033506-b29d-4544-81f1-6dce063e6ba2')" [ngStyle]="{'background-color': findInLoop(objective?.goals[0]?.actions)}">
+            <button class="btn-50 right-border" ion-button icon-left clear full (click)="getFavID($event, objective?.goals[0]?.id, likeAction)" [ngStyle]="{'background-color': findInLoop(objective?.goals[0]?.actions)}">
                 <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>
             </button>
             <button class="btn-50" ion-button icon-left clear full (click)="share(objective.title, 'https://sjdsdirectoryapp.senorcoders.com/ufittapp/IMG_20170802_124650.jpg')">

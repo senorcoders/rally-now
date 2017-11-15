@@ -1,11 +1,10 @@
 page-organization-profile {
-ion-content{
-    top: 60px;
+    ion-content {
+        top: 60px;
     }
     ion-header {
         text-align: center;
     }
-
     .toolbar-background {
         background-color: #4a90e2;
         color: #fff;
@@ -13,12 +12,10 @@ ion-content{
     ion-content {
         background-color: #f2f2f2 !important;
     }
-
     p.white {
         color: #fff;
         margin: 0;
     }
-
     .button-clear-md {
         background-color: #4a90e2;
         color: #fff;
@@ -54,7 +51,6 @@ ion-content{
             }
         }
     }
-
     ion-card {
         margin-right: 0 !important;
         margin-left: 0 !important;
@@ -102,12 +98,10 @@ ion-content{
             border: none;
             box-shadow: none;
         }
-
         .blue {
             background-color: #4a90e2;
             border-right: 1px solid #fff;
         }
-
         .link {
             color: #4a90e2;
             line-height: 30px;
@@ -116,7 +110,6 @@ ion-content{
             color: #fff;
             height: 30px;
         }
-
         .token {
             background-color: #e6e6e6;
             border: none;
@@ -126,7 +119,6 @@ ion-content{
                 padding-top: 10px;
             }
         }
-
         .token-btn {
             background-color: #d3cfcf;
             border: none;
@@ -135,7 +127,6 @@ ion-content{
             }
         }
     }
-
     .profile-headshot {
         h4 {
             margin: 5px 0;
@@ -146,16 +137,13 @@ ion-content{
             font-size: 12px;
         }
     }
- 
     .profile-counts {
         text-align: center;
-
         p.small {
             margin: 0;
             font-size: 12px;
         }
     }
-
     .button-outline-md-light,
     .button-outline-ios-light {
         border-color: #222;
@@ -169,4 +157,11 @@ ion-content{
         text-transform: uppercase;
         width: 80%;
     }
+}
+
+.title-img .action-sheet-title::before {
+    // if you want the image on the left of the title
+    background: url('../assets/img/login-image.jpg') no-repeat;
+    height: 50px;
+    width: 50px;
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, ActionSheetController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
 import {AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
@@ -28,6 +28,7 @@ export class PublicProfilePage {
     private httpProvider:UsersProvider,
     private db: AngularFireDatabase,
     public toastCtrl: ToastController,
+    public actionSheetCtrl: ActionSheetController
   ) {
   	this.parameter = navParams.get('param1');
   	this.getdata();
@@ -88,8 +89,8 @@ presentToast(message) {
      followRef.once('value', snapshot=>{
        if (snapshot.hasChildren()) {
          console.log('You already follow this user');
-         this.getFollowRecordID();
-         this.presentToast('You are not following this user anymore');
+         this.unFollowActionSheet();
+         //this.presentToast('You are not following this user anymore');
 
        }else{
          //this.followFriend(friendID);
@@ -147,5 +148,31 @@ presentToast(message) {
       this.httpProvider.unfollowOrganization(this.followEndpoint, recordID);
       this.httpProvider.removeFollowRecordID(this.parameter, 'follow');
     }
+
+    unFollowActionSheet() {
+      
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Unfollow ' + this.userData[0].name + '?' ,
+      cssClass: 'title-img',      
+      buttons: [
+        {
+          text: 'Unfollow',
+          role: 'destructive',
+          handler: () => {
+            console.log('Destructive clicked');
+            this.getFollowRecordID();
+            
+          }
+        },{
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
 
 }

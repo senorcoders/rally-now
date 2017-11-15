@@ -1,68 +1,67 @@
 <rally-header></rally-header>
 
 <ion-content>
-     <ion-card *ngFor="let organization of objectives">
+    <ion-card *ngFor="let organization of objectives">
 
-      <ion-fab right top>
-    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
-    <ion-fab-list side="left">
-      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
-    </ion-fab-list>
-  </ion-fab>
+        <ion-fab right top>
+            <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
+            <ion-fab-list side="left">
+                <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+                <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+                <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+                <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+            </ion-fab-list>
+        </ion-fab>
 
-    <ion-item>
-    <ion-avatar item-start>
-      <img src="assets/img/login-image.jpg">
-    </ion-avatar>
-    <button style="background: none;" (click)="goToOrganizationProfile(organization.organization_id)"><h2>{{organization.organization['name']}}</h2></button>
-    </ion-item>
-    
-  <div class="organization-bg" style="background: url('assets/img/login-image.jpg');">
-        <div class="days-excerpt">
+        <ion-item>
+            <ion-avatar item-start>
+                <img src="assets/img/login-image.jpg">
+            </ion-avatar>
+            <button style="background: none;" (click)="goToOrganizationProfile(organization.organization_id)"><h2>{{organization.organization['name']}}</h2></button>
+        </ion-item>
+
+        <div class="organization-bg" style="background: url('assets/img/login-image.jpg');">
+            <!-- <div class="days-excerpt">
             <p class="white">2 Days Remaining</p>
+        </div> -->
+            <div class="railled-excerpt">
+                <p class="white"><strong>1215</strong><br> Railled</p>
+            </div>
+            <div class="bottom-excerpt">
+                <p class="white">{{organization.title}}</p>
+            </div>
         </div>
-        <div class="railled-excerpt">
-            <p class="white"><strong>1215</strong><br> Railled</p>
-        </div>
-        <div class="bottom-excerpt">
-            <p class="white">{{organization.title}}</p>
-        </div>
-  </div>
 
 
-  <ion-card-content>
-    <p>{{organization.organization['description']}}</p>
-    <ion-row>
-        <ion-col col-8>
-                <p class="link">371 Likes, 212 Shares</p>
-        </ion-col>
-       
-    </ion-row>
-  </ion-card-content>
-   <ion-row>
-      <ion-col class="token" col-12>
-      <p>You've token action on this 3 times</p>
-      </ion-col>
-    
-    </ion-row>
+        <ion-card-content>
+            <p>{{organization.organization['description']}}</p>
+            <ion-row>
+                <ion-col col-8>
+                    <p class="link">371 Likes, 212 Shares</p>
+                </ion-col>
 
-  <ion-row>
-    <ion-col class="blue">
-      <button ion-button icon-left clear full>
+            </ion-row>
+        </ion-card-content>
+        <ion-row>
+            <ion-col class="token" col-12>
+                <p>You've token action on this 3 times</p>
+            </ion-col>
+
+        </ion-row>
+
+        <ion-row>
+            <ion-col class="blue">
+                <button ion-button icon-left clear full>
         <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>
       </button>
-    </ion-col>
-    <ion-col class="blue">
-      <button ion-button icon-left clear full>
+            </ion-col>
+            <ion-col class="blue">
+                <button ion-button icon-left clear full>
         <ion-icon name="ios-share-alt"></ion-icon>
       </button>
-    </ion-col>
-   
-  </ion-row>
+            </ion-col>
 
-</ion-card>
+        </ion-row>
+
+    </ion-card>
 </ion-content>
-
