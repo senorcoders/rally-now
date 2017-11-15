@@ -1,68 +1,25 @@
-<!--
-  Generated template for the FollowedOrganizationsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<rally-header></rally-header>
+<rally-header>
+</rally-header>
 
 
 
 <ion-content>
-  <ion-list>
+    <ion-list>
         <ion-list-header>
             Followed Organizations
         </ion-list-header>
     </ion-list>
     <ion-row padding>
-      <ion-col col-3>
-        <ion-thumbnail>
-          <img src="assets/img/login-image.jpg">
-        </ion-thumbnail>
-        <p>Organization</p>
-      </ion-col>
-       <ion-col col-3>
-        <ion-thumbnail>
-          <img src="assets/img/login-image.jpg">
-        </ion-thumbnail>
-        <p>Organization</p>
-      </ion-col>
-       <ion-col col-3>
-        <ion-thumbnail>
-          <img src="assets/img/login-image.jpg">
-        </ion-thumbnail>
-        <p>Organization</p>
-      </ion-col>
-       <ion-col col-3>
-        <ion-thumbnail>
-          <img src="assets/img/login-image.jpg">
-        </ion-thumbnail>
-        <p>Organization</p>
-      </ion-col>
-       <ion-col col-3>
-        <ion-thumbnail>
-          <img src="assets/img/login-image.jpg">
-        </ion-thumbnail>
-        <p>Organization</p>
-      </ion-col>
-       <ion-col col-3>
-        <ion-thumbnail>
-          <img src="assets/img/login-image.jpg">
-        </ion-thumbnail>
-        <p>Organization</p>
-      </ion-col>
-       <ion-col col-3>
-        <ion-thumbnail>
-          <img src="assets/img/login-image.jpg">
-        </ion-thumbnail>
-        <p>Organization</p>
-      </ion-col>
-       <ion-col col-3>
-        <ion-thumbnail>
-          <img src="assets/img/login-image.jpg">
-        </ion-thumbnail>
-        <p>Organization</p>
-      </ion-col>
+        <ion-col col-3 *ngFor="let organization of organizations">
+            <ion-thumbnail>
+                <img src="assets/img/login-image.jpg">
+            </ion-thumbnail>
+            <p>{{organization.follow[0].name}}</p>
+        </ion-col>
+
+
+
+
     </ion-row>
 
 </ion-content>

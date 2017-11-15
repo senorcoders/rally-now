@@ -5,12 +5,8 @@ import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
 import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay'
-/**
- * Generated class for the FollowedCandidatesPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { UsersProvider } from '../../providers/users/users';
+
 
 @IonicPage()
 @Component({
@@ -18,12 +14,34 @@ import { OverlayPage } from '../overlay/overlay'
   templateUrl: 'followed-organizations.html',
 })
 export class FollowedOrganizationsPage {
+  endpoint:any = 'following_organizations?follower_id=';
+  currentApiID:any;
+  organizations:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public popoverCtrl: PopoverController,
+    private httpProvider: UsersProvider) {
+      this.httpProvider.returnRallyUserId().then(
+        user => {
+          this.currentApiID = user.apiRallyID;
+          this.getOrganizations();
+        }
+      );
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FollowedOrganizationsPage');
+  }
+
+  getOrganizations(){
+    this.httpProvider.getJsonData(this.endpoint+this.currentApiID)
+      .subscribe(
+        result => {
+            this.organizations = result;
+        }
+      );
   }
 
    goToHome(){
