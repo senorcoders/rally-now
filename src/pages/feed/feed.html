@@ -25,7 +25,7 @@
 
         <ion-item>
             <ion-avatar item-start>
-                <img src="assets/img/login-image.jpg">
+                <img src="https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08" (click)="showPhotoViewer('https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08')">
             </ion-avatar>
             <button (click)="goToOrganizationProfile(objective.organization_id)" style="background: none;">
         <h2>{{objective.organization['name']}}</h2>
@@ -104,7 +104,7 @@
         </ion-fab>
         <ion-item>
             <ion-avatar item-start>
-                <img src="assets/img/login-image.jpg">
+                <img src="assets/img/login-image.jpg" (click)="showPhotoViewer('assets/img/login-image.jpg')">
             </ion-avatar>
             <button (click)="goToOrganizationProfile(organization.id)" style="background: none;">
                 <h2 style="font-weight: 700;">{{organization.name}}</h2></button>
@@ -145,7 +145,7 @@
         <ion-row>
 
             <ion-col col-5 class="profile-rep" style="background: url('assets/img/login-image.jpg');">
-                <img class="friend-headshot" src="{{friend.user_id[0]['photo_url']}}" alt="">
+                <img class="friend-headshot" src="{{friend.user_id[0]['photo_url']}}" alt="" (click)="showPhotoViewer(friend.user_id[0]['photo_url'])">
             </ion-col>
             <ion-col col-7>
                 <ion-card-header>

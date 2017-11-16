@@ -16,6 +16,7 @@ import firebase from 'firebase';
 import { Network } from '@ionic-native/network';
 import { Storage } from '@ionic/storage';
 import { UserData } from '../../providers/user-data';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 @Component({
   selector: 'page-feed',
@@ -50,7 +51,8 @@ export class FeedPage {
     private db: AngularFireDatabase,
     private network: Network,
     private storage: Storage,
-    private storageProvider: UserData) {
+    private storageProvider: UserData,
+    private photoViewer: PhotoViewer) {
       console.log("Network", this.network.type);
       
       this.loading = this.loadingCtrl.create({
@@ -243,13 +245,11 @@ doRefresh(refresher) {
           this.presentToast('Removed from favorites');
           $event.srcElement.style.backgroundColor = '#4a90e2';
           $event.srcElement.offsetParent.style.backgroundColor = '#4a90e2';
-          this.likeAction--;
           
         }else{
          this.addToFav(goal_id, action_type_id);
           $event.srcElement.style.backgroundColor = 'red';
           $event.srcElement.offsetParent.style.backgroundColor = 'red';
-          this.likeAction++;
           
         }
       },
@@ -333,6 +333,8 @@ removeFav(recordID){
   this.usersProv.removeFollowRecordID(recordID, 'favorites');
 }
 
-
+showPhotoViewer(path){
+  this.photoViewer.show(path);
+}
 
 }

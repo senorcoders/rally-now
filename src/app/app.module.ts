@@ -69,6 +69,8 @@ import { EventsResultPage } from '../pages/events-result/events-result';
 import { Network } from '@ionic-native/network';
 import { CellularDataUsagePage } from '../pages/cellular-data-usage/cellular-data-usage';
 import { MomentModule } from 'angular2-moment';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
+import { MyFriendsPage } from '../pages/my-friends/my-friends';
 
 //import { FCM } from '@ionic-native/fcm';
 
@@ -151,7 +153,8 @@ firebase.initializeApp(config);
         SearchResultsPage,
         OrganizationActionPage,
         EventsResultPage,
-        CellularDataUsagePage
+        CellularDataUsagePage,
+        MyFriendsPage
     ],
     imports: [
         BrowserModule,
@@ -162,7 +165,7 @@ firebase.initializeApp(config);
         AngularFireAuthModule,
         CloudModule.forRoot(cloudSettings),
         MomentModule
-
+        
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -207,7 +210,8 @@ firebase.initializeApp(config);
         SearchResultsPage,
         OrganizationActionPage,
         EventsResultPage,
-        CellularDataUsagePage
+        CellularDataUsagePage,
+        MyFriendsPage
     ],
     providers: [
         StatusBar,
@@ -228,7 +232,8 @@ firebase.initializeApp(config);
     SocialShareProvider,
     SocialSharing,
     CallNumber,
-    Network
+    Network,
+    PhotoViewer
     
     ]
 })

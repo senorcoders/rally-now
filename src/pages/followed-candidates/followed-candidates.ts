@@ -5,6 +5,7 @@ import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
 import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay'
+import { OrganizationsProvider } from '../../providers/organizations/organizations';
 import { UsersProvider } from '../../providers/users/users';
 
 
@@ -14,7 +15,7 @@ import { UsersProvider } from '../../providers/users/users';
   templateUrl: 'followed-candidates.html',
 })
 export class FollowedCandidatesPage {
-  endpoint:any = 'following_users?follower_id=';
+  endpoint:any = 'my_friends/';
   currentApiID:any;
   followers:any;
 
@@ -22,9 +23,10 @@ export class FollowedCandidatesPage {
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public popoverCtrl: PopoverController,
-    private httpProvider: UsersProvider) {
+    private httpProvider: OrganizationsProvider,
+    private userProvider: UsersProvider) {
 
-      this.httpProvider.returnRallyUserId().then(
+      this.userProvider.returnRallyUserId().then(
         user => {
           this.currentApiID = user.apiRallyID;
           this.getFollowers();
@@ -36,7 +38,7 @@ export class FollowedCandidatesPage {
   getFollowers(){
       this.httpProvider.getJsonData(this.endpoint+this.currentApiID)
         .subscribe( result => {
-          this.followers = result;
+          this.followers = result['follower'];
         });
   }
 

@@ -1,0 +1,26 @@
+page-my-friends {
+    .toolbar-background {
+        background-color: #4a90e2;
+        color: #fff;
+    }
+    p.white {
+        color: #fff;
+        margin: 0;
+    }
+    ion-content {
+        top: 60px;
+        p {
+            font-size: 12px;
+            text-align: center;
+            color: #7b7878;
+        }
+        img {
+            border-radius: 50%;
+            height: 70px;
+            width: 70px;
+        }
+        ion-list {
+            margin-bottom: 0 !important;
+        }
+    }
+}

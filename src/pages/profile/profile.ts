@@ -14,6 +14,7 @@ import { OverlayPage } from '../overlay/overlay'
 import { UserData } from '../../providers/user-data';
 import { AngularFireDatabase } from 'angularfire2/database/database';
 import { UsersProvider } from '../../providers/users/users';
+import { MyFriendsPage } from '../my-friends/my-friends';
 
 
 
@@ -137,6 +138,10 @@ export class ProfilePage {
   presentPopover() {
        let popover = this.popoverCtrl.create(OverlayPage);
        popover.present();
+     }
+
+     goToMyFriends(){
+       this.navCtrl.push(MyFriendsPage, {animate:true,animation:'transition',duration:500,direction:'forward'});
      }
 
         

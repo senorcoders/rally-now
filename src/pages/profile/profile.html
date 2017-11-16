@@ -33,7 +33,7 @@
         </ion-col>
         <ion-col col-8 class="profile-counts">
             <ion-row>
-                <ion-col>
+                <ion-col (click)="goToMyFriends()">
                     <h4>{{user.friends_count}}</h4>
                     <p class="small">Friends</p>
                 </ion-col>

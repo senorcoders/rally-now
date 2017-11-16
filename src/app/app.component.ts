@@ -47,7 +47,7 @@ export class MyApp {
           platform.ready().then((readySource) => {
 
             console.log("Platform Ready from ", readySource);
-            statusBar.styleDefault();
+            statusBar.backgroundColorByHexString('#4a90e2');
           firebase.auth().onAuthStateChanged(user => {
             if (user) {
                this.storage.get('introShown').then((result) => {
