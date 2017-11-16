@@ -1,5 +1,6 @@
 page-event-detail {
-     .button-clear-md, .button-clear-ios {
+    .button-clear-md,
+    .button-clear-ios {
         background-color: #4a90e2;
         color: #fff;
         height: 30px;
@@ -7,25 +8,28 @@ page-event-detail {
     ion-header {
         text-align: center;
     }
-
+    .btn-50 {
+        width: 50%;
+        height: 50px !important;
+        margin: 0;
+    }
     .toolbar-background {
         background-color: #4a90e2;
         color: #fff;
     }
     ion-content {
         background-color: #f2f2f2 !important;
-        top:60px;
+        top: 60px;
     }
-
     p.white {
         color: #fff;
         margin: 0;
     }
     .blue {
-            background-color: #4a90e2;
-            border-right: 1px solid #fff;
-        }
-    .event{
+        background-color: #4a90e2;
+        border-right: 1px solid #fff;
+    }
+    .event {
         .title {
             vertical-align: sub;
             color: #666;
@@ -56,21 +60,21 @@ page-event-detail {
                 font-weight: 900;
                 color: #666;
             }
-            button{
+            button {
                 height: 28px;
                 font-size: 0.9em;
                 width: 80% !important;
-                text-align: center;            
+                text-align: center;
                 span {
                     color: #fff;
-                }            
+                }
             }
         }
         .address {
             font-size: 0.8em;
             color: #666;
         }
-        .hour{
+        .hour {
             font-size: 0.8em;
             color: #666;
         }

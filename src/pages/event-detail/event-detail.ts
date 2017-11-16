@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Platform, ActionSheetController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
 
@@ -19,16 +19,23 @@ export class EventDetailPage {
   description:any;
   image_url:any;
   locations:any;
-
+  favEndpoint:any = 'actions';
+  likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
+  myrallyID:any;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public platform: Platform,
     public actionsheetCtrl: ActionSheetController,
-    private httpProvider: UsersProvider) {
+    private httpProvider: UsersProvider,
+    public toastCtrl: ToastController) {
         this.eventID = navParams.get('eventID');
         console.log("Evento ID", navParams.get('eventID'));
-        this.getdata();
+        this.httpProvider.returnRallyUserId().then( user => {
+          this.myrallyID = user.apiRallyID;
+          this.getdata();
+        });
+        
 
   }
 
@@ -100,6 +107,56 @@ export class EventDetailPage {
       console.log('getData completed');
     }
   );
+}
+
+
+getFavID($event, event_id, action_type_id){
+  console.log($event);
+
+  
+  this.httpProvider.getJsonData(this.favEndpoint+'?event_id='+event_id+'&action_type_id='+this.likeAction+'&user_id='+this.myrallyID).subscribe(
+    result => {
+      console.log("Aqui", result);
+      
+      if(result != "" ){
+        this.removeFav(result[0].id);
+        this.presentToast('Removed from favorites');
+        $event.srcElement.style.backgroundColor = '#4a90e2';
+        $event.srcElement.offsetParent.style.backgroundColor = '#4a90e2';
+        
+      }else{
+       this.addToFav(event_id, action_type_id);
+        $event.srcElement.style.backgroundColor = 'red';
+        $event.srcElement.offsetParent.style.backgroundColor = 'red';
+        
+      }
+    },
+    err =>{
+      console.error("Error : "+err);         
+    } ,
+    () => {
+      console.log('getData completed');
+    }
+
+    );
+}
+
+presentToast(message) {
+  let toast = this.toastCtrl.create({
+    message: message,
+    duration: 3000
+  });
+  toast.present();
+}
+
+
+addToFav(event_id, action_type_id){
+  this.httpProvider.addLikeEvent(this.favEndpoint, event_id, action_type_id, this.myrallyID);
+  this.presentToast('Added to Favorites');
+}
+
+removeFav(recordID){
+  this.httpProvider.unfollowOrganization(this.favEndpoint, recordID);
 }
 
 }

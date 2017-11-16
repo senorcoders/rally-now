@@ -13,7 +13,9 @@ import { CallNumber } from '@ionic-native/call-number';
   templateUrl: 'organization-action.html',
 })
 export class OrganizationActionPage {
-	endpoint:string = 'objectives/';
+  endpoint:string = 'objectives/';
+  favEndpoint:any = 'actions';
+  likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';  
 	orgName:string;
 	orgDescription:string;
 	organizationID:any;
@@ -21,7 +23,9 @@ export class OrganizationActionPage {
 	objTitle:string;
   rallies:string;
   myrallyID:any;
-  favEndpoint:any = 'actions';
+  shares:any;
+  likes:any;
+  actions:any;
   goal_id:any;
   buttonColor:any;
   shownGroup = null;  
@@ -110,10 +114,11 @@ export class OrganizationActionPage {
       this.organizationID=result.organization_id;
       this.rallies=result.rallies;
       this.goal_id=result.goals[0]['id'];
-      this.checkFavStatus();
-
-      console.log("Success : "+ result.name);
-    },
+      this.likes = result.likes;
+      this.shares = result.shares;
+      this.actions = result.goals[0];
+      console.log("Actions", JSON.stringify(this.actions ));
+      },
     err =>{
       console.error("Error : "+err);
     } ,
@@ -132,26 +137,52 @@ export class OrganizationActionPage {
       toast.present();
     }
 
- addToFav(goal_id, action_type_id){
-   this.httpProvider.addFavorites(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
-   this.httpProvider.saveFollowRecordID(goal_id, goal_id, 'favorites');
-   this.presentToast('Added to Favorites');
- }
 
- addFavRecordFirebase(goal_id, action_type_id){
-     let user:any = firebase.auth().currentUser;
-     let favRef = this.db.database.ref('favorites/'+user['uid']+'/'+goal_id);
-     favRef.once('value', snapshot=>{
-       if (snapshot.hasChildren()) {
-         console.log('Already added to favorties');
-         this.presentToast('Already added to favorties');
+    getFavID($event, goal_id, action_type_id){
+      console.log($event);
+  
+      
+      this.httpProvider.getJsonData(this.favEndpoint+'?goal_id='+goal_id+'&action_type_id='+this.likeAction+'&user_id='+this.myrallyID).subscribe(
+        result => {
+          console.log("Aqui", result);
+          
+          if(result != "" ){
+            this.removeFav(result[0].id);
+            this.presentToast('Removed from favorites');
+            $event.srcElement.style.backgroundColor = '#4a90e2';
+            $event.srcElement.offsetParent.style.backgroundColor = '#4a90e2';
+            this.likes--;
+            
+          }else{
+           this.addToFav(goal_id, action_type_id);
+            $event.srcElement.style.backgroundColor = 'red';
+            $event.srcElement.offsetParent.style.backgroundColor = 'red';
+            this.likes++;
+            
+          }
+        },
+        err =>{
+          console.error("Error : "+err);         
+        } ,
+        () => {
+          console.log('getData completed');
+        }
+  
+        );
+  }
+  
 
-       }else{
-         this.addToFav(goal_id, action_type_id);
-         this.presentToast('Added to Favorites');
-       }
-     });
-    }
+  addToFav(goal_id, action_type_id){
+    this.httpProvider.addFavorites(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
+    this.presentToast('Added to Favorites');
+  }
+
+  removeFav(recordID){
+    this.httpProvider.unfollowOrganization(this.favEndpoint, recordID);
+    this.httpProvider.removeFollowRecordID(recordID, 'favorites');
+  }
+
+ 
 
 
     share(title, imgURI){
@@ -159,24 +190,29 @@ export class OrganizationActionPage {
      }
 
 
-     checkFavStatus(){
-   let user:any = firebase.auth().currentUser;
-     if (user) {
-       let orgRef = this.db.database.ref('favorites/'+user['uid']+'/'+this.goal_id);
-    orgRef.on('value', snapshot=>{
-      if (snapshot.hasChildren()) {
-       console.log('Added');
-       this.buttonColor = 'red';
-       
-      } else{
-        console.log('Not yet');
-        this.buttonColor = '#4a90e2';
+     findInLoop(actions){
+      if (actions != null){
+        
+        var found = actions.some(el => { 
+          if(el.action_type_id === this.likeAction){
+            return el.user_id[0].id== this.myrallyID;
+          }
           
+        });
+        
+        if (!found){
+          return '#4a90e2';
+          
+        }else{
+          return 'red';
+          
+        }
       }
-    });
-     }
-    
-  }
+     
+    }
+ 
+
+     
 
   toggleGroup(group) {
     if (this.isGroupShown(group)) {
