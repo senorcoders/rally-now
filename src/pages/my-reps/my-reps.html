@@ -16,7 +16,7 @@
             <h2>{{rep.name}}</h2>
             <ion-row item-end text-right style="max-width: 80px;">
                 <ion-col col-12 style="padding: 0;">
-                    <button (click)="followRep(rep.id)" ion-button color="dark" class="action-btn">Follow</button>
+                    <button (click)="followRep(rep.id, $event)" ion-button color="dark" class="action-btn">{{findInLoop(rep.followers)}}</button>
                 </ion-col>
                 <ion-col col-12 style="padding: 0;">
                     <button (click)="presentActionSheet(rep.phones_number[0].number)" ion-button color="dark" class="action-btn">Contact</button>

@@ -45,7 +45,7 @@ export class MyRepsPage {
   presentActionSheet(number) {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Contact Bob Representative',
-      buttons: [
+      buttons: [ 
         {
           text: 'Call',
           handler: () => {
@@ -127,8 +127,9 @@ export class MyRepsPage {
       });
       toast.present();
     }
-    followRep(repID){
-      console.log("Rep ID", repID);
+    followRep(repID, $event){
+      console.log($event);
+      
       
       this.httpProvider.getJsonData(this.followEndpoint+'?user_id='+this.currentRallyID+'&representative_id='+repID)
         .subscribe(
@@ -136,8 +137,12 @@ export class MyRepsPage {
             
             if (result != ""){              
               this.unFollowRep(result[0].id);
+              $event.srcElement.innerHTML = "Follow";
+              $event.srcElement.innerText = "FOLLOW";
             } else{
               this.saveRepInApi(repID);
+              $event.srcElement.innerHTML = "Unfollow";
+              $event.srcElement.innerText = "UNFOLLOW";
             }
           },
       err =>{
@@ -160,6 +165,24 @@ export class MyRepsPage {
     unFollowRep(recordID){
       this.httpProvider.unfollowOrganization(this.followEndpoint, recordID);
       this.presentToast('Representative removed');
+    }
+
+    findInLoop(actions){
+      if (actions != null){
+        
+        var found = actions.some(el => { 
+            return el == this.currentRallyID;
+          
+        });
+        
+        if (!found){
+          return 'Follow';
+          
+        }else{
+          return 'Unfollow';
+          
+        }
+      }
     }
 
 }
