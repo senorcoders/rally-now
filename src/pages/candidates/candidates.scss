@@ -13,11 +13,13 @@ page-candidates {
 
     ion-content {
         top:60px;
-        background-color: #f2f2f2 !important;
+        background: #d8d8d8 !important;
+
         ion-card {
             margin-right: 0 !important;
             margin-left: 0 !important;
             width: 100% !important;
+            box-shadow: none !important;
             ion-card-header {
                 max-width: 90%;
                 overflow: visible;
@@ -25,10 +27,14 @@ page-candidates {
             }
             .button-clear-md,
             .button-clear-ios {
-                background-color: #4a90e2;
-                color: #fff;
+                 background-color: #f2f2f2;
+                color: #bfbfbf;
                 height: 30px;
             }
+            .item-md ion-avatar img,
+        .item-ios ion-avatar img {
+            border: 2px solid #cecece;
+        }
             .fab-md-light,
             .fab-ios-light {
                 background: none;
@@ -37,7 +43,7 @@ page-candidates {
             }
 
             .blue {
-                background-color: #4a90e2;
+                background-color: #f2f2f2;
                 border-right: 1px solid #fff;
             }
             .ion-logo-twitter {

@@ -4,61 +4,62 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<rally-header></rally-header>
+<rally-orange-header></rally-orange-header>
 
 
 
 <ion-content>
-	<ion-row padding class="search-btn">
-<!-- 		<button  ion-button color="dark" class="action-btn">Search for friends	</button>
- -->    <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar> 
- 
-	</ion-row>
-  <div *ngIf="searching" class="spinner-container">
+    <ion-row padding class="search-btn">
+        <!-- 		<button  ion-button color="dark" class="action-btn">Search for friends	</button>
+ -->
+        <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar>
+
+    </ion-row>
+    <div *ngIf="searching" class="spinner-container">
         <ion-spinner></ion-spinner>
     </div>
-<ion-list>
-<ion-item>
-		<p class="list-title">Pending Friend Requests</p>
-	</ion-item>
-  <ion-item *ngFor="let item of items">
-    <ion-avatar item-start>
-      <img src="assets/img/login-image.jpg" style="width: 70px; height: 70px;">
-    </ion-avatar>
-    <h2>{{item.title}}</h2>
-    <p>Friends with Ryan Cohen</p>
-    <ion-row item-end text-right style="max-width: 80px;">
-    	<ion-col col-12 style="padding: 0;">
-    	<button ion-button color="dark" class="action-btn">Friend</button>
-		</ion-col>
-		<ion-col col-12 style="padding: 0;">
-    	<button ion-button color="dark" class="action-btn">Hide</button>
-		</ion-col>
-    </ion-row>
-  </ion-item>
- 
- 
-</ion-list>
+    <ion-list>
+        <ion-item>
+            <p class="list-title">Pending Friend Requests</p>
+        </ion-item>
+        <ion-item *ngFor="let item of items">
+            <ion-avatar item-start>
+                <img src="assets/img/login-image.jpg" style="width: 70px; height: 70px;">
+            </ion-avatar>
+            <h2>{{item.title}}</h2>
+            <p>Friends with Ryan Cohen</p>
+            <ion-row item-end text-right style="max-width: 80px;">
+                <ion-col col-12 style="padding: 0;">
+                    <button ion-button color="dark" class="action-btn">Friend</button>
+                </ion-col>
+                <ion-col col-12 style="padding: 0;">
+                    <button ion-button color="dark" class="action-btn">Hide</button>
+                </ion-col>
+            </ion-row>
+        </ion-item>
 
-<ion-list>
-	<ion-item>
-		<p class="list-title">Suggested Friends</p>
-	</ion-item>
-  <ion-item >
-    <ion-avatar item-start>
-      <img src="assets/img/login-image.jpg" style="width: 70px; height: 70px;">
-    </ion-avatar>
-    <h2>Bob Miller</h2>
-    <p>Friends with Lenny Lewis</p>
-    <ion-row item-end text-right style="max-width: 80px;">
-    	<ion-col col-12 style="padding: 0;">
-    	<button ion-button color="dark" class="action-btn" >REQUEST</button>
-		</ion-col>
-	
-    </ion-row>
-  </ion-item>
- 
-</ion-list>
+
+    </ion-list>
+
+    <ion-list>
+        <ion-item>
+            <p class="list-title">Suggested Friends</p>
+        </ion-item>
+        <ion-item>
+            <ion-avatar item-start>
+                <img src="assets/img/login-image.jpg" style="width: 70px; height: 70px;">
+            </ion-avatar>
+            <h2>Bob Miller</h2>
+            <p>Friends with Lenny Lewis</p>
+            <ion-row item-end text-right style="max-width: 80px;">
+                <ion-col col-12 style="padding: 0;">
+                    <button ion-button color="dark" class="action-btn">REQUEST</button>
+                </ion-col>
+
+            </ion-row>
+        </ion-item>
+
+    </ion-list>
 
 </ion-content>
 <ion-footer>
@@ -85,4 +86,3 @@
         </ion-row>
     </ion-toolbar>
 </ion-footer>
-

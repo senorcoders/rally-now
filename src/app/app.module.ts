@@ -71,6 +71,8 @@ import { CellularDataUsagePage } from '../pages/cellular-data-usage/cellular-dat
 import { MomentModule } from 'angular2-moment';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { MyFriendsPage } from '../pages/my-friends/my-friends';
+import { RallyOrangeHeaderComponent } from '../components/rally-orange-header/rally-orange-header';
+
 
 //import { FCM } from '@ionic-native/fcm';
 
@@ -154,7 +156,8 @@ firebase.initializeApp(config);
         OrganizationActionPage,
         EventsResultPage,
         CellularDataUsagePage,
-        MyFriendsPage
+        MyFriendsPage,
+        RallyOrangeHeaderComponent
     ],
     imports: [
         BrowserModule,
@@ -211,7 +214,8 @@ firebase.initializeApp(config);
         OrganizationActionPage,
         EventsResultPage,
         CellularDataUsagePage,
-        MyFriendsPage
+        MyFriendsPage,
+        RallyOrangeHeaderComponent
     ],
     providers: [
         StatusBar,

@@ -37,6 +37,7 @@ export class FeedPage {
   enabled:boolean = false;
   likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
   likesCount: number;
+  events:any;
 
   constructor(
     public navCtrl: NavController,
@@ -82,6 +83,7 @@ export class FeedPage {
                   this.organizationsData=savedJson['My_Organizations'];
                   this.objectives=savedJson['Objectives'];
                   this.fiends=savedJson['friends_activity'];
+                  this.events=savedJson['Events'];
                   this.enabled = true;
                   this.loading.dismiss();
                   
@@ -128,6 +130,7 @@ export class FeedPage {
       this.organizationsData=result['My_Organizations'];
       this.objectives=result['Objectives'];
       this.fiends=result['friends_activity'];
+      this.events=result['Events'];
       this.storage.set("homefeed", result);
       this.loading.dismiss();
 
@@ -192,13 +195,6 @@ doRefresh(refresher) {
          }
        },
        {
-         text: 'Whatsapp',
-         icon: 'logo-whatsapp',
-         handler: () => {
-           this.shareProvider.whatsappShare(title, imgURI);
-         }
-       },
-       {
          text: 'Others',
          icon: 'md-share',
          handler: () => {
@@ -243,13 +239,13 @@ doRefresh(refresher) {
         if(result != "" ){
           this.removeFav(result[0].id);
           this.presentToast('Removed from favorites');
-          $event.srcElement.style.backgroundColor = '#4a90e2';
-          $event.srcElement.offsetParent.style.backgroundColor = '#4a90e2';
+          $event.srcElement.style.backgroundColor = '#f2f2f2';
+          $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
           
         }else{
          this.addToFav(goal_id, action_type_id);
-          $event.srcElement.style.backgroundColor = 'red';
-          $event.srcElement.offsetParent.style.backgroundColor = 'red';
+          $event.srcElement.style.backgroundColor = '#296fb7';
+          $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
           
         }
       },
@@ -315,10 +311,10 @@ doRefresh(refresher) {
       });
       
       if (!found){
-        return '#4a90e2';
+        return '#f2f2f2';
         
       }else{
-        return 'red';
+        return '#296fb7';
         
       }
     }
