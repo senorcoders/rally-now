@@ -147,4 +147,7 @@
     <allow-navigation href="http://192.168.88.45:8100" />
     <allow-navigation href="http://192.168.8.103:8101" />
     <plugin name="com-sarriaroman-photoviewer" spec="~1.1.11" />
+    <plugin name="com.moust.cordova.videoplayer" spec="https://github.com/moust/cordova-plugin-videoplayer.git" />
+    <allow-navigation href="http://169.254.244.109:8100" />
+    <allow-navigation href="http://169.254.127.133:8100" />
 </widget>

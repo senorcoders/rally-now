@@ -27,8 +27,7 @@ export class OrganizationProfilePage {
   myrallyID:any;
   hide_enpoint:any = 'hide_objective';
   favEndpoint:any = 'actions';
-    likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
-
+  likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
 
 
 

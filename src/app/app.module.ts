@@ -74,6 +74,7 @@ import { MyFriendsPage } from '../pages/my-friends/my-friends';
 import { RallyOrangeHeaderComponent } from '../components/rally-orange-header/rally-orange-header';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SearchPage } from '../pages/search/search';
+import { VideoPlayer } from '@ionic-native/video-player';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -243,7 +244,8 @@ firebase.initializeApp(config);
     SocialSharing,
     CallNumber,
     Network,
-    PhotoViewer
+    PhotoViewer,
+    VideoPlayer
     
     ]
 })

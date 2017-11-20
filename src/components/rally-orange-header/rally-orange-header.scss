@@ -1,4 +1,5 @@
 rally-orange-header {
+    background: transparent !important;
 	ion-header{
 		text-align: center !important;
 	}
@@ -8,6 +9,9 @@ rally-orange-header {
     }
     .toolbar-background {
         background: #f4512c !important;
+        border: none !important;
+
+
         //max-height: 50px !important;
     }
 }

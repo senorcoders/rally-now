@@ -47,32 +47,44 @@
         // --------------------------------------------------
         @import "roboto";
         @import "noto-sans";
+
+
         @font-face {
-            font-family: 'Conv_ITCKabelStd-Demi';
-            src: url('../assets/fonts/ITCKabelStd-Demi.eot');
-            src: url('../assets/fonts/ITCKabelStd-Demi.woff') format('woff'), url('../assets/fonts/ITCKabelStd-Demi.ttf') format('truetype'), url('../assets/fonts/ITCKabelStd-Demi.svg') format('svg');
+            font-family: 'Conv_SF-Pro-Display-Regular';
+            src: url('../assets/fonts/SF-Pro-Display-Regular.eot');
+            src: url('../assets/fonts/SF-Pro-Display-Regular.woff') format('woff'), url('../assets/fonts/SF-Pro-Display-Regular.ttf') format('truetype'), url('../assets/fonts/SF-Pro-Display-Regular.svg') format('svg');
             font-weight: normal;
             font-style: normal;
         }
+
+        $font-family-ios-base: 'Conv_SF-Pro-Display-Regular',Sans-Serif;
+;
+        // @font-face {
+        //     font-family: 'Conv_ITCKabelStd-Demi';
+        //     src: url('../assets/fonts/ITCKabelStd-Demi.eot');
+        //     src: url('../assets/fonts/ITCKabelStd-Demi.woff') format('woff'), url('../assets/fonts/ITCKabelStd-Demi.ttf') format('truetype'), url('../assets/fonts/ITCKabelStd-Demi.svg') format('svg');
+        //     font-weight: normal;
+        //     font-style: normal;
+        // }
         
-        $font-family-base: 'Conv_ITCKabelStd-Demi',
-        Sans-Serif !default;
-        $font-family-md-base: $font-family-base;
-        $font-family-ios-base: $font-family-base;
-        $font-family-wp-base: $font-family-base;
-        body,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        button,
-        p,
-        label,
-        ion-label,
-        span,
-        .col,
-        ion-card-header {
-            font-family: 'Conv_ITCKabelStd-Demi', Sans-Serif !important;
-        }
+        // $font-family-base: 'Conv_ITCKabelStd-Demi',
+        // Sans-Serif !default;
+        // $font-family-md-base: $font-family-base;
+        // $font-family-ios-base: $font-family-base;
+        // $font-family-wp-base: $font-family-base;
+        // body,
+        // h1,
+        // h2,
+        // h3,
+        // h4,
+        // h5,
+        // h6,
+        // button,
+        // p,
+        // label,
+        // ion-label,
+        // span,
+        // .col,
+        // ion-card-header {
+        //     font-family: 'Conv_ITCKabelStd-Demi', Sans-Serif !important;
+        // }

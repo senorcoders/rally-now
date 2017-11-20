@@ -5,6 +5,7 @@ import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
 import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay'
+import { VideoPlayer, VideoOptions } from '@ionic-native/video-player';
 
 
 
@@ -14,12 +15,14 @@ import { OverlayPage } from '../overlay/overlay'
   templateUrl: 'candidates.html',
 })
 export class CandidatesPage {
+videoOpts : VideoOptions ;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public popoverCtrl: PopoverController,
-    public viewCtrl:ViewController) {
+    public viewCtrl:ViewController,
+    private videoPlayer: VideoPlayer) {
   }
 
   ionViewDidLoad() {
@@ -45,6 +48,15 @@ export class CandidatesPage {
   presentPopover() {
        let popover = this.popoverCtrl.create(OverlayPage);
        popover.present();
+     }
+
+     playVideo(){
+       this.videoOpts = {volume : 1.0};
+    this.videoPlayer.play('http://dev.senorcoders.com/wp-content/uploads/2017/11/tweet.mp4').then(() => {
+    console.log('video completed');
+    }).catch(err => {
+    console.log(err);
+    }); 
      }
 
 }

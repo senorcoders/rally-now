@@ -11,6 +11,11 @@ page-organization-action {
         height: 50px !important;
         margin: 0;
     }
+
+    small {
+            color: #8f8f8f;
+            font-weight: normal;
+        }
     ion-content {
         background-color: #f2f2f2 !important;
         top: 60px;
@@ -22,20 +27,26 @@ page-organization-action {
         color: #fff;
         margin: 0;
     }
-    .button-clear-md {
-        background-color: #4a90e2;
-        color: #fff;
-        height: 30px;
+
+    .button-clear-md, .button-clear-ios {
+        background-color: #f2f2f2;
+        color: #bfbfbf !important;
     }
+    .right-border {
+        border-right: 1px solid #fff;
+    }
+   
     .action-btn {
         height: auto;
         padding: 5px 10px;
-        background: transparent;
-        color: #222;
+        background: #f4512c;
+        color: #fff;
         border: 1px solid #222;
         font-size: 12px;
         text-transform: uppercase;
         box-shadow: none;
+        border: none;
+        border-radius: 0;
     }
     ion-card {
         margin-right: 0 !important;
@@ -43,20 +54,31 @@ page-organization-action {
         width: 100% !important;
         .item-md ion-avatar img,
         .item-ios ion-avatar img {
-            border-radius: 0;
+           border: 2px solid #cecece;
+
         }
-        .organization-bg {
-            height: 240px;
+         .organization-bg {
+            height: 195px;
             position: relative;
+            background-size: cover !important;
+            background-repeat: no-repeat !important;
+            background-position: center !important;
             .bottom-excerpt {
                 position: absolute;
                 bottom: 0;
                 width: 100%;
-                background: rgba(0, 0, 0, 0.5);
+                background: rgba(0, 0, 0, 0.3);
                 padding: 10px;
                 font-weight: 600;
+                right: 0;
+                left: 0;
+                top: 0;
+                align-items: flex-end;
+                display: flex;
                 p {
                     font-size: 17px;
+                    width: 70%;
+                    margin-bottom: 10px;
                 }
             }
         }
@@ -70,9 +92,14 @@ page-organization-action {
             position: absolute;
             right: 0;
             padding: 20px;
-            background: #4a90e2;
             font-weight: 600;
+            bottom: 20px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            z-index: 99;
             p {
+                text-align: center;
                 strong {
                     font-size: 20px;
                 }
@@ -92,10 +119,7 @@ page-organization-action {
             color: #4a90e2;
             line-height: 30px;
         }
-        .button-clear-ios {
-            color: #fff;
-            height: 30px;
-        }
+       
         .grayBg {
             background-color: #4a4a4a;
             padding: 10px;

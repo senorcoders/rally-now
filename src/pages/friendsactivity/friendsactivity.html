@@ -24,7 +24,7 @@
                         <h2 (click)="goToPublicProfile(activity.user_id[0]['id'])">{{activity.user_id[0]['name']}}</h2>
                         <div style="display: flex;">
                             <p>{{activity.created_at | amTimeAgo}}  </p>
-                            <img *ngIf="activity.user_id[0]['searchable'] === '1'" src="assets/img/Public.svg" alt="" style="width: 12px !important; height: 12px !important; margin-left: 8px;">
+                            
                         </div>
                         
 

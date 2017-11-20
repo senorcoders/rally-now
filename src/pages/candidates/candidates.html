@@ -27,21 +27,28 @@
                 <ion-avatar item-start>
                   <img src="assets/img/login-image.jpg">
                 </ion-avatar>
-                <h2>Senator Bob Jones</h2>
+                <h2 style="display: flex;">Senator Bob Jones <img style="width: 12px; height: 12px; margin-left: 5px;" src="assets/img/TwtterVerified.svg" alt=""></h2>
                 <p><small>@SenatorJones . 4h</small></p>
               </ion-item>
         </ion-card-header>
         <ion-card-content>
             <ion-row>
                 <ion-col col-10>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi iusto pariatur ipsam?</p>
+                    <blockquote style="margin: 0 !important;" class="twitter-video" data-lang="es"><p lang="en" dir="ltr">Ladies and Gentlemen... <br>The President of South Africa. 🇿🇦🤣🤣🤣 </blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+               
                 </ion-col>
                 <ion-col col-2 text-right style="line-height: 50px;">
 
                     <ion-icon name="logo-twitter"></ion-icon>
                 </ion-col>
+                
             </ion-row>
         </ion-card-content>
+        <ion-row>
+                     <button class="play-btn" ion-button (click)="playVideo()" full>
+                </button>
+        </ion-row>
         <ion-row>
             <ion-col class="blue">
                 <button ion-button icon-left clear full>

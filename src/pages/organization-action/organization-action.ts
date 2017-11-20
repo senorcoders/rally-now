@@ -28,7 +28,8 @@ export class OrganizationActionPage {
   actions:any;
   goal_id:any;
   buttonColor:any;
-  shownGroup = null;  
+  shownGroup = null; 
+  date:any; 
   information = [
     {title: "Why it's important", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor sit amet enim et vulputate. Donec et elit id quam viverra interdum at eu lacus. Duis volutpat semper magna, et auctor eros. Aliquam fermentum consequat turpis. Maecenas eu lectus at odio aliquet aliquam in convallis elit. Integer sagittis nunc vitae felis varius vestibulum. Pellentesque scelerisque rhoncus velit, sit amet fringilla tellus varius sit amet. Vestibulum ullamcorper sollicitudin feugiat. Nam eu placerat urna, ullamcorper finibus mi. Aliquam scelerisque ligula sem, eu euismod ex gravida faucibus. Etiam et pulvinar nisl. Phasellus ac tellus id purus vestibulum scelerisque ut sit amet elit. Sed velit est, suscipit a leo ullamcorper, sollicitudin aliquam quam. Maecenas blandit, ex at hendrerit euismod, erat felis pharetra ante, in fermentum nunc neque a felis. Integer vel est neque."},
     {title: "What to say (talking points)", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor sit amet enim et vulputate. Donec et elit id quam viverra interdum at eu lacus. Duis volutpat semper magna, et auctor eros. Aliquam fermentum consequat turpis. Maecenas eu lectus at odio aliquet aliquam in convallis elit. Integer sagittis nunc vitae felis varius vestibulum. Pellentesque scelerisque rhoncus velit, sit amet fringilla tellus varius sit amet. Vestibulum ullamcorper sollicitudin feugiat. Nam eu placerat urna, ullamcorper finibus mi. Aliquam scelerisque ligula sem, eu euismod ex gravida faucibus. Etiam et pulvinar nisl. Phasellus ac tellus id purus vestibulum scelerisque ut sit amet elit. Sed velit est, suscipit a leo ullamcorper, sollicitudin aliquam quam. Maecenas blandit, ex at hendrerit euismod, erat felis pharetra ante, in fermentum nunc neque a felis. Integer vel est neque."}
@@ -117,6 +118,7 @@ export class OrganizationActionPage {
       this.likes = result.likes;
       this.shares = result.shares;
       this.actions = result.goals[0];
+      this.date = result.created_at;
       console.log("Actions", JSON.stringify(this.actions ));
       },
     err =>{
@@ -149,14 +151,14 @@ export class OrganizationActionPage {
           if(result != "" ){
             this.removeFav(result[0].id);
             this.presentToast('Removed from favorites');
-            $event.srcElement.style.backgroundColor = '#4a90e2';
-            $event.srcElement.offsetParent.style.backgroundColor = '#4a90e2';
+            $event.srcElement.style.backgroundColor = '#f2f2f2';
+            $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
             this.likes--;
             
           }else{
            this.addToFav(goal_id, action_type_id);
-            $event.srcElement.style.backgroundColor = 'red';
-            $event.srcElement.offsetParent.style.backgroundColor = 'red';
+            $event.srcElement.style.backgroundColor = '#296fb7';
+            $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
             this.likes++;
             
           }
@@ -201,10 +203,10 @@ export class OrganizationActionPage {
         });
         
         if (!found){
-          return '#4a90e2';
+          return '#f2f2f2';
           
         }else{
-          return 'red';
+          return '#296fb7';
           
         }
       }

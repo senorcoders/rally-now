@@ -47,7 +47,7 @@ page-feed {
     }
     .button-clear-md, .button-clear-ios {
         background-color: #f2f2f2;
-        color: #bfbfbf;
+        color: #bfbfbf !important;
     }
     .right-border {
         border-right: 1px solid #fff;
@@ -183,10 +183,7 @@ page-feed {
             color: #4a90e2;
             line-height: 30px;
         }
-        .button-clear-ios {
-            color: #fff;
-            height: 30px;
-        }
+        
         .token {
             background-color: #e6e6e6;
             border: none;
@@ -305,6 +302,9 @@ page-feed {
         margin-left: 0 !important;
         margin-right: 0 !important;
         width: 100% !important;
+        box-shadow: none !important;
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
         position: relative;
         .fab-md-light,
         .fab-ios-light {
@@ -328,13 +328,26 @@ page-feed {
             bottom: 10px;
             border: 3px solid #fff;
         }
-        .heart-btn {
+        .heart-btn{
             margin: 0;
         }
-        .profile-rep {
-            background-size: cover !important;
-            background-repeat: no-repeat !important;
-            background-position: center !important;
+
+
+        .blue-card {
+             background-color: #f2f2f2;
+        color: #bfbfbf;
+            border-right: 1px solid #fff;
+        }
+
+        
+        .button-clear-ios, .button-clear-md {
+            background-color: #f2f2f2;
+        color: #bfbfbf;
+        }
+
+        .item-md ion-avatar img,
+        .item-ios ion-avatar img {
+            border: 2px solid #f66240;
         }
     }
     .follow-user-button {

@@ -1,4 +1,6 @@
 rally-header {
+   
+    background: #fff !important;
     .rally-search{
     .searchbar-input{
          //border-radius: 7px !important;
@@ -23,9 +25,11 @@ rally-header {
     }
 
 .results-content{
-    
+            background: #fff !important;
+
     	z-index: 9999;
         top: 60px;
+        
         .scroll-content{
             margin-top: 0 !important;
         }
@@ -38,8 +42,4 @@ rally-header {
     }
 
     
-
-.toolbar-ios{
-	margin-top: 20px;
-}
 }

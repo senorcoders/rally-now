@@ -11,6 +11,15 @@ page-candidates {
         margin: 0;
     }
 
+    .play-btn{
+            height: 80px;
+    width: 100%;
+    background: url(../assets/img/thumbnail-tweet.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    }
+
     ion-content {
         top:60px;
         background: #d8d8d8 !important;
@@ -47,12 +56,12 @@ page-candidates {
                 border-right: 1px solid #fff;
             }
             .ion-logo-twitter {
-                background: #4a90e2;
+                //background: #4a90e2;
                 padding: 5px;
                 border-radius: 50%;
                 height: 25px;
                 width: 25px;
-                color: #fff;
+                color: #4a90e2;
             }
             ion-item{
             	padding-left: 0 !important;
