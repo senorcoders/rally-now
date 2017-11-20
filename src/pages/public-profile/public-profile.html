@@ -3,7 +3,7 @@
     <ion-row padding *ngFor="let user of userData">
         <ion-col col-4 class="profile-headshot">
             <ion-avatar item-start class="profile-img">
-                <button ion-button transparent icon-only style="background: transparent; height: auto;">
+                <button ion-button transparent icon-only style="background: transparent; height: auto;" (click)="showPhotoViewer(user.photo_url)">
                     <img src="{{user.photo_url}}">
                 </button>
             </ion-avatar>

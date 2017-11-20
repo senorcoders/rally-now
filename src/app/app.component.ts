@@ -48,6 +48,8 @@ export class MyApp {
           platform.ready().then((readySource) => {
 
             console.log("Platform Ready from ", readySource);
+            statusBar.overlaysWebView(false);
+
             statusBar.backgroundColorByHexString('#f4512c');
           firebase.auth().onAuthStateChanged(user => {
             if (user) {

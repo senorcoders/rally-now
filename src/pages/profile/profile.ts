@@ -15,6 +15,7 @@ import { UserData } from '../../providers/user-data';
 import { AngularFireDatabase } from 'angularfire2/database/database';
 import { UsersProvider } from '../../providers/users/users';
 import { MyFriendsPage } from '../my-friends/my-friends';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 
 
@@ -49,7 +50,8 @@ export class ProfilePage {
     public popoverCtrl: PopoverController,
     public userData: UserData,
     public af:AngularFireDatabase,
-    private httpProvider:UsersProvider
+    private httpProvider:UsersProvider,
+    private photoViewer: PhotoViewer
     ) {
         this.httpProvider.returnRallyUserId().then(user =>{
             this.currentRallyID = user.apiRallyID;
@@ -143,6 +145,10 @@ export class ProfilePage {
      goToMyFriends(){
        this.navCtrl.push(MyFriendsPage, {animate:true,animation:'transition',duration:500,direction:'forward'});
      }
+
+     showPhotoViewer(path){
+  this.photoViewer.show(path);
+}
 
         
 }

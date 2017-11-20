@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController, ActionSheetContro
 import { UsersProvider } from '../../providers/users/users';
 import {AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 
 @IonicPage()
@@ -28,7 +29,8 @@ export class PublicProfilePage {
     private httpProvider:UsersProvider,
     private db: AngularFireDatabase,
     public toastCtrl: ToastController,
-    public actionSheetCtrl: ActionSheetController
+    public actionSheetCtrl: ActionSheetController,
+    private photoViewer: PhotoViewer
   ) {
   	this.parameter = navParams.get('param1');
   	this.getdata();
@@ -174,5 +176,10 @@ presentToast(message) {
     });
     actionSheet.present();
   }
+
+    showPhotoViewer(path){
+  this.photoViewer.show(path);
+}
+
 
 }

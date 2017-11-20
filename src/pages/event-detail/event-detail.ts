@@ -121,13 +121,13 @@ getFavID($event, event_id, action_type_id){
       if(result != "" ){
         this.removeFav(result[0].id);
         this.presentToast('Removed from favorites');
-        $event.srcElement.style.backgroundColor = '#4a90e2';
-        $event.srcElement.offsetParent.style.backgroundColor = '#4a90e2';
+        $event.srcElement.style.backgroundColor = '#f2f2f2';
+        $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
         
       }else{
        this.addToFav(event_id, action_type_id);
-        $event.srcElement.style.backgroundColor = 'red';
-        $event.srcElement.offsetParent.style.backgroundColor = 'red';
+        $event.srcElement.style.backgroundColor = '#4a90e2';
+        $event.srcElement.offsetParent.style.backgroundColor = '#4a90e2';
         
       }
     },
