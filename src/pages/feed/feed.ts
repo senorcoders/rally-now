@@ -17,6 +17,7 @@ import { Network } from '@ionic-native/network';
 import { Storage } from '@ionic/storage';
 import { UserData } from '../../providers/user-data';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
+import {EventDetailPage} from '../event-detail/event-detail';
 
 @Component({
   selector: 'page-feed',
@@ -119,7 +120,7 @@ export class FeedPage {
     let popover = this.popoverCtrl.create(OverlayPage);
     popover.present();
   }
-  
+   
   goToRatePage() {
     this.navCtrl.push(RatePage,  {}, {animate: true, direction: 'forward'});
   }
@@ -241,12 +242,13 @@ doRefresh(refresher) {
           this.presentToast('Removed from favorites');
           $event.srcElement.style.backgroundColor = '#f2f2f2';
           $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
+          $event.srcElement.innerText--;
           
         }else{
          this.addToFav(goal_id, action_type_id);
           $event.srcElement.style.backgroundColor = '#296fb7';
           $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
-          
+          $event.srcElement.innerText++;
         }
       },
       err =>{
@@ -331,6 +333,13 @@ removeFav(recordID){
 
 showPhotoViewer(path){
   this.photoViewer.show(path);
+}
+
+goToEventDetail(eventID){
+  console.log(eventID);
+  this.navCtrl.push(EventDetailPage, {
+          eventID: eventID
+    }, {animate:true,animation:'transition',duration:500,direction:'forward'});
 }
 
 }

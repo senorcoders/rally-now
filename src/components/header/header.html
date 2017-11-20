@@ -11,7 +11,22 @@
 	<!-- <div class="spinner-container"> 
         <ion-spinner></ion-spinner>
     </div> -->
-    <ion-list>
+
+    <div padding>
+  <ion-segment [(ngModel)]="results">
+    <ion-segment-button value="people">
+      People
+    </ion-segment-button>
+    <ion-segment-button value="organizations">
+      Organizations
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+<div [ngSwitch]="results">
+
+
+    <ion-list *ngSwitchCase="'people'">
 	<ion-item >
 		<p class="list-title">Results for {{searchTerm}} in users</p>
 	</ion-item>
@@ -26,7 +41,7 @@
  
 </ion-list>
 
- <ion-list>
+ <ion-list *ngSwitchCase="'organizations'">
 	<ion-item >
 		<p class="list-title">Results for {{searchTerm}} in Organizations</p>
 	</ion-item>
@@ -41,4 +56,6 @@
   </ion-item>
  
 </ion-list>
+</div>
+
 </ion-content>

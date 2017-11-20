@@ -30,6 +30,20 @@ page-organization-profile {
         font-size: 12px;
         text-transform: uppercase;
     }
+
+     .button-clear-md, .button-clear-ios {
+        background-color: #f2f2f2;
+        color: #bfbfbf;
+    }
+    .right-border {
+        border-right: 1px solid #fff;
+    }
+
+    .btn-50 {
+        width: 50%;
+        height: 50px;
+        margin: 0;
+    }
     .simple-card {
         position: relative;
         .button {
@@ -52,25 +66,39 @@ page-organization-profile {
         }
     }
     ion-card {
-        margin-right: 0 !important;
+         margin-right: 0 !important;
         margin-left: 0 !important;
         width: 100% !important;
+        box-shadow: none !important;
+        small {
+            color: #8f8f8f;
+            font-weight: normal;
+        }
         .item-md ion-avatar img,
         .item-ios ion-avatar img {
-            border-radius: 0;
+            border: 2px solid #cecece;
         }
         .organization-bg {
-            height: 240px;
+            height: 195px;
             position: relative;
+            background-size: cover !important;
+            background-repeat: no-repeat !important;
+            background-position: center !important;
             .bottom-excerpt {
                 position: absolute;
                 bottom: 0;
                 width: 100%;
-                background: rgba(0, 0, 0, 0.5);
+                background: rgba(0, 0, 0, 0.3);
                 padding: 10px;
                 font-weight: 600;
+                right: 0;
+                left: 0;
+                top: 0;
+                align-items: flex-end;
+                display: flex;
                 p {
                     font-size: 17px;
+                    width: 70%;
                 }
             }
         }
@@ -84,13 +112,30 @@ page-organization-profile {
             position: absolute;
             right: 0;
             padding: 20px;
-            background: #4a90e2;
             font-weight: 600;
+            top: 30%;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            z-index: 99;
             p {
+                text-align: center;
                 strong {
                     font-size: 20px;
                 }
             }
+        }
+
+        .btn-objectives-contact{
+            position: absolute;
+            right: 5px;
+            bottom: 10px;
+
+            button{
+                    background: #f4512c !important;
+                text-transform: uppercase !important;
+            }
+
         }
         .fab-md-light,
         .fab-ios-light {
@@ -125,6 +170,28 @@ page-organization-profile {
             .button-clear-md {
                 background-color: #d3cfcf;
             }
+        }
+        .button-outline-md-light,
+        .button-outline-ios-light {
+            border-color: #222;
+            background-color: #fff;
+            color: #222;
+            font-weight: 400;
+            border-radius: 5px;
+            height: auto;
+            padding: 8px 10px;
+            font-size: 11px;
+            text-transform: uppercase;
+            width: 80%;
+        }
+        .action-btn {
+            height: auto;
+            padding: 5px 10px;
+            background: transparent;
+            color: #222;
+            border: 1px solid #222;
+            font-size: 12px;
+            text-transform: uppercase;
         }
     }
     .profile-headshot {

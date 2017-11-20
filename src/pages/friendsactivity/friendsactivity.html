@@ -22,7 +22,12 @@
                           <img src="img/marty-avatar.png">
                         </ion-avatar>
                         <h2 (click)="goToPublicProfile(activity.user_id[0]['id'])">{{activity.user_id[0]['name']}}</h2>
-                        <p>{{activity.created_at | amTimeAgo}}</p>
+                        <div style="display: flex;">
+                            <p>{{activity.created_at | amTimeAgo}}  </p>
+                            <img *ngIf="activity.user_id[0]['searchable'] === '1'" src="assets/img/Public.svg" alt="" style="width: 12px !important; height: 12px !important; margin-left: 8px;">
+                        </div>
+                        
+
                       </ion-item>
                 </ion-card-header>
                 <ion-card-content>
@@ -34,7 +39,9 @@
         <ion-fab right bottom style="bottom: 50px;
     right: 0;">
             <div class="blue-icon" ion-fab color="light">
-                <ion-icon name="md-call"></ion-icon>
+                <img *ngIf="activity.title === 'call'" src="assets/img/Contact-orange.svg" alt="" style="width: 25px;">
+                <img *ngIf="activity.title === 'money'" src="assets/img/Donate.svg" alt="" style="width: 25px;">
+                <img *ngIf="activity.title === 'write'" src="assets/img/Sign.svg" alt="" style="width: 25px;">
             </div>
         </ion-fab>
 
@@ -56,50 +63,11 @@
 
     </ion-card>
 
-    <!-- <ion-card>
-       <ion-fab right top style="top: 4px;
-    right: 0;">
-    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
-    <ion-fab-list side="left">
-      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
-    </ion-fab-list>
-  </ion-fab>  
-    <ion-row>
-
-      <ion-col col-5 class="profile-rep" style="background: url('assets/img/login-image.jpg');">
-      	<img class="friend-headshot" src="assets/img/login-image.jpg" alt="">
-      </ion-col>
-      <ion-col col-7>
-       <ion-card-header>
-   			 Leroy Jenkins
-  		</ion-card-header>
-        <ion-card-content>
-        <h5 style="font-weight: 500;
-    font-size: 16px;">Feed Item Title</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque saepe error ipsa quasi, nobis a.</p>
-        </ion-card-content>
-      </ion-col>
-    </ion-row>
-    <ion-row padding>
-    	<p class="blue">371 Likes, 12 Shares</p>
-    </ion-row>
-
-     <ion-fab right bottom style="bottom: 50px;
-    right: 0;">
-    <button class="blue-icon" ion-fab color="light"><ion-icon name="ios-print"></ion-icon></button>
-  </ion-fab> 
-
-  <button ion-button full class="heart-btn"><ion-icon name="ios-heart"></ion-icon></button>
-
   
-</ion-card> -->
 
 </ion-content>
 
-<ion-footer>
+<!-- <ion-footer>
     <ion-toolbar style="min-height: auto; padding: 0;">
         <ion-row>
             <ion-col col-2 class="footer-icons">
@@ -122,4 +90,4 @@
             </ion-col>
         </ion-row>
     </ion-toolbar>
-</ion-footer>
+</ion-footer> -->

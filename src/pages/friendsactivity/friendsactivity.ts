@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, ViewController,  NavParams } from 'ionic-angular';
 import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
@@ -32,10 +32,15 @@ export class FriendsactivityPage {
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public popoverCtrl: PopoverController,
-    private httpProvider:OrganizationsProvider) {
+    private httpProvider:OrganizationsProvider,
+    public viewCtrl:ViewController) {
         this.getdata();
 
   }
+
+  ionViewWillEnter() {
+        this.viewCtrl.showBackButton(false);
+    }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FriendsactivityPage');

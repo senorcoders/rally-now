@@ -272,8 +272,12 @@ export class UsersProvider {
       headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
       headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
       headers.append('Access-Control-Max-Age', '1728000');
+      var d1 = new Date();
+      d1.toUTCString();
+      Math.floor(d1.getTime()/ 1000);
+      var d2 = new Date(d1.getUTCFullYear(),  d1.getUTCMonth(), d1.getUTCDate(), d1.getUTCHours(), d1.getUTCMinutes(), d1.getUTCSeconds());
       let options = new RequestOptions({ headers: headers });
-    let userData = JSON.stringify({action_type_id:action_type_id, event_id:event_id, user_id: user_id});
+    let userData = JSON.stringify({action_type_id:action_type_id, event_id:event_id, user_id: user_id,  created_at:d2.toUTCString(), updated_at:d2.toUTCString()});
     console.log(this.base + endpoint, userData, options);
     this.http.post(encodeURI(this.base + endpoint), userData, options)
       .map(res => res.json())
@@ -291,6 +295,7 @@ export class UsersProvider {
       headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
       headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
       headers.append('Access-Control-Max-Age', '1728000');
+      
       let options = new RequestOptions({ headers: headers });
       let userData = JSON.stringify({user_id:user_id, objective_id:objective_id});
       this.http.post(encodeURI(this.base + endpoint), userData, options)

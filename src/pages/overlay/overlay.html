@@ -1,13 +1,20 @@
 <ion-content>
-  <ion-list style="margin-bottom: 0 !important;">
-<!--   <button ion-button full style="background-color: #934ae2; height: 13vh;" (click)="goToFavorites()">Favorites</button> -->
-  <button ion-button full style="background-color: #8a57e2; height: 16vh;" (click)="goToCandidates()">My Representatives</button>
-  <button ion-button full style="background-color: #8162e2; height: 15vh;" (click)="goToTakeAction()">Take Action</button>
-  <button ion-button full style="background-color: #776ce2; height: 15vh;" (click)="goToOrganizations()">My Organizations</button>
-  <button ion-button full style="background-color: #6a76e2; height: 15vh;" (click)="goToFriendsActivity()">Friend's Activity</button>
-  <button ion-button full style="background-color: #5c7fe2; height: 15vh;" (click)="goToEvents()">Events</button>
-  <button ion-button full style="background-color: #4a87e2; height: 15vh;">Home Feed</button>
- 
-</ion-list>
-</ion-content>
+    <ion-list style="margin-bottom: 0 !important;">
+       <button full ion-button class="overlay-btn" (click)="goToTakeAction()">
+       	  <img src="assets/img/Star.svg" alt="">	Take Action
+       </button>
+       <button full ion-button class="overlay-btn" (click)="goToEvents()">
+       		<img src="assets/img/Events.svg" alt=""> Events
+       </button>
+       <button full ion-button class="overlay-btn" (click)="goToFriendsActivity()">
+       		<img src="assets/img/Community.svg" alt="">  Community
+       </button>
+       <button full ion-button class="overlay-btn" (click)="goToCandidates()">
+       		<img src="assets/img/Representatives.svg" alt=""> Representatives
+       </button>
+       <button full ion-button class="overlay-btn" (click)="goToOrganizations()">
+       		<img src="assets/img/Org.svg" alt=""> My Organizations
+       </button>
 
+    </ion-list>
+</ion-content>

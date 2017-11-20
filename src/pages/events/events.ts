@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, PopoverController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, PopoverController, ViewController } from 'ionic-angular';
 import { FilterEventsPage } from '../filter-events/filter-events';
 import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
@@ -10,8 +10,8 @@ import {EventDetailPage} from '../event-detail/event-detail';
 import 'rxjs/add/operator/debounceTime';
 import { FormControl } from '@angular/forms';
 import { Storage } from '@ionic/storage';
-
-
+ 
+ 
 @IonicPage()
 @Component({
   selector: 'page-events',
@@ -31,11 +31,16 @@ export class EventsPage {
     public modalCtrl: ModalController,  
     public popoverCtrl: PopoverController,
     private httpProvider: UsersProvider,
-    public storage: Storage) {
+    public storage: Storage,
+    public viewCtrl:ViewController) {
       this.searchControl = new FormControl();
 
 
   }
+
+   ionViewWillEnter() {
+        this.viewCtrl.showBackButton(false);
+    }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventsPage');
@@ -95,7 +100,7 @@ goToEventDetail(eventID){
   console.log(eventID);
   this.navCtrl.push(EventDetailPage, {
           eventID: eventID
-    });
+    }, {animate:true,animation:'transition',duration:500,direction:'forward'});
 }
 
 goToEventFilter(){

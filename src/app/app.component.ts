@@ -10,6 +10,7 @@ import { Storage } from '@ionic/storage';
 import firebase from 'firebase';
 import {UsersProvider} from '../providers/users/users';
 import {Push} from '@ionic/cloud-angular';
+import { TabsPage } from '../pages/tabs/tabs';
 //import { FCM } from '@ionic-native/fcm';
 
 
@@ -36,7 +37,7 @@ export class MyApp {
        this.userData.hasLoggedIn().then((hasLoggedIn) => {
       
                 if(hasLoggedIn){
-                  this.rootPage = FeedPage;
+                  this.rootPage = TabsPage;
                 }
                 else{
                   this.rootPage = HomePage;

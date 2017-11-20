@@ -1,10 +1,10 @@
 rally-header {
     .rally-search{
     .searchbar-input{
-         border-radius: 7px !important;
-        background: #3b70ad !important;
+         //border-radius: 7px !important;
+        //background: #3b70ad !important;
         padding: 2px 55px !important;
-        color: #fff !important;
+        //color: #fff !important;
     }
 
     .spinner-container {
@@ -17,9 +17,18 @@ rally-header {
    
 }
 
+.toolbar-background {
+        background: #f4512c !important;
+        //max-height: 50px !important;
+    }
+
 .results-content{
     
     	z-index: 9999;
+        top: 60px;
+        .scroll-content{
+            margin-top: 0 !important;
+        }
     }
 
     .list-title {

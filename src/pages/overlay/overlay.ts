@@ -19,27 +19,27 @@ export class OverlayPage {
   
  	goToEvents() {
  
-    this.app.getRootNav().setRoot(EventsPage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+    this.navCtrl.push(EventsPage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
      this.viewCtrl.dismiss();
   }
 
   goToFriendsActivity(){
-  	this.app.getRootNav().setRoot(FriendsactivityPage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+  	this.navCtrl.push(FriendsactivityPage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
     this.viewCtrl.dismiss();
   }
 
   goToOrganizations(){
-  	this.app.getRootNav().setRoot(OrganizationsPage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+  	this.navCtrl.push(OrganizationsPage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
     this.viewCtrl.dismiss();
   }
 
   goToCandidates(){
-    this.app.getRootNav().setRoot(CandidatesPage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+    this.navCtrl.push(CandidatesPage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
     this.viewCtrl.dismiss();
   }
 
   goToTakeAction(){
-    this.app.getRootNav().setRoot(TakeactionPage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+    this.navCtrl.push(TakeactionPage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
         this.viewCtrl.dismiss();
 
   }

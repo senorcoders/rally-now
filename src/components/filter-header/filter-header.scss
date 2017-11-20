@@ -8,5 +8,17 @@ filter-header {
     }
    
 }
+
+ion-header{
+        text-align: center !important;
+    }
+    .rally-header-logo {
+        width: 50px;
+        filter: brightness(0) invert(1);
+    }
+    .toolbar-background {
+        background: #f4512c !important;
+        //max-height: 50px !important;
+    }
 }
 

@@ -12,6 +12,12 @@ page-event-detail {
         width: 50%;
         height: 50px !important;
         margin: 0;
+        background-color: #f2f2f2;
+        color: #bfbfbf;
+    }
+
+    .right-border {
+        border-right: 1px solid #fff;
     }
     .toolbar-background {
         background-color: #4a90e2;

@@ -16,4 +16,25 @@
 	ion-content{
 		top: 0 !important;
 	}
+
+
 }
+
+.overlay-btn{
+		height: 18.5vh !important;
+		margin: 0 !important;
+    border-bottom: 1px solid #fff;
+    .button-inner{
+    	justify-content: flex-start !important;
+    	font-weight: 500;
+    	font-size: 16px;
+    }
+
+    img{
+    	    width: 20px;
+    margin-right: 10px;
+    margin-bottom: 8px;
+    filter: brightness(0) invert(1);
+
+    }
+	}

@@ -13,6 +13,7 @@ import { Facebook } from '@ionic-native/facebook';
 import { TwitterConnect } from '@ionic-native/twitter-connect';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import { UsersProvider } from '../../providers/users/users';
+import { TabsPage } from '../tabs/tabs';
 
 
 
@@ -76,7 +77,7 @@ export class HomePage {
     userRef.once('value', function (snapshot){
       if (snapshot.hasChildren()) {
        console.log('Usuario ya existe');
-       that.navCtrl.setRoot(FeedPage);
+       that.navCtrl.setRoot(TabsPage);
       } else{
         console.log('Nuevo Usuario');
           that.db.database.ref('users/'+that.user.uid).set(that.user);

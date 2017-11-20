@@ -4,6 +4,7 @@ import { UsersProvider } from '../../providers/users/users';
 import {AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
+import { OrganizationActionPage } from '../organization-action/organization-action';
 
 
 @IonicPage()
@@ -22,6 +23,13 @@ export class OrganizationProfilePage {
   buttonFollowTest:string;
   login:any = true;
   objectives:any;
+  location:string;
+  myrallyID:any;
+  hide_enpoint:any = 'hide_objective';
+  favEndpoint:any = 'actions';
+    likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
+
+
 
 
   constructor(
@@ -33,9 +41,13 @@ export class OrganizationProfilePage {
     private db: AngularFireDatabase,
     public actionSheetCtrl: ActionSheetController) {
   	this.organizationID = navParams.get('organizationID');
-  	this.getdata();
+    this.httpProvider.returnRallyUserId().then(user => {
+      this.myrallyID = user.apiRallyID;
+        this.getdata();
     this.checkOrganizationStatus();
 
+    });
+  
   }
 
   ionViewDidLoad() {
@@ -159,5 +171,83 @@ presentToast(message) {
     });
     actionSheet.present();
   }
+
+
+  addToFav(goal_id, action_type_id){
+   this.httpProvider.addFavorites(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
+   this.presentToast('Added to Favorites');
+ }
+
+  getFavID($event, goal_id, action_type_id){
+    console.log($event);
+
+    
+    this.httpProvider.getJsonData(this.favEndpoint+'?goal_id='+goal_id+'&action_type_id='+this.likeAction+'&user_id='+this.myrallyID).subscribe(
+      result => {
+        console.log("Aqui", result);
+        
+        if(result != "" ){
+          this.removeFav(result[0].id);
+          this.presentToast('Removed from favorites');
+          $event.srcElement.style.backgroundColor = '#f2f2f2';
+          $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
+          $event.srcElement.innerText--;
+          
+        }else{
+         this.addToFav(goal_id, action_type_id);
+          $event.srcElement.style.backgroundColor = '#296fb7';
+          $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
+          $event.srcElement.innerText++;
+        }
+      },
+      err =>{
+        console.error("Error : "+err);         
+      } ,
+      () => {
+        console.log('getData completed');
+      }
+
+      );
+}
+
+    hideItem(objective_id, index){
+        this.httpProvider.hideObjective(this.hide_enpoint, this.myrallyID, objective_id);
+        (this.objectives).splice(index, 1);
+    }
+
+     findInLoop(actions){
+    if (actions != null){
+      
+      var found = actions.some(el => { 
+        if(el.action_type_id === this.likeAction){
+          return el.user_id[0].id== this.myrallyID;
+        }
+        
+      });
+      
+      if (!found){
+        return '#f2f2f2';
+        
+      }else{
+        return '#296fb7';
+        
+      }
+    }
+   
+  }
+
+
+
+
+removeFav(recordID){
+  this.httpProvider.unfollowOrganization(this.favEndpoint, recordID);
+  this.httpProvider.removeFollowRecordID(recordID, 'favorites');
+}
+
+goToActionPage(objectiveID){
+       this.navCtrl.push(OrganizationActionPage, {
+          objectiveID: objectiveID
+    }, {animate:true,animation:'transition',duration:500,direction:'forward'});
+     }
 
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
@@ -28,7 +28,7 @@ export class OrganizationsPage {
     public popoverCtrl: PopoverController,
     private httpProvider:OrganizationsProvider,
     private rallyProvider:UsersProvider,
-    ) {
+    public viewCtrl:ViewController) {
     this.rallyProvider.returnRallyUserId()
       .then(user => {
         console.log(user);
@@ -42,6 +42,10 @@ export class OrganizationsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrganizationsPage');
   }
+
+  ionViewWillEnter() {
+        this.viewCtrl.showBackButton(false);
+    }
 
   
   

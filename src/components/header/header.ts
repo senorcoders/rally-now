@@ -12,7 +12,7 @@ import { OrganizationProfilePage } from '../../pages/organization-profile/organi
   templateUrl: 'header.html'
 })
 export class HeaderComponent {
-
+ 
   searching: any = false;
   shouldShowCancel: any = false;
   searchTerm: string = '';
@@ -20,6 +20,7 @@ export class HeaderComponent {
   endpoint: string = 'search/';
   users:any;
   organizations:any;
+  results:any;
 
 
 

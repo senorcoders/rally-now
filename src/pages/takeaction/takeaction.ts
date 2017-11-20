@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, ViewController, NavParams, ToastController, ActionSheetController } from 'ionic-angular';
 import { CallPage } from '../call/call';
 import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
@@ -25,6 +25,9 @@ export class TakeactionPage {
   objectives:any;
   myrallyID:any;
   favEndpoint:any = 'actions';
+  likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
+  hide_enpoint:any = 'hide_objective';
+
 
 
   constructor(
@@ -35,7 +38,8 @@ export class TakeactionPage {
     private httpProvider:UsersProvider,
     public toastCtrl: ToastController,
     private db: AngularFireDatabase,
-    private shareProvider:SocialShareProvider) {
+    private shareProvider:SocialShareProvider,
+    public viewCtrl:ViewController) {
 
      this.httpProvider.returnRallyUserId()
       .then(user => {
@@ -45,6 +49,10 @@ export class TakeactionPage {
 
       });
   }
+
+   ionViewWillEnter() {
+        this.viewCtrl.showBackButton(false);
+    }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TakeactionPage');
@@ -139,11 +147,6 @@ goToOrganizationProfile(organizationID){
      }
 
 
-      addToFav(goal_id, action_type_id){
-   this.httpProvider.addFavorites(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
-   this.httpProvider.saveFollowRecordID(goal_id, goal_id, 'favorites');
-   this.presentToast('Added to Favorites');
- }
 
  
 
@@ -155,41 +158,80 @@ goToOrganizationProfile(organizationID){
       toast.present();
     }
 
- addFavRecordFirebase(goal_id, action_type_id){
-     let user:any = firebase.auth().currentUser;
-     let favRef = this.db.database.ref('favorites/'+user['uid']+'/'+goal_id);
-     favRef.once('value', snapshot=>{
-       if (snapshot.hasChildren()) {
-         console.log('Already added to favorties');
-         this.presentToast('Already added to favorties');
 
-       }else{
-        this.addToFav(goal_id, action_type_id);
-         this.presentToast('Added to Favorites');
-       }
-     });
-    }
 
 
    share(title, imgURI){
        this.shareProvider.otherShare(title, imgURI);
      }
 
-     findInLoop(actions){
-      if (actions != null){
+      getFavID($event, goal_id, action_type_id){
+    console.log($event);
+
+    
+    this.httpProvider.getJsonData(this.favEndpoint+'?goal_id='+goal_id+'&action_type_id='+this.likeAction+'&user_id='+this.myrallyID).subscribe(
+      result => {
+        console.log("Aqui", result);
         
-        var found = actions.some(el => {
-          return el.user_id[0].id== this.myrallyID;
-        });
-        if (!found){
-          console.log("No encontrado", found);
+        if(result != "" ){
+          this.removeFav(result[0].id);
+          this.presentToast('Removed from favorites');
+          $event.srcElement.style.backgroundColor = '#f2f2f2';
+          $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
           
         }else{
-          return 'red';
+         this.addToFav(goal_id, action_type_id);
+          $event.srcElement.style.backgroundColor = '#296fb7';
+          $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
           
         }
+      },
+      err =>{
+        console.error("Error : "+err);         
+      } ,
+      () => {
+        console.log('getData completed');
       }
-     
+
+      );
+}
+
+
+ addToFav(goal_id, action_type_id){
+   this.httpProvider.addFavorites(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
+   this.presentToast('Added to Favorites');
+ }
+
+ removeFav(recordID){
+  this.httpProvider.unfollowOrganization(this.favEndpoint, recordID);
+}
+
+hideItem(objective_id, index){
+        this.httpProvider.hideObjective(this.hide_enpoint, this.myrallyID, objective_id);
+        (this.objectives).splice(index, 1);
     }
+
+    findInLoop(actions){
+    if (actions != null){
+      
+      var found = actions.some(el => { 
+        if(el.action_type_id === this.likeAction){
+          return el.user_id[0].id== this.myrallyID;
+        }
+        
+      });
+      
+      if (!found){
+        return '#f2f2f2';
+        
+      }else{
+        return '#296fb7';
+        
+      }
+    }
+   
+  }
+
+     
 
 }
