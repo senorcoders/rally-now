@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, ViewController, NavController, NavParams, ToastController, ActionSheetController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
 import {AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
@@ -28,7 +28,7 @@ export class OrganizationProfilePage {
   hide_enpoint:any = 'hide_objective';
   favEndpoint:any = 'actions';
   likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
-
+  OrgPageName:any;
 
 
   constructor(
@@ -38,8 +38,11 @@ export class OrganizationProfilePage {
     private orgProvider:OrganizationsProvider,
   	public toastCtrl: ToastController,
     private db: AngularFireDatabase,
-    public actionSheetCtrl: ActionSheetController) {
+    public actionSheetCtrl: ActionSheetController,
+    public viewCtrl:ViewController) {
   	this.organizationID = navParams.get('organizationID');
+    this.OrgPageName = navParams.get('OrgPageName');
+
     this.httpProvider.returnRallyUserId().then(user => {
       this.myrallyID = user.apiRallyID;
         this.getdata();
@@ -51,6 +54,11 @@ export class OrganizationProfilePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrganizationProfilePage');
+  }
+
+  ionViewWillEnter(){
+   
+    this.viewCtrl.setBackButtonText(this.OrgPageName);
   }
 
   getdata(){
@@ -245,7 +253,8 @@ removeFav(recordID){
 
 goToActionPage(objectiveID){
        this.navCtrl.push(OrganizationActionPage, {
-          objectiveID: objectiveID
+          objectiveID: objectiveID,
+          pageName: this.name
     }, {animate:true,animation:'transition',duration:500,direction:'forward'});
      }
 

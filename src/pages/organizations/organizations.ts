@@ -95,13 +95,15 @@ likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
 
  goToOrganizationProfile(organizationID){
        this.navCtrl.push(OrganizationProfilePage, {
-          organizationID: organizationID
+          organizationID: organizationID,
+          OrgPageName: "My Organizations"
     });
      }
 
      goToActionPage(objectiveID){
        this.navCtrl.push(OrganizationActionPage, {
-          objectiveID: objectiveID
+          objectiveID: objectiveID,
+          pageName: 'My Organizations'
     }, {animate:true,animation:'transition',duration:500,direction:'forward'});
      }
 

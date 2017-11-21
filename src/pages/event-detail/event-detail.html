@@ -3,7 +3,7 @@
 <ion-content no-padding>
     <div class="event">
         <div class="header" no-padding no-margin>
-            <ion-grid>
+            <ion-grid> 
                 <ion-row>
                     <ion-col col-2 col-sm>
                         <img src="{{image_url}}">
@@ -56,7 +56,7 @@
 <ion-footer>
     <ion-toolbar style="min-height: auto; padding: 0;">
         <ion-row>
-            <button class="btn-50 right-border" ion-button icon-left clear full (click)="getFavID($event, eventID,likeAction)">
+            <button class="btn-50 right-border" ion-button icon-left clear full (click)="getFavID($event, eventID,likeAction)" [ngStyle]="{'background-color': buttonColor}">
         <ion-icon name="md-heart" ios="md-heart" md="ios-heart" ></ion-icon>
       </button>
             <button class="btn-50" ion-button icon-left clear full>

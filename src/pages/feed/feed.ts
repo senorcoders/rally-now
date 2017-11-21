@@ -20,7 +20,7 @@ import { PhotoViewer } from '@ionic-native/photo-viewer';
 import {EventDetailPage} from '../event-detail/event-detail';
 
 @Component({
-  selector: 'page-feed',
+  selector: 'page-feed', 
   templateUrl: 'feed.html'
 })
 
@@ -157,19 +157,22 @@ doRefresh(refresher) {
 
    goToOrganizationProfile(organizationID){
        this.navCtrl.push(OrganizationProfilePage, {
-          organizationID: organizationID
+          organizationID: organizationID,
+          OrgPageName: "Home"
     }, {animate:true,animation:'transition',duration:500,direction:'forward'});
      }
 
      goToPublicProfile(userID){
        this.navCtrl.push(PublicProfilePage, {
-          param1: userID
+          param1: userID,
+          profilePageName: "Home"
     }, {animate:true,animation:'transition',duration:500,direction:'forward'});
      }
 
      goToActionPage(objectiveID){
        this.navCtrl.push(OrganizationActionPage, {
-          objectiveID: objectiveID
+          objectiveID: objectiveID,
+          pageName: 'Home'
     }, {animate:true,animation:'transition',duration:500,direction:'forward'});
      }
 
@@ -338,8 +341,79 @@ showPhotoViewer(path){
 goToEventDetail(eventID){
   console.log(eventID);
   this.navCtrl.push(EventDetailPage, {
-          eventID: eventID
+          eventID: eventID,
+          eventPageName: "Home"
     }, {animate:true,animation:'transition',duration:500,direction:'forward'});
 }
+
+/* Functions to add likes on events... We need it this way for now */
+
+getEventsLikeID($event, event_id, action_type_id){
+  console.log($event);
+
+  
+  this.usersProv.getJsonData(this.favEndpoint+'?event_id='+event_id+'&action_type_id='+this.likeAction+'&user_id='+this.myrallyID).subscribe(
+    result => {
+      console.log("Aqui", result);
+      
+      if(result != "" ){
+        this.removeEventFav(result[0].id);
+        this.presentToast('Removed from favorites');
+        $event.srcElement.style.backgroundColor = '#f2f2f2';
+        $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
+        
+      }else{
+       this.addEventToFav(event_id, action_type_id);
+        $event.srcElement.style.backgroundColor = '#4a90e2';
+        $event.srcElement.offsetParent.style.backgroundColor = '#4a90e2';
+        
+      }
+    },
+    err =>{
+      console.error("Error : "+err);         
+    } ,
+    () => {
+      console.log('getData completed');
+    }
+
+    );
+}
+
+
+addEventToFav(event_id, action_type_id){
+  this.usersProv.addLikeEvent(this.favEndpoint, event_id, action_type_id, this.myrallyID);
+  this.presentToast('Added to Favorites');
+}
+
+removeEventFav(recordID){
+  this.usersProv.unfollowOrganization(this.favEndpoint, recordID);
+}
+
+
+getButtonColor($event){
+
+  console.log($event);
+//   this.httpProvider.getJsonData(this.favEndpoint+'?event_id='+this.eventID+'&action_type_id='+this.likeAction+'&user_id='+this.myrallyID)
+//     .subscribe(
+//         result => {
+//           console.log("Resultado", result);
+//             if (result !== ""){
+//               this.buttonColor = "#296fb7";
+//             }
+//             else{
+//               this.buttonColor = "#f2f2f2";
+//             }
+//         },
+//     err =>{
+//       console.error("Error : "+err);         
+//     } ,
+//     () => {
+//       console.log('getData completed');
+//       console.log("Color", this.buttonColor);
+
+//     }
+//       );
+ }
+
 
 }

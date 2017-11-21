@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, ViewController, NavController, NavParams, ToastController, ActionSheetController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
 import {AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
@@ -30,6 +30,7 @@ export class OrganizationActionPage {
   buttonColor:any;
   shownGroup = null; 
   date:any; 
+  pageName:any;
   information = [
     {title: "Why it's important", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor sit amet enim et vulputate. Donec et elit id quam viverra interdum at eu lacus. Duis volutpat semper magna, et auctor eros. Aliquam fermentum consequat turpis. Maecenas eu lectus at odio aliquet aliquam in convallis elit. Integer sagittis nunc vitae felis varius vestibulum. Pellentesque scelerisque rhoncus velit, sit amet fringilla tellus varius sit amet. Vestibulum ullamcorper sollicitudin feugiat. Nam eu placerat urna, ullamcorper finibus mi. Aliquam scelerisque ligula sem, eu euismod ex gravida faucibus. Etiam et pulvinar nisl. Phasellus ac tellus id purus vestibulum scelerisque ut sit amet elit. Sed velit est, suscipit a leo ullamcorper, sollicitudin aliquam quam. Maecenas blandit, ex at hendrerit euismod, erat felis pharetra ante, in fermentum nunc neque a felis. Integer vel est neque."},
     {title: "What to say (talking points)", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor sit amet enim et vulputate. Donec et elit id quam viverra interdum at eu lacus. Duis volutpat semper magna, et auctor eros. Aliquam fermentum consequat turpis. Maecenas eu lectus at odio aliquet aliquam in convallis elit. Integer sagittis nunc vitae felis varius vestibulum. Pellentesque scelerisque rhoncus velit, sit amet fringilla tellus varius sit amet. Vestibulum ullamcorper sollicitudin feugiat. Nam eu placerat urna, ullamcorper finibus mi. Aliquam scelerisque ligula sem, eu euismod ex gravida faucibus. Etiam et pulvinar nisl. Phasellus ac tellus id purus vestibulum scelerisque ut sit amet elit. Sed velit est, suscipit a leo ullamcorper, sollicitudin aliquam quam. Maecenas blandit, ex at hendrerit euismod, erat felis pharetra ante, in fermentum nunc neque a felis. Integer vel est neque."}
@@ -43,8 +44,10 @@ export class OrganizationActionPage {
     private db: AngularFireDatabase,
     private shareProvider:SocialShareProvider,
     public actionSheetCtrl: ActionSheetController,
-    private callNumber: CallNumber) {
+    private callNumber: CallNumber,
+    public viewCtrl: ViewController) {
   	  	this.objectiveID = navParams.get('objectiveID');
+        this.pageName = navParams.get('pageName');
   	  	this.httpProvider.returnRallyUserId()
       .then(user => {
         console.log(" Usuario",user);
@@ -58,6 +61,11 @@ export class OrganizationActionPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrganizationActionPage');
+  }
+
+  ionViewWillEnter(){
+   
+    this.viewCtrl.setBackButtonText(this.pageName);
   }
 
   presentActionSheet() {

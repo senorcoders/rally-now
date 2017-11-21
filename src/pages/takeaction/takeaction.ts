@@ -135,14 +135,16 @@ export class TakeactionPage {
 
 goToOrganizationProfile(organizationID){
        this.navCtrl.push(OrganizationProfilePage, {
-          organizationID: organizationID
+          organizationID: organizationID,
+          OrgPageName: "Take Action"
     },  {animate:true,animation:'transition',duration:500,direction:'forward'});
      }
 
 
      goToActionPage(objectiveID){
        this.navCtrl.push(OrganizationActionPage, {
-          objectiveID: objectiveID
+          objectiveID: objectiveID,
+          pageName: 'Take Action'
     }, {animate:true,animation:'transition',duration:500,direction:'forward'});
      }
 

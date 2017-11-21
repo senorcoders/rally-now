@@ -10,7 +10,8 @@ import {EventDetailPage} from '../event-detail/event-detail';
 import 'rxjs/add/operator/debounceTime';
 import { FormControl } from '@angular/forms';
 import { Storage } from '@ionic/storage';
- 
+import { OrganizationProfilePage } from '../organization-profile/organization-profile';
+
  
 @IonicPage()
 @Component({
@@ -99,9 +100,18 @@ export class EventsPage {
 goToEventDetail(eventID){
   console.log(eventID);
   this.navCtrl.push(EventDetailPage, {
-          eventID: eventID
+          eventID: eventID,
+          eventPageName: "Events"
     }, {animate:true,animation:'transition',duration:500,direction:'forward'});
 }
+
+
+ goToOrganizationProfile(organizationID){
+       this.navCtrl.push(OrganizationProfilePage, {
+          organizationID: organizationID,
+          OrgPageName: "Events"
+    });
+     }
 
 goToEventFilter(){
       this.navCtrl.push(FilterEventsPage);

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, ViewController } from 'ionic-angular';
 import { Platform, ActionSheetController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
 
@@ -22,17 +22,22 @@ export class EventDetailPage {
   favEndpoint:any = 'actions';
   likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
   myrallyID:any;
+  buttonColor:any;
+  eventPageName:any;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public platform: Platform,
     public actionsheetCtrl: ActionSheetController,
     private httpProvider: UsersProvider,
-    public toastCtrl: ToastController) {
+    public toastCtrl: ToastController,
+    public viewCtrl: ViewController) {
         this.eventID = navParams.get('eventID');
+        this.eventPageName = navParams.get('eventPageName');
         console.log("Evento ID", navParams.get('eventID'));
         this.httpProvider.returnRallyUserId().then( user => {
           this.myrallyID = user.apiRallyID;
+          this.getButtonColor();
           this.getdata();
         });
         
@@ -41,6 +46,11 @@ export class EventDetailPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventDetailPage');
+  }
+
+  ionViewWillEnter(){
+   
+    this.viewCtrl.setBackButtonText(this.eventPageName);
   }
 
   openMenu() {
@@ -109,6 +119,29 @@ export class EventDetailPage {
   );
 }
 
+getButtonColor(){
+  this.httpProvider.getJsonData(this.favEndpoint+'?event_id='+this.eventID+'&action_type_id='+this.likeAction+'&user_id='+this.myrallyID)
+    .subscribe(
+        result => {
+          console.log("Resultado", result);
+            if (result !== ""){
+              this.buttonColor = "#296fb7";
+            }
+            else{
+              this.buttonColor = "#f2f2f2";
+            }
+        },
+    err =>{
+      console.error("Error : "+err);         
+    } ,
+    () => {
+      console.log('getData completed');
+      console.log("Color", this.buttonColor);
+
+    }
+      );
+}
+
 
 getFavID($event, event_id, action_type_id){
   console.log($event);
@@ -158,5 +191,7 @@ addToFav(event_id, action_type_id){
 removeFav(recordID){
   this.httpProvider.unfollowOrganization(this.favEndpoint, recordID);
 }
+
+ 
 
 }

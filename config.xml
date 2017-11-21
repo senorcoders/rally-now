@@ -150,4 +150,5 @@
     <plugin name="com.moust.cordova.videoplayer" spec="https://github.com/moust/cordova-plugin-videoplayer.git" />
     <allow-navigation href="http://169.254.244.109:8100" />
     <allow-navigation href="http://169.254.127.133:8100" />
+    <allow-navigation href="http://169.254.88.153:8100" />
 </widget>

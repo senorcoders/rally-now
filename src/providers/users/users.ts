@@ -10,7 +10,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class UsersProvider {
-	base:string = 'https://provethisconcept.com/api/';
+	base:string = 'https://api.provethisconcept.com/api/';
 	data:any = {};
   recordID:any;
   senorcodersEndpoint:any = 'http://senorcoders.com/rally/';

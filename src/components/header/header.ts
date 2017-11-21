@@ -74,14 +74,16 @@ export class HeaderComponent {
 
  goToPublicProfile(userID){
        this.navCtrl.push(PublicProfilePage, {
-          param1: userID
+          param1: userID,
+          profilePageName: "Search"
     	});
      }
 
 
       goToOrganizationProfile(organizationID){
        this.navCtrl.push(OrganizationProfilePage, {
-          organizationID: organizationID
+          organizationID: organizationID,
+          OrgPageName: "Search"
     });
      }
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, ViewController, NavParams, ToastController, ActionSheetController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
 import {AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
@@ -21,6 +21,7 @@ export class PublicProfilePage {
   login:any = true;
   notificationsEndpoint:any = 'devices';
   alertsEndpoint:any = 'ux_events';
+  profilePageName:any;
   
 
   constructor(
@@ -30,15 +31,22 @@ export class PublicProfilePage {
     private db: AngularFireDatabase,
     public toastCtrl: ToastController,
     public actionSheetCtrl: ActionSheetController,
-    private photoViewer: PhotoViewer
+    private photoViewer: PhotoViewer,
+    public viewCtrl:ViewController
   ) {
   	this.parameter = navParams.get('param1');
+    this.profilePageName = navParams.get('profilePageName');
   	this.getdata();
     this.checkUserStatus();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PublicProfilePage');
+  }
+
+  ionViewWillEnter(){
+   
+    this.viewCtrl.setBackButtonText(this.profilePageName);
   }
 
   checkUserStatus(){

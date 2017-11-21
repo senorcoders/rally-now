@@ -65,7 +65,8 @@ export class FriendsactivityPage {
 
      goToPublicProfile(userID){
        this.navCtrl.push(PublicProfilePage, {
-          param1: userID
+          param1: userID,
+          profilePageName: "Community"
     });
      }
  
