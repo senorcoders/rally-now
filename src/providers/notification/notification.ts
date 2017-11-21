@@ -52,7 +52,7 @@ export class NotificationProvider {
         uuid: this.device.uuid,
         token
     };
-    const url = "http://138.68.19.227:8000/devices";
+    const url = "https://noti.provethisconcept.com/devices";
 
     console.log(device);
     this.http.post(url, {device}, options)

@@ -6,7 +6,7 @@ import { AngularFireDatabase } from 'angularfire2/database/database';
 
 @Injectable()
 export class OrganizationsProvider {
-	base:string = 'https://provethisconcept.com/rallyapi/';
+	base:string = 'https://api.provethisconcept.com/rallyapi/';
 	data:any = {};
 
 
