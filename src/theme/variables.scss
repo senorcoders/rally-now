@@ -57,7 +57,6 @@
             font-style: normal;
         }
 
-        $font-family-ios-base: 'Conv_SF-Pro-Display-Regular',Sans-Serif;
 ;
         // @font-face {
         //     font-family: 'Conv_ITCKabelStd-Demi';
@@ -67,24 +66,23 @@
         //     font-style: normal;
         // }
         
-        // $font-family-base: 'Conv_ITCKabelStd-Demi',
-        // Sans-Serif !default;
-        // $font-family-md-base: $font-family-base;
-        // $font-family-ios-base: $font-family-base;
-        // $font-family-wp-base: $font-family-base;
-        // body,
-        // h1,
-        // h2,
-        // h3,
-        // h4,
-        // h5,
-        // h6,
-        // button,
-        // p,
-        // label,
-        // ion-label,
-        // span,
-        // .col,
-        // ion-card-header {
-        //     font-family: 'Conv_ITCKabelStd-Demi', Sans-Serif !important;
-        // }
+        $font-family-base: 'Conv_SF-Pro-Display-Regular',
+        Sans-Serif !default;
+        $font-family-md-base: $font-family-base;
+        $font-family-ios-base: $font-family-base;
+        $font-family-wp-base: $font-family-base;
+        body,h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        button,
+        p,
+        label,
+        ion-label,
+        span,
+        .col,
+        ion-card-header {
+            font-family: 'Conv_SF-Pro-Display-Regular', Sans-Serif !important;
+        }

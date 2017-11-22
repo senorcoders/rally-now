@@ -114,8 +114,8 @@ presentToast(message) {
       //Reemplazar por parametro despues
       this.httpProvider.getJsonData(this.notificationsEndpoint+'?user_id='+user_id)
         .subscribe(result => {
-            console.log(result[0].registration_id);
-            this.saveNotification(user_id, result[0].registration_id);
+            console.log(result[0].id);
+            this.saveNotification(user_id, result[0].id);
         }, err => {
           console.error("Error: " +err);
         }, () => {
@@ -124,10 +124,9 @@ presentToast(message) {
     }
 
     saveNotification(user_id, registration_id){
-      const msg = 'Hola Mundo';
       this.httpProvider.returnRallyUserId().then(user => {
-        this.httpProvider.saveNotification(user_id, registration_id, user.displayName + " is following you",  this.alertsEndpoint);
-        this.followFriend(user_id);
+       this.httpProvider.saveNotification(user_id, registration_id, user.displayName + " is following you",  this.alertsEndpoint);
+      this.followFriend(user_id);
       });
       //this.httpProvider.sendNotification(registration_id, msg);
     }

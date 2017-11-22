@@ -7,6 +7,7 @@ import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay'
 import { PublicProfilePage } from '../public-profile/public-profile';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
+import { UsersProvider } from '../../providers/users/users';
 
  
 /**
@@ -24,7 +25,8 @@ import { OrganizationsProvider } from '../../providers/organizations/organizatio
 export class FriendsactivityPage {
 
     activitiesData:any;
-    endpoint:string = 'friends_activity/825eaf5e-2782-467e-8e34-70576d55e321';
+    myRallyID:any;
+    endpoint:string = 'friends_activity/';
 
 
 
@@ -33,8 +35,14 @@ export class FriendsactivityPage {
     public navParams: NavParams, 
     public popoverCtrl: PopoverController,
     private httpProvider:OrganizationsProvider,
-    public viewCtrl:ViewController) {
+    public viewCtrl:ViewController,
+    private usersProvider: UsersProvider) {
+
+      this.usersProvider.returnRallyUserId().then( user => {
+        this.myRallyID = user.apiRallyID;
         this.getdata();
+      });
+        
 
   }
 
@@ -71,10 +79,9 @@ export class FriendsactivityPage {
      }
  
       getdata(){
-  this.httpProvider.getJsonData(this.endpoint).subscribe(
+  this.httpProvider.getJsonData(this.endpoint+this.myRallyID).subscribe(
     result => {
       this.activitiesData=result['friends_activity'];
-      console.log("Friends Activities : "+ result['friends_activity'][0].user_id[0]['name']);
     },
     err =>{
       console.error("Error : "+err);

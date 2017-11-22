@@ -1,20 +1,24 @@
 page-home {
+
+    ion-content{
+        top: 60px !important;
+    }
     ion-slides.slides {
         height: auto;
         margin-bottom: 50px !important;
-    },
+    }
     ion-header {
         text-align: center;
-    },
+    }
     
     .toolbar-background {
         background-color: #4a90e2;
         color: #fff;
-    },
+    }
     p.white {
         color: #fff;
         margin: 0;
-    },
+    }
     ion-button {
         background-color: red;
     },
@@ -32,10 +36,10 @@ page-home {
         border-color: #1fbdf7;
         border-radius: 8px;
         text-transform: initial;
-    },
+    }
     ion-icon{
     	margin-right: 10px;
-    },
+    }
     .button-clear-md-primary, .button-clear-ios-primary{
     	color: #bababa;
     	text-decoration: underline;

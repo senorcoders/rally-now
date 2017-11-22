@@ -1,36 +1,67 @@
 <rally-orange-header></rally-orange-header>
 <ion-content>
     <ion-list>
-        <ion-item *ngFor="let alert of alerts">
+            <ion-list-header>
+                    New
+                  </ion-list-header>
+        <ion-item-sliding *ngFor="let alert of alerts" >
+        <ion-item *ngIf="alert.what !== 'read'">
             <ion-avatar item-start>
                 <img src="assets/img/login-image.jpg">
             </ion-avatar>
             <p>{{alert.data}}</p>
+       
+             
         </ion-item>
+
+             <ion-item-options side="right">
+                <button ion-button color="primary" (click)="markAsRead(alert.id)">
+                  <ion-icon name="md-done-all"></ion-icon>
+                  Read
+                </button>
+                <button ion-button color="danger" (click)="removeNotification(alert.id)">
+                  <ion-icon name="ios-trash"></ion-icon>
+                  Delete
+                </button>
+              </ion-item-options>
+        </ion-item-sliding>
+
+        
     </ion-list>
+
+
+    <ion-list>
+            <ion-list-header>
+                    Previous
+                  </ion-list-header>
+        <ion-item-sliding *ngFor="let alert of alerts" >
+        <ion-item *ngIf="alert.what === 'read'">
+            <ion-avatar item-start>
+                <img src="assets/img/login-image.jpg">
+            </ion-avatar>
+            <p>{{alert.data}}</p>
+       
+             
+        </ion-item>
+
+             <ion-item-options side="right">
+                <button ion-button color="primary" (click)="markAsRead(alert.id)">
+                  <ion-icon name="md-done-all"></ion-icon>
+                  Read
+                </button>
+                <button ion-button color="danger" (click)="removeNotification(alert.id)">
+                  <ion-icon name="ios-trash"></ion-icon>
+                  Delete
+                </button>
+              </ion-item-options>
+        </ion-item-sliding>
+
+        
+    </ion-list>
+   
+
+       
+
+
 </ion-content>
 
-<!-- <ion-footer>
-    <ion-toolbar style="min-height: auto; padding: 0;">
-        <ion-row>
-            <ion-col col-2 class="footer-icons">
-                <button (click)="goToHome()">
-          <ion-icon name="ios-home"></ion-icon>
-          </button>
-            </ion-col>
-            <ion-col col-6>
-                <p class="white-footer" (click)="presentPopover()">Alerts</p>
-            </ion-col>
-            <ion-col col-2 class="active-icons" style="border-right: 1px solid;">
-                <ion-icon name="ios-notifications"></ion-icon>
-            </ion-col>
-            <ion-col class="footer-icons">
-                <button (click)="goToProfile()">
-         <ion-icon name="ios-person"></ion-icon>
-
-        </button>
-
-            </ion-col>
-        </ion-row>
-    </ion-toolbar>
-</ion-footer> -->

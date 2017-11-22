@@ -3,10 +3,12 @@ rally-header {
     background: #fff !important;
     .rally-search{
     .searchbar-input{
-         //border-radius: 7px !important;
+         border-radius: 7px !important;
         //background: #3b70ad !important;
         padding: 2px 55px !important;
         //color: #fff !important;
+            background-color: #fff !important;
+    box-shadow: none !important;
     }
 
     .spinner-container {

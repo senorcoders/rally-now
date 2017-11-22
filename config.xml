@@ -9,7 +9,7 @@
             <path url="/__/auth/callback" />
         </host>
     </universal-links>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.8.107:8100" />
     <access origin="*" />
     <allow-navigation href="*" />
     <allow-navigation href="http://ionic.local/*" />
@@ -127,7 +127,6 @@
         <variable name="ANDROID_HOST" value=" " />
         <variable name="ANDROID_PATHPREFIX" value="/" />
     </plugin>
-    <engine name="ios" spec="~4.3.1" />
     <engine name="android" spec="~6.1.2" />
     <allow-navigation href="http://192.168.0.10:8100" />
     <allow-navigation href="http://192.168.88.25:8100" />
@@ -151,4 +150,7 @@
     <allow-navigation href="http://169.254.244.109:8100" />
     <allow-navigation href="http://169.254.127.133:8100" />
     <allow-navigation href="http://169.254.88.153:8100" />
+    <allow-navigation href="http://169.254.96.40:8100" />
+    <engine name="ios" spec="~4.3.1" />
+    <allow-navigation href="http://169.254.114.177:8100" />
 </widget>

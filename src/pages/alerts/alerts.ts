@@ -48,17 +48,29 @@ export class AlertsPage {
      }
 
      getData(){
-      this.httpProvider.getJsonData(this.endpoint + '?user_id=' + this.myRallyID + '&device_id='+ this.device.uuid).subscribe(
+      this.httpProvider.getJsonData(this.endpoint + '?user_id=' + this.myRallyID).subscribe(
         result => {
-          this.alerts=result;
+          
+          this.alerts = result;
         },
         err =>{
           console.error("Error : "+err);
         } ,
         () => {
-          console.log('getData completed');
+          console.log('Notificaciones completed');
+          console.log("Alerts", this.alerts);
+          
         }
       );
+     }
+
+     markAsRead(id){
+        this.httpProvider.updateNotificationStatus(this.endpoint+'/'+id, 'read');
+        console.log("Alert updated");
+     }
+
+     removeNotification(id){
+      this.httpProvider.unfollowOrganization(this.endpoint+'/'+id, id)
      }
  
 

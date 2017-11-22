@@ -127,6 +127,25 @@ export class UsersProvider {
 				console.log("Error", error);
 			});
   }
+
+  updateNotificationStatus(endpoint, data){
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json' );
+    headers.append('Access-Control-Allow-Origin', '*');
+    headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+    headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+    headers.append('Access-Control-Max-Age', '1728000');
+    let notiData = JSON.stringify({
+        what: data
+      });
+    let options = new RequestOptions({ headers: headers });
+  this.http.put(encodeURI(this.base + endpoint), notiData, options)
+    .subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log("Error", error);
+    });
+  }
   
   enableLessData(endpoint, less_data){
     var headers = new Headers();
@@ -234,6 +253,8 @@ export class UsersProvider {
       });
       
   }
+
+  
 
  
 
@@ -347,7 +368,7 @@ export class UsersProvider {
     var d2 = new Date(d1.getUTCFullYear(),  d1.getUTCMonth(), d1.getUTCDate(), d1.getUTCHours(), d1.getUTCMinutes(), d1.getUTCSeconds());
 
     let options = new RequestOptions({ headers: headers });
-    let userData = JSON.stringify({device_id:device_id, user_id:user_id, created_at:d2.toUTCString(), updated_at:d2.toUTCString(), data:msg});
+    let userData = JSON.stringify({device_id:device_id, user_id:user_id, created_at:d2.toUTCString(), updated_at:d2.toUTCString(), data:msg, msg: 'unread'});
     console.log(userData);
     this.http.post(encodeURI(this.base + endpoint), userData, options)
     .map(res => res.json())
