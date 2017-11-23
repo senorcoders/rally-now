@@ -40,7 +40,10 @@ export class FeedPage {
   likesCount: number;
   events:any;
   shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
-
+  testPhoto:any = 'https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08';
+  localPhoto:any = 'https://static1.squarespace.com/static/5669e1f969a91ad6eca4abe1/t/581cc790b3db2bd6d9881936/1478281126634/Screen+Shot+2016-11-04+at+1.33.31+PM.png';
+  avatarPhoto:any = 'https://flipagram.com/assets/resources/img/fg-avatar-anonymous-user-retina.png';
+  
   constructor(
     public navCtrl: NavController,
     public alertCtrl: AlertController, 

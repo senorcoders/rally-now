@@ -75,6 +75,7 @@ import { RallyOrangeHeaderComponent } from '../components/rally-orange-header/ra
 import { TabsPage } from '../pages/tabs/tabs';
 import { SearchPage } from '../pages/search/search';
 import { VideoPlayer } from '@ionic-native/video-player';
+import { ComponentsModule } from '../components/components.module';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -172,7 +173,8 @@ firebase.initializeApp(config);
         HttpModule,
         AngularFireAuthModule,
         CloudModule.forRoot(cloudSettings),
-        MomentModule
+        MomentModule,
+        
         
     ],
     bootstrap: [IonicApp],

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, ViewController } from 'ionic-angular';
 import { Platform, ActionSheetController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
+import { OrganizationProfilePage } from '../organization-profile/organization-profile';
 
 
 
@@ -24,6 +25,11 @@ export class EventDetailPage {
   myrallyID:any;
   buttonColor:any;
   eventPageName:any;
+  orgName:any;
+  orgId:any;
+  orgPhoto:any;
+  testPhoto:any = 'https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08';
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -109,6 +115,10 @@ export class EventDetailPage {
       this.event_time = result.event_time;
       this.description = result.description;
       this.image_url = result.image_url;
+      this.orgName = result.organization[0].name;
+      this.orgId = result.organization_id;
+      this.orgPhoto = result.organization[0].image_url;
+
     },
     err =>{
       console.error("Error : "+err);
@@ -124,7 +134,7 @@ getButtonColor(){
     .subscribe(
         result => {
           console.log("Resultado", result);
-            if (result !== ""){
+            if (result.length > 0){
               this.buttonColor = "#296fb7";
             }
             else{
@@ -192,6 +202,13 @@ removeFav(recordID){
   this.httpProvider.unfollowOrganization(this.favEndpoint, recordID);
 }
 
+
+goToOrganizationProfile(organizationID){
+  this.navCtrl.push(OrganizationProfilePage, {
+     organizationID: organizationID,
+     OrgPageName: this.title
+}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+}
  
 
 }

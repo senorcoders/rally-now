@@ -23,15 +23,16 @@
 
         <ion-item>
             <ion-avatar item-start>
-                <img src="https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08" (click)="showPhotoViewer('https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08')">
+                <img [src]="objective.organization['image_url'] ? objective.organization['image_url'] : testPhoto" (click)="showPhotoViewer(objective.organization['image_url'] ? objective.organization['image_url'] : testPhoto)">
             </ion-avatar>
             <button (click)="goToOrganizationProfile(objective.organization_id)" style="background: none;">
         <h2> <small>via</small> {{objective.organization['name']}}</h2>
     </button>
             <p><small>{{objective.created_at | amTimeAgo}}</small></p>
         </ion-item>
-
-        <div (click)="goToActionPage(objective.id)" class="organization-bg" style="background: url('assets/img/login-image.jpg');">
+        <div (click)="goToActionPage(objective.id)" class="organization-bg" [ngStyle]="{ 'background-image' : 'url(' + localPhoto +')'}">
+                
+        <!-- <div (click)="goToActionPage(objective.id)" class="organization-bg" [ngStyle]="{ 'background-image' : 'url(' + objective.image_url !== null ? objective.image_url : localPhoto +')'}"> -->
             <!-- <div class="days-excerpt">
                 <p class="white">{{objective?.goals[0]?.description}}</p>
             </div> -->
@@ -49,25 +50,10 @@
 
         <ion-card-content>
             <p>{{objective.description}}</p>
-            <!-- <ion-row>
-                <ion-col col-8>
-                    <p class="link">{{objective.likes}} Likes, {{objective.shares}} Shares</p>
-                </ion-col>
-                <ion-col col-4>
-                    <button ion-button color="dark" class="action-btn" (click)="goToActionPage(objective.id)">Take action</button>
-                </ion-col>
-            </ion-row> -->
+           
         </ion-card-content>
         <ion-row>
-            <!-- <ion-col class="token" col-8>
-                <p>You've taken action on this 3 times</p>
-            </ion-col>
-            <ion-col col-4 class="token-btn">
-                <button ion-button icon-left clear full style="height: 30px; font-weight: 600;
-    font-size: 13px;" (click)="hideItem(objective.id, i)">
-          I'M DONE
-      </button>
-            </ion-col> -->
+          
 
         </ion-row>
 
@@ -76,7 +62,7 @@
                 <ion-icon name="ios-heart" ></ion-icon>
                 {{objective.likes}}
             </button>
-            <button class="btn-50" ion-button icon-left clear full (click)="shareController(objective.title, 'https://sjdsdirectoryapp.senorcoders.com/ufittapp/IMG_20170802_124650.jpg', objective?.goals[0]?.id, shareAction, $event)">
+            <button class="btn-50" ion-button icon-left clear full (click)="shareController(objective.title, localPhoto, objective?.goals[0]?.id, shareAction, $event)">
                     <ion-icon name="ios-share-alt"></ion-icon>
                     {{objective.shares}}
                 </button>
@@ -85,54 +71,7 @@
 
     </ion-card>
 
-    <!-- <ion-card *ngFor="let organization of organizationsData" style="position: relative;" class="org-card">
-        <ion-fab right top>
-            <button ion-fab color="light">
-                <ion-icon name="ios-more"></ion-icon>
-            </button>
-            <ion-fab-list side="left">
-                <button ion-fab>
-                    <ion-icon name="logo-facebook"></ion-icon>
-                </button>
-                <button ion-fab>
-                    <ion-icon name="logo-twitter"></ion-icon>
-                </button>
-                <button ion-fab>
-                    <ion-icon name="logo-vimeo"></ion-icon>
-                </button>
-                <button ion-fab>
-                    <ion-icon name="logo-googleplus"></ion-icon>
-                </button>
-            </ion-fab-list>
-        </ion-fab>
-        <ion-item>
-            <ion-avatar item-start>
-                <img src="assets/img/login-image.jpg" (click)="showPhotoViewer('assets/img/login-image.jpg')">
-            </ion-avatar>
-            <button (click)="goToOrganizationProfile(organization.id)" style="background: none;">
-                <h2 style="font-weight: 700;">{{organization.name}}</h2></button>
-            <p>{{organization.created_at | amTimeAgo}}</p>
-        </ion-item>
-        <ion-row col-10 offset-2>
-            <ion-card-content>
-                <p>{{organization.description}}</p>
-                <p>via.webiste.com</p>
-                <p class="link">371 Likes, 212 Shares</p>
-            </ion-card-content>
-        </ion-row>
-        <ion-row>
-            <ion-col class="blue">
-                <button ion-button icon-left clear full (click)="goToRatePage()">
-                    <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>
-                </button>
-            </ion-col>
-            <ion-col class="blue" style="border-right: none;">
-                <button ion-button icon-left clear full (click)="shareController(organization.description, 'https://sjdsdirectoryapp.senorcoders.com/ufittapp/IMG_20170802_124650.jpg')">
-                    <ion-icon name="ios-share-alt"></ion-icon>
-                </button>
-            </ion-col>
-        </ion-row>
-    </ion-card> -->
+
 
     <ion-card class="events-card" *ngFor="let event of events">
 
@@ -146,14 +85,14 @@
 
         <ion-item>
             <ion-avatar item-start>
-                <img src="https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08" (click)="showPhotoViewer('https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08')">
+                <img [src]="event.organization[0].image_url ? event.organization[0].image_url : testPhoto" (click)="showPhotoViewer(event.organization[0].image_url ? event.organization[0].image_url : testPhoto)">
             </ion-avatar>
             <button (click)="goToOrganizationProfile(event.organization_id)" style="background: none;">
                 <h2> <small>via</small> {{event.organization[0].name}}</h2>
             </button>
             <p><small>Event Location: {{event.locations}}</small></p>
         </ion-item>
-        <div class="events-bg" (click)="goToEventDetail(event.id)" style="background: url('assets/img/login-image.jpg');">
+        <div class="events-bg" (click)="goToEventDetail(event.id)" [ngStyle]="{'background-image': 'url(' + event.image_url + ')'}">
             <div class="events-filter"></div>
             <div class="events-railled">
                 <p class="white"><strong>329</strong><br> Rallied</p>
@@ -170,11 +109,11 @@
         </ion-card-content>
 
         <ion-row>
-            <button class="btn-50 right-border" ion-button icon-left clear full (click)="getEventsLikeID($event, event.id, likeAction)">
+            <button class="btn-50 right-border" ion-button icon-left clear full (click)="getEventsLikeID($event, event.id, likeAction)" [ngStyle]="{'background-color': findInLoop(event?.actions)}">
                 <ion-icon name="ios-heart" ></ion-icon>
                 371
             </button>
-            <button class="btn-50" ion-button icon-left clear full (click)="shareControllerEvent(event.title, 'https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08', event.id, shareAction, $event)">
+            <button class="btn-50" ion-button icon-left clear full (click)="shareControllerEvent(event.title, testPhoto, event.id, shareAction, $event)">
                     <ion-icon name="ios-share-alt"></ion-icon>
                     928
                 </button>
@@ -198,7 +137,7 @@
            
                     <ion-item>
                         <ion-avatar item-start>
-                          <img src="{{activity.user_id[0]['photo_url']}}">
+                          <img [src]="activity.user_id[0]['photo_url'] ? activity.user_id[0]['photo_url'] : avatarPhotp">
                         </ion-avatar>
                         <h2 (click)="goToPublicProfile(activity.user_id[0]['id'])">{{activity.user_id[0]['name']}}</h2>
                         <div style="display: flex;">
@@ -242,22 +181,3 @@
     </ion-card>
 
 </ion-content>
-<!-- <ion-footer>
-    <ion-toolbar style="min-height: auto; padding: 0;">
-        <ion-row>
-            <ion-col col-8>
-                <p (click)="presentPopover()" class="white-footer">Home</p>
-            </ion-col>
-            <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">
-                <button (click)="goToOtherPage()">
-                    <ion-icon name="ios-notifications"></ion-icon>
-                </button>
-            </ion-col>
-            <ion-col class="footer-icons">
-                <button (click)="goToProfile()">
-                    <ion-icon name="ios-person"></ion-icon>
-                </button>
-            </ion-col>
-        </ion-row>
-    </ion-toolbar>
-</ion-footer> -->

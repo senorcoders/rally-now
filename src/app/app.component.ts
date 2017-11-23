@@ -25,7 +25,7 @@ export class MyApp {
     constructor(
     	public platform: Platform, 
     	statusBar: StatusBar, 
-    	splashScreen: SplashScreen, 
+    	public splashScreen: SplashScreen, 
     	public alertCtrl: AlertController,
     	public userData: UserData,
       noti: NotificationProvider,
@@ -83,4 +83,7 @@ export class MyApp {
 
             
     }
+
+
+    
 }
