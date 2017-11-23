@@ -39,6 +39,7 @@ export class FeedPage {
   likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
   likesCount: number;
   events:any;
+  shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
 
   constructor(
     public navCtrl: NavController,
@@ -180,7 +181,7 @@ doRefresh(refresher) {
        this.shareProvider.otherShare(title, imgURI);
      }
 
-     shareController(title, imgURI) {
+     shareController(title, imgURI, goal_id, action_type_id, $event) {
    const actionSheet = this.actionSheetCtrl.create({
      title: 'Share with',
      buttons: [
@@ -189,13 +190,19 @@ doRefresh(refresher) {
          icon: 'logo-facebook',
          handler: () => {
            this.shareProvider.facebookShare(title, imgURI);
+           this.addToFav(goal_id, action_type_id);
+           $event.srcElement.innerText++;           
+           this.presentToast('Objective shared!');
          }
-       },
+       }, 
        {
          text: 'Twitter',
          icon: 'logo-twitter',
          handler: () => {
            this.shareProvider.twitterShare(title, imgURI);
+           this.addToFav(goal_id, action_type_id);
+           $event.srcElement.innerText++;           
+           this.presentToast('Objective shared!');
          }
        },
        {
@@ -204,6 +211,9 @@ doRefresh(refresher) {
          handler: () => {
            console.log('Archive clicked');
            this.shareProvider.otherShare(title, imgURI);
+           this.addToFav(goal_id, action_type_id);
+           $event.srcElement.innerText++;           
+           this.presentToast('Objective shared!');
          }
        },
        {
@@ -229,7 +239,6 @@ doRefresh(refresher) {
 
  addToFav(goal_id, action_type_id){
    this.usersProv.addFavorites(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
-   this.presentToast('Added to Favorites');
  }
 
   getFavID($event, goal_id, action_type_id){
@@ -249,6 +258,7 @@ doRefresh(refresher) {
           
         }else{
          this.addToFav(goal_id, action_type_id);
+         this.presentToast('Added to Favorites');
           $event.srcElement.style.backgroundColor = '#296fb7';
           $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
           $event.srcElement.innerText++;
@@ -364,6 +374,7 @@ getEventsLikeID($event, event_id, action_type_id){
         
       }else{
        this.addEventToFav(event_id, action_type_id);
+       this.presentToast('Added to Favorites');       
         $event.srcElement.style.backgroundColor = '#4a90e2';
         $event.srcElement.offsetParent.style.backgroundColor = '#4a90e2';
         
@@ -382,7 +393,6 @@ getEventsLikeID($event, event_id, action_type_id){
 
 addEventToFav(event_id, action_type_id){
   this.usersProv.addLikeEvent(this.favEndpoint, event_id, action_type_id, this.myrallyID);
-  this.presentToast('Added to Favorites');
 }
 
 removeEventFav(recordID){
@@ -414,6 +424,55 @@ getButtonColor($event){
 //     }
 //       );
  }
+
+
+ shareControllerEvent(title, imgURI, event_id, action_type_id, $event) {
+  const actionSheet = this.actionSheetCtrl.create({
+    title: 'Share with',
+    buttons: [
+      {
+        text: 'Facebook',
+        icon: 'logo-facebook',
+        handler: () => {
+          this.shareProvider.facebookShare(title, imgURI);
+          this.addEventToFav(event_id, action_type_id);
+          $event.srcElement.innerText++;           
+          this.presentToast('Objective shared!');
+        }
+      }, 
+      {
+        text: 'Twitter',
+        icon: 'logo-twitter',
+        handler: () => {
+          this.shareProvider.twitterShare(title, imgURI);
+          this.addEventToFav(event_id, action_type_id);
+          $event.srcElement.innerText++;           
+          this.presentToast('Objective shared!');
+        }
+      },
+      {
+        text: 'Others',
+        icon: 'md-share',
+        handler: () => {
+          console.log('Archive clicked');
+          this.shareProvider.otherShare(title, imgURI);
+          this.addEventToFav(event_id, action_type_id);
+          $event.srcElement.innerText++;           
+          this.presentToast('Objective shared!');
+        }
+      },
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }
+    ]
+  });
+
+  actionSheet.present();
+}
 
 
 }

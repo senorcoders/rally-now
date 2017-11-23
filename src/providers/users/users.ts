@@ -279,7 +279,7 @@ export class UsersProvider {
       .map(res => res.json())
       .subscribe(data => {
         console.log("POST FAV", data);
-        this.saveFollowRecordID(data.id, data.id, 'favorites');
+        //this.saveFollowRecordID(data.id, data.id, 'favorites');
         this.data.response = data["_body"];
       }, error => {
         console.log("Error", error);

@@ -12,7 +12,7 @@ export class SocialShareProvider {
   }
 
   facebookShare(title, imgURI) {
-    this.socialSharing.shareViaFacebook(title, 'http://via.placeholder.com/350x150', null).then(() => {
+    this.socialSharing.shareViaFacebook(title, 'https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08', 'http://senorcoders.com/').then(() => {
       console.log("shareViaFacebook: Success");
     }).catch((error) => {
       console.error("shareViaFacebook: failed", error);
@@ -20,7 +20,7 @@ export class SocialShareProvider {
 	}
 
 	twitterShare(title, imgURI) {
-    this.socialSharing.shareViaTwitter(title, 'http://via.placeholder.com/350x150', null).then(() => {
+    this.socialSharing.shareViaTwitter(title, 'https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08', 'http://senorcoders.com/').then(() => {
       console.log("shareViaTwitter: Success");
     }).catch((error) => {
       console.error("shareViaTwitter: failed", error);
@@ -28,7 +28,7 @@ export class SocialShareProvider {
 	}
 
 	whatsappShare(title, imgURI) {
-    this.socialSharing.shareViaWhatsApp(title, 'http://via.placeholder.com/350x150', null).then(() => {
+    this.socialSharing.shareViaWhatsApp(title, 'https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08', null).then(() => {
       console.log("shareViaWhatsapp: Success");
     }).catch((error) => {
       console.error("shareViaWhatsapp: failed", error);
@@ -36,7 +36,7 @@ export class SocialShareProvider {
 	}
 
 	otherShare(title, imgURI){
-		this.socialSharing.share(title, title, 'http://via.placeholder.com/350x150', null)
+		this.socialSharing.share(title, title, 'https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08', null)
 			.then(() =>{
 				console.log('Success');
 			}).catch((error) => {
