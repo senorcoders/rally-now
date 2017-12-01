@@ -9,6 +9,8 @@ import { DataProvider } from '../../providers/data/data';
 import 'rxjs/add/operator/debounceTime';
 import { FormControl } from '@angular/forms';
 import { Facebook } from '@ionic-native/facebook';
+import { PublicProfilePage } from '../public-profile/public-profile';
+import { UsersProvider } from '../../providers/users/users';
 
 
 @IonicPage()
@@ -24,7 +26,7 @@ export class FriendsRequestPage {
   friends:any;
   endpoint:string = 'users?searchable=1';
   followEndpoint:string= 'following_users';
-
+  profileEndpoint:any = 'users?facebook_id=';
 
  
 
@@ -33,7 +35,8 @@ export class FriendsRequestPage {
     public navParams: NavParams, 
     public popoverCtrl: PopoverController,
     public dataService: DataProvider,
-    private facebook: Facebook
+    private facebook: Facebook,
+    private httpProvicer: UsersProvider
     ) {
        //this.searchControl = new FormControl();
        this.getFacebookFriendsList();
@@ -69,9 +72,7 @@ export class FriendsRequestPage {
     this.navCtrl.setRoot(AlertsPage);
   }
 
-  goToProfile(){
-    this.navCtrl.setRoot(ProfilePage);
-  }
+ 
 
    presentPopover() {
        let popover = this.popoverCtrl.create(OverlayPage);
@@ -88,7 +89,33 @@ export class FriendsRequestPage {
     //     this.searching = true;
     // }
 
-    
+    goToProfile(facebook_id){
+      this.httpProvicer.getJsonData(this.profileEndpoint + facebook_id).subscribe(
+        result => {
+            console.log(result);
+            this.goToPublicProfile(result[0].id);
+        });
+    }
+
+    goToPublicProfile(userID){
+      this.navCtrl.push(PublicProfilePage, {
+         param1: userID,
+         profilePageName: "Facebook Friends"
+     });
+    }
+
+    getPhoto(facebook_id){
+     
+      this.httpProvicer.getJsonData(this.profileEndpoint + facebook_id).subscribe(
+        result => {
+
+          if(result != ""){
+            console.log(result[0].photo_url);
+            return result[0].photo_url;
+          }
+           
+        });
+    }
    
 
 }

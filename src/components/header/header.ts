@@ -51,7 +51,8 @@ export class HeaderComponent {
   		} else{
   			this.searching = true;
         this.shouldShowCancel = true;
-  			this.getdata();
+        this.getdata();
+        this.getOrganizations();
   		}
         
     }
@@ -60,7 +61,21 @@ export class HeaderComponent {
   this.httpProvider.getJsonData(this.endpoint + this.searchTerm).subscribe(
     result => {
     	this.users = result['users'];
-    	this.organizations = result['objective'];
+    },
+    err =>{
+      console.error("Error : "+err);
+    } ,
+    () => {
+      console.log('getData completed');
+    }
+  );
+}
+
+getOrganizations(){
+  this.httpProvider.getJsonData(this.endpoint + 'organization/' + this.searchTerm).subscribe(
+    result => {
+    	this.users = result['users'];
+    	this.organizations = result['organization'];
     },
     err =>{
       console.error("Error : "+err);

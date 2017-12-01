@@ -47,11 +47,11 @@
 	</ion-item>
 
   <ion-item *ngFor="let organization of organizations">
-    <ion-avatar item-start (click)="goToOrganizationProfile(organization.organization_id)" >
-      <img src="assets/img/login-image.jpg" style="width: 70px; height: 70px;">
+    <ion-avatar item-start (click)="goToOrganizationProfile(organization.id)" >
+      <img src="{{organization.image_url}}" style="width: 70px; height: 70px;">
     </ion-avatar>
-    <button (click)="goToOrganizationProfile(organization.organization_id)" style="background: none;"><h2>{{organization.organization['name']}}</h2></button>
-    <p>{{organization.title}}</p>
+    <button (click)="goToOrganizationProfile(organization.id)" style="background: none;"><h2>{{organization.name}}</h2></button>
+    <p>{{organization.short_desc}}</p>
   
   </ion-item>
  
