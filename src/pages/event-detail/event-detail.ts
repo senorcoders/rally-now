@@ -28,6 +28,9 @@ export class EventDetailPage {
   orgName:any;
   orgId:any;
   orgPhoto:any;
+  rallies:any;
+  likes:any;
+  shares:any;
   testPhoto:any = 'https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08';
 
   constructor(
@@ -118,6 +121,9 @@ export class EventDetailPage {
       this.orgName = result.organization[0].name;
       this.orgId = result.organization_id;
       this.orgPhoto = result.organization[0].image_url;
+      this.rallies = result.rallies;
+      this.likes = result.likes;
+      this.shares = result.shares;
 
     },
     err =>{
