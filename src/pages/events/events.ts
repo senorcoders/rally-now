@@ -202,7 +202,9 @@ goToEventFilter(){
         
         var found = actions.some(el => { 
           if(el.action_type_id === this.likeAction){
-            return el.user_id[0].id== this.myrallyID;
+            if(typeof(el.user_id[0]) !== 'undefined'){
+              return el.user_id[0].id === this.myrallyID;
+            } 
           }
           
         });

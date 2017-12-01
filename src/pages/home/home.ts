@@ -14,6 +14,7 @@ import { TwitterConnect } from '@ionic-native/twitter-connect';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import { UsersProvider } from '../../providers/users/users';
 import { TabsPage } from '../tabs/tabs';
+import { WelcomePage } from '../welcome/welcome';
 
 
 
@@ -82,7 +83,7 @@ export class HomePage {
         console.log('Nuevo Usuario', that.user);
           that.db.database.ref('users/'+that.user.uid).set(that.user);
           that.httpProvider.saveNewUser(that.endpoint, that.user);
-          that.navCtrl.setRoot(EditProfilePage);
+          that.navCtrl.setRoot(WelcomePage);
       }
     });
   }

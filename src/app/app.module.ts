@@ -76,6 +76,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { SearchPage } from '../pages/search/search';
 import { VideoPlayer } from '@ionic-native/video-player';
 import { ComponentsModule } from '../components/components.module';
+import { WelcomePage } from '../pages/welcome/welcome';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -163,7 +164,8 @@ firebase.initializeApp(config);
         MyFriendsPage,
         RallyOrangeHeaderComponent,
         TabsPage,
-        SearchPage
+        SearchPage,
+        WelcomePage
     ],
     imports: [
         BrowserModule,
@@ -224,7 +226,8 @@ firebase.initializeApp(config);
         MyFriendsPage,
         RallyOrangeHeaderComponent,
         TabsPage,
-        SearchPage
+        SearchPage,
+        WelcomePage
     ],
     providers: [
         StatusBar,

@@ -199,11 +199,13 @@ likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
 
 
      findInLoop(actions){
-    if (actions > 0){
+    if (actions != null){
       
       var found = actions.some(el => { 
         if(el.action_type_id === this.likeAction){
-          return el.user_id[0].id== this.myApiRallyID;
+          if(typeof(el.user_id[0]) !== 'undefined'){
+            return el.user_id[0].id === this.myApiRallyID;
+          } 
         }
         
       });
