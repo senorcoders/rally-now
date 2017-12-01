@@ -22,7 +22,7 @@ export class StreaksHistoryPage {
   actions_taken:any;
   shares:any;
   starCount:number = 0;
-  replacedDate:any = '';
+  replacedDate:any = ''; 
   public starArray:any[] = [];
   constructor(
     public navCtrl: NavController, 
@@ -113,7 +113,7 @@ export class StreaksHistoryPage {
               }
             
           }
-          this.actions_taken = result[0].user_id[0].actions_taken;
+           this.actions_taken = result[0].user_id[0].actions_taken;
           this.shares = result[0].user_id[0].shares;
           console.log("Numero de estrellas: ", this.starCount);
           console.log(this.starArray);

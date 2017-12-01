@@ -163,7 +163,7 @@ getFavID($event, event_id, action_type_id){
       
       if(result != "" ){
         this.removeFav(result[0].id);
-        this.presentToast('Removed from favorites');
+        this.presentToast('You unliked it');
         $event.srcElement.style.backgroundColor = '#f2f2f2';
         $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
         
@@ -195,7 +195,7 @@ presentToast(message) {
 
 addToFav(event_id, action_type_id){
   this.httpProvider.addLikeEvent(this.favEndpoint, event_id, action_type_id, this.myrallyID);
-  this.presentToast('Added to Favorites');
+  this.presentToast('You liked it');
 }
 
 removeFav(recordID){

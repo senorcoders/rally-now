@@ -41,8 +41,9 @@
         </ion-card-content>
         <ion-list>
             <ion-item text-wrap *ngFor="let d of information; let i=index" (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
-                {{d.title}}
-                <ion-icon [name]="isGroupShown(i) ? 'ios-remove' : 'ios-add'" item-end></ion-icon>
+                <div class="toggle-header">{{d.title}}
+                    <ion-icon [name]="isGroupShown(i) ? 'ios-remove' : 'ios-add'" item-end></ion-icon>
+                </div>
 
                 <div *ngIf="isGroupShown(i)" class="hidden-div">
                     <p>{{d.description}}</p>

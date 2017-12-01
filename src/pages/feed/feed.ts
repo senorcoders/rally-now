@@ -132,6 +132,7 @@ export class FeedPage {
   getdata(){
   this.httpProvider.getJsonData(this.endpoint + this.myrallyID).subscribe(
     result => {
+      console.log("Homefeed for Current user", result);
       this.organizationsData=result['My_Organizations'];
       this.objectives=result['Objectives'];
       this.fiends=result['friends_activity'];
@@ -254,14 +255,14 @@ doRefresh(refresher) {
         
         if(result != "" ){
           this.removeFav(result[0].id);
-          this.presentToast('Removed from favorites');
+          this.presentToast('You unliked it');
           $event.srcElement.style.backgroundColor = '#f2f2f2';
           $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
           $event.srcElement.innerText--;
           
         }else{
          this.addToFav(goal_id, action_type_id);
-         this.presentToast('Added to Favorites');
+         this.presentToast('You liked it');
           $event.srcElement.style.backgroundColor = '#296fb7';
           $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
           $event.srcElement.innerText++;
@@ -319,8 +320,9 @@ doRefresh(refresher) {
   }
 
   findInLoop(actions){
-    if (actions != null){
-      
+  
+    if (actions > 0){
+      console.log(actions.length);
       var found = actions.some(el => { 
         if(el.action_type_id === this.likeAction){
           return el.user_id[0].id== this.myrallyID;
@@ -371,13 +373,13 @@ getEventsLikeID($event, event_id, action_type_id){
       
       if(result != "" ){
         this.removeEventFav(result[0].id);
-        this.presentToast('Removed from favorites');
+        this.presentToast('You unliked it');
         $event.srcElement.style.backgroundColor = '#f2f2f2';
         $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
         
       }else{
        this.addEventToFav(event_id, action_type_id);
-       this.presentToast('Added to Favorites');       
+       this.presentToast('You liked it');       
         $event.srcElement.style.backgroundColor = '#4a90e2';
         $event.srcElement.offsetParent.style.backgroundColor = '#4a90e2';
         
@@ -403,30 +405,7 @@ removeEventFav(recordID){
 }
 
 
-getButtonColor($event){
 
-  console.log($event);
-//   this.httpProvider.getJsonData(this.favEndpoint+'?event_id='+this.eventID+'&action_type_id='+this.likeAction+'&user_id='+this.myrallyID)
-//     .subscribe(
-//         result => {
-//           console.log("Resultado", result);
-//             if (result !== ""){
-//               this.buttonColor = "#296fb7";
-//             }
-//             else{
-//               this.buttonColor = "#f2f2f2";
-//             }
-//         },
-//     err =>{
-//       console.error("Error : "+err);         
-//     } ,
-//     () => {
-//       console.log('getData completed');
-//       console.log("Color", this.buttonColor);
-
-//     }
-//       );
- }
 
 
  shareControllerEvent(title, imgURI, event_id, action_type_id, $event) {

@@ -41,7 +41,7 @@ export class HomePage {
      email: '',
      searchable: '1',
      hide_activity: '1',
-    
+    facebook_id: ''
 
    };
    endpoint:string = 'users/';
@@ -79,7 +79,7 @@ export class HomePage {
        console.log('Usuario ya existe');
        that.navCtrl.setRoot(TabsPage);
       } else{
-        console.log('Nuevo Usuario');
+        console.log('Nuevo Usuario', that.user);
           that.db.database.ref('users/'+that.user.uid).set(that.user);
           that.httpProvider.saveNewUser(that.endpoint, that.user);
           that.navCtrl.setRoot(EditProfilePage);
@@ -89,13 +89,13 @@ export class HomePage {
  
 
   facebookLogin(): void{
-    console.log("Hola Facebook 3");
+    console.log("Hola Facebook API");
 
 
-    this.facebook.login(["email", "public_profile"]).then((loginResponse) => {
+    this.facebook.login(["email", "public_profile", "user_friends"]).then((loginResponse) => {
         let credential = firebase.auth.FacebookAuthProvider.credential(loginResponse.authResponse.accessToken);
         firebase.auth().signInWithCredential(credential).then((res) =>{
-          console.log(res);
+          console.log(res.providerData[0].uid);
           this.storage.set('UID', res.uid);
           this.user.uid = res.uid;
           this.storage.set('DISPLAYNAME', res.displayName);
@@ -109,6 +109,7 @@ export class HomePage {
           this.user.email = res.email;
           this.storage.set('LOCATION', res.location);
           this.storage.set('DESCRIPTION', res.description);
+          this.user.facebook_id = res.providerData[0].uid;
           this.storage.set(this.HAS_LOGGED_IN, true);
           console.log(res);
           this.checkIfUserExists(res.uid);
@@ -128,7 +129,7 @@ twLogin(): void {
 
     firebase.auth().signInWithCredential(twitterCredential)
     .then( res => {
-          console.log(res);
+          console.log(JSON.stringify(res));
           this.storage.set('UID', res.uid);
           this.user.uid = res.uid;
           this.storage.set('DISPLAYNAME', res.displayName);

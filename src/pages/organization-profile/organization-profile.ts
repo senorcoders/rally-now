@@ -128,12 +128,11 @@ presentToast(message) {
     }
 
     followOrg(organizationID){
-      this.httpProvider.followOrganization(this.organizationEndpoint, this.httpProvider.getRallyID(), organizationID );
-      console.log("My RallyID", this.httpProvider.getRallyID());
+      this.httpProvider.followOrganization(this.organizationEndpoint, this.myrallyID, organizationID );
     }
 
     getOrganizationFollowRecordID(){
-        this.httpProvider.getJsonData(this.organizationEndpoint+'?follower_id='+this.httpProvider.getRallyID()+'&organization_id='+this.organizationID).subscribe(
+        this.httpProvider.getJsonData(this.organizationEndpoint+'?follower_id='+this.myrallyID+'&organization_id='+this.organizationID).subscribe(
     result => {
       console.log("Delete ID : "+ result[0].id);
       this.unfollow(result[0].id);
@@ -182,7 +181,7 @@ presentToast(message) {
 
   addToFav(goal_id, action_type_id){
    this.httpProvider.addFavorites(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
-   this.presentToast('Added to Favorites');
+   this.presentToast('You liked it');
  }
 
   getFavID($event, goal_id, action_type_id){
@@ -195,7 +194,7 @@ presentToast(message) {
         
         if(result != "" ){
           this.removeFav(result[0].id);
-          this.presentToast('Removed from favorites');
+          this.presentToast('You unliked it');
           $event.srcElement.style.backgroundColor = '#f2f2f2';
           $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
           $event.srcElement.innerText--;

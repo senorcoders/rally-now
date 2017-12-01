@@ -33,6 +33,17 @@ export class ProfilePage {
   location:string;
   description:string;
   currentRallyID:any;
+  streaksEndpoint:any = 'actions?user_id=';
+  streaks:any;
+  actions_taken:any;
+  shares:any;
+  starCount:number = 0;
+  replacedDate:any = ''; 
+  public starArray:any[] = [];
+  public buttonClicked: boolean = false; //Whatever you want to initialise it as
+  firsToggleIcon:any = "ios-arrow-down";
+  secondToggleBtn: boolean = true; 
+  
    user={
     displayName: '',
     photoURL: '',
@@ -56,9 +67,20 @@ export class ProfilePage {
         this.httpProvider.returnRallyUserId().then(user =>{
             this.currentRallyID = user.apiRallyID;
             this.getUserData();
+            this.getStreaks();
         });
 
   }
+
+  public onButtonClick() {
+    
+            this.buttonClicked = !this.buttonClicked;
+            this.firsToggleIcon = 'ios-arrow-up';
+        }
+
+        onToggleSecond(){
+          this.secondToggleBtn = !this.secondToggleBtn;
+        }
 
  // ngAfterViewInit(){
  //  }
@@ -148,6 +170,62 @@ export class ProfilePage {
 
      showPhotoViewer(path){
   this.photoViewer.show(path);
+}
+
+
+getStreaks(){
+  this.httpProvider.getJsonData(this.streaksEndpoint + this.currentRallyID)
+   .subscribe( result =>{
+     console.log("Racha", result);
+     this.streaks = result;
+    //  this.streaks = [
+    //    {created_at: '2017-11-06TSomething'},
+    //    {created_at: '2017-11-06TSomething'},
+    //    {created_at: '2017-11-05TSomething'},
+    //    {created_at: '2017-11-04TSomething'},
+    //    {created_at: '2017-11-02TSomething'},
+    //    {created_at: '2017-11-01TSomething'}
+    //  ];
+     
+     for(let i=0; i < this.streaks.length; i++ ){
+         let cuttedStreak = this.streaks[i].created_at.split('T');
+         let date = cuttedStreak[0];             
+         date = date.split('-');
+         let newDate = date[1]+"/"+date[2]+"/"+date[0];
+         let timestampDate = new Date(newDate).getTime();
+         
+         
+          if(this.replacedDate != ""){
+             if(timestampDate < this.replacedDate){
+               let difference = this.replacedDate - timestampDate;
+               let ms = difference / 1000;
+               let seconds = ms % 60;
+               ms /= 60;
+               let minutes = ms % 60;
+               ms /= 60;
+               let hours = ms % 24;
+               ms /= 24;
+               let days = ms;
+               this.replacedDate = timestampDate;
+
+               if (days <= 1){
+                   if(days != 0){
+                     this.starCount++;
+                     this.starArray.push({days: days});
+                   }  
+               }
+               
+             }
+
+         }else{
+           this.replacedDate = timestampDate;
+         }
+       
+     }
+    
+     
+     
+   });
 }
 
         

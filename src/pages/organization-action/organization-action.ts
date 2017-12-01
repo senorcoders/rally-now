@@ -158,7 +158,7 @@ export class OrganizationActionPage {
           
           if(result != "" ){
             this.removeFav(result[0].id);
-            this.presentToast('Removed from favorites');
+            this.presentToast('You unliked it');
             $event.srcElement.style.backgroundColor = '#f2f2f2';
             $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
             this.likes--;
@@ -184,7 +184,7 @@ export class OrganizationActionPage {
 
   addToFav(goal_id, action_type_id){
     this.httpProvider.addFavorites(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
-    this.presentToast('Added to Favorites');
+    this.presentToast('You liked it');
   }
 
   removeFav(recordID){
@@ -201,7 +201,7 @@ export class OrganizationActionPage {
 
 
      findInLoop(actions){
-      if (actions != null){
+      if (actions > 0){
         
         var found = actions.some(el => { 
           if(el.action_type_id === this.likeAction){

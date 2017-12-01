@@ -22,6 +22,7 @@ export class PublicProfilePage {
   notificationsEndpoint:any = 'devices';
   alertsEndpoint:any = 'ux_events';
   profilePageName:any;
+  myRallyID:any;
   
 
   constructor(
@@ -36,8 +37,12 @@ export class PublicProfilePage {
   ) {
   	this.parameter = navParams.get('param1');
     this.profilePageName = navParams.get('profilePageName');
-  	this.getdata();
-    this.checkUserStatus();
+    this.httpProvider.returnRallyUserId().then( user => {
+      this.myRallyID = user.apiRallyID;
+      this.getdata();
+      this.checkUserStatus();
+    });
+  
   }
 
   ionViewDidLoad() {
@@ -132,13 +137,12 @@ presentToast(message) {
     }
 
      followFriend(friendID){
-      this.httpProvider.followFriend(this.followEndpoint, this.httpProvider.getRallyID(), friendID );
-      console.log(this.httpProvider.getRallyID());
+      this.httpProvider.followFriend(this.followEndpoint, this.myRallyID, friendID );
     }
 
 
     getFollowRecordID(){
-      this.httpProvider.getJsonData(this.followEndpoint+'?follower_id='+this.httpProvider.getRallyID()+'&following_id='+this.parameter).subscribe(
+      this.httpProvider.getJsonData(this.followEndpoint+'?follower_id='+this.myRallyID+'&following_id='+this.parameter).subscribe(
   result => {
     console.log("Delete User ID : "+ result[0].id);
     this.unFollowFriend(result[0].id);

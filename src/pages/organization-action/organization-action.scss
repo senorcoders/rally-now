@@ -16,6 +16,13 @@ page-organization-action {
             color: #8f8f8f;
             font-weight: normal;
         }
+
+        .toggle-header{
+            width: 100%;
+            ion-icon{
+                float: right;
+            }
+        }
     ion-content {
         background-color: #f2f2f2 !important;
         top: 60px;

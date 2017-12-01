@@ -18,7 +18,7 @@ export class UsersProvider {
 
   constructor(public http: Http, public storage: Storage, public af:AngularFireDatabase) {
     console.log('Hello Users Provider');
-    this.getIDonLoad();
+    //this.getIDonLoad();
   }
 
   	getJsonData(endpoint){
@@ -28,27 +28,17 @@ export class UsersProvider {
 
 
 	saveApiRallyID(rallyID){
+
+    console.log("Here comes the ID from the API", rallyID);
      	let user:any = firebase.auth().currentUser;
 		this.af.database.ref('users/'+user['uid']).update({
 			apiRallyID: rallyID
-		});
-	}
-
-  getIDonLoad(){
-   firebase.auth().onAuthStateChanged(user => {
-
-    if (user) {
-      let usuario:any = firebase.auth().currentUser;
-
-      this.af.database.ref('users/'+usuario['uid']).once('value', snapshot=>{
-        this.recordID = snapshot.val().apiRallyID;
-        });
-    } else{
-      console.log("Usuario no esta logueado");
-    }
-     });
-      
+    });
+  
   }
+  
+
+
 
   returnRallyUserId(): any{
 
@@ -88,16 +78,15 @@ export class UsersProvider {
     	headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
     	headers.append('Access-Control-Max-Age', '1728000');
     	let options = new RequestOptions({ headers: headers });
-		let userData = JSON.stringify({fname: data.displayName, photo_url: encodeURI(data.photoURL), searchable: data.searchable, hide_activity: data.hide_activity});
+		let userData = JSON.stringify({fname: data.displayName, photo_url: encodeURI(data.photoURL), searchable: data.searchable, hide_activity: data.hide_activity, facebook_id: data.facebook_id});
 		console.log(this.base + endpoint, userData, options);
-		this.http.post(encodeURI(this.base + endpoint), userData, options)
+		this.http.post(this.base + endpoint, userData, options)
 			.map(res => res.json())
 			.subscribe(data => {
-				console.log(data);
+				console.log("Nuevo Usuario", data);
 				this.storage.set('APIRALLYID', data.id);
 				this.saveApiRallyID(data.id);
-				this.data.response = data["_body"];
-			}, error => {
+			}, error => { 
 				console.log("Error", error);
 			});
 	}

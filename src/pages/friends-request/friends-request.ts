@@ -8,6 +8,7 @@ import { OverlayPage } from '../overlay/overlay';
 import { DataProvider } from '../../providers/data/data'; 
 import 'rxjs/add/operator/debounceTime';
 import { FormControl } from '@angular/forms';
+import { Facebook } from '@ionic-native/facebook';
 
 
 @IonicPage()
@@ -32,21 +33,32 @@ export class FriendsRequestPage {
     public navParams: NavParams, 
     public popoverCtrl: PopoverController,
     public dataService: DataProvider,
-    
+    private facebook: Facebook
     ) {
-       this.searchControl = new FormControl();
+       //this.searchControl = new FormControl();
+       this.getFacebookFriendsList();
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FriendsRequestPage');
-    this.setFilteredItems();
-     this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
-          this.searching = false;
-          this.setFilteredItems();
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad FriendsRequestPage');
+  //   this.setFilteredItems();
+  //    this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
+  //         this.searching = false;
+  //         this.setFilteredItems();
  
-        });
+  //       });
 
+  // }
+
+  getFacebookFriendsList(){
+    this.facebook.api('me/friends', ['user_friends']).then(
+      list => {
+          console.log("Lista de amigos", list['data']);
+          this.items = list['data'];
+      }, error => {
+        console.log("error", error);
+      });
   }
 
     goToHome(){
@@ -66,15 +78,17 @@ export class FriendsRequestPage {
        popover.present();
      }
 
-      setFilteredItems() {
+    //   setFilteredItems() {
  
-        this.items = this.dataService.filterItems(this.searchTerm);
+    //     this.items = this.dataService.filterItems(this.searchTerm);
  
-    }
+    // }
 
-     onSearchInput(){
-        this.searching = true;
-    }
+    //  onSearchInput(){
+    //     this.searching = true;
+    // }
+
+    
    
 
 }

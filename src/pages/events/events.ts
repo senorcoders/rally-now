@@ -166,13 +166,13 @@ goToEventFilter(){
           
           if(result != "" ){
             this.removeEventFav(result[0].id);
-            this.presentToast('Removed from favorites');
+            this.presentToast('You unliked it');
             $event.srcElement.style.backgroundColor = '#f2f2f2';
             $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
             
           }else{
            this.addEventToFav(event_id, action_type_id);
-           this.presentToast('Added to Favorites');       
+           this.presentToast('You like it');       
             $event.srcElement.style.backgroundColor = '#4a90e2';
             $event.srcElement.offsetParent.style.backgroundColor = '#4a90e2';
             
