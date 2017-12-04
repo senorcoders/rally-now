@@ -1,0 +1,13 @@
+<rally-orange-header></rally-orange-header>
+
+
+<ion-content padding>
+    <div class="flex">
+        <p>Welcome to Rally, {{displayName}}!</p>
+        <p>Your username is {{username}}</p>
+    </div>
+</ion-content>
+<ion-footer>
+  <button ion-button full color="primary" (click)="followOrg()">NEXT</button>
+  <button ion-button full color="light" (click)="changeUsername()">Change Username</button>
+</ion-footer>

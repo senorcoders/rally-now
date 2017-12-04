@@ -53,7 +53,7 @@ export class EventsPage {
   }
 
    ionViewWillEnter() {
-        this.viewCtrl.showBackButton(false);
+        //this.viewCtrl.showBackButton(false);
     }
 
   ionViewDidLoad() {

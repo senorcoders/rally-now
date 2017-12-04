@@ -1,0 +1,35 @@
+<ion-content padding>
+    <h1>Choose organizations to follow</h1>
+    <p>Follow some of the organizations below to receive their up-to-the-minute
+      news, actions and events in your feed.
+    </p>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>
+          <h1>You may be interested in</h1>
+        </ion-label>
+        <ion-checkbox item-end checked="false"></ion-checkbox>
+      </ion-item>
+      <ion-item >
+        <ion-label style="display:flex;">
+          <div>
+              <ion-avatar item-start>
+                  <img src="assets/img/login-image.jpg">
+                </ion-avatar>
+          </div>
+          <div>
+              <h2>J.K. Rowling</h2>
+              <p text-wrap><small>@jk_rowling</small> <br>
+                Author, Apologies, but I cannot guarantee answers to DMs</p>
+          </div>
+            </ion-label>
+              <ion-checkbox item-end checked="false"></ion-checkbox>
+              
+      </ion-item>
+    </ion-list>
+</ion-content>
+
+<ion-footer>
+    <button ion-button color="primary" (click)="goToHome()">Follow</button>
+</ion-footer>

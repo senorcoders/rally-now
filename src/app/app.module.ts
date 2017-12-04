@@ -77,6 +77,11 @@ import { SearchPage } from '../pages/search/search';
 import { VideoPlayer } from '@ionic-native/video-player';
 import { ComponentsModule } from '../components/components.module';
 import { WelcomePage } from '../pages/welcome/welcome';
+import { OrganizationsListPage } from '../pages/organizations-list/organizations-list';
+import { RepresentivesListPage } from '../pages/representives-list/representives-list';
+import { HelloPage } from '../pages/hello/hello';
+import { ChangeUsernamePage } from '../pages/change-username/change-username';
+import { InterestedOrganizationsPage } from '../pages/interested-organizations/interested-organizations';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -165,7 +170,12 @@ firebase.initializeApp(config);
         RallyOrangeHeaderComponent,
         TabsPage,
         SearchPage,
-        WelcomePage
+        WelcomePage,
+        OrganizationsListPage,
+        RepresentivesListPage,
+        HelloPage,
+        ChangeUsernamePage,
+        InterestedOrganizationsPage
     ],
     imports: [
         BrowserModule,
@@ -227,7 +237,12 @@ firebase.initializeApp(config);
         RallyOrangeHeaderComponent,
         TabsPage,
         SearchPage,
-        WelcomePage
+        WelcomePage,
+        OrganizationsListPage,
+        RepresentivesListPage,
+        HelloPage,
+        ChangeUsernamePage,
+        InterestedOrganizationsPage
     ],
     providers: [
         StatusBar,

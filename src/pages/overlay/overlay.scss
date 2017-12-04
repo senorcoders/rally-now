@@ -5,7 +5,17 @@
     
 }
 
-.page-overlay{
+page-overlay{
+
+	.toolbar-background {
+        background-color: #f4512c !important;
+        color: #fff;
+    }
+
+    p.white {
+        color: #fff;
+        margin: 0;
+    }
 	.button{
 		height: 50px;
 		.button-inner{
@@ -21,7 +31,7 @@
 }
 
 .overlay-btn{
-		height: 18.5vh !important;
+		height: 16vh !important;
 		margin: 0 !important;
     border-bottom: 1px solid #fff;
     .button-inner{

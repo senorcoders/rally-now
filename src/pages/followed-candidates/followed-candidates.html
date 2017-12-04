@@ -1,46 +1,31 @@
-<rally-orange-header>
-</rally-orange-header>
+<ion-header>
+        <ion-navbar>
+            <ion-title>
+                <p class="white">Followers</p>
+            </ion-title>
+          
+        </ion-navbar>
+    </ion-header>
+
+
 <ion-content>
-    <ion-list>
-        <ion-list-header>
-            Followers
-        </ion-list-header>
-    </ion-list>
-    <ion-row padding>
-        <ion-col col-3 *ngFor="let follower of followers">
-            <ion-avatar>
-                <img src="{{follower.follow[0].photo_url}}">
-            </ion-avatar>
-            <p>{{follower.follow[0].name}}</p>
-        </ion-col>
+        <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+        
+        <ion-list>
+                <ion-item *ngFor="let follower of items">
+                        <ion-avatar item-start>
+                          <img src="{{follower.follow[0].photo_url}}"  style="border:2px solid #ada8a8;">
+                        </ion-avatar>
+                        <h2>{{follower.follow[0].name}}</h2>
+                        <button ion-button clear item-end style="background: transparent;
+                        color: gray;
+                        border-radius: 4px;
+                        padding: 10px 15px; border: 1px solid gray;">Following</button>
+                      </ion-item>
+        </ion-list>
+   
 
-
-
-    </ion-row>
 
 </ion-content>
 
-<!-- <ion-footer>
-    <ion-toolbar style="min-height: auto; padding: 0;">
-        <ion-row>
-            <ion-col col-2 class="footer-icons">
-                <button (click)="goToHome()">
-                    <ion-icon name="ios-home"></ion-icon>
-                </button>
-            </ion-col>
-            <ion-col col-6>
-                <p class="white-footer" (click)="presentPopover()">Followed Candidates</p>
-            </ion-col>
-            <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">
-                <button (click)="goToAlerts()">
-                    <ion-icon name="ios-notifications"></ion-icon>
-                </button>
-            </ion-col>
-            <ion-col class="footer-icons">
-                <button (click)="goToProfile()">
-                    <ion-icon name="ios-person"></ion-icon>
-                </button>
-            </ion-col>
-        </ion-row>
-    </ion-toolbar>
-</ion-footer> -->
+

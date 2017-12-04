@@ -11,6 +11,8 @@ import { FormControl } from '@angular/forms';
 import { Facebook } from '@ionic-native/facebook';
 import { PublicProfilePage } from '../public-profile/public-profile';
 import { UsersProvider } from '../../providers/users/users';
+import { OrganizationsListPage } from '../organizations-list/organizations-list';
+import { RepresentivesListPage } from '../representives-list/representives-list';
 
 
 @IonicPage()
@@ -110,11 +112,18 @@ export class FriendsRequestPage {
         result => {
 
           if(result != ""){
-            console.log(result[0].photo_url);
             return result[0].photo_url;
           }
            
         });
+    }
+
+    goToListOrganizations(){
+      this.navCtrl.push(OrganizationsListPage);
+    }
+
+    goToListReps(){
+      this.navCtrl.push(RepresentivesListPage);
     }
    
 

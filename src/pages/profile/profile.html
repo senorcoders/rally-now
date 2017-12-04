@@ -5,17 +5,13 @@
         </ion-title>
         <ion-buttons start>
             <button ion-button icon-only (click)="goToRequests()">
-        <ion-icon name="ios-person">
-                    <ion-badge color="main-red" style="border-radius: 50%; font-size: 1rem;
-    padding: 2px 5px;">2</ion-badge>
-
-        </ion-icon>
+       <img src="../../assets/img/add.svg" alt="" style="height: 20px; width:20px;">
       </button>
         </ion-buttons>
         <ion-buttons end>
             <button ion-button icon-only (click)="goToSettings()">
-        <ion-icon name="ios-cog"></ion-icon>
-      </button>
+                <img src="../../assets/img/Settings.svg" alt="" style="height: 24px; width:24px;">
+            </button>
         </ion-buttons>
     </ion-navbar>
 </ion-header>
@@ -33,7 +29,7 @@
         <ion-col col-8 class="profile-counts">
             <ion-row>
                 <ion-col>
-                    <h4>{{starCount}}</h4>
+                    <h4>{{user.actions_taken}}</h4>
                     <p class="small">Actions</p>
                 </ion-col>
                 <ion-col (click)="goToFollowedCandidates()">
@@ -46,7 +42,7 @@
                 </ion-col>
             </ion-row>
             <ion-row>
-                <button class="reps-btn" ion-button color="light" outline (click)="goToReps()">My Reps</button>
+                <button class="reps-btn" ion-button color="light" outline (click)="goToReps()">My Representatives</button>
                 
             </ion-row>
 

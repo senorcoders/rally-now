@@ -1,7 +1,7 @@
 <ion-header>
     <ion-navbar>
         <ion-title>
-            <img class="rally-header-logo" src="assets/img/rally-logo.svg">
+            <p class="white">Events</p>
         </ion-title>
         <ion-buttons end>
             <button ion-button icon-only (click)="goToEventFilter()">
@@ -11,9 +11,9 @@
     </ion-navbar>
 </ion-header>
 <ion-content>
-    <ion-row padding>
+    <!-- <ion-row padding>
         <h4 style="color: #545353;">Events</h4>
-    </ion-row>
+    </ion-row> -->
     <div *ngIf="searching" class="spinner-container">
         <ion-spinner></ion-spinner>
     </div>

@@ -1,10 +1,9 @@
 page-friends-request {
     ion-content {
-        background-color: #f2f2f2 !important;
-        top:60px;
+        background-color: #fff !important;
     }
     .toolbar-background {
-        background-color: #4a90e2;
+        background-color: #f4512c !important;
         color: #fff;
     }
     p.white {
@@ -44,7 +43,7 @@ page-friends-request {
         background-color: transparent !important;
         .item-inner,
         ion-avatar {
-            border-bottom: 1px solid #c8c7cc !important;
+            border:none !important ;
         }
         ion-avatar {
             margin: 0 !important;
@@ -61,6 +60,19 @@ page-friends-request {
     ion-searchbar{
             border: none !important;
     background: no-repeat !important;
+    }
+
+    .btn-friend{
+        background: #4a90e2 !important;
+        color: #fff !important;
+        border-color: #4a90e2 !important;
+
+    }
+
+    .top-list{
+        ion-item{
+            border-bottom: 1px solid #9e9191 !important;
+        }
     }
 }
 

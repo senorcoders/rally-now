@@ -1,0 +1,18 @@
+<rally-orange-header></rally-orange-header>
+
+<ion-content padding>
+  <ion-row>
+      <h1>Change Username</h1>
+      <p>Pick a username for your account. You can always change it later</p>
+      <ion-list>
+          
+            <ion-item>
+              <ion-input type="text" value="{{username}}" [(ngModel)]="username"></ion-input>
+            </ion-item>  
+            <ion-item>
+                <button ion-button full color="primary" (click)="followOrg()">Next</button>
+              </ion-item>         
+          </ion-list>
+
+  </ion-row>
+</ion-content>

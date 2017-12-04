@@ -1,14 +1,14 @@
 page-followed-candidates {
     .toolbar-background {
-        background-color: #4a90e2;
+        background-color: #f4512c !important;
         color: #fff;
     }
+
     p.white {
         color: #fff;
         margin: 0;
     }
     ion-content {
-        top:60px;
         p {
             font-size: 12px;
             text-align: center;
@@ -22,5 +22,11 @@ page-followed-candidates {
         ion-list {
             margin-bottom: 0 !important;
         }
+    }
+
+    .searchbar-input{
+        box-shadow: none !important;
+        background: #e8e7e7 !important;
+        border-radius: 7px !important;
     }
 }

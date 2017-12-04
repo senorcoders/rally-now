@@ -78,7 +78,7 @@ export class UsersProvider {
     	headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
     	headers.append('Access-Control-Max-Age', '1728000');
     	let options = new RequestOptions({ headers: headers });
-		let userData = JSON.stringify({fname: data.displayName, photo_url: encodeURI(data.photoURL), searchable: data.searchable, hide_activity: data.hide_activity, facebook_id: data.facebook_id});
+		let userData = JSON.stringify({fname: data.displayName, photo_url: encodeURI(data.photoURL), searchable: data.searchable, hide_activity: data.hide_activity, facebook_id: data.facebook_id, username: data.username});
 		console.log(this.base + endpoint, userData, options);
 		this.http.post(this.base + endpoint, userData, options)
 			.map(res => res.json())
@@ -116,6 +116,25 @@ export class UsersProvider {
 				console.log("Error", error);
 			});
   }
+
+  updateUsername(endpoint, username):void{
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json' );
+    headers.append('Access-Control-Allow-Origin', '*');
+    headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+    headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+    headers.append('Access-Control-Max-Age', '1728000');
+    let userData = JSON.stringify({
+      username: username
+      });
+    let options = new RequestOptions({ headers: headers });
+  this.http.put(encodeURI(this.base + endpoint), userData, options)
+    .subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log("Error", error);
+    });
+}
 
   updateNotificationStatus(endpoint, data){
     var headers = new Headers();

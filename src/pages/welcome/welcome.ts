@@ -91,7 +91,7 @@ getUID(){
         this.user.location = snapshot.val().location || '';
         this.user.phone = snapshot.val().phone || '';
         this.user.website = snapshot.val().website || '';
-        this.user.description = snapshot.val().description || '';
+        this.user.description = snapshot.val().description || '';  
         this.user.apiRallyID = snapshot.val().apiRallyID || '';
         this.user.searchable = snapshot.val().searchable || '1';
         this.user.hide_activity = snapshot.val().hide_activity;

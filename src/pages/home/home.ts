@@ -15,6 +15,7 @@ import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database
 import { UsersProvider } from '../../providers/users/users';
 import { TabsPage } from '../tabs/tabs';
 import { WelcomePage } from '../welcome/welcome';
+import { HelloPage } from '../hello/hello';
 
 
 
@@ -42,7 +43,8 @@ export class HomePage {
      email: '',
      searchable: '1',
      hide_activity: '1',
-    facebook_id: ''
+    facebook_id: '',
+    username: '',
 
    };
    endpoint:string = 'users/';
@@ -64,13 +66,7 @@ export class HomePage {
 
   }
 
-  ngAfterViewInit() {
-    this.slides.autoplay = 5000;
-    this.slides.freeMode = true;
-    this.slides.loop = true;
-    this.slides.pager = true;
-    this.slides.paginationType = 'bullets';
-  } 
+ 
     
   checkIfUserExists(id){
     let userRef = this.db.database.ref('users/'+id);
@@ -83,7 +79,7 @@ export class HomePage {
         console.log('Nuevo Usuario', that.user);
           that.db.database.ref('users/'+that.user.uid).set(that.user);
           that.httpProvider.saveNewUser(that.endpoint, that.user);
-          that.navCtrl.setRoot(WelcomePage);
+          that.navCtrl.setRoot(HelloPage);
       }
     });
   }
@@ -96,12 +92,13 @@ export class HomePage {
     this.facebook.login(["email", "public_profile", "user_friends"]).then((loginResponse) => {
         let credential = firebase.auth.FacebookAuthProvider.credential(loginResponse.authResponse.accessToken);
         firebase.auth().signInWithCredential(credential).then((res) =>{
-          console.log(res.providerData[0].uid);
+          console.log(res);
           this.storage.set('UID', res.uid);
           this.user.uid = res.uid;
           this.storage.set('DISPLAYNAME', res.displayName);
           this.user.displayName = res.displayName;
           this.storage.set('USERNAME', res.username);
+          this.user.username = res.displayName.replace(" ", ".");
           this.storage.set('PHOTOURL', res.photoURL);
           this.user.photoURL = res.photoURL;
           this.storage.set('PROVIDER', 'twitter.com');
@@ -161,6 +158,6 @@ twLogin(): void {
 
  
   goToFeed() {    
-       this.navCtrl.setRoot(PublicFeedPage);
+       this.navCtrl.setRoot(HelloPage);
      }
 }

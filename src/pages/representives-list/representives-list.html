@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+      <ion-title>
+          <p class="white">Find Representatives</p>
+      </ion-title>
+    
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar (ionInput)="getItems($event)" [debounce]="500"></ion-searchbar>
+  
+  <ion-list>
+      <ion-list-header>
+        All Representatives
+      </ion-list-header>
+      <ion-item *ngFor="let rep of items">
+          <ion-avatar item-start>
+            <img src="{{rep.photo_url}}"  style="border:2px solid #ada8a8;">
+          </ion-avatar>
+          <h2>{{rep.name}}</h2>
+          <p class="text-wrap"> <small>{{rep.address}}</small></p>
+          <button ion-button clear item-end style="background: #4a90e2;
+          color: #fff;
+          border-radius: 4px;
+          padding: 10px 15px;">Follow</button>
+        </ion-item>
+    </ion-list>
+</ion-content>

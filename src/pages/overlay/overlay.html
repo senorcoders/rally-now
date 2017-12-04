@@ -1,3 +1,17 @@
+<ion-header>
+        <ion-navbar>
+            <ion-title>
+                <p class="white">Feeds</p>
+            </ion-title>
+
+            <ion-buttons start>
+                    <button ion-button icon-only (click)="goToRequests()">
+               <img src="../../assets/img/add.svg" alt="" style="height: 20px; width:20px;">
+              </button>
+                </ion-buttons>
+          
+        </ion-navbar>
+    </ion-header>
 <ion-content>
     <ion-list style="margin-bottom: 0 !important;"> <button full ion-button class="overlay-btn" (click)="goToTakeAction()">
        	  <img src="assets/img/Star.svg" alt="">	Take Action
@@ -15,5 +29,5 @@
        		<img src="assets/img/Org.svg" alt=""> My Organizations
        </button>
 
-    </ion-list>
+    </ion-list> 
 </ion-content>

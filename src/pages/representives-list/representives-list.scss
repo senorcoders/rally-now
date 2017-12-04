@@ -1,0 +1,31 @@
+page-representives-list {
+    .toolbar-background {
+        background-color: #f4512c !important;
+        color: #fff;
+    }
+
+    p.white {
+        color: #fff;
+        margin: 0;
+    }
+
+    .item-inner{
+        border:none !important;
+    }
+
+    .searchbar-input{
+        box-shadow: none !important;
+        background: #e8e7e7 !important;
+        border-radius: 7px !important;
+    }
+
+    ion-list-header{
+        background: #dedede !important;
+        .label{
+            text-transform: uppercase;
+            color: #000;
+            font-size: 12px;
+            font-weight: 600;
+        }
+    }
+}

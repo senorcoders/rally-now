@@ -1,0 +1,38 @@
+page-interested-organizations {
+    h1{
+        font-weight: 900;
+        font-size: 22px !important;
+    }
+    p{
+        font-size: 16px;
+    }
+
+    ion-list{
+        ion-item{
+            ion-label{
+                h1{
+                    font-weight: 900 !important;
+                    font-size: 18px !important;
+                }
+            }
+        }
+       
+    }
+
+    ion-footer{
+        align-items: flex-end;
+        justify-content: flex-end;
+        display: flex;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        button{
+            height: 50px !important;
+            padding: 10px 30px !important;
+            border-radius: 8px !important;
+        }
+    }
+
+    .footer-md::before, .footer-ios::before{
+        display: none;
+    }
+}
