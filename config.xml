@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.senorcoders.rallyup" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Rally Up</name>
+    <name>Rally</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
     <universal-links>
@@ -127,7 +127,6 @@
         <variable name="ANDROID_HOST" value=" " />
         <variable name="ANDROID_PATHPREFIX" value="/" />
     </plugin>
-    <engine name="android" spec="~6.1.2" />
     <allow-navigation href="http://192.168.0.10:8100" />
     <allow-navigation href="http://192.168.88.25:8100" />
     <allow-navigation href="http://192.168.8.100:8100" />
@@ -151,9 +150,10 @@
     <allow-navigation href="http://169.254.127.133:8100" />
     <allow-navigation href="http://169.254.88.153:8100" />
     <allow-navigation href="http://169.254.96.40:8100" />
-    <engine name="ios" spec="~4.3.1" />
     <allow-navigation href="http://169.254.114.177:8100" />
     <allow-navigation href="http://169.254.126.171:8100" />
     <allow-navigation href="http://192.168.1.18:8100" />
     <allow-navigation href="http://169.254.136.91:8100" />
+    <engine name="ios" spec="~4.3.1" />
+    <engine name="android" spec="~6.1.2" />
 </widget>

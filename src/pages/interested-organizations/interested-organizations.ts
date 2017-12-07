@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FeedPage } from '../feed/feed';
+import { TabsPage } from '../tabs/tabs';
 
 
 @IonicPage()
@@ -18,7 +18,7 @@ export class InterestedOrganizationsPage {
   }
 
   goToHome(){
-    this.navCtrl.setRoot(FeedPage);
+    this.navCtrl.setRoot(TabsPage);
   }
 
 }

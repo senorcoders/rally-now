@@ -9,13 +9,7 @@ import { PublicProfilePage } from '../public-profile/public-profile';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
 import { UsersProvider } from '../../providers/users/users';
 
- 
-/**
- * Generated class for the FriendsactivityPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -47,7 +41,7 @@ export class FriendsactivityPage {
   }
 
   ionViewWillEnter() {
-        this.viewCtrl.showBackButton(false);
+        //this.viewCtrl.showBackButton(false);
     }
 
   ionViewDidLoad() {

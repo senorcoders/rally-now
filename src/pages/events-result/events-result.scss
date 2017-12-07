@@ -24,44 +24,108 @@ page-events-result {
         margin: 0;
     }
     ion-content {
-        background-color: #f2f2f2 !important;
+        top: 60px;
+        background: #d8d8d8 !important;
+        
     }
-    ion-card {
+    .events-card{
+        position:relative;
+         margin-right: 0 !important;
         margin-left: 0 !important;
-        margin-right: 0 !important;
         width: 100% !important;
-        position: relative;
-        .button {
-            border-radius: 0;
-            height: 29px;
-            font-size: 13px;
+        box-shadow: none !important;
+        small {
+            color: #8f8f8f;
+            font-weight: normal;
         }
-        ion-col {
-            padding: 5px 0 !important;
+        .item-md ion-avatar img,
+        .item-ios ion-avatar img {
+            border: 2px solid #cecece;
         }
-        ion-card-content {
-            h3 {
-                font-weight: 600 !important;
-                font-size: 1.3em !important;
+
+        .event-description{
+            color: #8f8f8f;
+            //font-weight: 200;
+        }
+
+        ion-card-title{
+            font-size: 18px !important;
+            font-weight: 500;
+        }
+
+        .events-bg{
+            height: 100px;
+            position:relative;
+            background-size: cover !important;
+            background-repeat: no-repeat !important;
+            background-position: center !important;
+            .events-filter{
+                position: absolute;
+                bottom: 0;
+                top:0;
+                right: 0;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.3);
             }
-            p,
-            strong {
-                font-size: 11px !important;
+
+            .events-railled{
+                position:absolute;
+                right: 10px;
+                top: 30%;
+                z-index: 99;
+                p{
+                    font-size: 17px;
+                    text-align: center;
+                }
+
+
+            }
+
+            .date-events-spans{
+                position: absolute;
+                z-index: 99;
+                color: white;
+                left: 20px;
+                bottom: 20px;
+                span.day{
+                  background: #000;
+                  padding: 5px 10px;
+                }
+                span.month{
+                background: #f2f2f2;
+                padding: 5px 10px;
+                color: #000;
+                //font-weight: 100;
+                text-transform: uppercase;
+                }
             }
         }
+
         .fab-md-light,
         .fab-ios-light {
             background: none;
             border: none;
             box-shadow: none;
         }
-        .blue-card {
-            background-color: #4a90e2;
-            border-right: 1px solid #fff;
-        }
-        .button-clear-ios,
-        .button-clear-md {
-            color: #fff;
-        }
+
+        .btn-50 {
+        width: 50%;
+        height: 50px;
+        margin: 0;
+    }
+    p.white {
+        color: #fff;
+        margin: 0;
+    }
+
+    .button-clear-md, .button-clear-ios {
+        background-color: #f2f2f2;
+        color: #bfbfbf;
+    }
+
+    .right-border {
+        border-right: 1px solid #fff;
+    }
     }
 }

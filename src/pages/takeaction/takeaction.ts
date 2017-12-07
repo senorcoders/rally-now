@@ -51,8 +51,10 @@ export class TakeactionPage {
   }
 
    ionViewWillEnter() {
-        this.viewCtrl.showBackButton(false);
+        //this.viewCtrl.showBackButton(false);
     }
+
+   
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TakeactionPage');

@@ -37,8 +37,9 @@
             Distance from me
         </ion-list-header>
         <ion-item style="border:none; background-color: #4a90e2; color: #fff;">
-            <ion-range [(ngModel)]="structure" style="color: #fff;">
-                <p range-right class="white">{{structure}} MILES</p>
+            <ion-range [(ngModel)]="structure" style="color: #fff;" min="0" max="1000" >
+                <p range-left class="white">{{structure}} MILES</p>    
+                <p range-right class="white">Any Distance</p>
             </ion-range>
         </ion-item>
 

@@ -30,7 +30,7 @@ videoOpts : VideoOptions ;
   }
 
   ionViewWillEnter() {
-        this.viewCtrl.showBackButton(false);
+        //this.viewCtrl.showBackButton(false);
     }
 
    goToHome(){

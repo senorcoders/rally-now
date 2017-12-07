@@ -55,7 +55,7 @@ likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
   }
 
   ionViewWillEnter() {
-        this.viewCtrl.showBackButton(false);
+        //this.viewCtrl.showBackButton(false);
     }
 
   
