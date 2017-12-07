@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <p class="white">Feedback</p>
+        </ion-title>
+     
+    </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-row class="yellow-bg">
+    <h1>How did it go?</h1>
+    <p>Your feedback helps make Rally better.</p>
+  </ion-row>
+  <ion-row class="btn-row" (click)="sendActions($event)">
+      <button full  >Spoke with a staffer</button>
+      <button full  >Left a message</button>
+      <button full  >Line was busy</button>
+      <button full  >Voice mail full</button>
+      <button full >Wrong number</button>
+      <button full >Other</button>   
+      
+  </ion-row>
+
+</ion-content>
+<ion-footer>
+    <button full ion-button [disabled]="!isenabled" (click)="streakModal()">SUBMIT</button>    
+    
+</ion-footer>

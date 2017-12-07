@@ -22,6 +22,7 @@ page-call {
         background-color: green;
         margin: 0 auto;
         margin-right: 0;
+        border: 2px solid gray;
     }
 
     .gray {
@@ -35,5 +36,31 @@ page-call {
 
     .bob-button{
     	min-height: 70px;
+    }
+
+    .btn-light-blue{
+        background: #5f94d2 !important;
+        border-top: 1px solid #fff !important;
+        button{
+            background: #5f94d2 !important;
+            height: 5rem !important;
+            .button-inner{
+                display: block !important;
+                .special-btn{
+                    width: 100%;
+                    img{
+                        width: 30px;
+                        height: 30px;
+                        margin-bottom: 5px;
+                        filter: brightness(0) invert(1);
+                        
+                    }
+                }
+            }
+        }
+    }
+
+    .right-border{
+        border-right: 1px solid #fff;
     }
 }

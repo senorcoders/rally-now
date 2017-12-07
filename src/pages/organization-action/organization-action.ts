@@ -5,6 +5,7 @@ import {AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
 import { CallNumber } from '@ionic-native/call-number';
+import { CallPage } from '../call/call';
 
 
 @IonicPage()
@@ -75,32 +76,27 @@ export class OrganizationActionPage {
         {
           text: 'Call',
           handler: () => {
-            this.callNumber.callNumber("18001010101", true)
-            .then(() => console.log('Launched dialer!'))
-            .catch((error) => console.log('Error launching dialer', error));
+            this.navCtrl.push(CallPage);
+            // this.callNumber.callNumber("18001010101", true)
+            // .then(() => console.log('Launched dialer!'))
+            // .catch((error) => console.log('Error launching dialer', error));
           }
         },{
-          text: 'Post on Facebook',
+          text: 'Fax',
           handler: () => {
-            console.log('Post on Facebook clicked');
-            this.shareProvider.facebookShare("Hola desde Rally up", "http://via.placeholder.com/350x150");
-          }
-        },{
-          text: 'Post message via Twitter',
-          handler: () => {
-            console.log('Post message via Twitter clicked');
-            this.shareProvider.twitterShare("Hola desde Rally up", "http://via.placeholder.com/350x150");
-          }
-        },{
-          text: 'Send a Fax',
-          handler: () => {
-            console.log('Send a Fax clicked');
+            console.log('Fax clicked');
           }
         },{
           text: 'Email',
           handler: () => {
             console.log('Email clicked');
             this.shareProvider.shareViaEmail();
+          }
+        },{
+          text: 'Post message via Twitter',
+          handler: () => {
+            console.log('Post message via Twitter clicked');
+            this.shareProvider.twitterShare("Hola desde Rally up", "http://via.placeholder.com/350x150");
           }
         },{
           text: 'Cancel',

@@ -1,9 +1,4 @@
-<!--
-  Generated template for the CallPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <rally-orange-header></rally-orange-header>
 
 <ion-content>
@@ -12,7 +7,8 @@
             <p class="gray">Calling this office</p>
             <h3>Bob Representative</h3>
             <p class="gray">
-                <ion-icon name="ios-call"></ion-icon> (123) 456-7890</p>
+                <ion-icon name="ios-call-outline" style="color: #f4512c;
+                font-size: 18px;"></ion-icon> (123) 456-7890</p>
         </ion-col>
         <ion-col col-4>
             <div class="bob-headshot"></div>
@@ -29,27 +25,36 @@
         </ion-list>
     </ion-row>
 </ion-content>
-<!-- <ion-footer>
-    <ion-toolbar style="min-height: auto; padding: 0;" color="primary">
-        <ion-row>
-            <ion-col col-2 class="footer-icons" style="border-right: 0px solid;">
-                <button (click)="goToHome()">
-                    <ion-icon name="ios-home"></ion-icon>
-                </button>
-            </ion-col>
-            <ion-col col-6>
-                <p (click)="presentPopover()" class="white-footer">Trouble?</p>
-            </ion-col>
-            <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">
-                <button (click)="goToAlerts()">
-                    <ion-icon name="ios-notifications"></ion-icon>
-                </button>
-            </ion-col>
-            <ion-col class="footer-icons">
-                <button (click)="goToProfile()">
-                    <ion-icon name="ios-person"></ion-icon>
-                </button>
-            </ion-col>
-        </ion-row>
-    </ion-toolbar>
-</ion-footer> -->
+<ion-footer>
+    <ion-row>
+        <ion-col col-12 no-padding>
+            <button ion-button full color="danger" style="margin-bottom: 0 !important; margin-top: 0 !important;" (click)="callOffices()">
+                I'm having trouble getting through
+            </button>
+        </ion-col>
+        <ion-col col-6 class="btn-light-blue right-border">
+            <button ion-button full>
+                <div class="special-btn">
+                        <img src="assets/img/Call.svg" alt="">
+                        
+                </div>
+                <div class="special-btn">
+                        Call
+                        
+                </div>
+            </button>
+        </ion-col>
+        <ion-col col-6 class="btn-light-blue">
+            <button ion-button full (click)="giveFeedBack()">
+                    <div class="special-btn">
+                            <img src="assets/img/Checkmark.svg" alt="">
+                            
+                    </div>
+                    <div class="special-btn">
+                            I'm done
+                            
+                    </div>
+            </button>
+        </ion-col>
+    </ion-row>
+</ion-footer>

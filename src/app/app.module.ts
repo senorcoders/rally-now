@@ -82,6 +82,8 @@ import { RepresentivesListPage } from '../pages/representives-list/representives
 import { HelloPage } from '../pages/hello/hello';
 import { ChangeUsernamePage } from '../pages/change-username/change-username';
 import { InterestedOrganizationsPage } from '../pages/interested-organizations/interested-organizations';
+import { FeedbackPage } from '../pages/feedback/feedback';
+import { ThankYouPage } from '../pages/thank-you/thank-you';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -175,7 +177,9 @@ firebase.initializeApp(config);
         RepresentivesListPage,
         HelloPage,
         ChangeUsernamePage,
-        InterestedOrganizationsPage
+        InterestedOrganizationsPage,
+        FeedbackPage,
+        ThankYouPage
     ],
     imports: [
         BrowserModule,
@@ -242,7 +246,9 @@ firebase.initializeApp(config);
         RepresentivesListPage,
         HelloPage,
         ChangeUsernamePage,
-        InterestedOrganizationsPage
+        InterestedOrganizationsPage,
+        FeedbackPage,
+        ThankYouPage
     ],
     providers: [
         StatusBar,

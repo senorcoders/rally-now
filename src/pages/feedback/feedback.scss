@@ -1,0 +1,47 @@
+page-feedback {
+    .toolbar-background {
+        background: #f4512c !important;
+        //max-height: 50px !important;
+    }
+
+    p.white {
+        color: #fff;
+        margin: 0;
+    }
+    .yellow-bg{
+        background: #fdfaf2;
+        text-align: center;
+        p, h1{
+            text-align: center !important;
+            width: 100%;
+        }
+    }
+
+    .btn-row{
+        button{
+            height: 9vh;
+            margin: 0;
+            border-bottom: 1px solid #fff;
+            background: #356fba;
+            width: 100%;
+            color: #fff;
+            font-size: 16px;
+        }
+    }
+
+    ion-footer{
+        button{
+            height: 60px !important;
+            background: #eaa100 !important;
+        }
+
+        button[disabled]{
+            background: #fff !important;
+            color: #eaa100;
+            border: 1px solid #eaa100;
+        }
+    }
+    .active{
+        opacity: 0.4 !important ;
+    }
+}

@@ -155,5 +155,6 @@
     <allow-navigation href="http://192.168.1.18:8100" />
     <allow-navigation href="http://169.254.136.91:8100" />
     <engine name="ios" spec="~4.3.1" />
-    <engine name="android" spec="~6.1.2" />
+    <engine name="android" spec="~6.3.0" />
+    <plugin name="cordova-plugin-compat" spec="^1.2.0" />
 </widget>
