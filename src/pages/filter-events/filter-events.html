@@ -1,7 +1,7 @@
 <ion-header>
     <ion-toolbar>
         <ion-title start>
-            <p class="white">Filter Events</p>
+            <p>Filter Events</p>
         </ion-title>
         <ion-buttons end>
             <button ion-button (click)="dismiss()">
@@ -13,33 +13,31 @@
 <ion-content>
 
     <ion-list>
-        <ion-list-header style=" background-color: #4a90e2; color: #fff; text-transform: uppercase;">
-            Events
-        </ion-list-header>
-        <ion-item style="background: #4a90e2">
-            <ion-label style="color: #fff;">ZIPCODE</ion-label>
-            <ion-input [(ngModel)]="zipcode" style="color: #fff; font-size:40px;" class="zip-input"></ion-input>
+    
+        <ion-item style="background: #f2f2f2">
+            <ion-label style="color: #000;">ZIPCODE</ion-label>
+            <ion-input [(ngModel)]="zipcode" style="color: #000; font-size:40px;" class="zip-input"></ion-input>
         </ion-item>
-        <ion-list-header style="background-color: #4a90e2; color: #fff; text-transform: uppercase;">
+        <ion-list-header style="background-color: #f2f2f2; color: #000; text-transform: uppercase;">
             Date Range
         </ion-list-header>
-        <ion-item style="background: #4a90e2">
-            <ion-label style="color: #fff;">Start Date</ion-label>
-            <ion-datetime style="color: #fff;" displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="event.month"></ion-datetime>
+        <ion-item style="background: #f2f2f2">
+            <ion-label style="color: #000;">Start Date</ion-label>
+            <ion-datetime style="color: #000;" displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="event.month"></ion-datetime>
         </ion-item>
-        <ion-item style="background: #4a90e2">
-            <ion-label style="color: #fff;">End Date</ion-label>
-            <ion-datetime style="color: #fff;" displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="event.timeEnds"></ion-datetime>
+        <ion-item style="background: #f2f2f2">
+            <ion-label style="color: #000;">End Date</ion-label>
+            <ion-datetime style="color: #000;" displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="event.timeEnds"></ion-datetime>
         </ion-item>
     </ion-list>
     <ion-list>
-        <ion-list-header style=" background-color: #4a90e2; color: #fff; text-transform: uppercase;">
+        <ion-list-header style=" background-color: #f2f2f2; color: #000; text-transform: uppercase;">
             Distance from me
         </ion-list-header>
-        <ion-item style="border:none; background-color: #4a90e2; color: #fff;">
-            <ion-range [(ngModel)]="structure" style="color: #fff;" min="0" max="1000" >
-                <p range-left class="white">{{structure}} MILES</p>    
-                <p range-right class="white">Any Distance</p>
+        <ion-item style="border:none; background-color: #f2f2f2; color: #000;">
+            <ion-range [(ngModel)]="structure" style="color: #000;" min="0" max="1000" >
+                <p range-left >{{structure}} MILES</p>    
+                <p range-right >Any Distance</p>
             </ion-range>
         </ion-item>
 
@@ -52,7 +50,5 @@
      </ion-list> -->
 </ion-content>
 <ion-footer padding style="background:#4a90e2;">
-    <ion-toolbar>
-        <button ion-button full class="filter-btn" (click)="goToEvents()">APPLY FILTER</button>
-    </ion-toolbar>
+        <button style="background:#4a90e2; color: #fff" ion-button full class="filter-btn" (click)="goToEvents()">APPLY FILTER</button>
 </ion-footer>

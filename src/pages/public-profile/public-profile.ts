@@ -130,7 +130,7 @@ presentToast(message) {
 
     saveNotification(user_id, registration_id){
       this.httpProvider.returnRallyUserId().then(user => {
-       this.httpProvider.saveNotification(user_id, registration_id, user.displayName + " is following you",  this.alertsEndpoint);
+       this.httpProvider.saveNotification(user_id, registration_id, user.displayName + " wants to follow you",  this.alertsEndpoint);
       this.followFriend(user_id);
       });
       //this.httpProvider.sendNotification(registration_id, msg);

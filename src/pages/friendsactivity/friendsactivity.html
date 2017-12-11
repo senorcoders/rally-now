@@ -3,6 +3,16 @@
 
 
 <ion-content>
+
+        <ion-segment [(ngModel)]="all">
+                <ion-segment-button value="all">
+                  All 
+                </ion-segment-button>
+                <ion-segment-button value="friends">
+                  Friends
+                </ion-segment-button>
+              
+              </ion-segment>
     <ion-card *ngFor="let activity of activitiesData">
         <ion-fab right top style="top: 4px;
     right: 0;">

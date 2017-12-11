@@ -184,14 +184,13 @@ export class UsersProvider {
       headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
       headers.append('Access-Control-Max-Age', '1728000');
       let options = new RequestOptions({ headers: headers });
-    let actionData = JSON.stringify({follower_id: currentUserRallyID, following_id: friendRallyID});
+    let actionData = JSON.stringify({follower_id: currentUserRallyID, following_id: friendRallyID, approved: false});
     console.log(this.base + endpoint, actionData, options);
     this.http.post(encodeURI(this.base + endpoint), actionData, options)
       .map(res => res.json())
       .subscribe(data => {
         console.log(data);
         this.saveFollowRecordID(data.following_id, data.id, 'follow');
-        this.data.response = data["_body"];
       }, error => {
         console.log("Error", error);
       });
@@ -243,7 +242,6 @@ export class UsersProvider {
       .subscribe(data => {
         console.log(data);
         this.saveFollowRecordID(data.organization_id, data.id, 'organizations');
-        this.data.response = data["_body"];
       }, error => {
         console.log("Error", error);
       });

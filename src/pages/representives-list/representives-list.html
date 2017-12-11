@@ -20,10 +20,10 @@
           </ion-avatar>
           <h2>{{rep.name}}</h2>
           <p class="text-wrap"> <small>{{rep.address}}</small></p>
-          <button ion-button clear item-end style="background: #4a90e2;
+          <button (click)="followRep(rep.id, $event)" ion-button clear item-end style="background: #4a90e2;
           color: #fff;
           border-radius: 4px;
-          padding: 10px 15px;">Follow</button>
+          padding: 10px 15px;">{{findInLoop(rep.followers)}}</button>
         </ion-item>
     </ion-list>
 </ion-content>

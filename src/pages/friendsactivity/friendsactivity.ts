@@ -21,6 +21,7 @@ export class FriendsactivityPage {
     activitiesData:any;
     myRallyID:any;
     endpoint:string = 'friends_activity/';
+    all: string = "all";
 
 
 
@@ -31,7 +32,7 @@ export class FriendsactivityPage {
     private httpProvider:OrganizationsProvider,
     public viewCtrl:ViewController,
     private usersProvider: UsersProvider) {
-
+      this.all = "all";
       this.usersProvider.returnRallyUserId().then( user => {
         this.myRallyID = user.apiRallyID;
         this.getdata();

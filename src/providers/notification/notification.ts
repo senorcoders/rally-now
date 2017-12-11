@@ -55,12 +55,12 @@ export class NotificationProvider {
     const url = "https://noti.provethisconcept.com/devices";
 
     console.log(device);
-    this.http.post(url, {device}, options)
-        .subscribe(data => {
-            console.log('token saved', data);
-        }, error => {
-            console.log('error saving token', error);
-        });
+    // this.http.post(url, {device}, options)
+    //     .subscribe(data => {
+    //         console.log('token saved', data);
+    //     }, error => {
+    //         console.log('error saving token', error);
+    //     });
     this.httpProvider.saveDevice(this.device.uuid, rallyID,  this.endpoint);
 }
 

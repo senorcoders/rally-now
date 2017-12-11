@@ -1,12 +1,21 @@
 page-filter-events {
     .toolbar-background,
     ion-content {
-        background-color: #4a90e2 !important;
-        color: #fff !important;
+        background-color: #f2f2f2 !important;
+        color: #000 !important;
     }
     p.white {
         color: #fff;
         margin: 0;
+    }
+
+    ion-title{
+        p{
+            color: #000;
+            font-weight: 900;
+            font-size: 22px;
+            letter-spacing: 0.8px;
+        }
     }
     .range-ios .range-bar-active,
     .range-md .range-bar-active {
@@ -30,5 +39,14 @@ page-filter-events {
         .text-input {
             text-align: right;
         }
+    }
+
+    .bar-button-default-ios, .bar-button-default-md{
+        color: #000;
+        font-size: 17px;
+    }
+
+    .header-md::after,  .header-ios::after{
+        background:none !important;
     }
 }

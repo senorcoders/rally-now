@@ -16,6 +16,7 @@ import { AngularFireDatabase } from 'angularfire2/database/database';
 import { UsersProvider } from '../../providers/users/users';
 import { MyFriendsPage } from '../my-friends/my-friends';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
+import { RepresentivesListPage } from '../representives-list/representives-list';
 
 
 
@@ -53,7 +54,8 @@ export class ProfilePage {
     shares: '',
     friends_count: '',
     followers_count: '',
-    organizations_count: ''
+    organizations_count: '',
+    my_activity: ''
   };
 
   constructor(
@@ -116,6 +118,7 @@ export class ProfilePage {
             this.user.friends_count = result[0].friends_count;
             this.user.followers_count = result[0].followers_count;
             this.user.organizations_count = result[0].organizations_count;
+            this.user.my_activity = result[0].my_activity;
           }
         );
      }
@@ -132,7 +135,7 @@ export class ProfilePage {
   }
 
   goToReps(){
-  	this.navCtrl.push(MyRepsPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+  	this.navCtrl.push(RepresentivesListPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   goToStreaks(){

@@ -59,7 +59,7 @@
                 
             </ion-col>
         <ion-col col-12 >
-            <p style="margin-top: 0;">{{user.description}}</p>
+            <p text-wrap style="margin-top: 0;">{{user.description}}</p>
         </ion-col>
        
     </ion-row>
@@ -124,25 +124,23 @@
         </ion-list-header>
     
 
-        <ion-card>
+        <ion-card *ngFor="let activity of user.my_activity">
                 <ion-fab right top style="top: 4px; right: 0;">
                     <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
                     <ion-fab-list side="left">
-                        <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
-                        <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
-                        <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
-                        <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+                        <button ion-fab><ion-icon name="md-done"></ion-icon></button>
+             
                     </ion-fab-list>
                 </ion-fab>
         
                    
                             <ion-item>
                                 <ion-avatar item-start>
-                                  <img src="https://flipagram.com/assets/resources/img/fg-avatar-anonymous-user-retina.png">
+                                  <img src="{{user.photoURL}}">
                                 </ion-avatar>
-                                <h2 >Lorem</h2>
+                                <h2 >{{user.displayName}}</h2>
                                 <div style="display: flex;">
-                                    <p>2 hrs ago</p>
+                                    <p>{{activity.created_at | amTimeAgo}}</p>
                                     
                                 </div>
                                 
@@ -150,7 +148,7 @@
                               </ion-item>
                         <ion-card-content>
                            
-                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus itaque quia dolorem.</p>
+                             <p>{{activity.description}}</p>
                         </ion-card-content>
                
         

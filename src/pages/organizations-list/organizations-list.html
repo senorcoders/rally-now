@@ -15,14 +15,14 @@
           All Organizations
         </ion-list-header>
         <ion-item *ngFor="let organization of items">
-            <ion-thumbnail item-start (click)="goToOrganizationProfile(organization.id)">
+             <ion-thumbnail item-start (click)="goToOrganizationProfile(organization.id)">
               <img src="{{organization.image_url}}">
             </ion-thumbnail>
-            <h2>{{organization.name}}</h2>
-            <button ion-button clear item-end style="background: #4a90e2;
+            <h2 text-wrap>{{organization.name}}</h2>
+            <button (click)="addFollowRecordFirebase(organization.id, $event)" ion-button clear item-end style="background: #4a90e2;
             color: #fff;
             border-radius: 4px;
-            padding: 10px 15px;">Follow</button>
+            padding: 10px 15px;">{{findInLoop(organization.followers)}}</button>
           </ion-item>
       </ion-list>
 </ion-content>
