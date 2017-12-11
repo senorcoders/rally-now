@@ -7,8 +7,7 @@
                     <img src="{{user.photo_url}}">
                 </button>
             </ion-avatar>
-            <h4>{{user.name}}</h4>
-            <p>{{user.country}}</p>
+            <h4 class="boldName">{{user.name}}</h4>
         </ion-col>
         <ion-col col-8 class="profile-counts">
             <ion-row>
@@ -25,146 +24,75 @@
                     <p class="small">Organizations</p>
                 </ion-col>
             </ion-row>
-
-        </ion-col>
-        <ion-col col-8>
-            <p>{{user.description}}</p>
-        </ion-col>
-        <ion-col col-4>
-            <ion-row class="follow-user-button">
-                <button *ngIf="login" ion-button (click)="addFollowRecordFirebase(user.id)">{{buttonFollowTest}}</button>
-
+            <ion-row>
+                <button class="follow-btn" *ngIf="login" full ion-button (click)="addFollowRecordFirebase(user.id)">{{buttonFollowTest}}</button>
+                
             </ion-row>
+
         </ion-col>
+        
     </ion-row>
     <div *ngIf="hidden == '0';then content else other_content"></div>
     <ng-template #content>
-        <ion-card>
-            <ion-fab right top style="top: -8px;
-    right: 0;">
-                <button ion-fab color="light">
-                    <ion-icon name="ios-more"></ion-icon>
-                </button>
+        <ion-card *ngFor="let activity of user.my_activity">
+            <ion-fab right top style="top: 4px; right: 0;">
+                <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
                 <ion-fab-list side="left">
-                    <button ion-fab>
-                        <ion-icon name="logo-facebook"></ion-icon>
-                    </button>
-                    <button ion-fab>
-                        <ion-icon name="logo-twitter"></ion-icon>
-                    </button>
-                    <button ion-fab>
-                        <ion-icon name="logo-vimeo"></ion-icon>
-                    </button>
-                    <button ion-fab>
-                        <ion-icon name="logo-googleplus"></ion-icon>
-                    </button>
+                    <button ion-fab><ion-icon name="md-done"></ion-icon></button>
+         
                 </ion-fab-list>
             </ion-fab>
-            <ion-row>
-                <ion-col col-5 class="profile-rep" style="background: url('assets/img/login-image.jpg');">
-                </ion-col>
-                <ion-col col-7>
+    
+               
+                        <ion-item>
+                            <ion-avatar item-start>
+                              <img src="{{activity?.user_id[0]?.photoURL}}">
+                            </ion-avatar>
+                            <h2 >{{activity?.user_id[0]?.name}}</h2>
+                            <div style="display: flex;">
+                                <p>{{activity.created_at | amTimeAgo}}</p>
+                                
+                            </div>
+                            
+    
+                          </ion-item>
                     <ion-card-content>
-                        <h5 style="font-weight: 500;
-    font-size: 16px;">Feed Item Title</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                        <p>via website.com</p>
+                       
+                         <p>{{activity.description}}</p>
                     </ion-card-content>
-                </ion-col>
-            </ion-row>
-            <ion-fab right bottom style="bottom: 0;
-    right: 0;">
-                <button class="blue-icon" ion-fab color="light">
-                    <ion-icon name="ios-heart"></ion-icon>
-                </button>
+           
+    
+            <ion-fab right bottom style="bottom: 50px;  right: 0;">
+                <div class="blue-icon" ion-fab color="light">
+                    <img  src="assets/img/Contact-Orange.svg" alt="" style="width: 25px;">
+                </div>
             </ion-fab>
-        </ion-card>
-        <ion-card>
-            <ion-fab right top style="top: -8px;
-    right: 0;">
-                <button ion-fab color="light">
-                    <ion-icon name="ios-more"></ion-icon>
-                </button>
-                <ion-fab-list side="left">
-                    <button ion-fab>
-                        <ion-icon name="logo-facebook"></ion-icon>
-                    </button>
-                    <button ion-fab>
-                        <ion-icon name="logo-twitter"></ion-icon>
-                    </button>
-                    <button ion-fab>
-                        <ion-icon name="logo-vimeo"></ion-icon>
-                    </button>
-                    <button ion-fab>
-                        <ion-icon name="logo-googleplus"></ion-icon>
-                    </button>
-                </ion-fab-list>
-            </ion-fab>
+    
             <ion-row>
-                <ion-col col-5 class="profile-rep" style="background: url('assets/img/login-image.jpg');">
-                    <p class="excerpt">Private</p>
+                <ion-col class="blue-card">
+                    <button ion-button icon-left clear full>
+            <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>
+            371
+          </button>
                 </ion-col>
-                <ion-col col-7 class="inactive">
-                    <ion-card-content>
-                        <h5 style="font-weight: 500;
-    font-size: 16px;">Sally Smith</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                    </ion-card-content>
+                <ion-col class="blue-card" style="border-right: none;">
+                    <button ion-button icon-left clear full>
+            <ion-icon name="ios-share-alt"></ion-icon>
+            12
+          </button>
                 </ion-col>
+    
             </ion-row>
-            <ion-fab right bottom style="bottom: 0;
-    right: 0;">
-                <button class="blue-icon" ion-fab color="light">
-                    <ion-icon name="logo-usd"></ion-icon>
-                </button>
-            </ion-fab>
-        </ion-card>
-        <ion-card>
-            <ion-fab right top style="top: -8px;
-    right: 0;">
-                <button ion-fab color="light">
-                    <ion-icon name="ios-more"></ion-icon>
-                </button>
-                <ion-fab-list side="left">
-                    <button ion-fab>
-                        <ion-icon name="logo-facebook"></ion-icon>
-                    </button>
-                    <button ion-fab>
-                        <ion-icon name="logo-twitter"></ion-icon>
-                    </button>
-                    <button ion-fab>
-                        <ion-icon name="logo-vimeo"></ion-icon>
-                    </button>
-                    <button ion-fab>
-                        <ion-icon name="logo-googleplus"></ion-icon>
-                    </button>
-                </ion-fab-list>
-            </ion-fab>
-            <ion-row>
-                <ion-col col-5 class="profile-rep" style="background: url('assets/img/login-image.jpg');">
-                </ion-col>
-                <ion-col col-7>
-                    <ion-card-content>
-                        <h5 style="font-weight: 500;
-    font-size: 16px;">Sally Smith</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                    </ion-card-content>
-                </ion-col>
-            </ion-row>
-            <ion-fab right bottom style="bottom: 0;
-    right: 0;">
-                <button class="blue-icon" ion-fab color="light">
-                    <ion-icon name="md-call"></ion-icon>
-                </button>
-            </ion-fab>
-        </ion-card>
+            </ion-card>
     </ng-template>
     <ng-template #other_content>
         <ion-row padding>
             <ion-list>
                 <ion-item>
-                    <ion-icon name="lock" item-start></ion-icon>
-                    This is a private account
+                    <ion-icon name="lock" item-start style="font-size: 80px;
+                    color: #b3afaf;"></ion-icon>
+                    <strong>This is a private account</strong> 
+                    <p text-wrap>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum a consequatur laudantium.</p>
                 </ion-item>
             </ion-list>
 

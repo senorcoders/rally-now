@@ -23,6 +23,7 @@ export class PublicProfilePage {
   alertsEndpoint:any = 'ux_events';
   profilePageName:any;
   myRallyID:any;
+  my_activity:any;
   
 
   constructor(
@@ -80,6 +81,7 @@ export class PublicProfilePage {
     result => {
       this.userData=result;
       this.hidden=result.hide_activity;
+      this.my_activity= result.my_activity;
       console.log("Success : "+ result);
     },
     err =>{

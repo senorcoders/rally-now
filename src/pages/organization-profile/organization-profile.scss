@@ -2,9 +2,7 @@ page-organization-profile {
     ion-content {
         top: 60px;
     }
-    ion-header {
-        text-align: center;
-    }
+   
     .toolbar-background {
         background-color: #4a90e2;
         color: #fff;
@@ -69,6 +67,7 @@ page-organization-profile {
          margin-right: 0 !important;
         margin-left: 0 !important;
         width: 100% !important;
+        margin-bottom: 10px !important;
         box-shadow: none !important;
         small {
             color: #8f8f8f;
@@ -77,6 +76,7 @@ page-organization-profile {
         .item-md ion-avatar img,
         .item-ios ion-avatar img {
             border: 2px solid #cecece;
+           
         }
         .organization-bg {
             height: 195px;
@@ -200,12 +200,27 @@ page-organization-profile {
             margin: 0;
             font-size: 12px;
         }
+
+        img{
+            border-radius: 50%;
+            height: 100px;
+            width: 100px;
+        }
     }
     .profile-counts {
         text-align: center;
         p.small {
             margin: 0;
-            font-size: 12px;
+            font-size: 14px;
+        }
+
+        h4{
+            font-size: 24px;
+            font-weight: 200;
+        }
+
+        ion-col{
+            padding-bottom: 0;
         }
     }
     .button-outline-md-light,
@@ -220,6 +235,27 @@ page-organization-profile {
         font-size: 11px;
         text-transform: uppercase;
         width: 80%;
+    }
+
+    .follow-btn{
+        width: 100%;
+        height: 30px;
+        border: 1px solid gray !important;
+        color: gray;
+        border-radius: 8px !important;
+        margin-top: 0;
+    }
+
+    .username-h4{
+        font-size: 28px;
+        font-weight: 900;
+        letter-spacing: 1px;
+    }
+
+    .link{
+        margin: 0;
+        text-align: right;
+        color: #2196F3;
     }
 }
 

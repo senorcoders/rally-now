@@ -1,5 +1,20 @@
-<rally-orange-header></rally-orange-header>
-<ion-content>
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <img class="rally-header-logo" src="assets/img/rally-logo.svg">
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button icon-only (click)="goToRequests()">
+       <img src="assets/img/add.svg" alt="" style="height: 20px; width:20px;">
+      </button>
+        </ion-buttons>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="goToEventFilter()">
+                <img src="assets/img/Filter.svg" alt="" style="height: 20px; width:20px;">
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header><ion-content>
     <ion-row class="data-row" *ngIf="enabled">
         <ion-item>
             You're in data saving mode

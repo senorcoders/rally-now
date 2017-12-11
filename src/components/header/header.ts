@@ -26,6 +26,7 @@ export class HeaderComponent {
 
   constructor(public modalCtrl: ModalController, private httpProvider:OrganizationsProvider, public navCtrl: NavController) {
     console.log('Hello HeaderComponent Component');
+    this.results = "people";
     this.searchControl = new FormControl();
 
   }

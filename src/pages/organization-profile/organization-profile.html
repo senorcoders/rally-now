@@ -3,7 +3,7 @@
 
 
 <ion-content>
-
+<!-- 
     <ion-row padding>
         <ion-col col-4 class="profile-headshot">
             <ion-avatar item-start>
@@ -22,6 +22,50 @@
             <p>{{description}}</p>
         </ion-col>
 
+    </ion-row> -->
+
+    <ion-row padding style="padding-bottom: 0; background: #fff;">
+        <ion-col col-4 class="profile-headshot">
+            <ion-avatar item-start class="profile-img">
+                <img src="{{data?.image_url}}">
+            </ion-avatar>
+          
+        </ion-col>
+        <ion-col col-8 class="profile-counts">
+            <ion-row>
+                <ion-col>
+                    <h4>26</h4>
+                    <p class="small">Posts</p>
+                </ion-col>
+                <ion-col (click)="goToFollowedCandidates()">
+                    <h4>12</h4>
+                    <p class="small">Followers</p>
+                </ion-col>
+               
+            </ion-row>
+            <ion-col col-12>
+                <button class="follow-btn" *ngIf="login" ion-button color="light" full outline (click)="addFollowRecordFirebase(dataID)">{{buttonFollowTest}}</button>
+            </ion-col>
+
+        </ion-col>
+            <ion-col col-12>
+                <h4 text-wrap class="username-h4">{{name}}</h4>
+            </ion-col>
+            <ion-col col-6 style="padding:0;">
+                <p style="margin:0; color: gray;"> <ion-icon style="color: #2196F3" name="logo-twitter"></ion-icon>
+                    @org</p>
+            </ion-col>
+            <ion-col col-6 style="padding:0;">
+              <p class="link">This is my organization</p>      
+            </ion-col>
+           
+        <ion-col col-12 >
+            <p text-wrap style="margin-top: 0;">{{description}}</p>
+        </ion-col>
+        <ion-col col-12>
+            <p style="color: gray;">ACTIVITY FEED</p>
+        </ion-col>
+       
     </ion-row>
 
   

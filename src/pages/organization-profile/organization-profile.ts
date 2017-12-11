@@ -29,6 +29,7 @@ export class OrganizationProfilePage {
   favEndpoint:any = 'actions';
   likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
   OrgPageName:any;
+  data:any;
 
 
   constructor(
@@ -64,6 +65,8 @@ export class OrganizationProfilePage {
   getdata(){
   this.orgProvider.getJsonData(this.endpoint + this.organizationID).subscribe(
     result => {
+      console.log(result);
+      this.data=result.organization[0];
       this.name=result.organization[0]['name'];
       this.description=result.organization[0]['description'];
       this.short_desc=result.organization[0]['short_desc'];

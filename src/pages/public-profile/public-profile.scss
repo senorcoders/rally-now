@@ -3,7 +3,7 @@ page-public-profile {
 //         text-align: center;
 //     }
     ion-content {
-        background-color: #f2f2f2 !important;
+        background-color: #fff !important;
         top: 60px !important;
     }
     .toolbar-background {
@@ -56,6 +56,9 @@ page-public-profile {
         margin-left: 0 !important;
         margin-right: 0 !important;
         width: 100% !important;
+        box-shadow: none !important;
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
         position: relative;
         .fab-md-light,
         .fab-ios-light {
@@ -69,21 +72,55 @@ page-public-profile {
         .inactive {
             background-color: #dfdfdf;
         }
-        .excerpt {
+        .friend-headshot {
             position: absolute;
-            width: 100%;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
             bottom: 0;
-            left: 0;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            text-transform: uppercase;
-            padding: 5px;
+            left: 10px;
+            bottom: 10px;
+            border: 3px solid #fff;
+        }
+        .heart-btn{
+        	margin: 0;
+        }
+
+
+        .blue-card {
+             background-color: #f2f2f2;
+        color: #bfbfbf;
+            border-right: 1px solid #fff;
+        }
+
+        
+        .button-clear-ios, .button-clear-md {
+            background-color: #f2f2f2;
+        color: #bfbfbf;
         }
     }
     .profile-rep {
         background-size: cover !important;
         background-repeat: no-repeat !important;
         background-position: center !important;
+    }
+
+    .boldName{
+        font-size: 35px;
+        font-weight: 900;
+        letter-spacing: 1px;
+    }
+
+    .profile-counts{
+        h4{
+            font-size: 30px;
+            font-weight: 200;
+        }
+    }
+
+    .follow-btn{
+        background: #356fba;
+        border-radius: 8px;
+        font-size: 12px;
     }
 }

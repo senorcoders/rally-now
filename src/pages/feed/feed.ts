@@ -18,6 +18,8 @@ import { Storage } from '@ionic/storage';
 import { UserData } from '../../providers/user-data';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import {EventDetailPage} from '../event-detail/event-detail';
+import { FriendsRequestPage } from '../friends-request/friends-request';
+import { FilterEventsPage } from '../filter-events/filter-events';
 
 @Component({
   selector: 'page-feed', 
@@ -459,5 +461,12 @@ removeEventFav(recordID){
   actionSheet.present();
 }
 
+goToRequests(){
+  this.navCtrl.push(FriendsRequestPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+}
 
+goToEventFilter(){
+  this.navCtrl.push(FilterEventsPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+  
+}
 }
