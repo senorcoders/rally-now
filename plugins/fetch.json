@@ -85,7 +85,7 @@
   "cordova-universal-links-plugin": {
     "source": {
       "type": "registry",
-      "id": "cordova-universal-links-plugin@^1.2.1"
+      "id": "cordova-universal-links-plugin@https://github.com/aramando/cordova-universal-links-plugin.git#35b3ed7e9a0310b12f1ac92a5159b21ce50eee57"
     },
     "is_top_level": true,
     "variables": {}
