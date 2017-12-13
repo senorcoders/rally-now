@@ -22,7 +22,7 @@
     <ion-list class="top-list">
         <ion-item (click)="goToListOrganizations()">
             <div item-start>
-             <img src="../../assets/img/Org.svg" alt="" style="width:20px; height:20px; margin-top:10px; margin-right:10px;">
+             <img src="assets/img/Org.svg" alt="" style="width:20px; height:20px; margin-top:10px; margin-right:10px;">
                     
             </div>
             See All Organizations
@@ -30,7 +30,7 @@
         </ion-item>
         <ion-item (click)="goToListReps()">
                 <div item-start>
-                 <img src="../../assets/img/Representatives.svg" alt="" style="width:20px; height:20px; margin-top:10px; margin-right:10px;">
+                 <img src="assets/img/Representatives.svg" alt="" style="width:20px; height:20px; margin-top:10px; margin-right:10px;">
                         
                 </div>
                 See All Representatives
@@ -38,7 +38,7 @@
             </ion-item>
             <ion-item>
                     <div item-start>
-                     <img src="../../assets/img/Community.svg" alt="" style="width:20px; height:20px; margin-top:10px; margin-right:10px;">
+                     <img src="assets/img/Community.svg" alt="" style="width:20px; height:20px; margin-top:10px; margin-right:10px;">
                             
                     </div>
                     Invite friends to Rally
@@ -54,7 +54,7 @@
         <ion-item *ngFor="let item of items">
             <ion-avatar item-start (click)="goToProfile(item.id)">
                 <!-- <img [src]="getPhoto(item.id)"> -->
-                <img src="../../assets/img/login-image.jpg" alt="" style="border:2px solid #ada8a8;">
+                <img src="assets/img/login-image.jpg" alt="" style="border:2px solid #ada8a8;">
             </ion-avatar>
             <h2 (click)="goToProfile(item.id)">{{item.name}}</h2>
             <p class="text-wrap">Friends on Facebook</p>

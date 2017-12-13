@@ -154,6 +154,25 @@ export class UsersProvider {
       console.log("Error", error);
     });
   }
+
+  updateFollowers(endpoint){
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json' );
+    headers.append('Access-Control-Allow-Origin', '*');
+    headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+    headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+    headers.append('Access-Control-Max-Age', '1728000');
+    let notiData = JSON.stringify({
+        approved: true
+      });
+    let options = new RequestOptions({ headers: headers });
+  this.http.put(encodeURI(this.base + endpoint), notiData, options)
+    .subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log("Error", error);
+    });
+  }
   
   enableLessData(endpoint, less_data){
     var headers = new Headers();
@@ -361,7 +380,7 @@ export class UsersProvider {
   }
 
 
-  saveNotification(user_id, device_id, msg, endpoint):void{
+  saveNotification(user_id, device_id, msg, endpoint, sender_id):void{
     var headers = new Headers();
     headers.append('Content-Type', 'application/json' );
     headers.append('Access-Control-Allow-Origin', '*');
@@ -374,13 +393,12 @@ export class UsersProvider {
     var d2 = new Date(d1.getUTCFullYear(),  d1.getUTCMonth(), d1.getUTCDate(), d1.getUTCHours(), d1.getUTCMinutes(), d1.getUTCSeconds());
 
     let options = new RequestOptions({ headers: headers });
-    let userData = JSON.stringify({device_id:device_id, user_id:user_id, created_at:d2.toUTCString(), updated_at:d2.toUTCString(), data:msg, msg: 'unread'});
+    let userData = JSON.stringify({device_id:device_id, user_id:user_id, created_at:d2.toUTCString(), updated_at:d2.toUTCString(), data:msg, what: 'unread', sender_id: sender_id});
     console.log(userData);
     this.http.post(encodeURI(this.base + endpoint), userData, options)
     .map(res => res.json())
     .subscribe(data => {
       console.log("NOTIFICATION", data);
-      this.data.response = data["_body"];
     }, error => {
       console.log("Error", error);
     });

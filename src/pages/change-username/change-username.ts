@@ -16,6 +16,7 @@ export class ChangeUsernamePage {
   endpoint:string = 'users/';
   userID:any;
   uid:any;
+  enable:boolean = true;
 
   constructor(
     public navCtrl: NavController, 
@@ -37,7 +38,22 @@ export class ChangeUsernamePage {
     this.navCtrl.setRoot(InterestedOrganizationsPage);
   }
 
-  getUID(){
+  checkAvailability(){
+      this.httpProvider.getJsonData(this.endpoint + '?username=' + this.username).subscribe(
+        result =>{
+          if(result != ""){
+            console.log('Username already exists');
+            this.enable = false;
+          }else{
+            console.log("Avaible!!");
+            this.enable = true;
+            this.followOrg();
+          }
+        }
+      )
+  }
+
+  getUID(){ 
     this.userData.getUid().then((uid) => {
       console.log(uid);
        this.af.database.ref('users/'+uid)

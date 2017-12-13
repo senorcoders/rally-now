@@ -17,6 +17,7 @@ import { Storage } from '@ionic/storage';
 import { HomePage } from '../home/home';
 import { CellularDataUsagePage } from '../cellular-data-usage/cellular-data-usage';
 import { EditProfilePage } from '../edit-profile/edit-profile';
+import { ChangeUsernamePage } from '../change-username/change-username';
 
 
 @IonicPage()
@@ -135,5 +136,10 @@ export class SettingsPage {
 
   goToEditProfile(){
     this.navCtrl.push(EditProfilePage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+  }
+
+  goToUsername(){
+    this.navCtrl.push(ChangeUsernamePage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+    
   }
 }

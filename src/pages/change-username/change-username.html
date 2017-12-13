@@ -8,9 +8,12 @@
           
             <ion-item>
               <ion-input type="text" value="{{username}}" [(ngModel)]="username"></ion-input>
+              <ion-icon *ngIf="enable" class="static-icon" style="color: green;" name="ios-checkmark-circle-outline" item-right></ion-icon> 
+              <ion-icon *ngIf="!enable" class="static-icon" style="color: red;" name="ios-refresh-outline" item-right></ion-icon>              
+              
             </ion-item>  
             <ion-item>
-                <button ion-button full color="primary" (click)="followOrg()">Next</button>
+                <button ion-button full color="primary" (click)="checkAvailability()">Next</button>
               </ion-item>         
           </ion-list>
 

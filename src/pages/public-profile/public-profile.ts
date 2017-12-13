@@ -122,7 +122,7 @@ presentToast(message) {
       this.httpProvider.getJsonData(this.notificationsEndpoint+'?user_id='+user_id)
         .subscribe(result => {
             console.log(result[0].id);
-            this.saveNotification(user_id, result[0].id);
+            this.saveNotification(user_id, result[0].id, this.myRallyID);
         }, err => {
           console.error("Error: " +err);
         }, () => {
@@ -130,9 +130,9 @@ presentToast(message) {
         });
     }
 
-    saveNotification(user_id, registration_id){
+    saveNotification(user_id, registration_id, sender_id){
       this.httpProvider.returnRallyUserId().then(user => {
-       this.httpProvider.saveNotification(user_id, registration_id, user.displayName + " wants to follow you",  this.alertsEndpoint);
+       this.httpProvider.saveNotification(user_id, registration_id, user.displayName + " wants to follow you",  this.alertsEndpoint, sender_id);
       this.followFriend(user_id);
       });
       //this.httpProvider.sendNotification(registration_id, msg);

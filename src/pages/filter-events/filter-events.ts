@@ -34,6 +34,7 @@ export class FilterEventsPage {
 zipcode:any = "22207";
 structure:number = 0;
 endpoint:any = 'events/';
+enable:boolean = false;
 
 goToEvents(){
   console.log(this.zipcode, this.structure, this.event.month, this.event.timeEnds);
@@ -55,5 +56,13 @@ goToEvents(){
       console.log('getData completed');
     }
   );
+ }
+
+
+ getDistance(){
+   console.log("Estructura", this.structure);
+   if(this.structure === 1000){
+    this.enable = true;
+   }
  }
 }

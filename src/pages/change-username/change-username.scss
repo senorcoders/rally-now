@@ -38,4 +38,14 @@ page-change-username {
             }
         }
     }
+
+    .list-md .item-block .item-inner, .list-ios .item-block .item-inner{
+        border: none !important;
+    }
+
+    .static-icon{
+        position: absolute;
+        right: 5px;
+        top: 0;
+    }
 }

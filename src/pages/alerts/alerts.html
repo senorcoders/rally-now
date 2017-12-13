@@ -15,9 +15,9 @@
         </ion-item>
 
              <ion-item-options side="right">
-                <button ion-button color="primary" (click)="markAsRead(alert.id)">
+                <button ion-button color="primary" (click)="markAsRead(alert.id, alert.sender_id)">
                   <ion-icon name="md-done-all"></ion-icon>
-                  Read
+                  Accept
                 </button>
                 <button ion-button color="danger" (click)="removeNotification(alert.id)">
                   <ion-icon name="ios-trash"></ion-icon>
@@ -37,7 +37,7 @@
         <ion-item-sliding *ngFor="let alert of alerts" >
         <ion-item *ngIf="alert.what === 'read'">
             <ion-avatar item-start>
-                <img src="assets/img/login-image.jpg">
+                <img [src]="getSenderPhoto(alert.sender_id)">
             </ion-avatar>
             <p>{{alert.data}}</p>
        

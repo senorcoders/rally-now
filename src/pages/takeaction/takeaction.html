@@ -22,7 +22,7 @@
             <p><small>{{objective.created_at | amTimeAgo}}</small></p>
         </ion-item>
 
-        <div (click)="goToActionPage(objective.id)" class="organization-bg" style="background: url('assets/img/login-image.jpg');">
+        <div (click)="goToActionPage(objective.id)" class="organization-bg"[ngStyle]="{ 'background-image' : 'url(' + objective.image_url +')'}">
             <!-- <div class="days-excerpt">
                 <p class="white">{{objective?.goals[0]?.description}}</p>
             </div> -->
@@ -33,8 +33,10 @@
                 <p class="white">{{objective?.title}}</p>
             </div>
             <div class="btn-objectives-contact">
-                <button ion-button>Contact</button>
-            </div>
+                    <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'call'">Contact</button>
+                    <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'Fax'">Fax</button>
+                    <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'Email'">Email</button>
+                    <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'Tweet'">Tweet</button>            </div>
         </div>
 
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
 import { FeedPage } from '../feed/feed'
@@ -19,13 +19,17 @@ export class AlertsPage {
   endpoint:any = 'ux_events';
   myRallyID:any;
   alerts:any;
+  followEndpoint:any = "following_users?following_id=";
+  followSingleEndpoint:any = "following_users/";
+  userEndpoint:any = "users/";
 
   constructor(
     public navCtrl: NavController,
     public alertCtrl: AlertController, 
     public popoverCtrl: PopoverController,
     private httpProvider:UsersProvider,
-    public device: Device) {
+    public device: Device,
+    public toastCtrl: ToastController) {
       this.httpProvider.returnRallyUserId().then(user => {
           this.myRallyID = user.apiRallyID;
           this.getData();
@@ -64,15 +68,48 @@ export class AlertsPage {
       );
      }
 
-     markAsRead(id){
+     markAsRead(id, sender_id){
         this.httpProvider.updateNotificationStatus(this.endpoint+'/'+id, 'read');
+        this.getFollowID(sender_id);
         console.log("Alert updated");
      }
 
+     getFollowID(sender_id){
+      this.httpProvider.getJsonData(this.followEndpoint + this.myRallyID + '&follower_id=' + sender_id).subscribe(
+        result => {
+          console.log("To get Follow ID", result);
+            if (result != ""){
+                this.httpProvider.updateFollowers(this.followSingleEndpoint + result[0].id);
+                this.presentToast('You got a new follower!');
+                
+            }
+        }
+      )
+     }
+
      removeNotification(id){
-      this.httpProvider.unfollowOrganization(this.endpoint+'/'+id, id)
+       console.log(id);
+      this.httpProvider.unfollowOrganization(this.endpoint, id);
+      this.presentToast('Notification removed');
      }
  
+     presentToast(message) {
+      let toast = this.toastCtrl.create({
+        message: message,
+        duration: 3000
+      });
+      toast.present();
+    }
 
+    getSenderPhoto(sender_id){
+      this.httpProvider.getJsonData(this.userEndpoint + sender_id).subscribe(
+        result => {
+            if (result != ""){
+              console.log(result.photo_url);
+                return result.photo_url;
+            }
+        }
+      )
+    }
         
 }
