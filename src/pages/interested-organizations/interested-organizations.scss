@@ -6,7 +6,12 @@ page-interested-organizations {
     p{
         font-size: 16px;
     }
-
+    ion-header{
+        padding-bottom: 0 !important;
+    }
+    .header-md::after, .header-ios::after{
+        background: none !important;
+    }
     ion-list{
         ion-item{
             ion-label{
