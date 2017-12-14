@@ -20,6 +20,7 @@ import { PhotoViewer } from '@ionic-native/photo-viewer';
 import {EventDetailPage} from '../event-detail/event-detail';
 import { FriendsRequestPage } from '../friends-request/friends-request';
 import { FilterEventsPage } from '../filter-events/filter-events';
+import { WebviewPage } from '../webview/webview';
 
 @Component({
   selector: 'page-feed', 
@@ -175,12 +176,17 @@ doRefresh(refresher) {
           profilePageName: "Home"
     }, {animate:true,animation:'transition',duration:500,direction:'forward'});
      }
-
-     goToActionPage(objectiveID){
-       this.navCtrl.push(OrganizationActionPage, {
+ 
+     goToActionPage(objectiveID, goal_type){
+       if(goal_type === "call"){
+        this.navCtrl.push(OrganizationActionPage, {
           objectiveID: objectiveID,
           pageName: 'Home'
-    }, {animate:true,animation:'transition',duration:500,direction:'forward'});
+      }, {animate:true,animation:'transition',duration:500,direction:'forward'});
+       } else{
+        this.navCtrl.push(WebviewPage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+       }
+      
      }
 
      share(title, imgURI){

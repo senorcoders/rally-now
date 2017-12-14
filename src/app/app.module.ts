@@ -84,6 +84,7 @@ import { ChangeUsernamePage } from '../pages/change-username/change-username';
 import { InterestedOrganizationsPage } from '../pages/interested-organizations/interested-organizations';
 import { FeedbackPage } from '../pages/feedback/feedback';
 import { ThankYouPage } from '../pages/thank-you/thank-you';
+import { WebviewPage } from '../pages/webview/webview';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -179,7 +180,8 @@ firebase.initializeApp(config);
         ChangeUsernamePage,
         InterestedOrganizationsPage,
         FeedbackPage,
-        ThankYouPage
+        ThankYouPage,
+        WebviewPage
     ],
     imports: [
         BrowserModule,
@@ -248,7 +250,8 @@ firebase.initializeApp(config);
         ChangeUsernamePage,
         InterestedOrganizationsPage,
         FeedbackPage,
-        ThankYouPage
+        ThankYouPage,
+        WebviewPage
     ],
     providers: [
         StatusBar,

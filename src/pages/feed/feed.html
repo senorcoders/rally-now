@@ -45,7 +45,7 @@
     </button>
             <p><small>{{objective.created_at | amTimeAgo}}</small></p>
         </ion-item>
-        <div (click)="goToActionPage(objective.id)" class="organization-bg" [ngStyle]="{ 'background-image' : 'url(' + objective.image_url +')'}">
+        <div (click)="goToActionPage(objective.id, objective?.goals[0]?.goal_type)" class="organization-bg" [ngStyle]="{ 'background-image' : 'url(' + objective.image_url +')'}">
                 
         <!-- <div (click)="goToActionPage(objective.id)" class="organization-bg" [ngStyle]="{ 'background-image' : 'url(' + objective.image_url !== null ? objective.image_url : localPhoto +')'}"> -->
             <!-- <div class="days-excerpt">
