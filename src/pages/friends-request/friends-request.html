@@ -60,7 +60,7 @@
             <p class="text-wrap">Friends on Facebook</p>
             <ion-row item-end text-right style="display: block; max-width: 80px;" >
                 <ion-col col-6 style="padding: 0;">
-                    <button ion-button color="dark" class="action-btn btn-friend">Follow</button>
+                    <button ion-button color="dark" class="action-btn btn-friend" (click)="followFriend(item.id)">Follow</button>
                 </ion-col>
                 <ion-col col-6 style="padding: 0;">
                     <button ion-button color="dark" class="action-btn">Hide</button>

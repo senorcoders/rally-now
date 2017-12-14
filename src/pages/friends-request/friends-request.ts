@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
@@ -38,7 +38,8 @@ export class FriendsRequestPage {
     public popoverCtrl: PopoverController,
     public dataService: DataProvider,
     private facebook: Facebook,
-    private httpProvicer: UsersProvider
+    private httpProvicer: UsersProvider,
+    public alertCtrl: AlertController
     ) {
        //this.searchControl = new FormControl();
        this.getFacebookFriendsList();
@@ -124,6 +125,31 @@ export class FriendsRequestPage {
 
     goToListReps(){
       this.navCtrl.push(RepresentivesListPage);
+    }
+
+    followFriend(fbID){
+        console.log(fbID);
+        this.httpProvicer.getJsonData(this.profileEndpoint + fbID).subscribe(
+          result => {
+  
+            if(result != ""){
+              console.log(result);
+              this.goToPublicProfile(result[0].id);
+            }else{
+              this.showAlert('Not found', 'This person is not using Rally anymore');
+            }
+             
+          });
+
+    }
+
+    showAlert(title, msg) {
+      let alert = this.alertCtrl.create({
+        title: title,
+        subTitle: msg,
+        buttons: ['OK']
+      });
+      alert.present();
     }
    
 
