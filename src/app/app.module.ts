@@ -85,6 +85,7 @@ import { InterestedOrganizationsPage } from '../pages/interested-organizations/i
 import { FeedbackPage } from '../pages/feedback/feedback';
 import { ThankYouPage } from '../pages/thank-you/thank-you';
 import { WebviewPage } from '../pages/webview/webview';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -274,7 +275,8 @@ firebase.initializeApp(config);
     CallNumber,
     Network,
     PhotoViewer,
-    VideoPlayer
+    VideoPlayer,
+    InAppBrowser
     
     ]
 })

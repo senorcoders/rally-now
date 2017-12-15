@@ -9,7 +9,7 @@
             <path url="/__/auth/callback" />
         </host>
     </universal-links>
-    <content original-src="index.html" src="http://192.168.8.105:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="*" />
     <allow-navigation href="http://ionic.local/*" />
@@ -119,7 +119,6 @@
     <plugin name="cordova-plugin-buildinfo" spec="^1.1.0" />
     <plugin name="cordova-universal-links-plugin" spec="^1.2.1" />
     <plugin name="cordova-plugin-browsertab" spec="^0.2.0" />
-    <plugin name="cordova-plugin-inappbrowser" spec="^1.7.1" />
     <plugin name="cordova-plugin-console" spec="^1.0.5" />
     <plugin name="cordova-plugin-device" spec="^1.1.4" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
@@ -159,4 +158,5 @@
     <engine name="ios" spec="~4.3.1" />
     <allow-navigation href="http://169.254.55.151:8100" />
     <allow-navigation href="http://169.254.64.161:8100" />
+    <plugin name="cordova-plugin-inappbrowser" spec="~1.7.1" />
 </widget>

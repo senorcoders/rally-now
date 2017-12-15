@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Tabs, IonicPage, NavController, NavParams, PopoverController, Events } from 'ionic-angular';
 import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
@@ -25,11 +25,15 @@ export class TabsPage {
   myRallyID:any;
   badgeCount:number;
 
+  @ViewChild('mainTabs') mainTabs: Tabs;
+
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public popoverCtrl: PopoverController,
-    private httpProvider: UsersProvider) {
+    private httpProvider: UsersProvider,
+    public events: Events) {
       this.httpProvider.returnRallyUserId().then( user => {
         this.myRallyID = user.apiRallyID;
         this.getNoticationsQty();
@@ -53,5 +57,10 @@ export class TabsPage {
         this.badgeCount = result.length;
       });
   }
+
+
+  public tapped() {
+    this.events.publish('home:scrollToTop', Date.now() );
+}
 
 }

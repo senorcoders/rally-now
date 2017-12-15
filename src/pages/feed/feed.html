@@ -58,10 +58,9 @@
                 <p class="white">{{objective?.title}}</p>
             </div>
             <div class="btn-objectives-contact">
-                <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'call'">Contact</button>
-                <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'Fax'">Fax</button>
-                <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'Email'">Email</button>
-                <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'Tweet'">Tweet</button>
+                <button ion-button *ngIf="objective?.goals[0]?.goal_type !== 'sign'">Contact</button>
+                <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'sign'">Sign</button>
+
                 
                 
                 
@@ -126,7 +125,7 @@
         </div>
         <ion-card-content>
             <ion-card-title>{{event.title}}</ion-card-title>
-            <p class="event-description">{{event.description}}</p>
+            <!-- <p class="event-description">{{event.description}}</p> -->
         </ion-card-content>
 
         <ion-row>

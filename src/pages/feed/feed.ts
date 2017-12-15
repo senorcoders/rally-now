@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, AlertController, PopoverController, LoadingController, ActionSheetController, ToastController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import {  NavController, AlertController, PopoverController, LoadingController, ActionSheetController, ToastController, Events } from 'ionic-angular';
 import { AlertsPage } from '../alerts/alerts'
 import { ProfilePage } from '../profile/profile'
 import { HomeFiltersPage } from '../home-filters/home-filters';
@@ -21,6 +21,7 @@ import {EventDetailPage} from '../event-detail/event-detail';
 import { FriendsRequestPage } from '../friends-request/friends-request';
 import { FilterEventsPage } from '../filter-events/filter-events';
 import { WebviewPage } from '../webview/webview';
+import { Content } from 'ionic-angular';
 
 @Component({
   selector: 'page-feed', 
@@ -47,6 +48,8 @@ export class FeedPage {
   localPhoto:any = 'https://static1.squarespace.com/static/5669e1f969a91ad6eca4abe1/t/581cc790b3db2bd6d9881936/1478281126634/Screen+Shot+2016-11-04+at+1.33.31+PM.png';
   avatarPhoto:any = 'https://flipagram.com/assets/resources/img/fg-avatar-anonymous-user-retina.png';
   
+  @ViewChild(Content) content: Content;
+
   constructor(
     public navCtrl: NavController,
     public alertCtrl: AlertController, 
@@ -61,7 +64,13 @@ export class FeedPage {
     private network: Network,
     private storage: Storage,
     private storageProvider: UserData,
-    private photoViewer: PhotoViewer) {
+    private photoViewer: PhotoViewer,
+    public eventsAng: Events) {
+
+      eventsAng.subscribe('home:scrollToTop', (time) => {
+        console.log('home:scrollToTop', 'at', time);
+        this.content.scrollToTop();
+      });
       console.log("Network", this.network.type);
       
       this.loading = this.loadingCtrl.create({
@@ -178,7 +187,7 @@ doRefresh(refresher) {
      }
  
      goToActionPage(objectiveID, goal_type){
-       if(goal_type === "call"){
+       if(goal_type !== "sign"){
         this.navCtrl.push(OrganizationActionPage, {
           objectiveID: objectiveID,
           pageName: 'Home'

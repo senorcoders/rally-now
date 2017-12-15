@@ -1,5 +1,12 @@
-<rally-orange-header></rally-orange-header>
-<ion-content>
-  <iframe  height="100%" width="100%" [src]="urlpaste()"></iframe>
+<ion-header>
+  <ion-navbar>
+            <ion-buttons end>
+          <button ion-button icon-only (click)="goToFeedBack()">
+            <ion-icon name="ios-refresh-outline" ></ion-icon>
+          </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header><ion-content>
+  <iframe  height="100%" width="100%" [src]="urlpaste(url)"></iframe>
   
-</ion-content>
+</ion-content> 
