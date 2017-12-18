@@ -46,7 +46,8 @@ export class ProfilePage {
   firsToggleIcon:any = "ios-arrow-down";
   secondToggleBtn: boolean = true; 
   actions:any;
-  
+  longest_streak:any;
+  streakToShow:any;
    user={
     displayName: '',
     photoURL: '',
@@ -73,6 +74,7 @@ export class ProfilePage {
             this.currentRallyID = user.apiRallyID;
             this.getUserData();
             this.getStreaks();
+            this.getLongest();
         });
 
   }
@@ -121,8 +123,9 @@ export class ProfilePage {
             this.user.friends_count = result[0].friends_count;
             this.user.followers_count = result[0].followers_count;
             this.user.organizations_count = result[0].organizations_count;
-             this.user.my_activity = result[0].my_activity;
-             this.actions = result[0].actions;
+            this.user.my_activity = result[0].my_activity;
+            this.actions = result[0].actions;
+            this.longest_streak = result[0].longest_streak;
           }
         );
      }
@@ -183,8 +186,8 @@ export class ProfilePage {
 getStreaks(){
   this.httpProvider.getJsonData(this.streaksEndpoint + this.currentRallyID)
    .subscribe( result =>{
-     console.log("Racha", result);
-     this.streaks = result;
+     console.log("Racha", result.length, result);
+     this.streaks = result.reverse();
     //  this.streaks = [
     //    {created_at: '2017-11-06TSomething'},
     //    {created_at: '2017-11-06TSomething'},
@@ -193,7 +196,7 @@ getStreaks(){
     //    {created_at: '2017-11-02TSomething'},
     //    {created_at: '2017-11-01TSomething'}
     //  ];
-     
+     console.log("From variable", this.streaks.length);
      for(let i=0; i < this.streaks.length; i++ ){
          let cuttedStreak = this.streaks[i].created_at.split('T');
          let date = cuttedStreak[0];             
@@ -201,7 +204,7 @@ getStreaks(){
          let newDate = date[1]+"/"+date[2]+"/"+date[0];
          let timestampDate = new Date(newDate).getTime();
          
-         
+         console.log(this.replacedDate);
           if(this.replacedDate != ""){
              if(timestampDate < this.replacedDate){
                let difference = this.replacedDate - timestampDate;
@@ -238,6 +241,22 @@ getStreaks(){
   finReps(){
     let modal = this.modalCtrl.create(AdressModalPage);
     modal.present();
+  }
+
+  getLongest(){
+    if(this.starArray.length > this.longest_streak){
+      console.log(this.longest_streak);
+
+      this.updateStreak(this.starArray.length);
+      this.streakToShow = this.starArray.length;
+    }else{
+      this.streakToShow = this.longest_streak;
+
+    }
+  }
+
+  updateStreak(value){
+    this.httpProvider.updateSingleItem(this.endpoint + '/' + this.currentRallyID,'longest_streak', value);
   }
 
         

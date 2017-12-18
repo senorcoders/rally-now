@@ -7,6 +7,7 @@ import { SocialShareProvider } from '../../providers/social-share/social-share';
 import { CallNumber } from '@ionic-native/call-number';
 import { CallPage } from '../call/call';
 import { WebviewPage } from '../webview/webview';
+import { Storage } from '@ionic/storage';
 
 
 @IonicPage()
@@ -39,6 +40,7 @@ export class OrganizationActionPage {
   orgPhoto:any;
   shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
   information = [];
+  enable:boolean;
 
   goalLike:any = 'ea9bd95e-128c-4a38-8edd-938330ad8b2d';
   likeendpoint:any = 'likes';
@@ -52,7 +54,8 @@ export class OrganizationActionPage {
     private shareProvider:SocialShareProvider,
     public actionSheetCtrl: ActionSheetController,
     private callNumber: CallNumber,
-    public viewCtrl: ViewController) {
+    public viewCtrl: ViewController,
+    private storage: Storage) {
   	  	this.objectiveID = navParams.get('objectiveID');
         this.pageName = navParams.get('pageName');
   	  	this.httpProvider.returnRallyUserId()
@@ -61,7 +64,7 @@ export class OrganizationActionPage {
         this.myrallyID = user.apiRallyID;
         this.getdata();
 
-
+ 
       });
 
   }
@@ -304,5 +307,15 @@ shareController(title, imgURI, reference_id, like_type, $event) {
 addShareAction(goal_id, action_type_id){
   this.httpProvider.addLike(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
 }
+
+
+getReps(){
+  this.storage.get('representatives').then((val) => {
+      if (val != null){
+        
+      }
+  });
+}
+
 
 }

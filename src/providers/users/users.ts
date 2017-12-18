@@ -421,4 +421,24 @@ export class UsersProvider {
       });
   } 
 
+
+  updateSingleItem(endpoint, itemName, value):void{
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json' );
+    headers.append('Access-Control-Allow-Origin', '*');
+    headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+    headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+    headers.append('Access-Control-Max-Age', '1728000');
+    let userData = JSON.stringify({
+      itemName: value
+      });
+    let options = new RequestOptions({ headers: headers });
+  this.http.put(encodeURI(this.base + endpoint), userData, options)
+    .subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log("Error", error);
+    });
+}
+
 }
