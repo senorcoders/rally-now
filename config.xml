@@ -9,7 +9,7 @@
             <path url="/__/auth/callback" />
         </host>
     </universal-links>
-    <content original-src="index.html" src="http://169.254.27.211:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="*" />
     <allow-navigation href="http://ionic.local/*" />
@@ -163,4 +163,7 @@
     <allow-navigation href="http://169.254.37.219:8100" />
     <allow-navigation href="http://169.254.188.89:8100" />
     <allow-navigation href="http://169.254.27.211:8100" />
+    <plugin name="cordova-plugin-nativegeocoder" spec="~2.0.4">
+        <variable name="LOCATION_WHEN_IN_USE_DESCRIPTION" value="Use geocoder service" />
+    </plugin>
 </widget>

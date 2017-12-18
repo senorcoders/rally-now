@@ -50,30 +50,27 @@
                 </div>
             </ion-item>
         </ion-list>
-        <ion-list>
-
-            <ion-item>
+        <ion-row *ngIf="!enable">
+            <div class="flex-center">
+                <h2>No representatives</h2>
+                <button ion-button color="dark" clear (click)="finReps()">FIND MY REPS</button>
+            </div>
+        </ion-row>
+        <ion-list *ngIf="enable">
+                <ion-item (click)="finReps()">
+                   <h2>YOUR REPRESENTATIVES</h2>
+                   <p>Address goes here</p>
+                   <ion-icon name="md-create" item-end></ion-icon>
+                </ion-item>
+            <ion-item *ngFor="let rep of reps">
                 <ion-avatar item-start>
-                    <img src="assets/img/login-image.jpg" style="border-radius: 50%;">
+                    <img src="{{rep.photo_url}}" style="border-radius: 50%;">
                 </ion-avatar>
-                <h2>Bob Representative</h2>
-                <p><small>Senator of somewhere</small></p>
+                <h2>{{rep.name}}</h2>
+                <p><small>Senator of {{rep.state_name}}</small></p>
                 <button (click)="presentActionSheet()" item-end ion-button color="dark" class="action-btn">Contact</button>
             </ion-item>
-            <ion-item>
-                <ion-avatar item-start>
-                    <img src="assets/img/login-image.jpg" style="border-radius: 50%;">
-                </ion-avatar>
-                <h2>Bob Representative</h2>
-                <button (click)="presentActionSheet()" item-end ion-button color="dark" class="action-btn">Contact</button>
-            </ion-item>
-            <ion-item>
-                <ion-avatar item-start>
-                    <img src="assets/img/login-image.jpg" style="border-radius: 50%;">
-                </ion-avatar>
-                <h2>Bob Representative</h2>
-                <button (click)="presentActionSheet()" item-end ion-button color="dark" class="action-btn">Contact</button>
-            </ion-item>
+          
         </ion-list>
 
 

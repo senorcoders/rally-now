@@ -137,4 +137,21 @@ page-organization-action {
     .test{
         height: 50px;
     }
+
+    .flex-center{
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+
+        h2{
+            font-size: 20px;
+        }
+        button{
+            background: #fff;
+            border: 1px solid #b9b4b4;
+            border-radius: 6px;
+            color: #b9b4b4 !important;
+            margin-top: 10px;
+        }
+    }
 }

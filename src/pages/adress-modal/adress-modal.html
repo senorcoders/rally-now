@@ -13,13 +13,13 @@
 
 <ion-content padding>
     <img src="assets/img/Representatives.svg">
-   <h1>Enter your zipcode to find your representatives</h1>
-   <ion-searchbar></ion-searchbar>
+   <h1>Enter your address to find your representatives</h1>
+   <ion-searchbar [(ngModel)]="searchTerm"></ion-searchbar>
 
 </ion-content>
 
 <ion-footer>
-  <button ion-button full class="reps-btn">
+  <button ion-button full class="reps-btn" (click)="getLocation()">
     FIND MY REPS 
   </button>
 </ion-footer>

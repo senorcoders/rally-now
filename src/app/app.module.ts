@@ -87,6 +87,7 @@ import { ThankYouPage } from '../pages/thank-you/thank-you';
 import { WebviewPage } from '../pages/webview/webview';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { AdressModalPage } from '../pages/adress-modal/adress-modal';
+import { NativeGeocoder} from '@ionic-native/native-geocoder';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -279,7 +280,8 @@ firebase.initializeApp(config);
     Network,
     PhotoViewer,
     VideoPlayer,
-    InAppBrowser
+    InAppBrowser,
+    NativeGeocoder
     
     ]
 })

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, ViewController, NavController, NavParams, ToastController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, ViewController, NavController, NavParams, ToastController, ActionSheetController, ModalController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
 import {AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
@@ -8,6 +8,7 @@ import { CallNumber } from '@ionic-native/call-number';
 import { CallPage } from '../call/call';
 import { WebviewPage } from '../webview/webview';
 import { Storage } from '@ionic/storage';
+import { AdressModalPage } from '../adress-modal/adress-modal';
 
 
 @IonicPage()
@@ -44,6 +45,7 @@ export class OrganizationActionPage {
 
   goalLike:any = 'ea9bd95e-128c-4a38-8edd-938330ad8b2d';
   likeendpoint:any = 'likes';
+  reps:any;
 
 
   constructor(public navCtrl: NavController, 
@@ -55,7 +57,8 @@ export class OrganizationActionPage {
     public actionSheetCtrl: ActionSheetController,
     private callNumber: CallNumber,
     public viewCtrl: ViewController,
-    private storage: Storage) {
+    private storage: Storage,
+    public modalCtrl: ModalController) {
   	  	this.objectiveID = navParams.get('objectiveID');
         this.pageName = navParams.get('pageName');
   	  	this.httpProvider.returnRallyUserId()
@@ -63,6 +66,9 @@ export class OrganizationActionPage {
         console.log(" Usuario",user);
         this.myrallyID = user.apiRallyID;
         this.getdata();
+        this.getReps();
+
+        
 
  
       });
@@ -71,7 +77,10 @@ export class OrganizationActionPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrganizationActionPage');
+
   }
+
+  
 
   ionViewWillEnter(){
    
@@ -311,11 +320,24 @@ addShareAction(goal_id, action_type_id){
 
 getReps(){
   this.storage.get('representatives').then((val) => {
+    console.log(val);
       if (val != null){
-        
+        this.enable = true;
+        this.reps = val;
+      } else{
+        this.enable = false;
       }
   });
 }
 
+
+finReps(){
+  let modal = this.modalCtrl.create(AdressModalPage);
+  modal.onDidDismiss(() => {
+    this.getReps();
+  });
+  modal.present();
+
+}
 
 }

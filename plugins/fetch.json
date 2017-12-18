@@ -203,5 +203,23 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-plugin-nativegeocoder": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-nativegeocoder"
+        },
+        "is_top_level": true,
+        "variables": {
+            "LOCATION_WHEN_IN_USE_DESCRIPTION": "Use geocoder service"
+        }
+    },
+    "cordova-plugin-add-swift-support": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-add-swift-support"
+        },
+        "is_top_level": false,
+        "variables": {}
     }
 }
