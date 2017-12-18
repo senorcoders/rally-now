@@ -1,0 +1,29 @@
+page-adress-modal {
+    .toolbar-background {
+        background: #f4512c !important;
+    } 
+
+    ion-header button span, ion-header button ion-icon{
+        color: #fff !important;
+    }
+
+    ion-content{
+        background: #fdfaf2 !important;
+        text-align: center;
+
+        h1{
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        img{
+            height: 70px !important;
+            margin-top: 50px;
+        }
+    }
+
+    .reps-btn{
+        background: #2A9FD8 !important;
+        height: 80px;
+    }
+}

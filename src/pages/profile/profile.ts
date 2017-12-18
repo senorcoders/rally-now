@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import { SettingsPage } from '../settings/settings';
 import { FriendsRequestPage } from '../friends-request/friends-request';
 import { MyRepsPage } from '../my-reps/my-reps';
@@ -17,6 +17,7 @@ import { UsersProvider } from '../../providers/users/users';
 import { MyFriendsPage } from '../my-friends/my-friends';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { RepresentivesListPage } from '../representives-list/representives-list';
+import { AdressModalPage } from '../adress-modal/adress-modal';
 
 
 
@@ -44,6 +45,7 @@ export class ProfilePage {
   public buttonClicked: boolean = false; //Whatever you want to initialise it as
   firsToggleIcon:any = "ios-arrow-down";
   secondToggleBtn: boolean = true; 
+  actions:any;
   
    user={
     displayName: '',
@@ -64,7 +66,8 @@ export class ProfilePage {
     public userData: UserData,
     public af:AngularFireDatabase,
     private httpProvider:UsersProvider,
-    private photoViewer: PhotoViewer
+    private photoViewer: PhotoViewer,
+    public modalCtrl: ModalController
     ) {
         this.httpProvider.returnRallyUserId().then(user =>{
             this.currentRallyID = user.apiRallyID;
@@ -118,7 +121,8 @@ export class ProfilePage {
             this.user.friends_count = result[0].friends_count;
             this.user.followers_count = result[0].followers_count;
             this.user.organizations_count = result[0].organizations_count;
-            this.user.my_activity = result[0].my_activity;
+             this.user.my_activity = result[0].my_activity;
+             this.actions = result[0].actions;
           }
         );
      }
@@ -230,6 +234,11 @@ getStreaks(){
      
    });
 }
+
+  finReps(){
+    let modal = this.modalCtrl.create(AdressModalPage);
+    modal.present();
+  }
 
         
 }

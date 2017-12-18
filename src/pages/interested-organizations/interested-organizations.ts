@@ -16,7 +16,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 export class InterestedOrganizationsPage {
 
   organizations:any = ORG;
-  enable:boolean = false;
+  enable:boolean = true;
   count:number= 0 ;
   buttonText:any = "Continue";
   followArray:any = [];

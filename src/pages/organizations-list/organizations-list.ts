@@ -4,6 +4,7 @@ import { UsersProvider } from '../../providers/users/users';
 import { OrganizationProfilePage } from '../organization-profile/organization-profile';
 import { AngularFireDatabase } from 'angularfire2/database';
 import firebase from 'firebase';
+import { Storage } from '@ionic/storage';
 
 
 @IonicPage()
@@ -29,7 +30,8 @@ export class OrganizationsListPage {
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
     private db: AngularFireDatabase,
-    public actionSheetCtrl: ActionSheetController) {
+    public actionSheetCtrl: ActionSheetController,
+    private storage: Storage) {
       this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
       }); 
@@ -37,10 +39,20 @@ export class OrganizationsListPage {
       this.httpProvider.returnRallyUserId().then(
         user => {
           this.currentRallyID = user.apiRallyID;
-          this.getOrganizations();
-          
-        }
-      )
+          this.storage.get('organizations').then((val) =>{
+            if(val != null){
+              console.log("Loading from local");
+              this.organizations = val;
+              this.initializeItems();
+              this.loading.dismiss();
+            } else{
+              console.log("calling the api");
+              this.getOrganizations();
+            }
+        });
+          });
+
+      
   }
 
  
@@ -49,6 +61,7 @@ export class OrganizationsListPage {
     this.httpProvider.getJsonData(this.endpoint)
       .subscribe( result => {
         this.organizations = result;
+        this.storage.set("organizations", result);
         this.initializeItems();
         this.loading.dismiss();
       });

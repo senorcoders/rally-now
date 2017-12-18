@@ -6,6 +6,7 @@ import firebase from 'firebase';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
 import { CallNumber } from '@ionic-native/call-number';
 import { CallPage } from '../call/call';
+import { WebviewPage } from '../webview/webview';
 
 
 @IonicPage()
@@ -32,10 +33,15 @@ export class OrganizationActionPage {
   shownGroup = null; 
   date:any; 
   pageName:any;
-  information = [
-    {title: "Why it's important", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor sit amet enim et vulputate. Donec et elit id quam viverra interdum at eu lacus. Duis volutpat semper magna, et auctor eros. Aliquam fermentum consequat turpis. Maecenas eu lectus at odio aliquet aliquam in convallis elit. Integer sagittis nunc vitae felis varius vestibulum. Pellentesque scelerisque rhoncus velit, sit amet fringilla tellus varius sit amet. Vestibulum ullamcorper sollicitudin feugiat. Nam eu placerat urna, ullamcorper finibus mi. Aliquam scelerisque ligula sem, eu euismod ex gravida faucibus. Etiam et pulvinar nisl. Phasellus ac tellus id purus vestibulum scelerisque ut sit amet elit. Sed velit est, suscipit a leo ullamcorper, sollicitudin aliquam quam. Maecenas blandit, ex at hendrerit euismod, erat felis pharetra ante, in fermentum nunc neque a felis. Integer vel est neque."},
-    {title: "What to say (talking points)", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor sit amet enim et vulputate. Donec et elit id quam viverra interdum at eu lacus. Duis volutpat semper magna, et auctor eros. Aliquam fermentum consequat turpis. Maecenas eu lectus at odio aliquet aliquam in convallis elit. Integer sagittis nunc vitae felis varius vestibulum. Pellentesque scelerisque rhoncus velit, sit amet fringilla tellus varius sit amet. Vestibulum ullamcorper sollicitudin feugiat. Nam eu placerat urna, ullamcorper finibus mi. Aliquam scelerisque ligula sem, eu euismod ex gravida faucibus. Etiam et pulvinar nisl. Phasellus ac tellus id purus vestibulum scelerisque ut sit amet elit. Sed velit est, suscipit a leo ullamcorper, sollicitudin aliquam quam. Maecenas blandit, ex at hendrerit euismod, erat felis pharetra ante, in fermentum nunc neque a felis. Integer vel est neque."}
-  ];
+  objectivesMedia:any;
+  objDesc:any;
+  objShort:any;
+  orgPhoto:any;
+  shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
+  information = [];
+
+  goalLike:any = 'ea9bd95e-128c-4a38-8edd-938330ad8b2d';
+  likeendpoint:any = 'likes';
 
 
   constructor(public navCtrl: NavController, 
@@ -85,6 +91,7 @@ export class OrganizationActionPage {
           text: 'Fax',
           handler: () => {
             console.log('Fax clicked');
+            this.navCtrl.push(WebviewPage);
           }
         },{
           text: 'Email',
@@ -96,7 +103,7 @@ export class OrganizationActionPage {
           text: 'Post message via Twitter',
           handler: () => {
             console.log('Post message via Twitter clicked');
-            this.shareProvider.twitterShare("Hola desde Rally up", "http://via.placeholder.com/350x150");
+            this.navCtrl.push(WebviewPage);
           }
         },{
           text: 'Cancel',
@@ -109,12 +116,13 @@ export class OrganizationActionPage {
     });
     actionSheet.present();
   }
-
+ 
   getdata(){
   this.httpProvider.getJsonData(this.endpoint + this.objectiveID).subscribe(
     result => {
       this.orgName=result.organization['name'];
       this.objTitle = result.title;
+      this.orgPhoto = result.organization['image_url'];
       this.orgDescription=result.organization['description'];
       this.organizationID=result.organization_id;
       this.rallies=result.rallies;
@@ -123,6 +131,19 @@ export class OrganizationActionPage {
       this.shares = result.shares;
       this.actions = result.goals[0];
       this.date = result.created_at;
+      this.objectivesMedia = result.image_url;
+      this.objDesc = result.description;
+      this.objShort = result.short_desc;
+      this.information.push(
+        {
+        title: "Why it's important",
+        description: this.objDesc
+        },
+      {
+        title: "What to say (talking points)",
+        description: this.objShort
+      });
+
       console.log("Actions", JSON.stringify(this.actions ));
       },
     err =>{
@@ -144,47 +165,10 @@ export class OrganizationActionPage {
     }
 
 
-    getFavID($event, goal_id, action_type_id){
-      console.log($event);
-  
-      
-      this.httpProvider.getJsonData(this.favEndpoint+'?goal_id='+goal_id+'&action_type_id='+this.likeAction+'&user_id='+this.myrallyID).subscribe(
-        result => {
-          console.log("Aqui", result);
-          
-          if(result != "" ){
-            this.removeFav(result[0].id);
-            this.presentToast('You unliked it');
-            $event.srcElement.style.backgroundColor = '#f2f2f2';
-            $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
-            this.likes--;
-            
-          }else{
-           this.addToFav(goal_id, action_type_id);
-            $event.srcElement.style.backgroundColor = '#296fb7';
-            $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
-            this.likes++;
-            
-          }
-        },
-        err =>{
-          console.error("Error : "+err);         
-        } ,
-        () => {
-          console.log('getData completed');
-        }
-  
-        );
-  }
-  
 
-  addToFav(goal_id, action_type_id){
-    this.httpProvider.addFavorites(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
-    this.presentToast('You liked it');
-  }
 
   removeFav(recordID){
-    this.httpProvider.unfollowOrganization(this.favEndpoint, recordID);
+    this.httpProvider.unfollowOrganization(this.likeendpoint, recordID);
     this.httpProvider.removeFollowRecordID(recordID, 'favorites');
   }
 
@@ -232,5 +216,93 @@ export class OrganizationActionPage {
 isGroupShown(group) {
     return this.shownGroup === group;
 };
+
+
+
+getLikeStatus($event, reference_id, like_type){
+  this.httpProvider.getJsonData(this.likeendpoint+'?reference_id='+reference_id+'&user_id='+this.myrallyID).subscribe(
+    result => {
+      console.log("Aqui", result);
+      
+      if(result != "" ){
+        this.removeFav(result[0].id);
+        this.presentToast('You unliked it');
+        $event.srcElement.style.backgroundColor = '#f2f2f2';
+        $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
+        $event.srcElement.innerText--;
+        
+      }else{
+       this.addLike(reference_id, like_type);
+       this.presentToast('You liked it');
+        $event.srcElement.style.backgroundColor = '#296fb7';
+        $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
+        $event.srcElement.innerText++;
+      }
+    },
+    err =>{
+      console.error("Error : "+err);         
+    } ,
+    () => {
+      console.log('getData completed');
+    }
+
+    );
+}
+
+addLike(reference_id, like_type){
+  this.httpProvider.addLike(this.likeendpoint, reference_id, this.myrallyID, like_type);
+}
+
+shareController(title, imgURI, reference_id, like_type, $event) {
+  const actionSheet = this.actionSheetCtrl.create({
+    title: 'Share with',
+    buttons: [
+      {
+        text: 'Facebook',
+        icon: 'logo-facebook',
+        handler: () => {
+          this.shareProvider.facebookShare(title, imgURI);
+          this.addShareAction(reference_id, like_type);
+          $event.srcElement.innerText++;           
+          this.presentToast('Objective shared!');
+        }
+      }, 
+      {
+        text: 'Twitter',
+        icon: 'logo-twitter',
+        handler: () => {
+          this.shareProvider.twitterShare(title, imgURI);
+          this.addShareAction(reference_id, like_type);
+          $event.srcElement.innerText++;           
+          this.presentToast('Objective shared!');
+        }
+      },
+      {
+        text: 'Others',
+        icon: 'md-share',
+        handler: () => {
+          console.log('Archive clicked');
+          this.shareProvider.otherShare(title, imgURI);
+          this.addShareAction(reference_id, like_type);
+          $event.srcElement.innerText++;           
+          this.presentToast('Objective shared!');
+        }
+      },
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }
+    ]
+  });
+
+  actionSheet.present();
+}
+
+addShareAction(goal_id, action_type_id){
+  this.httpProvider.addLike(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
+}
 
 }

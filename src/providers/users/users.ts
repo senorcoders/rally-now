@@ -290,46 +290,6 @@ export class UsersProvider {
   }
 
 
-  addFavorites(endpoint, goal_id, action_type_id, user_id):void{
-    var headers = new Headers();
-      headers.append('Content-Type', 'application/json' );
-      headers.append('Access-Control-Allow-Origin', '*');
-      headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
-      headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
-      headers.append('Access-Control-Max-Age', '1728000');
-      let options = new RequestOptions({ headers: headers });
-    let userData = JSON.stringify({action_type_id:action_type_id, goal_id:goal_id, user_id: user_id});
-    console.log(this.base + endpoint, userData, options);
-    this.http.post(encodeURI(this.base + endpoint), userData, options)
-      .map(res => res.json())
-      .subscribe(data => {
-        console.log("POST FAV", data);
-        //this.saveFollowRecordID(data.id, data.id, 'favorites');
-        this.data.response = data["_body"];
-      }, error => {
-        console.log("Error", error);
-      });
-  } 
-
-  addLikeEvent(endpoint, event_id, action_type_id, user_id):void{
-    var headers = new Headers();
-      headers.append('Content-Type', 'application/json' );
-      headers.append('Access-Control-Allow-Origin', '*');
-      headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
-      headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
-      headers.append('Access-Control-Max-Age', '1728000');
-      
-      let options = new RequestOptions({ headers: headers });
-    let userData = JSON.stringify({action_type_id:action_type_id, event_id:event_id, user_id: user_id});
-    console.log(this.base + endpoint, userData, options);
-    this.http.post(encodeURI(this.base + endpoint), userData, options)
-      .map(res => res.json())
-      .subscribe(data => {
-        console.log("POST FAV", data);
-      }, error => {
-        console.log("Error", error);
-      });
-  } 
 
   hideObjective(endpoint, user_id, objective_id):void{
       var headers = new Headers();
@@ -419,5 +379,46 @@ export class UsersProvider {
         console.log("Error", error);
       });
   }
+
+  addLike(endpoint, reference_id, user_id, like_type_id){
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json' );
+    headers.append('Access-Control-Allow-Origin', '*');
+    headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+    headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+    headers.append('Access-Control-Max-Age', '1728000');
+    
+    let options = new RequestOptions({ headers: headers });
+  let userData = JSON.stringify({reference_id: reference_id, user_id:user_id, like_type_id: like_type_id});
+  console.log(this.base + endpoint, userData, options);
+  this.http.post(encodeURI(this.base + endpoint), userData, options)
+    .map(res => res.json())
+    .subscribe(data => {
+      console.log("POST LIKE", data);
+    }, error => {
+      console.log("Error", error);
+    });
+  }
+
+  addShareAction(endpoint, goal_id, action_type_id, user_id):void{
+    var headers = new Headers();
+      headers.append('Content-Type', 'application/json' );
+      headers.append('Access-Control-Allow-Origin', '*');
+      headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+      headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+      headers.append('Access-Control-Max-Age', '1728000');
+      let options = new RequestOptions({ headers: headers });
+    let userData = JSON.stringify({action_type_id:action_type_id, goal_id:goal_id, user_id: user_id});
+    console.log(this.base + endpoint, userData, options);
+    this.http.post(encodeURI(this.base + endpoint), userData, options)
+      .map(res => res.json())
+      .subscribe(data => {
+        console.log("POST FAV", data);
+        //this.saveFollowRecordID(data.id, data.id, 'favorites');
+        this.data.response = data["_body"];
+      }, error => {
+        console.log("Error", error);
+      });
+  } 
 
 }

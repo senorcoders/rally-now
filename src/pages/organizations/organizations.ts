@@ -25,6 +25,9 @@ export class OrganizationsPage {
  favEndpoint:any = 'actions';
    hide_enpoint:any = 'hide_objective';
 likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
+goalLike:any = 'ea9bd95e-128c-4a38-8edd-938330ad8b2d';
+likeendpoint:any = 'likes';
+shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
 
 
 
@@ -107,44 +110,7 @@ likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
     }, {animate:true,animation:'transition',duration:500,direction:'forward'});
      }
 
-       shareController(title, imgURI) {
-   const actionSheet = this.actionSheetCtrl.create({
-     title: 'Share with',
-     buttons: [
-       {
-         text: 'Facebook',
-         icon: 'logo-facebook',
-         handler: () => {
-           this.shareProvider.facebookShare(title, imgURI);
-         }
-       },
-       {
-         text: 'Twitter',
-         icon: 'logo-twitter',
-         handler: () => {
-           this.shareProvider.twitterShare(title, imgURI);
-         }
-       },
-       {
-         text: 'Others',
-         icon: 'md-share',
-         handler: () => {
-           console.log('Archive clicked');
-           this.shareProvider.otherShare(title, imgURI);
-         }
-       },
-       {
-         text: 'Cancel',
-         role: 'cancel',
-         handler: () => {
-           console.log('Cancel clicked');
-         }
-       }
-     ]
-   });
-
-   actionSheet.present();
- }
+       
 
 
  presentToast(message) {
@@ -155,42 +121,9 @@ likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
       toast.present();
     }
 
- addToFav(goal_id, action_type_id){
-   this.rallyProvider.addFavorites(this.favEndpoint, goal_id, action_type_id, this.myApiRallyID);
-   this.presentToast('Added to Favorites');
- }
 
-  getFavID($event, goal_id, action_type_id){
-    console.log($event);
 
-    
-    this.rallyProvider.getJsonData(this.favEndpoint+'?goal_id='+goal_id+'&action_type_id='+this.likeAction+'&user_id='+this.myApiRallyID).subscribe(
-      result => {
-        console.log("Aqui", result);
-        
-        if(result != "" ){
-          this.removeFav(result[0].id);
-          this.presentToast('Removed from favorites');
-          $event.srcElement.style.backgroundColor = '#f2f2f2';
-          $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
-          $event.srcElement.innerText--;
-          
-        }else{
-         this.addToFav(goal_id, action_type_id);
-          $event.srcElement.style.backgroundColor = '#296fb7';
-          $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
-          $event.srcElement.innerText++;
-        }
-      },
-      err =>{
-        console.error("Error : "+err);         
-      } ,
-      () => {
-        console.log('getData completed');
-      }
-
-      );
-}
+  
 
     hideItem(objective_id, index){
         this.rallyProvider.hideObjective(this.hide_enpoint, this.myApiRallyID, objective_id);
@@ -233,4 +166,90 @@ showPhotoViewer(path){
   this.photoViewer.show(path);
 }
 
+
+getLikeStatus($event, reference_id, like_type){
+  this.httpProvider.getJsonData(this.likeendpoint+'?reference_id='+reference_id+'&user_id='+this.myApiRallyID).subscribe(
+    result => {
+      console.log("Aqui", result);
+      
+      if(result != "" ){
+        this.removeFav(result[0].id);
+        this.presentToast('You unliked it');
+        $event.srcElement.style.backgroundColor = '#f2f2f2';
+        $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
+        $event.srcElement.innerText--;
+        
+      }else{
+       this.addLike(reference_id, like_type);
+       this.presentToast('You liked it');
+        $event.srcElement.style.backgroundColor = '#296fb7';
+        $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
+        $event.srcElement.innerText++;
+      }
+    },
+    err =>{
+      console.error("Error : "+err);         
+    } ,
+    () => {
+      console.log('getData completed');
+    }
+
+    );
+}
+
+addLike(reference_id, like_type){
+  this.rallyProvider.addLike(this.likeendpoint, reference_id, this.myApiRallyID, like_type);
+}
+
+shareController(title, imgURI, reference_id, like_type, $event) {
+  const actionSheet = this.actionSheetCtrl.create({
+    title: 'Share with',
+    buttons: [
+      {
+        text: 'Facebook',
+        icon: 'logo-facebook',
+        handler: () => {
+          this.shareProvider.facebookShare(title, imgURI);
+          this.addShareAction(reference_id, like_type);
+          $event.srcElement.innerText++;           
+          this.presentToast('Objective shared!');
+        }
+      }, 
+      {
+        text: 'Twitter',
+        icon: 'logo-twitter',
+        handler: () => {
+          this.shareProvider.twitterShare(title, imgURI);
+          this.addShareAction(reference_id, like_type);
+          $event.srcElement.innerText++;           
+          this.presentToast('Objective shared!');
+        }
+      },
+      {
+        text: 'Others',
+        icon: 'md-share',
+        handler: () => {
+          console.log('Archive clicked');
+          this.shareProvider.otherShare(title, imgURI);
+          this.addShareAction(reference_id, like_type);
+          $event.srcElement.innerText++;           
+          this.presentToast('Objective shared!');
+        }
+      },
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }
+    ]
+  });
+
+  actionSheet.present();
+}
+
+addShareAction(goal_id, action_type_id){
+  this.rallyProvider.addShareAction(this.favEndpoint, goal_id, action_type_id, this.myApiRallyID);
+}
 }

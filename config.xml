@@ -159,4 +159,7 @@
     <allow-navigation href="http://169.254.55.151:8100" />
     <allow-navigation href="http://169.254.64.161:8100" />
     <plugin name="cordova-plugin-inappbrowser" spec="~1.7.1" />
+    <allow-navigation href="http://169.254.60.5:8100" />
+    <allow-navigation href="http://169.254.37.219:8100" />
+    <allow-navigation href="http://169.254.188.89:8100" />
 </widget>

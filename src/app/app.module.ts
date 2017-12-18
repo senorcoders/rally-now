@@ -86,6 +86,7 @@ import { FeedbackPage } from '../pages/feedback/feedback';
 import { ThankYouPage } from '../pages/thank-you/thank-you';
 import { WebviewPage } from '../pages/webview/webview';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { AdressModalPage } from '../pages/adress-modal/adress-modal';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -182,7 +183,8 @@ firebase.initializeApp(config);
         InterestedOrganizationsPage,
         FeedbackPage,
         ThankYouPage,
-        WebviewPage
+        WebviewPage,
+        AdressModalPage
     ],
     imports: [
         BrowserModule,
@@ -252,7 +254,8 @@ firebase.initializeApp(config);
         InterestedOrganizationsPage,
         FeedbackPage,
         ThankYouPage,
-        WebviewPage
+        WebviewPage,
+        AdressModalPage
     ],
     providers: [
         StatusBar,

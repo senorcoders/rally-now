@@ -11,7 +11,7 @@ import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser"
   templateUrl: 'webview.html',
 })
 export class WebviewPage {
-  url:any = "https://ionicframework.com/";
+  url:any = "https://twitter.com/";
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,

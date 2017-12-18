@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController, ViewController } 
 import { Platform, ActionSheetController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
 import { OrganizationProfilePage } from '../organization-profile/organization-profile';
+import { SocialShareProvider } from '../../providers/social-share/social-share';
 
 
 
@@ -32,6 +33,10 @@ export class EventDetailPage {
   likes:any;
   shares:any;
   testPhoto:any = 'https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08';
+  eventLike:any = 'd5d1b115-dbb6-4894-8935-322c336ae951';
+  likeendpoint:any = 'likes';
+  shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
+
 
   constructor(
     public navCtrl: NavController, 
@@ -40,7 +45,8 @@ export class EventDetailPage {
     public actionsheetCtrl: ActionSheetController,
     private httpProvider: UsersProvider,
     public toastCtrl: ToastController,
-    public viewCtrl: ViewController) {
+    public viewCtrl: ViewController,
+    private shareProvider:SocialShareProvider) {
         this.eventID = navParams.get('eventID');
         this.eventPageName = navParams.get('eventPageName');
         console.log("Evento ID", navParams.get('eventID'));
@@ -62,52 +68,7 @@ export class EventDetailPage {
     this.viewCtrl.setBackButtonText(this.eventPageName);
   }
 
-  openMenu() {
-    let actionSheet = this.actionsheetCtrl.create({
-      title: 'Albums',
-      cssClass: 'action-sheets-basic-page',
-      buttons: [
-        {
-          text: 'Delete',
-          role: 'destructive',
-          icon: !this.platform.is('ios') ? 'trash' : null,
-          handler: () => {
-            console.log('Delete clicked');
-          }
-        },
-        {
-          text: 'Share',
-          icon: !this.platform.is('ios') ? 'share' : null,
-          handler: () => {
-            console.log('Share clicked');
-          }
-        },
-        {
-          text: 'Play',
-          icon: !this.platform.is('ios') ? 'arrow-dropright-circle' : null,
-          handler: () => {
-            console.log('Play clicked');
-          }
-        },
-        {
-          text: 'Favorite',
-          icon: !this.platform.is('ios') ? 'heart-outline' : null,
-          handler: () => {
-            console.log('Favorite clicked');
-          }
-        },
-        {
-          text: 'Cancel',
-          role: 'cancel', // will always sort to be on the bottom
-          icon: !this.platform.is('ios') ? 'close' : null,
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }
-      ]
-    });
-    actionSheet.present();
-  }
+ 
 
 
      getdata(){
@@ -159,11 +120,34 @@ getButtonColor(){
 }
 
 
-getFavID($event, event_id, action_type_id){
-  console.log($event);
 
-  
-  this.httpProvider.getJsonData(this.favEndpoint+'?event_id='+event_id+'&action_type_id='+this.likeAction+'&user_id='+this.myrallyID).subscribe(
+
+presentToast(message) {
+  let toast = this.toastCtrl.create({
+    message: message,
+    duration: 3000
+  });
+  toast.present();
+}
+
+
+
+
+removeFav(recordID){
+  this.httpProvider.unfollowOrganization(this.likeendpoint, recordID);
+}
+
+
+goToOrganizationProfile(organizationID){
+  this.navCtrl.push(OrganizationProfilePage, {
+     organizationID: organizationID,
+     OrgPageName: this.title
+}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+}
+ 
+
+getLikeStatus($event, reference_id, like_type){
+  this.httpProvider.getJsonData(this.likeendpoint+'?reference_id='+reference_id+'&user_id='+this.myrallyID).subscribe(
     result => {
       console.log("Aqui", result);
       
@@ -172,12 +156,14 @@ getFavID($event, event_id, action_type_id){
         this.presentToast('You unliked it');
         $event.srcElement.style.backgroundColor = '#f2f2f2';
         $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
+        $event.srcElement.innerText--;
         
       }else{
-       this.addToFav(event_id, action_type_id);
-        $event.srcElement.style.backgroundColor = '#4a90e2';
-        $event.srcElement.offsetParent.style.backgroundColor = '#4a90e2';
-        
+       this.addLike(reference_id, like_type);
+       this.presentToast('You liked it');
+        $event.srcElement.style.backgroundColor = '#296fb7';
+        $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
+        $event.srcElement.innerText++;
       }
     },
     err =>{
@@ -190,31 +176,61 @@ getFavID($event, event_id, action_type_id){
     );
 }
 
-presentToast(message) {
-  let toast = this.toastCtrl.create({
-    message: message,
-    duration: 3000
+addLike(reference_id, like_type){
+  this.httpProvider.addLike(this.likeendpoint, reference_id, this.myrallyID, like_type);
+}
+
+shareController(title, imgURI, reference_id, like_type, $event) {
+  const actionSheet = this.actionsheetCtrl.create({
+    title: 'Share with',
+    buttons: [
+      {
+        text: 'Facebook',
+        icon: 'logo-facebook',
+        handler: () => {
+          this.shareProvider.facebookShare(title, imgURI);
+          this.addShareAction(reference_id, like_type);
+          $event.srcElement.innerText++;           
+          this.presentToast('Objective shared!');
+        }
+      }, 
+      {
+        text: 'Twitter',
+        icon: 'logo-twitter',
+        handler: () => {
+          this.shareProvider.twitterShare(title, imgURI);
+          this.addShareAction(reference_id, like_type);
+          $event.srcElement.innerText++;           
+          this.presentToast('Objective shared!');
+        }
+      },
+      {
+        text: 'Others',
+        icon: 'md-share',
+        handler: () => {
+          console.log('Archive clicked');
+          this.shareProvider.otherShare(title, imgURI);
+          this.addShareAction(reference_id, like_type);
+          $event.srcElement.innerText++;           
+          this.presentToast('Objective shared!');
+        }
+      },
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }
+    ]
   });
-  toast.present();
+
+  actionSheet.present();
 }
 
-
-addToFav(event_id, action_type_id){
-  this.httpProvider.addLikeEvent(this.favEndpoint, event_id, action_type_id, this.myrallyID);
-  this.presentToast('You liked it');
+addShareAction(goal_id, action_type_id){
+  this.httpProvider.addLike(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
 }
 
-removeFav(recordID){
-  this.httpProvider.unfollowOrganization(this.favEndpoint, recordID);
-}
-
-
-goToOrganizationProfile(organizationID){
-  this.navCtrl.push(OrganizationProfilePage, {
-     organizationID: organizationID,
-     OrgPageName: this.title
-}, {animate:true,animation:'transition',duration:500,direction:'forward'});
-}
- 
 
 }
