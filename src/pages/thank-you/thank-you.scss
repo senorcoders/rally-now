@@ -33,4 +33,18 @@ page-thank-you {
 
        
     }
+
+    .streak-row{
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        p{
+            font-size: 18px;
+            margin-top: 0 !important;
+        }
+
+        .icon {
+            font-size: 3em;
+            color: #ffc12b;
+        }
+    }
 }

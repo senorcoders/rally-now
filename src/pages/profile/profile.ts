@@ -189,6 +189,8 @@ getStreaks(){
      console.log("Racha", result.length, result);
      this.streaks = result.reverse();
     //  this.streaks = [
+    //   {created_at: '2017-11-19TSomething'},
+    //   {created_at: '2017-11-18TSomething'},
     //    {created_at: '2017-11-06TSomething'},
     //    {created_at: '2017-11-06TSomething'},
     //    {created_at: '2017-11-05TSomething'},

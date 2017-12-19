@@ -14,14 +14,20 @@
 <ion-content>
     <ion-row class="yellow-bg">
         <img src="assets/img/icon.png" alt="">
-        <h1>Great Job, Remy! <br> Thanks for Rallying</h1>
+        <h1>Great Job, {{username}}! <br> Thanks for Rallying</h1>
       </ion-row>
       <ion-row>
 
       </ion-row>
       <ion-row padding>
-        <p>CURRENT STREAK: <strong>15 DAYS</strong></p>
+        <p>CURRENT STREAK: <strong>{{starCount}} DAYS</strong></p> 
       </ion-row>
+      <ion-row padding class="streak-row">
+        <ion-col col-2 *ngFor="let star of starArray">
+            <ion-icon name="star"></ion-icon>
+        </ion-col>
+
+    </ion-row>
 </ion-content>
 <ion-footer>
   <button ion-button full icon-left>

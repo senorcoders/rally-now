@@ -48,6 +48,13 @@ export class OrganizationActionPage {
   reps:any;
   repAddress:any;
   repsEndpoint:any = 'reps?bioguide=';
+  data:any = [{
+    user_id: '',
+    title: '',
+    short_desc: '',
+    representative_id: '',
+    action_type_id: ''
+  }];
 
 
   constructor(public navCtrl: NavController, 
@@ -67,6 +74,8 @@ export class OrganizationActionPage {
       .then(user => {
         console.log(" Usuario",user);
         this.myrallyID = user.apiRallyID;
+        this.data.user_id = user.apiRallyID;
+        this.data.title = 'call';
         this.getdata();
         this.getReps();
 
@@ -105,18 +114,25 @@ export class OrganizationActionPage {
           text: 'Fax',
           handler: () => {
             console.log('Fax clicked');
+            this.data.action_type_id = 'ad3ef19b-d809-45b7-bef2-d470c9af0d1d';
+            this.httpProvider.addAction(this.favEndpoint, this.data);
             this.navCtrl.push(WebviewPage, {iframeUrl: fax});
+
           }
         },{
           text: 'Email',
           handler: () => {
             console.log('Email clicked');
+            this.data.action_type_id = 'f9b53bc8-9847-4699-b897-521d8e1a34bb';
+            this.httpProvider.addAction(this.favEndpoint, this.data);
             this.navCtrl.push(WebviewPage, {iframeUrl: email});
           }
         },{
           text: 'Post message via Twitter',
           handler: () => {
             console.log('Post message via Twitter clicked');
+            this.data.action_type_id = '9eef1652-ccf9-449a-901e-ad6c0b3a8a6c';
+            this.httpProvider.addAction(this.favEndpoint, this.data);
             this.navCtrl.push(WebviewPage, {iframeUrl: twitter});
           }
         },{
@@ -357,6 +373,7 @@ finReps(){
 getRepID(rep, fax, twitter, email, bioguide){
   this.httpProvider.getJsonData(this.repsEndpoint +bioguide).subscribe( result => {
       console.log(result[0].id);
+      this.data.representative_id = result[0].id;
       this.presentActionSheet(rep, fax, twitter, email, result[0].id);
   });
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { UsersProvider } from '../../providers/users/users';
 
 
 
@@ -10,10 +11,25 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class ThankYouPage {
 
+  currentRallyID:any;
+  streaksEndpoint:any = 'actions?user_id=';
+  streaks:any;
+  starCount:number = 0;
+  replacedDate:any = ''; 
+  public starArray:any[] = [];
+  endpoint:any = 'users/';
+  username:any;
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public viewCtrl: ViewController) {
+    public viewCtrl: ViewController,
+    private httpProvider: UsersProvider) {
+      this.httpProvider.returnRallyUserId().then(user =>{
+        this.currentRallyID = user.apiRallyID;
+          this.getStreaks();
+          this.getUsername();
+      });
   }
 
   ionViewDidLoad() {
@@ -23,5 +39,60 @@ export class ThankYouPage {
   dismiss() {
     this.viewCtrl.dismiss();
   }
+
+  getUsername(){
+    this.httpProvider.getJsonData(this.endpoint + this.currentRallyID).subscribe(result => {
+      this.username = result.name;
+    });
+  }
+
+  getStreaks(){
+    this.httpProvider.getJsonData(this.streaksEndpoint + this.currentRallyID)
+     .subscribe( result =>{
+       console.log("Racha", result.length, result);
+       this.streaks = result.reverse();
+     
+       console.log("From variable", this.streaks.length);
+       for(let i=0; i < this.streaks.length; i++ ){
+           let cuttedStreak = this.streaks[i].created_at.split('T');
+           let date = cuttedStreak[0];             
+           date = date.split('-');
+           let newDate = date[1]+"/"+date[2]+"/"+date[0];
+           let timestampDate = new Date(newDate).getTime();
+           
+           console.log(this.replacedDate);
+            if(this.replacedDate != ""){
+               if(timestampDate < this.replacedDate){
+                 let difference = this.replacedDate - timestampDate;
+                 let ms = difference / 1000;
+                 let seconds = ms % 60;
+                 ms /= 60;
+                 let minutes = ms % 60;
+                 ms /= 60;
+                 let hours = ms % 24;
+                 ms /= 24;
+                 let days = ms;
+                 this.replacedDate = timestampDate;
+  
+                 if (days <= 1){
+                     if(days != 0){
+                       this.starCount++;
+                       this.starArray.push({days: days});
+                     }  
+                 }
+                 
+               }
+  
+           }else{
+             this.replacedDate = timestampDate;
+           }
+         
+       }
+      
+       
+       
+     });
+  }
+  
 
 }
