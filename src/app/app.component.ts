@@ -12,6 +12,7 @@ import {UsersProvider} from '../providers/users/users';
 import {Push} from '@ionic/cloud-angular';
 import { TabsPage } from '../pages/tabs/tabs';
 //import { FCM } from '@ionic-native/fcm';
+import { Socket } from 'ng-socket-io';
 
 
  
@@ -32,8 +33,10 @@ export class MyApp {
       public storage:Storage,
       private httpProvider:UsersProvider,
       public push: Push,
+      private socket: Socket
       //private fcm: FCM
     	) {
+        console.log(this.socket);
        this.userData.hasLoggedIn().then((hasLoggedIn) => {
       
                 if(hasLoggedIn){
@@ -46,6 +49,11 @@ export class MyApp {
                 }
         }); 
           platform.ready().then((readySource) => {
+            this.socket.connect();
+            // this.socket.on('tweets', function(tweet){
+            //     console.log(tweet);
+            // });
+
 
             console.log("Platform Ready from ", readySource);
             statusBar.overlaysWebView(false);

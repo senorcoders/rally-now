@@ -88,9 +88,11 @@ import { WebviewPage } from '../pages/webview/webview';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { AdressModalPage } from '../pages/adress-modal/adress-modal';
 import { NativeGeocoder} from '@ionic-native/native-geocoder';
+import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
 
 
 //import { FCM } from '@ionic-native/fcm';
+const configws: SocketIoConfig = { url: 'ws://138.68.19.227:5000/', options: {} };
 
     const cloudSettings: CloudSettings = {
       'core': {
@@ -196,9 +198,8 @@ firebase.initializeApp(config);
         AngularFireAuthModule,
         CloudModule.forRoot(cloudSettings),
         MomentModule,
-        
-        
-    ],
+        SocketIoModule.forRoot(configws)       
+     ],
     bootstrap: [IonicApp],
     entryComponents: [
         MyApp,
@@ -270,18 +271,18 @@ firebase.initializeApp(config);
         DataProvider,
         TwitterConnect,
         AngularFireDatabase,
-    UsersProvider,
-    NotificationProvider,
-    Push,
-    Device,
-    SocialShareProvider,
-    SocialSharing,
-    CallNumber,
-    Network,
-    PhotoViewer,
-    VideoPlayer,
-    InAppBrowser,
-    NativeGeocoder
+        UsersProvider,
+        NotificationProvider,
+        Push,
+        Device,
+        SocialShareProvider,
+        SocialSharing,
+        CallNumber,
+        Network,
+        PhotoViewer,
+        VideoPlayer,
+        InAppBrowser,
+        NativeGeocoder
     
     ]
 })
