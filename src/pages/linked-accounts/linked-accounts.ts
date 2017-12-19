@@ -3,12 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UnlinkFacebookPage } from  '../unlink-facebook/unlink-facebook';
 import { UnlinkTwitterPage } from '../unlink-twitter/unlink-twitter';
 import { SettingsPage } from '../settings/settings';
-/**
- * Generated class for the LinkedAccountsPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { Facebook } from '@ionic-native/facebook';
 
 @IonicPage()
 @Component({
@@ -17,27 +12,18 @@ import { SettingsPage } from '../settings/settings';
 })
 export class LinkedAccountsPage {
 
-  LinkedAccounts: any[] =[
-    {
-      id:1,
-      name: 'Facebook',
-      icon: 'logo-facebook',
-      username: 'Milton Espinoza'
-    },
-    {
-      id:1,
-      name: 'Twitter',
-      icon: 'logo-twitter',
-      username: 'milton404'
-    }
-  ];
+  username:any;
+  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private facebook: Facebook) {
+
+      this.getFacebookAccount();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LinkedAccountsPage');
-  }
+ 
 
   goToAccount(accountName){
     if (accountName == 'Facebook') {
@@ -49,5 +35,15 @@ export class LinkedAccountsPage {
 
   goBack(){
     this.navCtrl.setRoot(SettingsPage);
+  }
+
+  getFacebookAccount(){
+    this.facebook.api('me/', ['public_profile']).then(
+      user => {
+        console.log(user);
+        this.username = user.name;
+      }, error => {
+        console.log("error", error);
+      });
   }
 }
