@@ -5,13 +5,13 @@
     <ion-row padding class="bordered">
         <ion-col col-8>
             <p class="gray">Calling this office</p>
-            <h3>Bob Representative</h3>
+            <h3>Representative {{rep.name}}</h3>
             <p class="gray">
                 <ion-icon name="ios-call-outline" style="color: #f4512c;
-                font-size: 18px;"></ion-icon> (123) 456-7890</p>
+                font-size: 18px;"></ion-icon> {{rep.phone}}</p>
         </ion-col>
         <ion-col col-4>
-            <div class="bob-headshot"></div>
+            <div class="bob-headshot" [ngStyle]="{ 'background-image' : 'url(' + rep.photo_url +')'}"></div>
         </ion-col>
         <ion-col col-12>
             This is your local representative in the house.
@@ -20,8 +20,8 @@
     <ion-row padding>
         <ion-list>
             <ion-list-header style="border: none; padding-left: 0;">Talking Points</ion-list-header>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit eos veniam pariatur expedita aut fugit dicta maxime iure temporibus molestiae.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis cumque fuga placeat quidem tenetur rerum sed provident ab, quisquam similique?</p>
+            <p>{{rep.biography}}</p>
+           
         </ion-list>
     </ion-row>
 </ion-content>
@@ -33,7 +33,7 @@
             </button>
         </ion-col>
         <ion-col col-6 class="btn-light-blue right-border">
-            <button ion-button full>
+            <button ion-button full (click)="makeCall(rep.phone)">
                 <div class="special-btn">
                         <img src="assets/img/Call.svg" alt="">
                         

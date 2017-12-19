@@ -446,4 +446,34 @@ export class UsersProvider {
     });
 }
 
+
+addAction(endpoint, data):void{
+  console.log(data);
+  var headers = new Headers();
+    headers.append('Content-Type', 'application/json' );
+    headers.append('Access-Control-Allow-Origin', '*');
+    headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+    headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+    headers.append('Access-Control-Max-Age', '1728000');
+    let options = new RequestOptions({ headers: headers });
+  let userData = JSON.stringify({
+    action_type_id: data.action_type_id, 
+    goal_id:data.goal_id, 
+    user_id: data.user_id, 
+    representative_id: data.representative_id,
+    title: data.title,
+    short_desc: data.short_desc,
+    event_id: data.event_id
+     });
+  console.log(this.base + endpoint, userData, options);
+  this.http.post(encodeURI(this.base + endpoint), userData, options)
+    .map(res => res.json())
+    .subscribe(data => {
+      console.log("Add action", data);
+      //this.saveFollowRecordID(data.id, data.id, 'favorites');
+    }, error => {
+      console.log("Error", error);
+    });
+} 
+
 }

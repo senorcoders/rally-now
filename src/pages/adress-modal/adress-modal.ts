@@ -47,6 +47,7 @@ export class AdressModalPage {
         result => {
             console.log("Your reps", result.data);
             this.storage.set('representatives', result.data);
+            this.storage.set('repAdress', this.searchTerm);
             this.dismiss();
         });
   }

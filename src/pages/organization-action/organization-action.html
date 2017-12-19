@@ -59,7 +59,7 @@
         <ion-list *ngIf="enable">
                 <ion-item (click)="finReps()">
                    <h2>YOUR REPRESENTATIVES</h2>
-                   <p>Address goes here</p>
+                   <p>{{repAddress}}</p>
                    <ion-icon name="md-create" item-end></ion-icon>
                 </ion-item>
             <ion-item *ngFor="let rep of reps">
@@ -68,13 +68,13 @@
                 </ion-avatar>
                 <h2>{{rep.name}}</h2>
                 <p><small>Senator of {{rep.state_name}}</small></p>
-                <button (click)="presentActionSheet()" item-end ion-button color="dark" class="action-btn">Contact</button>
+                <button (click)="getRepID(rep, rep.civil_services_url ,rep.twitter_url,rep.contact_page, rep.bioguide)" item-end ion-button color="dark" class="action-btn">Contact</button>
             </ion-item>
           
         </ion-list>
 
 
-
+        
     </ion-card>
 
     <div class="test"></div>

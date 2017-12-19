@@ -46,6 +46,8 @@ export class OrganizationActionPage {
   goalLike:any = 'ea9bd95e-128c-4a38-8edd-938330ad8b2d';
   likeendpoint:any = 'likes';
   reps:any;
+  repAddress:any;
+  repsEndpoint:any = 'reps?bioguide=';
 
 
   constructor(public navCtrl: NavController, 
@@ -87,14 +89,14 @@ export class OrganizationActionPage {
     this.viewCtrl.setBackButtonText(this.pageName);
   }
 
-  presentActionSheet() {
+  presentActionSheet(rep, fax, twitter, email, repID) {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Contact Bob Representative',
       buttons: [
         {
           text: 'Call',
           handler: () => {
-            this.navCtrl.push(CallPage);
+            this.navCtrl.push(CallPage, {rep: rep, repID: repID});
             // this.callNumber.callNumber("18001010101", true)
             // .then(() => console.log('Launched dialer!'))
             // .catch((error) => console.log('Error launching dialer', error));
@@ -103,19 +105,19 @@ export class OrganizationActionPage {
           text: 'Fax',
           handler: () => {
             console.log('Fax clicked');
-            this.navCtrl.push(WebviewPage);
+            this.navCtrl.push(WebviewPage, {iframeUrl: fax});
           }
         },{
           text: 'Email',
           handler: () => {
             console.log('Email clicked');
-            this.shareProvider.shareViaEmail();
+            this.navCtrl.push(WebviewPage, {iframeUrl: email});
           }
         },{
           text: 'Post message via Twitter',
           handler: () => {
             console.log('Post message via Twitter clicked');
-            this.navCtrl.push(WebviewPage);
+            this.navCtrl.push(WebviewPage, {iframeUrl: twitter});
           }
         },{
           text: 'Cancel',
@@ -324,9 +326,20 @@ getReps(){
       if (val != null){
         this.enable = true;
         this.reps = val;
+        this.getAddress();
       } else{
         this.enable = false;
       }
+  });
+}
+
+getAddress(){
+  this.storage.get('repAdress').then((val) => {
+    if (val != null){
+      this.repAddress = val;
+    } else{
+      this.repAddress = "No Address";
+    }
   });
 }
 
@@ -339,5 +352,14 @@ finReps(){
   modal.present();
 
 }
+
+
+getRepID(rep, fax, twitter, email, bioguide){
+  this.httpProvider.getJsonData(this.repsEndpoint +bioguide).subscribe( result => {
+      console.log(result[0].id);
+      this.presentActionSheet(rep, fax, twitter, email, result[0].id);
+  });
+}
+
 
 }

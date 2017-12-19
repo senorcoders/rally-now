@@ -19,10 +19,12 @@ page-call {
         height: 70px;
         width: 70px;
         border-radius: 50%;
-        background-color: green;
         margin: 0 auto;
         margin-right: 0;
         border: 2px solid gray;
+        background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     }
 
     .gray {
