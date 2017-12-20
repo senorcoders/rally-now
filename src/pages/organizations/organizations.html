@@ -32,10 +32,9 @@
                 <p class="white">{{objective?.title}}</p>
             </div>
             <div class="btn-objectives-contact">
-                    <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'call'">Contact</button>
-                    <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'Fax'">Fax</button>
-                    <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'Email'">Email</button>
-                    <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'Tweet'">Tweet</button>            </div>
+                    <button ion-button *ngIf="objective?.goals[0]?.goal_type !== 'sign'">Contact</button>
+                    <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'sign'">Sign</button></div>
+   
         </div>
 
 
@@ -64,7 +63,7 @@
         </ion-row>
 
         <ion-row>
-            <button class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, objective?.goals[0]?.id, goalLike)" [ngStyle]="{'background-color': findInLoop(objective?.goals[0]?.actions)}">
+            <button class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, objective?.goals[0]?.id, goalLike)" [ngStyle]="{'background-color': findInLoop(objective?.goals[0]?.user_likes)}">
                 <ion-icon name="ios-heart" ></ion-icon>
                 {{objective.likes}}
             </button>

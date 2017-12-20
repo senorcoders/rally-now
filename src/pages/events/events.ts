@@ -152,13 +152,9 @@ goToEventFilter(){
 
     findInLoop(actions){
       if (actions != null){
-        
         var found = actions.some(el => { 
-          if(el.action_type_id === this.likeAction){
-            if(typeof(el.user_id[0]) !== 'undefined'){
-              return el.user_id[0].id === this.myrallyID;
-            } 
-          }
+          console.log(el);
+            return el == this.myrallyID;
           
         });
         

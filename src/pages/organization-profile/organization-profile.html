@@ -133,7 +133,7 @@
         </ion-row>
 
         <ion-row>
-            <button class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, objective?.goals[0]?.id, goalLike)" [ngStyle]="{'background-color': findInLoop(objective?.goals[0]?.actions)}">
+            <button class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, objective?.goals[0]?.id, goalLike)" [ngStyle]="{'background-color': findInLoop(objective?.goals[0]?.user_likes)}">
                 <ion-icon name="ios-heart" ></ion-icon>
                 {{objective.likes}}
             </button>

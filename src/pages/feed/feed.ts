@@ -343,8 +343,8 @@ doRefresh(refresher) {
   findInLoop(actions){
     if (actions != null){
       var found = actions.some(el => { 
-        // console.log(el);
-          return el.id == this.myrallyID;
+        console.log(el);
+          return el == this.myrallyID;
         
       });
       

@@ -202,25 +202,21 @@ presentToast(message) {
     }
 
      findInLoop(actions){
-    if (actions != null){
-      
-      var found = actions.some(el => { 
-        if(el.action_type_id === this.likeAction){
-          if(typeof(el.user_id[0]) !== 'undefined'){
-            return el.user_id[0].id === this.myrallyID;
-          } 
+      if (actions != null){
+        var found = actions.some(el => { 
+          console.log(el);
+            return el == this.myrallyID;
+          
+        });
+        
+        if (!found){
+          return '#f2f2f2';
+          
+        }else{
+          return '#296fb7';
+          
         }
-        
-      });
-      
-      if (!found){
-        return '#f2f2f2';
-        
-      }else{
-        return '#296fb7';
-        
       }
-    }
    
   }
 

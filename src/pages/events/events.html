@@ -54,7 +54,7 @@
         </ion-card-content>
 
         <ion-row>
-            <button class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, event.id, eventLike)" [ngStyle]="{'background-color': findInLoop(event?.actions)}">
+            <button class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, event.id, eventLike)" [ngStyle]="{'background-color': findInLoop(event?.user_likes)}">
                 <ion-icon name="ios-heart" ></ion-icon>
                 {{event.likes}}
             </button>

@@ -97,7 +97,7 @@ export class EventDetailPage {
 }
 
 getButtonColor(){
-  this.httpProvider.getJsonData(this.favEndpoint+'?event_id='+this.eventID+'&action_type_id='+this.likeAction+'&user_id='+this.myrallyID)
+  this.httpProvider.getJsonData(this.likeendpoint+'?reference_id='+this.eventID+'&user_id='+this.myrallyID)
     .subscribe(
         result => {
           console.log("Resultado", result);

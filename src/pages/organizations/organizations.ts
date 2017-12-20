@@ -132,25 +132,21 @@ shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
 
 
      findInLoop(actions){
-    if (actions != null){
-      
-      var found = actions.some(el => { 
-        if(el.action_type_id === this.likeAction){
-          if(typeof(el.user_id[0]) !== 'undefined'){
-            return el.user_id[0].id === this.myApiRallyID;
-          } 
+      if (actions != null){
+        var found = actions.some(el => { 
+          console.log(el);
+            return el == this.myApiRallyID;
+          
+        });
+        
+        if (!found){
+          return '#f2f2f2';
+          
+        }else{
+          return '#296fb7';
+          
         }
-        
-      });
-      
-      if (!found){
-        return '#f2f2f2';
-        
-      }else{
-        return '#296fb7';
-        
       }
-    }
    
   }
 

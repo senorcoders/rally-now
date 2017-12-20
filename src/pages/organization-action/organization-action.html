@@ -85,7 +85,7 @@
 <ion-footer>
     <ion-toolbar style="min-height: auto; padding: 0;">
         <ion-row>
-            <button class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, goal_id, goalLike)" [ngStyle]="{'background-color': findInLoop(actions?.actions)}">
+            <button class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, goal_id, goalLike)" [ngStyle]="{'background-color': findInLoop(actions?.user_likes)}">
                 <ion-icon name="md-heart" ios="md-heart" md="ios-heart" ></ion-icon>
                 {{likes}}
             </button>
