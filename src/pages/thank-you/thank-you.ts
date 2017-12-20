@@ -19,6 +19,9 @@ export class ThankYouPage {
   public starArray:any[] = [];
   endpoint:any = 'users/';
   username:any;
+  weekInMiliseconds:number = 604800000;
+  weekStreaks:any;
+  countWeek:number = 0;
 
   constructor(
     public navCtrl: NavController, 
@@ -29,6 +32,7 @@ export class ThankYouPage {
         this.currentRallyID = user.apiRallyID;
           this.getStreaks();
           this.getUsername();
+          this.getStreaksPerWeek();
       });
   }
 
@@ -92,6 +96,35 @@ export class ThankYouPage {
        
        
      });
+  }
+
+
+  getStreaksPerWeek(){
+    this.httpProvider.getJsonData(this.streaksEndpoint + this.currentRallyID).subscribe(result =>{
+        this.weekStreaks = result.reverse();
+        this.calcWeekly();
+    });
+  }
+
+  calcWeekly(){
+
+    var todayDate = new Date();
+    var todayInMiliseconds = todayDate.getTime();
+    console.log(todayInMiliseconds);
+
+    for(let i=0; i < this.weekStreaks.length; i++ ){
+      let originalDate = this.weekStreaks[i].created_at.split('T');
+      let splittedDate = originalDate[0];             
+      splittedDate = splittedDate.split('-');
+      let newDate = splittedDate[1]+"/"+splittedDate[2]+"/"+splittedDate[0];
+      let dateInMilisenconds = new Date(newDate).getTime();
+      console.log(dateInMilisenconds);
+
+      if((todayInMiliseconds - dateInMilisenconds) <= this.weekInMiliseconds){
+        console.log("In this week, YUY!");
+        this.countWeek++;
+      }
+    }
   }
   
 
