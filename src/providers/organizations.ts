@@ -13,7 +13,7 @@ export const ORG =[
         "emails": [],
         "contacts": [],
         "followers": [],
-        "selected": false
+        "selected": true
         },
         {
         "id": "c638f9c4-4a81-48d9-8664-6acd10058eaf",
@@ -28,7 +28,7 @@ export const ORG =[
         "emails": [],
         "contacts": [],
         "followers": [],
-        "selected": false
+        "selected": true
         
         },
         {
@@ -44,7 +44,7 @@ export const ORG =[
         "emails": [],
         "contacts": [],
         "followers": [],
-        "selected": false
+        "selected": true
         
         },
         {
@@ -60,7 +60,7 @@ export const ORG =[
         "emails": [],
         "contacts": [],
         "followers": [],
-        "selected": false
+        "selected": true
         
         },
         {
@@ -76,7 +76,7 @@ export const ORG =[
         "emails": [],
         "contacts": [],
         "followers": [],
-        "selected": false
+        "selected": true
         
         },
         {
@@ -92,7 +92,7 @@ export const ORG =[
         "emails": [],
         "contacts": [],
         "followers": [],
-        "selected": false
+        "selected": true
         
         },
         {
@@ -108,7 +108,7 @@ export const ORG =[
         "emails": [],
         "contacts": [],
         "followers": [],
-        "selected": false
+        "selected": true
         
         },
         {
@@ -124,7 +124,7 @@ export const ORG =[
         "emails": [],
         "contacts": [],
         "followers": [],
-        "selected": false
+        "selected": true
         
         },
         {
@@ -140,7 +140,7 @@ export const ORG =[
         "emails": [],
         "contacts": [],
         "followers": [],
-        "selected": false
+        "selected": true
         
         }
 ];

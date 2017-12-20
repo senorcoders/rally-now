@@ -52,7 +52,7 @@ export class FeedPage {
   eventLike:any = 'd5d1b115-dbb6-4894-8935-322c336ae951';
   likeendpoint:any = 'likes';
   
-  @ViewChild(Content) content: Content;
+  // @ViewChild(Content) content: Content;
 
   constructor(
     public navCtrl: NavController,
@@ -71,10 +71,10 @@ export class FeedPage {
     private photoViewer: PhotoViewer,
     public eventsAng: Events) {
 
-      eventsAng.subscribe('home:scrollToTop', (time) => {
-        console.log('home:scrollToTop', 'at', time);
-        this.content.scrollToTop();
-      });
+      // eventsAng.subscribe('home:scrollToTop', (time) => {
+      //   console.log('home:scrollToTop', 'at', time);
+      //   this.content.scrollToTop();
+      // });
       console.log("Network", this.network.type);
       
       this.loading = this.loadingCtrl.create({
@@ -280,7 +280,7 @@ doRefresh(refresher) {
            this.presentToast('You liked it');
             $event.srcElement.style.backgroundColor = '#296fb7';
             $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
-            $event.path.innerText++;
+            $event.srcElement.innerText++;
           }
         },
         err =>{

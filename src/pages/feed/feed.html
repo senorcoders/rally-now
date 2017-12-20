@@ -3,7 +3,7 @@
         <ion-title>
             <img class="rally-header-logo" src="assets/img/rally-logo.svg">
         </ion-title>
-        <ion-buttons start>
+        <ion-buttons start style="order:1;">
             <button ion-button icon-only (click)="goToRequests()">
        <img src="assets/img/add.svg" alt="" style="height: 20px; width:20px;">
       </button>
@@ -38,7 +38,7 @@
 
         <ion-item>
             <ion-avatar item-start>
-                <img [src]="objective.organization['image_url'] ? objective.organization['image_url'] : testPhoto" (click)="showPhotoViewer(objective.organization['image_url'] ? objective.organization['image_url'] : testPhoto)">
+                <img [src]="objective.organization['image_url'] ? objective.organization['image_url'] : testPhoto" (click)="goToOrganizationProfile(objective.organization_id)">
             </ion-avatar>
             <button (click)="goToOrganizationProfile(objective.organization_id)" style="background: none; padding-left:0;">
         <h2> <small>via</small> {{objective.organization['name']}}</h2>
@@ -69,7 +69,7 @@
 
 
         <ion-card-content>
-            <p>{{objective.description}}</p>
+            <p>{{objective.description | truncate : 200 : '...'}}</p>
            
         </ion-card-content>
         <ion-row>
@@ -105,7 +105,7 @@
 
         <ion-item>
             <ion-avatar item-start>
-                <img [src]="event.organization[0].image_url ? event.organization[0].image_url : testPhoto" (click)="showPhotoViewer(event.organization[0].image_url ? event.organization[0].image_url : testPhoto)">
+                <img [src]="event.organization[0].image_url ? event.organization[0].image_url : testPhoto" (click)="goToOrganizationProfile(event.organization_id)">
             </ion-avatar>
             <button (click)="goToOrganizationProfile(event.organization_id)" style="background: none; padding-left:0;">
                 <h2> <small>via</small> {{event.organization[0].name}}</h2>

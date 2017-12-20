@@ -89,6 +89,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { AdressModalPage } from '../pages/adress-modal/adress-modal';
 import { NativeGeocoder} from '@ionic-native/native-geocoder';
 import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
+import { TruncateModule } from 'ng2-truncate';
+import { RallyNameHeaderComponent } from '../components/rally-name-header/rally-name-header';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -187,7 +189,8 @@ firebase.initializeApp(config);
         FeedbackPage,
         ThankYouPage,
         WebviewPage,
-        AdressModalPage
+        AdressModalPage,
+        RallyNameHeaderComponent
     ],
     imports: [
         BrowserModule,
@@ -198,7 +201,8 @@ firebase.initializeApp(config);
         AngularFireAuthModule,
         CloudModule.forRoot(cloudSettings),
         MomentModule,
-        SocketIoModule.forRoot(configws)       
+        SocketIoModule.forRoot(configws)  ,
+        TruncateModule     
      ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -257,7 +261,8 @@ firebase.initializeApp(config);
         FeedbackPage,
         ThankYouPage,
         WebviewPage,
-        AdressModalPage
+        AdressModalPage,
+        RallyNameHeaderComponent
     ],
     providers: [
         StatusBar,

@@ -1,4 +1,4 @@
-<rally-orange-header></rally-orange-header>
+<rally-name-header name="Take Action"></rally-name-header>
 
 
 <ion-content> 
@@ -14,7 +14,7 @@
 
        <ion-item>
             <ion-avatar item-start>
-                <img src="https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08" (click)="showPhotoViewer('https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08')">
+                <img src="{{objective.organization['image_url']}}" (click)="goToOrganizationProfile(objective.organization_id)">
             </ion-avatar>
             <button (click)="goToOrganizationProfile(objective.organization_id)" style="background: none;">
         <h2> <small>via</small> {{objective.organization['name']}}</h2>
@@ -40,7 +40,7 @@
 
 
         <ion-card-content>
-            <p>{{objective.description}}</p>
+            <p>{{objective.description | truncate : 200 : '...'}}</p>
             <!-- <ion-row>
                 <ion-col col-8>
                     <p class="link">{{objective.likes}} Likes, {{objective.shares}} Shares</p>

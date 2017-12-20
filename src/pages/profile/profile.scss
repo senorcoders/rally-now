@@ -6,8 +6,12 @@ page-profile {
     }
     .toolbar-background {
         background: #f4512c !important;
-        //max-height: 50px !important;
     } 
+
+    p.white {
+        color: #fff;
+        margin: 0;
+    }
     .simple-title {
         border: none;
         background: transparent;
@@ -19,10 +23,7 @@ page-profile {
         top: 0 !important;
     }
     
-    p.white {
-        color: #fff;
-        margin: 0;
-    }
+   
     .button-outline-md-light,
     .button-outline-ios-light {
         border-color: #222;
