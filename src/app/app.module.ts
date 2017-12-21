@@ -93,6 +93,7 @@ import { TruncateModule } from 'ng2-truncate';
 import { RallyNameHeaderComponent } from '../components/rally-name-header/rally-name-header';
 import { FaxFeedBackPage } from '../pages/fax-feed-back/fax-feed-back';
 import { EmailFeedBackPage } from '../pages/email-feed-back/email-feed-back';
+import { MyRepresentativesPage } from '../pages/my-representatives/my-representatives';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -194,7 +195,8 @@ firebase.initializeApp(config);
         AdressModalPage,
         RallyNameHeaderComponent,
         FaxFeedBackPage,
-        EmailFeedBackPage
+        EmailFeedBackPage,
+        MyRepresentativesPage
     ],
     imports: [
         BrowserModule,
@@ -268,7 +270,8 @@ firebase.initializeApp(config);
         AdressModalPage,
         RallyNameHeaderComponent,
         FaxFeedBackPage,
-        EmailFeedBackPage
+        EmailFeedBackPage,
+        MyRepresentativesPage
     ],
     providers: [
         StatusBar,

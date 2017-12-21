@@ -356,7 +356,7 @@ getReps(){
     console.log(val);
       if (val != null){
         this.enable = true;
-        this.reps = val;
+        this.reps = val; 
         this.getAddress();
       } else{
         this.enable = false;
@@ -379,6 +379,7 @@ finReps(){
   let modal = this.modalCtrl.create(AdressModalPage);
   modal.onDidDismiss(() => {
     this.getReps();
+    this.getAddress();
   });
   modal.present();
 
@@ -389,7 +390,7 @@ getRepID(rep, fax, twitter, email, bioguide){
   this.httpProvider.getJsonData(this.repsEndpoint +bioguide).subscribe( result => {
       console.log(result[0].id);
       this.data.representative_id = result[0].id;
-      this.presentActionSheet(rep, fax, twitter, email, result[0].id);
+      this.presentActionSheet(rep, result[0].fax_url, twitter, email, result[0].id);
   });
 }
 

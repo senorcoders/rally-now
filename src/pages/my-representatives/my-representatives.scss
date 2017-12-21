@@ -1,0 +1,26 @@
+page-my-representatives {
+    ion-content{
+        top: 60px;
+    }
+
+    
+    .action-btn {
+        height: auto;
+        padding: 5px 10px;
+        background: #fff;
+        color: #9e9191;
+        border: 1px solid #9e9191;
+        font-size: 12px;
+        text-transform: uppercase;
+        min-width: 80px;
+        box-shadow: none;
+        border-radius: 5px;
+    }
+
+    .btn-follow{
+        background: #4a90e2 !important;
+        color: #fff !important;
+        border-color: #4a90e2 !important;
+
+    }
+}

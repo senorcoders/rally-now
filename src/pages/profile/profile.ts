@@ -18,6 +18,8 @@ import { MyFriendsPage } from '../my-friends/my-friends';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { RepresentivesListPage } from '../representives-list/representives-list';
 import { AdressModalPage } from '../adress-modal/adress-modal';
+import { MyRepresentativesPage } from '../my-representatives/my-representatives';
+import { Storage } from '@ionic/storage';
 
 
 
@@ -68,7 +70,8 @@ export class ProfilePage {
     public af:AngularFireDatabase,
     private httpProvider:UsersProvider,
     private photoViewer: PhotoViewer,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    private storage: Storage
     ) {
         this.httpProvider.returnRallyUserId().then(user =>{
             this.currentRallyID = user.apiRallyID;
@@ -242,7 +245,26 @@ getStreaks(){
 
   finReps(){
     let modal = this.modalCtrl.create(AdressModalPage);
+    modal.onDidDismiss(() => {
+      this.goToMyReps();
+    });
     modal.present();
+  }
+
+  getReps(){
+    this.storage.get('representatives').then((val) => {
+      console.log(val);
+        if (val != null){
+          this.goToMyReps();
+        } else{
+          this.finReps();
+        }
+    });
+  }
+
+  goToMyReps(){
+    this.navCtrl.push(MyRepresentativesPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+
   }
 
   getLongest(){

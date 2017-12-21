@@ -202,7 +202,7 @@ getLikeStatus($event, reference_id, like_type){
 }
 
 addLike(reference_id, like_type){
-  this.httpProvider.addLike(this.likeendpoint, reference_id, this.myApiRallyID, like_type).subscribe(
+  this.rallyProvider.addLike(this.likeendpoint, reference_id, this.myApiRallyID, like_type).subscribe(
       response =>{
           console.log(response);
           this.disable = false;
