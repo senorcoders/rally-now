@@ -105,7 +105,13 @@ presentToast(message) {
 
 
 removeEventFav(recordID){
-  this.httpProvider.unfollowOrganization(this.favEndpoint, recordID);
+  this.httpProvider.removeItem(this.likeendpoint, recordID).subscribe(res => {
+    console.log(res);
+    this.disable = false;
+
+  }, err =>{
+    console.log(err);
+  });
 }
 
 findInLoop(actions){
@@ -139,8 +145,7 @@ getLikeStatus($event, reference_id, like_type){
         this.presentToast('You unliked it');
         $event.srcElement.style.backgroundColor = '#f2f2f2';
         $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
-        $event.srcElement.lastChild.data++;
-        this.disable = false;
+        $event.srcElement.lastChild.data--;
 
         
       }else{
@@ -149,7 +154,6 @@ getLikeStatus($event, reference_id, like_type){
         $event.srcElement.style.backgroundColor = '#296fb7';
         $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
         $event.srcElement.lastChild.data++;
-        this.disable = false;
 
       }
     },
@@ -164,7 +168,12 @@ getLikeStatus($event, reference_id, like_type){
 }
 
 addLike(reference_id, like_type){
-  this.httpProvider.addLike(this.likeendpoint, reference_id, this.myrallyID, like_type);
+  this.httpProvider.addLike(this.likeendpoint, reference_id, this.myrallyID, like_type).subscribe(
+      response =>{
+          console.log(response);
+          this.disable = false;
+      });
+
 }
 
 shareController(title, imgURI, reference_id, like_type, $event) {

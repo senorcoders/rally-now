@@ -178,7 +178,13 @@ goToOrganizationProfile(organizationID){
       
 
  removeFav(recordID){
-  this.httpProvider.unfollowOrganization(this.favEndpoint, recordID);
+  this.httpProvider.removeItem(this.likeendpoint, recordID).subscribe(res => {
+    console.log(res);
+    this.disable = false;
+
+  }, err =>{
+    console.log(err);
+  });
 }
 
 hideItem(objective_id, index){
@@ -218,8 +224,7 @@ hideItem(objective_id, index){
           this.presentToast('You unliked it');
           $event.srcElement.style.backgroundColor = '#f2f2f2';
           $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
-          $event.srcElement.lastChild.data++;
-          this.disable = false;
+          $event.srcElement.lastChild.data--;
           
         }else{
          this.addLike(reference_id, like_type);
@@ -227,7 +232,6 @@ hideItem(objective_id, index){
           $event.srcElement.style.backgroundColor = '#296fb7';
           $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
           $event.srcElement.lastChild.data++;
-          this.disable = false;
         }
       },
       err =>{
@@ -241,7 +245,12 @@ hideItem(objective_id, index){
   }
   
   addLike(reference_id, like_type){
-    this.httpProvider.addLike(this.likeendpoint, reference_id, this.myrallyID, like_type);
+    this.httpProvider.addLike(this.likeendpoint, reference_id, this.myrallyID, like_type).subscribe(
+        response =>{
+            console.log(response);
+            this.disable = false;
+        });
+
   }
   
   shareController(title, imgURI, reference_id, like_type, $event) {
