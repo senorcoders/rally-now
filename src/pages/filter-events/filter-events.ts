@@ -16,6 +16,7 @@ export class FilterEventsPage {
     public navParams: NavParams,  
     public viewCtrl: ViewController,
     private httpProvider:OrganizationsProvider) {
+      this.text = "50 MILES";
   }
 
   ionViewDidLoad() {
@@ -32,9 +33,10 @@ export class FilterEventsPage {
 }
 
 zipcode:any = "22207";
-structure:number = 0;
+structure:number = 50;
 endpoint:any = 'events/';
 enable:boolean = false;
+text:any;
 
 goToEvents(){
   console.log(this.zipcode, this.structure, this.event.month, this.event.timeEnds);
@@ -61,8 +63,13 @@ goToEvents(){
 
  getDistance(){
    console.log("Estructura", this.structure);
-   if(this.structure === 1000){
-    this.enable = true;
+   if(this.structure > 99){
+     this.text = "ANY DISTANCE";
+   }else if(this.structure < 1){
+    this.text = "< 1 MILE";
+   }
+   else{
+     this.text = this.structure + ' MILES';
    }
  }
 }

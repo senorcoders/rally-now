@@ -10,6 +10,10 @@ page-events {
    
 }
 
+ion-header{
+    text-align: center;
+}
+
 
     .rally-header-logo {
         width: 50px;
@@ -112,6 +116,8 @@ ion-content{
                 color: #000;
                 //font-weight: 100;
                 text-transform: uppercase;
+                margin-left: -5px;
+
                 }
             }
         }

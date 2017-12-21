@@ -30,10 +30,10 @@
 
         <ion-item>
             <ion-avatar item-start>
-                <img [src]="event.organization[0].image_url ? event.organization[0].image_url : testPhoto" (click)="showPhotoViewer(event.organization[0].image_url ? event.organization[0].image_url : testPhoto)">
+                <img [src]="event.organization[0].image_url ? event.organization[0].image_url : testPhoto" (click)="goToOrganizationProfile(event.organization_id)">
             </ion-avatar>
-            <button (click)="goToOrganizationProfile(event.organization_id)" style="background: none;">
-                <h2> <small>via</small> {{event.organization[0].name}}</h2>
+            <button (click)="goToOrganizationProfile(event.organization_id)" style="background: none; padding-left:0;">
+                <h2 text-wrap style="text-align: left; max-width: 85%;"> <small>via</small> {{event.organization[0].name}}</h2>
             </button>
             <p><small>Event Location: {{event.locations}}</small></p>
         </ion-item>

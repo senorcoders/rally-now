@@ -55,9 +55,10 @@ export class EventsPage {
 
   }
 
-   ionViewWillEnter() {
-        //this.viewCtrl.showBackButton(false);
-    }
+  ionViewWillEnter(){
+   
+    this.viewCtrl.setBackButtonText("My Feeds");
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventsPage');
@@ -148,13 +149,19 @@ goToEventFilter(){
     
     
     removeEventFav(recordID){
-      this.httpProvider.unfollowOrganization(this.favEndpoint, recordID);
+      this.httpProvider.removeItem(this.likeendpoint, recordID).subscribe(res => {
+        console.log(res);
+        this.disable = false;
+
+      }, err =>{
+        console.log(err);
+      });
+
     }
 
     findInLoop(actions){
       if (actions != null){
         var found = actions.some(el => { 
-          console.log(el);
             return el == this.myrallyID;
           
         });
@@ -181,8 +188,7 @@ goToEventFilter(){
             this.presentToast('You unliked it');
             $event.srcElement.style.backgroundColor = '#f2f2f2';
             $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
-            $event.srcElement.lastChild.data++;
-            this.disable = false;
+            $event.srcElement.lastChild.data--;
             
           }else{
            this.addLike(reference_id, like_type);
@@ -190,7 +196,6 @@ goToEventFilter(){
             $event.srcElement.style.backgroundColor = '#296fb7';
             $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
             $event.srcElement.lastChild.data++;
-            this.disable = false;
           }
         },
         err =>{
@@ -204,7 +209,12 @@ goToEventFilter(){
     }
 
     addLike(reference_id, like_type){
-      this.httpProvider.addLike(this.likeendpoint, reference_id, this.myrallyID, like_type);
+      this.httpProvider.addLike(this.likeendpoint, reference_id, this.myrallyID, like_type).subscribe(
+          response =>{
+              console.log(response);
+              this.disable = false;
+          });
+
     }
 
     shareController(title, imgURI, reference_id, like_type, $event) {

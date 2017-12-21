@@ -304,7 +304,6 @@ doRefresh(refresher) {
             $event.srcElement.style.backgroundColor = '#f2f2f2';
             $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
             $event.srcElement.lastChild.data--;
-            this.disable = false;
             
           }else{
            this.addLike(reference_id, like_type);
@@ -312,7 +311,6 @@ doRefresh(refresher) {
             $event.srcElement.style.backgroundColor = '#296fb7';
             $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
             $event.srcElement.lastChild.data++;
-            this.disable = false;
           }
         },
         err =>{
@@ -326,7 +324,12 @@ doRefresh(refresher) {
     }
 
     addLike(reference_id, like_type){
-      this.usersProv.addLike(this.likeendpoint, reference_id, this.myrallyID, like_type);
+      this.usersProv.addLike(this.likeendpoint, reference_id, this.myrallyID, like_type).subscribe(
+        response =>{
+            console.log(response);
+            this.disable = false;
+        });
+
     }
 
 
@@ -361,8 +364,15 @@ doRefresh(refresher) {
 
 
 removeFav(recordID){
-  this.usersProv.unfollowOrganization(this.likeendpoint, recordID);
+  this.usersProv.removeItem(this.likeendpoint, recordID).subscribe(res => {
+    console.log(res);
+    this.disable = false;
+
+  }, err =>{
+    console.log(err);
+  });
   this.usersProv.removeFollowRecordID(recordID, 'favorites');
+
 }
 
 showPhotoViewer(path){

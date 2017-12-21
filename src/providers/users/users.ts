@@ -396,13 +396,15 @@ export class UsersProvider {
     let options = new RequestOptions({ headers: headers });
   let userData = JSON.stringify({reference_id: reference_id, user_id:user_id, like_type_id: like_type_id});
   console.log(this.base + endpoint, userData, options);
-  this.http.post(encodeURI(this.base + endpoint), userData, options)
+  return this.http.post(encodeURI(this.base + endpoint), userData, options)
     .map(res => res.json())
-    .subscribe(data => {
-      console.log("POST LIKE", data);
-    }, error => {
-      console.log("Error", error);
-    });
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
+
+    // .subscribe(data => {
+    //   console.log("POST LIKE", data);
+    // }, error => {
+    //   console.log("Error", error);
+    // });
   }
 
   addShareAction(endpoint, goal_id, action_type_id, user_id):void{
@@ -475,5 +477,17 @@ addAction(endpoint, data):void{
       console.log("Error", error);
     });
 } 
+
+
+removeItem(endpoint, recordID){
+  var headers = new Headers();
+   headers.append('Content-Type', 'application/json' );
+   let options = new RequestOptions({ headers: headers });
+          return this.http.delete(this.base + endpoint + '/' + recordID, options)
+                .map(res => res.json())
+                .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
+ 
+   
+}
 
 }

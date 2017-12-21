@@ -29,9 +29,10 @@ videoOpts : VideoOptions ;
     console.log('ionViewDidLoad CandidatesPage');
   }
 
-  ionViewWillEnter() {
-        //this.viewCtrl.showBackButton(false);
-    }
+  ionViewWillEnter(){
+   
+    this.viewCtrl.setBackButtonText("My Feeds");
+  }
 
    goToHome(){
     this.navCtrl.setRoot(FeedPage);

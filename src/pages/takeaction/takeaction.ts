@@ -54,8 +54,10 @@ export class TakeactionPage {
       });
   }
 
-   ionViewWillEnter() {
-        //this.viewCtrl.showBackButton(false);
+  
+    ionViewWillEnter(){
+   
+      this.viewCtrl.setBackButtonText("My Feeds");
     }
 
    
