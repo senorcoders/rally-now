@@ -33,6 +33,8 @@ export class EventsPage {
   eventLike:any = 'd5d1b115-dbb6-4894-8935-322c336ae951';
   likeendpoint:any = 'likes';
   disable:boolean = false;
+  organizationEndpoint:any = 'following_organizations';
+
 
 
   constructor(
@@ -273,5 +275,85 @@ goToEventFilter(){
     addShareAction(goal_id, action_type_id){
       this.httpProvider.addLike(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
     }
+
+    eventEllipsisController(name, orgID){
+      const actionSheet = this.actionSheetCtrl.create({
+        buttons: [
+        {
+          text: 'Share this event via...',
+          handler: () => {
+            console.log("test");
+    
+          }
+        }, 
+        {
+          text: 'Turn on/off notifications for ' + name,
+          handler: () => {
+            console.log("test");
+    
+          }
+        },
+        {
+          text: 'Follow/Unfollow ' + name,
+          handler: () => {
+            this.orgStatus(orgID);
+            console.log("test");
+    
+          }
+        },
+        {
+          text: 'Report',
+          role: 'destructive',
+          handler: () => {
+            console.log("test");
+    
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    
+    actionSheet.present();
+    }
+    
+    
+    orgStatus(orgID){
+      this.httpProvider.getJsonData(this.organizationEndpoint+'?follower_id='+this.myrallyID+'&organization_id='+orgID).subscribe(
+            result => {
+              if(result != ""){
+                 this.unfollowOrg(result[0].id, orgID);
+                 console.log("Unfollow");
+              }else{
+                console.log("Follow");
+                this.followOrg(orgID);
+              }
+            },
+            err =>{
+            console.error("Error : "+err);
+            } ,
+            () => {
+            console.log('getData completed');
+            });
+            }
+    
+    
+            unfollowOrg(recordID, orgID){
+    
+              this.httpProvider.unfollowOrganization(this.organizationEndpoint, recordID);
+              this.httpProvider.removeFollowRecordID(orgID, 'organizations');
+              this.presentToast("You're not following this organization anymore");
+            }
+    
+            followOrg(organizationID){
+              this.httpProvider.followOrganization(this.organizationEndpoint, this.myrallyID, organizationID );
+              this.presentToast("You're now following this organization");
+    
+            }
 
 }

@@ -53,7 +53,8 @@ export class FeedPage {
   likeendpoint:any = 'likes';
   message:any = [{'action':'getMessages','uid':'1dcd32f2-745e-4b9c-8072-3f702d8b0415'}];
   disable:boolean = false;
-  
+  organizationEndpoint:any = 'following_organizations';
+
   // @ViewChild(Content) content: Content;
 
   constructor(
@@ -224,6 +225,7 @@ doRefresh(refresher) {
      share(title, imgURI){
        this.shareProvider.otherShare(title, imgURI);
      }
+
 
      shareController(title, imgURI, reference_id, like_type, $event) {
       this.disable = true;
@@ -399,4 +401,137 @@ goToEventFilter(){
 addShareAction(goal_id, action_type_id){
   this.usersProv.addShareAction(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
 }
+
+
+ellipsisController(name, id, index, orgID){
+  const actionSheet = this.actionSheetCtrl.create({
+    buttons: [
+    {
+      text: 'Share this post via...',
+      handler: () => {
+        console.log("test");
+
+      }
+    }, 
+    {
+      text: 'Hide post',
+      handler: () => {
+       this.hideItem(id, index);
+      }
+    },
+    {
+      text: 'Turn on/off notifications for ' + name,
+      handler: () => {
+        console.log("test");
+
+      }
+    },
+    {
+      text: 'Follow/Unfollow ' + name,
+      handler: () => {
+        this.orgStatus(orgID);
+        console.log("test");
+
+      }
+    },
+    {
+      text: 'Report',
+      role: 'destructive',
+      handler: () => {
+        console.log("test");
+
+      }
+    },
+    {
+      text: 'Cancel',
+      role: 'cancel',
+      handler: () => {
+        console.log('Cancel clicked');
+      }
+    }
+  ]
+});
+
+actionSheet.present();
+}
+
+eventEllipsisController(name, orgID){
+  const actionSheet = this.actionSheetCtrl.create({
+    buttons: [
+    {
+      text: 'Share this event via...',
+      handler: () => {
+        console.log("test");
+
+      }
+    }, 
+    {
+      text: 'Turn on/off notifications for ' + name,
+      handler: () => {
+        console.log("test");
+
+      }
+    },
+    {
+      text: 'Follow/Unfollow ' + name,
+      handler: () => {
+        this.orgStatus(orgID);
+        console.log("test");
+
+      }
+    },
+    {
+      text: 'Report',
+      role: 'destructive',
+      handler: () => {
+        console.log("test");
+
+      }
+    },
+    {
+      text: 'Cancel',
+      role: 'cancel',
+      handler: () => {
+        console.log('Cancel clicked');
+      }
+    }
+  ]
+});
+
+actionSheet.present();
+}
+
+
+orgStatus(orgID){
+  this.usersProv.getJsonData(this.organizationEndpoint+'?follower_id='+this.myrallyID+'&organization_id='+orgID).subscribe(
+        result => {
+          if(result != ""){
+             this.unfollowOrg(result[0].id, orgID);
+             console.log("Unfollow");
+          }else{
+            console.log("Follow");
+            this.followOrg(orgID);
+          }
+        },
+        err =>{
+        console.error("Error : "+err);
+        } ,
+        () => {
+        console.log('getData completed');
+        });
+        }
+
+
+        unfollowOrg(recordID, orgID){
+
+          this.usersProv.unfollowOrganization(this.organizationEndpoint, recordID);
+          this.usersProv.removeFollowRecordID(orgID, 'organizations');
+          this.presentToast("You're not following this organization anymore");
+        }
+
+        followOrg(organizationID){
+          this.usersProv.followOrganization(this.organizationEndpoint, this.myrallyID, organizationID );
+          this.presentToast("You're now following this organization");
+
+        }
 }

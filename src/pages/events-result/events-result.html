@@ -39,7 +39,7 @@
                                 <span class="month">NOV 29</span>
                             </div>
                     </div>
-                    <ion-card-content>
+                    <ion-card-content (click)="goToEventDetail(event.id)">
                         <ion-card-title>{{event.title}}</ion-card-title>
                         <p class="event-description">{{event.description}}</p>
                     </ion-card-content>

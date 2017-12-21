@@ -29,6 +29,8 @@ goalLike:any = 'ea9bd95e-128c-4a38-8edd-938330ad8b2d';
 likeendpoint:any = 'likes';
 shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
 disable:boolean = false;
+organizationEndpoint:any = 'following_organizations';
+
 
 
 
@@ -58,9 +60,10 @@ disable:boolean = false;
     console.log('ionViewDidLoad OrganizationsPage');
   }
 
-  ionViewWillEnter() {
-        //this.viewCtrl.showBackButton(false);
-    }
+  ionViewWillEnter(){
+   
+    this.viewCtrl.setBackButtonText("My Feeds");
+  }
 
   
   
@@ -265,4 +268,90 @@ shareController(title, imgURI, reference_id, like_type, $event) {
 addShareAction(goal_id, action_type_id){
   this.rallyProvider.addShareAction(this.favEndpoint, goal_id, action_type_id, this.myApiRallyID);
 }
+
+ellipsisController(name, id, index, orgID){
+  const actionSheet = this.actionSheetCtrl.create({
+    buttons: [
+    {
+      text: 'Share this post via...',
+      handler: () => {
+        console.log("test");
+
+      }
+    }, 
+    {
+      text: 'Hide post',
+      handler: () => {
+       this.hideItem(id, index);
+      }
+    },
+    {
+      text: 'Turn on/off notifications for ' + name,
+      handler: () => {
+        console.log("test");
+
+      }
+    },
+    {
+      text: 'Follow/Unfollow ' + name,
+      handler: () => {
+        this.orgStatus(orgID);
+        console.log("test");
+
+      }
+    },
+    {
+      text: 'Report',
+      role: 'destructive',
+      handler: () => {
+        console.log("test");
+
+      }
+    },
+    {
+      text: 'Cancel',
+      role: 'cancel',
+      handler: () => {
+        console.log('Cancel clicked');
+      }
+    }
+  ]
+});
+
+actionSheet.present();
+}
+
+
+orgStatus(orgID){
+  this.rallyProvider.getJsonData(this.organizationEndpoint+'?follower_id='+this.myApiRallyID+'&organization_id='+orgID).subscribe(
+        result => {
+          if(result != ""){
+             this.unfollowOrg(result[0].id, orgID);
+             console.log("Unfollow");
+          }else{
+            console.log("Follow");
+            this.followOrg(orgID);
+          }
+        },
+        err =>{
+        console.error("Error : "+err);
+        } ,
+        () => {
+        console.log('getData completed');
+        });
+        }
+
+
+        unfollowOrg(recordID, orgID){
+
+          this.rallyProvider.unfollowOrganization(this.organizationEndpoint, recordID);
+          this.rallyProvider.removeFollowRecordID(orgID, 'organizations');
+          this.presentToast("You're not following this organization anymore");
+        }
+
+        followOrg(organizationID){
+          this.rallyProvider.followOrganization(this.organizationEndpoint, this.myApiRallyID, organizationID );
+          this.presentToast("You're now following this organization");
+
+        }
 }

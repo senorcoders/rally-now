@@ -5,11 +5,11 @@
     <ion-card *ngFor="let objective of objectives, let i = index" style="position: relative;">
 
         <ion-fab right top>
-            <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
-            <ion-fab-list side="left">
+            <button ion-fab color="light" (click)="ellipsisController(objective.organization['name'], objective.id, i, objective.organization_id)"><ion-icon name="ios-more"></ion-icon></button>
+            <!-- <ion-fab-list side="left">
                 <button ion-fab (click)="hideItem(objective.id, i)"><ion-icon name="md-done-all"></ion-icon></button>
               
-            </ion-fab-list>
+            </ion-fab-list> -->
         </ion-fab>
 
        <ion-item>

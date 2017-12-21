@@ -21,11 +21,11 @@
       <ion-card class="events-card" *ngFor="let event of events">
 
         <ion-fab right top>
-            <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
-            <ion-fab-list side="left">
+            <button ion-fab color="light" (click)="eventEllipsisController(event.organization[0].name, event.organization_id)"><ion-icon name="ios-more"></ion-icon></button>
+            <!-- <ion-fab-list side="left">
 
                 <button ion-fab><ion-icon name="md-done-all"></ion-icon></button>
-            </ion-fab-list>
+            </ion-fab-list> -->
         </ion-fab>
 
         <ion-item>
@@ -48,7 +48,7 @@
                     <span class="month">NOV 29</span>
                 </div>
         </div>
-        <ion-card-content>
+        <ion-card-content (click)="goToEventDetail(event.id)">
             <ion-card-title>{{event.title}}</ion-card-title>
             <!-- <p class="event-description">{{event.description}}</p> -->
         </ion-card-content>

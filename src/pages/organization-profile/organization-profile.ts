@@ -156,9 +156,7 @@ presentToast(message) {
     } ,
     () => {
       console.log('getData completed');
-    }
-
-    );
+    });
     }
 
     unfollow(recordID){
