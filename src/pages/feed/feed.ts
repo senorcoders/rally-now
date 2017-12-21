@@ -51,6 +51,8 @@ export class FeedPage {
   activityLike:any = 'd32c1cb5-b076-4353-ad9c-1c8f81d812e3';
   eventLike:any = 'd5d1b115-dbb6-4894-8935-322c336ae951';
   likeendpoint:any = 'likes';
+  message:any = [{'action':'getMessages','uid':'1dcd32f2-745e-4b9c-8072-3f702d8b0415'}];
+  disable:boolean = false;
   
   // @ViewChild(Content) content: Content;
 
@@ -89,6 +91,23 @@ export class FeedPage {
          
             this.getDataStatus();
       });
+
+
+          // var connection = new WebSocket('ws://138.68.19.227:5000/');
+
+          //   connection.onopen = function () {
+          //     console.log("Connected!");
+                
+          //   };
+
+            // connection.onmessage = function (e) {
+
+            //  console.log(e);
+         
+            // };
+
+            // this.message = JSON.stringify(this.message);
+            //connection.send(this.message);
    
   
   }
@@ -207,6 +226,8 @@ doRefresh(refresher) {
      }
 
      shareController(title, imgURI, reference_id, like_type, $event) {
+      this.disable = true;
+
    const actionSheet = this.actionSheetCtrl.create({
      title: 'Share with',
      buttons: [
@@ -216,8 +237,10 @@ doRefresh(refresher) {
          handler: () => {
            this.shareProvider.facebookShare(title, imgURI);
            this.addShareAction(reference_id, like_type);
-           $event.srcElement.innerText++;           
+           $event.srcElement.lastChild.data++;
            this.presentToast('Objective shared!');
+           this.disable = false;
+
          }
        }, 
        {
@@ -226,8 +249,10 @@ doRefresh(refresher) {
          handler: () => {
            this.shareProvider.twitterShare(title, imgURI);
            this.addShareAction(reference_id, like_type);
-           $event.srcElement.innerText++;           
+           $event.srcElement.lastChild.data++;
            this.presentToast('Objective shared!');
+           this.disable = false;
+
          }
        },
        {
@@ -237,8 +262,10 @@ doRefresh(refresher) {
            console.log('Archive clicked');
            this.shareProvider.otherShare(title, imgURI);
            this.addShareAction(reference_id, like_type);
-           $event.srcElement.innerText++;           
+           $event.srcElement.lastChild.data++;
            this.presentToast('Objective shared!');
+           this.disable = false;
+
          }
        },
        {
@@ -264,23 +291,28 @@ doRefresh(refresher) {
 
 
     getLikeStatus($event, reference_id, like_type, likes){
+      this.disable = true;
+
       this.usersProv.getJsonData(this.likeendpoint+'?reference_id='+reference_id+'&user_id='+this.myrallyID).subscribe(
         result => {
-          console.log("Aqui", $event);
+          console.log($event);
+          console.log("Aqui", $event.srcElement.lastChild.data);
           
           if(result != "" ){
             this.removeFav(result[0].id);
             this.presentToast('You unliked it');
             $event.srcElement.style.backgroundColor = '#f2f2f2';
             $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
-            $event.srcElement.innerText--;
+            $event.srcElement.lastChild.data--;
+            this.disable = false;
             
           }else{
            this.addLike(reference_id, like_type);
            this.presentToast('You liked it');
             $event.srcElement.style.backgroundColor = '#296fb7';
             $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
-            $event.srcElement.innerText++;
+            $event.srcElement.lastChild.data++;
+            this.disable = false;
           }
         },
         err =>{
@@ -305,45 +337,11 @@ doRefresh(refresher) {
     }
     
 
-  //  checkFavStatus(goal_id){
-  //  return new Promise( (resolve, reject) => {
-    
-  //      let user:any = firebase.auth().currentUser;
-  //        if (user) {
-  //        let favRef = this.db.database.ref('favorites/'+user['uid']+'/'+goal_id);
-  //           favRef.once('value', snapshot=>{
-  //             if (snapshot.hasChildren()) {
-  //              resolve('red');
-               
-  //             } else{
-  //                resolve('#4a90e2');       
-  //             }
-  //           });
-  //        }
-  //     });
-    
-  // }
 
-    // resolvePromise(goal_id){
-    //   return this.checkFavStatus(goal_id)
-    //   .then(value => {
-    //     return value;
-    //   });
-    // }
-  
-//  public async buttonColorRender(goal_id){
-    
-//     let color = await this.resolvePromise(goal_id);
-//     console.log("Color Button", color);
-//     return color;
-
-
-//   }
 
   findInLoop(actions){
     if (actions != null){
       var found = actions.some(el => { 
-        console.log(el);
           return el == this.myrallyID;
         
       });
@@ -357,28 +355,6 @@ doRefresh(refresher) {
       }
     }
 
-    // if (actions != null){
-      
-    //   var found = actions.some(el => { 
-    //     if(el.action_type_id === this.likeAction){
-    //       if(typeof(el.user_id[0]) !== 'undefined'){
-    //         return el.user_id[0].id === this.myrallyID;
-    //       }      
-    //      }
-        
-    //   });
-
-     
-      
-    //   if (!found){
-    //     return '#f2f2f2';
-        
-    //   }else{
-    //     return '#296fb7';
-        
-    //   }
-    // }
-   
   }
 
 

@@ -36,6 +36,7 @@ export class OrganizationProfilePage {
   goalLike:any = 'ea9bd95e-128c-4a38-8edd-938330ad8b2d';
   likeendpoint:any = 'likes';
   shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
+  disable:boolean = false;
 
 
 
@@ -237,6 +238,7 @@ goToActionPage(objectiveID){
 
 
      getLikeStatus($event, reference_id, like_type){
+       this.disable = true;
       this.httpProvider.getJsonData(this.likeendpoint+'?reference_id='+reference_id+'&user_id='+this.myrallyID).subscribe(
         result => {
           console.log("Aqui", result);
@@ -246,14 +248,16 @@ goToActionPage(objectiveID){
             this.presentToast('You unliked it');
             $event.srcElement.style.backgroundColor = '#f2f2f2';
             $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
-            $event.srcElement.innerText--;
+            $event.srcElement.lastChild.data++;
+            this.disable = false;
             
           }else{
            this.addLike(reference_id, like_type);
            this.presentToast('You liked it');
             $event.srcElement.style.backgroundColor = '#296fb7';
             $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
-            $event.srcElement.innerText++;
+            $event.srcElement.lastChild.data++;
+            this.disable = false;
           }
         },
         err =>{
@@ -271,6 +275,7 @@ goToActionPage(objectiveID){
     }
     
     shareController(title, imgURI, reference_id, like_type, $event) {
+      this.disable = true;
       const actionSheet = this.actionSheetCtrl.create({
         title: 'Share with',
         buttons: [
@@ -280,8 +285,9 @@ goToActionPage(objectiveID){
             handler: () => {
               this.shareProvider.facebookShare(title, imgURI);
               this.addShareAction(reference_id, like_type);
-              $event.srcElement.innerText++;           
+              $event.srcElement.lastChild.data++;
               this.presentToast('Objective shared!');
+              this.disable = false;
             }
           }, 
           {
@@ -292,6 +298,7 @@ goToActionPage(objectiveID){
               this.addShareAction(reference_id, like_type);
               $event.srcElement.innerText++;           
               this.presentToast('Objective shared!');
+              this.disable = false;
             }
           },
           {
@@ -301,8 +308,9 @@ goToActionPage(objectiveID){
               console.log('Archive clicked');
               this.shareProvider.otherShare(title, imgURI);
               this.addShareAction(reference_id, like_type);
-              $event.srcElement.innerText++;           
+              $event.srcElement.lastChild.data++;
               this.presentToast('Objective shared!');
+              this.disable = false;
             }
           },
           {

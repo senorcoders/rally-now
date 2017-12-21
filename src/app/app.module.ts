@@ -91,6 +91,8 @@ import { NativeGeocoder} from '@ionic-native/native-geocoder';
 import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
 import { TruncateModule } from 'ng2-truncate';
 import { RallyNameHeaderComponent } from '../components/rally-name-header/rally-name-header';
+import { FaxFeedBackPage } from '../pages/fax-feed-back/fax-feed-back';
+import { EmailFeedBackPage } from '../pages/email-feed-back/email-feed-back';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -190,7 +192,9 @@ firebase.initializeApp(config);
         ThankYouPage,
         WebviewPage,
         AdressModalPage,
-        RallyNameHeaderComponent
+        RallyNameHeaderComponent,
+        FaxFeedBackPage,
+        EmailFeedBackPage
     ],
     imports: [
         BrowserModule,
@@ -262,7 +266,9 @@ firebase.initializeApp(config);
         ThankYouPage,
         WebviewPage,
         AdressModalPage,
-        RallyNameHeaderComponent
+        RallyNameHeaderComponent,
+        FaxFeedBackPage,
+        EmailFeedBackPage
     ],
     providers: [
         StatusBar,

@@ -49,13 +49,9 @@ export class MyApp {
                 }
         }); 
           platform.ready().then((readySource) => {
-            this.socket.connect();
-            // var message:any = [{'action':'getMessages','uid':'1dcd32f2-745e-4b9c-8072-3f702d8b0415'}]
-            // message = JSON.stringify(message);
-            // this.socket.emit(message);
-            this.socket.on('message', function(tweet){
-                console.log(tweet);
-            });
+            
+
+          
 
 
             console.log("Platform Ready from ", readySource);

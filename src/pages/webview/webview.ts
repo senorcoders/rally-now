@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 import { DomSanitizer } from '@angular/platform-browser';
 import { FeedbackPage } from '../feedback/feedback';
 import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser";
+import { FaxFeedBackPage } from '../fax-feed-back/fax-feed-back';
+import { EmailFeedBackPage } from '../email-feed-back/email-feed-back';
 
 
 @IonicPage()
@@ -12,6 +14,8 @@ import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser"
 })
 export class WebviewPage {
   url:any;
+  actionType:any;
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -20,6 +24,8 @@ export class WebviewPage {
     public viewCtrl:ViewController) {
 
       this.url = navParams.get('iframeUrl');
+      this.actionType = navParams.get('actionType');
+      console.log(this.actionType);
 
   }
 
@@ -34,7 +40,15 @@ export class WebviewPage {
   }
   
   
-  goToFeedBack(){
-    this.navCtrl.push(FeedbackPage);
+  goToFeedBack(){ 
+    if(this.actionType === 'fax'){
+      this.navCtrl.push(FaxFeedBackPage);
+
+    } else if(this.actionType === 'email'){
+      this.navCtrl.push(EmailFeedBackPage);
+    }else{
+      this.navCtrl.push(FeedbackPage);
+
+    }
   }
 }

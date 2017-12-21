@@ -42,6 +42,7 @@ export class OrganizationActionPage {
   shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
   information = [];
   enable:boolean;
+  disable:boolean = false;
 
   goalLike:any = 'ea9bd95e-128c-4a38-8edd-938330ad8b2d';
   likeendpoint:any = 'likes';
@@ -116,7 +117,7 @@ export class OrganizationActionPage {
             console.log('Fax clicked');
             this.data.action_type_id = 'ad3ef19b-d809-45b7-bef2-d470c9af0d1d';
             this.httpProvider.addAction(this.favEndpoint, this.data);
-            this.navCtrl.push(WebviewPage, {iframeUrl: fax});
+            this.navCtrl.push(WebviewPage, {iframeUrl: fax, actionType: 'fax'});
 
           }
         },{
@@ -125,7 +126,7 @@ export class OrganizationActionPage {
             console.log('Email clicked');
             this.data.action_type_id = 'f9b53bc8-9847-4699-b897-521d8e1a34bb';
             this.httpProvider.addAction(this.favEndpoint, this.data);
-            this.navCtrl.push(WebviewPage, {iframeUrl: email});
+            this.navCtrl.push(WebviewPage, {iframeUrl: email,  actionType: 'email'});
           }
         },{
           text: 'Post message via Twitter',
@@ -133,7 +134,7 @@ export class OrganizationActionPage {
             console.log('Post message via Twitter clicked');
             this.data.action_type_id = '9eef1652-ccf9-449a-901e-ad6c0b3a8a6c';
             this.httpProvider.addAction(this.favEndpoint, this.data);
-            this.navCtrl.push(WebviewPage, {iframeUrl: twitter});
+            this.navCtrl.push(WebviewPage, {iframeUrl: twitter,  actionType: 'twitter'});
           }
         },{
           text: 'Cancel',
@@ -246,6 +247,7 @@ isGroupShown(group) {
 
 
 getLikeStatus($event, reference_id, like_type){
+  this.disable = true;
   this.httpProvider.getJsonData(this.likeendpoint+'?reference_id='+reference_id+'&user_id='+this.myrallyID).subscribe(
     result => {
       console.log("Aqui", result);
@@ -255,14 +257,16 @@ getLikeStatus($event, reference_id, like_type){
         this.presentToast('You unliked it');
         $event.srcElement.style.backgroundColor = '#f2f2f2';
         $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
-        $event.srcElement.innerText--;
+        $event.srcElement.lastChild.data++;
+        this.disable = false;
         
       }else{
        this.addLike(reference_id, like_type);
        this.presentToast('You liked it');
         $event.srcElement.style.backgroundColor = '#296fb7';
         $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
-        $event.srcElement.innerText++;
+        $event.srcElement.lastChild.data++;
+        this.disable = false;
       }
     },
     err =>{
@@ -280,6 +284,7 @@ addLike(reference_id, like_type){
 }
 
 shareController(title, imgURI, reference_id, like_type, $event) {
+  this.disable = true;
   const actionSheet = this.actionSheetCtrl.create({
     title: 'Share with',
     buttons: [
@@ -289,8 +294,9 @@ shareController(title, imgURI, reference_id, like_type, $event) {
         handler: () => {
           this.shareProvider.facebookShare(title, imgURI);
           this.addShareAction(reference_id, like_type);
-          $event.srcElement.innerText++;           
+          $event.srcElement.lastChild.data++;
           this.presentToast('Objective shared!');
+          this.disable = false;
         }
       }, 
       {
@@ -299,8 +305,9 @@ shareController(title, imgURI, reference_id, like_type, $event) {
         handler: () => {
           this.shareProvider.twitterShare(title, imgURI);
           this.addShareAction(reference_id, like_type);
-          $event.srcElement.innerText++;           
+          $event.srcElement.lastChild.data++;
           this.presentToast('Objective shared!');
+          this.disable = false;
         }
       },
       {
@@ -310,8 +317,9 @@ shareController(title, imgURI, reference_id, like_type, $event) {
           console.log('Archive clicked');
           this.shareProvider.otherShare(title, imgURI);
           this.addShareAction(reference_id, like_type);
-          $event.srcElement.innerText++;           
+          $event.srcElement.lastChild.data++;
           this.presentToast('Objective shared!');
+          this.disable = false;
         }
       },
       {

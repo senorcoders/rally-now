@@ -29,6 +29,8 @@ export class EventsResultPage {
   myrallyID:any;
   eventLike:any = 'd5d1b115-dbb6-4894-8935-322c336ae951';
   likeendpoint:any = 'likes';
+  disable:boolean = false;
+
 
 
   constructor(
@@ -108,13 +110,9 @@ removeEventFav(recordID){
 
 findInLoop(actions){
   if (actions != null){
-    
     var found = actions.some(el => { 
-      if(el.action_type_id === this.likeAction){
-        if(typeof(el.user_id[0]) !== 'undefined'){
-          return el.user_id[0].id === this.myrallyID;
-        } 
-      }
+      console.log(el);
+        return el == this.myrallyID;
       
     });
     
@@ -131,6 +129,7 @@ findInLoop(actions){
 
 
 getLikeStatus($event, reference_id, like_type){
+  this.disable = true;
   this.httpProvider.getJsonData(this.likeendpoint+'?reference_id='+reference_id+'&user_id='+this.myrallyID).subscribe(
     result => {
       console.log("Aqui", result);
@@ -140,14 +139,18 @@ getLikeStatus($event, reference_id, like_type){
         this.presentToast('You unliked it');
         $event.srcElement.style.backgroundColor = '#f2f2f2';
         $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
-        $event.srcElement.innerText--;
+        $event.srcElement.lastChild.data++;
+        this.disable = false;
+
         
       }else{
        this.addLike(reference_id, like_type);
        this.presentToast('You liked it');
         $event.srcElement.style.backgroundColor = '#296fb7';
         $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
-        $event.srcElement.innerText++;
+        $event.srcElement.lastChild.data++;
+        this.disable = false;
+
       }
     },
     err =>{
@@ -165,6 +168,8 @@ addLike(reference_id, like_type){
 }
 
 shareController(title, imgURI, reference_id, like_type, $event) {
+  this.disable = true;
+
   const actionSheet = this.actionSheetCtrl.create({
     title: 'Share with',
     buttons: [
@@ -174,8 +179,10 @@ shareController(title, imgURI, reference_id, like_type, $event) {
         handler: () => {
           this.shareProvider.facebookShare(title, imgURI);
           this.addShareAction(reference_id, like_type);
-          $event.srcElement.innerText++;           
+          $event.srcElement.lastChild.data++;
           this.presentToast('Objective shared!');
+          this.disable = false;
+
         }
       }, 
       {
@@ -184,8 +191,10 @@ shareController(title, imgURI, reference_id, like_type, $event) {
         handler: () => {
           this.shareProvider.twitterShare(title, imgURI);
           this.addShareAction(reference_id, like_type);
-          $event.srcElement.innerText++;           
+          $event.srcElement.lastChild.data++;
           this.presentToast('Objective shared!');
+          this.disable = false;
+
         }
       },
       {
@@ -195,8 +204,10 @@ shareController(title, imgURI, reference_id, like_type, $event) {
           console.log('Archive clicked');
           this.shareProvider.otherShare(title, imgURI);
           this.addShareAction(reference_id, like_type);
-          $event.srcElement.innerText++;           
+          $event.srcElement.lastChild.data++;
           this.presentToast('Objective shared!');
+          this.disable = false;
+
         }
       },
       {
