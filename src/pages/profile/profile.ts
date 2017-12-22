@@ -280,7 +280,7 @@ getStreaks(){
   }
 
   updateStreak(value){
-    this.httpProvider.updateSingleItem(this.endpoint + '/' + this.currentRallyID,'longest_streak', value);
+    this.httpProvider.updateSingleItem(this.endpoint + '/' + this.currentRallyID, JSON.stringify({longest_streak: value}));
   }
 
         

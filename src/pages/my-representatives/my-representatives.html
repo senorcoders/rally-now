@@ -13,9 +13,32 @@
 
 </ion-list>
 
+
 <ion-list>
     <ion-list-header>
         STATE
+      </ion-list-header>
+    <ion-item *ngFor="let rep of senators">
+        <ion-avatar item-start>
+            <img src="{{rep.photo_url}}" style="border-radius: 50%;">
+        </ion-avatar>
+        <h2>{{rep.name}}</h2>
+        <p><small>Senator of {{rep.state_name}}</small></p>
+        <ion-row item-end text-right style="display: block; max-width: 80px;" >
+            <ion-col col-6 style="padding: 0;">
+                <button ion-button color="dark" class="action-btn btn-follow" (click)="getRepStatus(rep.bioguide, $event)" >Follow</button>
+            </ion-col>
+            <ion-col col-6 style="padding: 0;">
+                <button class="action-btn contact-btn" (click)="getRepID(rep, rep.civil_services_url ,rep.twitter_url,rep.contact_page, rep.bioguide)" item-end ion-button color="dark" >Contact</button>
+            </ion-col>
+        </ion-row>
+    </ion-item>
+</ion-list>
+
+
+<ion-list>
+    <ion-list-header>
+        FEDERAL
       </ion-list-header>
     <ion-item *ngFor="let rep of reps">
         <ion-avatar item-start>
@@ -33,4 +56,6 @@
         </ion-row>
     </ion-item>
 </ion-list>
+
+
 </ion-content>

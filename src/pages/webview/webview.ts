@@ -5,6 +5,9 @@ import { FeedbackPage } from '../feedback/feedback';
 import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser";
 import { FaxFeedBackPage } from '../fax-feed-back/fax-feed-back';
 import { EmailFeedBackPage } from '../email-feed-back/email-feed-back';
+import { ThankYouPage } from '../thank-you/thank-you';
+import { DonateFeedBackPage } from '../donate-feed-back/donate-feed-back';
+import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
 
 
 @IonicPage()
@@ -21,7 +24,8 @@ export class WebviewPage {
     public navParams: NavParams,
     private sanitize: DomSanitizer,
     private inAppBrowser: InAppBrowser,
-    public viewCtrl:ViewController) {
+    public viewCtrl:ViewController,
+    ) {
 
       this.url = navParams.get('iframeUrl');
       this.actionType = navParams.get('actionType');
@@ -40,15 +44,17 @@ export class WebviewPage {
   }
   
   
+  
   goToFeedBack(){ 
     if(this.actionType === 'fax'){
       this.navCtrl.push(FaxFeedBackPage);
 
     } else if(this.actionType === 'email'){
       this.navCtrl.push(EmailFeedBackPage);
+    }else if(this.actionType === 'donate'){
+      this.navCtrl.push(DonateFeedBackPage);
     }else{
-      this.navCtrl.push(FeedbackPage);
-
+      this.navCtrl.push(SignFeedBackPage);
     }
   }
 }

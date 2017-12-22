@@ -94,6 +94,8 @@ import { RallyNameHeaderComponent } from '../components/rally-name-header/rally-
 import { FaxFeedBackPage } from '../pages/fax-feed-back/fax-feed-back';
 import { EmailFeedBackPage } from '../pages/email-feed-back/email-feed-back';
 import { MyRepresentativesPage } from '../pages/my-representatives/my-representatives';
+import { DonateFeedBackPage } from '../pages/donate-feed-back/donate-feed-back';
+import { SignFeedBackPage } from '../pages/sign-feed-back/sign-feed-back';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -196,7 +198,9 @@ firebase.initializeApp(config);
         RallyNameHeaderComponent,
         FaxFeedBackPage,
         EmailFeedBackPage,
-        MyRepresentativesPage
+        MyRepresentativesPage,
+        DonateFeedBackPage,
+        SignFeedBackPage
     ],
     imports: [
         BrowserModule,
@@ -271,7 +275,9 @@ firebase.initializeApp(config);
         RallyNameHeaderComponent,
         FaxFeedBackPage,
         EmailFeedBackPage,
-        MyRepresentativesPage
+        MyRepresentativesPage,
+        DonateFeedBackPage,
+        SignFeedBackPage
     ],
     providers: [
         StatusBar,

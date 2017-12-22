@@ -51,9 +51,10 @@ export class FeedPage {
   activityLike:any = 'd32c1cb5-b076-4353-ad9c-1c8f81d812e3';
   eventLike:any = 'd5d1b115-dbb6-4894-8935-322c336ae951';
   likeendpoint:any = 'likes';
-  message:any = [{'action':'getMessages','uid':'1dcd32f2-745e-4b9c-8072-3f702d8b0415'}];
   disable:boolean = false;
   organizationEndpoint:any = 'following_organizations';
+  tweet:any;
+  enableRepCard:boolean = false;
 
   // @ViewChild(Content) content: Content;
 
@@ -94,21 +95,36 @@ export class FeedPage {
       });
 
 
-          // var connection = new WebSocket('ws://138.68.19.227:5000/');
+          var connection = new WebSocket('ws://138.68.19.227:5000/');
 
-          //   connection.onopen = function () {
-          //     console.log("Connected!");
+            connection.onopen = function () {
+              console.log("Connected!");
+              var message:any =  [{'action':'getMessages','uid':'1dcd32f2-745e-4b9c-8072-3f702d8b0415'}];
+              message = JSON.stringify(message);
+              connection.send(message);
                 
-          //   };
+            };
+            var that = this;
+            connection.onmessage = function (e) {
 
-            // connection.onmessage = function (e) {
+              var message = JSON.parse(JSON.stringify(e.data || null));
+              var obj = message;
+              var notifications = "";
+              var ol = Object.keys(obj);
+              console.log("Obj Count: ", ol.length);
+              console.log(obj.tweets);
 
-            //  console.log(e);
+              if(ol.length > 100){
+                console.log(JSON.parse(obj));
+                that.tweet = JSON.parse(obj);
+                that.enableRepCard = true;
+              }
+
+              
          
-            // };
+            };
 
-            // this.message = JSON.stringify(this.message);
-            //connection.send(this.message);
+            
    
   
   }
@@ -534,4 +550,9 @@ orgStatus(orgID){
           this.presentToast("You're now following this organization");
 
         }
+
+
+        // updateOrg(){
+        //   this.usersProv.updateSingleItem('organization/1ec4da14-2e80-44ca-8357-a242a27d6da9', JSON.stringify({image_url: 'https://bloximages.chicago2.vip.townnews.com/thenewsherald.com/content/tncms/assets/v3/editorial/6/fd/6fd68b02-0799-52ad-b15b-3cb6bdec637d/58e5411ecdcec.image.jpg'}));
+        // }
 }

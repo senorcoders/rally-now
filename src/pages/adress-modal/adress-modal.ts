@@ -43,13 +43,27 @@ export class AdressModalPage {
 
 
   saveReps(lat, lng){
-    this.httpProvider.getHouseReps(lat, lng).subscribe(
-        result => {
-            console.log("Your reps", result.data);
-            this.storage.set('representatives', result.data);
-            this.storage.set('repAdress', this.searchTerm);
-            this.dismiss();
-        });
+    this.getHouseReps(lat, lng);
+    this.getSenateReps(lat, lng);
+    this.dismiss();
+
   }
 
-}
+  getHouseReps(lat, lng){
+    this.httpProvider.getHouseReps(lat, lng).subscribe(
+      result => {
+          console.log("Your reps", result.data);
+          this.storage.set('representatives', result.data);
+          this.storage.set('repAdress', this.searchTerm);
+      });
+  }
+
+  getSenateReps(lat, lng){
+    this.httpProvider.getSenateReps(lat, lng).subscribe(
+      result => {
+          console.log("Your reps", result.data);
+          this.storage.set('senators', result.data);
+      });
+  }
+
+} 

@@ -15,6 +15,7 @@ export class UsersProvider {
   recordID:any;
   senorcodersEndpoint:any = 'http://senorcoders.com/rally/';
   civilApi:any = 'https://api.civil.services/v1/house/?apikey=FA7D0F9C-3879-F284-9D4A-BD9E595BC89B&latitude=';
+  civilApiSenate:any = 'https://api.civil.services/v1/house/?apikey=FA7D0F9C-3879-F284-9D4A-BD9E595BC89B&latitude=';
 
   constructor(public http: Http, public storage: Storage, public af:AngularFireDatabase) {
     console.log('Hello Users Provider');
@@ -28,6 +29,11 @@ export class UsersProvider {
   getHouseReps(lat, lng){
     console.log(lat, lng);
     return this.http.get(this.civilApi + lat + '&longitude=' + lng).map(res => res.json());
+  }
+
+  getSenateReps(lat, lng){
+    console.log(lat, lng);
+    return this.http.get(this.civilApiSenate + lat + '&longitude=' + lng).map(res => res.json());
   }
 
 
@@ -429,18 +435,17 @@ export class UsersProvider {
   } 
 
 
-  updateSingleItem(endpoint, itemName, value):void{
+  updateSingleItem(endpoint,updateData):void{
     var headers = new Headers();
     headers.append('Content-Type', 'application/json' );
     headers.append('Access-Control-Allow-Origin', '*');
     headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
     headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
     headers.append('Access-Control-Max-Age', '1728000');
-    let userData = JSON.stringify({
-      itemName: value
-      });
+   
+    console.log(updateData);
     let options = new RequestOptions({ headers: headers });
-  this.http.put(encodeURI(this.base + endpoint), userData, options)
+  this.http.put(encodeURI(this.base + endpoint), updateData, options)
     .subscribe(data => {
       console.log(data);
     }, error => {

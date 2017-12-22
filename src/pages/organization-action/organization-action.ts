@@ -9,6 +9,7 @@ import { CallPage } from '../call/call';
 import { WebviewPage } from '../webview/webview';
 import { Storage } from '@ionic/storage';
 import { AdressModalPage } from '../adress-modal/adress-modal';
+import { ThankYouPage } from '../thank-you/thank-you';
 
 
 @IonicPage()
@@ -56,6 +57,7 @@ export class OrganizationActionPage {
     representative_id: '',
     action_type_id: ''
   }];
+  senators:any;
 
 
   constructor(public navCtrl: NavController, 
@@ -134,7 +136,8 @@ export class OrganizationActionPage {
             console.log('Post message via Twitter clicked');
             this.data.action_type_id = '9eef1652-ccf9-449a-901e-ad6c0b3a8a6c';
             this.httpProvider.addAction(this.favEndpoint, this.data);
-            this.navCtrl.push(WebviewPage, {iframeUrl: twitter,  actionType: 'twitter'});
+            this.shareProvider.twitterShare('@' + twitter);
+            this.streakModal();
           }
         },{
           text: 'Cancel',
@@ -146,6 +149,11 @@ export class OrganizationActionPage {
       ]
     });
     actionSheet.present();
+  }
+
+  streakModal() {
+    let modal = this.modalCtrl.create(ThankYouPage);
+    modal.present();
   }
  
   getdata(){
@@ -220,7 +228,6 @@ export class OrganizationActionPage {
      findInLoop(actions){
       if (actions != null){
         var found = actions.some(el => { 
-          console.log(el);
             return el == this.myrallyID;
           
         });
@@ -364,6 +371,14 @@ getReps(){
   });
 }
 
+getSenator(){
+  this.storage.get('senators').then((val) => {
+    if(val != null){
+      this.senators = val;
+    }
+  });
+}
+
 getAddress(){
   this.storage.get('repAdress').then((val) => {
     if (val != null){
@@ -379,6 +394,7 @@ finReps(){
   let modal = this.modalCtrl.create(AdressModalPage);
   modal.onDidDismiss(() => {
     this.getReps();
+    this.getSenator();
     this.getAddress();
   });
   modal.present();

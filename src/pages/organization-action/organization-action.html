@@ -70,6 +70,15 @@
                 <p><small>Senator of {{rep.state_name}}</small></p>
                 <button (click)="getRepID(rep, rep.civil_services_url ,rep.twitter_url,rep.contact_page, rep.bioguide)" item-end ion-button color="dark" class="action-btn">Contact</button>
             </ion-item>
+
+            <ion-item *ngFor="let rep of senators">
+                <ion-avatar item-start>
+                    <img src="{{rep.photo_url}}" style="border-radius: 50%;">
+                </ion-avatar>
+                <h2>{{rep.name}}</h2>
+                <p><small>Senator of {{rep.state_name}}</small></p>
+                <button (click)="getRepID(rep, rep.civil_services_url ,rep.twitter_url,rep.contact_page, rep.bioguide)" item-end ion-button color="dark" class="action-btn">Contact</button>
+            </ion-item>
           
         </ion-list>
 

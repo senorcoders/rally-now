@@ -19,8 +19,8 @@ export class SocialShareProvider {
     });
 	}
 
-	twitterShare(title, imgURI) {
-    this.socialSharing.shareViaTwitter(title, 'https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08', 'http://senorcoders.com/').then(() => {
+	twitterShare(title, imgURI?) {
+    this.socialSharing.shareViaTwitter(title, imgURI).then(() => {
       console.log("shareViaTwitter: Success");
     }).catch((error) => {
       console.error("shareViaTwitter: failed", error);
@@ -28,7 +28,7 @@ export class SocialShareProvider {
 	}
 
 	whatsappShare(title, imgURI) {
-    this.socialSharing.shareViaWhatsApp(title, 'https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08', null).then(() => {
+    this.socialSharing.shareViaWhatsApp(title, imgURI, null).then(() => {
       console.log("shareViaWhatsapp: Success");
     }).catch((error) => {
       console.error("shareViaWhatsapp: failed", error);

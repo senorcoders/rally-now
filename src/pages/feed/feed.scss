@@ -304,6 +304,7 @@ page-feed {
                 span.day{
                   background: #000;
                   padding: 5px 10px;
+                  
                 }
                 span.month{
                 background: #f2f2f2;
@@ -374,6 +375,54 @@ page-feed {
         float: right;
         button {
             border-radius: 15px !important;
+        }
+    }
+
+
+    .reps-card{
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        width: 100% !important;
+        box-shadow: none !important;
+        ion-card-header {
+            max-width: 90%;
+            overflow: visible;
+            white-space: initial;
+        }
+        .button-clear-md,
+        .button-clear-ios {
+             background-color: #f2f2f2;
+            color: #bfbfbf;
+            height: 30px;
+        }
+        .item-md ion-avatar img,
+    .item-ios ion-avatar img {
+        border: 2px solid #cecece;
+    }
+        .fab-md-light,
+        .fab-ios-light {
+            background: none;
+            border: none;
+            box-shadow: none;
+        }
+
+        .blue {
+            background-color: #f2f2f2;
+            border-right: 1px solid #fff;
+        }
+        .ion-logo-twitter {
+            //background: #4a90e2;
+            padding: 5px;
+            border-radius: 50%;
+            height: 25px;
+            width: 25px;
+            color: #4a90e2;
+        }
+        ion-item{
+            padding-left: 0 !important;
+            h2{
+                font-size: 13px !important;
+            }
         }
     }
 }

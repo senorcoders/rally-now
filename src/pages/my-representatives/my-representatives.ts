@@ -15,6 +15,7 @@ import { CallPage } from '../call/call';
 export class MyRepresentativesPage {
 
   reps:any;
+  senators:any;
   repAddress:any;
   repsEndpoint:any = 'reps?bioguide=';
   data:any = [{
@@ -68,10 +69,20 @@ export class MyRepresentativesPage {
 
   }
 
+  getSenators(){
+    this.storage.get('senators').then((val) => {
+      console.log(val);
+        if (val != null){
+          this.senators = val;
+        } 
+    });
+  }
+
   finReps(){
     let modal = this.modalCtrl.create(AdressModalPage);
     modal.onDidDismiss(() => {
       this.getReps();
+      this.getSenators();
       this.getAddress();
     });
     modal.present();

@@ -45,7 +45,7 @@
                 
                 <div class="date-events-spans">
                     <span class="day">Saturday</span>
-                    <span class="month">NOV 29</span>
+                    <span class="month">{{event.event_date | amDateFormat:'LL'}}</span>
                 </div>
         </div>
         <ion-card-content (click)="goToEventDetail(event.id)">
