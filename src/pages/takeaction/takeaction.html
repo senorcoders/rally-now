@@ -26,7 +26,7 @@
             <!-- <div class="days-excerpt">
                 <p class="white">{{objective?.goals[0]?.description}}</p>
             </div> -->
-            <div class="railled-excerpt">
+            <div class="railled-excerpt" *ngIf="objective.rallies > 0">
                 <p class="white"><strong>{{objective.rallies}}</strong><br> Rallied</p>
             </div>
             <div class="bottom-excerpt">

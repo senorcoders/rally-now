@@ -1,14 +1,16 @@
 page-organizations {
-    ion-content{
-    top: 60px;
+    
+    ion-header {
+        text-align: center;
     }
-    // ion-header {
-    //     text-align: center;
-    // }
 
+    // .toolbar-background {
+    //     background-color: #4a90e2;
+    //     color: #fff;
+    // }
     .toolbar-background {
-        background-color: #4a90e2;
-        color: #fff;
+        background: #f4512c !important;
+        //max-height: 50px !important;
     }
     ion-content {
         background-color: #f2f2f2 !important;
@@ -201,6 +203,83 @@ page-organizations {
     }
     .right-border {
         border-right: 1px solid #fff;
+    }
+
+    .events-card{
+        position:relative;
+         margin-right: 0 !important;
+        margin-left: 0 !important;
+        width: 100% !important;
+        box-shadow: none !important;
+        small {
+            color: #8f8f8f;
+            font-weight: normal;
+        }
+        .item-md ion-avatar img,
+        .item-ios ion-avatar img {
+            border: 2px solid #cecece;
+        }
+
+        .event-description{
+            color: #8f8f8f;
+            //font-weight: 200;
+        }
+
+        ion-card-title{
+            font-size: 18px !important;
+            font-weight: 500;
+        }
+
+        .events-bg{
+            height: 100px;
+            position:relative;
+            background-size: cover !important;
+            background-repeat: no-repeat !important;
+            background-position: center !important;
+            .events-filter{
+                position: absolute;
+                bottom: 0;
+                top:0;
+                right: 0;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.3);
+            }
+
+            .events-railled{
+                position:absolute;
+                right: 10px;
+                top: 30%;
+                z-index: 99;
+                p{
+                    font-size: 17px;
+                    text-align: center;
+                }
+
+
+            }
+
+            .date-events-spans{
+                position: absolute;
+                z-index: 99;
+                color: white;
+                left: 20px;
+                bottom: 20px;
+                span.day{
+                  background: #4e4e4e;
+                  padding: 5px 10px;
+                  
+                }
+                span.month{
+                background: #f2f2f2;
+                padding: 5px 10px;
+                color: #4e4e4e;
+                //font-weight: 100;
+                text-transform: uppercase;
+                margin-left: -5px;
+                }
+            }
+        }
     }
 }
 

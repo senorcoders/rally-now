@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, ActionSheetController, ToastController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ActionSheetController, ToastController, ModalController} from 'ionic-angular';
 import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
@@ -11,6 +11,9 @@ import { UsersProvider } from '../../providers/users/users';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
 import { OrganizationActionPage } from '../organization-action/organization-action';
+import { EventDetailPage } from '../event-detail/event-detail';
+import { FilterEventsPage } from '../filter-events/filter-events';
+import { Storage } from '@ionic/storage';
 
 
 @IonicPage() 
@@ -24,12 +27,15 @@ export class OrganizationsPage {
   myApiRallyID:any;
  favEndpoint:any = 'actions';
    hide_enpoint:any = 'hide_objective';
-likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
-goalLike:any = 'ea9bd95e-128c-4a38-8edd-938330ad8b2d';
-likeendpoint:any = 'likes';
-shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
-disable:boolean = false;
-organizationEndpoint:any = 'following_organizations';
+  likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
+  goalLike:any = 'ea9bd95e-128c-4a38-8edd-938330ad8b2d';
+  likeendpoint:any = 'likes';
+  shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
+  disable:boolean = false;
+  organizationEndpoint:any = 'following_organizations';
+  events:any;
+  eventStart:any;
+  eventEnd:any;
 
 
 
@@ -45,7 +51,9 @@ organizationEndpoint:any = 'following_organizations';
     public actionSheetCtrl: ActionSheetController,
     private shareProvider:SocialShareProvider,
     public toastCtrl: ToastController,
-    private photoViewer: PhotoViewer) {
+    private photoViewer: PhotoViewer,
+    public modalCtrl: ModalController,
+    private storage: Storage) {
     this.rallyProvider.returnRallyUserId()
       .then(user => {
         console.log(user);
@@ -84,10 +92,17 @@ organizationEndpoint:any = 'following_organizations';
        popover.present();
      }
 
-     getdata(){
-  this.httpProvider.getJsonData(this.endpoint + this.myApiRallyID).subscribe(
+     getdata(startDate?, endDate?){
+
+      if(startDate != null){
+        var url = this.endpoint + this.myApiRallyID + '/' + startDate + '/' + endDate;
+      } else{
+        var url = this.endpoint + this.myApiRallyID;
+      }
+  this.httpProvider.getJsonData(url).subscribe(
     result => {
       this.organizations=result['My_Organizations'];
+      this.events = result['My_Events'];
       console.log("Success : "+ result['My_Organizations']);
     },
     err =>{
@@ -353,5 +368,103 @@ orgStatus(orgID){
           this.rallyProvider.followOrganization(this.organizationEndpoint, this.myApiRallyID, organizationID );
           this.presentToast("You're now following this organization");
 
+        }
+
+
+        eventEllipsisController(name, orgID, desc){
+          const actionSheet = this.actionSheetCtrl.create({
+            buttons: [
+            {
+              text: 'Share this event via...',
+              handler: () => {
+                console.log("test");
+                this.shareProvider.otherShare(name, desc);
+        
+              }
+            }, 
+            {
+              text: 'Turn on/off notifications for ' + name,
+              handler: () => {
+                console.log("test");
+        
+              }
+            },
+            {
+              text: 'Follow/Unfollow ' + name,
+              handler: () => {
+                this.orgStatus(orgID);
+                console.log("test");
+        
+              }
+            },
+            {
+              text: 'Report',
+              role: 'destructive',
+              handler: () => {
+                console.log("test");
+                this.shareProvider.shareViaEmail();
+        
+              }
+            },
+            {
+              text: 'Cancel',
+              role: 'cancel',
+              handler: () => {
+                console.log('Cancel clicked');
+              }
+            }
+          ]
+        });
+        
+        actionSheet.present();
+        }
+
+        goToEventDetail(eventID){
+          console.log(eventID);
+          this.navCtrl.push(EventDetailPage, {
+                  eventID: eventID,
+                  eventPageName: "Home"
+            }, {animate:true,animation:'transition',duration:500,direction:'forward'});
+        }
+
+        getDay(day){
+          var d = new Date(day);
+          var weekday = new Array(7);
+          weekday[0] = "SUNDAY";
+          weekday[1] = "MONDAY";
+          weekday[2] = "TUESDAY";
+          weekday[3] = "WEDNESDAY";
+          weekday[4] = "THURSDAY";
+          weekday[5] = "FRIDAY";
+          weekday[6] = "SATURDAY";
+          var n = weekday[d.getDay()];
+          return n;
+        }
+
+        goToEventFilter(){
+          // this.navCtrl.push(FilterEventsPage,  {}, {animate:true,animation:'ios-transition',duration:500,direction:'forward'});
+          let modal = this.modalCtrl.create(FilterEventsPage);
+          modal.onDidDismiss(() => {
+            console.log('Test');
+            this.getStartDate();
+            
+          });
+          modal.present();
+          
+        }
+
+        getStartDate(){
+          this.storage.get('startDate').then((val) => {
+            this.eventStart = val;
+            this.getEndDate();
+
+          });
+        }
+
+        getEndDate(){
+          this.storage.get('endDate').then((val) => {
+            this.eventEnd = val;
+            this.getdata(this.eventStart, this.eventEnd);
+          });
         }
 }

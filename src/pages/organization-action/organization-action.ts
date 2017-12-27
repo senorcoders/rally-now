@@ -282,9 +282,7 @@ getLikeStatus($event, reference_id, like_type){
     } ,
     () => {
       console.log('getData completed');
-    }
-
-    );
+    });
 }
 
 addLike(reference_id, like_type){

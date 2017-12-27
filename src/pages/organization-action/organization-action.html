@@ -6,12 +6,12 @@
 
         <ion-fab right top>
             <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
-            <ion-fab-list side="left">
+            <!-- <ion-fab-list side="left">
                 <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
                 <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
                 <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
                 <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
-            </ion-fab-list>
+            </ion-fab-list> -->
         </ion-fab>
 
         <ion-item>
@@ -24,7 +24,7 @@
 
         <div class="organization-bg" [ngStyle]="{ 'background-image' : 'url(' + objectivesMedia +')'}">
  
-            <div class="railled-excerpt">
+            <div class="railled-excerpt" *ngIf="rallies > 0">
                 <p class="white"><strong>{{rallies}}</strong><br> Railled</p>
             </div>
             <div class="bottom-excerpt">

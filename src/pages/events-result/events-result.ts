@@ -236,5 +236,18 @@ addShareAction(goal_id, action_type_id){
   this.httpProvider.addLike(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
 }
 
+getDay(day){
+  var d = new Date(day);
+  var weekday = new Array(7);
+  weekday[0] = "SUNDAY";
+  weekday[1] = "MONDAY";
+  weekday[2] = "TUESDAY";
+  weekday[3] = "WEDNESDAY";
+  weekday[4] = "THURSDAY";
+  weekday[5] = "FRIDAY";
+  weekday[6] = "SATURDAY";
+  var n = weekday[d.getDay()];
+  return n;
+}
     
 }

@@ -67,7 +67,7 @@
    
 
     <ion-row padding class="streak-row" (click)="onButtonClick()">
-        <p>Current Streak: <strong>{{starCount}}</strong></p>
+        <p>Current Streak: <strong>{{starCount}} days</strong></p>
         <ion-icon class="drop-icon" [name]="buttonClicked ? 'ios-arrow-up' : 'ios-arrow-down'"></ion-icon>
     </ion-row>
     <div *ngIf="buttonClicked">

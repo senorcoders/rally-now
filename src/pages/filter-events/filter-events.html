@@ -13,17 +13,17 @@
 <ion-content>
     <ion-list>
             <ion-item style="background: #f2f2f2">
-                    <ion-label style="color: #000;">ZIPCODE</ion-label>
-                    <ion-input [(ngModel)]="zipcode" style="color: #000; font-size:40px;" class="zip-input"></ion-input>
+                    <ion-label style="color: #6b6b6b;">ZIPCODE</ion-label>
+                    <ion-input [(ngModel)]="zipcode" style="color: #6b6b6b; font-size:40px;" class="zip-input"></ion-input>
                 </ion-item>
-        <ion-list-header style=" background-color: #f2f2f2; color: #000; text-transform: uppercase;">
+        <ion-list-header style=" background-color: #f2f2f2; color: #6b6b6b; text-transform: uppercase;">
             Distance from me
          
             <p item-end >{{text}}</p> 
             
         </ion-list-header>
-        <ion-item style="border:none; background-color: #f2f2f2; color: #000;">
-            <ion-range (ionChange)="getDistance()" [(ngModel)]="structure" style="color: #000;" min="0" max="100" >
+        <ion-item style="border:none; background-color: #f2f2f2; color: #6b6b6b;">
+            <ion-range (ionChange)="getDistance()" [(ngModel)]="structure" style="color: #6b6b6b;" min="0" max="100" >
             </ion-range>
         </ion-item>
 
@@ -32,16 +32,16 @@
     <ion-list>
     
        
-        <ion-list-header style="background-color: #f2f2f2; color: #000; text-transform: uppercase;">
+        <ion-list-header style="background-color: #f2f2f2; color: #6b6b6b; text-transform: uppercase;">
             Date Range
         </ion-list-header>
         <ion-item style="background: #f2f2f2">
-            <ion-label style="color: #000;">Start Date</ion-label>
-            <ion-datetime style="color: #000;" displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="event.month"></ion-datetime>
+            <ion-label style="color: #6b6b6b;">Start Date</ion-label>
+            <ion-datetime style="color: #6b6b6b;" displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="event.month"></ion-datetime>
         </ion-item>
         <ion-item style="background: #f2f2f2">
-            <ion-label style="color: #000;">End Date</ion-label>
-            <ion-datetime style="color: #000;" displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="event.timeEnds"></ion-datetime>
+            <ion-label style="color: #6b6b6b;">End Date</ion-label>
+            <ion-datetime style="color: #6b6b6b;" displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="event.timeEnds"></ion-datetime>
         </ion-item>
     </ion-list>
    

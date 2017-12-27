@@ -39,6 +39,9 @@ export class EventDetailPage {
   disable:boolean = false;
   start_date:any;
   attending:any;
+  organizationEndpoint:any = 'following_organizations';
+  organization_id;
+
 
 
 
@@ -50,7 +53,8 @@ export class EventDetailPage {
     private httpProvider: UsersProvider,
     public toastCtrl: ToastController,
     public viewCtrl: ViewController,
-    private shareProvider:SocialShareProvider) {
+    private shareProvider:SocialShareProvider,
+    public actionSheetCtrl: ActionSheetController) {
         this.eventID = navParams.get('eventID');
         this.eventPageName = navParams.get('eventPageName');
         console.log("Evento ID", navParams.get('eventID'));
@@ -91,6 +95,7 @@ export class EventDetailPage {
       this.shares = result.shares;
       this.start_date = result.start_date;
       this.attending = result.attending;
+      this.organization_id = result.organization_id;
     },
     err =>{
       console.error("Error : "+err);
@@ -260,6 +265,99 @@ shareController(title, imgURI, reference_id, like_type, $event) {
 addShareAction(goal_id, action_type_id){
   this.httpProvider.addLike(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
 }
+
+getDay(day){
+  var d = new Date(day);
+  var weekday = new Array(7);
+  weekday[0] = "SUNDAY";
+  weekday[1] = "MONDAY";
+  weekday[2] = "TUESDAY";
+  weekday[3] = "WEDNESDAY";
+  weekday[4] = "THURSDAY";
+  weekday[5] = "FRIDAY";
+  weekday[6] = "SATURDAY";
+  var n = weekday[d.getDay()];
+  return n;
+}
+
+eventEllipsisController(name, orgID){
+  const actionSheet = this.actionSheetCtrl.create({
+    buttons: [
+    {
+      text: 'Share this event via...',
+      handler: () => {
+        console.log("test");
+
+      }
+    }, 
+    {
+      text: 'Turn on/off notifications for ' + name,
+      handler: () => {
+        console.log("test");
+
+      }
+    },
+    {
+      text: 'Follow/Unfollow ' + name,
+      handler: () => {
+        this.orgStatus(orgID);
+        console.log("test");
+
+      }
+    },
+    {
+      text: 'Report',
+      role: 'destructive',
+      handler: () => {
+        console.log("test");
+
+      }
+    },
+    {
+      text: 'Cancel',
+      role: 'cancel',
+      handler: () => {
+        console.log('Cancel clicked');
+      }
+    }
+  ]
+});
+
+actionSheet.present();
+}
+
+orgStatus(orgID){
+  this.httpProvider.getJsonData(this.organizationEndpoint+'?follower_id='+this.myrallyID+'&organization_id='+orgID).subscribe(
+        result => {
+          if(result != ""){
+             this.unfollowOrg(result[0].id, orgID);
+             console.log("Unfollow");
+          }else{
+            console.log("Follow");
+            this.followOrg(orgID);
+          }
+        },
+        err =>{
+        console.error("Error : "+err);
+        } ,
+        () => {
+        console.log('getData completed');
+        });
+        }
+
+
+        unfollowOrg(recordID, orgID){
+
+          this.httpProvider.unfollowOrganization(this.organizationEndpoint, recordID);
+          this.httpProvider.removeFollowRecordID(orgID, 'organizations');
+          this.presentToast("You're not following this organization anymore");
+        }
+
+        followOrg(organizationID){
+          this.httpProvider.followOrganization(this.organizationEndpoint, this.myrallyID, organizationID );
+          this.presentToast("You're now following this organization");
+
+        }
 
 
 }

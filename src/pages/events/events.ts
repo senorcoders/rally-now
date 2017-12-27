@@ -12,6 +12,7 @@ import { FormControl } from '@angular/forms';
 import { Storage } from '@ionic/storage';
 import { OrganizationProfilePage } from '../organization-profile/organization-profile';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
+import { OrganizationsProvider } from '../../providers/organizations/organizations';
 
  
 @IonicPage()
@@ -34,6 +35,8 @@ export class EventsPage {
   likeendpoint:any = 'likes';
   disable:boolean = false;
   organizationEndpoint:any = 'following_organizations';
+  eventStart:any;
+  eventEnd:any;
 
 
 
@@ -47,7 +50,8 @@ export class EventsPage {
     public viewCtrl:ViewController,
     public toastCtrl: ToastController,
     private shareProvider:SocialShareProvider,
-    public actionSheetCtrl: ActionSheetController) {
+    public actionSheetCtrl: ActionSheetController,
+    private orgProvider:OrganizationsProvider) {
       this.searchControl = new FormControl();
       this.httpProvider.returnRallyUserId().then(user => {
         this.myrallyID = user.apiRallyID;
@@ -62,20 +66,17 @@ export class EventsPage {
     this.viewCtrl.setBackButtonText("My Feeds");
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EventsPage');
-     this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
-          this.searching = false;
-          this.getdata();
-        });
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad EventsPage');
+  //    this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
+  //         this.searching = false;
+  //         this.getdata();
+  //       });
 
    
-  }
+  // }
 
-   filterEvents() {
-    let modal = this.modalCtrl.create(FilterEventsPage);
-    modal.present();
-  }
+   
 
    goToHome(){
     this.navCtrl.setRoot(FeedPage);
@@ -94,13 +95,20 @@ export class EventsPage {
        popover.present();
      }
 
-       getdata(){
+       getdata(startDate?, endDate?){
+         if(startDate != null){
+           this.getFilteredEvents(startDate, endDate);
+         }else{
+           this.getAllEvents();
+         }
+ 
+    }
+
+getAllEvents(){
   this.httpProvider.getJsonData(this.endpoint).subscribe(
     result => {
-     this.events = result.filter((item) => {
-            return item.title.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
-        });  
-     this.storage.set('EVENTS', result);
+     this.events = result;
+    //  this.storage.set('EVENTS', result);
 
      //this.filterItems(this.searchTerm); 
       
@@ -110,8 +118,24 @@ export class EventsPage {
     } ,
     () => {
       console.log('getData completed');
-    }
-  );
+    });
+}
+
+getFilteredEvents(startDate, endDate){
+  this.orgProvider.getJsonData(this.endpoint + '/' + startDate + '/' + endDate).subscribe(
+    result => {
+      console.log(result);
+     this.events = result.Events;
+    //  this.storage.set('EVENTS', result);
+
+     //this.filterItems(this.searchTerm); 
+    },
+    err =>{
+      console.error("Error : "+err);
+    } ,
+    () => {
+      console.log('getData completed');
+    });
 }
 
 
@@ -131,8 +155,30 @@ goToEventDetail(eventID){
     });
      }
 
-goToEventFilter(){
-      this.navCtrl.push(FilterEventsPage);
+  goToEventFilter(){
+      // this.navCtrl.push(FilterEventsPage);
+      let modal = this.modalCtrl.create(FilterEventsPage);
+      modal.onDidDismiss(() => {
+        console.log('Test');
+        this.getStartDate();
+        
+      });
+      modal.present();
+    }
+
+    getStartDate(){
+      this.storage.get('startDate').then((val) => {
+        this.eventStart = val;
+        this.getEndDate();
+
+      });
+    }
+
+    getEndDate(){
+      this.storage.get('endDate').then((val) => {
+        this.eventEnd = val;
+        this.getdata(this.eventStart, this.eventEnd);
+      });
     }
 
      onSearchInput(){
@@ -354,6 +400,20 @@ goToEventFilter(){
               this.httpProvider.followOrganization(this.organizationEndpoint, this.myrallyID, organizationID );
               this.presentToast("You're now following this organization");
     
+            }
+
+            getDay(day){
+              var d = new Date(day);
+              var weekday = new Array(7);
+              weekday[0] = "SUNDAY";
+              weekday[1] = "MONDAY";
+              weekday[2] = "TUESDAY";
+              weekday[3] = "WEDNESDAY";
+              weekday[4] = "THURSDAY";
+              weekday[5] = "FRIDAY";
+              weekday[6] = "SATURDAY";
+              var n = weekday[d.getDay()];
+              return n;
             }
 
 }

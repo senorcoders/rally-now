@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import { EventsResultPage } from '../events-result/events-result';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
+import { Storage } from '@ionic/storage';
 
 
 @IonicPage()
@@ -26,7 +27,8 @@ text:any;
     public navCtrl: NavController, 
     public navParams: NavParams,  
     public viewCtrl: ViewController,
-    private httpProvider:OrganizationsProvider) {
+    private httpProvider:OrganizationsProvider,
+    private storage: Storage) {
       this.text = "50 MILES";
       console.log(new Date());
       var today = new Date();
@@ -57,33 +59,41 @@ text:any;
 
  
 
-goToEvents(){
+goToEvents(){  
   console.log(this.zipcode, this.structure, this.event.month, this.event.timeEnds);
-  this.httpProvider.getJsonData(this.endpoint + this.zipcode + '/' + this.event.month + '/' +  this.event.timeEnds + '/' + this.structure)
-  .subscribe(
-    result => {
-        console.log("Events Filtered", JSON.stringify(result));
-        this.navCtrl.push(EventsResultPage, {
-          'events' : result,
-          'startDate': this.event.month,
-          'endDate': this.event.timeEnds
-        });
+  this.storage.set('startDate', this.event.month);
+  this.storage.set('endDate', this.event.timeEnds);
+  this.dismiss();
+  // this.httpProvider.getJsonData(this.endpoint + this.zipcode + '/' + this.event.month + '/' +  this.event.timeEnds + '/' + this.structure)
+  // .subscribe(
+  //   result => {
+  //       console.log("Events Filtered", JSON.stringify(result));
+  //       // this.navCtrl.push(EventsResultPage, {
+  //       //   'events' : result,
+  //       //   'startDate': this.event.month,
+  //       //   'endDate': this.event.timeEnds
+  //       // });
         
-    },
-    err =>{
-      console.error("Error : "+err);
-    } ,
-    () => {
-      console.log('getData completed');
-    }
-  );
+
+        
+  //   },
+  //   err =>{
+  //     console.error("Error : "+err);
+  //   } ,
+  //   () => {
+  //     console.log('getData completed');
+  //   }
+  // );
  }
 
+
+ 
 
  getDistance(){
    console.log("Estructura", this.structure);
    if(this.structure > 99){
      this.text = "ANY DISTANCE";
+     this.structure = 4000;
    }else if(this.structure < 1){
     this.text = "< 1 MILE";
    }

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import {  NavController, AlertController, PopoverController, LoadingController, ActionSheetController, ToastController, Events } from 'ionic-angular';
+import {  NavController, AlertController, PopoverController, LoadingController, ActionSheetController, ToastController, Events, ModalController } from 'ionic-angular';
 import { AlertsPage } from '../alerts/alerts'
 import { ProfilePage } from '../profile/profile'
 import { HomeFiltersPage } from '../home-filters/home-filters';
@@ -55,6 +55,8 @@ export class FeedPage {
   organizationEndpoint:any = 'following_organizations';
   tweet:any;
   enableRepCard:boolean = false;
+  eventStart:any;
+  eventEnd:any;
 
   // @ViewChild(Content) content: Content;
 
@@ -73,7 +75,8 @@ export class FeedPage {
     private storage: Storage,
     private storageProvider: UserData,
     private photoViewer: PhotoViewer,
-    public eventsAng: Events) {
+    public eventsAng: Events,
+    public modalCtrl: ModalController) {
 
       // eventsAng.subscribe('home:scrollToTop', (time) => {
       //   console.log('home:scrollToTop', 'at', time);
@@ -175,8 +178,16 @@ export class FeedPage {
     this.navCtrl.push(RatePage,  {}, {animate: true, direction: 'forward'});
   }
 
-  getdata(){
-  this.httpProvider.getJsonData(this.endpoint + this.myrallyID).subscribe(
+  getdata(startDate?, endDate?){
+
+    if(startDate != null){
+      var url = this.endpoint + this.myrallyID + '/' + startDate + '/' + endDate;
+    } else{
+      var url = this.endpoint + this.myrallyID;
+    }
+
+    console.log("This url =>", url);
+  this.httpProvider.getJsonData(url).subscribe(
     result => {
       console.log("Homefeed for Current user", result);
       this.organizationsData=result['My_Organizations'];
@@ -403,10 +414,7 @@ goToRequests(){
   this.navCtrl.push(FriendsRequestPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
 }
 
-goToEventFilter(){
-  this.navCtrl.push(FilterEventsPage,  {}, {animate:true,animation:'ios-transition',duration:500,direction:'forward'});
-  
-}
+
 
 addShareAction(goal_id, action_type_id){
   this.usersProv.addShareAction(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
@@ -553,4 +561,47 @@ orgStatus(orgID){
         // updateOrg(){
         //   this.usersProv.updateSingleItem('organization/1ec4da14-2e80-44ca-8357-a242a27d6da9', JSON.stringify({image_url: 'https://bloximages.chicago2.vip.townnews.com/thenewsherald.com/content/tncms/assets/v3/editorial/6/fd/6fd68b02-0799-52ad-b15b-3cb6bdec637d/58e5411ecdcec.image.jpg'}));
         // }
+
+        getDay(day){
+          var d = new Date(day);
+          var weekday = new Array(7);
+          weekday[0] = "SUNDAY";
+          weekday[1] = "MONDAY";
+          weekday[2] = "TUESDAY";
+          weekday[3] = "WEDNESDAY";
+          weekday[4] = "THURSDAY";
+          weekday[5] = "FRIDAY";
+          weekday[6] = "SATURDAY";
+          var n = weekday[d.getDay()];
+          return n;
+        }
+
+        goToEventFilter(){
+          // this.navCtrl.push(FilterEventsPage,  {}, {animate:true,animation:'ios-transition',duration:500,direction:'forward'});
+          let modal = this.modalCtrl.create(FilterEventsPage);
+          modal.onDidDismiss(() => {
+            console.log('Test');
+            this.getStartDate();
+            
+          });
+          modal.present();
+          
+        }
+
+        getStartDate(){
+          this.storage.get('startDate').then((val) => {
+            this.eventStart = val;
+            this.getEndDate();
+
+          });
+        }
+
+        getEndDate(){
+          this.storage.get('endDate').then((val) => {
+            this.eventEnd = val;
+            this.getdata(this.eventStart, this.eventEnd);
+          });
+        }
+
+
 }

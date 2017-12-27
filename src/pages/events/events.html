@@ -14,9 +14,9 @@
     <!-- <ion-row padding>
         <h4 style="color: #545353;">Events</h4>
     </ion-row> -->
-    <div *ngIf="searching" class="spinner-container">
+    <!-- <div *ngIf="searching" class="spinner-container">
         <ion-spinner></ion-spinner>
-    </div>
+    </div> -->
 
       <ion-card class="events-card" *ngFor="let event of events">
 
@@ -32,19 +32,19 @@
             <ion-avatar item-start>
                 <img [src]="event.organization[0].image_url ? event.organization[0].image_url : testPhoto" (click)="goToOrganizationProfile(event.organization_id)">
             </ion-avatar>
-            <button (click)="goToOrganizationProfile(event.organization_id)" style="background: none; padding-left:0;">
-                <h2 text-wrap style="text-align: left; max-width: 85%;"> <small>via</small> {{event.organization[0].name}}</h2>
+            <button (click)="goToOrganizationProfile(event.organization_id)" style="background: none; padding-left:0; max-width: 85%;">
+                <h2 text-wrap style="text-align: left; "> <small>via</small> {{event.organization[0].name}}</h2>
             </button>
             <p><small>Event Location: {{event.locations}}</small></p>
         </ion-item>
         <div class="events-bg" (click)="goToEventDetail(event.id)" [ngStyle]="{'background-image': 'url(' + event.image_url + ')'}">
             <div class="events-filter"></div>
-            <div class="events-railled">
+            <div class="events-railled" *ngIf="event.attending > 0">
                 <p class="white"><strong>{{event.attending}}</strong><br>Attending</p>
             </div>
                 
                 <div class="date-events-spans" *ngIf="event.start_date != null">
-                    <!-- <span class="day">Saturday</span> -->
+                    <span class="day">{{getDay(event.start_date)}}</span>
                     <span class="month">{{event.start_date | amFromUtc | amDateFormat:'LL'}}</span>
                 </div>
         </div>

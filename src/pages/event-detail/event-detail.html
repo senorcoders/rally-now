@@ -5,30 +5,30 @@
     <ion-card class="events-card">
         
                 <ion-fab right top>
-                    <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
-                    <ion-fab-list side="left">
+                    <button ion-fab color="light" (click)="eventEllipsisController(orgName, organization_id)"><ion-icon name="ios-more"></ion-icon></button>
+                    <!-- <ion-fab-list side="left">
         
                         <button ion-fab><ion-icon name="md-done-all"></ion-icon></button>
-                    </ion-fab-list>
+                    </ion-fab-list> -->
                 </ion-fab>
         
                 <ion-item>
                     <ion-avatar item-start>
                         <img [src]="orgPhoto ? orgPhoto : testPhoto" (click)="showPhotoViewer(orgPhoto ? orgPhoto : testPhoto)">
                     </ion-avatar>
-                    <button (click)="goToOrganizationProfile(orgId)" style="background: none;">
-                        <h2> <small>via</small> {{orgName}}</h2>
+                    <button (click)="goToOrganizationProfile(orgId)" style="background: none; max-width:85%;">
+                        <h2 text-wrap style="text-align:left;"> <small>via</small> {{orgName}}</h2>
                     </button>
                     <p><small>Event Location: {{locations}}</small></p>
                 </ion-item>
                 <div class="events-bg"  [ngStyle]="{'background-image': 'url('+ image_url + ')'}">
                     <div class="events-filter"></div>
-                    <div class="events-railled">
+                    <div class="events-railled" *ngIf="attending > 0">
                         <p class="white"><strong>{{attending}}</strong><br> Attending</p>
         
                     </div>
                     <div class="date-events-spans" *ngIf="start_date != null">
-                        <!-- <span class="day">Saturday</span> -->
+                        <span class="day">{{getDay(start_date)}}</span>
                         <span class="month">{{start_date | amFromUtc | amDateFormat:'LL'}}</span>
                     </div>
                 </div>
