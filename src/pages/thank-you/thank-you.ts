@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, App } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
+import { TabsPage } from '../tabs/tabs';
 
 
 
@@ -27,7 +28,8 @@ export class ThankYouPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public viewCtrl: ViewController,
-    private httpProvider: UsersProvider) {
+    private httpProvider: UsersProvider,
+    private app:App) {
       this.httpProvider.returnRallyUserId().then(user =>{
         this.currentRallyID = user.apiRallyID;
           this.getStreaks();
@@ -41,6 +43,7 @@ export class ThankYouPage {
   }
 
   dismiss() {
+     this.app.getRootNav().setRoot(TabsPage);
     this.viewCtrl.dismiss();
   }
 

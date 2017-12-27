@@ -30,6 +30,7 @@ export class WebviewPage {
       this.url = navParams.get('iframeUrl');
       this.actionType = navParams.get('actionType');
       console.log(this.actionType);
+      this.openWebpage(this.url);
 
   }
 
@@ -41,6 +42,17 @@ export class WebviewPage {
     return this.sanitize.bypassSecurityTrustResourceUrl(this.url);
 
 
+  }
+
+  openWebpage(url: string) {
+    const options: InAppBrowserOptions = {
+      zoom: 'no'
+    }
+
+    // Opening a URL and returning an InAppBrowserObject
+    const browser = this.inAppBrowser.create(url, '_blank', options);
+
+   // Inject scripts, css and more with browser.X
   }
   
   

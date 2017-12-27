@@ -1,5 +1,5 @@
 page-feed {
-
+    
     ion-header{
         background: transparent !important;
        
@@ -219,9 +219,9 @@ page-feed {
         }
         .button-outline-md-light,
         .button-outline-ios-light {
-            border-color: #222;
+            border-color: #4e4e4e;
             background-color: #fff;
-            color: #222;
+            color:#4e4e4e;
             font-weight: 400;
             border-radius: 5px;
             height: auto;
@@ -234,8 +234,8 @@ page-feed {
             height: auto;
             padding: 5px 10px;
             background: transparent;
-            color: #222;
-            border: 1px solid #222;
+            color: #4e4e4e;
+            border: 1px solid #4e4e4e;
             font-size: 12px;
             text-transform: uppercase;
         }
@@ -302,14 +302,14 @@ page-feed {
                 left: 20px;
                 bottom: 20px;
                 span.day{
-                  background: #000;
+                  background: #4e4e4e;
                   padding: 5px 10px;
                   
                 }
                 span.month{
                 background: #f2f2f2;
                 padding: 5px 10px;
-                color: #000;
+                color: #4e4e4e;
                 //font-weight: 100;
                 text-transform: uppercase;
                 margin-left: -5px;

@@ -15,7 +15,7 @@ export class UsersProvider {
   recordID:any;
   senorcodersEndpoint:any = 'http://senorcoders.com/rally/';
   civilApi:any = 'https://api.civil.services/v1/house/?apikey=FA7D0F9C-3879-F284-9D4A-BD9E595BC89B&latitude=';
-  civilApiSenate:any = 'https://api.civil.services/v1/house/?apikey=FA7D0F9C-3879-F284-9D4A-BD9E595BC89B&latitude=';
+  civilApiSenate:any = 'https://api.civil.services/v1/senate/?apikey=FA7D0F9C-3879-F284-9D4A-BD9E595BC89B&latitude=';
 
   constructor(public http: Http, public storage: Storage, public af:AngularFireDatabase) {
     console.log('Hello Users Provider');

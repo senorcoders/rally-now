@@ -47,6 +47,7 @@ export class MyRepresentativesPage {
         this.data.user_id = user.apiRallyID;
         this.getAddress();
         this.getReps();
+        this.getSenators();
       });
   }
 

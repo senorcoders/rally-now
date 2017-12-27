@@ -8,13 +8,13 @@
       </ion-buttons>
      
             <ion-buttons end>
-          <button ion-button icon-only>
+          <button ion-button icon-only (click)="openWebpage(url)">
             <ion-icon name="ios-refresh-outline" ></ion-icon>
           </button>
       </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <iframe  height="100%" width="100%" [src]="urlpaste(url)"></iframe>
+  <!-- <iframe  height="100%" width="100%" [src]="openWebpage(url)"></iframe> -->
   
 </ion-content> 

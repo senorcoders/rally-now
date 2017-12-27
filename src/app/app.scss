@@ -1176,3 +1176,8 @@ html:hover [class^="ss-"] {
 .ion-page.show-page{
     background: #fff !important;
 }
+
+.card-md p, .card-md h2, .card-ios h2, .card-ios p, .card-title-md, .card-title-ios, .content-md, .content-ios,
+.item-md, .item-ios{
+    color: #6b6b6b;
+}

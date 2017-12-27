@@ -19,16 +19,16 @@
       <ion-row>
 
       </ion-row>
-      <ion-row padding>
+      <ion-row padding *ngIf="startCount > 0">
         <p>CURRENT STREAK: <strong>{{starCount}} DAYS</strong></p> 
       </ion-row>
-      <ion-row padding class="streak-row">
+      <ion-row padding class="streak-row" *ngIf="startCount > 0">
         <ion-col col-2 *ngFor="let star of starArray">
             <ion-icon name="star"></ion-icon>
         </ion-col>
 
     </ion-row>
-    <ion-row padding>
+    <ion-row padding *ngIf="countWeek > 0">
             <p>WEEKLY TOTAL: <strong>{{countWeek}} ACTIONS</strong></p> 
 
     </ion-row>

@@ -81,10 +81,7 @@ export class OrganizationActionPage {
         this.data.title = 'call';
         this.getdata();
         this.getReps();
-
-        
-
- 
+       
       });
 
   }
@@ -365,6 +362,7 @@ getReps(){
         this.enable = true;
         this.reps = val; 
         this.getAddress();
+        this.getSenator();
       } else{
         this.enable = false;
       }
@@ -394,7 +392,6 @@ finReps(){
   let modal = this.modalCtrl.create(AdressModalPage);
   modal.onDidDismiss(() => {
     this.getReps();
-    this.getSenator();
     this.getAddress();
   });
   modal.present();

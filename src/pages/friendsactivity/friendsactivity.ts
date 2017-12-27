@@ -41,8 +41,10 @@ export class FriendsactivityPage {
 
   }
 
-  ionViewWillEnter() {
-        //this.viewCtrl.showBackButton(false);
+  
+    ionViewWillEnter(){
+   
+      this.viewCtrl.setBackButtonText("My Feeds");
     }
 
   ionViewDidLoad() {

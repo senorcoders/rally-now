@@ -44,8 +44,7 @@ export class AdressModalPage {
 
   saveReps(lat, lng){
     this.getHouseReps(lat, lng);
-    this.getSenateReps(lat, lng);
-    this.dismiss();
+    //this.getSenateReps(lat, lng);
 
   }
 
@@ -55,6 +54,8 @@ export class AdressModalPage {
           console.log("Your reps", result.data);
           this.storage.set('representatives', result.data);
           this.storage.set('repAdress', this.searchTerm);
+          this.getSenateReps(lat, lng);
+
       });
   }
 
@@ -63,6 +64,7 @@ export class AdressModalPage {
       result => {
           console.log("Your reps", result.data);
           this.storage.set('senators', result.data);
+          this.dismiss();
       });
   }
 

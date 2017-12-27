@@ -24,21 +24,22 @@
                 <div class="events-bg"  [ngStyle]="{'background-image': 'url('+ image_url + ')'}">
                     <div class="events-filter"></div>
                     <div class="events-railled">
-                        <p class="white"><strong>{{rallies}}</strong><br> Rallied</p>
+                        <p class="white"><strong>{{attending}}</strong><br> Attending</p>
         
                     </div>
-                    <div class="date-events-spans">
-                        <span class="day">Saturday</span>
-                        <span class="month">NOV 29</span>
+                    <div class="date-events-spans" *ngIf="start_date != null">
+                        <!-- <span class="day">Saturday</span> -->
+                        <span class="month">{{start_date | amFromUtc | amDateFormat:'LL'}}</span>
                     </div>
                 </div>
                 <ion-card-content>
                     <ion-card-title>{{title}}</ion-card-title>
+                    <p class="event-description">{{locations}}</p>
                     <p class="event-description">{{event_time}}</p>
                 </ion-card-content>
                
                 <ion-list>
-                    <ion-list-header>
+                    <ion-list-header style="margin-bottom:0; text-transform:uppercase;">
                       Event Detail
                     </ion-list-header>
                         <div class="text-wrap" padding>{{description}}</div>

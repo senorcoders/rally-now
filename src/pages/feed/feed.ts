@@ -92,19 +92,16 @@ export class FeedPage {
         this.myrallyID = user.apiRallyID;
          
             this.getDataStatus();
-      });
-
-
-          var connection = new WebSocket('ws://138.68.19.227:5000/');
+            var connection = new WebSocket('ws://138.68.19.227:5000/');
+            var that = this;
 
             connection.onopen = function () {
               console.log("Connected!");
-              var message:any =  [{'action':'getMessages','uid':'1dcd32f2-745e-4b9c-8072-3f702d8b0415'}];
+              var message:any =  [{'action':'sendid','uid': that.myrallyID}];
               message = JSON.stringify(message);
               connection.send(message);
                 
             };
-            var that = this;
             connection.onmessage = function (e) {
 
               var message = JSON.parse(JSON.stringify(e.data || null));
@@ -118,15 +115,12 @@ export class FeedPage {
                 console.log(JSON.parse(obj));
                 that.tweet = JSON.parse(obj);
                 that.enableRepCard = true;
-              }
-
-              
+              }  
          
             };
+      });
 
-            
-   
-  
+
   }
 
   getDataStatus(){
@@ -233,8 +227,8 @@ doRefresh(refresher) {
           pageName: 'Home'
       }, {animate:true,animation:'transition',duration:500,direction:'forward'});
        } else{
-        this.navCtrl.push(WebviewPage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
-       }
+        this.navCtrl.push(WebviewPage, {iframeUrl: 'https://ionicframework.com/',  actionType: 'sign'}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+       } 
       
      }
 
@@ -410,7 +404,7 @@ goToRequests(){
 }
 
 goToEventFilter(){
-  this.navCtrl.push(FilterEventsPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+  this.navCtrl.push(FilterEventsPage,  {}, {animate:true,animation:'ios-transition',duration:500,direction:'forward'});
   
 }
 
@@ -419,13 +413,14 @@ addShareAction(goal_id, action_type_id){
 }
 
 
-ellipsisController(name, id, index, orgID){
+ellipsisController(name, id, index, orgID, desc){
   const actionSheet = this.actionSheetCtrl.create({
     buttons: [
     {
       text: 'Share this post via...',
       handler: () => {
         console.log("test");
+        this.shareProvider.otherShare(name, desc);
 
       }
     }, 
@@ -455,6 +450,7 @@ ellipsisController(name, id, index, orgID){
       role: 'destructive',
       handler: () => {
         console.log("test");
+        this.shareProvider.shareViaEmail();
 
       }
     },
@@ -471,13 +467,14 @@ ellipsisController(name, id, index, orgID){
 actionSheet.present();
 }
 
-eventEllipsisController(name, orgID){
+eventEllipsisController(name, orgID, desc){
   const actionSheet = this.actionSheetCtrl.create({
     buttons: [
     {
       text: 'Share this event via...',
       handler: () => {
         console.log("test");
+        this.shareProvider.otherShare(name, desc);
 
       }
     }, 
@@ -501,6 +498,7 @@ eventEllipsisController(name, orgID){
       role: 'destructive',
       handler: () => {
         console.log("test");
+        this.shareProvider.shareViaEmail();
 
       }
     },

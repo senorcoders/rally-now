@@ -37,6 +37,8 @@ export class EventDetailPage {
   likeendpoint:any = 'likes';
   shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
   disable:boolean = false;
+  start_date:any;
+  attending:any;
 
 
 
@@ -87,7 +89,8 @@ export class EventDetailPage {
       this.rallies = result.rallies;
       this.likes = result.likes;
       this.shares = result.shares;
-
+      this.start_date = result.start_date;
+      this.attending = result.attending;
     },
     err =>{
       console.error("Error : "+err);

@@ -43,9 +43,9 @@
                 <p class="white"><strong>{{event.attending}}</strong><br>Attending</p>
             </div>
                 
-                <div class="date-events-spans">
-                    <span class="day">Saturday</span>
-                    <span class="month">{{event.event_date | amDateFormat:'LL'}}</span>
+                <div class="date-events-spans" *ngIf="event.start_date != null">
+                    <!-- <span class="day">Saturday</span> -->
+                    <span class="month">{{event.start_date | amFromUtc | amDateFormat:'LL'}}</span>
                 </div>
         </div>
         <ion-card-content (click)="goToEventDetail(event.id)">

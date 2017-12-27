@@ -11,12 +11,41 @@ import { OrganizationsProvider } from '../../providers/organizations/organizatio
 })
 export class FilterEventsPage {
 
+  public event = {
+    month: '',
+    timeStarts: '07:43',
+    timeEnds: ''
+}
+zipcode:any = "22207";
+structure:number = 50;
+endpoint:any = 'events/';
+enable:boolean = false;
+text:any;
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,  
     public viewCtrl: ViewController,
     private httpProvider:OrganizationsProvider) {
       this.text = "50 MILES";
+      console.log(new Date());
+      var today = new Date();
+      var dd:any = today.getDate();
+      var mm:any = today.getMonth()+1;
+      var yyyy = today.getFullYear();
+      var next_year = today.getFullYear()+1;
+
+      if (dd<10){
+        dd = '0'+dd;
+      }
+
+      if(mm<10){
+        mm = '0'+mm;
+      }
+
+      this.event.month = yyyy + '-' + mm + '-' + dd;
+      this.event.timeEnds = next_year + '-' + mm + '-' + dd;
+      console.log(this.event.month);
   }
 
   ionViewDidLoad() {
@@ -26,17 +55,7 @@ export class FilterEventsPage {
     this.viewCtrl.dismiss();
   }
 
-  public event = {
-    month: '2017-10-01',
-    timeStarts: '07:43',
-    timeEnds: '2017-12-31'
-}
-
-zipcode:any = "22207";
-structure:number = 50;
-endpoint:any = 'events/';
-enable:boolean = false;
-text:any;
+ 
 
 goToEvents(){
   console.log(this.zipcode, this.structure, this.event.month, this.event.timeEnds);

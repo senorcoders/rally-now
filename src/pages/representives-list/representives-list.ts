@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
+import { Storage } from '@ionic/storage';
 
 
 
@@ -13,7 +14,7 @@ export class RepresentivesListPage {
   endpoint:any = 'reps';
   representatives:any;
   loading:any;
-  items:any;
+  items:any; 
   currentRallyID:any;
   followEndpoint:any = 'following_representative';
   
@@ -23,7 +24,8 @@ export class RepresentivesListPage {
     public navParams: NavParams,
     private httpProvider: UsersProvider,
     public loadingCtrl: LoadingController,
-    public toastCtrl: ToastController) {
+    public toastCtrl: ToastController,
+    private storage: Storage) {
 
       this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
@@ -32,7 +34,17 @@ export class RepresentivesListPage {
       this.httpProvider.returnRallyUserId().then(
         user => {
           this.currentRallyID = user.apiRallyID;
-          this.getReps();
+          this.storage.get('repFullList').then((val) =>{
+            if(val != null){
+              console.log("Loading from local");
+              this.representatives = val;
+              this.initializeItems();
+              this.loading.dismiss();
+            } else{
+              console.log("calling the api");
+              this.getReps();
+            }
+        });
           
         }
       )
@@ -46,6 +58,7 @@ export class RepresentivesListPage {
     this.httpProvider.getJsonData(this.endpoint)
       .subscribe( result => {
         this.representatives = result;
+        this.storage.set("repFullList", result);
         this.initializeItems();
         this.loading.dismiss();
       });

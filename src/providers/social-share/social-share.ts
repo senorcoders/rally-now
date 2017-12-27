@@ -35,8 +35,8 @@ export class SocialShareProvider {
     });
 	}
 
-	otherShare(title, imgURI){
-		this.socialSharing.share(title, title, 'https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08', null)
+	otherShare(title, content?){
+		this.socialSharing.share(content, title)
 			.then(() =>{
 				console.log('Success');
 			}).catch((error) => {
@@ -45,7 +45,7 @@ export class SocialShareProvider {
   }
   
   shareViaEmail(){
-    this.socialSharing.shareViaEmail("Hola desde Rally", "Rally", ["dayana@senorcoders.com"])
+    this.socialSharing.shareViaEmail("My Rally issue is:", "Rally", ["dayana@senorcoders.com"])
     .then(() =>{
       console.log('Success');
     }).catch((error) => {

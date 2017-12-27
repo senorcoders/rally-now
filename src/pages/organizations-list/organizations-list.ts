@@ -138,7 +138,7 @@ export class OrganizationsListPage {
     });
    }
 
-   followOrg(organizationID){
+   followOrg(organizationID){ 
     this.httpProvider.followOrganization(this.organizationEndpoint, this.currentRallyID, organizationID );
   }
 
