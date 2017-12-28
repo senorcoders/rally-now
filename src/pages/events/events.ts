@@ -322,7 +322,7 @@ goToEventDetail(eventID){
       this.httpProvider.addLike(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
     }
 
-    eventEllipsisController(name, orgID){
+    eventEllipsisController(name, orgID, followers){
       const actionSheet = this.actionSheetCtrl.create({
         buttons: [
         {
@@ -340,7 +340,7 @@ goToEventDetail(eventID){
           }
         },
         {
-          text: 'Follow/Unfollow ' + name,
+          text: this.getOrganizationFollowStatus(followers) +' ' + name,
           handler: () => {
             this.orgStatus(orgID);
             console.log("test");
@@ -366,6 +366,23 @@ goToEventDetail(eventID){
     });
     
     actionSheet.present();
+    }
+
+    getOrganizationFollowStatus(actions){
+      if (actions != null){
+        var found = actions.some(el => { 
+            return el.id == this.myrallyID;
+          
+        });
+        
+        if (!found){
+          return 'Follow';
+          
+        }else{
+          return 'Unfollow';
+          
+        }
+      }
     }
     
     

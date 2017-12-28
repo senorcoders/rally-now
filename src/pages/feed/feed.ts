@@ -421,7 +421,7 @@ addShareAction(goal_id, action_type_id){
 }
 
 
-ellipsisController(name, id, index, orgID, desc){
+ellipsisController(name, id, index, orgID, desc, followers){
   const actionSheet = this.actionSheetCtrl.create({
     buttons: [
     {
@@ -446,7 +446,7 @@ ellipsisController(name, id, index, orgID, desc){
       }
     },
     {
-      text: 'Follow/Unfollow ' + name,
+      text: this.getOrganizationFollowStatus(followers) + ' ' + name,
       handler: () => {
         this.orgStatus(orgID);
         console.log("test");
@@ -475,7 +475,7 @@ ellipsisController(name, id, index, orgID, desc){
 actionSheet.present();
 }
 
-eventEllipsisController(name, orgID, desc){
+eventEllipsisController(name, orgID, desc, followers){
   const actionSheet = this.actionSheetCtrl.create({
     buttons: [
     {
@@ -494,7 +494,7 @@ eventEllipsisController(name, orgID, desc){
       }
     },
     {
-      text: 'Follow/Unfollow ' + name,
+      text: this.getOrganizationFollowStatus(followers) + ' ' + name,
       handler: () => {
         this.orgStatus(orgID);
         console.log("test");
@@ -603,5 +603,20 @@ orgStatus(orgID){
           });
         }
 
-
+      getOrganizationFollowStatus(actions){
+        if (actions != null){
+          var found = actions.some(el => { 
+              return el.id == this.myrallyID;
+            
+          });
+          
+          if (!found){
+            return 'Follow';
+            
+          }else{
+            return 'Unfollow';
+            
+          }
+        }
+      }
 }

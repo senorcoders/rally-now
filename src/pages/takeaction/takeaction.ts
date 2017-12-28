@@ -311,7 +311,7 @@ hideItem(objective_id, index){
     this.httpProvider.addLike(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
   }
 
-  ellipsisController(name, id, index, orgID){
+  ellipsisController(name, id, index, orgID, followers){
     const actionSheet = this.actionSheetCtrl.create({
       buttons: [
       {
@@ -335,7 +335,7 @@ hideItem(objective_id, index){
         }
       },
       {
-        text: 'Follow/Unfollow ' + name,
+        text: this.getOrganizationFollowStatus(followers) +' ' + name,
         handler: () => {
           this.orgStatus(orgID);
           console.log("test");
@@ -361,6 +361,23 @@ hideItem(objective_id, index){
   });
   
   actionSheet.present();
+  }
+
+  getOrganizationFollowStatus(actions){
+    if (actions != null){
+      var found = actions.some(el => { 
+          return el.id == this.myrallyID;
+        
+      });
+      
+      if (!found){
+        return 'Follow';
+        
+      }else{
+        return 'Unfollow';
+        
+      }
+    }
   }
 
 

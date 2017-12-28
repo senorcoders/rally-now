@@ -41,6 +41,7 @@ export class EventDetailPage {
   attending:any;
   organizationEndpoint:any = 'following_organizations';
   organization_id;
+  followers:any;
 
 
 
@@ -96,6 +97,7 @@ export class EventDetailPage {
       this.start_date = result.start_date;
       this.attending = result.attending;
       this.organization_id = result.organization_id;
+      this.followers = result.organization[0].followers;
     },
     err =>{
       console.error("Error : "+err);
@@ -280,7 +282,7 @@ getDay(day){
   return n;
 }
 
-eventEllipsisController(name, orgID){
+eventEllipsisController(name, orgID, followers){
   const actionSheet = this.actionSheetCtrl.create({
     buttons: [
     {
@@ -298,7 +300,7 @@ eventEllipsisController(name, orgID){
       }
     },
     {
-      text: 'Follow/Unfollow ' + name,
+      text: this.getOrganizationFollowStatus(followers) + ' ' + name,
       handler: () => {
         this.orgStatus(orgID);
         console.log("test");
@@ -357,6 +359,23 @@ orgStatus(orgID){
           this.httpProvider.followOrganization(this.organizationEndpoint, this.myrallyID, organizationID );
           this.presentToast("You're now following this organization");
 
+        }
+
+        getOrganizationFollowStatus(actions){
+          if (actions != null){
+            var found = actions.some(el => { 
+                return el.id == this.myrallyID;
+              
+            });
+            
+            if (!found){
+              return 'Follow';
+              
+            }else{
+              return 'Unfollow';
+              
+            }
+          }
         }
 
 
