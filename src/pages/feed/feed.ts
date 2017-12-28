@@ -22,6 +22,7 @@ import { FriendsRequestPage } from '../friends-request/friends-request';
 import { FilterEventsPage } from '../filter-events/filter-events';
 import { WebviewPage } from '../webview/webview';
 import { Content } from 'ionic-angular';
+import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
 
 @Component({
   selector: 'page-feed', 
@@ -238,7 +239,7 @@ doRefresh(refresher) {
           pageName: 'Home'
       }, {animate:true,animation:'transition',duration:500,direction:'forward'});
        } else{
-        this.navCtrl.push(WebviewPage, {iframeUrl: 'https://ionicframework.com/',  actionType: 'sign'}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+        this.navCtrl.push(SignFeedBackPage, {iframeUrl: 'https://ionicframework.com/'}, {animate:true,animation:'transition',duration:500,direction:'forward'});
        } 
       
      }

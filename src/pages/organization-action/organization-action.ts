@@ -10,6 +10,8 @@ import { WebviewPage } from '../webview/webview';
 import { Storage } from '@ionic/storage';
 import { AdressModalPage } from '../adress-modal/adress-modal';
 import { ThankYouPage } from '../thank-you/thank-you';
+import { FaxFeedBackPage } from '../fax-feed-back/fax-feed-back';
+import { EmailFeedBackPage } from '../email-feed-back/email-feed-back';
 
 
 @IonicPage()
@@ -116,16 +118,16 @@ export class OrganizationActionPage {
             console.log('Fax clicked');
             this.data.action_type_id = 'ad3ef19b-d809-45b7-bef2-d470c9af0d1d';
             this.httpProvider.addAction(this.favEndpoint, this.data);
-            this.navCtrl.push(WebviewPage, {iframeUrl: fax, actionType: 'fax'});
+            this.navCtrl.push(FaxFeedBackPage, {iframeUrl: fax});
 
           }
-        },{
+        },{ 
           text: 'Email',
           handler: () => {
             console.log('Email clicked');
             this.data.action_type_id = 'f9b53bc8-9847-4699-b897-521d8e1a34bb';
             this.httpProvider.addAction(this.favEndpoint, this.data);
-            this.navCtrl.push(WebviewPage, {iframeUrl: email,  actionType: 'email'});
+            this.navCtrl.push(EmailFeedBackPage, {iframeUrl: email});
           }
         },{
           text: 'Post message via Twitter',

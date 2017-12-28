@@ -18,7 +18,7 @@ import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
 export class WebviewPage {
   url:any;
   actionType:any;
-
+ 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,

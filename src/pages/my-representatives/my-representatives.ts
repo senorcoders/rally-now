@@ -5,6 +5,8 @@ import { AdressModalPage } from '../adress-modal/adress-modal';
 import { UsersProvider } from '../../providers/users/users';
 import { WebviewPage } from '../webview/webview';
 import { CallPage } from '../call/call';
+import { FaxFeedBackPage } from '../fax-feed-back/fax-feed-back';
+import { EmailFeedBackPage } from '../email-feed-back/email-feed-back';
 
 
 @IonicPage()
@@ -125,7 +127,7 @@ export class MyRepresentativesPage {
             this.data.title = 'fax';
             this.data.action_type_id = 'ad3ef19b-d809-45b7-bef2-d470c9af0d1d';
             this.httpProvider.addAction(this.favEndpoint, this.data);
-            this.navCtrl.push(WebviewPage, {iframeUrl: fax, actionType: 'fax'});
+            this.navCtrl.push(FaxFeedBackPage, {iframeUrl: fax});
 
           }
         },{
@@ -135,7 +137,7 @@ export class MyRepresentativesPage {
             this.data.title = 'email';
             this.data.action_type_id = 'f9b53bc8-9847-4699-b897-521d8e1a34bb';
             this.httpProvider.addAction(this.favEndpoint, this.data);
-            this.navCtrl.push(WebviewPage, {iframeUrl: email,  actionType: 'email'});
+            this.navCtrl.push(EmailFeedBackPage, {iframeUrl: email});
           }
         },{
           text: 'Post message via Twitter',
