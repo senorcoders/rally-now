@@ -157,7 +157,7 @@ goToEventDetail(eventID){
 
   goToEventFilter(){
       // this.navCtrl.push(FilterEventsPage);
-      let modal = this.modalCtrl.create(FilterEventsPage);
+      let modal = this.modalCtrl.create(FilterEventsPage, {location: 'events'});
       modal.onDidDismiss(() => {
         console.log('Test');
         this.getStartDate();
@@ -319,7 +319,7 @@ goToEventDetail(eventID){
 
 
     addShareAction(goal_id, action_type_id){
-      this.httpProvider.addLike(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
+      this.httpProvider.addShareAction(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
     }
 
     eventEllipsisController(name, orgID, followers){
@@ -431,6 +431,15 @@ goToEventDetail(eventID){
               weekday[6] = "SATURDAY";
               var n = weekday[d.getDay()];
               return n;
+            }
+
+            getShortDate(day){
+              var d = new Date(day);
+              var monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+                "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+              // console.log(monthNames[d.getMonth()]);
+              var date = monthNames[d.getMonth()] + ' ' + d.getDay();
+              return date;
             }
 
 }

@@ -440,10 +440,18 @@ orgStatus(orgID){
           var n = weekday[d.getDay()];
           return n;
         }
+        getShortDate(day){
+          var d = new Date(day);
+          var monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+            "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+          // console.log(monthNames[d.getMonth()]);
+          var date = monthNames[d.getMonth()] + ' ' + d.getDay();
+          return date;
+        }
 
         goToEventFilter(){
           // this.navCtrl.push(FilterEventsPage,  {}, {animate:true,animation:'ios-transition',duration:500,direction:'forward'});
-          let modal = this.modalCtrl.create(FilterEventsPage);
+          let modal = this.modalCtrl.create(FilterEventsPage, {location: 'orgs'});
           modal.onDidDismiss(() => {
             console.log('Test');
             this.getStartDate();

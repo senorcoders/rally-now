@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController, ViewController, AlertController } from 'ionic-angular';
 import { AlertsPage } from '../alerts/alerts'
 import { ProfilePage } from '../profile/profile'
 import { PopoverController } from 'ionic-angular';
@@ -18,6 +18,7 @@ import { UsersProvider } from '../../providers/users/users';
 export class CallPage {
   rep:any;
   endpoint:any = 'actions';
+  callButtonText:any = 'Call';
   data:any = [{
     user_id: '',
     title: '',
@@ -32,7 +33,9 @@ export class CallPage {
     public popoverCtrl: PopoverController,
     public actionSheetCtrl: ActionSheetController,
     private callNumber: CallNumber,
-    private httpProvider: UsersProvider) {
+    private httpProvider: UsersProvider,
+    public viewCtrl:ViewController,
+    private alertCtrl: AlertController) {
       console.log("rep", navParams.get('rep'));
       this.rep = navParams.get('rep');
       this.data.representative_id = navParams.get('repID');
@@ -45,6 +48,10 @@ export class CallPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CallPage');
+  } 
+  ionViewWillEnter(){
+   
+    this.viewCtrl.setBackButtonText("Contact");
   }
     presentPopover() {
        let popover = this.popoverCtrl.create(OverlayPage);
@@ -91,8 +98,33 @@ export class CallPage {
 
   giveFeedBack(){
     this.navCtrl.push(FeedbackPage);
-  }
+  } 
 
+  showCallAlert(phone_number){
+    let alert = this.alertCtrl.create({
+      title: 'Are you ready?',
+      message: "If you're not sure what to say, you can review the suggested script with talking points before making the call.",
+      buttons: [
+        {
+          text: 'Review script',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+            this.callButtonText = "Call Again";
+          }
+        },
+        {
+          text: 'Make the Call',
+          handler: () => {
+            this.makeCall(phone_number);
+            this.callButtonText = "Call Again";
+
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
   makeCall(phone_number){
     this.callNumber.callNumber(phone_number, true)
       .then(() => console.log('Launched dialer!'))

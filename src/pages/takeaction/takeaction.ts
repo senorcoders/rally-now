@@ -308,7 +308,7 @@ hideItem(objective_id, index){
   }
 
   addShareAction(goal_id, action_type_id){
-    this.httpProvider.addLike(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
+    this.httpProvider.addShareAction(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
   }
 
   ellipsisController(name, id, index, orgID, followers){

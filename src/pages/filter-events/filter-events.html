@@ -1,11 +1,17 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title start>
+        <ion-title style="text-align: left !important; order: 1;">
             <p>Filter Events</p>
+            <small *ngIf="events"> <img src="assets/img/Events.svg" alt="" style="height:20px; width:20px; padding-right:5px;"> Events Feed</small>
+            <small *ngIf="orgs"> <img src="assets/img/Org.svg" alt="" style="height:20px; width:20px; padding-right:5px;"> Organizations Feed</small>
+            <small *ngIf="home"> <img src="assets/img/Home.svg" alt="" style="height:20px; width:20px; padding-right:5px;"> Home Feed</small>
+
+
         </ion-title>
         <ion-buttons end>
             <button ion-button (click)="dismiss()">
-                <ion-icon name="md-close"></ion-icon>
+                <!-- <ion-icon name="md-close"></ion-icon> -->
+                <img src="assets/img/Close.svg" style="height:15px; width:15px;">
             </button>
         </ion-buttons>
     </ion-toolbar>

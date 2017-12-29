@@ -265,7 +265,7 @@ shareController(title, imgURI, reference_id, like_type, $event) {
 }
 
 addShareAction(goal_id, action_type_id){
-  this.httpProvider.addLike(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
+  this.httpProvider.addShareAction(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
 }
 
 getDay(day){
@@ -280,6 +280,15 @@ getDay(day){
   weekday[6] = "SATURDAY";
   var n = weekday[d.getDay()];
   return n;
+}
+
+getShortDate(day){
+  var d = new Date(day);
+  var monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+    "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+  // console.log(monthNames[d.getMonth()]);
+  var date = monthNames[d.getMonth()] + ' ' + d.getDay();
+  return date;
 }
 
 eventEllipsisController(name, orgID, followers){

@@ -102,8 +102,8 @@ export class OrganizationActionPage {
 
   presentActionSheet(rep, fax, twitter, email, repID) {
     let actionSheet = this.actionSheetCtrl.create({
-      title: 'Contact Bob Representative',
-      buttons: [
+      title: 'Contact ' + rep.name,
+      buttons: [ 
         {
           text: 'Call',
           handler: () => {
@@ -351,7 +351,7 @@ shareController(title, imgURI, reference_id, like_type, $event) {
 }
 
 addShareAction(goal_id, action_type_id){
-  this.httpProvider.addLike(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
+  this.httpProvider.addShareAction(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
 }
 
 

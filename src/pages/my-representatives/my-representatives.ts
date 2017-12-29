@@ -113,7 +113,7 @@ export class MyRepresentativesPage {
 
   presentActionSheet(rep, fax, twitter, email, repID) {
     let actionSheet = this.actionSheetCtrl.create({
-      title: 'Contact Bob Representative',
+      title: 'Contact ' + rep.name,
       buttons: [
         {
           text: 'Call',

@@ -1,13 +1,12 @@
 
 <ion-header>
   <ion-toolbar color="main-white">
-    <ion-buttons start (click)="goToProfile()">
-      <button ion-button icon-only color="royal" clear>
+    <ion-buttons start >
+      <button ion-button icon-only color="royal" clear (click)="refresh()">
         Cancel
       </button>
     </ion-buttons>
-    <ion-title>Rally</ion-title>
-    <ion-buttons end (click)="goToProfile()">
+    <ion-buttons end >
       <button ion-button icon-only color="royal" clear (click)="updateProfile()">
         Done
       </button>
@@ -21,7 +20,7 @@
       <ion-avatar class="img-avatar">
           <img src="{{user.photoURL}}">
       </ion-avatar>
-      <button ion-button clear (click)="capture()">Change Profile Photo</button>
+      <button style="text-transform:initial;" ion-button clear (click)="capture()">Change profile photo</button>
   
     </div>
 
@@ -48,7 +47,7 @@
           <ion-icon ios="md-map" md="md-map" item-start></ion-icon>
           <ion-input value="{{user.location}}" placeholder="Phoenix, AZ" clearInput [(ngModel)]="user.location"></ion-input>
       </ion-item>
-      <ion-item>
+      <!-- <ion-item>
           <ion-label>Hide my activity</ion-label>
         <ion-icon ios="ios-lock" md="md-lock" item-start></ion-icon>        
         <ion-toggle  [(ngModel)]="toggle" (ionChange)="onUpdateToggle()"  item-end ></ion-toggle>      
@@ -57,7 +56,7 @@
           <ion-label>Hide my profile from search</ion-label>
         <ion-icon ios="ios-lock" md="md-lock" item-start></ion-icon>        
         <ion-toggle checked="false" item-end></ion-toggle>      
-      </ion-item>
+      </ion-item> -->
     </ion-list>
   <br>
     <ion-list>

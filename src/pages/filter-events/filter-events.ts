@@ -22,6 +22,9 @@ structure:number = 50;
 endpoint:any = 'events/';
 enable:boolean = false;
 text:any;
+home:boolean = false;
+orgs:boolean = false;
+events:boolean = false;
 
   constructor(
     public navCtrl: NavController, 
@@ -29,6 +32,15 @@ text:any;
     public viewCtrl: ViewController,
     private httpProvider:OrganizationsProvider,
     private storage: Storage) {
+      console.log(this.navParams.get('location'));
+      if(this.navParams.get('location') === 'home'){
+        this.home = true;
+      }else if (this.navParams.get('location') === 'orgs'){
+        this.orgs = true;
+      }else{
+        this.events = true;
+      }
+      
       this.text = "50 MILES";
       console.log(new Date());
       var today = new Date();

@@ -1,4 +1,14 @@
 page-edit-profile {
+
+    .toolbar-background{
+        background: #f4512c !important;
+    }
+
+    ion-header{
+        button{
+            color: #fff !important;
+        }
+    }
     .img-avatar{
         width: 120px;
         height: 120px;

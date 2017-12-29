@@ -140,33 +140,25 @@ export class FeedPage {
                   this.fiends=savedJson['friends_activity'];
                   this.events=savedJson['Events'];
                   this.enabled = true;
-                  this.loading.dismiss();
-                  
-              });
-              
-              
+                  this.loading.dismiss();         
+              });      
           } else{
             this.getdata();
-          }
-          
-      }
-    );
+          }    
+      });
   }
 
   
   
  	 goToOtherPage() {
- 
     this.navCtrl.setRoot(AlertsPage,{}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
    goToProfile() {
- 
-    this.navCtrl.setRoot(ProfilePage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+   this.navCtrl.setRoot(ProfilePage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
    goToHomeFilter() {
- 
     this.navCtrl.setRoot(HomeFiltersPage);
   }
 
@@ -180,7 +172,6 @@ export class FeedPage {
   }
 
   getdata(startDate?, endDate?){
-
     if(startDate != null){
       var url = this.endpoint + this.myrallyID + '/' + startDate + '/' + endDate;
     } else{
@@ -197,15 +188,13 @@ export class FeedPage {
       this.events=result['Events'];
       this.storage.set("homefeed", result);
       this.loading.dismiss();
-
     },
     err =>{
       console.error("Error : "+err);
     } ,
     () => {
       console.log('getData completed');
-    }
-  );
+    });
 }
 
 doRefresh(refresher) {
@@ -264,7 +253,7 @@ doRefresh(refresher) {
            $event.srcElement.lastChild.data++;
            this.presentToast('Objective shared!');
            this.disable = false;
-
+ 
          }
        }, 
        {
@@ -577,9 +566,18 @@ orgStatus(orgID){
           return n;
         }
 
+        getShortDate(day){
+          var d = new Date(day);
+          var monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+            "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+          // console.log(monthNames[d.getMonth()]);
+          var date = monthNames[d.getMonth()] + ' ' + d.getDay();
+          return date;
+        }
+
         goToEventFilter(){
           // this.navCtrl.push(FilterEventsPage,  {}, {animate:true,animation:'ios-transition',duration:500,direction:'forward'});
-          let modal = this.modalCtrl.create(FilterEventsPage);
+          let modal = this.modalCtrl.create(FilterEventsPage, {location: 'home'});
           modal.onDidDismiss(() => {
             console.log('Test');
             this.getStartDate();

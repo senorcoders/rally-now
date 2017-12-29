@@ -12,7 +12,7 @@ export class SocialShareProvider {
   }
 
   facebookShare(title, imgURI) {
-    this.socialSharing.shareViaFacebook(title, 'https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08', 'http://senorcoders.com/').then(() => {
+    this.socialSharing.shareViaFacebook(title, imgURI).then(() => {
       console.log("shareViaFacebook: Success");
     }).catch((error) => {
       console.error("shareViaFacebook: failed", error);
@@ -36,7 +36,7 @@ export class SocialShareProvider {
 	}
 
 	otherShare(title, content?){
-		this.socialSharing.share(content, title)
+		this.socialSharing.share(content, title, title, title)
 			.then(() =>{
 				console.log('Success');
 			}).catch((error) => {

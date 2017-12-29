@@ -85,6 +85,10 @@ export class EditProfilePage {
 
 
   }
+
+  refresh(){
+    this.getUID();
+  }
      
      getUID(){
        this.userData.getUid().then((uid) => {
@@ -117,6 +121,7 @@ export class EditProfilePage {
      updateProfile(){
        this.af.database.ref('users/'+this.user.uid).set(this.user);
        this.httpProvider.updateUser(this.endpoint + this.user.apiRallyID, this.user);
+       this.goToProfile();
      }
    
       presentPopover() {

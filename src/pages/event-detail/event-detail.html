@@ -29,7 +29,7 @@
                     </div>
                     <div class="date-events-spans" *ngIf="start_date != null">
                         <span class="day">{{getDay(start_date)}}</span>
-                        <span class="month">{{start_date | amFromUtc | amDateFormat:'LL'}}</span>
+                        <span class="month">{{getShortDate(start_date)}}</span>
                     </div>
                 </div>
                 <ion-card-content>
