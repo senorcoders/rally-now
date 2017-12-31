@@ -9,5 +9,9 @@ plugins
 *.swp
 *.swo
 *.log
+*#
+*~
+*.#*
+*.apk
 .DS_Store
 www/
