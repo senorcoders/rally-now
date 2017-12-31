@@ -1,0 +1,46 @@
+#!/bin/sh
+# build-for-android-store.sh: -*- Shell-script -*-  DESCRIPTIVE TEXT.
+# 
+#  Copyright (c) 2017 Brian J. Fox & Orchid Labs, Inc.
+#  Author: Brian J. Fox (bfox@meshlabs.org)
+#  Author: A truckload of others
+#  Birthdate: Sun Dec 31 10:26:07 2017.
+export signing_pass="idtmp2tv"
+name="Let's Rally"
+org_unit="Research & Development"
+org="Let's Rally, LLC"
+city="Boston"
+state="Massachussets"
+country="US"
+
+
+if [ ! -e "letsrally.app.keystore" ]; then
+    keytool -genkey -v -keystore thefirstprinciple.manual.app.keystore -alias thefirstprinciplemanual -keyalg RSA -keysize 2048 -validity 10000 >/dev/null <<EOF
+$signing_pass
+$signing_pass
+$name
+$org_unit
+$org
+$city
+$state
+$country
+yes
+EOF
+    if [ ! -e "thefirstprinciple.manual.app.keystore" ]; then
+	echo "But I failed!  You'll have to figure this out manually :-("
+	exit 1
+    else
+	echo "Got it - continuing build."
+    fi
+fi
+
+ionic cordova build android --release
+cp ./platforms/android/build/outputs/apk/android-release-unsigned.apk ./thefirstprinciple_manual-release-unsigned.apk
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ./thefirstprinciple.manual.app.keystore -storepass:env signing_pass thefirstprinciple_manual-release-unsigned.apk thefirstprinciplemanual
+
+zipalign -f 4 thefirstprinciple_manual-release-unsigned.apk thefirstprinciple_manual.apk
+
+rm thefirstprinciple_manual-release-unsigned.apk
+
+echo "Your new store-ready apk is named 'thefirstprinciple_manual.apk'"
