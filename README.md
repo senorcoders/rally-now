@@ -27,7 +27,7 @@ The `prepare` step is necessary every time you change the code, and then want to
 
 # HELP!  I got the white-screen-o-death!
 
-Read the previous quick start section.  You didn't `ionic prepare`.
+Read the previous quick start section.  You might not have `ionic cordova prepare`d.
 
 # I need to update the icon/splashscreen?
 
@@ -35,27 +35,14 @@ Modify the image(s) resources/icon.png and resources/splash.png.  Then run
 
     ionic resources
 
-# To install all of the plugins listed in package.json:
-
-  ionic state restore
-
-## Installing dependencies
-
-We are using bower to manage libraries. To add a library, do:
-
-    $ bower install foolib --save
-
-Then add and commit the files to git.
-
-
 ## Cordova
 
 To install android/ios:
 
-  $ ionic platform add android
-  $ ionic platform add ios
+  $ ionic cordova platform add android
+  $ ionic cordova platform add ios
 
-Then to run do
+Then to run, do
 
   $ ionic cordova run android
 
@@ -88,3 +75,8 @@ If you have an iOS device, build directly onto that device with:
 
     $ ./build-for-android-store.sh
 
+
+# Troubleshooting
+
+Problem: `Error: Error: pod: Command failed with exit code 1`
+Solution: `pod repo update`
