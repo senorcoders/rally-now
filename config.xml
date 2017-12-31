@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="us.letsrally.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Let's Rally</name>
+    <name>Lets Rally</name>
     <description>Rally provides users with the means to take action on political and social issues that they are concerned about.</description>
     <author email="developer@letsrally.us" href="https://letsrally.us/">Let's Rally Dev Team</author>
     <universal-links>
@@ -155,7 +155,6 @@
     <plugin name="com-sarriaroman-photoviewer" spec="~1.1.11" />
     <plugin name="com.moust.cordova.videoplayer" spec="https://github.com/moust/cordova-plugin-videoplayer.git" />
     <plugin name="cordova-plugin-compat" spec="^1.2.0" />
-    <engine name="ios" spec="~4.3.1" />
     <allow-navigation href="http://169.254.55.151:8100" />
     <allow-navigation href="http://169.254.64.161:8100" />
     <plugin name="cordova-plugin-inappbrowser" spec="~1.7.1" />
@@ -179,4 +178,5 @@
     <allow-navigation href="http://169.254.73.77:8100" />
     <allow-navigation href="http://169.254.158.187:8100" />
     <allow-navigation href="http://169.254.170.105:8100" />
+    <engine name="ios" spec="~4.3.1" />
 </widget>
