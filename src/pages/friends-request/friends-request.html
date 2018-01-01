@@ -1,118 +1,121 @@
-
 <ion-header>
-    <ion-navbar>
-        <ion-title>
-            <p class="white">Discover</p>
-        </ion-title>
-      
-    </ion-navbar>
+  <ion-navbar>
+    <ion-title>
+      <p class="white">Discover</p>
+    </ion-title>
+  </ion-navbar>
 </ion-header>
 
-
 <ion-content>
-    <!-- <ion-row padding class="search-btn">
-     
-        <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar>
+  <!-- <ion-row padding class="search-btn">
+  
+  <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar>
 
-    </ion-row>
-    <div *ngIf="searching" class="spinner-container">
-        <ion-spinner></ion-spinner>
-    </div> -->
+  </ion-row>
+  <div *ngIf="searching" class="spinner-container">
+  <ion-spinner></ion-spinner>
+  </div> -->
 
-    <ion-list class="top-list">
-        <ion-item (click)="goToListOrganizations()">
-            <div item-start>
-             <img src="assets/img/Org.svg" alt="" style="width:20px; height:20px; margin-top:10px; margin-right:10px;">
-                    
-            </div>
-            See All Organizations
-          <ion-icon name="ios-arrow-forward" item-end></ion-icon>
-        </ion-item>
-        <ion-item (click)="goToListReps()">
-                <div item-start>
-                 <img src="assets/img/Representatives.svg" alt="" style="width:20px; height:20px; margin-top:10px; margin-right:10px;">
-                        
-                </div>
-                See All Representatives
-              <ion-icon name="ios-arrow-forward" item-end></ion-icon>
-            </ion-item>
-            <ion-item>
-                    <div item-start>
-                     <img src="assets/img/Community.svg" alt="" style="width:20px; height:20px; margin-top:10px; margin-right:10px;">
-                            
-                    </div>
-                    Invite friends to Rally
-                  <ion-icon name="ios-arrow-forward" item-end></ion-icon>
-                </ion-item>
-      </ion-list>
-      
-    <ion-list style="margin-top: 30px;">
-            <ion-list-header>
-                    SUGGESTED FOR YOU
-                  </ion-list-header>
-       
-        <ion-item *ngFor="let item of items">
-            <ion-avatar item-start (click)="goToProfile(item.id)">
-                <!-- <img [src]="getPhoto(item.id)"> -->
-                <img src="assets/img/login-image.jpg" alt="" style="border:2px solid #ada8a8;">
-            </ion-avatar>
-            <h2 (click)="goToProfile(item.id)">{{item.name}}</h2>
-            <p class="text-wrap">Friends on Facebook</p>
-            <ion-row item-end text-right style="display: block; max-width: 80px;" >
-                <ion-col col-6 style="padding: 0;">
-                    <button ion-button color="dark" class="action-btn btn-friend" (click)="followFriend(item.id)">Follow</button>
-                </ion-col>
-                <ion-col col-6 style="padding: 0;">
-                    <button ion-button color="dark" class="action-btn">Hide</button>
-                </ion-col>
-            </ion-row>
-        </ion-item>
+  <ion-list class="top-list">
+
+    <ion-item (click)="goToListOrganizations()">
+      <div item-start>
+        <img src="assets/img/Org.svg" alt="" style="width:20px; height:20px; margin-top:10px; margin-right:10px;">
+      </div>
+      See All Organizations
+      <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+    </ion-item>
+    
+    <ion-item (click)="goToListReps()">
+      <div item-start>
+        <img src="assets/img/Representatives.svg" alt="" style="width:20px; height:20px; margin-top:10px; margin-right:10px;">
+      </div>
+      See All Representatives
+      <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+    </ion-item>
+
+    <ion-item (click)="goToInviteFriends()">
+      <div item-start>
+        <img src="assets/img/Community.svg" alt="" style="width:20px; height:20px; margin-top:10px; margin-right:10px;">
+      </div>
+      Invite friends to Rally
+      <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+    </ion-item>
+
+  </ion-list>
+  
+  <ion-list style="margin-top: 30px;">
+    <ion-list-header>
+      SUGGESTED FOR YOU
+    </ion-list-header>
+    
+    <ion-item *ngFor="let item of items">
+      <ion-avatar item-start (click)="goToProfile(item.id)">
+        <!-- <img [src]="getPhoto(item.id)"> -->
+        <img src="assets/img/login-image.jpg" alt="" style="border:2px solid #ada8a8;">
+      </ion-avatar>
+      <h2 (click)="goToProfile(item.id)">{{item.name}}</h2>
+      <p class="text-wrap">Friends on Facebook</p>
+      <ion-row item-end text-right style="display: block; max-width: 80px;" >
+        <ion-col col-6 style="padding: 0;">
+          <button ion-button color="dark" class="action-btn btn-friend" (click)="followFriend(item.id)">Follow</button>
+        </ion-col>
+        <ion-col col-6 style="padding: 0;">
+          <button ion-button color="dark" class="action-btn">Hide</button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
 
 
-    </ion-list>
+  </ion-list>
 
-    <!-- <ion-list>
-        <ion-item>
-            <p class="list-title">Suggested Friends</p>
-        </ion-item>
-        <ion-item>
-            <ion-avatar item-start>
-                <img src="assets/img/login-image.jpg" style="width: 70px; height: 70px;">
-            </ion-avatar>
-            <h2>Bob Miller</h2>
-            <p>Friends with Lenny Lewis</p>
-            <ion-row item-end text-right style="max-width: 80px;">
-                <ion-col col-12 style="padding: 0;">
-                    <button ion-button color="dark" class="action-btn">REQUEST</button>
-                </ion-col>
+<!--
+  <ion-list>
+    <ion-item>
+      <p class="list-title">Suggested Friends</p>
+    </ion-item>
+    <ion-item>
+      <ion-avatar item-start>
+	<img src="assets/img/login-image.jpg" style="width: 70px; height: 70px;">
+      </ion-avatar>
+      <h2>Bob Miller</h2>
+      <p>Friends with Lenny Lewis</p>
+      <ion-row item-end text-right style="max-width: 80px;">
+	<ion-col col-12 style="padding: 0;">
+	  <button ion-button color="dark" class="action-btn">REQUEST</button>
+	</ion-col>
 
-            </ion-row>
-        </ion-item>
+      </ion-row>
+    </ion-item>
 
-    </ion-list> -->
+  </ion-list>
+-->
 
 </ion-content>
-<!-- <ion-footer>
-    <ion-toolbar style="min-height: auto; padding: 0;">
-        <ion-row>
-            <ion-col col-2 class="footer-icons">
-                <button (click)="goToHome()">
-                    <ion-icon name="ios-home"></ion-icon>
-                </button>
-            </ion-col>
-            <ion-col col-6>
-                <p class="white-footer" (click)="presentPopover()">Profile</p>
-            </ion-col>
-            <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">
-                <button (click)="goToAlerts()">
-                    <ion-icon name="ios-notifications"></ion-icon>
-                </button>
-            </ion-col>
-            <ion-col class="footer-icons">
-                <button (click)="goToProfile()">
-                    <ion-icon name="ios-person"></ion-icon>
-                </button>
-            </ion-col>
-        </ion-row>
-    </ion-toolbar>
-</ion-footer> -->
+
+<!--
+<ion-footer>
+  <ion-toolbar style="min-height: auto; padding: 0;">
+    <ion-row>
+      <ion-col col-2 class="footer-icons">
+	<button (click)="goToHome()">
+	  <ion-icon name="ios-home"></ion-icon>
+	</button>
+      </ion-col>
+      <ion-col col-6>
+	<p class="white-footer" (click)="presentPopover()">Profile</p>
+      </ion-col>
+      <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">
+	<button (click)="goToAlerts()">
+	  <ion-icon name="ios-notifications"></ion-icon>
+	</button>
+      </ion-col>
+      <ion-col class="footer-icons">
+	<button (click)="goToProfile()">
+	  <ion-icon name="ios-person"></ion-icon>
+	</button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
+-->

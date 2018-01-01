@@ -12,6 +12,7 @@ import { Storage } from '@ionic/storage';
   selector: 'page-organizations-list',
   templateUrl: 'organizations-list.html',
 })
+
 export class OrganizationsListPage {
   endpoint:any = 'organizations';
   organizations:any;
@@ -21,7 +22,6 @@ export class OrganizationsListPage {
   favEndpoint:any = 'actions';  
   likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
   organizationEndpoint:any = 'following_organizations';
-
   
   constructor(
     public navCtrl: NavController, 
@@ -33,7 +33,7 @@ export class OrganizationsListPage {
     public actionSheetCtrl: ActionSheetController,
     private storage: Storage) {
       this.loading = this.loadingCtrl.create({
-        content: 'Please wait...'
+        content: 'Loading organizations...'
       }); 
       this.loading.present();
       this.httpProvider.returnRallyUserId().then(
@@ -54,8 +54,6 @@ export class OrganizationsListPage {
 
       
   }
-
- 
 
   getOrganizations(){
     this.httpProvider.getJsonData(this.endpoint)
@@ -103,7 +101,7 @@ export class OrganizationsListPage {
       if (!found){
         return 'Follow';
         
-      }else{
+      } else {
         return 'Unfollow';
         
       }
@@ -129,11 +127,10 @@ export class OrganizationsListPage {
         
         //this.presentToast('You are not following this organization anymore');
 
-      }else{
+      } else {
         this.followOrg(organizationID);
         $event.srcElement.innerText = 'Unfollow';
-        
-        this.presentToast('Follow Organization successfully');
+        this.presentToast('Organization Followed');
       }
     });
    }
