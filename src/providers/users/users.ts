@@ -56,7 +56,7 @@ export class UsersProvider {
      return new Promise( (resolve, reject) => {
 
        firebase.auth().onAuthStateChanged(user => {
-          if (user) {
+          if (user) { 
              let usuario:any = firebase.auth().currentUser;
 
             this.af.database.ref('users/'+usuario['uid']).once('value').then(function(snapshot){
