@@ -1,0 +1,32 @@
+page-organization-followers {
+    .toolbar-background {
+        background-color: #f4512c !important;
+        color: #fff;
+    }
+
+    p.white {
+        color: #fff;
+        margin: 0;
+    }
+    ion-content {
+        p {
+            font-size: 12px;
+            text-align: center;
+            color: #7b7878;
+        }
+        img {
+            border-radius: 50%;
+            height: 70px;
+            width: 70px;
+        }
+        ion-list {
+            margin-bottom: 0 !important;
+        }
+    }
+
+    .searchbar-input{
+        box-shadow: none !important;
+        background: #e8e7e7 !important;
+        border-radius: 7px !important;
+    }
+}

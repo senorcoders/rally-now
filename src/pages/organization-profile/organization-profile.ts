@@ -6,6 +6,7 @@ import firebase from 'firebase';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
 import { OrganizationActionPage } from '../organization-action/organization-action';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
+import { OrganizationFollowersPage } from '../organization-followers/organization-followers';
 
 
 @IonicPage()
@@ -336,5 +337,9 @@ goToActionPage(objectiveID){
 
     addShareAction(goal_id, action_type_id){
       this.httpProvider.addShareAction(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
+    }
+
+    goToFollowers(){
+      this.navCtrl.push(OrganizationFollowersPage, {orgID: this.organizationID});
     }
 }

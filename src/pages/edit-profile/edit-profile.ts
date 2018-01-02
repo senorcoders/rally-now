@@ -55,7 +55,8 @@ export class EditProfilePage {
     uid: '',
     apiRallyID: '',
     searchable: '',
-    hide_activity: ''
+    hide_activity: '',
+    username: ''
   };
   endpoint:string = 'users/';
   toggle: any;
@@ -108,6 +109,7 @@ export class EditProfilePage {
              this.user.apiRallyID = snapshot.val().apiRallyID || '';
              this.user.searchable = snapshot.val().searchable || '1';
              this.user.hide_activity = snapshot.val().hide_activity;
+             this.user.username = snapshot.val().username;
              if (snapshot.val().hide_activity == 1) {
                this.toggle = false;
              }else{

@@ -100,7 +100,7 @@ presentToast(message) {
     toast.present();
   }
 
- addFollowRecordFirebase(friendID){
+ addFollowRecordFirebase(friendID){ 
      let user:any = firebase.auth().currentUser;
      let followRef = this.db.database.ref('follow/'+user['uid']+'/'+friendID);
      followRef.once('value', snapshot=>{

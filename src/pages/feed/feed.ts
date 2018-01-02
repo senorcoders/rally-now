@@ -580,7 +580,7 @@ orgStatus(orgID){
           let modal = this.modalCtrl.create(FilterEventsPage, {location: 'home'});
           modal.onDidDismiss(() => {
             console.log('Test');
-            this.getStartDate();
+            this.getStartDate(); 
             
           });
           modal.present();

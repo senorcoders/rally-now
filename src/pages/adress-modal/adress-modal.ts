@@ -31,7 +31,7 @@ export class AdressModalPage {
   }
 
 
-  getLocation(){
+  public getLocation(){
     this.nativeGeocoder.forwardGeocode(this.searchTerm)
   .then((coordinates: NativeGeocoderForwardResult) => {
     

@@ -14,7 +14,11 @@
 <ion-content padding>
     <img src="assets/img/Representatives.svg">
    <h1>Enter your address to find your representatives</h1>
-   <ion-searchbar [(ngModel)]="searchTerm"></ion-searchbar>
+   <form action="." (ngSubmit)="getLocation()">
+
+   <ion-searchbar type="search" [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}"
+   ></ion-searchbar>
+   </form>
 
 </ion-content>
 

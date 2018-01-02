@@ -60,7 +60,8 @@ export class ProfilePage {
     friends_count: '',
     followers_count: '',
     organizations_count: '',
-    my_activity: ''
+    my_activity: '',
+    username: ''
   };
 
   constructor(
@@ -129,6 +130,7 @@ export class ProfilePage {
             this.user.my_activity = result[0].my_activity;
             this.actions = result[0].actions;
             this.longest_streak = result[0].longest_streak;
+            this.user.username = result[0].username;
           }
         );
      }

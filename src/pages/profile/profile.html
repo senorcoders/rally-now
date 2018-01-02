@@ -49,10 +49,10 @@
         </ion-col>
             <ion-col col-7>
                 <h4 class="username-h4">{{user.displayName}}</h4>
-                <p style="color: #747479; margin-top: 0px;">{{user.location}}</p>
-            </ion-col>
+                <p style="color: #959599; margin-top: 0px;">{{user.username}}</p>
+            </ion-col> 
             <ion-col col-5 class="align-right">
-                <button class="edit-btn" ion-button icon-right outline (click)="goToEditProfile()">
+                <button style="text-transform:uppercase;" class="edit-btn" ion-button icon-right outline (click)="goToEditProfile()">
                     Edit Profile 
                     <ion-icon name="md-create"></ion-icon>
                 </button>
@@ -66,11 +66,10 @@
 
    
 
-    <ion-row padding class="streak-row" (click)="onButtonClick()">
+    <ion-row padding class="streak-row" >
         <p>Current Streak: <strong>{{starCount}} days</strong></p>
-        <ion-icon class="drop-icon" [name]="buttonClicked ? 'ios-arrow-up' : 'ios-arrow-down'"></ion-icon>
     </ion-row>
-    <div *ngIf="buttonClicked">
+    <div >
     <ion-row padding class="streak-row">
         <ion-col col-2 *ngFor="let star of starArray">
             <ion-icon name="star"></ion-icon>
@@ -89,7 +88,7 @@
                     MY IMPACT
                 </ion-list-header>
                 <ion-item (click)="onToggleSecond()">Actions Taken <span item-end>{{user.actions_taken}}</span> 
-                <ion-icon item-end [name]="secondToggleBtn ? 'ios-arrow-up' : 'ios-arrow-down'"></ion-icon>
+                <!-- <ion-icon item-end [name]="secondToggleBtn ? 'ios-arrow-up' : 'ios-arrow-down'"></ion-icon> -->
                 </ion-item>
                 <div *ngIf="secondToggleBtn">
                         <ion-item *ngFor="let action of actions">{{action.name}} <span item-end>{{action.count}}</span></ion-item>

@@ -96,6 +96,7 @@ import { EmailFeedBackPage } from '../pages/email-feed-back/email-feed-back';
 import { MyRepresentativesPage } from '../pages/my-representatives/my-representatives';
 import { DonateFeedBackPage } from '../pages/donate-feed-back/donate-feed-back';
 import { SignFeedBackPage } from '../pages/sign-feed-back/sign-feed-back';
+import { OrganizationFollowersPage } from '../pages/organization-followers/organization-followers';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -200,7 +201,8 @@ firebase.initializeApp(config);
         EmailFeedBackPage,
         MyRepresentativesPage,
         DonateFeedBackPage,
-        SignFeedBackPage
+        SignFeedBackPage,
+        OrganizationFollowersPage
     ],
     imports: [
         BrowserModule,
@@ -277,7 +279,8 @@ firebase.initializeApp(config);
         EmailFeedBackPage,
         MyRepresentativesPage,
         DonateFeedBackPage,
-        SignFeedBackPage
+        SignFeedBackPage,
+        OrganizationFollowersPage
     ],
     providers: [
         StatusBar,

@@ -6,7 +6,7 @@
           
         </ion-navbar>
     </ion-header>
-
+ 
 
 <ion-content>
         <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
@@ -20,7 +20,7 @@
                         <button ion-button clear item-end style="background: transparent;
                         color: gray;
                         border-radius: 4px;
-                        padding: 10px 15px; border: 1px solid gray;">Following</button>
+                        padding: 10px 15px; border: 1px solid gray;" (click)="addFollowRecordFirebase(follower.following_id)">Following</button>
                       </ion-item>
         </ion-list>
    

@@ -19,7 +19,9 @@
             <img [src]="rep.photo_url ? rep.photo_url : 'assets/img/icon.png'"  style="border:2px solid #ada8a8;">
           </ion-avatar>
           <h2 text-wrap>{{rep.name}}</h2>
-          <p class="text-wrap"> <small>{{rep.rep_type}} of {{rep.state}}</small></p>
+          <p class="text-wrap" *ngIf="rep.rep_type === 'sen'"> <small>Senator of {{rep.state}}</small></p>
+          <p class="text-wrap" *ngIf="rep.rep_type === 'rep'"> <small>Representative of {{rep.state}}</small></p>
+
           <button (click)="followRep(rep.id, $event)" ion-button clear item-end style="background: #4a90e2;
           color: #fff;
           border-radius: 4px;

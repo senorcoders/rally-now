@@ -53,4 +53,8 @@ export class FeedbackPage {
     modal.present();
   }
 
+  back(){
+    this.navCtrl.pop();
+  }
+
 }

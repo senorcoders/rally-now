@@ -117,6 +117,7 @@ export class UsersProvider {
         searchable: data.searchable,
         hide_activity: data.hide_activity,
         email: data.email,
+        username: data.username
     		});
     	let options = new RequestOptions({ headers: headers });
 		this.http.put(encodeURI(this.base + endpoint), userData, options)
