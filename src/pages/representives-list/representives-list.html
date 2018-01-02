@@ -15,7 +15,7 @@
         All Representatives
       </ion-list-header>
       <ion-item *ngFor="let rep of items">
-          <ion-avatar item-start>
+          <ion-avatar item-start (click)="goToRepProfile(rep.id)">
             <img [src]="rep.photo_url ? rep.photo_url : 'assets/img/icon.png'"  style="border:2px solid #ada8a8;">
           </ion-avatar>
           <h2 text-wrap>{{rep.name}}</h2>

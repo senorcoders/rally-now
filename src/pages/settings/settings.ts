@@ -19,6 +19,7 @@ import { CellularDataUsagePage } from '../cellular-data-usage/cellular-data-usag
 import { EditProfilePage } from '../edit-profile/edit-profile';
 import { InterestedOrganizationsPage } from '../interested-organizations/interested-organizations';
 import { HelloPage } from '../hello/hello';
+import { SyncContactsPage } from '../sync-contacts/sync-contacts';
 
 
 @IonicPage()
@@ -142,5 +143,10 @@ export class SettingsPage {
   goToUsername(){
     this.navCtrl.push(InterestedOrganizationsPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
     
+  }
+
+  sync(){
+    this.navCtrl.push(SyncContactsPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+
   }
 }

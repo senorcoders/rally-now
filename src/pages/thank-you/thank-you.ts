@@ -49,7 +49,9 @@ export class ThankYouPage {
 
   getUsername(){
     this.httpProvider.getJsonData(this.endpoint + this.currentRallyID).subscribe(result => {
-      this.username = result.name;
+      let nickname = result.name.split(" ");
+      console.log(nickname);
+      this.username = nickname[0];
     });
   }
 

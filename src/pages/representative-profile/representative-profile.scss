@@ -1,0 +1,262 @@
+page-representative-profile {
+
+    ion-content {
+        top: 60px;
+    }
+   
+    .toolbar-background {
+        background-color: #4a90e2;
+        color: #fff;
+    }
+    ion-content {
+        background-color: #f2f2f2 !important;
+    }
+    p.white {
+        color: #fff;
+        margin: 0;
+    }
+    .button-clear-md {
+        background-color: #4a90e2;
+        color: #fff;
+        height: 30px;
+    }
+    .action-btn {
+        height: auto;
+        padding: 5px 10px;
+        background: transparent;
+        color: #222;
+        border: 1px solid #222;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+     .button-clear-md, .button-clear-ios {
+        background-color: #f2f2f2;
+        color: #bfbfbf;
+    }
+    .right-border {
+        border-right: 1px solid #fff;
+    }
+
+    .btn-50 {
+        width: 50%;
+        height: 50px;
+        margin: 0;
+    }
+    .simple-card {
+        position: relative;
+        .button {
+            border-radius: 0;
+            height: 29px;
+            font-size: 13px;
+        }
+        ion-col {
+            padding: 5px 0 !important;
+        }
+        ion-card-content {
+            h3 {
+                font-weight: 600 !important;
+                font-size: 1.3em !important;
+            }
+            p,
+            strong {
+                font-size: 11px !important;
+            }
+        }
+    }
+    ion-card {
+         margin-right: 0 !important;
+        margin-left: 0 !important;
+        width: 100% !important;
+        margin-bottom: 10px !important;
+        box-shadow: none !important;
+        small {
+            color: #8f8f8f;
+            font-weight: normal;
+        }
+        .item-md ion-avatar img,
+        .item-ios ion-avatar img {
+            border: 2px solid #cecece;
+           
+        }
+        .organization-bg {
+            height: 195px;
+            position: relative;
+            background-size: cover !important;
+            background-repeat: no-repeat !important;
+            background-position: center !important;
+            .bottom-excerpt {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.3);
+                padding: 10px;
+                font-weight: 600;
+                right: 0;
+                left: 0;
+                top: 0;
+                align-items: flex-end;
+                display: flex;
+                p {
+                    font-size: 17px;
+                    width: 70%;
+                }
+            }
+        }
+        .days-excerpt {
+            position: absolute;
+            padding: 10px;
+            background: #e7b157;
+            font-weight: 600;
+        }
+        .railled-excerpt {
+            position: absolute;
+            right: 0;
+            padding: 20px;
+            font-weight: 600;
+            top: 30%;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            z-index: 99;
+            p {
+                text-align: center;
+                strong {
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .btn-objectives-contact{
+            position: absolute;
+            right: 5px;
+            bottom: 10px;
+
+            button{
+                    background: #f4512c !important;
+                text-transform: uppercase !important;
+            }
+
+        }
+        .fab-md-light,
+        .fab-ios-light {
+            background: none;
+            border: none;
+            box-shadow: none;
+        }
+        .blue {
+            background-color: #4a90e2;
+            border-right: 1px solid #fff;
+        }
+        .link {
+            color: #4a90e2;
+            line-height: 30px;
+        }
+       
+        .token {
+            background-color: #e6e6e6;
+            border: none;
+            p {
+                font-weight: 500;
+                padding-left: 5px;
+                padding-top: 10px;
+            }
+        }
+        .token-btn {
+            background-color: #d3cfcf;
+            border: none;
+            .button-clear-md {
+                background-color: #d3cfcf;
+            }
+        }
+        .button-outline-md-light,
+        .button-outline-ios-light {
+            border-color: #222;
+            background-color: #fff;
+            color: #222;
+            font-weight: 400;
+            border-radius: 5px;
+            height: auto;
+            padding: 8px 10px;
+            font-size: 11px;
+            text-transform: uppercase;
+            width: 80%;
+        }
+        .action-btn {
+            height: auto;
+            padding: 5px 10px;
+            background: transparent;
+            color: #222;
+            border: 1px solid #222;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+    }
+    .profile-headshot {
+        h4 {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+        p {
+            margin: 0;
+            font-size: 12px;
+        }
+
+        img{
+            border-radius: 50%;
+            height: 100px;
+            width: 100px;
+        }
+    }
+    .profile-counts {
+        text-align: center;
+        p.small {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        h4{
+            font-size: 24px;
+            font-weight: 200;
+        }
+
+        ion-col{
+            padding-bottom: 0;
+        }
+    }
+    .button-outline-md-light,
+    .button-outline-ios-light {
+        border-color: #222;
+        background-color: #fff;
+        color: #222;
+        font-weight: 400;
+        border-radius: 5px;
+        height: auto;
+        padding: 8px 10px;
+        font-size: 11px;
+        text-transform: uppercase;
+        width: 80%;
+    }
+
+    .follow-btn{
+        width: 100%;
+        height: 30px;
+        border: 1px solid gray !important;
+        color: gray;
+        border-radius: 8px !important;
+        margin-top: 0;
+    }
+
+    .username-h4{
+        font-size: 28px;
+        font-weight: 900;
+        letter-spacing: 1px;
+    }
+
+    .link{
+        margin: 0;
+        text-align: right;
+        color: #2196F3;
+    }
+
+}

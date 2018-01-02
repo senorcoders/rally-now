@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
 import { Storage } from '@ionic/storage';
+import { RepresentativeProfilePage } from '../representative-profile/representative-profile';
 
 
 
@@ -146,6 +147,10 @@ export class RepresentivesListPage {
       duration: 3000
     });
     toast.present();
+  }
+
+  goToRepProfile(repID){
+    this.navCtrl.push(RepresentativeProfilePage, {repID: repID});
   }
 
 }
