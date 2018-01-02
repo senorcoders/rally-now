@@ -13,6 +13,7 @@ import { PublicProfilePage } from '../public-profile/public-profile';
 import { UsersProvider } from '../../providers/users/users';
 import { OrganizationsListPage } from '../organizations-list/organizations-list';
 import { RepresentivesListPage } from '../representives-list/representives-list';
+import { SyncContactsPage } from '../sync-contacts/sync-contacts';
 
 
 @IonicPage()
@@ -125,6 +126,10 @@ export class FriendsRequestPage {
 
     goToListReps(){
       this.navCtrl.push(RepresentivesListPage);
+    }
+
+    invite(){
+      this.navCtrl.push(SyncContactsPage);
     }
 
     followFriend(fbID){

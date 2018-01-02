@@ -53,5 +53,14 @@ export class SocialShareProvider {
     })
   }
 
+  shareViaSMS(number){
+    this.socialSharing.shareViaSMS("Check out Lets Rally App on App Store and Google Play Store!! ", number)
+    .then(() =>{
+      console.log('Success');
+    }).catch((error) => {
+      console.log('Error', error);
+    })
+  }
+
 
 }

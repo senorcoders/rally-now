@@ -97,6 +97,9 @@ import { MyRepresentativesPage } from '../pages/my-representatives/my-representa
 import { DonateFeedBackPage } from '../pages/donate-feed-back/donate-feed-back';
 import { SignFeedBackPage } from '../pages/sign-feed-back/sign-feed-back';
 import { OrganizationFollowersPage } from '../pages/organization-followers/organization-followers';
+import { Contacts } from '@ionic-native/contacts';
+import { SyncContactsPage } from '../pages/sync-contacts/sync-contacts';
+import { InviteFriendsPage } from '../pages/invite-friends/invite-friends';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -202,7 +205,9 @@ firebase.initializeApp(config);
         MyRepresentativesPage,
         DonateFeedBackPage,
         SignFeedBackPage,
-        OrganizationFollowersPage
+        OrganizationFollowersPage,
+        SyncContactsPage,
+        InviteFriendsPage
     ],
     imports: [
         BrowserModule,
@@ -280,7 +285,9 @@ firebase.initializeApp(config);
         MyRepresentativesPage,
         DonateFeedBackPage,
         SignFeedBackPage,
-        OrganizationFollowersPage
+        OrganizationFollowersPage,
+        SyncContactsPage,
+        InviteFriendsPage
     ],
     providers: [
         StatusBar,
@@ -305,7 +312,8 @@ firebase.initializeApp(config);
         PhotoViewer,
         VideoPlayer,
         InAppBrowser,
-        NativeGeocoder
+        NativeGeocoder,
+        Contacts
     
     ]
 })

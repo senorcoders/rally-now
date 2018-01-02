@@ -9,7 +9,7 @@
             <path url="/__/auth/callback" />
         </host>
     </universal-links>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.8.106:8100" />
     <access origin="*" />
     <allow-navigation href="*" />
     <allow-navigation href="http://ionic.local/*" />
@@ -181,4 +181,5 @@
     <allow-navigation href="http://169.254.170.105:8100" />
     <allow-navigation href="http://169.254.25.46:8100" />
     <allow-navigation href="http://169.254.82.96:8100" />
+    <plugin name="cordova-plugin-contacts" spec="~3.0.1" />
 </widget>

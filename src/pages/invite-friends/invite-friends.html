@@ -1,0 +1,15 @@
+<rally-name-header name="Invite Friends"></rally-name-header>
+<ion-content>
+    <ion-item-group>
+      <ion-item-divider color="light">CONTACTS</ion-item-divider>
+      <ion-item *ngFor="let contacto of listaContactos">
+          <ion-avatar item-start>
+              <img src="assets/img/sms.png">
+          </ion-avatar>
+        <h2>{{contacto.displayName }}</h2>
+        <button ion-button  item-end class="invite-btn" (click)="sendInvitation(contacto.phoneNumbers[0].value)">
+          Invite
+        </button>
+      </ion-item>
+    </ion-item-group>
+  </ion-content>
