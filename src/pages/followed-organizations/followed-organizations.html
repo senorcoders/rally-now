@@ -9,14 +9,34 @@
 
 
 <ion-content>
-        <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+        <!-- <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar> -->
         
         <ion-list>
-                <ion-item *ngFor="let organization of items">
+                <ion-item *ngFor="let organization of organizations">
                         <ion-avatar item-start>
-                          <img src="{{organization.follow[0].image_url}}"  style="border:2px solid #ada8a8;">
+                          <img src="{{organization[2]}}"  style="border:2px solid #ada8a8;">
                         </ion-avatar>
-                        <h2>{{organization.follow[0].name}}</h2>
+                        <h2 text-wrap>{{organization[1]}}</h2>
+                        <button ion-button clear item-end style="background: transparent;
+                        color: gray;
+                        border-radius: 4px;
+                        padding: 10px 15px; border: 1px solid gray;">Following</button>
+                      </ion-item>
+                      <ion-item *ngFor="let user of users">
+                        <ion-avatar item-start>
+                          <img src="{{user[2]}}"  style="border:2px solid #ada8a8;">
+                        </ion-avatar>
+                        <h2 text-wrap>{{user[1]}}</h2>
+                        <button ion-button clear item-end style="background: transparent;
+                        color: gray;
+                        border-radius: 4px;
+                        padding: 10px 15px; border: 1px solid gray;">Following</button>
+                      </ion-item>
+                      <ion-item *ngFor="let rep of reps">
+                        <ion-avatar item-start>
+                          <img src="{{rep[2]}}"  style="border:2px solid #ada8a8;">
+                        </ion-avatar>
+                        <h2 text-wrap>{{rep[1]}}</h2>
                         <button ion-button clear item-end style="background: transparent;
                         color: gray;
                         border-radius: 4px;

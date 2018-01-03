@@ -14,9 +14,9 @@ import { Storage } from '@ionic/storage';
 })
 export class OrganizationsListPage {
   endpoint:any = 'organizations';
-  organizations:any;
+  organizations:any = [];
   loading:any;
-  items:any;
+  items:any = [];
   currentRallyID:any;
   favEndpoint:any = 'actions';  
   likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
@@ -39,17 +39,7 @@ export class OrganizationsListPage {
       this.httpProvider.returnRallyUserId().then(
         user => {
           this.currentRallyID = user.apiRallyID;
-          this.storage.get('organizations').then((val) =>{
-            if(val != null){
-              console.log("Loading from local");
-              this.organizations = val;
-              this.initializeItems();
-              this.loading.dismiss();
-            } else{
-              console.log("calling the api");
-              this.getOrganizations();
-            }
-        });
+          this.getOrganizations();
           });
 
       
@@ -61,12 +51,12 @@ export class OrganizationsListPage {
     this.httpProvider.getJsonData(this.endpoint)
       .subscribe( result => {
         this.organizations = result;
-        this.storage.set("organizations", result);
+        // this.storage.set("organizations", result);
         this.initializeItems();
         this.loading.dismiss();
       });
   }
-
+ 
   initializeItems() {
     this.items = this.organizations;
   }
@@ -83,7 +73,7 @@ export class OrganizationsListPage {
     this.initializeItems();
 
     // set val to the value of the searchbar
-    let val = ev.target.value;
+    let val = ev.target.value
 
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {

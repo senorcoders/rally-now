@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ThankYouPage } from '../thank-you/thank-you';
 import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser";
+import { UsersProvider } from '../../providers/users/users';
+import { IssueScreenPage } from '../issue-screen/issue-screen';
 
 @IonicPage()
 @Component({
@@ -12,6 +14,15 @@ export class SignFeedBackPage {
 
   isenabled:boolean=false;
   url:any;
+  value:any;
+  endpoint:any = 'actions';
+  data:any = [{
+    user_id: '',
+    title: '',
+    short_desc: '',
+    representative_id: '',
+    action_type_id: ''
+  }];
 
 
 
@@ -19,9 +30,16 @@ export class SignFeedBackPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public modalCtrl: ModalController,
-    private inAppBrowser: InAppBrowser) {
+    private inAppBrowser: InAppBrowser,
+    private httpProvider: UsersProvider) {
       this.url = navParams.get('iframeUrl');
       this.openWebpage(this.url);
+      this.data.representative_id = navParams.get('repID');
+      this.data.action_type_id = '73637819-9571-4070-9162-abf41fc50c71';
+      this.data.title = 'email';
+      this.httpProvider.returnRallyUserId().then( user => {
+        this.data.user_id = user.apiRallyID;
+      });
 
 
   }
@@ -63,6 +81,36 @@ export class SignFeedBackPage {
   streakModal() {
     let modal = this.modalCtrl.create(ThankYouPage);
     modal.present();
+  }
+
+  errorModal(){
+    let modal = this.modalCtrl.create(IssueScreenPage);
+    modal.present();
+  }
+
+  getValue(value){
+    console.log(value);
+    this.value = value;
+
+  }
+
+  addAction(){
+    this.httpProvider.addAction(this.endpoint, this.data);
+  }
+
+  back(){
+    this.navCtrl.pop();
+  }
+
+  submit(){
+  
+    console.log("Value", this.value);
+    if(this.value === 'success'){
+      this.streakModal();
+      this.addAction();
+    }else{
+      this.errorModal();
+    }
   }
 
 }

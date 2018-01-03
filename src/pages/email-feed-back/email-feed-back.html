@@ -7,20 +7,20 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-<ion-row class="yellow-bg">
+<ion-row class="yellow-bg"> 
   <h1>How did it go?</h1>
   <p>Your feedback helps make Rally better.</p>
 </ion-row>
 <ion-row class="btn-row" (click)="sendActions($event)">
-    <button full  >I emailed</button>
-    <button full  >Page failed to load</button>
-    <button full  >I'll email later</button>
-    <button full >Other</button>   
+    <button full (click)="getValue('success')" >I emailed</button>
+    <button full  (click)="getValue('fail')">Page failed to load</button>
+    <button full  (click)="back()">I'll email later</button>
+    <button full (click)="getValue('success')">Other</button>   
     
 </ion-row>
 
 </ion-content>
 <ion-footer>
-  <button full ion-button [disabled]="!isenabled" (click)="streakModal()">SUBMIT</button>    
+  <button full ion-button [disabled]="!isenabled" (click)="submit()">SUBMIT</button>    
   
 </ion-footer>

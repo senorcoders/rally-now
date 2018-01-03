@@ -228,8 +228,8 @@ doRefresh(refresher) {
           pageName: 'Home'
       }, {animate:true,animation:'transition',duration:500,direction:'forward'});
        } else{
-        this.navCtrl.push(SignFeedBackPage, {iframeUrl: 'https://ionicframework.com/'}, {animate:true,animation:'transition',duration:500,direction:'forward'});
-       } 
+        this.navCtrl.push(SignFeedBackPage, {iframeUrl: 'https://ionicframework.com/', repID:objectiveID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+       }  
       
      }
 

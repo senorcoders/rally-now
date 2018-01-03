@@ -10,13 +10,14 @@
 <ion-content>
     <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
     
-    <ion-list>
+    <ion-list [virtualScroll]="items" approxItemHeight="50px">
         <ion-list-header>
           All Organizations
         </ion-list-header>
-        <ion-item *ngFor="let organization of items">
+        <ion-item *virtualItem="let organization">
              <ion-avatar item-start (click)="goToOrganizationProfile(organization.id)">
-              <img [src]="organization.image_url ? organization.image_url : 'assets/img/icon.png'" style="border:2px solid #ada8a8;">
+              <ion-img [src]="organization.image_url ? organization.image_url : 'assets/img/icon.png'" style="border:2px solid #ada8a8;">
+                </ion-img>
             </ion-avatar>
             <h2 text-wrap>{{organization.name}}</h2>
             <button (click)="addFollowRecordFirebase(organization.id, $event)" ion-button clear item-end style="background: #4a90e2;

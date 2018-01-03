@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ThankYouPage } from '../thank-you/thank-you';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
+import { UsersProvider } from '../../providers/users/users';
+import { IssueScreenPage } from '../issue-screen/issue-screen';
 
 
 @IonicPage()
@@ -10,11 +13,31 @@ import { ThankYouPage } from '../thank-you/thank-you';
 })
 export class DonateFeedBackPage {
   isenabled:boolean=false;
+  url:any;
+  value:any;
+  endpoint:any = 'actions';
+  data:any = [{
+    user_id: '',
+    title: '',
+    short_desc: '',
+    representative_id: '',
+    action_type_id: ''
+  }];
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public modalCtrl: ModalController) {
+    public modalCtrl: ModalController,
+    private inAppBrowser: InAppBrowser,
+    private httpProvider: UsersProvider) {
+      this.url = navParams.get('iframeUrl');
+      this.openWebpage(this.url);
+      this.data.representative_id = navParams.get('repID');
+      this.data.action_type_id = '500f35fc-9338-4f1d-bdc8-13302afa33e7';
+      this.data.title = 'email';
+      this.httpProvider.returnRallyUserId().then( user => {
+        this.data.user_id = user.apiRallyID;
+      });
   }
 
   ionViewDidLoad() {
@@ -43,6 +66,47 @@ export class DonateFeedBackPage {
   streakModal() {
     let modal = this.modalCtrl.create(ThankYouPage);
     modal.present();
+  }
+
+  openWebpage(url: string) {
+    const options: InAppBrowserOptions = {
+      zoom: 'no'
+    }
+
+    // Opening a URL and returning an InAppBrowserObject
+    const browser = this.inAppBrowser.create(url, '_blank', options);
+
+   // Inject scripts, css and more with browser.X
+  }
+
+  errorModal(){
+    let modal = this.modalCtrl.create(IssueScreenPage);
+    modal.present();
+  }
+
+  getValue(value){
+    console.log(value);
+    this.value = value;
+
+  }
+
+  addAction(){
+    this.httpProvider.addAction(this.endpoint, this.data);
+  }
+
+  back(){
+    this.navCtrl.pop();
+  }
+
+  submit(){
+  
+    console.log("Value", this.value);
+    if(this.value === 'success'){
+      this.streakModal();
+      this.addAction();
+    }else{
+      this.errorModal();
+    }
   }
 
 }

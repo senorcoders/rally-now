@@ -11,18 +11,18 @@
     <h1>How did it go?</h1>
     <p>Your feedback helps make Rally better.</p>
   </ion-row>
-  <ion-row class="btn-row" (click)="sendActions($event)">
-      <button full  >Spoke with a staffer</button>
-      <button full  >Left a message</button>
+  <ion-row class="btn-row" (click)="sendActions($event)"> 
+      <button full (click)="getValue('success')" >Spoke with a staffer</button>
+      <button full (click)="getValue('success')" >Left a message</button>
       <button full (click)="back()" >Line was busy</button> 
       <button full  (click)="back()">Voice mail full</button>
-      <button full >Wrong number</button>
-      <button full >Other</button>   
+      <button full (click)="getValue('fail')">Wrong number</button>
+      <button full (click)="getValue('success')">Other</button>   
       
   </ion-row>
 
 </ion-content>
 <ion-footer>
-    <button full ion-button [disabled]="!isenabled" (click)="streakModal()">SUBMIT</button>    
+    <button full ion-button [disabled]="!isenabled" (click)="submit()">SUBMIT</button>    
     
 </ion-footer>

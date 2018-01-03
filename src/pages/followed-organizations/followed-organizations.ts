@@ -6,6 +6,7 @@ import { ProfilePage } from '../profile/profile';
 import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay'
 import { UsersProvider } from '../../providers/users/users';
+import { OrganizationsProvider } from '../../providers/organizations/organizations';
 
 
 @IonicPage()
@@ -14,18 +15,21 @@ import { UsersProvider } from '../../providers/users/users';
   templateUrl: 'followed-organizations.html',
 })
 export class FollowedOrganizationsPage {
-  endpoint:any = 'following_organizations?follower_id=';
+  endpoint:any = 'following/';
   currentApiID:any;
   organizations:any;
   items:any;
   loading:any;
+  users:any;
+  reps:any;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public popoverCtrl: PopoverController,
     private httpProvider: UsersProvider,
-    public loadingCtrl: LoadingController) {
+    public loadingCtrl: LoadingController,
+    private orgProvider: OrganizationsProvider) {
       this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
       }); 
@@ -43,11 +47,14 @@ export class FollowedOrganizationsPage {
   }
 
   getOrganizations(){
-    this.httpProvider.getJsonData(this.endpoint+this.currentApiID)
+    this.orgProvider.getJsonData(this.endpoint+this.currentApiID)
       .subscribe(
         result => {
-            this.organizations = result;
-            this.initializeItems();
+          console.log(result);
+            this.organizations = result['organizations'];
+            this.users = result['users'];
+            this.reps = result['reps'];
+            // this.initializeItems();
             this.loading.dismiss();
         }
       );

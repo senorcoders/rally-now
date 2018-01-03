@@ -12,15 +12,15 @@
   <p>Your feedback helps make Rally better.</p>
 </ion-row>
 <ion-row class="btn-row" (click)="sendActions($event)">
-    <button full  >Signed petition</button>
-    <button full  >Page failed to load</button>
-    <button full  >I'll sign later</button>
-    <button full >Other</button>   
+    <button full (click)="getValue('success')" >Signed petition</button>
+    <button full (click)="getValue('fail')" >Page failed to load</button>
+    <button full (click)="back()" >I'll sign later</button>
+    <button full (click)="getValue('success')">Other</button>   
     
 </ion-row>
 
 </ion-content>
 <ion-footer>
-  <button full ion-button [disabled]="!isenabled" (click)="streakModal()">SUBMIT</button>    
+  <button full ion-button [disabled]="!isenabled" (click)="submit()">SUBMIT</button>    
   
 </ion-footer>

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController} from 'ionic-angular';
 import { ThankYouPage } from '../thank-you/thank-you';
+import { IssueScreenPage } from '../issue-screen/issue-screen';
+import { UsersProvider } from '../../providers/users/users';
 
 
 @IonicPage()
@@ -11,12 +13,28 @@ import { ThankYouPage } from '../thank-you/thank-you';
 export class FeedbackPage {
 
   isenabled:boolean=false;
+  value:any;
+  endpoint:any = 'actions';
+  data:any = [{
+    user_id: '',
+    title: '',
+    short_desc: '',
+    representative_id: '',
+    action_type_id: ''
+  }];
   
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public modalCtrl: ModalController) {
+    public modalCtrl: ModalController,
+    private httpProvider: UsersProvider) {
+      this.data.representative_id = navParams.get('repID');
+      this.data.action_type_id = '2afa6869-7ee5-436e-80a9-4fee7c871212';
+      this.data.title = 'call';
+      this.httpProvider.returnRallyUserId().then( user => {
+        this.data.user_id = user.apiRallyID;
+      });
   }
 
   ionViewDidLoad() {
@@ -53,8 +71,36 @@ export class FeedbackPage {
     modal.present();
   }
 
+  errorModal(){
+    let modal = this.modalCtrl.create(IssueScreenPage);
+    modal.present();
+  }
+
   back(){
     this.navCtrl.pop();
   }
+
+
+  getValue(value){
+    console.log(value);
+    this.value = value;
+
+  }
+
+  addAction(){
+    this.httpProvider.addAction(this.endpoint, this.data);
+  }
+
+  submit(){
+  
+    console.log("Value", this.value);
+    if(this.value === 'success'){
+      this.streakModal();
+      this.addAction();
+    }else{
+      this.errorModal();
+    }
+  }
+
 
 }

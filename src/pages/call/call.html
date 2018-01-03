@@ -13,9 +13,10 @@
         <ion-col col-4>
             <div class="bob-headshot" [ngStyle]="{ 'background-image' : 'url(' + rep.photo_url +')'}"></div>
         </ion-col>
-        <ion-col col-12>
-            This is your local representative in the house.
+        <ion-col col-12 >
+            This is your {{rep.title}}
         </ion-col>
+       
     </ion-row>
     <ion-row padding>
         <ion-list>

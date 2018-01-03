@@ -11,19 +11,29 @@ import { UsersProvider } from '../../providers/users/users';
 export class RepresentativeProfilePage {
 
   endpoint:any = 'reps/';
-  rep:any;
+  name:any;
+  twitter_id:any;
+  followers_count:any;
+  description:any;
+  photo_url:any;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     private httpProvider: UsersProvider) {
+      console.log("Rep ID", navParams.get('repID'));
       this.getRepData(navParams.get('repID'));
   }
 
 
   getRepData(repID){
     this.httpProvider.getJsonData(this.endpoint + repID).subscribe(result => {
-      this.rep = result;
+      console.log(result);
+      this.name = result.name;
+      this.twitter_id = result.twitter_id;
+      this.followers_count = result.followers_count;
+      this.description = result.description;
+      this.photo_url = result.photo_url;
     });
   }
   

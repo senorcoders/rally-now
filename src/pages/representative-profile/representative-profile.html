@@ -1,13 +1,10 @@
-<rally-name-header name="{{rep.name}}"></rally-name-header>
-
+<rally-name-header name="{{name}}"></rally-name-header>
 
 <ion-content>
-
-
     <ion-row padding style="padding-bottom: 0; background: #fff;">
         <ion-col col-4 class="profile-headshot">
             <ion-avatar item-start class="profile-img">
-                <img src="{{rep.photo_url}}">
+                <img src="{{photo_url}}">
             </ion-avatar>
           
         </ion-col>
@@ -18,7 +15,7 @@
                     <p class="small">Posts</p>
                 </ion-col> 
                 <ion-col>
-                    <h4>30</h4>
+                    <h4>{{followers_count}}</h4>
                     <p class="small">Followers</p>
                 </ion-col>
                
@@ -29,16 +26,16 @@
 
         </ion-col>
             <ion-col col-12>
-                <h4 text-wrap class="username-h4">{{rep.name}}</h4>
+                <h4 text-wrap class="username-h4">{{name}}</h4>
             </ion-col>
             <ion-col col-12 style="padding:0;">
                 <p style="margin:0; color: gray;"> <ion-icon style="color: #2196F3" name="logo-twitter"></ion-icon>
-                    @{{rep.twitter_id}}</p>
+                    @{{twitter_id}}</p>
             </ion-col>
            
            
         <ion-col col-12 >
-            <p text-wrap style="margin-top: 0;">{{rep.description}}</p>
+            <p text-wrap style="margin-top: 0;">{{description}}</p>
         </ion-col>
         <ion-col col-12>
             <p style="color: gray;">ACTIVITY FEED</p>

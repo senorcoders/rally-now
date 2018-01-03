@@ -97,7 +97,7 @@ export class CallPage {
   }
 
   giveFeedBack(){
-    this.navCtrl.push(FeedbackPage);
+    this.navCtrl.push(FeedbackPage, {repID: this.data.representative_id});
   } 
 
   showCallAlert(phone_number){
@@ -129,12 +129,9 @@ export class CallPage {
     this.callNumber.callNumber(phone_number, true)
       .then(() => console.log('Launched dialer!'))
       .catch(() => console.log('Error launching dialer'));
-    this.addAction();
   }
 
 
-  addAction(){
-    this.httpProvider.addAction(this.endpoint, this.data);
-  }
+  
 
 }

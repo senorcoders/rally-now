@@ -1,0 +1,42 @@
+page-issue-screen {
+    .toolbar-background {
+        background: #f4512c !important;
+        //max-height: 50px !important;
+    }
+
+   ion-content{
+    background: #fdfaf2;
+
+   }
+
+    .yellow-bg{
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 30px;
+        p, h1{
+            text-align: center !important;
+            width: 100%;
+        }
+        img{
+            height: 70px;
+            margin-top: 30px;
+        }
+    }
+
+    ion-footer{
+        button{
+            height: 80px !important;
+            background: #356fba !important;
+        }
+
+       
+    }
+
+    
+
+    .bar-button-default span{
+        color: #fff !important;
+    }
+
+}

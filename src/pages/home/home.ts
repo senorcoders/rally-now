@@ -42,7 +42,7 @@ export class HomePage {
      provider: '',
      email: '',
      searchable: '1',
-     hide_activity: '1',
+     hide_activity: '0',
     facebook_id: '',
     username: '',
 

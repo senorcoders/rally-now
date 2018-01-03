@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ThankYouPage } from '../thank-you/thank-you';
 import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser";
+import { UsersProvider } from '../../providers/users/users';
+import { IssueScreenPage } from '../issue-screen/issue-screen';
 
 
 
@@ -13,16 +15,32 @@ import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser"
 export class EmailFeedBackPage {
   isenabled:boolean=false;
   url:any;
+  value:any;
+  endpoint:any = 'actions';
+  data:any = [{
+    user_id: '',
+    title: '',
+    short_desc: '',
+    representative_id: '',
+    action_type_id: ''
+  }];
 
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public modalCtrl: ModalController,
-    private inAppBrowser: InAppBrowser) {
+    private inAppBrowser: InAppBrowser,
+    private httpProvider: UsersProvider) {
 
       this.url = navParams.get('iframeUrl');
       this.openWebpage(this.url);
+      this.data.representative_id = navParams.get('repID');
+      this.data.action_type_id = 'f9b53bc8-9847-4699-b897-521d8e1a34bb';
+      this.data.title = 'email';
+      this.httpProvider.returnRallyUserId().then( user => {
+        this.data.user_id = user.apiRallyID;
+      });
   }
 
   ionViewDidLoad() {
@@ -62,6 +80,35 @@ export class EmailFeedBackPage {
   streakModal() {
     let modal = this.modalCtrl.create(ThankYouPage);
     modal.present();
+  }
+  errorModal(){
+    let modal = this.modalCtrl.create(IssueScreenPage);
+    modal.present();
+  }
+
+  getValue(value){
+    console.log(value);
+    this.value = value;
+
+  }
+
+  addAction(){
+    this.httpProvider.addAction(this.endpoint, this.data);
+  }
+
+  back(){
+    this.navCtrl.pop();
+  }
+
+  submit(){
+  
+    console.log("Value", this.value);
+    if(this.value === 'success'){
+      this.streakModal();
+      this.addAction();
+    }else{
+      this.errorModal();
+    }
   }
 
 }
