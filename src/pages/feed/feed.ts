@@ -37,7 +37,7 @@ export class FeedPage {
   fiends:any;
   favEndpoint:any = 'actions';
   myrallyID:any;
-  hide_enpoint:any = 'hide_objective';
+  hide_enpoint:any = 'hide_objective'; 
   buttonColor:string = 'red';
   userEndpoint:any = 'users/';
   enabled:boolean = false;

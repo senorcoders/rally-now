@@ -457,6 +457,43 @@ export class UsersProvider {
 
 addAction(endpoint, data):void{
   console.log(data);
+  
+ 
+     this.returnRallyUserId().then(user => {
+        if (user.hide_activity === '1'){
+          let userData = JSON.stringify({
+            action_type_id: data.action_type_id, 
+            goal_id:data.goal_id, 
+            user_id: data.user_id, 
+            representative_id: data.representative_id,
+            title: data.title,
+            short_desc: data.short_desc,
+            event_id: data.event_id,
+            private: true
+             });
+
+             this.saveAction(endpoint, userData);
+             
+        }else{
+          let userData = JSON.stringify({
+            action_type_id: data.action_type_id, 
+            goal_id:data.goal_id, 
+            user_id: data.user_id, 
+            representative_id: data.representative_id,
+            title: data.title,
+            short_desc: data.short_desc,
+            event_id: data.event_id,
+            private: false
+             });
+             this.saveAction(endpoint, userData);
+
+        }    
+
+     });
+ 
+} 
+
+saveAction(endpoint, data){
   var headers = new Headers();
     headers.append('Content-Type', 'application/json' );
     headers.append('Access-Control-Allow-Origin', '*');
@@ -464,17 +501,7 @@ addAction(endpoint, data):void{
     headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
     headers.append('Access-Control-Max-Age', '1728000');
     let options = new RequestOptions({ headers: headers });
-  let userData = JSON.stringify({
-    action_type_id: data.action_type_id, 
-    goal_id:data.goal_id, 
-    user_id: data.user_id, 
-    representative_id: data.representative_id,
-    title: data.title,
-    short_desc: data.short_desc,
-    event_id: data.event_id
-     });
-  console.log(this.base + endpoint, userData, options);
-  this.http.post(encodeURI(this.base + endpoint), userData, options)
+  this.http.post(encodeURI(this.base + endpoint), data, options)
     .map(res => res.json())
     .subscribe(data => {
       console.log("Add action", data);
@@ -482,7 +509,7 @@ addAction(endpoint, data):void{
     }, error => {
       console.log("Error", error);
     });
-} 
+}
 
 
 removeItem(endpoint, recordID){

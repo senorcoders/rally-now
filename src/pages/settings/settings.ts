@@ -20,6 +20,9 @@ import { EditProfilePage } from '../edit-profile/edit-profile';
 import { InterestedOrganizationsPage } from '../interested-organizations/interested-organizations';
 import { HelloPage } from '../hello/hello';
 import { SyncContactsPage } from '../sync-contacts/sync-contacts';
+import { UsersProvider } from '../../providers/users/users';
+import { UserData } from '../../providers/user-data';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 
 @IonicPage()
@@ -30,6 +33,15 @@ import { SyncContactsPage } from '../sync-contacts/sync-contacts';
 export class SettingsPage {
 
   HAS_LOGGED_IN = 'hasLoggedIn';
+  enabled:boolean;
+  myRallyID:any;
+  endpoint:any = 'users/';
+  status:any;
+  user:any={  
+    searchable: '',
+    hide_activity: '',
+    uid: ''
+  };
 
 
   constructor(
@@ -40,7 +52,54 @@ export class SettingsPage {
     public popoverCtrl: PopoverController,
     private fire: AngularFireAuth,
     public storage: Storage,
+    private httpProvider: UsersProvider,
+    public userData: UserData,
+    public af:AngularFireDatabase
     ) {
+      this.httpProvider.returnRallyUserId().then(user => {
+        this.myRallyID = user.apiRallyID;
+        this.getUID();
+        this.getUserData();
+      });
+  }
+
+  getUID(){
+    this.userData.getUid().then((uid) => {
+       this.af.database.ref('users/'+uid)
+        .on('value', snapshot => {
+          this.user.uid = snapshot.val().uid;        
+        });
+    });
+  }
+
+  getUserData(){
+    this.httpProvider.getJsonData(this.endpoint + this.myRallyID).subscribe(result => {
+      this.status = result.hide_activity;
+      if(result.hide_activity === '1'){
+        this.enabled = true;
+      }else{
+        this.enabled = false;
+      }
+    });
+  }
+
+  updateStatus(){
+    console.log(this.enabled);
+    if (this.enabled === true){
+      this.user.hide_activity = '1';
+      this.user.searchable = '0';
+      this.httpProvider.updateSingleItem(this.endpoint + this.myRallyID, JSON.stringify({hide_activity: '1', searchable: '0'}));
+      this.af.database.ref('users/'+this.user.uid).update(this.user);
+
+    }else{
+      this.user.hide_activity = '0';
+      this.user.searchable = '1';
+      this.httpProvider.updateSingleItem(this.endpoint + this.myRallyID, JSON.stringify({hide_activity: '0', searchable: '1'}));
+      this.af.database.ref('users/'+this.user.uid).update(this.user);
+
+
+    }
+
   }
 
   ionViewDidLoad() {
@@ -134,7 +193,7 @@ export class SettingsPage {
         this.storage.remove('DESCRIPTION');
         this.storage.set(this.HAS_LOGGED_IN, false);
         this.navCtrl.setRoot(HomePage);
-  }
+  } 
 
   goToEditProfile(){
     this.navCtrl.push(EditProfilePage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
@@ -145,8 +204,10 @@ export class SettingsPage {
     
   }
 
-  sync(){
+  sync(){ 
     this.navCtrl.push(SyncContactsPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
 
   }
+
+ 
 }

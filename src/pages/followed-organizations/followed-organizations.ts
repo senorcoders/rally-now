@@ -7,6 +7,9 @@ import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay'
 import { UsersProvider } from '../../providers/users/users';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
+import { PublicProfilePage } from '../public-profile/public-profile';
+import { OrganizationProfilePage } from '../organization-profile/organization-profile';
+import { RepresentativeProfilePage } from '../representative-profile/representative-profile';
 
 
 @IonicPage()
@@ -94,6 +97,24 @@ export class FollowedOrganizationsPage {
           return (item.follow[0].name.toLowerCase().indexOf(val.toLowerCase()) > -1);
         })
       }
+    } 
+
+    goToPublicProfile(userID){
+      this.navCtrl.push(PublicProfilePage, {
+         param1: userID,
+         profilePageName: "Following"
+   }, {animate:true,animation:'transition',duration:500,direction:'forward'});
+    }
+
+    goToOrganizationProfile(organizationID){
+      this.navCtrl.push(OrganizationProfilePage, {
+         organizationID: organizationID,
+         OrgPageName: "Following"
+   }, {animate:true,animation:'transition',duration:500,direction:'forward'});
+    }
+
+    goToRepProfile(repID){
+      this.navCtrl.push(RepresentativeProfilePage, {repID: repID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
     }
 
 }
