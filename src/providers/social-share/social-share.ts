@@ -11,7 +11,7 @@ export class SocialShareProvider {
     console.log('Hello SocialShareProvider Provider');
   }
 
-  facebookShare(title, imgURI) {
+  facebookShare(title, imgURI?) {
     this.socialSharing.shareViaFacebook(title, imgURI).then(() => {
       console.log("shareViaFacebook: Success");
     }).catch((error) => {
@@ -61,6 +61,8 @@ export class SocialShareProvider {
       console.log('Error', error);
     })
   }
+  
+
 
 
 }

@@ -36,10 +36,7 @@ export class OrganizationsPage {
   events:any;
   eventStart:any;
   eventEnd:any;
-
-
-
-
+  eventFiltered:boolean = false;
 
   constructor(
     public navCtrl: NavController, 
@@ -96,6 +93,7 @@ export class OrganizationsPage {
 
       if(startDate != null){
         var url = this.endpoint + this.myApiRallyID + '/' + startDate + '/' + endDate;
+        this.eventFiltered = true;
       } else{
         var url = this.endpoint + this.myApiRallyID;
       }
@@ -230,54 +228,69 @@ addLike(reference_id, like_type){
 
 shareController(title, imgURI, reference_id, like_type, $event) {
   this.disable = true;
-  const actionSheet = this.actionSheetCtrl.create({
-    title: 'Share with',
-    buttons: [
-      {
-        text: 'Facebook',
-        icon: 'logo-facebook',
-        handler: () => {
-          this.shareProvider.facebookShare(title, imgURI);
-          this.addShareAction(reference_id, like_type);
-          $event.srcElement.lastChild.data++;
-          this.presentToast('Objective shared!');
-          this.disable = false;
-        }
-      }, 
-      {
-        text: 'Twitter',
-        icon: 'logo-twitter',
-        handler: () => {
-          this.shareProvider.twitterShare(title, imgURI);
-          this.addShareAction(reference_id, like_type);
-          $event.srcElement.lastChild.data++;
-          this.presentToast('Objective shared!');
-          this.disable = false;
-        }
-      },
-      {
-        text: 'Others',
-        icon: 'md-share',
-        handler: () => {
-          console.log('Archive clicked');
-          this.shareProvider.otherShare(title, imgURI);
-          this.addShareAction(reference_id, like_type);
-          $event.srcElement.lastChild.data++;
-          this.presentToast('Objective shared!');
-          this.disable = false;
-        }
-      },
-      {
-        text: 'Cancel',
-        role: 'cancel',
-        handler: () => {
-          console.log('Cancel clicked');
-        }
-      }
-    ]
-  });
 
-  actionSheet.present();
+const actionSheet = this.actionSheetCtrl.create({
+ title: 'Share to where?',
+ buttons: [
+   {
+     text: 'Facebook',
+     handler: () => {
+       this.shareProvider.facebookShare(title, imgURI);
+       this.addShareAction(reference_id, like_type);
+       $event.srcElement.lastChild.data++;
+       this.presentToast('Objective shared!');
+       this.disable = false;
+
+     }
+   }, 
+   {
+     text: 'Twitter',
+     handler: () => {
+       this.shareProvider.twitterShare(title, imgURI);
+       this.addShareAction(reference_id, like_type);
+       $event.srcElement.lastChild.data++;
+       this.presentToast('Objective shared!');
+       this.disable = false;
+
+     }
+   },
+  //  {
+  //   text: 'Copy Link',
+  //   handler: () => {
+  //     this.disable = false;
+
+  //   }
+  // },
+  // {
+  //   text: 'SMS Message',
+  //   handler: () => {
+  //     this.presentToast('Objective shared!');
+  //     this.disable = false;
+
+  //   }
+  // },
+  // {
+  //   text: 'Email',
+  //   handler: () => {
+      
+  //     this.presentToast('Objective shared!');
+  //     this.disable = false;
+
+  //   }
+  // },
+   {
+     text: 'Cancel',
+     role: 'cancel',
+     handler: () => {
+       console.log('Cancel clicked');
+       this.disable = false;
+
+     }
+   }
+ ]
+});
+
+actionSheet.present();
 }
 
 addShareAction(goal_id, action_type_id){

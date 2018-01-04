@@ -26,6 +26,8 @@ export class CallPage {
     representative_id: '',
     action_type_id: ''
   }];
+  talkingPoints:any;
+  offices:any;
 
   constructor(
     public navCtrl: NavController, 
@@ -36,8 +38,10 @@ export class CallPage {
     private httpProvider: UsersProvider,
     public viewCtrl:ViewController,
     private alertCtrl: AlertController) {
-      console.log("rep", navParams.get('rep'));
+      console.log("offices", navParams.get('offices'));
+      this.offices = navParams.get('offices');
       this.rep = navParams.get('rep');
+      this.talkingPoints = navParams.get('talkingPoints');
       this.data.representative_id = navParams.get('repID');
       this.data.action_type_id = '2afa6869-7ee5-436e-80a9-4fee7c871212';
       this.data.title = 'call';
@@ -73,26 +77,42 @@ export class CallPage {
   callOffices() {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Select a different office',
-      buttons: [
-        {
-          text: '(123) 456 789',
-          handler: () => {
-            console.log('test');
-          }
-        },{
-          text: '(987) 654 321',
-          handler: () => {
-            console.log('Fax clicked');
-          }
-        },{
-          text: 'Cancel',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }
-      ]
+      // buttons: [
+      //   {
+      //     text: '(123) 456 789',
+      //     handler: () => {
+      //       console.log('test');
+      //     }
+      //   },{
+      //     text: '(987) 654 321',
+      //     handler: () => {
+      //       console.log('Fax clicked');
+      //     }
+      //   },{
+      //     text: 'Cancel',
+      //     role: 'cancel',
+      //     handler: () => {
+      //       console.log('Cancel clicked');
+      //     }
+      //   }
+      // ]
     });
+
+    for(var i = 0; i< this.offices.length; i++){
+      console.warn(i);
+      var iterator = i;
+      actionSheet.addButton({
+        text: this.offices[i].phone, 
+        handler: ()=> {
+          console.log("Phone Number", this.offices);
+          this.makeCall(this.offices[iterator].phone);
+        console.warn(i);
+
+        } 
+      });
+    }
+    actionSheet.addButton({text: 'Cancel', 'role': 'cancel' });       
+
     actionSheet.present();
   }
 
@@ -126,6 +146,8 @@ export class CallPage {
     alert.present();
   }
   makeCall(phone_number){
+
+    console.log(phone_number);
     this.callNumber.callNumber(phone_number, true)
       .then(() => console.log('Launched dialer!'))
       .catch(() => console.log('Error launching dialer'));

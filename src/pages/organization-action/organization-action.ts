@@ -80,7 +80,7 @@ export class OrganizationActionPage {
         console.log(" Usuario",user);
         this.myrallyID = user.apiRallyID;
         this.data.user_id = user.apiRallyID;
-        this.data.title = 'call';
+        this.data.title = 'tweet';
         this.getdata();
         this.getReps();
        
@@ -100,17 +100,17 @@ export class OrganizationActionPage {
     this.viewCtrl.setBackButtonText(this.pageName);
   }
 
-  presentActionSheet(rep, fax, twitter, email, repID) {
+  presentActionSheet(rep, fax, twitter, email, repID, offices) {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Contact ' + rep.name,
       buttons: [ 
         {
           text: 'Call',
-          handler: () => {
-            this.navCtrl.push(CallPage, {rep: rep, repID: repID});
-            // this.callNumber.callNumber("18001010101", true)
-            // .then(() => console.log('Launched dialer!'))
-            // .catch((error) => console.log('Error launching dialer', error));
+          handler: () => { 
+            this.navCtrl.push(CallPage, {rep: rep, repID: repID, talkingPoints: this.objDesc, offices: offices});
+            this.callNumber.callNumber(rep.phone, true)
+            .then(() => console.log('Launched dialer!'))
+            .catch((error) => console.log('Error launching dialer', error));
           }
         },{
           text: 'Fax',
@@ -300,54 +300,69 @@ addLike(reference_id, like_type){
 
 shareController(title, imgURI, reference_id, like_type, $event) {
   this.disable = true;
-  const actionSheet = this.actionSheetCtrl.create({
-    title: 'Share with',
-    buttons: [
-      {
-        text: 'Facebook',
-        icon: 'logo-facebook',
-        handler: () => {
-          this.shareProvider.facebookShare(title, imgURI);
-          this.addShareAction(reference_id, like_type);
-          $event.srcElement.lastChild.data++;
-          this.presentToast('Objective shared!');
-          this.disable = false;
-        }
-      }, 
-      {
-        text: 'Twitter',
-        icon: 'logo-twitter',
-        handler: () => {
-          this.shareProvider.twitterShare(title, imgURI);
-          this.addShareAction(reference_id, like_type);
-          $event.srcElement.lastChild.data++;
-          this.presentToast('Objective shared!');
-          this.disable = false;
-        }
-      },
-      {
-        text: 'Others',
-        icon: 'md-share',
-        handler: () => {
-          console.log('Archive clicked');
-          this.shareProvider.otherShare(title, imgURI);
-          this.addShareAction(reference_id, like_type);
-          $event.srcElement.lastChild.data++;
-          this.presentToast('Objective shared!');
-          this.disable = false;
-        }
-      },
-      {
-        text: 'Cancel',
-        role: 'cancel',
-        handler: () => {
-          console.log('Cancel clicked');
-        }
-      }
-    ]
-  });
 
-  actionSheet.present();
+const actionSheet = this.actionSheetCtrl.create({
+ title: 'Share to where?',
+ buttons: [
+   {
+     text: 'Facebook',
+     handler: () => {
+       this.shareProvider.facebookShare(title, imgURI);
+       this.addShareAction(reference_id, like_type);
+       $event.srcElement.lastChild.data++;
+       this.presentToast('Objective shared!');
+       this.disable = false;
+
+     }
+   }, 
+   {
+     text: 'Twitter',
+     handler: () => {
+       this.shareProvider.twitterShare(title, imgURI);
+       this.addShareAction(reference_id, like_type);
+       $event.srcElement.lastChild.data++;
+       this.presentToast('Objective shared!');
+       this.disable = false;
+
+     }
+   },
+  //  {
+  //   text: 'Copy Link',
+  //   handler: () => {
+  //     this.disable = false;
+
+  //   }
+  // },
+  // {
+  //   text: 'SMS Message',
+  //   handler: () => {
+  //     this.presentToast('Objective shared!');
+  //     this.disable = false;
+
+  //   }
+  // },
+  // {
+  //   text: 'Email',
+  //   handler: () => {
+      
+  //     this.presentToast('Objective shared!');
+  //     this.disable = false;
+
+  //   }
+  // },
+   {
+     text: 'Cancel',
+     role: 'cancel',
+     handler: () => {
+       console.log('Cancel clicked');
+       this.disable = false;
+
+     }
+   }
+ ]
+});
+
+actionSheet.present();
 }
 
 addShareAction(goal_id, action_type_id){
@@ -403,7 +418,7 @@ getRepID(rep, fax, twitter, email, bioguide){
   this.httpProvider.getJsonData(this.repsEndpoint +bioguide).subscribe( result => {
       console.log(result[0].id);
       this.data.representative_id = result[0].id;
-      this.presentActionSheet(rep, result[0].fax_url, twitter, email, result[0].id);
+      this.presentActionSheet(rep, result[0].fax_url, twitter, email, result[0].id, result[0].offices);
   });
 }
 

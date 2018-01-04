@@ -45,6 +45,8 @@ export class FriendsactivityPage {
     public actionSheetCtrl: ActionSheetController,
     private shareProvider:SocialShareProvider,) {
       this.all = "all";
+      this.enable = true;
+      console.log(this.enable);
       this.usersProvider.returnRallyUserId().then( user => {
         this.myRallyID = user.apiRallyID;
         this.getdata();
@@ -202,11 +204,10 @@ shareController(title, imgURI, reference_id, like_type, $event) {
   this.disable = true;
 
 const actionSheet = this.actionSheetCtrl.create({
- title: 'Share with',
+ title: 'Share to where?',
  buttons: [
    {
      text: 'Facebook',
-     icon: 'logo-facebook',
      handler: () => {
        this.shareProvider.facebookShare(title, imgURI);
        this.addShareAction(reference_id, like_type);
@@ -218,7 +219,6 @@ const actionSheet = this.actionSheetCtrl.create({
    }, 
    {
      text: 'Twitter',
-     icon: 'logo-twitter',
      handler: () => {
        this.shareProvider.twitterShare(title, imgURI);
        this.addShareAction(reference_id, like_type);
@@ -228,24 +228,37 @@ const actionSheet = this.actionSheetCtrl.create({
 
      }
    },
-   {
-     text: 'Others',
-     icon: 'md-share',
-     handler: () => {
-       console.log('Archive clicked');
-       this.shareProvider.otherShare(title, imgURI);
-       this.addShareAction(reference_id, like_type);
-       $event.srcElement.lastChild.data++;
-       this.presentToast('Objective shared!');
-       this.disable = false;
+  //  {
+  //   text: 'Copy Link',
+  //   handler: () => {
+  //     this.disable = false;
 
-     }
-   },
+  //   }
+  // },
+  // {
+  //   text: 'SMS Message',
+  //   handler: () => {
+  //     this.presentToast('Objective shared!');
+  //     this.disable = false;
+
+  //   }
+  // },
+  // {
+  //   text: 'Email',
+  //   handler: () => {
+      
+  //     this.presentToast('Objective shared!');
+  //     this.disable = false;
+
+  //   }
+  // },
    {
      text: 'Cancel',
      role: 'cancel',
      handler: () => {
        console.log('Cancel clicked');
+       this.disable = false;
+
      }
    }
  ]
@@ -259,12 +272,9 @@ addShareAction(goal_id, action_type_id){
   this.usersProvider.addShareAction(this.favEndpoint, goal_id, action_type_id, this.myRallyID);
 }
 
-selectedFriends(){
-  this.enable = false;
-}
-
-selectedAll(){
-  this.enable = true;
+segmentChanged(){
+  console.log(this.enable);
+  this.enable = !this.enable;
 }
 
 

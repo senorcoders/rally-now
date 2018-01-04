@@ -2,20 +2,20 @@
 
 <ion-content>
 
-        <ion-segment [(ngModel)]="all">
-                <ion-segment-button value="all" (ionSelect)="selectedAll()">
+        <ion-segment [(ngModel)]="all" (ionChange)="segmentChanged()">
+                <ion-segment-button value="all" >
                   All 
                 </ion-segment-button>
-                <ion-segment-button value="friends" (ionSelect)="selectedFriends()">
+                <ion-segment-button value="friends" >
                   Friends
                 </ion-segment-button>
               
               </ion-segment>
 
-              <div *ngIf="enable">
+              <div *ngIf="!enable">
 
                     <ion-card *ngFor="let activity of objectivesAction">
-                            <ion-fab right top style="top: 4px;
+                             <ion-fab right top style="top: 4px;
                         right: 0;">
                                 <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
                              
@@ -49,7 +49,7 @@
                                     <img *ngIf="activity.action === 'sign'" src="assets/img/Sign.svg" alt="" style="width: 25px;">
                                     <img *ngIf="activity.action === 'fax'" src="assets/img/Fax.svg" alt="" style="width: 25px;">
                                     <img *ngIf="activity.action === 'email'" src="assets/img/Email.svg" alt="" style="width: 25px;">
-                    
+                                    <img *ngIf="activity.action === 'tweet'" src="assets/img/tweet.svg" alt="" style="width: 25px;">
                     
                                 </div>
                             </ion-fab>
@@ -127,7 +127,7 @@
 
               <!-- My Friends Community -->
 
-              <div *ngIf="!enable">
+              <div *ngIf="enable">
                     <ion-card *ngFor="let activity of objectivesPersonal">
                             <ion-fab right top style="top: 4px;
                         right: 0;">

@@ -5,7 +5,7 @@
     <ion-row padding class="bordered">
         <ion-col col-8>
             <p class="gray">Calling this office</p>
-            <h3>Representative {{rep.name}}</h3>
+            <h3>{{rep.title}} {{rep.name}}</h3>
             <p class="gray">
                 <ion-icon name="ios-call-outline" style="color: #f4512c;
                 font-size: 18px;"></ion-icon> {{rep.phone}}</p>
@@ -21,7 +21,7 @@
     <ion-row padding>
         <ion-list>
             <ion-list-header style="border: none; padding-left: 0;">Talking Points</ion-list-header>
-            <p>{{rep.biography}}</p>
+            <p>{{talkingPoints}}</p>
            
         </ion-list>
     </ion-row>
@@ -40,7 +40,7 @@
                         
                 </div>
                 <div class="special-btn">
-                        {{callButtonText}}             
+                        CALL             
                 </div>
             </button>
         </ion-col>

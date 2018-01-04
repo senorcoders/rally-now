@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, App, ActionSheetController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
 import { TabsPage } from '../tabs/tabs';
+import { SocialShareProvider } from '../../providers/social-share/social-share';
 
 
 
@@ -21,7 +22,7 @@ export class ThankYouPage {
   endpoint:any = 'users/';
   username:any;
   weekInMiliseconds:number = 604800000;
-  weekStreaks:any;
+  weekStreaks:any; 
   countWeek:number = 0;
 
   constructor(
@@ -29,7 +30,9 @@ export class ThankYouPage {
     public navParams: NavParams,
     public viewCtrl: ViewController,
     private httpProvider: UsersProvider,
-    private app:App) {
+    private app:App,
+    public actionSheetCtrl: ActionSheetController,
+    private shareProvider:SocialShareProvider) {
       this.httpProvider.returnRallyUserId().then(user =>{
         this.currentRallyID = user.apiRallyID;
           this.getStreaks();
@@ -131,6 +134,66 @@ export class ThankYouPage {
       }
     }
   }
+
+
+  shareController() {
+
+ const actionSheet = this.actionSheetCtrl.create({
+   title: 'Share to where?',
+   buttons: [ 
+     {
+       text: 'Facebook',
+       handler: () => {
+         this.shareProvider.facebookShare(this.username + ' has made ' + this.countWeek + ' actions on Lets Rally this week');
+      
+
+       }
+     }, 
+     {
+       text: 'Twitter',
+       handler: () => {
+         this.shareProvider.twitterShare(this.username + ' has made ' + this.countWeek + ' actions on Lets Rally this week');
+        
+
+       }
+     },
+    //  {
+    //   text: 'Copy Link',
+    //   handler: () => {
+    //     this.disable = false;
+
+    //   }
+    // },
+    // {
+    //   text: 'SMS Message',
+    //   handler: () => {
+    //     this.presentToast('Objective shared!');
+    //     this.disable = false;
+
+    //   }
+    // },
+    // {
+    //   text: 'Email',
+    //   handler: () => {
+        
+    //     this.presentToast('Objective shared!');
+    //     this.disable = false;
+
+    //   }
+    // },
+     {
+       text: 'Cancel',
+       role: 'cancel',
+       handler: () => {
+         console.log('Cancel clicked');
+
+       }
+     }
+   ]
+ });
+
+ actionSheet.present();
+}
   
 
 }

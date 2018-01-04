@@ -7,6 +7,7 @@ import { WebviewPage } from '../webview/webview';
 import { CallPage } from '../call/call';
 import { FaxFeedBackPage } from '../fax-feed-back/fax-feed-back';
 import { EmailFeedBackPage } from '../email-feed-back/email-feed-back';
+import { CallNumber } from '@ionic-native/call-number';
 
 
 @IonicPage()
@@ -41,7 +42,8 @@ export class MyRepresentativesPage {
     public modalCtrl: ModalController,
     private httpProvider:UsersProvider,
     public actionSheetCtrl: ActionSheetController,
-    public toastCtrl: ToastController) {    
+    public toastCtrl: ToastController,
+    private callNumber: CallNumber) {    
       this.httpProvider.returnRallyUserId()
       .then(user => {
         console.log(" Usuario",user);
@@ -107,18 +109,21 @@ export class MyRepresentativesPage {
     this.httpProvider.getJsonData(this.repsEndpoint +bioguide).subscribe( result => {
         console.log(result);
         this.data.representative_id = result[0].id;
-        this.presentActionSheet(rep, result[0].fax_url, twitter, email, result[0].id);
+        this.presentActionSheet(rep, result[0].fax_url, twitter, email, result[0].id, result[0].offices);
     });
   }
 
-  presentActionSheet(rep, fax, twitter, email, repID) {
+  presentActionSheet(rep, fax, twitter, email, repID, offices) {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Contact ' + rep.name,
       buttons: [
         {
           text: 'Call',
           handler: () => {
-            this.navCtrl.push(CallPage, {rep: rep, repID: repID});
+            this.navCtrl.push(CallPage, {rep: rep, repID: repID, offices: offices});
+            this.callNumber.callNumber(rep.phone, true)
+            .then(() => console.log('Launched dialer!'))
+            .catch((error) => console.log('Error launching dialer', error));
           }
         },{
           text: 'Fax',

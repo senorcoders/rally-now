@@ -58,6 +58,7 @@ export class FeedPage {
   enableRepCard:boolean = false;
   eventStart:any;
   eventEnd:any;
+  eventFiltered:boolean = false;
 
   // @ViewChild(Content) content: Content;
 
@@ -174,6 +175,7 @@ export class FeedPage {
   getdata(startDate?, endDate?){
     if(startDate != null){
       var url = this.endpoint + this.myrallyID + '/' + startDate + '/' + endDate;
+      this.eventFiltered = true;
     } else{
       var url = this.endpoint + this.myrallyID;
     }
@@ -199,6 +201,7 @@ export class FeedPage {
 
 doRefresh(refresher) {
   this.getDataStatus();
+  this.eventFiltered = false;
 
     setTimeout(() => {
       console.log('Async operation has ended');
@@ -238,15 +241,14 @@ doRefresh(refresher) {
      }
 
 
-     shareController(title, imgURI, reference_id, like_type, $event) {
+ shareController(title, imgURI, reference_id, like_type, $event) {
       this.disable = true;
 
    const actionSheet = this.actionSheetCtrl.create({
-     title: 'Share with',
-     buttons: [
+     title: 'Share to where?',
+     buttons: [ 
        {
          text: 'Facebook',
-         icon: 'logo-facebook',
          handler: () => {
            this.shareProvider.facebookShare(title, imgURI);
            this.addShareAction(reference_id, like_type);
@@ -258,7 +260,6 @@ doRefresh(refresher) {
        }, 
        {
          text: 'Twitter',
-         icon: 'logo-twitter',
          handler: () => {
            this.shareProvider.twitterShare(title, imgURI);
            this.addShareAction(reference_id, like_type);
@@ -268,24 +269,37 @@ doRefresh(refresher) {
 
          }
        },
-       {
-         text: 'Others',
-         icon: 'md-share',
-         handler: () => {
-           console.log('Archive clicked');
-           this.shareProvider.otherShare(title, imgURI);
-           this.addShareAction(reference_id, like_type);
-           $event.srcElement.lastChild.data++;
-           this.presentToast('Objective shared!');
-           this.disable = false;
+      //  {
+      //   text: 'Copy Link',
+      //   handler: () => {
+      //     this.disable = false;
 
-         }
-       },
+      //   }
+      // },
+      // {
+      //   text: 'SMS Message',
+      //   handler: () => {
+      //     this.presentToast('Objective shared!');
+      //     this.disable = false;
+
+      //   }
+      // },
+      // {
+      //   text: 'Email',
+      //   handler: () => {
+          
+      //     this.presentToast('Objective shared!');
+      //     this.disable = false;
+
+      //   }
+      // },
        {
          text: 'Cancel',
          role: 'cancel',
          handler: () => {
            console.log('Cancel clicked');
+           this.disable = false;
+
          }
        }
      ]
