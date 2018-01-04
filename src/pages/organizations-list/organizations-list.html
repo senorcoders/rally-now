@@ -10,7 +10,7 @@
 <ion-content>
     <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
     
-    <ion-list [virtualScroll]="items" approxItemHeight="50px">
+    <ion-list [virtualScroll]="items" approxItemHeight="15px">
         <ion-list-header>
           All Organizations
         </ion-list-header>
@@ -28,6 +28,8 @@
       </ion-list>
 
       <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-            <ion-infinite-scroll-content></ion-infinite-scroll-content>
+            <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Loading more..."></ion-infinite-scroll-content>
           </ion-infinite-scroll>
 </ion-content> 

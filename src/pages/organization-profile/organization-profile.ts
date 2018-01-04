@@ -38,6 +38,7 @@ export class OrganizationProfilePage {
   likeendpoint:any = 'likes';
   shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
   disable:boolean = false;
+  twitter:any;
 
 
 
@@ -84,6 +85,7 @@ export class OrganizationProfilePage {
       this.objectives = result.objectives;
       this.posts = result.organization[0]['objectives_count'];
       this.followers = result.organization[0]['follower_count'];
+      this.twitter = result.organization[0]['twitter'];
       console.log("Success : "+ JSON.stringify(result.organization[0]['name']) );
     },
     err =>{
@@ -356,5 +358,9 @@ goToActionPage(objectiveID){
 
     goToFollowers(){
       this.navCtrl.push(OrganizationFollowersPage, {orgID: this.organizationID});
+    }
+
+    tweetOrg(username){
+      this.shareProvider.twitterShare(username);
     }
 }

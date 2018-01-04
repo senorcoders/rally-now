@@ -23,13 +23,13 @@
             <ion-col col-12>
                 <button class="follow-btn"  ion-button color="light" full outline >Follow</button>
             </ion-col>
-
+ 
         </ion-col>
             <ion-col col-12>
                 <h4 text-wrap class="username-h4">{{name}}</h4>
             </ion-col>
             <ion-col col-12 style="padding:0;">
-                <p style="margin:0; color: gray;"> <ion-icon style="color: #2196F3" name="logo-twitter"></ion-icon>
+                <p style="margin:0; color: gray;" *ngIf="twitter_id != null" (click)="tweetRep(twitter_id)"> <ion-icon style="color: #2196F3" name="logo-twitter"></ion-icon>
                     @{{twitter_id}}</p>
             </ion-col>
            

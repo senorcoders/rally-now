@@ -33,8 +33,8 @@
                 <h4 text-wrap class="username-h4">{{name}}</h4>
             </ion-col>
             <ion-col col-6 style="padding:0;">
-                <p style="margin:0; color: gray;"> <ion-icon style="color: #2196F3" name="logo-twitter"></ion-icon>
-                    @org</p>
+                <p style="margin:0; color: gray;" *ngIf="twitter != null" (click)="tweetOrg('@' + twitter)"> <ion-icon style="color: #2196F3" name="logo-twitter"></ion-icon>
+                    @{{twitter}}</p>
             </ion-col>
             <ion-col col-6 style="padding:0;">
               <p class="link">This is my organization</p>      

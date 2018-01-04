@@ -14,9 +14,9 @@ import { OrganizationsProvider } from '../../providers/organizations/organizatio
 })
 export class RepresentivesListPage {
   endpoint:any = 'reps';
-  representatives:any;
+  representatives:any = [];
   loading:any;
-  items:any; 
+  items:any = []; 
   currentRallyID:any;
   followEndpoint:any = 'following_representative';
   newEndpoint:any = 'reps_pagination/';

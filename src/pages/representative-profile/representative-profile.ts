@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
+import { SocialShareProvider } from '../../providers/social-share/social-share';
 
 
 @IonicPage()
@@ -20,7 +21,8 @@ export class RepresentativeProfilePage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private httpProvider: UsersProvider) {
+    private httpProvider: UsersProvider,
+    private shareProvider: SocialShareProvider) {
       console.log("Rep ID", navParams.get('repID'));
       this.getRepData(navParams.get('repID'));
   }
@@ -35,6 +37,10 @@ export class RepresentativeProfilePage {
       this.description = result.description;
       this.photo_url = result.photo_url;
     });
+  }
+
+  tweetRep(username){
+    this.shareProvider.twitterShare(username);
   }
   
 
