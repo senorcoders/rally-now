@@ -8,6 +8,8 @@ import { AngularFireDatabase } from 'angularfire2/database/database';
 export class OrganizationsProvider {
 	base:string = 'https://api.provethisconcept.com/rallyapi/';
 	data:any = {};
+	perpage:number = 15;
+
 
 
   constructor(public http: Http, public storage: Storage, public af:AngularFireDatabase) {
@@ -17,6 +19,16 @@ export class OrganizationsProvider {
   	getJsonData(endpoint){
   		return this.http.get(this.base + endpoint).map(res => res.json());
 	} 
+
+	load(endpoint, start:number=0){
+		return new Promise(resolve => {
+			this.http.get(this.base + endpoint + start + '/' + this.perpage)
+				.map(res => res.json())
+				.subscribe(data => {
+						resolve(data);
+				});
+		});
+	}
 
 
 }

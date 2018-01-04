@@ -26,4 +26,8 @@
             padding: 5px 15px;">{{findInLoop(organization.followers)}}</button>
           </ion-item>
       </ion-list>
+
+      <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+            <ion-infinite-scroll-content></ion-infinite-scroll-content>
+          </ion-infinite-scroll>
 </ion-content> 

@@ -10,11 +10,11 @@
 <ion-content>
   <ion-searchbar (ionInput)="getItems($event)" [debounce]="500"></ion-searchbar>
   
-  <ion-list>
+  <ion-list [virtualScroll]="items" approxItemHeight="50px">
       <ion-list-header>
         All Representatives
       </ion-list-header>
-      <ion-item *ngFor="let rep of items">
+      <ion-item *virtualItem="let rep">
           <ion-avatar item-start (click)="goToRepProfile(rep.id)">
             <img [src]="rep.photo_url ? rep.photo_url : 'assets/img/icon.png'"  style="border:2px solid #ada8a8;">
           </ion-avatar>
@@ -27,5 +27,9 @@
           border-radius: 4px;
           padding: 10px 15px;">{{findInLoop(rep.followers)}}</button>
         </ion-item>
-    </ion-list> 
+    </ion-list>
+    
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
 </ion-content>

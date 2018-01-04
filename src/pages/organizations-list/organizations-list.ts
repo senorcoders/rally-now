@@ -5,6 +5,7 @@ import { OrganizationProfilePage } from '../organization-profile/organization-pr
 import { AngularFireDatabase } from 'angularfire2/database';
 import firebase from 'firebase';
 import { Storage } from '@ionic/storage';
+import { OrganizationsProvider } from '../../providers/organizations/organizations';
 
 
 @IonicPage()
@@ -14,13 +15,16 @@ import { Storage } from '@ionic/storage';
 })
 export class OrganizationsListPage {
   endpoint:any = 'organizations';
-  organizations:any = [];
+  public organizations:any = [];
   loading:any;
-  items:any = [];
+  public items:any = [];
   currentRallyID:any;
   favEndpoint:any = 'actions';  
   likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
   organizationEndpoint:any = 'following_organizations';
+  private start:number=1;
+  newEndpoint:any = 'organization_pagination/';
+
 
   
   constructor(
@@ -31,7 +35,8 @@ export class OrganizationsListPage {
     public toastCtrl: ToastController,
     private db: AngularFireDatabase,
     public actionSheetCtrl: ActionSheetController,
-    private storage: Storage) {
+    private storage: Storage,
+    private orgProvider: OrganizationsProvider) {
       this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
       }); 
@@ -47,15 +52,43 @@ export class OrganizationsListPage {
 
  
 
+  // getOrganizations(){
+  //   this.httpProvider.getJsonData(this.endpoint)
+  //     .subscribe( result => {
+  //       this.organizations = result;
+  //       // this.storage.set("organizations", result);
+  //       this.initializeItems();
+  //       this.loading.dismiss();
+  //     });
+  // }
+
   getOrganizations(){
-    this.httpProvider.getJsonData(this.endpoint)
-      .subscribe( result => {
-        this.organizations = result;
-        // this.storage.set("organizations", result);
-        this.initializeItems();
-        this.loading.dismiss();
-      });
+    return new Promise(resolve => {
+      this.orgProvider.load(this.newEndpoint, this.start)
+        .then(data => {
+          // for(let person of data) {
+          //   this.organizations.push(person);
+          // }
+          this.organizations = data;
+          this.initializeItems();
+          console.log(data);
+          this.loading.dismiss();   
+          resolve(true);
+        });
+    });
   }
+
+  doInfinite(infiniteScroll:any) {
+    console.log(infiniteScroll);
+    console.log('doInfinite, start is currently '+this.start);
+    this.start+=1;
+    console.log(this.start);
+    
+    this.getOrganizations().then(()=>{
+      infiniteScroll.complete();
+    });
+    
+ }
  
   initializeItems() {
     this.items = this.organizations;

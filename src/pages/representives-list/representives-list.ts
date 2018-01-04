@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController, ToastController
 import { UsersProvider } from '../../providers/users/users';
 import { Storage } from '@ionic/storage';
 import { RepresentativeProfilePage } from '../representative-profile/representative-profile';
+import { OrganizationsProvider } from '../../providers/organizations/organizations';
 
 
 
@@ -18,7 +19,9 @@ export class RepresentivesListPage {
   items:any; 
   currentRallyID:any;
   followEndpoint:any = 'following_representative';
-  
+  newEndpoint:any = 'reps_pagination/';
+  private start:number=1;
+
 
   constructor( 
     public navCtrl: NavController, 
@@ -26,7 +29,8 @@ export class RepresentivesListPage {
     private httpProvider: UsersProvider,
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
-    private storage: Storage) {
+    private storage: Storage,
+   private orgProvider: OrganizationsProvider) {
 
       this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
@@ -35,18 +39,8 @@ export class RepresentivesListPage {
       this.httpProvider.returnRallyUserId().then(
         user => {
           this.currentRallyID = user.apiRallyID;
-          this.storage.get('repFullList').then((val) =>{
-            if(val != null){
-              console.log("Loading from local");
-              this.representatives = val;
-              this.initializeItems();
-              this.loading.dismiss();
-            } else{
-              console.log("calling the api");
+         
               this.getReps();
-            }
-        });
-          
         }
       )
   }
@@ -56,14 +50,33 @@ export class RepresentivesListPage {
   }
 
   getReps(){
-    this.httpProvider.getJsonData(this.endpoint)
-      .subscribe( result => {
-        this.representatives = result;
-        this.storage.set("repFullList", result);
-        this.initializeItems();
-        this.loading.dismiss();
+
+      return new Promise(resolve => {
+        this.orgProvider.load(this.newEndpoint, this.start)
+          .then(data => {
+            // for(let person of data) {
+            //   this.organizations.push(person);
+            // }
+            this.representatives = data;
+            this.initializeItems();
+            console.log(data);
+            this.loading.dismiss();   
+            resolve(true);
+          });
       });
   }
+
+  doInfinite(infiniteScroll:any) {
+    console.log(infiniteScroll);
+    console.log('doInfinite, start is currently '+this.start);
+    this.start+=1;
+    console.log(this.start);
+    
+    this.getReps().then(()=>{
+      infiniteScroll.complete();
+    });
+    
+ }
 
   initializeItems() {
     this.items = this.representatives;
