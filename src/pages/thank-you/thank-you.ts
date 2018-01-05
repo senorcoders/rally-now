@@ -24,6 +24,7 @@ export class ThankYouPage {
   weekInMiliseconds:number = 604800000;
   weekStreaks:any; 
   countWeek:number = 0;
+  accountStatus:any;
 
   constructor(
     public navCtrl: NavController, 
@@ -53,8 +54,9 @@ export class ThankYouPage {
   getUsername(){
     this.httpProvider.getJsonData(this.endpoint + this.currentRallyID).subscribe(result => {
       let nickname = result.name.split(" ");
-      console.log(nickname);
+      console.log(result);
       this.username = nickname[0];
+      this.accountStatus = result.hide_activity;
     });
   }
 

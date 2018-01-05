@@ -23,7 +23,7 @@ import { Storage } from '@ionic/storage';
 })
 export class OrganizationsPage {
   organizations: any;
-  endpoint:string = 'my_organizations/';
+  endpoint:string = 'my_organizations_pagination/';
   myApiRallyID:any;
  favEndpoint:any = 'actions';
    hide_enpoint:any = 'hide_objective';
@@ -95,12 +95,12 @@ export class OrganizationsPage {
         var url = this.endpoint + this.myApiRallyID + '/' + startDate + '/' + endDate;
         this.eventFiltered = true;
       } else{
-        var url = this.endpoint + this.myApiRallyID;
+        var url = this.endpoint + this.myApiRallyID + '/1/5';
       }
   this.httpProvider.getJsonData(url).subscribe(
     result => {
       this.organizations=result['My_Organizations'];
-      this.events = result['My_Events'];
+      this.events = result['Orgs_events'];
       console.log("Success : "+ result['My_Organizations']);
     },
     err =>{
@@ -151,17 +151,13 @@ export class OrganizationsPage {
      findInLoop(actions){
       if (actions != null){
         var found = actions.some(el => { 
-          console.log(el);
             return el == this.myApiRallyID;
-          
         });
         
         if (!found){
-          return '#f2f2f2';
-          
+          return '#f2f2f2'; 
         }else{
-          return '#296fb7';
-          
+          return '#296fb7';      
         }
       }
    

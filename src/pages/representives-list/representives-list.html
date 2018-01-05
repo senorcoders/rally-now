@@ -10,11 +10,11 @@
 <ion-content>
   <ion-searchbar (ionInput)="getItems($event)" [debounce]="500"></ion-searchbar>
   
-  <ion-list [virtualScroll]="items" approxItemHeight="15px">
+  <ion-list>
       <ion-list-header>
         All Representatives
       </ion-list-header>
-      <ion-item *virtualItem="let rep">
+      <ion-item *ngFor="let rep of items, let i = index">
           <ion-avatar item-start (click)="goToRepProfile(rep.id)">
             <img [src]="rep.photo_url ? rep.photo_url : 'assets/img/icon.png'"  style="border:2px solid #ada8a8;">
           </ion-avatar>

@@ -29,181 +29,195 @@
         <ion-refresher-content pullingText="Pull down to Refresh" pullingIcon="arrow-dropdown" refreshingSpinner="circles" refreshingText="Refreshing...">
         </ion-refresher-content>
     </ion-refresher>
-
-    <ion-card class="reps-card" style="position: relative;" *ngFor="let tweet of repsTweets, let i = index">
-        <ion-fab right top>
-            <button ion-fab color="light">
-                <ion-icon name="ios-more"></ion-icon>
-            </button>
-          
-        </ion-fab>
-        <ion-card-header>
-            <ion-item>
-                <ion-avatar item-start>
-                  <img src="{{tweet.photo_url}}">
-                </ion-avatar>
-                <!-- only show icon on verified accounts <h2 style="display: flex;">Senator Bob Jones <img *ngIf="{{rep.verified === true}}" style="width: 12px; height: 12px; margin-left: 5px;" src="assets/img/TwtterVerified.svg" alt=""></h2> -->
-
-                <h2 style="display: flex; font-weight:bold;">{{tweet.name}}</h2>
-                <p><small>@{{tweet.username}} . {{tweet.created_at | amTimeAgo}}</small></p>
-              </ion-item>
-        </ion-card-header>
-        <ion-card-content>
-            <ion-row>
-                <ion-col col-10>
-                    <blockquote style="margin: 0 !important;" class="twitter-video" data-lang="es"> 
-                        {{tweet.tweet}}
-                    </blockquote>               
-                </ion-col>
-                <ion-col col-2 text-right style="line-height: 50px;">
-
-                    <ion-icon name="logo-twitter"></ion-icon>
-                </ion-col>
-                
-            </ion-row>
-        </ion-card-content>
-       
-        <ion-row>
-            <button [disabled]="disable" class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, tweet.id, tweetLike)" [ngStyle]="{'background-color': findInLoop(tweet.likes)}">
-                <ion-icon name="ios-heart" ></ion-icon>
-                {{tweet.likes_count}}
-            </button>
-            <button [disabled]="disable" class="btn-50" ion-button icon-left clear full (click)="shareController(tweet.tweet, tweet.photo_url, tweet.id, shareAction, $event)">
-                    <ion-icon name="ios-share-alt"></ion-icon>
-                   0
+    <div *ngFor="let record of records, let i = index">
+        <!-- Tweet Cards -->
+        <ion-card class="reps-card" style="position: relative;" *ngIf="record.card_type === 'tweet'">
+            <ion-fab right top>
+                <button ion-fab color="light">
+                    <ion-icon name="ios-more"></ion-icon>
                 </button>
-
-        </ion-row>
-    </ion-card>
-
-
-
-    <ion-card style="position: relative;" *ngFor="let objective of objectives,let i = index" class="objectives-card">
-
-        <ion-fab right top>
-            <button (click)="ellipsisController(objective.organization['name'], objective.id, i, objective.organization_id, objective.description, objective.organization['followers'] )" ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
-            <!-- <ion-fab-list side="left">
-
-                <button ion-fab (click)="hideItem(objective.id, i)"><ion-icon name="md-done-all"></ion-icon></button>
-            </ion-fab-list> -->
-        </ion-fab>
-
-        <ion-item>
-            <ion-avatar item-start>
-                <img [src]="objective.organization['image_url'] ? objective.organization['image_url'] : testPhoto" (click)="goToOrganizationProfile(objective.organization_id)">
-            </ion-avatar>
-            <button (click)="goToOrganizationProfile(objective.organization_id)" style="background: none; padding-left:0;">
-        <h2> <small>via</small> {{objective.organization['name']}}</h2>
-    </button>
-            <p><small>{{objective.created_at | amTimeAgo}}</small></p>
-        </ion-item>
-        <div (click)="goToActionPage(objective.id, objective?.goals[0]?.goal_type)" class="organization-bg" [ngStyle]="{ 'background-image' : 'url(' + objective.image_url +')'}">
-                
-        <!-- <div (click)="goToActionPage(objective.id)" class="organization-bg" [ngStyle]="{ 'background-image' : 'url(' + objective.image_url !== null ? objective.image_url : localPhoto +')'}"> -->
-            <!-- <div class="days-excerpt">
-                <p class="white">{{objective?.goals[0]?.description}}</p>
-            </div> -->
-            <div class="railled-excerpt" *ngIf="objective.rallies > 0">
-                <p class="white"><strong>{{objective.rallies}}</strong><br> Rallied</p>
-            </div>
-           <div class="bottom-excerpt">
-                <p class="white">{{objective?.title}}</p>
-            </div>
-            <div class="btn-objectives-contact">
-                <button ion-button *ngIf="objective?.goals[0]?.goal_type !== 'sign'">Contact</button>
-                <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'sign'">Sign</button>
-
-                
-                
-                
-            </div>
-        </div>
-
-
-        <ion-card-content>
-            <p>{{objective.description | truncate : 200 : '...'}}</p>
+              
+            </ion-fab>
+            <ion-card-header>
+                <ion-item>
+                    <ion-avatar item-start>
+                      <img [src]="record.photo_url ? record.photo_url : record.image_url ">
+                    </ion-avatar>
+                    <!-- only show icon on verified accounts <h2 style="display: flex;">Senator Bob Jones <img *ngIf="{{rep.verified === true}}" style="width: 12px; height: 12px; margin-left: 5px;" src="assets/img/TwtterVerified.svg" alt=""></h2> -->
+    
+                    <h2 style="display: flex; font-weight:bold;">{{record.name}}</h2>
+                    <p><small>@{{record.username}} . {{record.created_at | amTimeAgo}}</small></p>
+                  </ion-item>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-row>
+                    <ion-col col-10>
+                        <blockquote style="margin: 0 !important;" class="twitter-video" data-lang="es"> 
+                            {{record.tweet}}
+                        </blockquote>               
+                    </ion-col>
+                    <ion-col col-2 text-right style="line-height: 50px;">
+    
+                        <ion-icon name="logo-twitter"></ion-icon>
+                    </ion-col>
+                    
+                </ion-row>
+            </ion-card-content>
            
-        </ion-card-content>
-        <ion-row>
-          
-
-        </ion-row>
-
-        <ion-row>
-            <button [disabled]="disable" class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, objective?.goals[0]?.id, goalLike)" [ngStyle]="{'background-color': findInLoop(objective?.goals[0]?.user_likes)}">
-                <ion-icon name="ios-heart" ></ion-icon>
-                {{objective.likes}}
-            </button>
-            <button [disabled]="disable" class="btn-50" ion-button icon-left clear full (click)="shareController(objective.title, objective.image_url, objective?.goals[0]?.id, shareAction, $event)">
-                    <ion-icon name="ios-share-alt"></ion-icon>
-                    {{objective.shares}}
+            <ion-row>
+                <button [disabled]="disable" class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, record.id, tweetLike)" [ngStyle]="{'background-color': findInLoop(record.likes)}">
+                    <ion-icon name="ios-heart" ></ion-icon>
+                    {{record.likes_count}}
                 </button>
+                <button [disabled]="disable" class="btn-50" ion-button icon-left clear full (click)="shareController(record.tweet, record.photo_url, record.id, shareAction, $event)">
+                        <ion-icon name="ios-share-alt"></ion-icon>
+                       0
+                    </button>
+    
+            </ion-row>
+        </ion-card>
 
-        </ion-row>
+        <!-- End Twitter Card -->
 
-    </ion-card>
+        <!-- Objectives Card -->
 
+        <ion-card style="position: relative;" *ngIf="record.card_type === 'objective'" class="objectives-card">
 
-
-    <ion-card class="events-card" *ngFor="let event of events">
-
-        <ion-fab right top>
-            <button ion-fab color="light" (click)="eventEllipsisController(event.organization[0].name, event.organization_id, event.title, event.organization[0].followers)" ><ion-icon name="ios-more"></ion-icon></button>
-            <!-- <ion-fab-list side="left">
-
-                <button ion-fab><ion-icon name="md-done-all"></ion-icon></button>
-            </ion-fab-list> -->
-        </ion-fab>
-
-        <ion-item>
-            <ion-avatar item-start>
-                <img [src]="event.organization[0].image_url ? event.organization[0].image_url : testPhoto" (click)="goToOrganizationProfile(event.organization_id)">
-            </ion-avatar>
-            <button (click)="goToOrganizationProfile(event.organization_id)" style="background: none; padding-left:0; max-width: 85%;">
-                <h2 text-wrap style="text-align: left; "> <small>via</small> {{event.organization[0].name}}</h2>
+                <ion-fab right top>
+                    <button (click)="ellipsisController(record.organization['name'], record.id, i, record.organization_id, record.description, record.organization['followers'] )" ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
+                    <!-- <ion-fab-list side="left">
+        
+                        <button ion-fab (click)="hideItem(objective.id, i)"><ion-icon name="md-done-all"></ion-icon></button>
+                    </ion-fab-list> -->
+                </ion-fab>
+        
+                <ion-item>
+                    <ion-avatar item-start>
+                        <img [src]="record.organization['image_url'] ? record.organization['image_url'] : testPhoto" (click)="goToOrganizationProfile(record.organization_id)">
+                    </ion-avatar>
+                    <button (click)="goToOrganizationProfile(record.organization_id)" style="background: none; padding-left:0;">
+                <h2> <small>via</small> {{record.organization['name']}}</h2>
             </button>
-            <p><small>Event Location: {{event.locations}}</small></p>
-        </ion-item>
-        <div class="events-bg" (click)="goToEventDetail(event.id)" [ngStyle]="{'background-image': 'url(' + event.image_url + ')'}">
-            <div class="events-filter"></div>
-            <div class="events-railled" *ngIf="event.attending > 0">
-                <p class="white"><strong>{{event.attending}}</strong><br> Attending</p>
+                    <p><small>{{record.created_at | amTimeAgo}}</small></p>
+                </ion-item>
+                <div (click)="goToActionPage(record.id, record?.goals[0]?.goal_type)" class="organization-bg" [ngStyle]="{ 'background-image' : 'url(' + record.image_url +')'}">
+                        
+                <!-- <div (click)="goToActionPage(objective.id)" class="organization-bg" [ngStyle]="{ 'background-image' : 'url(' + objective.image_url !== null ? objective.image_url : localPhoto +')'}"> -->
+                    <!-- <div class="days-excerpt">
+                        <p class="white">{{objective?.goals[0]?.description}}</p>
+                    </div> -->
+                    <div class="railled-excerpt" *ngIf="record.rallies > 0">
+                        <p class="white"><strong>{{record.rallies}}</strong><br> Rallied</p>
+                    </div>
+                   <div class="bottom-excerpt">
+                        <p class="white">{{record?.title}}</p>
+                    </div>
+                    <div class="btn-objectives-contact">
+                        <button ion-button *ngIf="record?.goals[0]?.goal_type !== 'sign'">Contact</button>
+                        <button ion-button *ngIf="record?.goals[0]?.goal_type === 'sign'">Sign</button>
+        
+                        
+                        
+                        
+                    </div>
+                </div>
+        
+        
+                <ion-card-content>
+                    <p>{{record.description | truncate : 200 : '...'}}</p>
+                   
+                </ion-card-content>
+                <ion-row>
+                  
+        
+                </ion-row>
+        
+                <ion-row>
+                    <button [disabled]="disable" class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, record?.goals[0]?.id, goalLike)" [ngStyle]="{'background-color': findInLoop(record?.goals[0]?.user_likes)}">
+                        <ion-icon name="ios-heart" ></ion-icon>
+                        {{record.likes}}
+                    </button>
+                    <button [disabled]="disable" class="btn-50" ion-button icon-left clear full (click)="shareController(record.title, record.image_url, record?.goals[0]?.id, shareAction, $event)">
+                            <ion-icon name="ios-share-alt"></ion-icon>
+                            {{record.shares}}
+                        </button>
+        
+                </ion-row>
+        
+            </ion-card>
+        
+            <!-- End Objectives Card -->
 
-            </div>
-            <div class="date-events-spans" *ngIf="event.start_date != null">
-                <span class="day">{{getDay(event.start_date)}}</span>
-                <span class="month">{{getShortDate(event.start_date)}}</span>
-            </div>
-        </div>
-        <ion-card-content (click)="goToEventDetail(event.id)">
-            <ion-card-title>{{event.title}}</ion-card-title>
-            <!-- <p class="event-description">{{event.description}}</p> -->
-        </ion-card-content>
+            <!-- Events Card -->
 
-        <ion-row>
-            <button [disabled]="disable" class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, event.id, eventLike)" [ngStyle]="{'background-color': findInLoop(event?.user_likes)}">
-                <ion-icon name="ios-heart" ></ion-icon>
-                {{event.likes}}
-            </button>
-            <button [disabled]="disable" class="btn-50" ion-button icon-left clear full (click)="shareController(event.title, event.image_url, event.id, shareAction, $event)">
-                    <ion-icon name="ios-share-alt"></ion-icon>
-                    {{event.shares}}
-                </button>
+            <ion-card class="events-card" *ngIf="record.card_type === 'events'">
 
-        </ion-row>
+                    <ion-fab right top>
+                        <button ion-fab color="light" (click)="eventEllipsisController(record.organization[0].name, record.organization_id, record.title, record.organization[0].followers)" ><ion-icon name="ios-more"></ion-icon></button>
+                        <!-- <ion-fab-list side="left">
+            
+                            <button ion-fab><ion-icon name="md-done-all"></ion-icon></button>
+                        </ion-fab-list> -->
+                    </ion-fab>
+            
+                    <ion-item>
+                        <ion-avatar item-start>
+                            <img [src]="record.organization[0].image_url ? record.organization[0].image_url : testPhoto" (click)="goToOrganizationProfile(record.organization_id)">
+                        </ion-avatar>
+                        <button (click)="goToOrganizationProfile(record.organization_id)" style="background: none; padding-left:0; max-width: 85%;">
+                            <h2 text-wrap style="text-align: left; "> <small>via</small> {{record.organization[0].name}}</h2>
+                        </button>
+                        <p><small>Event Location: {{record.city}}</small></p>
+                    </ion-item>
+                    <div class="events-bg" (click)="goToEventDetail(record.id)" [ngStyle]="{'background-image': 'url(' + record.image_url + ')'}">
+                        <div class="events-filter"></div>
+                        <div class="events-railled" *ngIf="record.attending > 0">
+                            <p class="white"><strong>{{record.attending}}</strong><br> Attending</p>
+            
+                        </div>
+                        <div class="date-events-spans" *ngIf="record.start_date != null">
+                            <span class="day">{{getDay(record.start_date)}}</span>
+                            <span class="month">{{getShortDate(record.start_date)}}</span>
+                        </div>
+                    </div>
+                    <ion-card-content (click)="goToEventDetail(record.id)">
+                        <ion-card-title>{{record.title}}</ion-card-title>
+                        <!-- <p class="event-description">{{event.description}}</p> -->
+                    </ion-card-content>
+            
+                    <ion-row>
+                        <button [disabled]="disable" class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, record.id, eventLike)" [ngStyle]="{'background-color': findInLoop(record?.user_likes)}">
+                            <ion-icon name="ios-heart" ></ion-icon>
+                            {{record.likes}}
+                        </button>
+                        <button [disabled]="disable" class="btn-50" ion-button icon-left clear full (click)="shareController(record.title, record.image_url, record.id, shareAction, $event)">
+                                <ion-icon name="ios-share-alt"></ion-icon>
+                                {{record.shares}}
+                            </button>
+            
+                    </ion-row>
+            
+                </ion-card>
 
-    </ion-card>
+                <!-- End Events Card -->
 
-    <ion-card *ngFor="let activity of fiends" style="position: relative;" class="friends-card">
+    </div>
+
+    
+
+
+
+   
+
+
+
+   
+
+    <!-- <ion-card *ngFor="let activity of fiends" style="position: relative;" class="friends-card">
           <ion-fab right top style="top: 4px;
     right: 0;">
             <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
-            <!-- <ion-fab-list side="left">
-                <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
-                <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
-                <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
-                <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
-            </ion-fab-list> -->
+           
         </ion-fab>
 
            
@@ -250,7 +264,7 @@
 
         </ion-row>
 
-    </ion-card>
+    </ion-card> -->
 
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
         <ion-infinite-scroll-content

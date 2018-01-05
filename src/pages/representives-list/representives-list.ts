@@ -65,7 +65,7 @@ export class RepresentivesListPage {
             resolve(true);
           });
       });
-  }
+  } 
 
   getArray(array){
     for(let person of array) {

@@ -8,7 +8,7 @@ import { AngularFireDatabase } from 'angularfire2/database/database';
 export class OrganizationsProvider {
 	base:string = 'https://api.provethisconcept.com/rallyapi/';
 	data:any = {};
-	perpage:number = 15;
+	perpage:number = 30;
 	perpageHome:number = 5;
 
 

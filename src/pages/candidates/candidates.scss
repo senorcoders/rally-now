@@ -1,4 +1,7 @@
 page-candidates {
+    a[disabled], button[disabled], [ion-button][disabled]{
+        opacity: 1 !important;
+    }
     .toolbar-background {
         background-color: #4a90e2;
         color: #fff;

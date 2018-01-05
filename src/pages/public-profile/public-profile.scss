@@ -1,4 +1,7 @@
 page-public-profile {
+    a[disabled], button[disabled], [ion-button][disabled]{
+        opacity: 1 !important;
+    }
 //  ion-header {
 //         text-align: center;
 //     }

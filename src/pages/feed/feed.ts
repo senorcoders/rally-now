@@ -64,6 +64,7 @@ export class FeedPage {
   private start:number=1;
   public orgTweets:any = [];
   public repsTweets:any = [];
+  public records:any = [];
 
 
   // @ViewChild(Content) content: Content;
@@ -209,11 +210,11 @@ export class FeedPage {
     this.httpProvider.loadHome(url, this.start)
       .then(data => {
         console.log("Full Data", data);
-        this.getArray(data['Objectives'], this.objectives);
-        this.getArray(data['Events'], this.events);
-        this.getArray(data['friends_activity'], this.fiends);
-        this.getArray(data['Org_Tweets'], this.orgTweets);
-        this.getArray(data['Reps_Tweets'], this.repsTweets);
+        this.getArray(data['Objectives']);
+        this.getArray(data['Events']);
+        this.getArray(data['friends_activity']);
+        this.getArray(data['Org_Tweets']);
+        this.getArray(data['Reps_Tweets']);
 
         //this.organizations = data;
           
@@ -224,12 +225,12 @@ export class FeedPage {
   });
 }
 
-getArray(array, arrayName){
-  console.log(array);
+getArray(array){
+  // console.log(array);
   for(let person of array) {
-    console.log(person);
-    console.log(arrayName);
-    arrayName.push(person);
+    // console.log(person);
+    this.records.push(person);
+    // console.log("Records", this.records);
   }
 
 }

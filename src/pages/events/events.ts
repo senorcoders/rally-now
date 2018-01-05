@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController, ToastController, ModalController, PopoverController, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController, ToastController, ModalController, PopoverController, ViewController, LoadingController } from 'ionic-angular';
 import { FilterEventsPage } from '../filter-events/filter-events';
 import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
@@ -21,8 +21,8 @@ import { OrganizationsProvider } from '../../providers/organizations/organizatio
   templateUrl: 'events.html',
 })
 export class EventsPage {
-  endpoint:string = 'events';
-  events:any;
+  endpoint:string = 'events_pagination/';
+  public events:any = [];
   searchTerm: string = '';
   searchControl: FormControl;
   searching: any = false;
@@ -38,6 +38,10 @@ export class EventsPage {
   eventStart:any;
   eventEnd:any;
   eventFiltered:boolean = false;
+  private start:number=1;
+  loading:any;
+  endpointOld:any = 'events';
+
 
 
 
@@ -52,8 +56,13 @@ export class EventsPage {
     public toastCtrl: ToastController,
     private shareProvider:SocialShareProvider,
     public actionSheetCtrl: ActionSheetController,
-    private orgProvider:OrganizationsProvider) {
+    private orgProvider:OrganizationsProvider,
+    public loadingCtrl: LoadingController) {
       this.searchControl = new FormControl();
+      this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      }); 
+      this.loading.present();
       this.httpProvider.returnRallyUserId().then(user => {
         this.myrallyID = user.apiRallyID;
         this.getdata();        
@@ -107,24 +116,26 @@ export class EventsPage {
     }
 
 getAllEvents(){
-  this.httpProvider.getJsonData(this.endpoint).subscribe(
-    result => {
-     this.events = result;
-    //  this.storage.set('EVENTS', result);
+  return new Promise(resolve => {
+    this.orgProvider.load(this.endpoint, this.start)
+      .then(data => {
+        this.getArray(data);
+       
+        resolve(true);
+      });
+  });
+}
 
-     //this.filterItems(this.searchTerm); 
-      
-    },
-    err =>{
-      console.error("Error : "+err);
-    } ,
-    () => {
-      console.log('getData completed');
-    });
+getArray(array){
+  for(let event of array) {
+        this.events.push(event);
+  }
+  this.loading.dismiss(); 
+
 }
 
 getFilteredEvents(startDate, endDate){
-  this.orgProvider.getJsonData(this.endpoint + '/' + startDate + '/' + endDate).subscribe(
+  this.httpProvider.getJsonData(this.endpointOld + '/' + startDate + '/' + endDate).subscribe(
     result => {
       console.log(result);
      this.events = result.Events;
@@ -138,6 +149,18 @@ getFilteredEvents(startDate, endDate){
     () => {
       console.log('getData completed');
     });
+}
+
+doInfinite(infiniteScroll:any) {
+  console.log(infiniteScroll);
+  console.log('doInfinite, start is currently '+this.start);
+  this.start+=1;
+  console.log(this.start);
+  
+  this.getAllEvents().then(()=>{
+    infiniteScroll.complete();
+  });
+  
 }
 
 

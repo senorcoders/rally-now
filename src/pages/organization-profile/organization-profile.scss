@@ -1,4 +1,7 @@
 page-organization-profile {
+    a[disabled], button[disabled], [ion-button][disabled]{
+        opacity: 1 !important;
+    }
     ion-content {
         top: 60px;
     }

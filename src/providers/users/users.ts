@@ -469,7 +469,8 @@ addAction(endpoint, data):void{
             title: data.title,
             short_desc: data.short_desc,
             event_id: data.event_id,
-            private: true
+            // All actions should be public for now
+            private: false
              });
 
              this.saveAction(endpoint, userData);

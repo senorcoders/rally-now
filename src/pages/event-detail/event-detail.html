@@ -19,7 +19,7 @@
                     <button (click)="goToOrganizationProfile(orgId)" style="background: none; max-width:85%;">
                         <h2 text-wrap style="text-align:left;"> <small>via</small> {{orgName}}</h2>
                     </button>
-                    <p><small>Event Location: {{locations}}</small></p>
+                    <p><small>Event Location: {{locations}}, {{state}}</small></p>
                 </ion-item>
                 <div class="events-bg"  [ngStyle]="{'background-image': 'url('+ image_url + ')'}">
                     <div class="events-filter"></div>
@@ -34,8 +34,8 @@
                 </div>
                 <ion-card-content>
                     <ion-card-title>{{title}}</ion-card-title>
-                    <p class="event-description">{{locations}}</p>
-                    <p class="event-description">{{event_time}}</p>
+                    <p class="event-description">{{venue}}</p>
+                    <p class="event-description">{{eventTime}}</p>
                 </ion-card-content>
                
                 <ion-list>

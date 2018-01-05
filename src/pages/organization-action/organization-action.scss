@@ -2,6 +2,9 @@ page-organization-action {
     // ion-header {
     //     text-align: center;
     // }
+    a[disabled], button[disabled], [ion-button][disabled]{
+        opacity: 1 !important;
+    }
     .toolbar-background {
         background-color: #4a90e2;
         color: #fff;

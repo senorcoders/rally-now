@@ -1,4 +1,8 @@
 page-feed {
+
+    a[disabled], button[disabled], [ion-button][disabled]{
+        opacity: 1 !important;
+    }
     
     ion-header{
         background: transparent !important;

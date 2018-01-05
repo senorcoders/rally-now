@@ -42,6 +42,9 @@ export class EventDetailPage {
   organizationEndpoint:any = 'following_organizations';
   organization_id;
   followers:any;
+  state:any;
+  venue:any;
+  eventTime:any;
 
 
 
@@ -84,7 +87,7 @@ export class EventDetailPage {
   this.httpProvider.getJsonData(this.endpoint + this.eventID).subscribe(
     result => {
       this.title = result.title;
-      this.locations = result.locations;
+      this.locations = result.city;
       this.event_time = result.event_time;
       this.description = result.description;
       this.image_url = result.image_url;
@@ -98,6 +101,10 @@ export class EventDetailPage {
       this.attending = result.attending;
       this.organization_id = result.organization_id;
       this.followers = result.organization[0].followers;
+      this.state = result.state;
+      this.venue = result.venue;
+      this.getTime();
+
     },
     err =>{
       console.error("Error : "+err);
@@ -396,6 +403,18 @@ orgStatus(orgID){
               
             }
           }
+        }
+
+        getTime(){
+
+          if(this.start_date != null){
+            var time = this.start_date.split("T");
+            console.log("Hora", time);
+            this.eventTime = time[1];
+          }else{
+            this.eventTime = 'No specific time';
+          }
+         
         }
 
 

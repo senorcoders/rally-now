@@ -1,4 +1,7 @@
 page-event-detail {
+    a[disabled], button[disabled], [ion-button][disabled]{
+        opacity: 1 !important;
+    }
     .button-clear-md,
     .button-clear-ios {
         background-color: #4a90e2;

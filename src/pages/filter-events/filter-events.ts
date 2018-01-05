@@ -17,7 +17,7 @@ export class FilterEventsPage {
     timeStarts: '07:43',
     timeEnds: ''
 }
-zipcode:any = "22207";
+zipcode:any;
 structure:number = 4000;
 endpoint:any = 'events/';
 enable:boolean = false;
