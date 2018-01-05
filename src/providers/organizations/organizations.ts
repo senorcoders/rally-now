@@ -9,6 +9,7 @@ export class OrganizationsProvider {
 	base:string = 'https://api.provethisconcept.com/rallyapi/';
 	data:any = {};
 	perpage:number = 15;
+	perpageHome:number = 5;
 
 
 
@@ -21,10 +22,24 @@ export class OrganizationsProvider {
 	} 
 
 	load(endpoint, start:number=0){
+		console.log(this.base + endpoint + start + '/' + this.perpage);
 		return new Promise(resolve => {
 			this.http.get(this.base + endpoint + start + '/' + this.perpage)
 				.map(res => res.json())
 				.subscribe(data => {
+					console.log(data);
+						resolve(data);
+				});
+		});
+	}
+
+	loadHome(endpoint, start:number=0){
+		console.log(this.base + endpoint + start + '/' + this.perpageHome);
+		return new Promise(resolve => {
+			this.http.get(this.base + endpoint + start + '/' + this.perpageHome)
+				.map(res => res.json())
+				.subscribe(data => {
+					console.log(data);
 						resolve(data);
 				});
 		});

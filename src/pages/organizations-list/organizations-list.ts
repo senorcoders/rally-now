@@ -66,16 +66,21 @@ export class OrganizationsListPage {
     return new Promise(resolve => {
       this.orgProvider.load(this.newEndpoint, this.start)
         .then(data => {
-          // for(let person of data) {
-          //   this.organizations.push(person);
-          // }
-          this.organizations = data;
-          this.initializeItems();
-          console.log(data);
-          this.loading.dismiss();   
+          this.getArray(data);
+          //this.organizations = data;
+            
           resolve(true);
         });
     });
+  }
+
+  getArray(array){
+      for(let person of array) {
+            this.organizations.push(person);
+      }
+      this.initializeItems();
+      this.loading.dismiss(); 
+
   }
 
   doInfinite(infiniteScroll:any) {

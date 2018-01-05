@@ -105,7 +105,7 @@ import { IssueScreenPage } from '../pages/issue-screen/issue-screen';
 
 
 //import { FCM } from '@ionic-native/fcm';
-const configws: SocketIoConfig = { url: 'ws://138.68.19.227:5000/', options: {} };
+//const configws: SocketIoConfig = { url: 'ws://138.68.19.227:5000/', options: {} };
 
     const cloudSettings: CloudSettings = {
       'core': {
@@ -222,8 +222,8 @@ firebase.initializeApp(config);
         AngularFireAuthModule,
         CloudModule.forRoot(cloudSettings),
         MomentModule,
-        SocketIoModule.forRoot(configws)  ,
-        TruncateModule     
+        // SocketIoModule.forRoot(configws)  ,
+        TruncateModule,
      ],
     bootstrap: [IonicApp],
     entryComponents: [

@@ -54,17 +54,28 @@ export class RepresentivesListPage {
       return new Promise(resolve => {
         this.orgProvider.load(this.newEndpoint, this.start)
           .then(data => {
+            this.getArray(data);
             // for(let person of data) {
             //   this.organizations.push(person);
             // }
-            this.representatives = data;
-            this.initializeItems();
-            console.log(data);
-            this.loading.dismiss();   
+            // this.representatives = data;
+            // this.initializeItems();
+            // console.log(data);
+            // this.loading.dismiss();   
             resolve(true);
           });
       });
   }
+
+  getArray(array){
+    for(let person of array) {
+          this.representatives.push(person);
+    }
+    this.initializeItems();
+    this.loading.dismiss(); 
+
+}
+
 
   doInfinite(infiniteScroll:any) {
     console.log(infiniteScroll);

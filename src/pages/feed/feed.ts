@@ -33,8 +33,8 @@ export class FeedPage {
   organizationsData:any;
   endpoint:string = 'homefeed/';
   loading:any;
-  objectives:any;
-  fiends:any;
+  public objectives:any = [];
+  public fiends:any = [];
   favEndpoint:any = 'actions';
   myrallyID:any;
   hide_enpoint:any = 'hide_objective'; 
@@ -43,7 +43,7 @@ export class FeedPage {
   enabled:boolean = false;
   likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
   likesCount: number; 
-  events:any;
+  public events:any = [];
   shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
   testPhoto:any = 'https://c1.staticflickr.com/9/8409/buddyicons/41284017@N08_l.jpg?1369764880#41284017@N08';
   localPhoto:any = 'https://static1.squarespace.com/static/5669e1f969a91ad6eca4abe1/t/581cc790b3db2bd6d9881936/1478281126634/Screen+Shot+2016-11-04+at+1.33.31+PM.png';
@@ -51,6 +51,7 @@ export class FeedPage {
   goalLike:any = 'ea9bd95e-128c-4a38-8edd-938330ad8b2d';
   activityLike:any = 'd32c1cb5-b076-4353-ad9c-1c8f81d812e3';
   eventLike:any = 'd5d1b115-dbb6-4894-8935-322c336ae951';
+  tweetLike:any = 'ab860ccb-9713-49e5-b844-34d18f92af21';
   likeendpoint:any = 'likes';
   disable:boolean = false;
   organizationEndpoint:any = 'following_organizations';
@@ -59,6 +60,11 @@ export class FeedPage {
   eventStart:any;
   eventEnd:any;
   eventFiltered:boolean = false;
+  newEndpoint:any = 'homefeed_pagination/';
+  private start:number=1;
+  public orgTweets:any = [];
+  public repsTweets:any = [];
+
 
   // @ViewChild(Content) content: Content;
 
@@ -78,7 +84,7 @@ export class FeedPage {
     private storageProvider: UserData,
     private photoViewer: PhotoViewer,
     public eventsAng: Events,
-    public modalCtrl: ModalController) {
+    public modalCtrl: ModalController) { 
 
       // eventsAng.subscribe('home:scrollToTop', (time) => {
       //   console.log('home:scrollToTop', 'at', time);
@@ -95,59 +101,60 @@ export class FeedPage {
       .then(user => {
         console.log(" Usuario",user);
         this.myrallyID = user.apiRallyID;
-         
-            this.getDataStatus();
-            var connection = new WebSocket('ws://138.68.19.227:5000/');
-            var that = this;
-
-            connection.onopen = function () {
-              console.log("Connected!");
-              var message:any =  [{'action':'sendid','uid': that.myrallyID}];
-              message = JSON.stringify(message);
-              connection.send(message);
-                
-            };
-            connection.onmessage = function (e) {
-
-              var message = JSON.parse(JSON.stringify(e.data || null));
-              var obj = message;
-              var notifications = "";
-              var ol = Object.keys(obj);
-              console.log("Obj Count: ", ol.length);
-              console.log(obj.tweets);
-
-              if(ol.length > 100){
-                console.log(JSON.parse(obj));
-                that.tweet = JSON.parse(obj);
-                that.enableRepCard = true;
-              }  
-         
-            };
-      });
-
-
-  }
-
-  getDataStatus(){
-    this.usersProv.getJsonData(this.userEndpoint+this.myrallyID).subscribe(
-      result => {
-          console.log("OPT", result.less_data);
-          if(result.less_data === true && this.network.type != 'wifi'){
-              console.log("Save Data");
-              this.storageProvider.getHomeFeedJson().then( savedJson => {
-                  console.log(JSON.stringify(savedJson));
-                  this.organizationsData=savedJson['My_Organizations'];
-                  this.objectives=savedJson['Objectives'];
-                  this.fiends=savedJson['friends_activity'];
-                  this.events=savedJson['Events'];
-                  this.enabled = true;
-                  this.loading.dismiss();         
-              });      
-          } else{
             this.getdata();
-          }    
+         
+            // this.getDataStatus();
+            // var connection = new WebSocket('ws://138.68.19.227:5000/');
+            // var that = this;
+
+            // connection.onopen = function () {
+            //   console.log("Connected!");
+            //   var message:any =  [{'action':'sendid','uid': that.myrallyID}];
+            //   message = JSON.stringify(message);
+            //   connection.send(message);
+                
+            // };
+            // connection.onmessage = function (e) {
+
+            //   var message = JSON.parse(JSON.stringify(e.data || null));
+            //   var obj = message;
+            //   var notifications = "";
+            //   var ol = Object.keys(obj);
+            //   console.log("Obj Count: ", ol.length);
+            //   console.log(obj.tweets);
+
+            //   if(ol.length > 100){
+            //     console.log(JSON.parse(obj));
+            //     that.tweet = JSON.parse(obj);
+            //     that.enableRepCard = true;
+            //   }  
+         
+            // };
       });
+
+
   }
+
+  // getDataStatus(){
+  //   this.usersProv.getJsonData(this.userEndpoint+this.myrallyID).subscribe(
+  //     result => {
+  //         console.log("OPT", result.less_data);
+  //         if(result.less_data === true && this.network.type != 'wifi'){
+  //             console.log("Save Data");
+  //             this.storageProvider.getHomeFeedJson().then( savedJson => {
+  //                 console.log(JSON.stringify(savedJson));
+  //                 this.organizationsData=savedJson['My_Organizations'];
+  //                 this.objectives=savedJson['Objectives'];
+  //                 this.fiends=savedJson['friends_activity'];
+  //                 this.events=savedJson['Events'];
+  //                 this.enabled = true;
+  //                 this.loading.dismiss();         
+  //             });      
+  //         } else{
+  //           this.getdata();
+  //         }    
+  //     });
+  // }
 
   
   
@@ -174,33 +181,73 @@ export class FeedPage {
 
   getdata(startDate?, endDate?){
     if(startDate != null){
-      var url = this.endpoint + this.myrallyID + '/' + startDate + '/' + endDate;
+      var url = this.endpoint + this.myrallyID + '/' + startDate + '/' + endDate + '/';
       this.eventFiltered = true;
     } else{
-      var url = this.endpoint + this.myrallyID;
+      var url = this.newEndpoint + this.myrallyID + '/';
     }
 
     console.log("This url =>", url);
-  this.httpProvider.getJsonData(url).subscribe(
-    result => {
-      console.log("Homefeed for Current user", result);
-      this.organizationsData=result['My_Organizations'];
-      this.objectives=result['Objectives'];
-      this.fiends=result['friends_activity'];
-      this.events=result['Events'];
-      this.storage.set("homefeed", result);
-      this.loading.dismiss();
-    },
-    err =>{
-      console.error("Error : "+err);
-    } ,
-    () => {
-      console.log('getData completed');
-    });
+  // this.httpProvider.load(url).subscribe(
+  //   result => {
+  //     console.log("Homefeed for Current user", result);
+  //     this.organizationsData=result['My_Organizations'];
+  //     this.objectives=result['Objectives'];
+  //     this.fiends=result['friends_activity'];
+  //     this.events=result['Events'];
+  //     this.storage.set("homefeed", result);
+  //     this.loading.dismiss();
+  //   },
+  //   err =>{
+  //     console.error("Error : "+err);
+  //   } ,
+  //   () => {
+  //     console.log('getData completed');
+  //   });
+
+  return new Promise(resolve => {
+    this.httpProvider.loadHome(url, this.start)
+      .then(data => {
+        console.log("Full Data", data);
+        this.getArray(data['Objectives'], this.objectives);
+        this.getArray(data['Events'], this.events);
+        this.getArray(data['friends_activity'], this.fiends);
+        this.getArray(data['Org_Tweets'], this.orgTweets);
+        this.getArray(data['Reps_Tweets'], this.repsTweets);
+
+        //this.organizations = data;
+          
+        resolve(true);
+        this.loading.dismiss(); 
+
+      });
+  });
+}
+
+getArray(array, arrayName){
+  console.log(array);
+  for(let person of array) {
+    console.log(person);
+    console.log(arrayName);
+    arrayName.push(person);
+  }
+
+}
+
+doInfinite(infiniteScroll:any) {
+  console.log(infiniteScroll);
+  console.log('doInfinite, start is currently '+this.start);
+  this.start+=1;
+  console.log(this.start);
+  
+  this.getdata().then(()=>{
+    infiniteScroll.complete();
+  });
+  
 }
 
 doRefresh(refresher) {
-  this.getDataStatus();
+  this.getdata();
   this.eventFiltered = false;
 
     setTimeout(() => {

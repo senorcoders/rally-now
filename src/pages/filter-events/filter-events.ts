@@ -18,7 +18,7 @@ export class FilterEventsPage {
     timeEnds: ''
 }
 zipcode:any = "22207";
-structure:number = 50;
+structure:number = 4000;
 endpoint:any = 'events/';
 enable:boolean = false;
 text:any;
@@ -41,7 +41,7 @@ events:boolean = false;
         this.events = true;
       }
       
-      this.text = "50 MILES";
+      this.text = "ANY DISTANCE";
       console.log(new Date());
       var today = new Date();
       var dd:any = today.getDate();
