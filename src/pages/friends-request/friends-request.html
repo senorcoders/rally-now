@@ -46,21 +46,22 @@
                 </ion-item>
       </ion-list>
       
-    <ion-list style="margin-top: 30px;">
-            <ion-list-header>
-                    SUGGESTED FOR YOU
-                  </ion-list-header>
+    <ion-list style="margin-top: 30px;" *ngIf="items.length > 0">
+           <ion-item>
+            <p class="list-title">Facebook Friends</p>
+
+           </ion-item>
        
         <ion-item *ngFor="let item of items">
             <ion-avatar item-start (click)="goToProfile(item.id)">
                 <!-- <img [src]="getPhoto(item.id)"> -->
-                <img src="assets/img/login-image.jpg" alt="" style="border:2px solid #ada8a8;">
+                <img src="{{item.photo_url}}" alt="" style="border:2px solid #ada8a8;">
             </ion-avatar>
             <h2 (click)="goToProfile(item.id)">{{item.name}}</h2>
             <p class="text-wrap">Friends on Facebook</p>
             <ion-row item-end text-right style="display: block; max-width: 80px;" >
                 <ion-col col-6 style="padding: 0;">
-                    <button ion-button color="dark" class="action-btn btn-friend" (click)="followFriend(item.id)">Follow</button>
+                    <button ion-button color="dark" class="action-btn btn-friend" (click)="goToPublicProfile(item.id)">Follow</button>
                 </ion-col>
                 <ion-col col-6 style="padding: 0;">
                     <button ion-button color="dark" class="action-btn">Hide</button>
@@ -69,50 +70,27 @@
         </ion-item>
 
 
-    </ion-list>
+    </ion-list> 
 
-    <!-- <ion-list>
+    <ion-list *ngIf="records.length > 0">
         <ion-item>
             <p class="list-title">Suggested Friends</p>
         </ion-item>
-        <ion-item>
+        <ion-item *ngFor="let user of records" >
             <ion-avatar item-start>
-                <img src="assets/img/login-image.jpg" style="width: 70px; height: 70px;">
+                <img src="{{user.photo_url}}" style="border:2px solid #ada8a8;">
             </ion-avatar>
-            <h2>Bob Miller</h2>
-            <p>Friends with Lenny Lewis</p>
+            <h2>{{user.name}}</h2>
+            <p class="text-wrap">{{user.name}} is following you</p>
+
             <ion-row item-end text-right style="max-width: 80px;">
                 <ion-col col-12 style="padding: 0;">
-                    <button ion-button color="dark" class="action-btn">REQUEST</button>
+                    <button ion-button color="dark" class="action-btn" (click)="goToPublicProfile(user.id)">REQUEST</button>
                 </ion-col>
 
             </ion-row>
         </ion-item>
 
-    </ion-list> -->
+    </ion-list>
 
 </ion-content>
-<!-- <ion-footer>
-    <ion-toolbar style="min-height: auto; padding: 0;">
-        <ion-row>
-            <ion-col col-2 class="footer-icons">
-                <button (click)="goToHome()">
-                    <ion-icon name="ios-home"></ion-icon>
-                </button>
-            </ion-col>
-            <ion-col col-6>
-                <p class="white-footer" (click)="presentPopover()">Profile</p>
-            </ion-col>
-            <ion-col col-2 class="footer-icons" style="border-right: 1px solid;">
-                <button (click)="goToAlerts()">
-                    <ion-icon name="ios-notifications"></ion-icon>
-                </button>
-            </ion-col>
-            <ion-col class="footer-icons">
-                <button (click)="goToProfile()">
-                    <ion-icon name="ios-person"></ion-icon>
-                </button>
-            </ion-col>
-        </ion-row>
-    </ion-toolbar>
-</ion-footer> -->

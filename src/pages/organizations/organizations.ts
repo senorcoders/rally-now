@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, ActionSheetController, ToastController, ModalController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ActionSheetController, ToastController, ModalController, LoadingController} from 'ionic-angular';
 import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
@@ -14,6 +14,7 @@ import { OrganizationActionPage } from '../organization-action/organization-acti
 import { EventDetailPage } from '../event-detail/event-detail';
 import { FilterEventsPage } from '../filter-events/filter-events';
 import { Storage } from '@ionic/storage';
+import { ThankYouPage } from '../thank-you/thank-you';
 
 
 @IonicPage() 
@@ -29,6 +30,8 @@ export class OrganizationsPage {
    hide_enpoint:any = 'hide_objective';
   likeAction:any ='1e006561-8691-4052-bef8-35cc2dcbd54e';
   goalLike:any = 'ea9bd95e-128c-4a38-8edd-938330ad8b2d';
+  tweetLike:any = 'ab860ccb-9713-49e5-b844-34d18f92af21';
+  eventLike:any = 'd5d1b115-dbb6-4894-8935-322c336ae951';
   likeendpoint:any = 'likes';
   shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
   disable:boolean = false;
@@ -37,6 +40,9 @@ export class OrganizationsPage {
   eventStart:any;
   eventEnd:any;
   eventFiltered:boolean = false;
+  public records:any = [];
+  private start:number=1;
+  loading:any;
 
   constructor(
     public navCtrl: NavController, 
@@ -50,7 +56,12 @@ export class OrganizationsPage {
     public toastCtrl: ToastController,
     private photoViewer: PhotoViewer,
     public modalCtrl: ModalController,
-    private storage: Storage) {
+    private storage: Storage,
+    public loadingCtrl: LoadingController) {
+      this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      }); 
+        this.loading.present();
     this.rallyProvider.returnRallyUserId()
       .then(user => {
         console.log(user);
@@ -92,24 +103,49 @@ export class OrganizationsPage {
      getdata(startDate?, endDate?){
 
       if(startDate != null){
-        var url = this.endpoint + this.myApiRallyID + '/' + startDate + '/' + endDate;
+        var url = this.endpoint + this.myApiRallyID + '/' + startDate + '/' + endDate + '/';
         this.eventFiltered = true;
       } else{
-        var url = this.endpoint + this.myApiRallyID + '/1/5';
+        var url = this.endpoint + this.myApiRallyID + '/';
       }
-  this.httpProvider.getJsonData(url).subscribe(
-    result => {
-      this.organizations=result['My_Organizations'];
-      this.events = result['Orgs_events'];
-      console.log("Success : "+ result['My_Organizations']);
-    },
-    err =>{
-      console.error("Error : "+err);
-    } ,
-    () => {
-      console.log('getData completed');
-    }
-  );
+      
+      return new Promise(resolve => {
+        this.httpProvider.loadHome(url, this.start)
+          .then(data => {
+            console.log("Full Data", data);
+            this.getArray(data['My_Organizations']);
+            this.getArray(data['Orgs_events']);
+            this.getArray(data['Org_Tweets']);
+    
+            //this.organizations = data;
+              
+            resolve(true);
+            this.loading.dismiss(); 
+    
+          });
+      });
+}
+
+getArray(array){
+  // console.log(array);
+  for(let person of array) {
+    // console.log(person);
+    this.records.push(person);
+    // console.log("Records", this.records);
+  }
+
+}
+
+doInfinite(infiniteScroll:any) {
+  console.log(infiniteScroll);
+  console.log('doInfinite, start is currently '+this.start);
+  this.start+=1;
+  console.log(this.start);
+  
+  this.getdata().then(()=>{
+    infiniteScroll.complete();
+  });
+  
 }
 
 
@@ -184,7 +220,7 @@ showPhotoViewer(path){
 
 getLikeStatus($event, reference_id, like_type){
   this.disable = true;
-  this.httpProvider.getJsonData(this.likeendpoint+'?reference_id='+reference_id+'&user_id='+this.myApiRallyID).subscribe(
+  this.rallyProvider.getJsonData(this.likeendpoint+'?reference_id='+reference_id+'&user_id='+this.myApiRallyID).subscribe(
     result => {
       console.log("Aqui", result);
       
@@ -222,6 +258,10 @@ addLike(reference_id, like_type){
 
 }
 
+streakModal() {
+  let modal = this.modalCtrl.create(ThankYouPage);
+  modal.present();
+}
 shareController(title, imgURI, reference_id, like_type, $event) {
   this.disable = true;
 
@@ -236,6 +276,7 @@ const actionSheet = this.actionSheetCtrl.create({
        $event.srcElement.lastChild.data++;
        this.presentToast('Objective shared!');
        this.disable = false;
+       this.streakModal();
 
      }
    }, 
@@ -247,6 +288,7 @@ const actionSheet = this.actionSheetCtrl.create({
        $event.srcElement.lastChild.data++;
        this.presentToast('Objective shared!');
        this.disable = false;
+       this.streakModal();
 
      }
    },

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, ViewController, NavParams, ToastController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, ViewController, NavParams, ToastController, ActionSheetController, ModalController } from 'ionic-angular';
 import { CallPage } from '../call/call';
 import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
@@ -12,6 +12,7 @@ import { OrganizationActionPage } from '../organization-action/organization-acti
 import {AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
+import { ThankYouPage } from '../thank-you/thank-you';
 
 
 @IonicPage()
@@ -45,7 +46,9 @@ export class TakeactionPage {
     public toastCtrl: ToastController,
     private db: AngularFireDatabase,
     private shareProvider:SocialShareProvider,
-    public viewCtrl:ViewController) {
+    public viewCtrl:ViewController,
+    public modalCtrl: ModalController
+    ) {
 
      this.httpProvider.returnRallyUserId()
       .then(user => {
@@ -255,6 +258,10 @@ hideItem(objective_id, index){
 
   }
   
+  streakModal() {
+    let modal = this.modalCtrl.create(ThankYouPage);
+    modal.present();
+  }
   shareController(title, imgURI, reference_id, like_type, $event) {
     this.disable = true;
 

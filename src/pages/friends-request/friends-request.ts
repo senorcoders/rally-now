@@ -14,6 +14,7 @@ import { UsersProvider } from '../../providers/users/users';
 import { OrganizationsListPage } from '../organizations-list/organizations-list';
 import { RepresentivesListPage } from '../representives-list/representives-list';
 import { SyncContactsPage } from '../sync-contacts/sync-contacts';
+import { OrganizationsProvider } from '../../providers/organizations/organizations';
 
 
 @IonicPage()
@@ -23,13 +24,17 @@ import { SyncContactsPage } from '../sync-contacts/sync-contacts';
 }) 
 export class FriendsRequestPage {
   searchTerm: string = '';
-  items: any;
+  public items:any = [];
   searchControl: FormControl;
   searching: any = false;
   friends:any;
+  userEndpoint:any = 'users/';
   endpoint:string = 'users?searchable=1';
   followEndpoint:string= 'following_users';
   profileEndpoint:any = 'users?facebook_id=';
+  myRallyID:any;
+  suggestedEndpoint:any = 'not_following/';
+  public records:any = [];
 
  
 
@@ -40,10 +45,15 @@ export class FriendsRequestPage {
     public dataService: DataProvider,
     private facebook: Facebook,
     private httpProvicer: UsersProvider,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController, 
+    private orgProvider: OrganizationsProvider
     ) {
        //this.searchControl = new FormControl();
-       this.getFacebookFriendsList();
+       this.httpProvicer.returnRallyUserId().then(user => {
+         this.myRallyID = user.apiRallyID;
+        this.getFacebookFriendsList();
+        this.getSuggestedFriend();
+       });
 
   }
 
@@ -58,13 +68,86 @@ export class FriendsRequestPage {
 
   // }
 
+  getSuggestedFriend(){
+
+    return new Promise(resolve => {
+      this.orgProvider.getRecords(this.suggestedEndpoint+this.myRallyID)
+        .then(data => {
+          console.log("Full Data", data);
+          this.getArray(data['not_following']);
+        
+  
+          //this.organizations = data;
+            
+          resolve(true);  
+        });
+    });
+
+  }
+
+  getArray(array){
+    // console.log(array);
+    for(let person of array) {
+      console.log(person);
+      this.getUserFields(person);
+      //this.records.push(person);
+      // console.log("Records", this.records);
+    }
+  
+  }
+
+  getUserFields(user_id){
+    this.httpProvicer.getJsonData(this.userEndpoint+user_id).subscribe(result => {
+        // console.log(result);
+        this.records.push(result);
+        console.log(this.records);
+    });
+  }
+
+  mapFacebookUsers(array){
+    for(let person of array) {
+      console.log("From FB", person.id);
+      this.getRallyData(person.id);
+     
+    }
+  }
+
   getFacebookFriendsList(){
     this.facebook.api('me/friends', ['user_friends']).then(
       list => {
           console.log("Lista de amigos", list['data']);
-          this.items = list['data'];
+          // this.items = list['data'];
+          this.mapFacebookUsers(list['data']);
       }, error => {
         console.log("error", error);
+      });
+  }
+
+  getRallyData(fbID){
+    console.log(fbID);
+    this.httpProvicer.getJsonData(this.profileEndpoint + fbID).subscribe(
+      result => {
+
+        if(result != ""){
+          console.log(result);
+          this.sortFacebookFriends(result[0]);
+        }else{
+          console.log('Not found', 'This person is not using Rally anymore');
+        }
+         
+      });
+
+}
+
+  sortFacebookFriends(user){
+    this.httpProvicer.getJsonData(this.followEndpoint + '?follower_id=' + this.myRallyID + '&following_id=' + user.id)
+      .subscribe(result => {
+        console.log(result);
+        if(result != ""){
+          console.log("ya sigues a este usuario");
+        }else{
+          this.items.push(user);
+        }
       });
   }
 
@@ -108,17 +191,7 @@ export class FriendsRequestPage {
      });
     }
 
-    getPhoto(facebook_id){
-     
-      this.httpProvicer.getJsonData(this.profileEndpoint + facebook_id).subscribe(
-        result => {
-
-          if(result != ""){
-            return result[0].photo_url;
-          }
-           
-        });
-    }
+    
 
     goToListOrganizations(){
       this.navCtrl.push(OrganizationsListPage);
@@ -132,21 +205,7 @@ export class FriendsRequestPage {
       this.navCtrl.push(SyncContactsPage);
     }
 
-    followFriend(fbID){
-        console.log(fbID);
-        this.httpProvicer.getJsonData(this.profileEndpoint + fbID).subscribe(
-          result => {
-  
-            if(result != ""){
-              console.log(result);
-              this.goToPublicProfile(result[0].id);
-            }else{
-              this.showAlert('Not found', 'This person is not using Rally anymore');
-            }
-             
-          });
-
-    }
+    
 
     showAlert(title, msg) {
       let alert = this.alertCtrl.create({

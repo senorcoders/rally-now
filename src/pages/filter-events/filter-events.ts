@@ -25,6 +25,7 @@ text:any;
 home:boolean = false;
 orgs:boolean = false;
 events:boolean = false;
+disable:boolean = true;
 
   constructor(
     public navCtrl: NavController, 
@@ -111,6 +112,13 @@ goToEvents(){
    }
    else{
      this.text = this.structure + ' MILES';
+   }
+ }
+
+ enableRange(){
+   console.log(this.zipcode.length);
+   if(this.zipcode.length >= 5){
+    this.disable = false;
    }
  }
 }

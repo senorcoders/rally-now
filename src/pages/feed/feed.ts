@@ -23,6 +23,7 @@ import { FilterEventsPage } from '../filter-events/filter-events';
 import { WebviewPage } from '../webview/webview';
 import { Content } from 'ionic-angular';
 import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
+import { ThankYouPage } from '../thank-you/thank-you';
 
 @Component({
   selector: 'page-feed', 
@@ -223,7 +224,7 @@ export class FeedPage {
 
       });
   });
-}
+} 
 
 getArray(array){
   // console.log(array);
@@ -303,6 +304,7 @@ doRefresh(refresher) {
            $event.srcElement.lastChild.data++;
            this.presentToast('Objective shared!');
            this.disable = false;
+           this.streakModal();
  
          }
        }, 
@@ -314,6 +316,7 @@ doRefresh(refresher) {
            $event.srcElement.lastChild.data++;
            this.presentToast('Objective shared!');
            this.disable = false;
+           this.streakModal();
 
          }
        },
@@ -355,6 +358,11 @@ doRefresh(refresher) {
 
    actionSheet.present();
  }
+
+ streakModal() {
+  let modal = this.modalCtrl.create(ThankYouPage);
+  modal.present();
+}
 
   presentToast(message) {
       let toast = this.toastCtrl.create({

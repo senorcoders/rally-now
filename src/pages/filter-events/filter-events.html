@@ -20,7 +20,7 @@
     <ion-list>
             <ion-item style="background: #f2f2f2">
                     <ion-label style="color: #6b6b6b;">ZIPCODE</ion-label>
-                    <ion-input [(ngModel)]="zipcode" style="color: #6b6b6b; font-size:40px;" class="zip-input"></ion-input>
+                    <ion-input [(ngModel)]="zipcode" style="color: #6b6b6b; font-size:40px;" class="zip-input" (ionChange)="enableRange()"></ion-input>
                 </ion-item>
         <ion-list-header style=" background-color: #f2f2f2; color: #6b6b6b; text-transform: uppercase;">
             Distance from me
@@ -29,14 +29,14 @@
             
         </ion-list-header>
         <ion-item style="border:none; background-color: #f2f2f2; color: #6b6b6b;">
-            <ion-range (ionChange)="getDistance()" [(ngModel)]="structure" style="color: #6b6b6b;" min="0" max="100" >
+            <ion-range [disabled]="disable" (ionChange)="getDistance()" [(ngModel)]="structure" style="color: #6b6b6b;" min="0" max="100" >
             </ion-range>
         </ion-item>
 
     </ion-list>
 
     <ion-list>
-    
+     
        
         <ion-list-header style="background-color: #f2f2f2; color: #6b6b6b; text-transform: uppercase;">
             Date Range

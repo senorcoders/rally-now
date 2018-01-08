@@ -9,6 +9,8 @@ import { PublicProfilePage } from '../public-profile/public-profile';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
 import { UsersProvider } from '../../providers/users/users';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
+import { ThankYouPage } from '../thank-you/thank-you';
+import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 
 
 
@@ -43,7 +45,8 @@ export class FriendsactivityPage {
     private usersProvider: UsersProvider,
     public toastCtrl: ToastController,
     public actionSheetCtrl: ActionSheetController,
-    private shareProvider:SocialShareProvider,) {
+    private shareProvider:SocialShareProvider,
+  public modalCtrl: ModalController) {
       this.all = "all";
       this.enable = true;
       console.log(this.enable);
@@ -200,6 +203,10 @@ presentToast(message) {
   toast.present();
 }
 
+streakModal() {
+  let modal = this.modalCtrl.create(ThankYouPage);
+  modal.present();
+}
 shareController(title, imgURI, reference_id, like_type, $event) {
   this.disable = true;
 

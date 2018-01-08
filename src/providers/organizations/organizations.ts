@@ -21,6 +21,17 @@ export class OrganizationsProvider {
   		return this.http.get(this.base + endpoint).map(res => res.json());
 	} 
 
+	getRecords(endpoint){
+		return new Promise(resolve => {
+			this.http.get(this.base + endpoint)
+				.map(res => res.json())
+				.subscribe(data => {
+					console.log(data);
+						resolve(data);
+				});
+		});
+	}
+
 	load(endpoint, start:number=0){
 		console.log(this.base + endpoint + start + '/' + this.perpage);
 		return new Promise(resolve => {

@@ -312,6 +312,7 @@ const actionSheet = this.actionSheetCtrl.create({
        $event.srcElement.lastChild.data++;
        this.presentToast('Objective shared!');
        this.disable = false;
+       this.streakModal();
 
      }
    }, 
@@ -323,6 +324,7 @@ const actionSheet = this.actionSheetCtrl.create({
        $event.srcElement.lastChild.data++;
        this.presentToast('Objective shared!');
        this.disable = false;
+       this.streakModal();
 
      }
    },

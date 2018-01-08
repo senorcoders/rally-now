@@ -34,7 +34,7 @@
     </ion-row>
 </ion-content>
 <ion-footer>
-    <ion-row *ngIf="accountStatus === '1'">
+    <ion-row *ngIf="accountStatus === '1'" style="justify-content:center;">
         <p><small>Sharing will also automatically publish to Rally's public feed.</small></p>
     </ion-row>
   <button ion-button full icon-left (click)="shareController()">

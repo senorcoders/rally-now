@@ -5,6 +5,8 @@ import { ModalController, NavController } from 'ionic-angular';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
 import { PublicProfilePage } from '../../pages/public-profile/public-profile';
 import { OrganizationProfilePage } from '../../pages/organization-profile/organization-profile';
+import { EventDetailPage } from '../../pages/event-detail/event-detail';
+import { RepresentativeProfilePage } from '../../pages/representative-profile/representative-profile';
 
 
 @Component({
@@ -21,6 +23,8 @@ export class HeaderComponent {
   users:any;
   organizations:any;
   results:any;
+  reps:any;
+  events:any;
 
 
 
@@ -53,15 +57,17 @@ export class HeaderComponent {
   			this.searching = true;
         this.shouldShowCancel = true;
         this.getdata();
-        this.getOrganizations();
   		}
-        
+         
     }
 
       getdata(){
   this.httpProvider.getJsonData(this.endpoint + this.searchTerm).subscribe(
     result => {
-    	this.users = result['users'];
+      this.users = result['users'];
+      this.organizations = result['organizations'];
+      this.reps = result['reps'];
+      this.events = result['events'];
     },
     err =>{
       console.error("Error : "+err);
@@ -72,20 +78,20 @@ export class HeaderComponent {
   );
 }
 
-getOrganizations(){
-  this.httpProvider.getJsonData(this.endpoint + 'organization/' + this.searchTerm).subscribe(
-    result => {
-    	this.users = result['users'];
-    	this.organizations = result['organization'];
-    },
-    err =>{
-      console.error("Error : "+err);
-    } ,
-    () => {
-      console.log('getData completed');
-    }
-  );
-}
+// getOrganizations(){
+//   this.httpProvider.getJsonData(this.endpoint + 'organization/' + this.searchTerm).subscribe(
+//     result => {
+//     	this.users = result['users'];
+//     	this.organizations = result['organizations'];
+//     },
+//     err =>{
+//       console.error("Error : "+err);
+//     } ,
+//     () => {
+//       console.log('getData completed');
+//     }
+//   );
+// }
 
 
  goToPublicProfile(userID){
@@ -106,6 +112,18 @@ getOrganizations(){
      cancel(){
        this.searching = false;
      }
+
+     goToEventDetail(eventID){
+      console.log(eventID);
+      this.navCtrl.push(EventDetailPage, {
+              eventID: eventID,
+              eventPageName: "Search"
+        }, {animate:true,animation:'transition',duration:500,direction:'forward'});
+    }
+
+    goToRepProfile(repID){
+      this.navCtrl.push(RepresentativeProfilePage, {repID: repID},  {animate:true,animation:'transition',duration:500,direction:'forward'});
+    }
 
    
 

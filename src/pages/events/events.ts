@@ -13,6 +13,7 @@ import { Storage } from '@ionic/storage';
 import { OrganizationProfilePage } from '../organization-profile/organization-profile';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
+import { ThankYouPage } from '../thank-you/thank-you';
 
  
 @IonicPage()
@@ -290,6 +291,10 @@ goToEventDetail(eventID){
 
     }
 
+    streakModal() {
+      let modal = this.modalCtrl.create(ThankYouPage);
+      modal.present();
+    }
     shareController(title, imgURI, reference_id, like_type, $event) {
       this.disable = true;
 
@@ -304,6 +309,7 @@ goToEventDetail(eventID){
            $event.srcElement.lastChild.data++;
            this.presentToast('Objective shared!');
            this.disable = false;
+           this.streakModal();
  
          }
        }, 
@@ -315,6 +321,7 @@ goToEventDetail(eventID){
            $event.srcElement.lastChild.data++;
            this.presentToast('Objective shared!');
            this.disable = false;
+           this.streakModal();
 
          }
        },

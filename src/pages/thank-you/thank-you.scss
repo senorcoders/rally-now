@@ -51,4 +51,8 @@ page-thank-you {
     .bar-button-default span{
         color: #fff !important;
     }
+
+    .footer-md::before{
+        background: none !important;
+    }
 }

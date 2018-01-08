@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, ViewController, ModalController } from 'ionic-angular';
 import { Platform, ActionSheetController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
 import { OrganizationProfilePage } from '../organization-profile/organization-profile';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
+import { ThankYouPage } from '../thank-you/thank-you';
 
 
 
@@ -58,7 +59,8 @@ export class EventDetailPage {
     public toastCtrl: ToastController,
     public viewCtrl: ViewController,
     private shareProvider:SocialShareProvider,
-    public actionSheetCtrl: ActionSheetController) {
+    public actionSheetCtrl: ActionSheetController,
+    public modalCtrl: ModalController) {
         this.eventID = navParams.get('eventID');
         this.eventPageName = navParams.get('eventPageName');
         console.log("Evento ID", navParams.get('eventID'));
@@ -215,6 +217,11 @@ addLike(reference_id, like_type){
 
 }
 
+
+streakModal() {
+  let modal = this.modalCtrl.create(ThankYouPage);
+  modal.present();
+}
 shareController(title, imgURI, reference_id, like_type, $event) {
   this.disable = true;
 
@@ -229,6 +236,7 @@ const actionSheet = this.actionSheetCtrl.create({
        $event.srcElement.lastChild.data++;
        this.presentToast('Objective shared!');
        this.disable = false;
+       this.streakModal();
 
      }
    }, 
@@ -240,6 +248,7 @@ const actionSheet = this.actionSheetCtrl.create({
        $event.srcElement.lastChild.data++;
        this.presentToast('Objective shared!');
        this.disable = false;
+       this.streakModal();
 
      }
    },
