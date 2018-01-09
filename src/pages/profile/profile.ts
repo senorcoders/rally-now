@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
+import { NavController, ModalController, ToastController, ActionSheetController } from 'ionic-angular';
 import { SettingsPage } from '../settings/settings';
 import { FriendsRequestPage } from '../friends-request/friends-request';
 import { MyRepsPage } from '../my-reps/my-reps';
@@ -20,6 +20,7 @@ import { RepresentivesListPage } from '../representives-list/representives-list'
 import { AdressModalPage } from '../adress-modal/adress-modal';
 import { MyRepresentativesPage } from '../my-representatives/my-representatives';
 import { Storage } from '@ionic/storage';
+import { SocialShareProvider } from '../../providers/social-share/social-share';
 
 
 
@@ -61,8 +62,15 @@ export class ProfilePage {
     followers_count: '',
     organizations_count: '',
     my_activity: '',
-    username: ''
+    username: '',
+    id: ''
   };
+  disable:boolean = false;
+  likeendpoint:any = 'likes';
+  activityLike:any = 'd32c1cb5-b076-4353-ad9c-1c8f81d812e3';
+
+
+
 
   constructor(
     public navCtrl: NavController, 
@@ -72,7 +80,10 @@ export class ProfilePage {
     private httpProvider:UsersProvider,
     private photoViewer: PhotoViewer,
     public modalCtrl: ModalController,
-    private storage: Storage
+    private storage: Storage,
+    public toastCtrl: ToastController,
+    public actionSheetCtrl: ActionSheetController,
+    private shareProvider:SocialShareProvider,
     ) {
         this.httpProvider.returnRallyUserId().then(user =>{
             this.currentRallyID = user.apiRallyID;
@@ -81,6 +92,14 @@ export class ProfilePage {
             this.getLongest();
         });
 
+  }
+
+  presentToast(message) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000
+    });
+    toast.present();
   }
 
   public onButtonClick() {
@@ -127,10 +146,11 @@ export class ProfilePage {
             this.user.friends_count = result[0].friends_count;
             this.user.followers_count = result[0].followers_count;
             this.user.organizations_count = result[0].organizations_count;
-            this.user.my_activity = result[0].my_activity;
+            this.user.my_activity = result[0].my_actions;
             this.actions = result[0].actions;
             this.longest_streak = result[0].longest_streak;
             this.user.username = result[0].username;
+            this.user.id = result[0].id;
           }
         );
      }
@@ -148,7 +168,7 @@ export class ProfilePage {
 
   goToReps(){
   	this.navCtrl.push(RepresentivesListPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
-  }
+  } 
 
   goToStreaks(){
     this.navCtrl.push(StreaksHistoryPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
@@ -284,6 +304,147 @@ getStreaks(){
   updateStreak(value){
     this.httpProvider.updateSingleItem(this.endpoint + '/' + this.currentRallyID, JSON.stringify({longest_streak: value}));
   }
+
+  getLikeStatus($event, reference_id, like_type, likes){
+    this.disable = true;
+
+    this.httpProvider.getJsonData(this.likeendpoint+'?reference_id='+reference_id+'&user_id='+this.user.id).subscribe(
+      result => {
+        console.log($event);
+        console.log("Aqui", $event.srcElement.lastChild.data);
+        
+        if(result != "" ){
+          this.removeFav(result[0].id);
+          this.presentToast('You unliked it');
+          $event.srcElement.style.backgroundColor = '#f2f2f2';
+          $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
+          $event.srcElement.lastChild.data--;
+          
+        }else{
+         this.addLike(reference_id, like_type);
+         this.presentToast('You liked it');
+          $event.srcElement.style.backgroundColor = '#296fb7';
+          $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
+          $event.srcElement.lastChild.data++;
+        }
+      },
+      err =>{
+        console.error("Error : "+err);         
+      } ,
+      () => {
+        console.log('getData completed');
+      }
+
+      );
+  }
+
+  addLike(reference_id, like_type){
+    this.httpProvider.addLike(this.likeendpoint, reference_id, this.user.id, like_type).subscribe(
+      response =>{
+          console.log(response);
+          this.disable = false;
+      });
+
+  }
+
+
+  findInLoop(actions){
+    if (actions != null){
+      var found = actions.some(el => { 
+          return el == this.user.id;
+        
+      });
+      
+      if (!found){
+        return '#f2f2f2';
+        
+      }else{
+        return '#296fb7';
+        
+      }
+    }
+
+  }
+
+
+
+
+removeFav(recordID){
+  this.httpProvider.removeItem(this.likeendpoint, recordID).subscribe(res => {
+    console.log(res);
+    this.disable = false;
+
+  }, err =>{
+    console.log(err);
+  });
+  this.httpProvider.removeFollowRecordID(recordID, 'favorites');
+
+}
+
+
+shareController(title, imgURI, $event) {
+  this.disable = true;
+
+const actionSheet = this.actionSheetCtrl.create({
+ title: 'Share to where?',
+ buttons: [ 
+   {
+     text: 'Facebook',
+     handler: () => {
+       this.shareProvider.facebookShare(title, imgURI);
+       $event.srcElement.lastChild.data++;
+       this.disable = false;
+
+     }
+   }, 
+   {
+     text: 'Twitter',
+     handler: () => {
+       this.shareProvider.twitterShare(title, imgURI);
+       $event.srcElement.lastChild.data++;
+       this.disable = false;
+      
+
+     }
+   },
+  //  {
+  //   text: 'Copy Link',
+  //   handler: () => {
+  //     this.disable = false;
+
+  //   }
+  // },
+  // {
+  //   text: 'SMS Message',
+  //   handler: () => {
+  //     this.presentToast('Objective shared!');
+  //     this.disable = false;
+
+  //   }
+  // },
+  // {
+  //   text: 'Email',
+  //   handler: () => {
+      
+  //     this.presentToast('Objective shared!');
+  //     this.disable = false;
+
+  //   }
+  // },
+   {
+     text: 'Cancel',
+     role: 'cancel',
+     handler: () => {
+       console.log('Cancel clicked');
+       this.disable = false;
+
+     }
+   }
+ ]
+});
+
+actionSheet.present();
+}
 
         
 }

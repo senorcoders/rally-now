@@ -275,7 +275,7 @@ doRefresh(refresher) {
     }, {animate:true,animation:'transition',duration:500,direction:'forward'});
      }
  
-     goToActionPage(objectiveID, goal_type){
+     goToActionPage(objectiveID, goal_type){ 
        if(goal_type !== "sign"){
         this.navCtrl.push(OrganizationActionPage, {
           objectiveID: objectiveID,

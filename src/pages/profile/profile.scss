@@ -1,5 +1,7 @@
 page-profile {
-    
+    a[disabled], button[disabled], [ion-button][disabled]{
+        opacity: 1 !important;
+    }
     .rally-header-logo {
         width: 50px;
         filter: brightness(0) invert(1);
@@ -13,6 +15,15 @@ page-profile {
         margin: 0;
     }
 
+    .btn-50 {
+        width: 50%;
+        height: 50px;
+        margin: 0;
+    }
+
+    .right-border {
+        border-right: 1px solid #fff;
+    }
     ion-header{
         text-align: center;
     }

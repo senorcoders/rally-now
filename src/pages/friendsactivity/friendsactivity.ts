@@ -11,6 +11,10 @@ import { UsersProvider } from '../../providers/users/users';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
 import { ThankYouPage } from '../thank-you/thank-you';
 import { ModalController } from 'ionic-angular/components/modal/modal-controller';
+import { RepresentativeProfilePage } from '../representative-profile/representative-profile';
+import { OrganizationProfilePage } from '../organization-profile/organization-profile';
+import { OrganizationActionPage } from '../organization-action/organization-action';
+import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
 
 
 
@@ -282,6 +286,30 @@ addShareAction(goal_id, action_type_id){
 segmentChanged(){
   console.log(this.enable);
   this.enable = !this.enable;
+}
+
+
+goToRepProfile(repID){
+  this.navCtrl.push(RepresentativeProfilePage, {repID: repID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+}
+
+goToOrganizationProfile(organizationID){
+  this.navCtrl.push(OrganizationProfilePage, {
+     organizationID: organizationID,
+     OrgPageName: "Community"
+}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+}
+
+goToActionPage(objectiveID, goal_type){ 
+  if(goal_type !== "sign"){
+   this.navCtrl.push(OrganizationActionPage, {
+     objectiveID: objectiveID,
+     pageName: 'Community'
+ }, {animate:true,animation:'transition',duration:500,direction:'forward'});
+  } else{
+   this.navCtrl.push(SignFeedBackPage, {iframeUrl: 'https://ionicframework.com/', repID:objectiveID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+  }  
+ 
 }
 
 

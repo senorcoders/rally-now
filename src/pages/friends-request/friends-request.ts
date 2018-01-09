@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
@@ -35,6 +35,8 @@ export class FriendsRequestPage {
   myRallyID:any;
   suggestedEndpoint:any = 'not_following/';
   public records:any = [];
+  notificationsEndpoint:any = 'devices';
+  alertsEndpoint:any = 'ux_events';
 
  
 
@@ -46,7 +48,8 @@ export class FriendsRequestPage {
     private facebook: Facebook,
     private httpProvicer: UsersProvider,
     public alertCtrl: AlertController, 
-    private orgProvider: OrganizationsProvider
+    private orgProvider: OrganizationsProvider,
+    public toastCtrl: ToastController
     ) {
        //this.searchControl = new FormControl();
        this.httpProvicer.returnRallyUserId().then(user => {
@@ -215,6 +218,42 @@ export class FriendsRequestPage {
       });
       alert.present();
     }
-   
+
+
+    getDeviceID(user_id){
+      //Reemplazar por parametro despues
+      this.httpProvicer.getJsonData(this.notificationsEndpoint+'?user_id='+user_id)
+        .subscribe(result => {
+            console.log(result[0].id);
+            this.saveNotification(user_id, result[0].id, this.myRallyID);
+        }, err => {
+          console.error("Error: " +err);
+        }, () => {
+          console.log("Data Completed");
+        });
+    }
+
+    saveNotification(user_id, registration_id, sender_id){
+      this.httpProvicer.returnRallyUserId().then(user => {
+       this.httpProvicer.saveNotification(user_id, registration_id, user.displayName + " wants to follow you",  this.alertsEndpoint, sender_id);
+      this.followFriend(user_id);
+      });
+      //this.httpProvider.sendNotification(registration_id, msg);
+    }
+
+     followFriend(friendID){
+      this.httpProvicer.followFriend(this.followEndpoint, this.myRallyID, friendID );
+      this.presentToast("You're now following this user");
+    }
+
+
+    presentToast(message) {
+      let toast = this.toastCtrl.create({
+        message: message,
+        duration: 3000
+      });
+      toast.present();
+    }
+    
 
 }
