@@ -74,6 +74,12 @@ disable:boolean = true;
 
 goToEvents(){  
   console.log(this.zipcode, this.structure, this.event.month, this.event.timeEnds);
+  if(this.zipcode === null){
+    this.storage.set('homeZipcode', '98053');
+  }else{
+    this.storage.set('homeZipcode', this.zipcode);
+  }
+  this.storage.set('homeDistance', this.structure);
   this.storage.set('startDate', this.event.month);
   this.storage.set('endDate', this.event.timeEnds);
   this.dismiss();

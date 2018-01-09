@@ -66,6 +66,8 @@ export class FeedPage {
   public orgTweets:any = [];
   public repsTweets:any = [];
   public records:any = [];
+  zipcode:any;
+  distance:any;
 
 
   // @ViewChild(Content) content: Content;
@@ -181,14 +183,14 @@ export class FeedPage {
     this.navCtrl.push(RatePage,  {}, {animate: true, direction: 'forward'});
   }
 
-  getdata(startDate?, endDate?){
+  getdata(startDate?, endDate?, zipcode?, distance?){
     if(startDate != null){
-      var url = this.endpoint + this.myrallyID + '/' + startDate + '/' + endDate + '/';
+      var url = this.endpoint + this.myrallyID + '/' + startDate + '/' + endDate + '/' + zipcode + '/' + distance + '/';
       this.eventFiltered = true;
     } else{
       var url = this.newEndpoint + this.myrallyID + '/';
     }
-
+ 
     console.log("This url =>", url);
   // this.httpProvider.load(url).subscribe(
   //   result => {
@@ -667,9 +669,25 @@ orgStatus(orgID){
 
         getEndDate(){
           this.storage.get('endDate').then((val) => {
-            this.eventEnd = val;
-            this.getdata(this.eventStart, this.eventEnd);
+            this.eventEnd = val; 
+            this.getZipcode();
           });
+        }
+
+        getZipcode(){
+          this.storage.get('homeZipcode').then((val) => {
+            this.zipcode = val;
+            this.getDistance();
+          });
+        }
+
+        getDistance(){
+          this.storage.get('homeDistance').then((val) => {
+            this.distance = val;
+            this.getdata(this.eventStart, this.eventEnd, this.zipcode, this.distance);
+
+          });
+
         }
 
       getOrganizationFollowStatus(actions){
