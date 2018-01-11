@@ -22,10 +22,7 @@
           <p class="text-wrap" *ngIf="rep.rep_type === 'sen'"> <small>Senator of {{rep.state}}</small></p>
           <p class="text-wrap" *ngIf="rep.rep_type === 'rep'"> <small>Representative of {{rep.state}}</small></p>
 
-          <button (click)="followRep(rep.id, $event)" ion-button clear item-end style="background: #4a90e2;
-          color: #fff;
-          border-radius: 4px; 
-          padding: 10px 15px;">{{findInLoop(rep.followers)}}</button>
+          <button (click)="followRep(rep.id, $event)" ion-button clear item-end class="follow-btn">{{findInLoop(rep.followers)}}</button>
         </ion-item>
     </ion-list>
     

@@ -27,4 +27,23 @@ page-organizations-list {
             font-weight: 600;
         }
     }
+
+    .follow-btn{
+            // height: auto;
+        padding: 0 !important;
+        background: #296fb7;
+        color: #f2f2f2;
+        border: 1px solid #296fb7;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        // min-width: 80px;
+        box-shadow: none;
+        border-radius: 6px;
+        height: 3.6rem !important;
+        .button-inner{
+            width: 100px !important;
+    
+        }
+    }
 }

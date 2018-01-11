@@ -49,10 +49,18 @@ page-organization-action {
     .action-btn {
       
         background: #f4512c;
-        color: #fff;
+        color: #f2f2f2;
         text-transform: uppercase;
         box-shadow: none;
         border: none;
+        padding: 0 !important;
+        border-radius: 6px !important;
+        font-size: 14px !important;
+        height: 3.6rem !important;
+        .button-inner{
+            width: 100px !important;
+
+        }
     }
     ion-card {
         margin-right: 0 !important;
@@ -151,10 +159,15 @@ page-organization-action {
         }
         button{
             background: #fff;
-            border: 1px solid #b9b4b4;
+            border: 1px solid #989898;
             border-radius: 6px;
-            color: #b9b4b4 !important;
+            color: #998899 !important;
             margin-top: 10px;
+            padding: 0 !important;
+            font-size: 14px;
+            .button-inner{
+                width: 100px !important;
+            }
         }
     }
 }
