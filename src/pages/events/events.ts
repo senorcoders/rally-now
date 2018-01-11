@@ -42,6 +42,9 @@ export class EventsPage {
   private start:number=1;
   loading:any;
   endpointOld:any = 'events';
+  filterBy:any;
+  zipcode:any;
+  distance:any;
 
 
 
@@ -106,9 +109,14 @@ export class EventsPage {
        popover.present();
      }
 
-       getdata(startDate?, endDate?){
+       getdata(startDate?, endDate?, filterBy?, zipcode?, distance?){
          if(startDate != null){
-           this.getFilteredEvents(startDate, endDate);
+           if(filterBy !== 'all'){
+            this.getFilteredEvents(startDate, endDate);
+
+           }else{
+            this.getFollowedEvents(startDate, endDate, zipcode, distance);
+           }
            this.eventFiltered = true;
          }else{
            this.getAllEvents();
@@ -116,6 +124,19 @@ export class EventsPage {
  
     }
 
+
+    getFollowedEvents(startDate, endDate, zipcode, distance){
+     
+
+        return new Promise(resolve => {
+          this.orgProvider.load(this.endpointOld + '/' + this.myrallyID + '/' + zipcode + '/' + startDate + '/' + endDate + '/' + distance + '/', this.start)
+            .then(data => {
+              this.getArray(data);
+             
+              resolve(true);
+            });
+        });
+    }
 getAllEvents(){
   return new Promise(resolve => {
     this.orgProvider.load(this.endpoint, this.start)
@@ -136,7 +157,7 @@ getArray(array){
 }
 
 getFilteredEvents(startDate, endDate){
-  this.httpProvider.getJsonData(this.endpointOld + '/' + startDate + '/' + endDate).subscribe(
+  this.httpProvider.getJsonData(this.endpointOld + '/' + this.myrallyID + '/' + startDate + '/' + endDate).subscribe(
     result => {
       console.log(result);
      this.events = result.Events;
@@ -203,7 +224,30 @@ goToEventDetail(eventID){
     getEndDate(){
       this.storage.get('endDate').then((val) => {
         this.eventEnd = val;
-        this.getdata(this.eventStart, this.eventEnd);
+        this.getZipcode()
+      });
+    }
+
+    getZipcode(){
+      this.storage.get('homeZipcode').then((val) => {
+        this.zipcode = val;
+        this.getDistance();
+      });
+    }
+
+    getDistance(){
+      this.storage.get('homeDistance').then((val) => {
+        this.distance = val;
+        this.getFilterType();
+      });
+
+    }
+
+    getFilterType(){
+      this.storage.get('filterBy').then((val) => {
+        this.filterBy = val;
+        this.getdata(this.eventStart, this.eventEnd, this.filterBy, this.zipcode, this.distance);
+
       });
     }
 

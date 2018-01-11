@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar (ionInput)="getItems($event)" [debounce]="500"></ion-searchbar>
+  <ion-searchbar (ionInput)="onSearchInput()"  [(ngModel)]="searchTerm" [formControl]="searchControl"   [showCancelButton]="shouldShowCancel" [debounce]="500" (ionCancel)="cancel()"></ion-searchbar>
   
   <ion-list>
       <ion-list-header>

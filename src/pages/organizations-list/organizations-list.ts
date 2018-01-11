@@ -6,6 +6,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import firebase from 'firebase';
 import { Storage } from '@ionic/storage';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
+import { FormControl } from '@angular/forms';
 
 
 @IonicPage()
@@ -24,6 +25,9 @@ export class OrganizationsListPage {
   organizationEndpoint:any = 'following_organizations';
   private start:number=1;
   newEndpoint:any = 'organization_pagination/';
+  searchControl: FormControl;
+  shouldShowCancel: any = false;
+  searchTerm: string = '';
 
 
   
@@ -48,6 +52,14 @@ export class OrganizationsListPage {
           });
 
       
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad FriendsRequestPage');
+     this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
+          this.shouldShowCancel = false;
+        });
+
   }
 
  
@@ -76,9 +88,9 @@ export class OrganizationsListPage {
 
   getArray(array){
       for(let person of array) {
-            this.organizations.push(person);
+            this.items.push(person);
       }
-      this.initializeItems();
+      // this.initializeItems();
       this.loading.dismiss(); 
 
   }
@@ -95,9 +107,9 @@ export class OrganizationsListPage {
     
  }
  
-  initializeItems() {
-    this.items = this.organizations;
-  }
+  // initializeItems() {
+  //   this.items = this.organizations;
+  // }
 
   goToOrganizationProfile(organizationID){
     this.navCtrl.push(OrganizationProfilePage, {
@@ -108,7 +120,7 @@ export class OrganizationsListPage {
 
   getItems(ev: any) {
     // Reset items back to all of the items
-    this.initializeItems();
+    // this.initializeItems();
 
     // set val to the value of the searchbar
     let val = ev.target.value
@@ -216,6 +228,39 @@ unfollow(recordID, organizationID){
   
         this.httpProvider.unfollowOrganization(this.organizationEndpoint, recordID);
         this.httpProvider.removeFollowRecordID(organizationID, 'organizations');
+      }
+
+
+      search(){
+        this.orgProvider.getJsonData(this.endpoint + '/search/' + this.searchTerm).subscribe(
+          result => {
+            console.log("Search", result);
+            this.items = result['reps'];
+            // this.initializeItems();
+           
+          },
+          err =>{
+            console.error("Error : "+err);
+          } ,
+          () => {
+            console.log('getData completed');
+          });
+      }
+    
+      onSearchInput(){
+        console.log("Busqueda", this.searchTerm);
+        if (this.searchTerm === "") {
+          this.shouldShowCancel = false;
+          this.getOrganizations();
+        } else{
+          this.shouldShowCancel = true;
+          this.search();
+        }
+           
+      } 
+    
+      cancel(){
+        this.getOrganizations();
       }
 
 }

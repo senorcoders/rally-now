@@ -68,6 +68,7 @@ export class FeedPage {
   public records:any = [];
   zipcode:any;
   distance:any;
+  filterBy:any;
 
 
   // @ViewChild(Content) content: Content;
@@ -183,9 +184,16 @@ export class FeedPage {
     this.navCtrl.push(RatePage,  {}, {animate: true, direction: 'forward'});
   }
 
-  getdata(startDate?, endDate?, zipcode?, distance?){
+  getdata(startDate?, endDate?, zipcode?, distance?, filterBy?){
+    
     if(startDate != null){
-      var url = this.endpoint + this.myrallyID + '/' + startDate + '/' + endDate + '/' + zipcode + '/' + distance + '/';
+      console.log(filterBy);
+      if(filterBy !== 'all'){
+        var url = this.endpoint + this.myrallyID + '/' + startDate + '/' + endDate + '/' + zipcode + '/' + distance + '/';
+      }else{
+        var url = this.endpoint + 'all-events/' + this.myrallyID + '/' + startDate + '/' + endDate + '/' + zipcode + '/' + distance + '/';
+
+      }
       this.eventFiltered = true;
     } else{
       var url = this.newEndpoint + this.myrallyID + '/';
@@ -684,7 +692,16 @@ orgStatus(orgID){
         getDistance(){
           this.storage.get('homeDistance').then((val) => {
             this.distance = val;
-            this.getdata(this.eventStart, this.eventEnd, this.zipcode, this.distance);
+            this.getFilterType();
+          });
+
+        }
+
+
+        getFilterType(){
+          this.storage.get('filterBy').then((val) => {
+            this.filterBy = val;
+            this.getdata(this.eventStart, this.eventEnd, this.zipcode, this.distance, this.filterBy);
 
           });
 

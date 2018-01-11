@@ -43,6 +43,7 @@ export class OrganizationsPage {
   public records:any = [];
   private start:number=1;
   loading:any;
+  filterBy:any;
 
   constructor(
     public navCtrl: NavController, 
@@ -100,10 +101,16 @@ export class OrganizationsPage {
        popover.present();
      }
 
-     getdata(startDate?, endDate?){
+     getdata(startDate?, endDate?, filterBy?){
 
       if(startDate != null){
-        var url = this.endpoint + this.myApiRallyID + '/' + startDate + '/' + endDate + '/';
+        if(filterBy !== 'all'){
+          var url = this.endpoint + this.myApiRallyID + '/' + startDate + '/' + endDate + '/';
+
+        }else{
+          var url = this.endpoint +  'all-events/' + this.myApiRallyID + '/';
+
+        }
         this.eventFiltered = true;
       } else{
         var url = this.endpoint + this.myApiRallyID + '/';
@@ -522,10 +529,20 @@ orgStatus(orgID){
 
         getEndDate(){
           this.storage.get('endDate').then((val) => {
-            this.eventEnd = val;
-            this.getdata(this.eventStart, this.eventEnd);
+            this.eventEnd = val; 
+            this.getFilterType();
           });
         }
+
+        getFilterType(){
+          this.storage.get('filterBy').then((val) => {
+            this.filterBy = val;
+            this.getdata(this.eventStart, this.eventEnd, this.filterBy);
+
+          });
+        }
+
+        
 
         getOrganizationFollowStatus(actions){
           if (actions != null){

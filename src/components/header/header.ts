@@ -59,7 +59,7 @@ export class HeaderComponent {
         this.getdata();
   		}
          
-    }
+    } 
 
       getdata(){
   this.httpProvider.getJsonData(this.endpoint + this.searchTerm).subscribe(
@@ -74,8 +74,7 @@ export class HeaderComponent {
     } ,
     () => {
       console.log('getData completed');
-    }
-  );
+    });
 }
 
 // getOrganizations(){

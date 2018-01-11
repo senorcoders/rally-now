@@ -26,6 +26,7 @@ home:boolean = false;
 orgs:boolean = false;
 events:boolean = false;
 disable:boolean = true;
+filter:any = 'all';
 
   constructor(
     public navCtrl: NavController, 
@@ -82,6 +83,7 @@ goToEvents(){
   this.storage.set('homeDistance', this.structure);
   this.storage.set('startDate', this.event.month);
   this.storage.set('endDate', this.event.timeEnds);
+  this.storage.set('filterBy', this.filter);
   this.dismiss();
   // this.httpProvider.getJsonData(this.endpoint + this.zipcode + '/' + this.event.month + '/' +  this.event.timeEnds + '/' + this.structure)
   // .subscribe(
@@ -126,5 +128,10 @@ goToEvents(){
    if(this.zipcode.length >= 5){
     this.disable = false;
    }
+ }
+
+ getFilter(value){
+   console.log(value);
+   this.filter = value;
  }
 }

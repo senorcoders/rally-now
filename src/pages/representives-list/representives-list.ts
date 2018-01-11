@@ -4,6 +4,7 @@ import { UsersProvider } from '../../providers/users/users';
 import { Storage } from '@ionic/storage';
 import { RepresentativeProfilePage } from '../representative-profile/representative-profile';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
+import { FormControl } from '@angular/forms';
 
 
 
@@ -21,6 +22,12 @@ export class RepresentivesListPage {
   followEndpoint:any = 'following_representative';
   newEndpoint:any = 'reps_pagination/';
   private start:number=1;
+  searchControl: FormControl;
+  shouldShowCancel: any = false;
+  searchTerm: string = '';
+
+
+
 
 
   constructor( 
@@ -31,6 +38,8 @@ export class RepresentivesListPage {
     public toastCtrl: ToastController,
     private storage: Storage,
    private orgProvider: OrganizationsProvider) {
+    this.searchControl = new FormControl();
+
 
       this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
@@ -46,7 +55,11 @@ export class RepresentivesListPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RepresentivesListPage');
+    console.log('ionViewDidLoad FriendsRequestPage');
+     this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
+          this.shouldShowCancel = false;
+        });
+
   }
 
   getReps(){
@@ -69,9 +82,8 @@ export class RepresentivesListPage {
 
   getArray(array){
     for(let person of array) {
-          this.representatives.push(person);
+          this.items.push(person);
     }
-    this.initializeItems();
     this.loading.dismiss(); 
 
 }
@@ -89,13 +101,13 @@ export class RepresentivesListPage {
     
  }
 
-  initializeItems() {
-    this.items = this.representatives;
-  }
+  // initializeItems() {
+  //   this.items = this.representatives;
+  // }
 
   getItems(ev: any) {
     // Reset items back to all of the items
-    this.initializeItems();
+    // this.initializeItems();
 
     // set val to the value of the searchbar
     let val = ev.target.value;
@@ -176,5 +188,39 @@ export class RepresentivesListPage {
   goToRepProfile(repID){
     this.navCtrl.push(RepresentativeProfilePage, {repID: repID});
   }
+
+  search(){
+    this.orgProvider.getJsonData(this.endpoint + '/search/' + this.searchTerm).subscribe(
+      result => {
+        console.log("Search", result);
+        this.items = result['reps'];
+        // this.initializeItems();
+       
+      },
+      err =>{
+        console.error("Error : "+err);
+      } ,
+      () => {
+        console.log('getData completed');
+      });
+  }
+
+  onSearchInput(){
+    console.log("Busqueda", this.searchTerm);
+    if (this.searchTerm === "") {
+      this.shouldShowCancel = false;
+      this.getReps();
+    } else{
+      this.shouldShowCancel = true;
+      this.search();
+    }
+       
+  } 
+
+  cancel(){
+    this.getReps();
+  }
+
+  
 
 }
