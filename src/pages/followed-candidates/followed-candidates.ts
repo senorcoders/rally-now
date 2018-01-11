@@ -60,7 +60,7 @@ export class FollowedCandidatesPage {
           this.initializeItems();
           this.loading.dismiss();
         });
-  }
+  }  
 
   initializeItems() {
     this.items = this.followers;
