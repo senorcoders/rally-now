@@ -60,6 +60,11 @@ export class OrganizationActionPage {
     action_type_id: ''
   }];
   senators:any;
+  contactOption:any;
+  enableReps:boolean;
+  enableSen:boolean;
+  enableSpecificRep:boolean;
+  reps_goals:any;
 
 
   constructor(public navCtrl: NavController, 
@@ -181,6 +186,18 @@ export class OrganizationActionPage {
         title: "What to say (talking points)",
         description: this.objShort
       });
+      this.reps_goals = result.goals[0].reps_goals;
+      this.contactOption = result.goals[0].contact_option_id;
+      if(result.goals[0].contact_option_id === '5ab2a2d5-776c-4364-b7c7-9760b185268e'){
+        this.enableSen = true;
+      }else if(result.goals[0].contact_option_id === 'b93168cb-3edb-4b06-92fb-65029e6deea0'){
+        this.enableReps = true;
+      }else if(result.goals[0].contact_option_id === '081e67ea-ac08-4d6e-b91c-17efe265be06'){
+          this.enableReps = true;
+          this.enableSen = true;
+      }else if(result.goals[0].contact_option_id === '40c652e4-bf45-4680-8223-b0b0cf8a92ba'){
+        this.enableSpecificRep = true;
+      }
 
       console.log("Actions", JSON.stringify(this.actions ));
       },
