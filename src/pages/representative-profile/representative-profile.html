@@ -21,7 +21,10 @@
                
             </ion-row>
             <ion-col col-12>
-                <button class="follow-btn"  ion-button color="light" full outline >Follow</button>
+                <button class="follow-btn" (click)="followRep(repID, $event)" color="light" ion-button  full outlinestyle="background: #4a90e2;
+                color: #fff; 
+                border-radius: 4px; 
+                padding: 10px 15px;">{{findInLoop(followers)}}</button>
             </ion-col>
  
         </ion-col>

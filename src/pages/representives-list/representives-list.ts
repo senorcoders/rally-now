@@ -50,7 +50,7 @@ export class RepresentivesListPage {
           this.currentRallyID = user.apiRallyID;
          
               this.getReps();
-        }
+        } 
       )
   }
 
