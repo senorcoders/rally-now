@@ -105,10 +105,12 @@ export class OrganizationsPage {
 
       if(startDate != null){
         if(filterBy !== 'all'){
-          var url = this.endpoint + this.myApiRallyID + '/' + startDate + '/' + endDate + '/';
+          var url = this.endpoint + this.myApiRallyID + '/';
+
 
         }else{
           var url = this.endpoint +  'all-events/' + this.myApiRallyID + '/';
+
 
         }
         this.eventFiltered = true;
@@ -119,6 +121,8 @@ export class OrganizationsPage {
       return new Promise(resolve => {
         this.httpProvider.loadHome(url, this.start)
           .then(data => {
+            // this.records = [];
+
             console.log("Full Data", data);
             this.getArray(data['My_Organizations']);
             this.getArray(data['Orgs_events']);
@@ -538,6 +542,11 @@ orgStatus(orgID){
           this.storage.get('filterBy').then((val) => {
             this.filterBy = val;
             this.getdata(this.eventStart, this.eventEnd, this.filterBy);
+            this.records = [];
+            this.loading = this.loadingCtrl.create({
+              content: 'Sorting Events...'
+            }); 
+              this.loading.present();
 
           });
         }

@@ -41,6 +41,8 @@ export class OrganizationsListPage {
     public actionSheetCtrl: ActionSheetController,
     private storage: Storage,
     private orgProvider: OrganizationsProvider) {
+      this.searchControl = new FormControl();
+
       this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
       }); 
@@ -50,7 +52,7 @@ export class OrganizationsListPage {
           this.currentRallyID = user.apiRallyID;
           this.getOrganizations();
           });
-
+ 
       
   }
 
@@ -235,7 +237,7 @@ unfollow(recordID, organizationID){
         this.orgProvider.getJsonData(this.endpoint + '/search/' + this.searchTerm).subscribe(
           result => {
             console.log("Search", result);
-            this.items = result['reps'];
+            this.items = result['organization'];
             // this.initializeItems();
            
           },

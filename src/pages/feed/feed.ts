@@ -702,6 +702,11 @@ orgStatus(orgID){
           this.storage.get('filterBy').then((val) => {
             this.filterBy = val;
             this.getdata(this.eventStart, this.eventEnd, this.zipcode, this.distance, this.filterBy);
+            this.records = [];
+            this.loading = this.loadingCtrl.create({
+              content: 'Sorting Events...'
+            }); 
+              this.loading.present();
 
           });
 

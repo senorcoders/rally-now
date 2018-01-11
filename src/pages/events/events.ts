@@ -111,8 +111,8 @@ export class EventsPage {
 
        getdata(startDate?, endDate?, filterBy?, zipcode?, distance?){
          if(startDate != null){
-           if(filterBy !== 'all'){
-            this.getFilteredEvents(startDate, endDate);
+           if(filterBy === 'all'){
+            this.getAllEvents();
 
            }else{
             this.getFollowedEvents(startDate, endDate, zipcode, distance);
@@ -131,7 +131,9 @@ export class EventsPage {
         return new Promise(resolve => {
           this.orgProvider.load(this.endpointOld + '/' + this.myrallyID + '/' + zipcode + '/' + startDate + '/' + endDate + '/' + distance + '/', this.start)
             .then(data => {
-              this.getArray(data);
+              this.events = data['Events'];
+              this.loading.dismiss(); 
+
              
               resolve(true);
             });
@@ -141,6 +143,8 @@ getAllEvents(){
   return new Promise(resolve => {
     this.orgProvider.load(this.endpoint, this.start)
       .then(data => {
+        // this.events = [];
+
         this.getArray(data);
        
         resolve(true);
@@ -247,6 +251,11 @@ goToEventDetail(eventID){
       this.storage.get('filterBy').then((val) => {
         this.filterBy = val;
         this.getdata(this.eventStart, this.eventEnd, this.filterBy, this.zipcode, this.distance);
+        this.events = [];
+        this.loading = this.loadingCtrl.create({
+          content: 'Sorting Events...'
+        }); 
+          this.loading.present();
 
       });
     }
