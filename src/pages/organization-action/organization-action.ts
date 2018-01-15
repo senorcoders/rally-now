@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, ViewController, NavController, NavParams, ToastController, ActionSheetController, ModalController } from 'ionic-angular';
+import { IonicPage, ViewController, NavController, NavParams, ToastController, ActionSheetController, ModalController, AlertController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
 import {AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
@@ -57,7 +57,8 @@ export class OrganizationActionPage {
     title: '',
     short_desc: '',
     representative_id: '',
-    action_type_id: ''
+    action_type_id: '',
+    goal_id: ''
   }];
   senators:any;
   contactOption:any;
@@ -77,7 +78,8 @@ export class OrganizationActionPage {
     private callNumber: CallNumber,
     public viewCtrl: ViewController,
     private storage: Storage,
-    public modalCtrl: ModalController) {
+    public modalCtrl: ModalController,
+    private alertCtrl: AlertController) {
   	  	this.objectiveID = navParams.get('objectiveID');
         this.pageName = navParams.get('pageName');
   	  	this.httpProvider.returnRallyUserId()
@@ -105,17 +107,42 @@ export class OrganizationActionPage {
     this.viewCtrl.setBackButtonText(this.pageName);
   }
 
+  showCallAlert(rep, repID, offices){
+    let alert = this.alertCtrl.create({
+      title: 'Are you ready?',
+      message: "If you're not sure what to say, you can review the suggested script with talking points before making the call.",
+      buttons: [
+        {
+          text: 'Review script',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Make the Call',
+          handler: () => {
+            this.navCtrl.push(CallPage, {rep: rep, repID: repID, talkingPoints: this.objDesc, offices: offices, goalID: this.goal_id});
+            this.callNumber.callNumber(rep.phone, true)
+            .then(() => console.log('Launched dialer!'))
+            .catch((error) => console.log('Error launching dialer', error));
+
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
   presentActionSheet(rep, fax, twitter, email, repID, offices) {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Contact ' + rep.name,
       buttons: [ 
         {
-          text: 'Call',
+          text: 'Call', 
           handler: () => { 
-            this.navCtrl.push(CallPage, {rep: rep, repID: repID, talkingPoints: this.objDesc, offices: offices});
-            this.callNumber.callNumber(rep.phone, true)
-            .then(() => console.log('Launched dialer!'))
-            .catch((error) => console.log('Error launching dialer', error));
+            this.showCallAlert(rep, repID, offices);
+      
           }
         },{
           text: 'Fax',
@@ -123,7 +150,7 @@ export class OrganizationActionPage {
             console.log('Fax clicked');
             // this.data.action_type_id = 'ad3ef19b-d809-45b7-bef2-d470c9af0d1d';
             // this.httpProvider.addAction(this.favEndpoint, this.data);
-            this.navCtrl.push(FaxFeedBackPage, {iframeUrl: fax, repID: repID});
+            this.navCtrl.push(FaxFeedBackPage, {iframeUrl: fax, repID: repID, goalID: this.goal_id});
 
           }
         },{ 
@@ -132,13 +159,14 @@ export class OrganizationActionPage {
             console.log('Email clicked');
             // this.data.action_type_id = 'f9b53bc8-9847-4699-b897-521d8e1a34bb';
             // this.httpProvider.addAction(this.favEndpoint, this.data);
-            this.navCtrl.push(EmailFeedBackPage, {iframeUrl: email});
+            this.navCtrl.push(EmailFeedBackPage, {iframeUrl: email, repID: repID, goalID: this.goal_id});
           }
         },{
           text: 'Post message via Twitter',
           handler: () => {
             console.log('Post message via Twitter clicked');
             this.data.action_type_id = '9eef1652-ccf9-449a-901e-ad6c0b3a8a6c';
+            this.data.goal_id = this.goal_id;
             this.httpProvider.addAction(this.favEndpoint, this.data);
             this.shareProvider.twitterShare('@' + twitter);
             this.streakModal();

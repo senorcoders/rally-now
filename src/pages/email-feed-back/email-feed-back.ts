@@ -22,7 +22,8 @@ export class EmailFeedBackPage {
     title: '',
     short_desc: '',
     representative_id: '',
-    action_type_id: ''
+    action_type_id: '',
+    goal_id: ''
   }];
 
 
@@ -36,6 +37,7 @@ export class EmailFeedBackPage {
       this.url = navParams.get('iframeUrl');
       this.openWebpage(this.url);
       this.data.representative_id = navParams.get('repID');
+      this.data.goal_id = navParams.get('goalID');
       this.data.action_type_id = 'f9b53bc8-9847-4699-b897-521d8e1a34bb';
       this.data.title = 'email';
       this.httpProvider.returnRallyUserId().then( user => {

@@ -57,6 +57,14 @@
             font-style: normal;
         }
 
+        @font-face {
+            font-family: 'Conv_SanFranciscoDisplay-Semibold';
+            src: url('../assets/fonts/SanFranciscoDisplay-Semibold.eot');
+            src: local('☺'), url('../assets/fonts/SanFranciscoDisplay-Semibold.woff') format('woff'), url('../assets/fonts/SanFranciscoDisplay-Semibold.ttf') format('truetype'), url('../assets/fonts/SanFranciscoDisplay-Semibold.svg') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
 ;
         // @font-face {
         //     font-family: 'Conv_ITCKabelStd-Demi';
@@ -85,4 +93,24 @@
         .col,
         ion-card-header {
             font-family: 'Conv_SF-Pro-Display-Regular', Sans-Serif !important;
+        }
+
+        .toolbar-title .white{
+            font-family:'Conv_SanFranciscoDisplay-Semibold',Sans-Serif !important;
+            margin-bottom: 40px !important;
+            margin-top: 0 !important;
+            letter-spacing: -0.41px;
+
+
+        }
+
+        .ios ion-tab > .ion-page > ion-header > .toolbar.statusbar-padding:first-child, .toolbar-ios, .toolbar-md{
+            padding-top: 0 !important;
+            min-height: 44px !important;
+            height: 44px !important;
+        }
+
+        ion-header{
+            height: 44px !important;
+
         }

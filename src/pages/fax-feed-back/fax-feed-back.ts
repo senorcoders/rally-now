@@ -21,8 +21,9 @@ export class FaxFeedBackPage {
     title: '',
     short_desc: '',
     representative_id: '',
-    action_type_id: ''
-  }];
+    action_type_id: '',
+    goal_id: ''
+  }]; 
 
 
   constructor(
@@ -34,6 +35,7 @@ export class FaxFeedBackPage {
       this.url = navParams.get('iframeUrl');
       this.openWebpage(this.url);
       this.data.representative_id = navParams.get('repID');
+      this.data.goal_id = navParams.get('goalID');
       this.data.action_type_id = 'ad3ef19b-d809-45b7-bef2-d470c9af0d1d';
       this.data.title = 'fax';
       this.httpProvider.returnRallyUserId().then( user => {

@@ -24,7 +24,8 @@ export class CallPage {
     title: '',
     short_desc: '',
     representative_id: '',
-    action_type_id: ''
+    action_type_id: '',
+    goal_id: ''
   }];
   talkingPoints:any;
   offices:any;
@@ -43,6 +44,7 @@ export class CallPage {
       this.rep = navParams.get('rep');
       this.talkingPoints = navParams.get('talkingPoints');
       this.data.representative_id = navParams.get('repID');
+      this.data.goal_id = navParams.get('goalID');
       this.data.action_type_id = '2afa6869-7ee5-436e-80a9-4fee7c871212';
       this.data.title = 'call';
       this.httpProvider.returnRallyUserId().then( user => {

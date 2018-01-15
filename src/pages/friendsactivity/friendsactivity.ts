@@ -301,7 +301,7 @@ goToOrganizationProfile(organizationID){
 }
 
 goToActionPage(objectiveID, goal_type){ 
-  if(goal_type !== "sign"){
+  if(goal_type !== "sign"){ 
    this.navCtrl.push(OrganizationActionPage, {
      objectiveID: objectiveID,
      pageName: 'Community'

@@ -21,6 +21,7 @@ export class RepresentativeProfilePage {
   followEndpoint:any = 'following_representative';
   repID:any;
   followers:any;
+  post_count:any;
 
   constructor(
     public navCtrl: NavController, 
@@ -47,6 +48,7 @@ export class RepresentativeProfilePage {
       this.photo_url = result.photo_url;
       this.repID = result.id;
       this.followers = result.followers;
+      this.post_count = result.post_count;
     });
   }
 

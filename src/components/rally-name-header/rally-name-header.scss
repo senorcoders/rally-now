@@ -4,12 +4,16 @@ rally-name-header {
     } 
 
     p.white {
-        color: #fff;
+        color: #f2f2f2;
         margin: 0;
     }
 
     ion-header{
         text-align: center;
+    }
+
+    .toolbar-title .white{
+       margin: 0 !important;
     }
 
     // .back-button {

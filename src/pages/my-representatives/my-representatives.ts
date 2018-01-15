@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, ModalController, ActionSheetController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ModalController, ActionSheetController, ToastController, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { AdressModalPage } from '../adress-modal/adress-modal';
 import { UsersProvider } from '../../providers/users/users';
@@ -43,7 +43,8 @@ export class MyRepresentativesPage {
     private httpProvider:UsersProvider,
     public actionSheetCtrl: ActionSheetController,
     public toastCtrl: ToastController,
-    private callNumber: CallNumber) {    
+    private callNumber: CallNumber,
+    private alertCtrl: AlertController) {    
       this.httpProvider.returnRallyUserId()
       .then(user => {
         console.log(" Usuario",user);
@@ -113,6 +114,33 @@ export class MyRepresentativesPage {
     });
   }
 
+  showCallAlert(rep, repID, offices){
+    let alert = this.alertCtrl.create({
+      title: 'Are you ready?',
+      message: "If you're not sure what to say, you can review the suggested script with talking points before making the call.",
+      buttons: [
+        {
+          text: 'Review script',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Make the Call',
+          handler: () => {
+            this.navCtrl.push(CallPage, {rep: rep, repID: repID, offices: offices});
+            this.callNumber.callNumber(rep.phone, true)
+            .then(() => console.log('Launched dialer!'))
+            .catch((error) => console.log('Error launching dialer', error));
+
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
   presentActionSheet(rep, fax, twitter, email, repID, offices) {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Contact ' + rep.name,
@@ -120,10 +148,8 @@ export class MyRepresentativesPage {
         {
           text: 'Call',
           handler: () => {
-            this.navCtrl.push(CallPage, {rep: rep, repID: repID, offices: offices});
-            this.callNumber.callNumber(rep.phone, true)
-            .then(() => console.log('Launched dialer!'))
-            .catch((error) => console.log('Error launching dialer', error));
+            this.showCallAlert(rep, repID, offices);
+
           }
         },{
           text: 'Fax',
