@@ -25,6 +25,7 @@ import { Content } from 'ionic-angular';
 import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
 import { ThankYouPage } from '../thank-you/thank-you';
 import { DomSanitizer } from '@angular/platform-browser';
+import { RepresentativeProfilePage } from '../representative-profile/representative-profile';
 
 @Component({
   selector: 'page-feed', 
@@ -71,6 +72,8 @@ export class FeedPage {
   distance:any;
   filterBy:any;
   safeSvg:any;
+  followEndpoint:any = 'following_representative';
+
 
 
   // @ViewChild(Content) content: Content;
@@ -289,7 +292,7 @@ doRefresh(refresher) {
       console.log('Async operation has ended');
       refresher.complete();
     }, 2000);
-  }
+  } 
 
 
    goToOrganizationProfile(organizationID){
@@ -298,6 +301,11 @@ doRefresh(refresher) {
           OrgPageName: "Home"
     }, {animate:true,animation:'transition',duration:500,direction:'forward'});
      }
+
+
+     goToRepProfile(repID){
+      this.navCtrl.push(RepresentativeProfilePage, {repID: repID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+    }
 
      goToPublicProfile(userID){
        this.navCtrl.push(PublicProfilePage, {
@@ -614,6 +622,159 @@ eventEllipsisController(name, orgID, desc, followers){
 });
 
 actionSheet.present();
+}
+
+
+tweetOrgEllipsisController(name, orgID, desc, followers){
+  const actionSheet = this.actionSheetCtrl.create({
+    buttons: [
+    {
+      text: 'Share this event via...',
+      handler: () => {
+        console.log("test");
+        this.shareProvider.otherShare(name, desc);
+
+      }
+    }, 
+    {
+      text: 'Turn on/off notifications for ' + name,
+      handler: () => {
+        console.log("test");
+
+      }
+    },
+    {
+      text: this.findInLoopTweet(followers) + ' ' + name,
+      handler: () => {
+        this.orgStatus(orgID);
+        console.log("test");
+
+      }
+    },
+    {
+      text: 'Report',
+      role: 'destructive',
+      handler: () => {
+        console.log("test");
+        this.shareProvider.shareViaEmail();
+
+      }
+    },
+    {
+      text: 'Cancel',
+      role: 'cancel',
+      handler: () => {
+        console.log('Cancel clicked');
+      }
+    }
+  ]
+});
+
+actionSheet.present();
+}
+
+
+tweetRepEllipsisController(name, repID, desc, followers){
+  const actionSheet = this.actionSheetCtrl.create({
+    buttons: [
+    {
+      text: 'Share this event via...',
+      handler: () => {
+        console.log("test");
+        this.shareProvider.otherShare(name, desc);
+
+      }
+    }, 
+    {
+      text: 'Turn on/off notifications for ' + name,
+      handler: () => {
+        console.log("test");
+
+      }
+    },
+    {
+      text: this.findInLoopTweet(followers) + ' ' + name,
+      handler: () => {
+        this.followRep(repID);
+        console.log("test");
+
+      }
+    },
+    {
+      text: 'Report',
+      role: 'destructive',
+      handler: () => {
+        console.log("test");
+        this.shareProvider.shareViaEmail();
+
+      }
+    },
+    {
+      text: 'Cancel',
+      role: 'cancel',
+      handler: () => {
+        console.log('Cancel clicked');
+      }
+    }
+  ]
+});
+
+actionSheet.present();
+}
+
+
+followRep(repID){
+  
+  
+  this.httpProvider.getJsonData(this.followEndpoint+'?user_id='+this.myrallyID+'&representative_id='+repID)
+    .subscribe(
+      result => {
+        
+        if (result != ""){              
+          this.unFollowRep(result[0].id);
+         
+        } else{
+          this.saveRepInApi(repID);
+
+        }
+      },
+  err =>{
+    console.error("Error : "+err);         
+  } ,
+  () => {
+    console.log('getData completed');
+  }
+    );
+}
+
+saveRepInApi(repID){
+  this.usersProv.followRep(this.followEndpoint, this.myrallyID, repID);
+  this.presentToast('Representative added');
+  
+
+}
+
+unFollowRep(recordID){
+  this.usersProv.unfollowOrganization(this.followEndpoint, recordID);
+  this.presentToast('Representative removed');
+}
+
+findInLoopTweet(actions){
+  if (actions != null){
+    var found = actions.some(el => { 
+        return el == this.myrallyID;
+      
+    });
+    
+    if (!found){
+      return 'Follow';
+      
+    }else{
+      return 'Unfollow';
+      
+    }
+  }
+
 }
 
 

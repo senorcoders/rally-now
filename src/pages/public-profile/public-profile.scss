@@ -5,6 +5,23 @@ page-public-profile {
 //  ion-header {
 //         text-align: center;
 //     }
+
+.btn-50 {
+    width: 50%;
+    height: 50px;
+    margin: 0;
+}
+
+.right-border {
+    border-right: 1px solid #fff;
+}
+
+.simple-title {
+    border: none;
+    background: transparent;
+    margin-bottom: 0px !important;
+    border-bottom: 2px solid #e9e9e9;
+}
     ion-content {
         background-color: #fff !important;
         top: 60px !important;
@@ -126,4 +143,9 @@ page-public-profile {
         border-radius: 8px;
         font-size: 12px;
     }
+
+    .item-md ion-avatar img,
+        .item-ios ion-avatar img {
+            border: 2px solid #f66240;
+        }
 }

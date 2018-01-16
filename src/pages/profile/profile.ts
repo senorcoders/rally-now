@@ -70,8 +70,6 @@ export class ProfilePage {
   activityLike:any = 'd32c1cb5-b076-4353-ad9c-1c8f81d812e3';
 
 
-
-
   constructor(
     public navCtrl: NavController, 
     public popoverCtrl: PopoverController,

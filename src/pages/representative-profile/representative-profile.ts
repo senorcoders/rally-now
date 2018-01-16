@@ -22,6 +22,11 @@ export class RepresentativeProfilePage {
   repID:any;
   followers:any;
   post_count:any;
+  posts:any;
+  likeendpoint:any = 'likes';
+  disable:boolean = false;
+  tweetLike:any = 'ab860ccb-9713-49e5-b844-34d18f92af21';
+
 
   constructor(
     public navCtrl: NavController, 
@@ -49,7 +54,62 @@ export class RepresentativeProfilePage {
       this.repID = result.id;
       this.followers = result.followers;
       this.post_count = result.post_count;
+      this.posts = result.posts;
     });
+  }
+
+  getLikeStatus($event, reference_id, like_type, likes){
+    this.disable = true;
+
+    this.httpProvider.getJsonData(this.likeendpoint+'?reference_id='+reference_id+'&user_id='+this.currentRallyID).subscribe(
+      result => {
+        console.log($event);
+        console.log("Aqui", $event.srcElement.lastChild.data);
+        
+        if(result != "" ){
+          this.removeFav(result[0].id);
+          this.presentToast('You unliked it');
+          $event.srcElement.style.backgroundColor = '#f2f2f2';
+          $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
+          $event.srcElement.lastChild.data--;
+          
+        }else{
+         this.addLike(reference_id, like_type);
+         this.presentToast('You liked it');
+          $event.srcElement.style.backgroundColor = '#296fb7';
+          $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
+          $event.srcElement.lastChild.data++;
+        }
+      },
+      err =>{
+        console.error("Error : "+err);         
+      } ,
+      () => {
+        console.log('getData completed');
+      }
+
+      );
+  }
+
+  addLike(reference_id, like_type){
+    this.httpProvider.addLike(this.likeendpoint, reference_id, this.currentRallyID, like_type).subscribe(
+      response =>{
+          console.log(response);
+          this.disable = false;
+      });
+
+  }
+
+  removeFav(recordID){
+    this.httpProvider.removeItem(this.likeendpoint, recordID).subscribe(res => {
+      console.log(res);
+      this.disable = false;
+  
+    }, err =>{
+      console.log(err);
+    });
+    this.httpProvider.removeFollowRecordID(recordID, 'favorites');
+  
   }
 
   tweetRep(username){
@@ -121,6 +181,24 @@ export class RepresentativeProfilePage {
         
       }
     }
+  }
+
+  findInLoopColor(actions){
+    if (actions != null){
+      var found = actions.some(el => { 
+          return el == this.currentRallyID;
+        
+      });
+      
+      if (!found){
+        return '#f2f2f2';
+        
+      }else{
+        return '#296fb7';
+        
+      }
+    }
+
   }
 
 

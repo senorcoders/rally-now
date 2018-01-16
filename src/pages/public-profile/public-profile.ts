@@ -4,6 +4,7 @@ import { UsersProvider } from '../../providers/users/users';
 import {AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
+import { SocialShareProvider } from '../../providers/social-share/social-share';
 
 
 @IonicPage()
@@ -14,7 +15,7 @@ import { PhotoViewer } from '@ionic-native/photo-viewer';
 export class PublicProfilePage {
 	parameter: string;
 	userData:any;
-	endpoint:string = 'users?id=';
+	endpoint:string = 'users/';
   hidden:any;
   followEndpoint:string= 'following_users';
   buttonFollowTest:string;
@@ -24,6 +25,15 @@ export class PublicProfilePage {
   profilePageName:any;
   myRallyID:any;
   my_activity:any;
+  name:any;
+  photo_url:any;
+  actions_taken:any;
+  followers_count:any;
+  organizations_count:any;
+  id:any;
+  disable:boolean = false;
+  likeendpoint:any = 'likes';
+  activityLike:any = 'd32c1cb5-b076-4353-ad9c-1c8f81d812e3';
   
 
   constructor(
@@ -34,7 +44,8 @@ export class PublicProfilePage {
     public toastCtrl: ToastController,
     public actionSheetCtrl: ActionSheetController,
     private photoViewer: PhotoViewer,
-    public viewCtrl:ViewController
+    public viewCtrl:ViewController,
+    private shareProvider:SocialShareProvider
   ) {
   	this.parameter = navParams.get('param1');
     this.profilePageName = navParams.get('profilePageName');
@@ -79,9 +90,14 @@ export class PublicProfilePage {
   getdata(){
   this.httpProvider.getJsonData(this.endpoint + this.parameter).subscribe(
     result => {
-      this.userData=result;
       this.hidden=result.hide_activity;
-      this.my_activity= result.my_activity;
+      this.my_activity= result.my_actions;
+      this.photo_url = result.photo_url;
+      this.name = result.name;
+      this.actions_taken = result.actions_taken;
+      this.followers_count = result.followers_count;
+      this.organizations_count = result.organizations_count;
+      this.id = result.id;
       console.log("Success : "+ result);
     },
     err =>{
@@ -192,6 +208,143 @@ presentToast(message) {
 
     showPhotoViewer(path){
   this.photoViewer.show(path);
+}
+
+findInLoop(actions){
+  if (actions != null){
+    var found = actions.some(el => { 
+        return el == this.myRallyID;
+      
+    });
+    
+    if (!found){
+      return '#f2f2f2';
+      
+    }else{
+      return '#296fb7';
+      
+    }
+  }
+
+}
+
+getLikeStatus($event, reference_id, like_type, likes){
+  this.disable = true;
+
+  this.httpProvider.getJsonData(this.likeendpoint+'?reference_id='+reference_id+'&user_id='+this.myRallyID).subscribe(
+    result => {
+      console.log($event);
+      console.log("Aqui", $event.srcElement.lastChild.data);
+      
+      if(result != "" ){
+        this.removeFav(result[0].id);
+        this.presentToast('You unliked it');
+        $event.srcElement.style.backgroundColor = '#f2f2f2';
+        $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
+        $event.srcElement.lastChild.data--;
+        
+      }else{
+       this.addLike(reference_id, like_type);
+       this.presentToast('You liked it');
+        $event.srcElement.style.backgroundColor = '#296fb7';
+        $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
+        $event.srcElement.lastChild.data++;
+      }
+    },
+    err =>{
+      console.error("Error : "+err);         
+    } ,
+    () => {
+      console.log('getData completed');
+    }
+
+    );
+}
+
+
+addLike(reference_id, like_type){
+  this.httpProvider.addLike(this.likeendpoint, reference_id, this.myRallyID, like_type).subscribe(
+    response =>{
+        console.log(response);
+        this.disable = false;
+    });
+
+}
+
+removeFav(recordID){
+  this.httpProvider.removeItem(this.likeendpoint, recordID).subscribe(res => {
+    console.log(res);
+    this.disable = false;
+
+  }, err =>{
+    console.log(err);
+  });
+  this.httpProvider.removeFollowRecordID(recordID, 'favorites');
+
+}
+
+shareController(title, imgURI, $event) {
+  this.disable = true;
+
+const actionSheet = this.actionSheetCtrl.create({
+ title: 'Share to where?',
+ buttons: [ 
+   {
+     text: 'Facebook',
+     handler: () => {
+       this.shareProvider.facebookShare(title, imgURI);
+       $event.srcElement.lastChild.data++;
+       this.disable = false;
+
+     }
+   }, 
+   {
+     text: 'Twitter',
+     handler: () => {
+       this.shareProvider.twitterShare(title, imgURI);
+       $event.srcElement.lastChild.data++;
+       this.disable = false;
+      
+
+     }
+   },
+  //  {
+  //   text: 'Copy Link',
+  //   handler: () => {
+  //     this.disable = false;
+
+  //   }
+  // },
+  // {
+  //   text: 'SMS Message',
+  //   handler: () => {
+  //     this.presentToast('Objective shared!');
+  //     this.disable = false;
+
+  //   }
+  // },
+  // {
+  //   text: 'Email',
+  //   handler: () => {
+      
+  //     this.presentToast('Objective shared!');
+  //     this.disable = false;
+
+  //   }
+  // },
+   {
+     text: 'Cancel',
+     role: 'cancel',
+     handler: () => {
+       console.log('Cancel clicked');
+       this.disable = false;
+
+     }
+   }
+ ]
+});
+
+actionSheet.present();
 }
 
 

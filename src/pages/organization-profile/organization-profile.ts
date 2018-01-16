@@ -39,6 +39,10 @@ export class OrganizationProfilePage {
   shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
   disable:boolean = false;
   twitter:any;
+  events:any;
+  tweets:any;
+  eventLike:any = 'd5d1b115-dbb6-4894-8935-322c336ae951';
+
 
 
 
@@ -86,6 +90,8 @@ export class OrganizationProfilePage {
       this.posts = result.organization[0]['objectives_count'];
       this.followers = result.organization[0]['follower_count'];
       this.twitter = result.organization[0]['twitter'];
+      this.events = result.organization[0].events;
+      this.tweets = result.organization[0].tweets; 
       console.log("Success : "+ JSON.stringify(result.organization[0]['name']) );
     },
     err =>{
@@ -97,6 +103,28 @@ export class OrganizationProfilePage {
   );
 }
 
+getDay(day){
+  var d = new Date(day);
+  var weekday = new Array(7);
+  weekday[0] = "SUNDAY";
+  weekday[1] = "MONDAY";
+  weekday[2] = "TUESDAY";
+  weekday[3] = "WEDNESDAY";
+  weekday[4] = "THURSDAY";
+  weekday[5] = "FRIDAY";
+  weekday[6] = "SATURDAY";
+  var n = weekday[d.getDay()];
+  return n;
+}
+
+getShortDate(day){
+  var d = new Date(day);
+  var monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+    "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+  // console.log(monthNames[d.getMonth()]);
+  var date = monthNames[d.getMonth()] + ' ' + d.getDay();
+  return date;
+}
   checkOrganizationStatus(){
    let user:any = firebase.auth().currentUser;
      if (user) {
@@ -274,6 +302,48 @@ goToActionPage(objectiveID){
     
         );
     }
+
+    eventEllipsisController(name, orgID, desc, followers){
+      const actionSheet = this.actionSheetCtrl.create({
+        buttons: [
+        {
+          text: 'Share this event via...',
+          handler: () => {
+            console.log("test");
+            this.shareProvider.otherShare(name, desc);
+    
+          }
+        }, 
+        {
+          text: 'Turn on/off notifications for ' + name,
+          handler: () => {
+            console.log("test");
+    
+          }
+        },
+        {
+          text: 'Report',
+          role: 'destructive',
+          handler: () => {
+            console.log("test");
+            this.shareProvider.shareViaEmail();
+    
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    
+    actionSheet.present();
+    }
+
+    
     
     addLike(reference_id, like_type){
       this.httpProvider.addLike(this.likeendpoint, reference_id, this.myrallyID, like_type).subscribe(
@@ -362,5 +432,22 @@ goToActionPage(objectiveID){
 
     tweetOrg(username){
       this.shareProvider.twitterShare(username);
+    }
+
+    getOrganizationFollowStatus(actions){
+      if (actions != null){
+        var found = actions.some(el => { 
+            return el.id == this.myrallyID;
+          
+        });
+        
+        if (!found){
+          return 'Follow';
+          
+        }else{
+          return 'Unfollow';
+          
+        }
+      }
     }
 }
