@@ -150,7 +150,7 @@
             </button>
                     <p><small>{{record.created_at | amTimeAgo}}</small></p>
                 </ion-item>
-                <div (click)="goToActionPage(record.id, record?.goals[0]?.goal_type, record?.goals[0]?.source_link, record?.goals[0]?.id)" class="organization-bg" [ngStyle]="{ 'background-image' : 'url(' + record.image_url +')'}">
+                <div (click)="goToActionPage(record.id, record?.goals[0]?.goal_type, record?.goals[0]?.source_link, record?.goals[0]?.id, record?.goals[0]?.reps_goals[0]?.id)" class="organization-bg" [ngStyle]="{ 'background-image' : 'url(' + record.image_url +')'}">
                         
                 <!-- <div (click)="goToActionPage(objective.id)" class="organization-bg" [ngStyle]="{ 'background-image' : 'url(' + objective.image_url !== null ? objective.image_url : localPhoto +')'}"> -->
                     <!-- <div class="days-excerpt">
