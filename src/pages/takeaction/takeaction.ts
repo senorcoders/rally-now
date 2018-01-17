@@ -13,6 +13,7 @@ import {AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
 import { ThankYouPage } from '../thank-you/thank-you';
+import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
 
 
 @IonicPage()
@@ -148,18 +149,23 @@ export class TakeactionPage {
 
 goToOrganizationProfile(organizationID){
        this.navCtrl.push(OrganizationProfilePage, {
-          organizationID: organizationID,
+          organizationID: organizationID, 
           OrgPageName: "Take Action"
     },  {animate:true,animation:'transition',duration:500,direction:'forward'});
      }
 
 
-     goToActionPage(objectiveID){
+     goToActionPage(objectiveID, goal_type, source, goalID){ 
+      if(goal_type !== "sign"){
        this.navCtrl.push(OrganizationActionPage, {
-          objectiveID: objectiveID,
-          pageName: 'Take Action'
-    }, {animate:true,animation:'transition',duration:500,direction:'forward'});
-     }
+         objectiveID: objectiveID,
+         pageName: 'Home'
+     }, {animate:true,animation:'transition',duration:500,direction:'forward'});
+      } else{
+       this.navCtrl.push(SignFeedBackPage, {iframeUrl: source, repID:objectiveID, goalID:goalID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+      }  
+     
+    }
 
 
 

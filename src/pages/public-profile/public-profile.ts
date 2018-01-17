@@ -96,7 +96,7 @@ export class PublicProfilePage {
       this.name = result.name;
       this.actions_taken = result.actions_taken;
       this.followers_count = result.followers_count;
-      this.organizations_count = result.organizations_count;
+      this.organizations_count = result.following_count;
       this.id = result.id;
       console.log("Success : "+ result);
     },

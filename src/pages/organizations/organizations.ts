@@ -16,6 +16,7 @@ import { FilterEventsPage } from '../filter-events/filter-events';
 import { Storage } from '@ionic/storage';
 import { ThankYouPage } from '../thank-you/thank-you';
 import { DomSanitizer } from '@angular/platform-browser';
+import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
 
 
 @IonicPage() 
@@ -181,12 +182,17 @@ doInfinite(infiniteScroll:any) {
     });
      }
 
-     goToActionPage(objectiveID){
+     goToActionPage(objectiveID, goal_type, source, goalID){ 
+      if(goal_type !== "sign"){
        this.navCtrl.push(OrganizationActionPage, {
-          objectiveID: objectiveID,
-          pageName: 'My Organizations'
-    }, {animate:true,animation:'transition',duration:500,direction:'forward'});
-     }
+         objectiveID: objectiveID,
+         pageName: 'Home'
+     }, {animate:true,animation:'transition',duration:500,direction:'forward'});
+      } else{
+       this.navCtrl.push(SignFeedBackPage, {iframeUrl: source, repID:objectiveID, goalID: goalID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+      }  
+     
+    }
 
        
 

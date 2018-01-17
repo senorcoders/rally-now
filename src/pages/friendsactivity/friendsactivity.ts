@@ -300,14 +300,14 @@ goToOrganizationProfile(organizationID){
 }, {animate:true,animation:'transition',duration:500,direction:'forward'});
 }
 
-goToActionPage(objectiveID, goal_type){ 
-  if(goal_type !== "sign"){ 
+goToActionPage(objectiveID, goal_type, source, goalID){ 
+  if(goal_type !== "sign"){
    this.navCtrl.push(OrganizationActionPage, {
      objectiveID: objectiveID,
-     pageName: 'Community'
+     pageName: 'Home'
  }, {animate:true,animation:'transition',duration:500,direction:'forward'});
   } else{
-   this.navCtrl.push(SignFeedBackPage, {iframeUrl: 'https://ionicframework.com/', repID:objectiveID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+   this.navCtrl.push(SignFeedBackPage, {iframeUrl: source, repID:objectiveID, goalID: goalID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }  
  
 }

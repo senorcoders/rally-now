@@ -71,7 +71,7 @@
             <p><small>{{objective.created_at | amTimeAgo}}</small></p>
         </ion-item>
 
-        <div (click)="goToActionPage(objective.id)" class="organization-bg" [ngStyle]="{ 'background-image' : 'url(' + objective.image_url +')'}">
+        <div (click)="goToActionPage(objective.id, objective?.goals[0]?.goal_type, objective?.goals[0]?.source_link, objective?.goals[0]?.id)" class="organization-bg" [ngStyle]="{ 'background-image' : 'url(' + objective.image_url +')'}">
             <!-- <div class="days-excerpt">
                 <p class="white">{{objective?.goals[0]?.description}}</p>
             </div> -->

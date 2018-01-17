@@ -21,9 +21,10 @@ export class SignFeedBackPage {
     title: '',
     short_desc: '',
     representative_id: '',
-    action_type_id: ''
+    action_type_id: '',
+    goal_id: ''
   }];
-
+ 
 
 
   constructor(
@@ -34,9 +35,10 @@ export class SignFeedBackPage {
     private httpProvider: UsersProvider) {
       this.url = navParams.get('iframeUrl');
       this.openWebpage(this.url);
+      this.data.goal_id = navParams.get('goalID');
       this.data.representative_id = navParams.get('repID');
       this.data.action_type_id = '73637819-9571-4070-9162-abf41fc50c71';
-      this.data.title = 'email';
+      this.data.title = 'sign';
       this.httpProvider.returnRallyUserId().then( user => {
         this.data.user_id = user.apiRallyID;
       });

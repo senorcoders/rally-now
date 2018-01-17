@@ -143,7 +143,7 @@ export class ProfilePage {
             this.user.shares = result[0].shares;
             this.user.friends_count = result[0].friends_count;
             this.user.followers_count = result[0].followers_count;
-            this.user.organizations_count = result[0].organizations_count;
+            this.user.organizations_count = result[0].following_count;
             this.user.my_activity = result[0].my_actions;
             this.actions = result[0].actions;
             this.longest_streak = result[0].longest_streak;

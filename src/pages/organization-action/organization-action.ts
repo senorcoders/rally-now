@@ -127,7 +127,7 @@ export class OrganizationActionPage {
             .then(() => console.log('Launched dialer!'))
             .catch((error) => console.log('Error launching dialer', error));
 
-          }
+          } 
         }
       ]
     });

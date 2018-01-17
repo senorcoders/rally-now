@@ -7,6 +7,7 @@ import { OrganizationsProvider } from '../../providers/organizations/organizatio
 import { OrganizationActionPage } from '../organization-action/organization-action';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
 import { OrganizationFollowersPage } from '../organization-followers/organization-followers';
+import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
 
 
 @IonicPage()
@@ -264,12 +265,17 @@ removeFav(recordID){
  this.httpProvider.removeFollowRecordID(recordID, 'favorites');
 }
 
-goToActionPage(objectiveID){
-       this.navCtrl.push(OrganizationActionPage, {
-          objectiveID: objectiveID,
-          pageName: this.name
-    }, {animate:true,animation:'transition',duration:500,direction:'forward'});
-     }
+goToActionPage(objectiveID, goal_type, source, goalID){ 
+  if(goal_type !== "sign"){
+   this.navCtrl.push(OrganizationActionPage, {
+     objectiveID: objectiveID,
+     pageName: 'Home'
+ }, {animate:true,animation:'transition',duration:500,direction:'forward'});
+  } else{
+   this.navCtrl.push(SignFeedBackPage, {iframeUrl: source, repID:objectiveID, goalID: goalID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+  }  
+ 
+}
 
 
      getLikeStatus($event, reference_id, like_type){

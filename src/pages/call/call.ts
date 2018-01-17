@@ -119,7 +119,7 @@ export class CallPage {
   }
 
   giveFeedBack(){
-    this.navCtrl.push(FeedbackPage, {repID: this.data.representative_id});
+    this.navCtrl.push(FeedbackPage, {repID: this.data.representative_id, goalID: this.data.goal_id});
   } 
 
   showCallAlert(phone_number){
