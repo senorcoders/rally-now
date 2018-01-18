@@ -73,6 +73,7 @@ export class FeedPage {
   filterBy:any;
   safeSvg:any;
   followEndpoint:any = 'following_representative';
+  enablePlaceholder:boolean = true;
 
 
 
@@ -120,6 +121,7 @@ export class FeedPage {
 
       }); 
         this.loading.present();
+        this.enablePlaceholder = true;
        
         this.usersProv.returnRallyUserId()
       .then(user => {
@@ -250,6 +252,7 @@ export class FeedPage {
           
         resolve(true);
         this.loading.dismiss(); 
+        this.enablePlaceholder = false;
 
       });
   });
@@ -287,6 +290,7 @@ doRefresh(refresher) {
     this.loading.present();
   this.getdata();
   this.eventFiltered = false;
+  this.enablePlaceholder = true;
 
     setTimeout(() => {
       console.log('Async operation has ended');
@@ -892,6 +896,7 @@ orgStatus(orgID){
              content: this.safeSvg,
             }); 
               this.loading.present();
+              this.enablePlaceholder = true;
 
           });
 

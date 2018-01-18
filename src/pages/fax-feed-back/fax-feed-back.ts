@@ -4,6 +4,7 @@ import { ThankYouPage } from '../thank-you/thank-you';
 import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser";
 import { UsersProvider } from '../../providers/users/users';
 import { IssueScreenPage } from '../issue-screen/issue-screen';
+import { ViewController } from 'ionic-angular/navigation/view-controller';
 
 
 @IonicPage()
@@ -24,6 +25,7 @@ export class FaxFeedBackPage {
     action_type_id: '',
     goal_id: ''
   }]; 
+  objectiveID:any;
 
 
   constructor(
@@ -31,13 +33,15 @@ export class FaxFeedBackPage {
     public navParams: NavParams,
     public modalCtrl: ModalController,
     private inAppBrowser: InAppBrowser,
-    private httpProvider: UsersProvider) {
+    private httpProvider: UsersProvider,
+    public viewCtrl: ViewController) {
       this.url = navParams.get('iframeUrl');
       this.openWebpage(this.url);
       this.data.representative_id = navParams.get('repID');
       this.data.goal_id = navParams.get('goalID');
       this.data.action_type_id = 'ad3ef19b-d809-45b7-bef2-d470c9af0d1d';
       this.data.title = 'fax';
+      this.objectiveID = navParams.get('objectiveID');
       this.httpProvider.returnRallyUserId().then( user => {
         this.data.user_id = user.apiRallyID;
       });
@@ -97,8 +101,11 @@ export class FaxFeedBackPage {
   }
 
   back(){
-    this.navCtrl.pop();
+   
+      this.navCtrl.pop();
+
   }
+  
 
   submit(){
   
@@ -106,8 +113,10 @@ export class FaxFeedBackPage {
     if(this.value === 'success'){
       this.streakModal();
       this.addAction();
-    }else{
+    }else if(this.value === 'fail'){
       this.errorModal();
+    }else{
+      this.back();
     }
   }
 

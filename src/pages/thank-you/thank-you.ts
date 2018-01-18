@@ -47,7 +47,7 @@ export class ThankYouPage {
   }
 
   dismiss() {
-     this.app.getRootNav().setRoot(TabsPage);
+     this.app.getRootNav().pop(TabsPage);
     this.viewCtrl.dismiss();
   }
 

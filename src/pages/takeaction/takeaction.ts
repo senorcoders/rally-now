@@ -152,7 +152,7 @@ goToOrganizationProfile(organizationID){
           organizationID: organizationID, 
           OrgPageName: "Take Action"
     },  {animate:true,animation:'transition',duration:500,direction:'forward'});
-     }
+}
 
 
      goToActionPage(objectiveID, goal_type, source, goalID, repID){ 

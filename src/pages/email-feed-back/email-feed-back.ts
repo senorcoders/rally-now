@@ -25,6 +25,7 @@ export class EmailFeedBackPage {
     action_type_id: '',
     goal_id: ''
   }];
+  objectiveID:any;
 
 
   constructor(
@@ -38,6 +39,7 @@ export class EmailFeedBackPage {
       this.openWebpage(this.url);
       this.data.representative_id = navParams.get('repID');
       this.data.goal_id = navParams.get('goalID');
+      this.objectiveID = navParams.get('objectiveID');
       this.data.action_type_id = 'f9b53bc8-9847-4699-b897-521d8e1a34bb';
       this.data.title = 'email';
       this.httpProvider.returnRallyUserId().then( user => {
@@ -108,8 +110,10 @@ export class EmailFeedBackPage {
     if(this.value === 'success'){
       this.streakModal();
       this.addAction();
-    }else{
+    }else if(this.value === 'fail'){
       this.errorModal();
+    }else{
+      this.back();
     }
   }
 

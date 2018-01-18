@@ -122,7 +122,7 @@ export class OrganizationActionPage {
         {
           text: 'Make the Call',
           handler: () => {
-            this.navCtrl.push(CallPage, {rep: rep, repID: repID, talkingPoints: this.objDesc, offices: offices, goalID: this.goal_id});
+            this.navCtrl.push(CallPage, {rep: rep, repID: repID, talkingPoints: this.objDesc, offices: offices, goalID: this.goal_id, objectiveID: this.objectiveID});
             this.callNumber.callNumber(rep.phone, true)
             .then(() => console.log('Launched dialer!'))
             .catch((error) => console.log('Error launching dialer', error));
@@ -150,7 +150,7 @@ export class OrganizationActionPage {
             console.log('Fax clicked');
             // this.data.action_type_id = 'ad3ef19b-d809-45b7-bef2-d470c9af0d1d';
             // this.httpProvider.addAction(this.favEndpoint, this.data);
-            this.navCtrl.push(FaxFeedBackPage, {iframeUrl: fax, repID: repID, goalID: this.goal_id});
+            this.navCtrl.push(FaxFeedBackPage, {iframeUrl: fax, repID: repID, goalID: this.goal_id, objectiveID: this.objectiveID});
 
           }
         },{ 
@@ -159,7 +159,7 @@ export class OrganizationActionPage {
             console.log('Email clicked');
             // this.data.action_type_id = 'f9b53bc8-9847-4699-b897-521d8e1a34bb';
             // this.httpProvider.addAction(this.favEndpoint, this.data);
-            this.navCtrl.push(EmailFeedBackPage, {iframeUrl: email, repID: repID, goalID: this.goal_id});
+            this.navCtrl.push(EmailFeedBackPage, {iframeUrl: email, repID: repID, goalID: this.goal_id, objectiveID: this.objectiveID});
           }
         },{
           text: 'Post message via Twitter',

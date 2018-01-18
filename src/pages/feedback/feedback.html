@@ -14,8 +14,8 @@
   <ion-row class="btn-row" (click)="sendActions($event)"> 
       <button full (click)="getValue('success')" >Spoke with a staffer</button>
       <button full (click)="getValue('success')" >Left a message</button>
-      <button full (click)="back()" >Line was busy</button> 
-      <button full  (click)="back()">Voice mail full</button>
+      <button full (click)="getValue('back')" >Line was busy</button> 
+      <button full  (click)="getValue('back')">Voice mail full</button>
       <button full (click)="getValue('fail')">Wrong number</button>
       <button full (click)="getValue('success')">Other</button>   
       
