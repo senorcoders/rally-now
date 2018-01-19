@@ -10,6 +10,7 @@ import { UsersProvider } from '../../providers/users/users';
 import { AngularFireDatabase } from 'angularfire2/database';
 import firebase from 'firebase';
 import { DomSanitizer } from '@angular/platform-browser';
+import { PublicProfilePage } from '../public-profile/public-profile';
 
 
 @IonicPage()
@@ -186,6 +187,16 @@ export class FollowedCandidatesPage {
        this.userProvider.unfollowOrganization(this.followEndpoint, recordID);
        this.userProvider.removeFollowRecordID(parameter, 'follow');
      }
+ 
+
+     goToPublicProfile(userID){
+      this.navCtrl.push(PublicProfilePage, {
+         param1: userID,
+         profilePageName: "Followers"
+     });
+    }
+
+
  
     
  

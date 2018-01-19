@@ -4,7 +4,7 @@
     <ion-row padding style="padding-bottom: 0; background: #fff;">
         <ion-col col-4 class="profile-headshot">
             <ion-avatar item-start class="profile-img">
-                <img src="{{photo_url}}">
+                <img [src]="photo_url ? photo_url : 'assets/img/user.svg' ">
             </ion-avatar>
           
         </ion-col>
@@ -20,9 +20,9 @@
                 </ion-col>
                
             </ion-row>
-            <ion-col col-12>
+            <ion-row>
                 <button class="follow-btn" (click)="followRep(repID, $event)" color="light" ion-button  full outline>{{findInLoop(followers)}}</button>
-            </ion-col>
+            </ion-row>
  
         </ion-col>
             <ion-col col-12>

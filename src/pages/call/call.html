@@ -19,7 +19,7 @@
        
     </ion-row>
     <ion-row padding>
-        <ion-list>
+        <ion-list *ngIf="talkingPoints != null">
             <ion-list-header style="border: none; padding-left: 0;">Talking Points</ion-list-header>
             <p>{{talkingPoints}}</p>
            

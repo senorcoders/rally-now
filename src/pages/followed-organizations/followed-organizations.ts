@@ -27,6 +27,11 @@ export class FollowedOrganizationsPage {
   users:any;
   reps:any;
   safeSvg:any;
+  organizationEndpoint:any = 'following_organizations';
+  followEndpoint:any = 'following_representative';
+  followUserEndpoint:string= 'following_users';
+
+
 
   constructor(
     public navCtrl: NavController, 
@@ -131,4 +136,90 @@ export class FollowedOrganizationsPage {
       this.navCtrl.push(RepresentativeProfilePage, {repID: repID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
     }
 
+
+    getOrganizationFollowRecordID(orgID, $event){
+      this.httpProvider.getJsonData(this.organizationEndpoint+'?follower_id='+this.currentApiID +'&organization_id='+orgID).subscribe(
+  result => {
+    console.log("Delete ID : "+ result[0].id);
+    this.unfollow(result[0].id, orgID);
+    $event.srcElement.innerText = 'Follow';
+
+  },
+  err =>{
+    console.error("Error : "+err);
+  } ,
+  () => {
+    console.log('getData completed');
+  });
+  }
+
+  unfollow(recordID, orgID){
+
+    this.httpProvider.unfollowOrganization(this.organizationEndpoint, recordID);
+    this.httpProvider.removeFollowRecordID(orgID, 'organizations');
+  }
+
+
+  followRep(repID, $event){
+    console.log($event);
+    
+    
+    this.httpProvider.getJsonData(this.followEndpoint+'?user_id='+this.currentApiID+'&representative_id='+repID)
+      .subscribe(
+        result => {
+          
+          if (result != ""){              
+            this.unFollowRep(result[0].id);
+            $event.srcElement.innerHTML = "Follow";
+            $event.srcElement.innerText = "FOLLOW";
+          } else{
+            this.saveRepInApi(repID);
+            $event.srcElement.innerHTML = "Unfollow";
+            $event.srcElement.innerText = "UNFOLLOW";
+          }
+        },
+    err =>{
+      console.error("Error : "+err);         
+    } ,
+    () => {
+      console.log('getData completed');
+    }
+      );
+  }
+
+  saveRepInApi(repID){
+      this.httpProvider.followRep(this.followEndpoint, this.currentApiID, repID);
+      
+
+  }
+
+  unFollowRep(recordID){
+    this.httpProvider.unfollowOrganization(this.followEndpoint, recordID);
+  }
+
+
+  getFollowRecordID(userID, $event){
+    this.httpProvider.getJsonData(this.followUserEndpoint+'?follower_id='+this.currentApiID+'&following_id='+userID).subscribe(
+result => {
+  console.log("Delete User ID : "+ result[0].id);
+  this.unFollowFriend(result[0].id, userID);
+  $event.srcElement.innerHTML = "Follow";
+  $event.srcElement.innerText = "FOLLOW";
+},
+err =>{
+  console.error("Error : "+err);
+} ,
+() => {
+  console.log('getData completed');
 }
+
+);
+}
+
+  unFollowFriend(recordID, userID){
+    this.httpProvider.unfollowOrganization(this.followUserEndpoint, recordID);
+    this.httpProvider.removeFollowRecordID(userID, 'follow');
+  }
+
+}
+ 

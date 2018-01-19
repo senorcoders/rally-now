@@ -183,7 +183,7 @@ presentToast(message) {
     unFollowActionSheet() {
       
     let actionSheet = this.actionSheetCtrl.create({
-      title: 'Unfollow ' + this.userData[0].name + '?' ,
+      title: 'Unfollow ' + this.name + '?' ,
       cssClass: 'title-img',      
       buttons: [
         {

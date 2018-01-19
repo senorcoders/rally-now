@@ -311,10 +311,12 @@ getDay(day){
 
 getShortDate(day){
   var d = new Date(day);
+  var dd = d.getDate();
+  
   var monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
     "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
   // console.log(monthNames[d.getMonth()]);
-  var date = monthNames[d.getMonth()] + ' ' + d.getDay();
+  var date = monthNames[d.getMonth()] + ' ' + dd;
   return date;
 }
 

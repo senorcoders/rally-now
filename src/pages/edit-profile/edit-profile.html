@@ -33,10 +33,10 @@
 
           <ion-input value="{{user.diplayName}}" placeholder="Your name" clearInput [(ngModel)]="user.displayName"></ion-input>
       </ion-item>
-      <ion-item>
+      <!-- <ion-item>
         <ion-input value="{{user.username}}" placeholder="username" clearInput [(ngModel)]="user.username"></ion-input>
 
-      </ion-item>
+      </ion-item> -->
 
     
       <!-- <ion-item>
@@ -45,11 +45,11 @@
       </ion-item> -->
       <ion-item>
           <!-- <ion-icon ios="md-information-circle" md="md-information-circle" item-start></ion-icon> -->
-          <ion-input value="{{user.description}}" placeholder="I like cool things" clearInput [(ngModel)]="user.description"></ion-input>
+          <ion-input value="{{user.description}}" placeholder="Description" clearInput [(ngModel)]="user.description"></ion-input>
       </ion-item>
       <ion-item>
           <!-- <ion-icon ios="md-map" md="md-map" item-start></ion-icon> -->
-          <ion-input value="{{user.location}}" placeholder="Phoenix, AZ" clearInput [(ngModel)]="user.location"></ion-input>
+          <ion-input value="{{user.location}}" placeholder="City, State" clearInput [(ngModel)]="user.location"></ion-input>
       </ion-item>
       <!-- <ion-item>
           <ion-label>Hide my activity</ion-label>
@@ -69,16 +69,16 @@
         </ion-list-header>
         <ion-item>
             <!-- <ion-icon ios="ios-mail" md="md-mail" item-start></ion-icon> -->
-            <ion-input value="{{user.email}}" placeholder="me@sallysmith.com" clearInput [(ngModel)]="user.email"></ion-input>
+            <ion-input value="{{user.email}}" placeholder="Email" clearInput [(ngModel)]="user.email"></ion-input>
         </ion-item>
         <ion-item>
             <!-- <ion-icon ios="ios-phone-portrait" md="md-phone-portrait" item-start></ion-icon> -->
-            <ion-input value={{user.phone}} placeholder="(123) 346-7890" clearInput [(ngModel)]="user.phone"></ion-input>
+            <ion-input value={{user.phone}} placeholder="Phone" clearInput [(ngModel)]="user.phone"></ion-input>
         </ion-item>
      
         <ion-item>
             <!-- <ion-icon ios="ios-home" md="md-home" item-start></ion-icon> -->
-            <ion-input value={{user.address}} placeholder="123 main St. #12345, Washington DC, 12345" clearInput [(ngModel)]="user.address"></ion-input>
+            <ion-input value={{user.address}} placeholder="Address" clearInput [(ngModel)]="user.address"></ion-input>
               
         </ion-item>        
       </ion-list>

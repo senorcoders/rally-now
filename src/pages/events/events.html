@@ -38,7 +38,7 @@
             <button (click)="goToOrganizationProfile(event.organization_id)" style="background: none; padding-left:0; max-width: 85%;">
                 <h2 text-wrap style="text-align: left; "> <small>via</small> {{event.organization[0].name}}</h2>
             </button>
-            <p><small>Event Location: {{event.city}}</small></p>
+            <p><small>Event Location: {{event.city ? event.city : 'Unlisted'}}</small></p>
         </ion-item>
         <div class="events-bg" (click)="goToEventDetail(event.id)" [ngStyle]="{'background-image': 'url(' + event.image_url + ')'}">
             <div class="events-filter"></div>
