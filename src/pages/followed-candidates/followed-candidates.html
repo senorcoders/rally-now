@@ -13,14 +13,14 @@
         
         <ion-list> 
                 <ion-item *ngFor="let follower of items">
-                        <ion-avatar item-start (click)="goToPublicProfile(follower.following_id)">
-                          <img src="{{follower.follow[0].photo_url}}"  style="border:2px solid #ada8a8;">
+                        <ion-avatar item-start (click)="goToPublicProfile(follower.follower_id)">
+                          <img src="{{follower.followers[0].photo_url}}"  style="border:2px solid #ada8a8;">
                         </ion-avatar>
-                        <h2 (click)="goToPublicProfile(follower.following_id)">{{follower.follow[0].name}}</h2>
+                        <h2 (click)="goToPublicProfile(follower.follower_id)">{{follower.followers[0].name}}</h2>
                         <button ion-button clear item-end style="background: transparent;
                         color: gray;
                         border-radius: 4px;
-                        padding: 10px 15px; border: 1px solid gray;" (click)="addFollowRecordFirebase(follower.following_id)">Following</button>
+                        padding: 10px 15px; border: 1px solid gray;" (click)="addFollowRecordFirebase(follower.follower_id)">Following</button>
                       </ion-item>
         </ion-list>
    

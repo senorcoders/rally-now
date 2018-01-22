@@ -358,12 +358,19 @@ doRefresh(refresher) {
        {
          text: 'Twitter',
          handler: () => {
-           this.shareProvider.twitterShare(title, imgURI);
-           this.addShareAction(reference_id, like_type);
+           this.shareProvider.twitterShare(title, imgURI).then(() => {
+            console.log("twitter: Success");
+            this.addShareAction(reference_id, like_type);
            $event.srcElement.lastChild.data++;
            this.presentToast('Objective shared!');
            this.disable = false;
            this.streakModal();
+          }).catch((error) => {
+            console.error("shareViaWhatsapp: failed", error);
+            this.disable = false;
+
+          });
+           
 
          }
        },

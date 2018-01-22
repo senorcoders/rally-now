@@ -231,11 +231,17 @@ const actionSheet = this.actionSheetCtrl.create({
    {
      text: 'Twitter',
      handler: () => {
-       this.shareProvider.twitterShare(title, imgURI);
-       this.addShareAction(reference_id, like_type);
-       $event.srcElement.lastChild.data++;
-       this.presentToast('Objective shared!');
-       this.disable = false;
+       this.shareProvider.twitterShare(title, imgURI).then(() =>{
+        this.addShareAction(reference_id, like_type);
+        $event.srcElement.lastChild.data++;
+        this.presentToast('Objective shared!');
+        this.disable = false;
+       }).catch((error) => {
+        console.error("shareViaWhatsapp: failed", error);
+        this.disable = false;
+
+      });
+       
 
      }
    },

@@ -20,11 +20,7 @@ export class SocialShareProvider {
 	}
 
 	twitterShare(title, imgURI?) {
-    this.socialSharing.shareViaTwitter(title, imgURI).then(() => {
-      console.log("shareViaTwitter: Success");
-    }).catch((error) => {
-      console.error("shareViaTwitter: failed", error);
-    });
+    return this.socialSharing.shareViaTwitter(title, imgURI);
 	}
 
 	whatsappShare(title, imgURI) {

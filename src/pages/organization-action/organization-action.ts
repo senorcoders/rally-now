@@ -165,11 +165,13 @@ export class OrganizationActionPage {
           text: 'Post message via Twitter',
           handler: () => {
             console.log('Post message via Twitter clicked');
-            this.data.action_type_id = '9eef1652-ccf9-449a-901e-ad6c0b3a8a6c';
-            this.data.goal_id = this.goal_id;
-            this.httpProvider.addAction(this.favEndpoint, this.data);
-            this.shareProvider.twitterShare('@' + twitter);
-            this.streakModal();
+           
+              this.shareProvider.twitterShare('@' + twitter).then(() => {
+              this.data.action_type_id = '9eef1652-ccf9-449a-901e-ad6c0b3a8a6c';
+              this.data.goal_id = this.goal_id;
+              this.httpProvider.addAction(this.favEndpoint, this.data);
+              this.streakModal();
+            });
           }
         },{
           text: 'Cancel',
@@ -364,12 +366,18 @@ const actionSheet = this.actionSheetCtrl.create({
    {
      text: 'Twitter',
      handler: () => {
-       this.shareProvider.twitterShare(title, imgURI);
-       this.addShareAction(reference_id, like_type);
-       $event.srcElement.lastChild.data++;
-       this.presentToast('Objective shared!');
-       this.disable = false;
-       this.streakModal();
+       this.shareProvider.twitterShare(title, imgURI).then(() => {
+        this.addShareAction(reference_id, like_type);
+        $event.srcElement.lastChild.data++;
+        this.presentToast('Objective shared!');
+        this.disable = false;
+        this.streakModal();
+       }).catch((error) => {
+        console.error("shareViaWhatsapp: failed", error);
+        this.disable = false;
+
+      });
+      
 
      }
    },

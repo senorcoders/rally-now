@@ -5,6 +5,7 @@ import { UsersProvider } from '../../providers/users/users';
 import { OrganizationProfilePage } from '../organization-profile/organization-profile';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
 import { ThankYouPage } from '../thank-you/thank-you';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
 
 
@@ -46,6 +47,7 @@ export class EventDetailPage {
   state:any;
   venue:any;
   eventTime:any;
+  fbID:any;
 
 
 
@@ -60,7 +62,8 @@ export class EventDetailPage {
     public viewCtrl: ViewController,
     private shareProvider:SocialShareProvider,
     public actionSheetCtrl: ActionSheetController,
-    public modalCtrl: ModalController) {
+    public modalCtrl: ModalController,
+    private inAppBrowser: InAppBrowser) {
         this.eventID = navParams.get('eventID');
         this.eventPageName = navParams.get('eventPageName');
         console.log("Evento ID", navParams.get('eventID'));
@@ -105,6 +108,7 @@ export class EventDetailPage {
       this.followers = result.organization[0].followers;
       this.state = result.state;
       this.venue = result.venue;
+      this.fbID = result.facebook_id;
       this.getTime();
 
     },
@@ -243,12 +247,18 @@ const actionSheet = this.actionSheetCtrl.create({
    {
      text: 'Twitter',
      handler: () => {
-       this.shareProvider.twitterShare(title, imgURI);
-       this.addShareAction(reference_id, like_type);
-       $event.srcElement.lastChild.data++;
-       this.presentToast('Objective shared!');
-       this.disable = false;
-       this.streakModal();
+       this.shareProvider.twitterShare(title, imgURI).then(() =>{
+        this.addShareAction(reference_id, like_type);
+        $event.srcElement.lastChild.data++;
+        this.presentToast('Objective shared!');
+        this.disable = false;
+        this.streakModal();
+       }).catch((error) => {
+        console.error("shareViaWhatsapp: failed", error);
+        this.disable = false;
+
+      });
+      
 
      }
    },
@@ -426,6 +436,18 @@ orgStatus(orgID){
             this.eventTime = 'No specific time';
           }
          
+        }
+
+        openWebpage() {
+          var url:string = 'https://www.facebook.com/events/' + this.fbID;
+          const options: InAppBrowserOptions = {
+            zoom: 'no'
+          }
+      
+          // Opening a URL and returning an InAppBrowserObject
+          const browser = this.inAppBrowser.create(url, '_blank', options);
+      
+         // Inject scripts, css and more with browser.X
         }
 
 
