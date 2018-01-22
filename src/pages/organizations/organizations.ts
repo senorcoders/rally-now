@@ -17,6 +17,7 @@ import { Storage } from '@ionic/storage';
 import { ThankYouPage } from '../thank-you/thank-you';
 import { DomSanitizer } from '@angular/platform-browser';
 import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
 
 @IonicPage() 
@@ -62,7 +63,8 @@ export class OrganizationsPage {
     public modalCtrl: ModalController,
     private storage: Storage,
     public loadingCtrl: LoadingController,
-    private sanitizer: DomSanitizer) {
+    private sanitizer: DomSanitizer,
+    private inAppBrowser: InAppBrowser) {
       let svg = `<div id="Rallycontainer">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><title>Loading</title>
       <path id="arrow" class="bounce" d="M79.1,44.3c-2.4-0.5-4.1-2.6-4-5V22.6H58.7c-2.4,0.1-4.5-1.6-5-4C53.2,16,55,13.5,57.6,13c0.3,0,0.5-0.1,0.8-0.1h21.5
@@ -591,5 +593,13 @@ orgStatus(orgID){
               
             }
           }
+        }
+
+        openWebpage(username, tweetID) {
+          var url:string = 'https://twitter.com/' + username + '/status/' + tweetID;
+          const options: InAppBrowserOptions = {
+            zoom: 'no'
+          }
+          const browser = this.inAppBrowser.create(url, '_blank', options);     
         }
 }

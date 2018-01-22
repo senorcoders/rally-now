@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
 
 @IonicPage()
@@ -33,7 +34,8 @@ export class RepresentativeProfilePage {
     public navParams: NavParams,
     private httpProvider: UsersProvider,
     private shareProvider: SocialShareProvider,
-    public toastCtrl: ToastController) {
+    public toastCtrl: ToastController,
+    private inAppBrowser: InAppBrowser) {
       console.log("Rep ID", navParams.get('repID'));
       this.getRepData(navParams.get('repID'));
       this.httpProvider.returnRallyUserId().then(
@@ -199,6 +201,18 @@ export class RepresentativeProfilePage {
       }
     }
 
+  }
+
+  openWebpage(username, tweetID) {
+    var url:string = 'https://twitter.com/' + username + '/status/' + tweetID;
+    const options: InAppBrowserOptions = {
+      zoom: 'no'
+    }
+
+    // Opening a URL and returning an InAppBrowserObject
+    const browser = this.inAppBrowser.create(url, '_blank', options);
+
+   // Inject scripts, css and more with browser.X
   }
 
 

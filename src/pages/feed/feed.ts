@@ -26,6 +26,7 @@ import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
 import { ThankYouPage } from '../thank-you/thank-you';
 import { DomSanitizer } from '@angular/platform-browser';
 import { RepresentativeProfilePage } from '../representative-profile/representative-profile';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
 @Component({
   selector: 'page-feed', 
@@ -96,7 +97,8 @@ export class FeedPage {
     private photoViewer: PhotoViewer,
     public eventsAng: Events,
     public modalCtrl: ModalController,
-    private sanitizer: DomSanitizer) { 
+    private sanitizer: DomSanitizer,
+    private inAppBrowser: InAppBrowser) { 
 
       // eventsAng.subscribe('home:scrollToTop', (time) => {
       //   console.log('home:scrollToTop', 'at', time);
@@ -919,5 +921,17 @@ orgStatus(orgID){
             
           }
         }
+      }
+
+      openWebpage(username, tweetID) {
+        var url:string = 'https://twitter.com/' + username + '/status/' + tweetID;
+        const options: InAppBrowserOptions = {
+          zoom: 'no'
+        }
+    
+        // Opening a URL and returning an InAppBrowserObject
+        const browser = this.inAppBrowser.create(url, '_blank', options);
+    
+       // Inject scripts, css and more with browser.X
       }
 }

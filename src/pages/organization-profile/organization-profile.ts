@@ -8,6 +8,7 @@ import { OrganizationActionPage } from '../organization-action/organization-acti
 import { SocialShareProvider } from '../../providers/social-share/social-share';
 import { OrganizationFollowersPage } from '../organization-followers/organization-followers';
 import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
 
 @IonicPage()
@@ -56,7 +57,8 @@ export class OrganizationProfilePage {
     private db: AngularFireDatabase,
     public actionSheetCtrl: ActionSheetController,
     public viewCtrl:ViewController,
-    private shareProvider:SocialShareProvider) {
+    private shareProvider:SocialShareProvider,
+    private inAppBrowser: InAppBrowser) {
   	this.organizationID = navParams.get('organizationID');
     this.OrgPageName = navParams.get('OrgPageName');
 
@@ -457,5 +459,17 @@ goToActionPage(objectiveID, goal_type, source, goalID, repID){
           
         }
       }
+    }
+
+    openWebpage(username, tweetID) {
+      var url:string = 'https://twitter.com/' + username + '/status/' + tweetID;
+      const options: InAppBrowserOptions = {
+        zoom: 'no'
+      }
+  
+      // Opening a URL and returning an InAppBrowserObject
+      const browser = this.inAppBrowser.create(url, '_blank', options);
+  
+     // Inject scripts, css and more with browser.X
     }
 }

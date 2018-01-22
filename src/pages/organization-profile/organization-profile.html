@@ -1,5 +1,5 @@
 
-<rally-name-header name="{{name}}"></rally-name-header>
+<rally-name-header></rally-name-header>
 
 
 <ion-content>
@@ -199,7 +199,7 @@
                 <p><small>@{{record.twitter_username}} . {{record.created_at | amTimeAgo}}</small></p>
               </ion-item>
         </ion-card-header>
-        <ion-card-content>
+        <ion-card-content (click)="openWebpage(record.twitter_username, record.tweet_id)">
             <ion-row>
                 <ion-col col-10>
                     <blockquote style="margin: 0 !important;" class="twitter-video" data-lang="es"> 

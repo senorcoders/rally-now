@@ -4,22 +4,47 @@
 <ion-content>
 
     <ion-list>
-
-        <ion-item>
-            <ion-label>Events <br>
-                <p style="font-size: 10px;">Scheduled</p>
-            </ion-label>
-            <ion-toggle color="secondary" checked="true"></ion-toggle>
-        </ion-item>
-
         <ion-item>
             <ion-label>Action Reminders <br>
-                <p style="font-size: 10px;">Scheduled</p>
             </ion-label>
-            <ion-toggle color="secondary" checked="true"></ion-toggle>
+            <ion-toggle  checked="false"></ion-toggle>
         </ion-item>
 
         <ion-item>
+            <ion-label>Urgent Action Reminders
+            </ion-label>
+            <ion-toggle  checked="false"></ion-toggle>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Events
+            </ion-label>
+            <ion-toggle  checked="true"></ion-toggle>
+        </ion-item>
+        <ion-item>
+            <ion-label>Success Stories</ion-label>
+            <ion-toggle  checked="false"></ion-toggle>
+        </ion-item>
+        <ion-item>
+            <ion-label>Community Activity</ion-label>
+            <ion-toggle  checked="false"></ion-toggle>
+        </ion-item>
+        <ion-item>
+            <ion-label>Organization Activity</ion-label>
+            <ion-toggle  checked="false"></ion-toggle>
+        </ion-item>
+        <ion-item>
+            <ion-label>Representative Activity</ion-label>
+            <ion-toggle  checked="true"></ion-toggle>
+        </ion-item>
+        <ion-item>
+            <ion-label>Voting Reminders</ion-label>
+            <ion-toggle  checked="false"></ion-toggle>
+        </ion-item>
+
+        
+
+        <!-- <ion-item>
             <ion-range min="-200" max="200" pin="true" [(ngModel)]="structure" color="dark">
                 <p range-left style="font-size: 10px;">Sunday</p>
                 <ion-icon range-right name="md-close"></ion-icon>
@@ -30,14 +55,9 @@
                 <p range-left style="font-size: 10px;">Monday</p>
                 <ion-icon range-right name="md-close"></ion-icon>
             </ion-range>
-        </ion-item>
+        </ion-item> -->
 
-        <ion-item>
-            <ion-label>Urgent Action Reminders <br>
-                <p style="font-size: 10px;">As it happens</p>
-            </ion-label>
-            <ion-toggle color="secondary" checked="true"></ion-toggle>
-        </ion-item>
+<!--         
         <ion-item>
             <ion-label>Follow-up Tasks <br>
                 <p style="font-size: 10px;">Once a day</p>
@@ -71,7 +91,7 @@
                 <p style="font-size: 10px;">As it happens</p>
             </ion-label>
             <ion-toggle color="secondary" checked="true"></ion-toggle>
-        </ion-item>
+        </ion-item> -->
     </ion-list>
 
 </ion-content>

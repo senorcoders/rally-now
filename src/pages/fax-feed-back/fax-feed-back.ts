@@ -32,7 +32,7 @@ export class FaxFeedBackPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public modalCtrl: ModalController,
-    private inAppBrowser: InAppBrowser,
+    private inAppBrowser: InAppBrowser, 
     private httpProvider: UsersProvider,
     public viewCtrl: ViewController) {
       this.url = navParams.get('iframeUrl');
