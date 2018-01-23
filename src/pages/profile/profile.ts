@@ -11,7 +11,7 @@ import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
 import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay'
-import { UserData } from '../../providers/user-data';
+import { UserData } from '../../providers/user-data'; 
 import { AngularFireDatabase } from 'angularfire2/database/database';
 import { UsersProvider } from '../../providers/users/users';
 import { MyFriendsPage } from '../my-friends/my-friends';
@@ -21,6 +21,10 @@ import { AdressModalPage } from '../adress-modal/adress-modal';
 import { MyRepresentativesPage } from '../my-representatives/my-representatives';
 import { Storage } from '@ionic/storage';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
+import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
+import { OrganizationActionPage } from '../organization-action/organization-action';
+import { OrganizationProfilePage } from '../organization-profile/organization-profile';
+import { RepresentativeProfilePage } from '../representative-profile/representative-profile';
 
 
 
@@ -68,6 +72,10 @@ export class ProfilePage {
   disable:boolean = false;
   likeendpoint:any = 'likes';
   activityLike:any = 'd32c1cb5-b076-4353-ad9c-1c8f81d812e3';
+  objectiveActions:any;
+  favEndpoint:any = 'actions';
+  shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
+  activitiesData:any;
 
 
   constructor(
@@ -149,6 +157,8 @@ export class ProfilePage {
             this.longest_streak = result[0].longest_streak;
             this.user.username = result[0].username;
             this.user.id = result[0].id;
+            this.objectiveActions = result[0].Objectives_Actions;
+            this.activitiesData = result[0].Direct_Actions;
           }
         );
      }
@@ -380,17 +390,19 @@ removeFav(recordID){
 }
 
 
-shareController(title, imgURI, $event) {
+shareController(title, imgURI, reference_id, like_type, $event) {
   this.disable = true;
 
 const actionSheet = this.actionSheetCtrl.create({
  title: 'Share to where?',
- buttons: [ 
+ buttons: [
    {
      text: 'Facebook',
      handler: () => {
        this.shareProvider.facebookShare(title, imgURI);
+       this.addShareAction(reference_id, like_type);
        $event.srcElement.lastChild.data++;
+       this.presentToast('Objective shared!');
        this.disable = false;
 
      }
@@ -398,8 +410,10 @@ const actionSheet = this.actionSheetCtrl.create({
    {
      text: 'Twitter',
      handler: () => {
-       this.shareProvider.twitterShare(title, imgURI).then(() => {
+       this.shareProvider.twitterShare(title, imgURI).then(() =>{
+        this.addShareAction(reference_id, like_type);
         $event.srcElement.lastChild.data++;
+        this.presentToast('Objective shared!');
         this.disable = false;
        }).catch((error) => {
         console.error("shareViaWhatsapp: failed", error);
@@ -407,7 +421,6 @@ const actionSheet = this.actionSheetCtrl.create({
 
       });
        
-      
 
      }
    },
@@ -448,6 +461,34 @@ const actionSheet = this.actionSheetCtrl.create({
 });
 
 actionSheet.present();
+}
+
+
+addShareAction(goal_id, action_type_id){
+  this.httpProvider.addShareAction(this.favEndpoint, goal_id, action_type_id, this.user.id);
+}
+
+goToRepProfile(repID){
+  this.navCtrl.push(RepresentativeProfilePage, {repID: repID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+}
+
+goToOrganizationProfile(organizationID){
+  this.navCtrl.push(OrganizationProfilePage, {
+     organizationID: organizationID,
+     OrgPageName: "My Profile"
+}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+}
+
+goToActionPage(objectiveID, goal_type, source, goalID, repID){ 
+  if(goal_type !== "sign"){
+   this.navCtrl.push(OrganizationActionPage, {
+     objectiveID: objectiveID,
+     pageName: 'My Profile'
+ }, {animate:true,animation:'transition',duration:500,direction:'forward'});
+  } else{
+   this.navCtrl.push(SignFeedBackPage, {iframeUrl: source, repID:repID, goalID: goalID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+  }  
+ 
 }
 
         

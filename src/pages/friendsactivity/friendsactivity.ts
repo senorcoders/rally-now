@@ -310,7 +310,7 @@ goToActionPage(objectiveID, goal_type, source, goalID, repID){
   if(goal_type !== "sign"){
    this.navCtrl.push(OrganizationActionPage, {
      objectiveID: objectiveID,
-     pageName: 'Home'
+     pageName: 'Community'
  }, {animate:true,animation:'transition',duration:500,direction:'forward'});
   } else{
    this.navCtrl.push(SignFeedBackPage, {iframeUrl: source, repID:repID, goalID: goalID}, {animate:true,animation:'transition',duration:500,direction:'forward'});

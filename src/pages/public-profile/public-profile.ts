@@ -5,6 +5,10 @@ import {AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
+import { OrganizationProfilePage } from '../organization-profile/organization-profile';
+import { OrganizationActionPage } from '../organization-action/organization-action';
+import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
+import { RepresentativeProfilePage } from '../representative-profile/representative-profile';
 
 
 @IonicPage()
@@ -34,7 +38,10 @@ export class PublicProfilePage {
   disable:boolean = false;
   likeendpoint:any = 'likes';
   activityLike:any = 'd32c1cb5-b076-4353-ad9c-1c8f81d812e3';
-  
+  objectiveActions:any;
+  activitiesData:any;
+  favEndpoint:any = 'actions';
+  shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
 
   constructor(
     public navCtrl: NavController, 
@@ -98,6 +105,8 @@ export class PublicProfilePage {
       this.followers_count = result.followers_count;
       this.organizations_count = result.following_count;
       this.id = result.id;
+      this.objectiveActions = result.Objectives_Actions;
+      this.activitiesData = result.Direct_Actions;
       console.log("Success : "+ result);
     },
     err =>{
@@ -283,17 +292,19 @@ removeFav(recordID){
 
 }
 
-shareController(title, imgURI, $event) {
+shareController(title, imgURI, reference_id, like_type, $event) {
   this.disable = true;
 
 const actionSheet = this.actionSheetCtrl.create({
  title: 'Share to where?',
- buttons: [ 
+ buttons: [
    {
      text: 'Facebook',
      handler: () => {
        this.shareProvider.facebookShare(title, imgURI);
+       this.addShareAction(reference_id, like_type);
        $event.srcElement.lastChild.data++;
+       this.presentToast('Objective shared!');
        this.disable = false;
 
      }
@@ -301,16 +312,17 @@ const actionSheet = this.actionSheetCtrl.create({
    {
      text: 'Twitter',
      handler: () => {
-       this.shareProvider.twitterShare(title, imgURI).then(()=> {
+       this.shareProvider.twitterShare(title, imgURI).then(() =>{
+        this.addShareAction(reference_id, like_type);
         $event.srcElement.lastChild.data++;
+        this.presentToast('Objective shared!');
         this.disable = false;
        }).catch((error) => {
         console.error("shareViaWhatsapp: failed", error);
         this.disable = false;
 
       });
-      
-      
+       
 
      }
    },
@@ -352,6 +364,34 @@ const actionSheet = this.actionSheetCtrl.create({
 
 actionSheet.present();
 }
+
+addShareAction(goal_id, action_type_id){
+  this.httpProvider.addShareAction(this.favEndpoint, goal_id, action_type_id, this.id);
+}
+
+goToRepProfile(repID){
+  this.navCtrl.push(RepresentativeProfilePage, {repID: repID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+}
+
+goToOrganizationProfile(organizationID){
+  this.navCtrl.push(OrganizationProfilePage, {
+     organizationID: organizationID,
+     OrgPageName: "Public Profile"
+}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+}
+
+goToActionPage(objectiveID, goal_type, source, goalID, repID){ 
+  if(goal_type !== "sign"){
+   this.navCtrl.push(OrganizationActionPage, {
+     objectiveID: objectiveID,
+     pageName: 'Public Profile'
+ }, {animate:true,animation:'transition',duration:500,direction:'forward'});
+  } else{
+   this.navCtrl.push(SignFeedBackPage, {iframeUrl: source, repID:repID, goalID: goalID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+  }  
+ 
+}
+
 
 
 }
