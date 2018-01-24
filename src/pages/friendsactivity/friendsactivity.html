@@ -13,8 +13,9 @@
               </ion-segment>
 
               <div *ngIf="!enable">
+                  <div *ngFor="let activity of records, let i = index">
 
-                    <ion-card *ngFor="let activity of objectivesAction">
+                    <ion-card *ngIf="activity.card_type === 'objective_action'">
                              <ion-fab right top style="top: 4px;
                         right: 0;">
                                 <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
@@ -70,7 +71,7 @@
             
             
             
-                <ion-card *ngFor="let activity of activitiesData">
+                <ion-card *ngIf="activity.card_type === 'direct_action'">
                     <ion-fab right top style="top: 4px;
                 right: 0;">
                         <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
@@ -122,13 +123,15 @@
                     </ion-row>
             
                 </ion-card>
+            </div>
                   
               </div>
 
               <!-- My Friends Community -->
 
               <div *ngIf="enable">
-                    <ion-card *ngFor="let activity of objectivesPersonal">
+                  <div *ngFor="let activity of following">
+                    <ion-card *ngIf="activity.card_type === 'objective_action'">
                             <ion-fab right top style="top: 4px;
                         right: 0;">
                                 <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
@@ -185,7 +188,7 @@
             
             
             
-                <ion-card *ngFor="let activity of activitiesPersonal">
+                <ion-card *ngIf="activity.card_type === 'direct_action'">
                     <ion-fab right top style="top: 4px;
                 right: 0;">
                         <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
@@ -238,6 +241,7 @@
                     </ion-row>
             
                 </ion-card>
+            </div>
               </div>
 
         

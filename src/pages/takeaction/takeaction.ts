@@ -14,6 +14,7 @@ import firebase from 'firebase';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
 import { ThankYouPage } from '../thank-you/thank-you';
 import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
+import { ThanksPage } from '../thanks/thanks';
 
 
 @IonicPage()
@@ -265,7 +266,7 @@ hideItem(objective_id, index){
   }
   
   streakModal() {
-    let modal = this.modalCtrl.create(ThankYouPage);
+    let modal = this.modalCtrl.create(ThanksPage);
     modal.present();
   }
   shareController(title, imgURI, reference_id, like_type, $event) {
@@ -282,6 +283,7 @@ hideItem(objective_id, index){
          $event.srcElement.lastChild.data++;
          this.presentToast('Objective shared!');
          this.disable = false;
+         this.streakModal();
 
        }
      }, 
@@ -293,6 +295,7 @@ hideItem(objective_id, index){
           $event.srcElement.lastChild.data++;
           this.presentToast('Objective shared!');
           this.disable = false;
+          this.streakModal();
          }).catch((error) => {
           console.error("shareViaWhatsapp: failed", error);
           this.disable = false;

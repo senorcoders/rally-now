@@ -6,6 +6,7 @@ import { OrganizationProfilePage } from '../organization-profile/organization-pr
 import { SocialShareProvider } from '../../providers/social-share/social-share';
 import { ThankYouPage } from '../thank-you/thank-you';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
+import { ThanksPage } from '../thanks/thanks';
 
 
 
@@ -223,7 +224,7 @@ addLike(reference_id, like_type){
 
 
 streakModal() {
-  let modal = this.modalCtrl.create(ThankYouPage);
+  let modal = this.modalCtrl.create(ThanksPage);
   modal.present();
 }
 shareController(title, imgURI, reference_id, like_type, $event) {

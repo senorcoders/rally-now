@@ -13,12 +13,12 @@
                 <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
             </ion-fab-list> -->
         </ion-fab>
-
+ 
         <ion-item>
-            <ion-avatar item-start>
+            <ion-avatar item-start (click)="goToOrganizationProfile(organizationID)">
                 <img src="{{orgPhoto}}">
             </ion-avatar>
-            <h2><small>via</small> {{orgName}}</h2>
+            <h2 (click)="goToOrganizationProfile(organizationID)"><small>via</small> {{orgName}}</h2>
             <p><small>{{date | amTimeAgo}}</small></p>
         </ion-item>
 

@@ -12,6 +12,8 @@ import { AdressModalPage } from '../adress-modal/adress-modal';
 import { ThankYouPage } from '../thank-you/thank-you';
 import { FaxFeedBackPage } from '../fax-feed-back/fax-feed-back';
 import { EmailFeedBackPage } from '../email-feed-back/email-feed-back';
+import { OrganizationProfilePage } from '../organization-profile/organization-profile';
+import { ThanksPage } from '../thanks/thanks';
 
 
 @IonicPage()
@@ -186,7 +188,7 @@ export class OrganizationActionPage {
   }
 
   streakModal() {
-    let modal = this.modalCtrl.create(ThankYouPage);
+    let modal = this.modalCtrl.create(ThanksPage);
     modal.present();
   }
  
@@ -475,6 +477,13 @@ getRepID(rep, fax, twitter, email, bioguide){
       this.data.representative_id = result[0].id;
       this.presentActionSheet(rep, result[0].fax_url, twitter, email, result[0].id, result[0].offices);
   });
+}
+
+goToOrganizationProfile(organizationID){
+  this.navCtrl.push(OrganizationProfilePage, {
+     organizationID: organizationID,
+     OrgPageName: "Discover"
+}, {animate:true,animation:'transition',duration:500,direction:'forward'});
 }
 
 

@@ -18,6 +18,7 @@ import { ThankYouPage } from '../thank-you/thank-you';
 import { DomSanitizer } from '@angular/platform-browser';
 import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
+import { ThanksPage } from '../thanks/thanks';
 
 
 @IonicPage() 
@@ -292,7 +293,7 @@ addLike(reference_id, like_type){
 }
 
 streakModal() {
-  let modal = this.modalCtrl.create(ThankYouPage);
+  let modal = this.modalCtrl.create(ThanksPage);
   modal.present();
 }
 shareController(title, imgURI, reference_id, like_type, $event) {

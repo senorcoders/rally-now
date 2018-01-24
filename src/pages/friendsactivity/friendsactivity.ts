@@ -15,6 +15,7 @@ import { RepresentativeProfilePage } from '../representative-profile/representat
 import { OrganizationProfilePage } from '../organization-profile/organization-profile';
 import { OrganizationActionPage } from '../organization-action/organization-action';
 import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
+import { ThanksPage } from '../thanks/thanks';
 
 
 
@@ -38,6 +39,8 @@ export class FriendsactivityPage {
     activitiesPersonal:any;
     objectivesPersonal:any;
     enable:boolean = true;
+    public records:any = [];
+    public following:any = [];
 
 
   constructor(
@@ -52,7 +55,7 @@ export class FriendsactivityPage {
     private shareProvider:SocialShareProvider,
   public modalCtrl: ModalController) {
       this.all = "all";
-      this.enable = true;
+      this.enable = false;
       console.log(this.enable);
       this.usersProvider.returnRallyUserId().then( user => {
         this.myRallyID = user.apiRallyID;
@@ -97,34 +100,75 @@ export class FriendsactivityPage {
     });
      }
  
-      getdata(){
-  this.httpProvider.getJsonData(this.endpoint).subscribe(
-    result => {
-      this.activitiesPersonal=result['Direct_Actions'];
-      this.objectivesPersonal=result['Objectives_Actions'];
-    },
-    err =>{
-      console.error("Error : "+err);
-    } ,
-    () => {
-      console.log('getData completed');
-    }
-  );
+//       getdata(){
+//   this.httpProvider.getJsonData(this.endpoint).subscribe(
+//     result => {
+//       this.activitiesPersonal=result['Direct_Actions'];
+//       this.objectivesPersonal=result['Objectives_Actions'];
+//     },
+//     err =>{
+//       console.error("Error : "+err);
+//     } ,
+//     () => {
+//       console.log('getData completed');
+//     }
+//   );
+// }
+
+getdata(){
+  
+  return new Promise(resolve => {
+    this.httpProvider.getRecords(this.endpoint)
+    .then(data => {
+      console.log("Full Data", data);
+      this.getArray(data['Objectives_Actions']);
+      this.getArray(data['Direct_Actions']);
+
+        
+      resolve(true);
+
+    });
+});
+  
+}
+
+sortArray(array){
+  array.sort(function(a, b){
+    var dateA:any = new Date(a.created_at), dateB:any = new Date(b.created_at);
+    return dateB - dateA;
+  });
+}
+
+getArray(array){
+  for(let person of array) {
+    this.records.push(person);
+    this.sortArray(this.records);
+  } 
+
 }
 getPersonaldata(){
-  this.httpProvider.getJsonData(this.endpoint + '/' + this.myRallyID).subscribe(
-    result => {
-      this.activitiesData=result['Direct_Actions'];
-      this.objectivesAction=result['Objectives_Actions'];
-    },
-    err =>{
-      console.error("Error : "+err);
-    } ,
-    () => {
-      console.log('getData completed');
-    }
-  );
+  return new Promise(resolve => {
+    this.httpProvider.getRecords(this.endpoint + '/' + this.myRallyID)
+    .then(data => {
+      console.log("Full Data", data);
+      this.getFollowingArray(data['Objectives_Actions']);
+      this.getFollowingArray(data['Direct_Actions']);
+
+        
+      resolve(true);
+
+    });
+});
+  
 }
+
+getFollowingArray(array){
+    for(let person of array) {
+      this.following.push(person);
+      this.sortArray(this.following);
+    }
+  
+  }
 
 
 getLikeStatus($event, reference_id, like_type, likes){
@@ -208,7 +252,7 @@ presentToast(message) {
 }
 
 streakModal() {
-  let modal = this.modalCtrl.create(ThankYouPage);
+  let modal = this.modalCtrl.create(ThanksPage);
   modal.present();
 }
 shareController(title, imgURI, reference_id, like_type, $event) {
@@ -224,17 +268,19 @@ const actionSheet = this.actionSheetCtrl.create({
        this.addShareAction(reference_id, like_type);
        $event.srcElement.lastChild.data++;
        this.presentToast('Objective shared!');
+       this.streakModal();
        this.disable = false;
 
      }
    }, 
    {
-     text: 'Twitter',
+     text: 'Twitter', 
      handler: () => {
        this.shareProvider.twitterShare(title, imgURI).then(() =>{
         this.addShareAction(reference_id, like_type);
         $event.srcElement.lastChild.data++;
         this.presentToast('Objective shared!');
+        this.streakModal();
         this.disable = false;
        }).catch((error) => {
         console.error("shareViaWhatsapp: failed", error);

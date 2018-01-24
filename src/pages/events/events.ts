@@ -15,6 +15,7 @@ import { SocialShareProvider } from '../../providers/social-share/social-share';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
 import { ThankYouPage } from '../thank-you/thank-you';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ThanksPage } from '../thanks/thanks';
 
  
 @IonicPage()
@@ -360,7 +361,7 @@ goToEventDetail(eventID){
     }
 
     streakModal() {
-      let modal = this.modalCtrl.create(ThankYouPage);
+      let modal = this.modalCtrl.create(ThanksPage);
       modal.present();
     }
     shareController(title, imgURI, reference_id, like_type, $event) {

@@ -220,12 +220,14 @@ export class FriendsRequestPage {
     }
 
 
-    getDeviceID(user_id){
+    getDeviceID(user_id, $event){
       //Reemplazar por parametro despues
       this.httpProvicer.getJsonData(this.notificationsEndpoint+'?user_id='+user_id)
         .subscribe(result => {
             console.log(result[0].id);
             this.saveNotification(user_id, result[0].id, this.myRallyID);
+            $event.srcElement.innerHTML = "Unfollow";
+            $event.srcElement.innerText = "UNFOLLOW";
         }, err => {
           console.error("Error: " +err);
         }, () => {
@@ -237,7 +239,7 @@ export class FriendsRequestPage {
       this.httpProvicer.returnRallyUserId().then(user => {
        this.httpProvicer.saveNotification(user_id, registration_id, user.displayName + " wants to follow you",  this.alertsEndpoint, sender_id);
       this.followFriend(user_id);
-      });
+      }); 
       //this.httpProvider.sendNotification(registration_id, msg);
     }
 

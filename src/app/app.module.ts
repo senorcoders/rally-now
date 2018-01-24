@@ -102,6 +102,7 @@ import { SyncContactsPage } from '../pages/sync-contacts/sync-contacts';
 import { InviteFriendsPage } from '../pages/invite-friends/invite-friends';
 import { RepresentativeProfilePage } from '../pages/representative-profile/representative-profile';
 import { IssueScreenPage } from '../pages/issue-screen/issue-screen';
+import { ThanksPage } from '../pages/thanks/thanks';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -211,7 +212,8 @@ firebase.initializeApp(config);
         SyncContactsPage,
         InviteFriendsPage,
         RepresentativeProfilePage,
-        IssueScreenPage
+        IssueScreenPage,
+        ThanksPage
     ],
     imports: [
         BrowserModule,
@@ -293,7 +295,8 @@ firebase.initializeApp(config);
         SyncContactsPage,
         InviteFriendsPage,
         RepresentativeProfilePage,
-        IssueScreenPage
+        IssueScreenPage,
+        ThanksPage
     ],
     providers: [
         StatusBar,

@@ -1,4 +1,15 @@
 page-filter-events {
+    .toolbar-ios ion-title{
+        padding: 0 !important;
+    }
+    .toolbar-ios, ion-header, .toolbar-md{
+        height: 80px !important;
+        min-height: 80px !important;
+    }
+
+    .scroll-content{
+        margin-top: 80px !important;
+    }
     .toolbar-background,
     ion-content {
         background-color: #f2f2f2 !important;
