@@ -49,6 +49,8 @@ export class EventDetailPage {
   venue:any;
   eventTime:any;
   fbID:any;
+  eventEndTime:any;
+  end_date:any;
 
 
 
@@ -110,7 +112,9 @@ export class EventDetailPage {
       this.state = result.state;
       this.venue = result.venue;
       this.fbID = result.facebook_id;
+      this.end_date = result.end_date;
       this.getTime();
+      this.getEndTime();
 
     },
     err =>{
@@ -421,7 +425,7 @@ orgStatus(orgID){
               return 'Follow';
               
             }else{
-              return 'Unfollow';
+              return 'Unfollow'; 
               
             }
           }
@@ -431,10 +435,24 @@ orgStatus(orgID){
 
           if(this.start_date != null){
             var time = this.start_date.split("T");
-            console.log("Hora", time);
-            this.eventTime = time[1];
+            let bothTime = time[1].split("-");
+            console.log("Hora", bothTime);
+            var startTime = this.tConvert(bothTime[0]);
+            this.eventTime = startTime ;
           }else{
             this.eventTime = 'No specific time';
+          }
+         
+        }
+
+        getEndTime(){
+
+          if(this.end_date != null){
+            var time = this.end_date.split("T");
+            let endDate = time[1].split("-");
+            console.log("Hora", endDate);
+            var startTime = this.tConvert(endDate[0]);
+            this.eventEndTime = "- " + startTime ;
           }
          
         }
@@ -449,6 +467,20 @@ orgStatus(orgID){
           const browser = this.inAppBrowser.create(url, '_blank', options);
       
          // Inject scripts, css and more with browser.X
+        }
+
+        tConvert (time) {
+          // Check correct time format and split into components
+          time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+        
+          if (time.length > 1) { // If time format correct
+            time = time.slice (1);  // Remove full string match value
+            time[5] = +time[0] < 12 ? 'AM' : 'PM'; // Set AM/PM
+            time[0] = +time[0] % 12 || 12; // Adjust hours
+          }
+        
+          // console.log(time[0] + time[1] + time[2] + time[5]);
+          return time[0] + time[1] + time[2] + time[5]; // return adjusted time or original string
         }
 
 

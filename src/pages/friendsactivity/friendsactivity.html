@@ -1,6 +1,7 @@
 <rally-name-header name="Community"></rally-name-header>
 
 <ion-content>
+       
 
         <ion-segment [(ngModel)]="all" (ionChange)="segmentChanged()">
                 <ion-segment-button value="all" >
@@ -11,6 +12,10 @@
                 </ion-segment-button>
               
               </ion-segment>
+              <ion-refresher (ionRefresh)="doRefresh($event)">
+                    <ion-refresher-content pullingText="Pull down to Refresh" pullingIcon="arrow-dropdown" refreshingSpinner="circles" refreshingText="Refreshing...">
+                    </ion-refresher-content>
+                </ion-refresher>
 
               <div *ngIf="!enable">
                   <div *ngFor="let activity of records, let i = index">

@@ -124,7 +124,15 @@ export class FeedPage {
 
     //   }); 
     //     this.loading.present();
-        this.enablePlaceholder = true;
+        
+
+
+  }
+
+
+  ionViewWillEnter(){
+    this.enablePlaceholder = true;
+    this.records = [];
        
         this.usersProv.returnRallyUserId()
       .then(user => {
@@ -160,8 +168,6 @@ export class FeedPage {
          
             // };
       });
-
-
   }
 
   // getDataStatus(){

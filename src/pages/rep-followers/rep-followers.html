@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+      <ion-title>
+          <p class="white">Followers</p>
+      </ion-title>
+    
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  
+  <ion-list> 
+          <ion-item *ngFor="let follower of items">
+                  <ion-avatar item-start (click)="goToPublicProfile(follower.id)">
+                    <img src="{{follower.photo_url}}"  style="border:2px solid #ada8a8;">
+                  </ion-avatar>
+                  <h2 (click)="goToPublicProfile(follower.id)">{{follower.fname}}</h2>
+                  <button ion-button clear item-end style="background: transparent;
+                  color: gray;
+                  border-radius: 4px;
+                  padding: 10px 15px; border: 1px solid gray;" (click)="addFollowRecordFirebase(follower.id, $event)">{{getText(follower.following)}}</button>
+                </ion-item>
+  </ion-list>
+
+
+
+</ion-content>
+
+

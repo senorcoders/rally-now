@@ -124,6 +124,23 @@ export class EventsPage {
        popover.present();
      }
 
+     doRefresh(refresher) {
+      this.start = 1;
+      this.events = [];
+      this.loading = this.loadingCtrl.create({
+        spinner: 'hide',
+        content: this.safeSvg,
+        }); 
+        this.loading.present();
+      this.getdata();
+      this.eventFiltered = false;
+    
+        setTimeout(() => {
+          console.log('Async operation has ended');
+          refresher.complete();
+        }, 2000);
+      } 
+
        getdata(startDate?, endDate?, filterBy?, zipcode?, distance?){
          if(startDate != null){
            if(filterBy === 'all'){
@@ -161,6 +178,7 @@ getAllEvents(){
         // this.events = [];
 
         this.getArray(data);
+
        
         resolve(true);
       });
@@ -180,6 +198,8 @@ getFilteredEvents(startDate, endDate){
     result => {
       console.log(result);
      this.events = result.Events;
+     this.loading.dismiss(); 
+
     //  this.storage.set('EVENTS', result);
 
      //this.filterItems(this.searchTerm); 
@@ -362,7 +382,7 @@ goToEventDetail(eventID){
 
     streakModal() {
       let modal = this.modalCtrl.create(ThanksPage);
-      modal.present();
+      modal.present(); 
     }
     shareController(title, imgURI, reference_id, like_type, $event) {
       this.disable = true;

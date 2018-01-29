@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { UsersProvider } from '../../providers/users/users';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
+import { RepFollowersPage } from '../rep-followers/rep-followers';
 
 
 @IonicPage()
@@ -213,6 +214,12 @@ export class RepresentativeProfilePage {
     const browser = this.inAppBrowser.create(url, '_blank', options);
 
    // Inject scripts, css and more with browser.X
+  }
+
+  goToFollowers(){
+    this.navCtrl.push(RepFollowersPage, {
+        repID: this.repID
+    });
   }
 
 

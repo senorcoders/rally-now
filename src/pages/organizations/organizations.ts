@@ -119,6 +119,23 @@ export class OrganizationsPage {
        popover.present();
      }
 
+     doRefresh(refresher) {
+      this.start = 1;
+      this.records = [];
+      this.loading = this.loadingCtrl.create({
+        spinner: 'hide',
+        content: this.safeSvg,
+        }); 
+        this.loading.present();
+      this.getdata();
+      this.eventFiltered = false;
+    
+        setTimeout(() => {
+          console.log('Async operation has ended');
+          refresher.complete();
+        }, 2000);
+      } 
+
      getdata(startDate?, endDate?, filterBy?){
 
       if(startDate != null){
