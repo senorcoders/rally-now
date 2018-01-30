@@ -9,6 +9,7 @@ import { SocialShareProvider } from '../../providers/social-share/social-share';
 import { OrganizationFollowersPage } from '../organization-followers/organization-followers';
 import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
+import { EventDetailPage } from '../event-detail/event-detail';
 
 
 @IonicPage()
@@ -477,5 +478,13 @@ goToActionPage(objectiveID, goal_type, source, goalID, repID){
       const browser = this.inAppBrowser.create(url, '_blank', options);
   
      // Inject scripts, css and more with browser.X
+    }
+
+    goToEventDetail(eventID){
+      console.log(eventID);
+      this.navCtrl.push(EventDetailPage, {
+              eventID: eventID,
+              eventPageName: "Home"
+        }, {animate:true,animation:'transition',duration:500,direction:'forward'});
     }
 }

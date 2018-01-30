@@ -104,6 +104,7 @@ import { RepresentativeProfilePage } from '../pages/representative-profile/repre
 import { IssueScreenPage } from '../pages/issue-screen/issue-screen';
 import { ThanksPage } from '../pages/thanks/thanks';
 import { RepFollowersPage } from '../pages/rep-followers/rep-followers';
+import { GooglePlacesAutocompleteComponentModule } from 'ionic2-google-places-autocomplete';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -228,6 +229,7 @@ firebase.initializeApp(config);
         MomentModule,
         // SocketIoModule.forRoot(configws)  ,
         TruncateModule,
+        GooglePlacesAutocompleteComponentModule
      ],
     bootstrap: [IonicApp],
     entryComponents: [

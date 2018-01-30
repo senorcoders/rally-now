@@ -4,5 +4,13 @@
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "proxies": [
+    {
+      "path": "http://localhost:8100",
+      "proxyUrl": "https://maps.googleapis.com"
+
+    }
+
+  ]
 }

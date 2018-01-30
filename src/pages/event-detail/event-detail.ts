@@ -178,7 +178,7 @@ removeFav(recordID){
 goToOrganizationProfile(organizationID){
   this.navCtrl.push(OrganizationProfilePage, {
      organizationID: organizationID,
-     OrgPageName: this.title
+     OrgPageName: 'Back'
 }, {animate:true,animation:'transition',duration:500,direction:'forward'});
 }
  

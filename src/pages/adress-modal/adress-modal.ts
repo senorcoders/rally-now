@@ -11,6 +11,7 @@ import { Storage } from '@ionic/storage';
 })
 export class AdressModalPage {
   searchTerm:any;
+  address:any;
 
   
   constructor(
@@ -32,7 +33,7 @@ export class AdressModalPage {
 
 
   public getLocation(){
-    this.nativeGeocoder.forwardGeocode(this.searchTerm)
+    this.nativeGeocoder.forwardGeocode(this.address)
   .then((coordinates: NativeGeocoderForwardResult) => {
     
     console.log(this.searchTerm);
@@ -66,6 +67,12 @@ export class AdressModalPage {
           this.storage.set('senators', result.data);
           this.dismiss();
       });
+  }
+
+  detail(item){
+    console.log(item);
+    this.address = item.description;
+    this.searchTerm = item.description;
   }
 
 } 

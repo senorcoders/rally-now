@@ -12,13 +12,16 @@
 </ion-header>
 
 <ion-content padding>
-    <img src="assets/img/Representatives.svg">
+    <img class="rep-img" src="assets/img/Representatives.svg">
    <h1>Enter your address to find your representatives</h1>
    <form action="." (ngSubmit)="getLocation()">
 
-   <ion-searchbar type="search" [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}"
-   ></ion-searchbar>
+   <!-- <ion-searchbar type="search" [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}"
+   ></ion-searchbar> -->
+   <google-places-autocomplete [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}" (callback)="detail($event[0])" key="AIzaSyAG8YwO3jnFYNYfiV1B35FzICVOYVJYnMQ"></google-places-autocomplete>
+
    </form>
+
 
 </ion-content>
 
