@@ -48,10 +48,16 @@
         <ion-item (click)="goToLessData()">Cellular Data Usage
             <ion-icon item-end name="ios-arrow-forward"></ion-icon>
         </ion-item>
-        <ion-item>
+        <ion-item class="private-row">
                 <ion-label> Private Account</ion-label>
                 <ion-toggle [(ngModel)]="enabled" (ionChange)="updateStatus()" checked="enabled"></ion-toggle>
-            </ion-item>
+      
+        </ion-item>
+        <ion-item>
+            <p text-wrap>When your account is private, only people you approve can see your actions on Rally.</p>
+
+        </ion-item>
+
         
     </ion-list>
 

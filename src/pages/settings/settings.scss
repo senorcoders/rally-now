@@ -8,5 +8,11 @@ page-settings {
         margin: 0;
     }
 
+    .private-row{
+        .item-inner{
+            border-bottom: none !important;
+        }
+    }
+
  
 }
