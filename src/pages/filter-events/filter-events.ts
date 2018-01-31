@@ -134,4 +134,13 @@ goToEvents(){
    console.log(value);
    this.filter = value;
  }
+
+ detail(item){
+  console.log(item);
+  var string = item.description;
+  var numbers = string.match(/\d+/g).map(Number);
+  console.log(numbers);
+  this.zipcode = numbers;
+
+}
 }

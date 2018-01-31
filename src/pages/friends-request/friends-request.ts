@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController, ActionSheetController } from 'ionic-angular';
 import { FeedPage } from '../feed/feed';
 import { AlertsPage } from '../alerts/alerts';
 import { ProfilePage } from '../profile/profile';
@@ -15,7 +15,10 @@ import { OrganizationsListPage } from '../organizations-list/organizations-list'
 import { RepresentivesListPage } from '../representives-list/representives-list';
 import { SyncContactsPage } from '../sync-contacts/sync-contacts';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
-
+import { ORG } from '../../providers/organizations';
+import { AngularFireDatabase } from 'angularfire2/database';
+import firebase from 'firebase';
+import { OrganizationProfilePage } from '../organization-profile/organization-profile';
 
 @IonicPage()
 @Component({
@@ -37,6 +40,10 @@ export class FriendsRequestPage {
   public records:any = [];
   notificationsEndpoint:any = 'devices';
   alertsEndpoint:any = 'ux_events';
+  organizations:any = ORG;
+  organizationEndpoint:any = 'following_organizations';
+  public orgs:any = [];
+
 
  
 
@@ -49,13 +56,16 @@ export class FriendsRequestPage {
     private httpProvicer: UsersProvider,
     public alertCtrl: AlertController, 
     private orgProvider: OrganizationsProvider,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
+    private db: AngularFireDatabase,
+    public actionSheetCtrl: ActionSheetController,
     ) {
        //this.searchControl = new FormControl();
        this.httpProvicer.returnRallyUserId().then(user => {
          this.myRallyID = user.apiRallyID;
         this.getFacebookFriendsList();
         this.getSuggestedFriend();
+        this.mapOrgs(this.organizations);
        });
 
   }
@@ -115,6 +125,14 @@ export class FriendsRequestPage {
     }
   }
 
+
+  mapOrgs(array){
+    for(let item of array){
+      console.log("ORG", item);
+      this.sortOrgs(item);
+    }
+  }
+
   getFacebookFriendsList(){
     this.facebook.api('me/friends', ['user_friends']).then(
       list => {
@@ -150,6 +168,19 @@ export class FriendsRequestPage {
           console.log("ya sigues a este usuario");
         }else{
           this.items.push(user);
+        }
+      });
+  }
+
+
+  sortOrgs(org){
+    this.httpProvicer.getJsonData(this.organizationEndpoint + '?follower_id=' + this.myRallyID + '&organization_id=' + org.id)
+      .subscribe(result => {
+        console.log(result);
+        if(result != ""){
+          console.log("ya sigues a esta ORG");
+        }else{
+          this.orgs.push(org);
         }
       });
   }
@@ -256,6 +287,86 @@ export class FriendsRequestPage {
       });
       toast.present();
     }
+
+
+    addOrg(organizationID, $event){
+      let user:any = firebase.auth().currentUser;
+      let followRef = this.db.database.ref('organizations/'+user['uid']+'/'+organizationID);
+      followRef.once('value', snapshot=>{
+        if (snapshot.hasChildren()) {
+          console.log('You already follow this org');
+          this.unFollowActionSheet(organizationID);
+          $event.srcElement.innerText = 'Follow';
+          
+          //this.presentToast('You are not following this organization anymore');
+  
+        }else{
+          this.followOrg(organizationID);
+          $event.srcElement.innerText = 'Unfollow';
+          
+          this.presentToast('Follow Organization successfully');
+        }
+      });
+     }
+
+     followOrg(organizationID){ 
+      this.httpProvicer.followOrganization(this.organizationEndpoint, this.myRallyID, organizationID );
+    }
+  
+    unFollowActionSheet(organizationID) {
+      
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Unfollow this organization?' ,
+      cssClass: 'title-img',      
+      buttons: [
+        {
+          text: 'Unfollow',
+          role: 'destructive',
+          handler: () => {
+            console.log('Destructive clicked');
+            this.getOrganizationFollowRecordID(organizationID);
+            
+          }
+        },{
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+  
+  getOrganizationFollowRecordID(organizationID){
+          this.httpProvicer.getJsonData(this.organizationEndpoint+'?follower_id='+this.myRallyID+'&organization_id='+organizationID).subscribe(
+        result => {
+        console.log("Delete ID : "+ result[0].id);
+        this.unfollow(result[0].id, organizationID);
+        },
+        err =>{
+        console.error("Error : "+err);
+        } ,
+        () => {
+        console.log('getData completed');
+        }
+  
+        );
+  }
+  
+  unfollow(recordID, organizationID){
+    
+          this.httpProvicer.unfollowOrganization(this.organizationEndpoint, recordID);
+          this.httpProvicer.removeFollowRecordID(organizationID, 'organizations');
+        }
+
+        goToOrganizationProfile(organizationID){
+          this.navCtrl.push(OrganizationProfilePage, {
+             organizationID: organizationID,
+             OrgPageName: "Discover"
+       }, {animate:true,animation:'transition',duration:500,direction:'forward'});
+        }
     
 
 }

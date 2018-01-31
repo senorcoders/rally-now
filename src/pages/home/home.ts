@@ -16,6 +16,7 @@ import { UsersProvider } from '../../providers/users/users';
 import { TabsPage } from '../tabs/tabs';
 import { WelcomePage } from '../welcome/welcome';
 import { HelloPage } from '../hello/hello';
+import { TermsPage } from '../terms/terms';
 
 
 
@@ -98,7 +99,7 @@ export class HomePage {
           this.storage.set('DISPLAYNAME', res.displayName);
           this.user.displayName = res.displayName;
           this.storage.set('USERNAME', res.username);
-          this.user.username = res.displayName.replace(" ", ".");
+          this.user.username = res.displayName.replace(" ", ".").toLowerCase();
           this.storage.set('PHOTOURL', res.photoURL);
           this.user.photoURL = res.photoURL;
           this.storage.set('PROVIDER', 'twitter.com');
@@ -160,4 +161,8 @@ twLogin(): void {
   goToFeed() {    
        this.navCtrl.setRoot(HelloPage);
      }
+
+  goToTerms(){
+    this.navCtrl.push(TermsPage);
+  }
 }

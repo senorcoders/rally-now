@@ -23,6 +23,7 @@ import { SyncContactsPage } from '../sync-contacts/sync-contacts';
 import { UsersProvider } from '../../providers/users/users';
 import { UserData } from '../../providers/user-data';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { ChangeUsernamePage } from '../change-username/change-username';
 
 
 @IonicPage()
@@ -200,7 +201,7 @@ export class SettingsPage {
   }
 
   goToUsername(){
-    this.navCtrl.push(InterestedOrganizationsPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+    this.navCtrl.push(ChangeUsernamePage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
     
   }
 

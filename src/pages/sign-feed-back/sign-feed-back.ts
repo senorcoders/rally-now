@@ -104,14 +104,18 @@ export class SignFeedBackPage {
     this.navCtrl.pop();
   }
 
+  
+
   submit(){
   
     console.log("Value", this.value);
     if(this.value === 'success'){
       this.streakModal();
       this.addAction();
-    }else{
+    }else if(this.value === 'fail'){
       this.errorModal();
+    }else{
+      this.back();
     }
   }
 

@@ -934,7 +934,7 @@ export const ORG = [{
 	"followers": [],
 	"card_type": "organization",
 	"selected": true
-}, {
+}, { 
 	"id": "d18a7f7d-c224-4db7-89d2-c5351f76ede4",
 	"name": "Town Hall Project",
 	"short_desc": null,
