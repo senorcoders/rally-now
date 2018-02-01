@@ -22,10 +22,10 @@
 
    </form>
 
-
+  
 </ion-content>
 
-<ion-footer>
+<ion-footer *ngIf="showFooter">
   <button ion-button full class="reps-btn" (click)="getLocation()">
     FIND MY REPS 
   </button>

@@ -51,11 +51,23 @@
             </ion-item>
         </ion-list>
         <ion-row *ngIf="!enable">
-            <div class="flex-center">
+            <div class="flex-center" *ngIf="!enableSpecificRep">
                 <h2>No representatives</h2>
                 <button ion-button color="dark" clear (click)="finReps()">FIND MY REPS</button>
             </div>
         </ion-row>
+        <ion-list>
+                <div *ngIf="enableSpecificRep">
+                        <ion-item *ngFor="let rep of reps_goals">
+                            <ion-avatar item-start>
+                                <img src="{{rep.photo_url}}" style="border-radius: 50%;">
+                            </ion-avatar>
+                            <h2>{{rep.name}}</h2>
+                            <p><small>Senator of {{rep.state}}</small></p>
+                            <button (click)="presentActionSheet(rep, rep.fax_url, rep.twitter_link, rep.url, rep.id, rep.offices)" item-end ion-button color="dark" class="action-btn">Contact</button>
+                        </ion-item>
+                    </div>
+        </ion-list>
         <ion-list *ngIf="enable">
                 <ion-item (click)="finReps()">
                    <h2>YOUR REPRESENTATIVES</h2>

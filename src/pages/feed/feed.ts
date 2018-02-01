@@ -124,15 +124,7 @@ export class FeedPage {
 
     //   }); 
     //     this.loading.present();
-        
-
-
-  }
-
-
-  ionViewWillEnter(){
     this.enablePlaceholder = true;
-    this.records = [];
        
         this.usersProv.returnRallyUserId()
       .then(user => {
@@ -168,28 +160,15 @@ export class FeedPage {
          
             // };
       });
+        
+
+
   }
 
-  // getDataStatus(){
-  //   this.usersProv.getJsonData(this.userEndpoint+this.myrallyID).subscribe(
-  //     result => {
-  //         console.log("OPT", result.less_data);
-  //         if(result.less_data === true && this.network.type != 'wifi'){
-  //             console.log("Save Data");
-  //             this.storageProvider.getHomeFeedJson().then( savedJson => {
-  //                 console.log(JSON.stringify(savedJson));
-  //                 this.organizationsData=savedJson['My_Organizations'];
-  //                 this.objectives=savedJson['Objectives'];
-  //                 this.fiends=savedJson['friends_activity'];
-  //                 this.events=savedJson['Events'];
-  //                 this.enabled = true;
-  //                 this.loading.dismiss();         
-  //             });      
-  //         } else{
-  //           this.getdata();
-  //         }    
-  //     });
-  // }
+
+ 
+
+ 
 
   
   
@@ -230,22 +209,7 @@ export class FeedPage {
     }
  
     console.log("This url =>", url);
-  // this.httpProvider.load(url).subscribe(
-  //   result => {
-  //     console.log("Homefeed for Current user", result);
-  //     this.organizationsData=result['My_Organizations'];
-  //     this.objectives=result['Objectives'];
-  //     this.fiends=result['friends_activity'];
-  //     this.events=result['Events'];
-  //     this.storage.set("homefeed", result);
-  //     this.loading.dismiss();
-  //   },
-  //   err =>{
-  //     console.error("Error : "+err);
-  //   } ,
-  //   () => {
-  //     console.log('getData completed');
-  //   });
+  
 
   return new Promise(resolve => {
     this.httpProvider.loadHome(url, this.start)

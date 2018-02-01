@@ -105,6 +105,7 @@ import { IssueScreenPage } from '../pages/issue-screen/issue-screen';
 import { ThanksPage } from '../pages/thanks/thanks';
 import { RepFollowersPage } from '../pages/rep-followers/rep-followers';
 import { GooglePlacesAutocompleteComponentModule } from 'ionic2-google-places-autocomplete';
+import { Keyboard } from '@ionic-native/keyboard';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -327,7 +328,8 @@ firebase.initializeApp(config);
         VideoPlayer,
         InAppBrowser,
         NativeGeocoder,
-        Contacts
+        Contacts,
+        Keyboard
     
     ]
 })

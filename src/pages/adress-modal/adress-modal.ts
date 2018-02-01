@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
 import { UsersProvider } from '../../providers/users/users';
 import { Storage } from '@ionic/storage';
+import { Keyboard } from '@ionic-native/keyboard';
 
 @IonicPage()
 @Component({
@@ -12,6 +13,7 @@ import { Storage } from '@ionic/storage';
 export class AdressModalPage {
   searchTerm:any;
   address:any;
+  showFooter: boolean = true;
 
   
   constructor(
@@ -20,7 +22,16 @@ export class AdressModalPage {
     public viewCtrl: ViewController,
     private nativeGeocoder: NativeGeocoder,
     private httpProvider: UsersProvider,
-    private storage: Storage) {
+    private storage: Storage,
+    private keyboard: Keyboard) {
+      
+      this.keyboard.onKeyboardShow().subscribe(() => {
+          this.showFooter = false;
+      });
+
+      this.keyboard.onKeyboardHide().subscribe(() => {
+        this.showFooter = true;
+      });
   }
 
   ionViewDidLoad() {
@@ -30,6 +41,8 @@ export class AdressModalPage {
   dismiss() {
     this.viewCtrl.dismiss();
   }
+
+ 
 
 
   public getLocation(){
@@ -74,6 +87,8 @@ export class AdressModalPage {
     this.address = item.description;
     this.searchTerm = item.description;
   }
+
+ 
 
   
 } 
