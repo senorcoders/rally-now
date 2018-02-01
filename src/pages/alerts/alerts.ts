@@ -101,15 +101,15 @@ export class AlertsPage {
       toast.present();
     }
 
-    getSenderPhoto(sender_id){
-      this.httpProvider.getJsonData(this.userEndpoint + sender_id).subscribe(
-        result => {
-            if (result != ""){
-              console.log(result.photo_url);
-                return result.photo_url;
-            }
-        }
-      )
-    }
+    // getSenderPhoto(sender_id){
+    //   this.httpProvider.getJsonData(this.userEndpoint + sender_id).subscribe(
+    //     result => {
+    //         if (result != ""){
+    //           console.log(result.photo_url);
+    //             return result.photo_url;
+    //         }
+    //     }
+    //   )
+    // }
         
 }

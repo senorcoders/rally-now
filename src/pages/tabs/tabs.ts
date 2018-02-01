@@ -6,6 +6,7 @@ import { ProfilePage } from '../profile/profile';
 import { OverlayPage } from '../overlay/overlay';
 import { SearchPage } from '../search/search';
 import { UsersProvider } from '../../providers/users/users';
+import { NotiModel } from '../../models/notifications';
 
 
 
@@ -23,7 +24,8 @@ export class TabsPage {
   tab5Root = SearchPage;
   endpoint:any = 'ux_events';
   myRallyID:any;
-  badgeCount:number;
+  badgeCount:NotiModel[];
+  count:any;
 
   @ViewChild('mainTabs') mainTabs: Tabs;
 
@@ -38,7 +40,9 @@ export class TabsPage {
         this.myRallyID = user.apiRallyID;
         this.getNoticationsQty();
       });
+      
   }
+
 
   
 
@@ -52,11 +56,14 @@ export class TabsPage {
   }
 
   getNoticationsQty(){
-    this.httpProvider.getJsonData(this.endpoint+'?user_id='+this.myRallyID+'&what=unread')
+    this.httpProvider.getNotifications(this.endpoint+'?user_id='+this.myRallyID+'&what=unread')
       .subscribe( result => {
-        this.badgeCount = result.length;
+        console.log("Badges", result);
+        this.badgeCount = result;
+        this.count = this.badgeCount.length;
+        console.log(this.count);
       });
-  }
+  } 
 
 
   public tapped() {

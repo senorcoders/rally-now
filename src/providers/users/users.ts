@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions  } from '@angular/http';
+import { Http, Headers, RequestOptions, Response  } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
 import firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database/database';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
+import { NotiModel } from '../../models/notifications';
 
 
 @Injectable()
@@ -161,7 +162,7 @@ export class UsersProvider {
     let options = new RequestOptions({ headers: headers });
   this.http.put(encodeURI(this.base + endpoint), notiData, options)
     .subscribe(data => {
-      console.log(data);
+      console.log("Notification Status", data);
     }, error => {
       console.log("Error", error);
     });
@@ -524,6 +525,15 @@ removeItem(endpoint, recordID){
    
 }
 
+
+getNotifications(endpoint): Observable<NotiModel[]>{
+  return this.http
+             .get(this.base + endpoint)
+             .map((response: Response) => {
+                 return <NotiModel[]>response.json();
+             })
+             .catch(this.handleError);
+}
 
 
 }

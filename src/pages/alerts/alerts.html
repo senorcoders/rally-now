@@ -37,7 +37,7 @@
         <ion-item-sliding *ngFor="let alert of alerts" >
         <ion-item *ngIf="alert.what === 'read'">
             <ion-avatar item-start>
-                <img [src]="getSenderPhoto(alert.sender_id)">
+                <img src="assets/img/login-image.jpg">
             </ion-avatar>
             <p>{{alert.data}}</p>
        
