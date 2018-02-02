@@ -43,7 +43,7 @@ export class UsersProvider {
 
     console.log("Here comes the ID from the API", rallyID);
      	let user:any = firebase.auth().currentUser;
-		this.af.database.ref('users/'+user['uid']).update({
+		  this.af.database.ref('users/'+user['uid']).update({
 			apiRallyID: rallyID
     });
   
@@ -534,6 +534,8 @@ getNotifications(endpoint): Observable<NotiModel[]>{
              })
              .catch(this.handleError);
 }
+
+
 
 
 }

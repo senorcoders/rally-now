@@ -25,13 +25,14 @@ export class CandidatesPage {
   myRallyID:any;
   public records:any = [];
   private start:number=1;
-  loader:boolean = false;
   likeendpoint:any = 'likes';
   tweetLike:any = 'ab860ccb-9713-49e5-b844-34d18f92af21';
   favEndpoint:any = 'actions';
   disable:boolean = false;
   organizationEndpoint:any = 'following_organizations';
   shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
+  loader:boolean = false;
+  enablePlaceholder:boolean = true;
 
 
 
@@ -49,6 +50,8 @@ export class CandidatesPage {
     private inAppBrowser: InAppBrowser,
     public toastCtrl: ToastController
     ) {
+      this.enablePlaceholder = true;
+
       this.userProv.returnRallyUserId().then(user => {
         this.myRallyID = user.apiRallyID;
         this.getdata();
@@ -75,6 +78,7 @@ export class CandidatesPage {
         this.getArray(data['Reps_Tweets']);
           
         resolve(true);
+        this.enablePlaceholder = false;
         this.loader = false;
 
       });
@@ -370,6 +374,22 @@ orgStatus(orgID){
           this.presentToast("You're now following this organization");
 
         }
+
+        doRefresh(refresher) {
+          this.records = [];
+          // this.loading = this.loadingCtrl.create({
+          //   spinner: 'hide',
+          //   content: this.safeSvg,
+          //   }); 
+          //   this.loading.present();
+          this.loader = true;
+          this.getdata();
+        
+            setTimeout(() => {
+              console.log('Async operation has ended');
+              refresher.complete();
+            }, 2000);
+          } 
   
 
 }

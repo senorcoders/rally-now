@@ -14,6 +14,15 @@ page-candidates {
         margin: 0;
     }
 
+    ion-spinner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin: 0 auto;
+    }
+
     .play-btn{
             height: 80px;
     width: 100%;

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, App } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { TakeactionPage } from '../takeaction/takeaction';
+import { OverlayPage } from '../overlay/overlay';
 
 
 @IonicPage()
@@ -23,7 +24,7 @@ export class IssueScreenPage {
   }
 
   dismiss() {
-    this.app.getRootNav().setRoot(TakeactionPage);
+    this.app.getRootNav().setRoot(OverlayPage);
    this.viewCtrl.dismiss();
  }
 

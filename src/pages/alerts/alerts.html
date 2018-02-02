@@ -4,7 +4,7 @@
             <ion-list-header>
                     New
                   </ion-list-header>
-        <ion-item-sliding *ngFor="let alert of alerts" >
+        <ion-item-sliding *ngFor="let alert of alerts,  let i = index" >
         <ion-item *ngIf="alert.what !== 'read'">
             <ion-avatar item-start>
                 <img src="assets/img/login-image.jpg">
@@ -15,7 +15,7 @@
         </ion-item>
 
              <ion-item-options side="right">
-                <button ion-button color="primary" (click)="markAsRead(alert.id, alert.sender_id)">
+                <button ion-button color="primary" (click)="markAsRead(alert.id, alert.sender_id, i)">
                   <ion-icon name="md-done-all"></ion-icon>
                   Accept
                 </button>
@@ -34,7 +34,7 @@
             <ion-list-header>
                     Previous
                   </ion-list-header>
-        <ion-item-sliding *ngFor="let alert of alerts" >
+        <ion-item-sliding *ngFor="let alert of alerts,  let i = index" >
         <ion-item *ngIf="alert.what === 'read'">
             <ion-avatar item-start>
                 <img src="assets/img/login-image.jpg">
@@ -46,7 +46,7 @@
 
              <ion-item-options side="right">
                
-                <button ion-button color="danger" (click)="removeNotification(alert.id)">
+                <button ion-button color="danger" (click)="removeNotification(alert.id, i)">
                   <ion-icon name="ios-trash"></ion-icon>
                   Delete
                 </button>

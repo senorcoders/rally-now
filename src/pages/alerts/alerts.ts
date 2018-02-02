@@ -7,7 +7,8 @@ import { PopoverController } from 'ionic-angular';
 import { OverlayPage } from '../overlay/overlay'
 import { UsersProvider } from '../../providers/users/users';
 import { Device } from '@ionic-native/device';
-
+import firebase from 'firebase';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'page-alerts',
@@ -22,6 +23,7 @@ export class AlertsPage {
   followEndpoint:any = "following_users?following_id=";
   followSingleEndpoint:any = "following_users/";
   userEndpoint:any = "users/";
+  badgeCount:number;
 
   constructor(
     public navCtrl: NavController,
@@ -29,10 +31,12 @@ export class AlertsPage {
     public popoverCtrl: PopoverController,
     private httpProvider:UsersProvider,
     public device: Device,
-    public toastCtrl: ToastController) {
+    public toastCtrl: ToastController,
+    public af:AngularFireDatabase) {
       this.httpProvider.returnRallyUserId().then(user => {
           this.myRallyID = user.apiRallyID;
           this.getData();
+          this.getNoticationsQty();
       });
 
   }
@@ -68,24 +72,47 @@ export class AlertsPage {
       );
      }
 
-     markAsRead(id, sender_id){
+     getNoticationsQty(){ 
+      this.httpProvider.getNotifications(this.endpoint+'?user_id='+this.myRallyID+'&what=unread')
+        .subscribe( result => {
+  
+          console.log("Badges", result);
+          this.badgeCount = result.length;
+          
+        });
+    }
+
+     markAsRead(id, sender_id, index){
         this.httpProvider.updateNotificationStatus(this.endpoint+'/'+id, 'read');
         this.getFollowID(sender_id);
+        this.hideItem(index);
         console.log("Alert updated");
      }
 
-     getFollowID(sender_id){
+     getFollowID(sender_id){ 
       this.httpProvider.getJsonData(this.followEndpoint + this.myRallyID + '&follower_id=' + sender_id).subscribe(
         result => {
           console.log("To get Follow ID", result);
             if (result != ""){
                 this.httpProvider.updateFollowers(this.followSingleEndpoint + result[0].id);
+                this.updateFireRecord(this.badgeCount - 1 );
                 this.presentToast('You got a new follower!');
                 
             }
         }
       )
      }
+
+     updateFireRecord(count){
+      let user:any = firebase.auth().currentUser;
+      this.af.database.ref('badges/'+user['uid']).update({
+        badgeCount: count
+      });
+     }
+
+     hideItem(index){
+      (this.alerts).splice(index, 1);
+    }
 
      removeNotification(id){
        console.log(id);

@@ -7,7 +7,9 @@ import { OverlayPage } from '../overlay/overlay';
 import { SearchPage } from '../search/search';
 import { UsersProvider } from '../../providers/users/users';
 import { NotiModel } from '../../models/notifications';
-
+import { Storage } from '@ionic/storage';
+import firebase from 'firebase';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 
 @IonicPage()
@@ -24,8 +26,7 @@ export class TabsPage {
   tab5Root = SearchPage;
   endpoint:any = 'ux_events';
   myRallyID:any;
-  badgeCount:NotiModel[];
-  count:any;
+  badgeCount:any;
 
   @ViewChild('mainTabs') mainTabs: Tabs;
 
@@ -35,10 +36,14 @@ export class TabsPage {
     public navParams: NavParams,
     public popoverCtrl: PopoverController,
     private httpProvider: UsersProvider,
-    public events: Events) {
+    public events: Events,
+    public storage: Storage,
+    public af:AngularFireDatabase) {
       this.httpProvider.returnRallyUserId().then( user => {
         this.myRallyID = user.apiRallyID;
         this.getNoticationsQty();
+        this.updateBadge();
+
       });
       
   }
@@ -55,19 +60,34 @@ export class TabsPage {
     popover.present();
   }
 
-  getNoticationsQty(){
+  getNoticationsQty(){ 
     this.httpProvider.getNotifications(this.endpoint+'?user_id='+this.myRallyID+'&what=unread')
       .subscribe( result => {
+        let user:any = firebase.auth().currentUser;
+
         console.log("Badges", result);
-        this.badgeCount = result;
-        this.count = this.badgeCount.length;
-        console.log(this.count);
+        this.badgeCount = result.length;
+        console.log("Count", this.badgeCount);
+        this.af.database.ref('badges/'+user['uid']).set({
+          badgeCount: this.badgeCount
+        });
       });
   } 
 
 
+  updateBadge(){
+    let user:any = firebase.auth().currentUser;
+    this.af.object('badges/'+user['uid'])
+      .subscribe((data) => {
+          console.log(data);
+          this.badgeCount = data.badgeCount;
+      });
+
+  }
   public tapped() {
     this.events.publish('home:scrollToTop', Date.now() );
 }
+
+  
 
 }

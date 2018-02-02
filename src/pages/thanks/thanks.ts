@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ViewController, App } from 'ionic-
 import { UsersProvider } from '../../providers/users/users';
 import { TabsPage } from '../tabs/tabs';
 import { TakeactionPage } from '../takeaction/takeaction';
+import { OverlayPage } from '../overlay/overlay';
 
 
 @IonicPage()
@@ -43,7 +44,7 @@ export class ThanksPage {
 
 
   dismiss() {
-    this.app.getRootNav().setRoot(TakeactionPage);
+    this.app.getRootNav().setRoot(OverlayPage);
    this.viewCtrl.dismiss();
  }
 

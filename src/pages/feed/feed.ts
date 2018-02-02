@@ -76,7 +76,7 @@ export class FeedPage {
   safeSvg:any; 
   followEndpoint:any = 'following_representative';
   enablePlaceholder:boolean = true;
-  loader:boolean = false;
+  loader:boolean = false; 
 
 
   // @ViewChild(Content) content: Content;
