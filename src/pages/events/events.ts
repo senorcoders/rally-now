@@ -48,6 +48,7 @@ export class EventsPage {
   zipcode:any;
   distance:any;
   safeSvg:any;
+  loader:boolean = false;
 
 
 
@@ -127,11 +128,12 @@ export class EventsPage {
      doRefresh(refresher) {
       this.start = 1;
       this.events = [];
-      this.loading = this.loadingCtrl.create({
-        spinner: 'hide',
-        content: this.safeSvg,
-        }); 
-        this.loading.present();
+      // this.loading = this.loadingCtrl.create({
+      //   spinner: 'hide',
+      //   content: this.safeSvg,
+      //   }); 
+      //   this.loading.present();
+      this.loader = true;
       this.getdata();
       this.eventFiltered = false;
     
@@ -165,6 +167,7 @@ export class EventsPage {
             .then(data => {
               this.events = data['Events'];
               this.loading.dismiss(); 
+              this.loader = false;
 
              
               resolve(true);
@@ -190,6 +193,7 @@ getArray(array){
         this.events.push(event);
   }
   this.loading.dismiss(); 
+  this.loader = false;
 
 }
 
@@ -199,6 +203,7 @@ getFilteredEvents(startDate, endDate){
       console.log(result);
      this.events = result.Events;
      this.loading.dismiss(); 
+     this.loader = false;
 
     //  this.storage.set('EVENTS', result);
 

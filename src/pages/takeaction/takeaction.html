@@ -2,6 +2,8 @@
 
 
 <ion-content> 
+        <ion-spinner *ngIf="loader"></ion-spinner>
+
         <ion-refresher (ionRefresh)="doRefresh($event)">
                 <ion-refresher-content pullingText="Pull down to Refresh" pullingIcon="arrow-dropdown" refreshingSpinner="circles" refreshingText="Refreshing...">
                 </ion-refresher-content>
@@ -18,7 +20,7 @@
 
        <ion-item>
             <ion-avatar item-start>
-                <img src="{{objective.organization['image_url']}}" (click)="goToOrganizationProfile(objective.organization_id)">
+                <img [src]="objective.organization['image_url'] ? objective.organization['image_url'] : 'assets/img/org_icon.svg'" (click)="goToOrganizationProfile(objective.organization_id)">
             </ion-avatar>
             <button (click)="goToOrganizationProfile(objective.organization_id)" style="background: none;">
         <h2> <small>via</small> {{objective.organization['name']}}</h2>

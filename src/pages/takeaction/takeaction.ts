@@ -38,6 +38,7 @@ export class TakeactionPage {
   organizationEndpoint:any = 'following_organizations';
   safeSvg:any;
   loading:any;
+  loader:boolean = false;
 
 
 
@@ -87,11 +88,12 @@ export class TakeactionPage {
 
     doRefresh(refresher) {
       this.objectives = [];
-      this.loading = this.loadingCtrl.create({
-        spinner: 'hide',
-        content: this.safeSvg,
-        }); 
-        this.loading.present();
+      // this.loading = this.loadingCtrl.create({
+      //   spinner: 'hide',
+      //   content: this.safeSvg,
+      //   }); 
+      //   this.loading.present();
+      this.loader = true;
       this.getdata();
     
         setTimeout(() => {
@@ -169,6 +171,7 @@ export class TakeactionPage {
     result => {
       this.objectives=result;
       this.loading.dismiss();
+      this.loader = false;
       console.log("Objectives", JSON.stringify(result));
     },
     err =>{

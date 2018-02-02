@@ -44,6 +44,7 @@ export class FriendsactivityPage {
     public following:any = [];
     safeSvg:any;
     loading:any;
+    loader:boolean = false;
 
   constructor(
     public navCtrl: NavController, 
@@ -137,11 +138,12 @@ export class FriendsactivityPage {
 doRefresh(refresher) {
   this.objectivesAction = [];
   this.objectivesPersonal = []
-  this.loading = this.loadingCtrl.create({
-    spinner: 'hide',
-    content: this.safeSvg,
-    }); 
-    this.loading.present();
+  // this.loading = this.loadingCtrl.create({
+  //   spinner: 'hide',
+  //   content: this.safeSvg,
+  //   }); 
+  //   this.loading.present();
+  this.loader = true;
   this.getdata();
 
     setTimeout(() => {
@@ -158,7 +160,8 @@ getdata(){
       console.log("Full Data", data);
       this.getArray(data['Objectives_Actions']);
       this.getArray(data['Direct_Actions']);
-      this.loading.dismiss();    
+      this.loading.dismiss(); 
+      this.loader = false;   
       resolve(true);
 
     });

@@ -12,6 +12,8 @@
                 </ion-segment-button>
               
               </ion-segment>
+              <ion-spinner *ngIf="loader"></ion-spinner>
+
               <ion-refresher (ionRefresh)="doRefresh($event)">
                     <ion-refresher-content pullingText="Pull down to Refresh" pullingIcon="arrow-dropdown" refreshingSpinner="circles" refreshingText="Refreshing...">
                     </ion-refresher-content>

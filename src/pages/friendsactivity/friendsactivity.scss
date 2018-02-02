@@ -2,6 +2,16 @@ page-friendsactivity {
     a[disabled], button[disabled], [ion-button][disabled]{
         opacity: 1 !important;
     }
+
+    ion-spinner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin: 0 auto;
+    }
+    
     ion-content {
        background: #d8d8d8 !important;
         top:60px;

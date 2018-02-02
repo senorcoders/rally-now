@@ -25,6 +25,8 @@
         </ion-item>
 
     </ion-row>
+    <ion-spinner *ngIf="loader"></ion-spinner>
+
     <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content pullingText="Pull down to Refresh" pullingIcon="arrow-dropdown" refreshingSpinner="circles" refreshingText="Refreshing...">
         </ion-refresher-content>
@@ -137,7 +139,7 @@
         </ion-card>
 
         <!-- End Twitter Card -->
-
+ 
          <!-- Tweet Cards -->
          <ion-card class="reps-card" style="position: relative;" *ngIf="record.card_type === 'rep_tweet'">
             <ion-fab right top>
@@ -202,7 +204,7 @@
         
                 <ion-item>
                     <ion-avatar item-start>
-                        <img [src]="record.organization['image_url'] ? record.organization['image_url'] : testPhoto" (click)="goToOrganizationProfile(record.organization_id)">
+                        <img [src]="record.organization['image_url'] ? record.organization['image_url'] : 'assets/img/org_icon.svg'" (click)="goToOrganizationProfile(record.organization_id)">
                     </ion-avatar>
                     <button (click)="goToOrganizationProfile(record.organization_id)" style="background: none; padding-left:0;">
                 <h2> <small>via</small> {{record.organization['name']}}</h2>
@@ -219,7 +221,7 @@
                         <p class="white"><strong>{{record.rallies}}</strong><br> Rallied</p>
                  </div>
                    <div class="bottom-excerpt">
-                        <p class="white">{{record?.title}}</p>
+                        <p class="white">{{record?.title}}</p> 
                     </div>
                     <div class="btn-objectives-contact">
                         <button ion-button *ngIf="record?.goals[0]?.goal_type !== 'sign'">Contact</button>
@@ -271,7 +273,7 @@
             
                     <ion-item>
                         <ion-avatar item-start>
-                            <img [src]="record.organization[0].image_url ? record.organization[0].image_url : testPhoto" (click)="goToOrganizationProfile(record.organization_id)">
+                            <img [src]="record.organization[0].image_url ? record.organization[0].image_url : 'assets/img/org_icon.svg'" (click)="goToOrganizationProfile(record.organization_id)">
                         </ion-avatar>
                         <button (click)="goToOrganizationProfile(record.organization_id)" style="background: none; padding-left:0; max-width: 85%;">
                             <h2 text-wrap style="text-align: left; "> <small>via</small> {{record.organization[0].name}}</h2>
@@ -387,3 +389,5 @@
       </ion-infinite-scroll>
 
 </ion-content>
+
+

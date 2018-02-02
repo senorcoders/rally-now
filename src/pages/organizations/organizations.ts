@@ -49,6 +49,8 @@ export class OrganizationsPage {
   loading:any;
   filterBy:any;
   safeSvg:any;
+  loader:boolean = false;
+
 
   constructor(
     public navCtrl: NavController, 
@@ -122,11 +124,12 @@ export class OrganizationsPage {
      doRefresh(refresher) {
       this.start = 1;
       this.records = [];
-      this.loading = this.loadingCtrl.create({
-        spinner: 'hide',
-        content: this.safeSvg,
-        }); 
-        this.loading.present();
+      // this.loading = this.loadingCtrl.create({
+      //   spinner: 'hide',
+      //   content: this.safeSvg,
+      //   }); 
+      //   this.loading.present();
+      this.loader = true;
       this.getdata();
       this.eventFiltered = false;
     
@@ -167,6 +170,7 @@ export class OrganizationsPage {
               
             resolve(true);
             this.loading.dismiss(); 
+            this.loader = false;
     
           });
       });

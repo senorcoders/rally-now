@@ -76,7 +76,7 @@ export class FeedPage {
   safeSvg:any; 
   followEndpoint:any = 'following_representative';
   enablePlaceholder:boolean = true;
-
+  loader:boolean = false;
 
 
   // @ViewChild(Content) content: Content;
@@ -226,6 +226,7 @@ export class FeedPage {
         resolve(true);
         //this.loading.dismiss(); 
         this.enablePlaceholder = false;
+        this.loader = false;
 
       });
   });
@@ -263,7 +264,8 @@ doRefresh(refresher) {
   //   this.loading.present();
   this.getdata();
   this.eventFiltered = false;
-  this.enablePlaceholder = true;
+  //this.enablePlaceholder = true;
+  this.loader = true;
 
     setTimeout(() => {
       console.log('Async operation has ended');

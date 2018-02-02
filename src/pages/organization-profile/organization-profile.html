@@ -8,7 +8,7 @@
     <ion-row padding style="padding-bottom: 0; background: #fff;">
         <ion-col col-4 class="profile-headshot">
             <ion-avatar item-start class="profile-img">
-                <img src="{{data?.image_url}}">
+                <img [src]="data?.image_url ? data?.image_url : 'assets/img/org_icon.svg'">
             </ion-avatar>
           
         </ion-col>
@@ -63,7 +63,7 @@
 
         <ion-item>
             <ion-avatar item-start>
-                <img src="{{objective.organization['image_url']}}" (click)="showPhotoViewer(objective.organization['image_url'])">
+                <img [src]="objective.organization['image_url'] ? objective.organization['image_url'] : 'assets/img/org_icon.svg'" (click)="showPhotoViewer(objective.organization['image_url'])">
             </ion-avatar>
             <button style="background: none;">
         <h2> <small>via</small> {{objective.organization['name']}}</h2>
@@ -82,10 +82,9 @@
                 <p class="white">{{objective?.title}}</p>
             </div>
             <div class="btn-objectives-contact">
-                    <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'call'">Contact</button>
-                    <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'Fax'">Fax</button>
-                    <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'Email'">Email</button>
-                    <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'Tweet'">Tweet</button>                </div>
+                <button ion-button *ngIf="objective?.goals[0]?.goal_type !== 'sign'">Contact</button>
+                <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'sign'">Sign</button>
+              </div>
         </div>
 
 
@@ -141,7 +140,7 @@
 
         <ion-item>
             <ion-avatar item-start>
-                <img [src]="data?.image_url">
+                <img [src]="data?.image_url ? data?.image_url : 'assets/img/org_icon.svg'">
             </ion-avatar>
             <button  style="background: none; padding-left:0; max-width: 85%;">
                 <h2 text-wrap style="text-align: left; "> <small>via</small> {{name}}</h2>

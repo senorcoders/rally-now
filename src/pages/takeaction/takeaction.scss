@@ -3,6 +3,15 @@ page-takeaction {
     top: 60px;
     margin-bottom: 60px;
     }
+
+    ion-spinner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin: 0 auto;
+    }
     
 
     .toolbar-background {

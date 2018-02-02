@@ -48,6 +48,7 @@ export class OrganizationActionPage {
   information = [];
   enable:boolean;
   disable:boolean = false;
+  message:boolean = false;
 
   goalLike:any = 'ea9bd95e-128c-4a38-8edd-938330ad8b2d';
   likeendpoint:any = 'likes';
@@ -432,11 +433,19 @@ getReps(){
     console.log(val);
       if (val != null){
         this.enable = true;
-        this.reps = val; 
-        this.getAddress();
-        this.getSenator();
+        if(val !== 'sorry'){
+          this.reps = val; 
+          this.getAddress();
+          this.getSenator();
+          this.message = false;
+          }else{
+            this.message = true;
+
+          }
+        
       } else{
         this.enable = false;
+        this.message = false;
       }
   });
 }
@@ -444,7 +453,7 @@ getReps(){
 getSenator(){
   this.storage.get('senators').then((val) => {
     if(val != null){
-      this.senators = val;
+      this.senators = val; 
     }
   });
 }

@@ -7,6 +7,15 @@ page-organizations {
         text-align: center;
     }
 
+    ion-spinner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin: 0 auto;
+    }
+
     // .toolbar-background {
     //     background-color: #4a90e2;
     //     color: #fff;

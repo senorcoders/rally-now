@@ -46,7 +46,7 @@ export class AdressModalPage {
 
 
   public getLocation(){
-    this.nativeGeocoder.forwardGeocode(this.address)
+    this.nativeGeocoder.forwardGeocode(this.searchTerm)
   .then((coordinates: NativeGeocoderForwardResult) => {
     
     console.log(this.searchTerm);
@@ -66,9 +66,16 @@ export class AdressModalPage {
     this.httpProvider.getHouseReps(lat, lng).subscribe(
       result => {
           console.log("Your reps", result.data);
-          this.storage.set('representatives', result.data);
-          this.storage.set('repAdress', this.searchTerm);
-          this.getSenateReps(lat, lng);
+          if(result.data.length > 0){
+            this.storage.set('representatives', result.data);
+            this.storage.set('repAdress', this.searchTerm);
+            this.getSenateReps(lat, lng);
+          }else{
+            this.storage.set('representatives', 'sorry');
+            this.storage.set('repAdress', this.searchTerm);
+            this.getSenateReps(lat, lng);
+          }
+         
 
       });
   }
@@ -84,7 +91,7 @@ export class AdressModalPage {
 
   detail(item){
     console.log(item);
-    this.address = item.description;
+    //this.address = item.description;
     this.searchTerm = item.description;
   }
 
