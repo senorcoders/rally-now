@@ -98,8 +98,16 @@ export class HomePage {
           this.user.uid = res.uid;
           this.storage.set('DISPLAYNAME', res.displayName);
           this.user.displayName = res.displayName;
-          this.storage.set('USERNAME', res.username);
-          this.user.username = res.displayName.replace(" ", ".").toLowerCase();
+          let username = res.displayName.split(" ");
+          var nickname;
+          if(username[2] != null){
+            nickname = (username[0]+username[2]).toLowerCase();
+          }else{
+            nickname = (username[0]+username[1]).toLowerCase();
+
+          }
+          this.storage.set('USERNAME', nickname);
+          this.user.username = nickname;
           this.storage.set('PHOTOURL', res.photoURL);
           this.user.photoURL = res.photoURL;
           this.storage.set('PROVIDER', 'twitter.com');

@@ -101,7 +101,7 @@ export class RepresentivesListPage {
           this.items.push(person);
     }
     //this.loading.dismiss(); 
-    //this.enablePlaceholder = false;
+    this.enablePlaceholder = false;
 
 }
 

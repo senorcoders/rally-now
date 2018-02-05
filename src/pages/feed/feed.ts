@@ -100,6 +100,7 @@ export class FeedPage {
     public modalCtrl: ModalController,
     private sanitizer: DomSanitizer,
     private inAppBrowser: InAppBrowser) { 
+      
 
       // eventsAng.subscribe('home:scrollToTop', (time) => {
       //   console.log('home:scrollToTop', 'at', time);
