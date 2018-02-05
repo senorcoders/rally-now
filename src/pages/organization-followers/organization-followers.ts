@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
+import { PublicProfilePage } from '../public-profile/public-profile';
 
 
 @IonicPage()
@@ -50,6 +51,13 @@ export class OrganizationFollowersPage {
         return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
+  }
+
+  goToPublicProfile(userID){
+    this.navCtrl.push(PublicProfilePage, {
+       param1: userID,
+       profilePageName: "Organization"
+ });
   }
 
 }

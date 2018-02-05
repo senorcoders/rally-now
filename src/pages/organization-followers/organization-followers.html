@@ -13,10 +13,10 @@
   
   <ion-list>
           <ion-item *ngFor="let follower of items">
-                  <ion-avatar item-start>
+                  <ion-avatar item-start (click)="goToPublicProfile(follower.id)">
                     <img src="{{follower.photo_url}}"  style="border:2px solid #ada8a8;">
                   </ion-avatar>
-                  <h2>{{follower.name}}</h2>
+                  <h2 (click)="goToPublicProfile(follower.id)">{{follower.name}}</h2>
                   <!-- <button ion-button clear item-end style="background: transparent;
                   color: gray;
                   border-radius: 4px;

@@ -73,7 +73,7 @@ export class ChangeUsernamePage {
     }else{
       this.checkAvailability();
     }
-  }
+  } 
 
   checkAvailability(){
       this.httpProvider.getJsonData(this.endpoint + '?username=' + this.username).subscribe(

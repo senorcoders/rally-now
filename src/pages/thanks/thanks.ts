@@ -52,7 +52,7 @@ export class ThanksPage {
    this.httpProvider.getJsonData(this.endpoint + this.currentRallyID).subscribe(result => {
      let nickname = result.name.split(" ");
      console.log(result);
-     this.username = nickname[0];
+     this.username = nickname[0]; 
      this.accountStatus = result.hide_activity;
    });
  }

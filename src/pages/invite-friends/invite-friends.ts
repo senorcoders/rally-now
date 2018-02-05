@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/contacts';
+import { Contacts, Contact } from '@ionic-native/contacts';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
 
 
@@ -11,8 +11,8 @@ import { SocialShareProvider } from '../../providers/social-share/social-share';
 })
 export class InviteFriendsPage {
 
-  listaContactos:any[]=[];
-  avatar:string="./assets/icon/avatar.png";
+  public listaContactos:Contact[]=[];
+  avatar:string="assets/icon/avatar.png";
 
 
   constructor(
@@ -22,6 +22,7 @@ export class InviteFriendsPage {
     private contacts:Contacts,
     private socialProvider: SocialShareProvider) {
       this.cargarListaContactos();
+      console.log(this.contacts);
   }
 
   ionViewDidLoad() {
@@ -46,7 +47,7 @@ export class InviteFriendsPage {
       // console.log({funcion:'CargarListaContactos',datosMostar:datosMostar})
       this.listaContactos = res;
 
-      console.log(res);
+      console.log("Contactos", res);
     },error => {
       console.log({error:error})
     })
