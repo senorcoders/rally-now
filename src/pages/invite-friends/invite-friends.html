@@ -6,7 +6,7 @@
           <ion-avatar item-start>
               <img src="assets/img/sms.png">
           </ion-avatar>
-        <h2>{{contacto.displayName }}</h2>
+        <h2 text-wrap>{{contacto.displayName ? contacto.displayName : contacto.name['givenName']}}</h2>
         <button ion-button  item-end class="invite-btn" (click)="sendInvitation(contacto.phoneNumbers[0].value)">
           Invite
         </button>

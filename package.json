@@ -135,7 +135,8 @@
       "cordova-plugin-compat": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   }
 }
