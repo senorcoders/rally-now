@@ -53,13 +53,14 @@ page-organization-action {
         text-transform: uppercase;
         box-shadow: none;
         border: none;
-        padding: 0 !important;
+        padding: 10px !important;
         border-radius: 6px !important;
         font-size: 14px !important;
         height: 3.6rem !important;
         .button-inner{
             width: 100px !important;
-
+            font-family:'Conv_SanFranciscoDisplay-Semibold',Sans-Serif !important;
+            font-size: 14px !important;
         }
     }
     ion-card {

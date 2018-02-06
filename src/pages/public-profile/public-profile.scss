@@ -140,8 +140,14 @@ page-public-profile {
 
     .follow-btn{
         background: #356fba;
-        border-radius: 8px;
-        font-size: 12px;
+        color: #f2f2f2;
+        border: none;
+        border-radius: 0;
+        font-size: 14px;
+        width: 100%;
+        border-radius: 6px;
+        text-transform: uppercase;
+        font-family:'Conv_SanFranciscoDisplay-Semibold',Sans-Serif !important;
     }
 
     .item-md ion-avatar img,

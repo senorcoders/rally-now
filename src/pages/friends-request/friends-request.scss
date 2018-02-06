@@ -12,7 +12,7 @@ page-friends-request {
     }
     .action-btn {
         // height: auto;
-        padding: 0 !important;
+        padding: 10px !important;
         background: #fff;
         color: #6D6D72;
         border: 1px solid #989898;
@@ -24,6 +24,8 @@ page-friends-request {
         border-radius: 6px;
         .button-inner{
             width: 100px !important;
+            font-family:'Conv_SanFranciscoDisplay-Semibold',Sans-Serif !important;
+            font-size: 14px !important;
     
         }
     }

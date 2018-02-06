@@ -33,7 +33,7 @@ page-organizations-list {
 
     .follow-btn{
             // height: auto;
-        padding: 0 !important;
+        padding: 10px !important;
         background: #296fb7;
         color: #f2f2f2;
         border: 1px solid #296fb7;
@@ -46,6 +46,8 @@ page-organizations-list {
         height: 3.6rem !important;
         .button-inner{
             width: 100px !important;
+            font-family:'Conv_SanFranciscoDisplay-Semibold',Sans-Serif !important;
+            font-size: 14px !important;
     
         }
     }

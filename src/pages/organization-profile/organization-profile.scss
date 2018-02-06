@@ -135,9 +135,21 @@ page-organization-profile {
             bottom: 10px;
 
             button{
-                    background: #f4512c !important;
-                text-transform: uppercase !important;
-            }
+                background: #f4512c !important;
+                    text-transform: uppercase !important;
+                    color: #f2f2f2 !important;
+                    border-radius: 6px !important;
+                    padding: 10px !important;
+                    letter-spacing: -0.36px; 
+        
+                    .button-inner{
+                        width: 100px !important;
+                        font-family:'Conv_SanFranciscoDisplay-Semibold',Sans-Serif !important;
+                        font-size: 14px !important;
+        
+        
+                    }
+                }
 
         }
         .fab-md-light,
@@ -249,6 +261,7 @@ page-organization-profile {
         margin-top: 0;
         font-size: 14px;
         text-transform: uppercase;
+        font-family:'Conv_SanFranciscoDisplay-Semibold',Sans-Serif !important;
     }
 
     .username-h4{

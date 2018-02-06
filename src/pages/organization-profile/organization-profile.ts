@@ -91,7 +91,7 @@ export class OrganizationProfilePage {
       this.short_desc=result.organization[0]['short_desc'];
       this.dataID=result.organization[0]['id'];
       this.objectives = result.objectives;
-      this.posts = result.organization[0]['objectives_count'];
+      this.posts = result.organization[0]['post_count']; 
       this.followers = result.organization[0]['follower_count'];
       this.twitter = result.organization[0]['twitter'];
       this.events = result.organization[0].events;

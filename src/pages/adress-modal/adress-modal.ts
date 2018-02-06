@@ -61,13 +61,13 @@ export class AdressModalPage {
     //this.getSenateReps(lat, lng);
 
   }
-
-  getHouseReps(lat, lng){
+ 
+  getHouseReps(lat, lng){ 
     this.httpProvider.getHouseReps(lat, lng).subscribe(
       result => {
-          console.log("Your reps", result.data);
-          if(result.data.length > 0){
-            this.storage.set('representatives', result.data);
+          console.log("Your reps", result);
+          if(result.length > 0){
+            this.storage.set('representatives', result);
             this.storage.set('repAdress', this.searchTerm);
             this.getSenateReps(lat, lng);
           }else{
@@ -83,8 +83,8 @@ export class AdressModalPage {
   getSenateReps(lat, lng){
     this.httpProvider.getSenateReps(lat, lng).subscribe(
       result => {
-          console.log("Your reps", result.data);
-          this.storage.set('senators', result.data);
+          console.log("Your reps", result);
+          this.storage.set('senators', result);
           this.dismiss();
       });
   }

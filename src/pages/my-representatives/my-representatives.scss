@@ -6,18 +6,20 @@ page-my-representatives {
     
     .action-btn {
         // height: auto;
-        padding: 0 !important;
         background: #fff;
         color: #6D6D72;
         border: 1px solid #989898;
         font-size: 14px;
         text-transform: uppercase;
         letter-spacing: -0.36px;
+        padding: 10px !important;
         // min-width: 80px;
         box-shadow: none;
         border-radius: 6px;
         .button-inner{
             width: 100px !important;
+            font-family:'Conv_SanFranciscoDisplay-Semibold',Sans-Serif !important;
+            font-size: 14px !important;
     
         }
     }

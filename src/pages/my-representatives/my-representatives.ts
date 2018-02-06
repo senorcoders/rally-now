@@ -106,11 +106,11 @@ export class MyRepresentativesPage {
     });
   }
 
-  getRepID(rep, fax, twitter, email, bioguide){
+  getRepID(rep, fax, twitter, email, bioguide, offices){ 
     this.httpProvider.getJsonData(this.repsEndpoint +bioguide).subscribe( result => {
         console.log(result);
         this.data.representative_id = result[0].id;
-        this.presentActionSheet(rep, result[0].fax_url, twitter, email, result[0].id, result[0].offices);
+        this.presentActionSheet(rep, result[0].fax_url, result[0].twitter_link, email, result[0].id, offices);
     });
   }
 
@@ -130,7 +130,7 @@ export class MyRepresentativesPage {
           text: 'Make the Call',
           handler: () => {
             this.navCtrl.push(CallPage, {rep: rep, repID: repID, offices: offices});
-            this.callNumber.callNumber(rep.phone, true)
+            this.callNumber.callNumber(rep.offices[0].phone, true)
             .then(() => console.log('Launched dialer!'))
             .catch((error) => console.log('Error launching dialer', error));
 
@@ -143,7 +143,7 @@ export class MyRepresentativesPage {
 
   presentActionSheet(rep, fax, twitter, email, repID, offices) {
     let actionSheet = this.actionSheetCtrl.create({
-      title: 'Contact ' + rep.name,
+      title: 'Contact ' + rep.first_name,
       buttons: [
         {
           text: 'Call',

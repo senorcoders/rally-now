@@ -264,7 +264,7 @@ doRefresh(refresher) {
   //   }); 
   //   this.loading.present();
   this.getdata();
-  this.eventFiltered = false;
+  //this.eventFiltered = false;
   //this.enablePlaceholder = true;
   this.loader = true;
 

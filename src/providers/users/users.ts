@@ -15,8 +15,10 @@ export class UsersProvider {
 	data:any = {};
   recordID:any;
   senorcodersEndpoint:any = 'http://senorcoders.com/rally/';
-  civilApi:any = 'https://api.civil.services/v1/house/?apikey=FA7D0F9C-3879-F284-9D4A-BD9E595BC89B&latitude=';
+  //civilApi:any = 'https://api.civil.services/v1/house/?apikey=FA7D0F9C-3879-F284-9D4A-BD9E595BC89B&latitude=';
   civilApiSenate:any = 'https://api.civil.services/v1/senate/?apikey=FA7D0F9C-3879-F284-9D4A-BD9E595BC89B&latitude=';
+  civilApi:any = 'https://openstates.org/api/v1/legislators/geo/?lat=';
+  apiKey:any = '&apikey=74c514c1-2ba0-4114-a2ee-066981c0d7b5';
 
   constructor(public http: Http, public storage: Storage, public af:AngularFireDatabase) {
     console.log('Hello Users Provider');
@@ -29,12 +31,12 @@ export class UsersProvider {
   
   getHouseReps(lat, lng){
     console.log(lat, lng);
-    return this.http.get(this.civilApi + lat + '&longitude=' + lng).map(res => res.json());
+    return this.http.get(this.civilApi + lat + '&long=' + lng  + this.apiKey).map(res => res.json());
   }
 
   getSenateReps(lat, lng){
     console.log(lat, lng);
-    return this.http.get(this.civilApiSenate + lat + '&longitude=' + lng).map(res => res.json());
+    return this.http.get(this.civilApi + lat + '&long=' + lng  + this.apiKey).map(res => res.json());
   }
 
 
