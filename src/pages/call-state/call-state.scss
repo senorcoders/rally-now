@@ -1,0 +1,68 @@
+page-call-state {
+    .toolbar-background {
+        background-color: #4a90e2;
+        color: #fff;
+    }
+    p.white {
+        color: #fff;
+        margin: 0;
+    }
+
+    ion-content{
+    top: 60px;
+}
+    .bordered {
+        border-bottom: 1px solid #000;
+    }
+
+    .bob-headshot {
+        height: 70px;
+        width: 70px;
+        border-radius: 50%;
+        margin: 0 auto;
+        margin-right: 0;
+        border: 2px solid gray;
+        background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    }
+
+    .gray {
+        color: gray;
+        margin: 0;
+    }
+
+    h3 {
+        margin: 5px 0;
+    }
+
+    .bob-button{
+    	min-height: 70px;
+    }
+
+    .btn-light-blue{
+        background: #5f94d2 !important;
+        border-top: 1px solid #fff !important;
+        button{
+            background: #5f94d2 !important;
+            height: 5rem !important;
+            .button-inner{
+                display: block !important;
+                .special-btn{
+                    width: 100%;
+                    img{
+                        width: 30px;
+                        height: 30px;
+                        margin-bottom: 5px;
+                        filter: brightness(0) invert(1);
+                        
+                    }
+                }
+            }
+        }
+    }
+
+    .right-border{
+        border-right: 1px solid #fff;
+    }
+}

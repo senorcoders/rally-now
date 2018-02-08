@@ -126,7 +126,7 @@ export class OrganizationActionPage {
           text: 'Make the Call',
           handler: () => {
             this.navCtrl.push(CallPage, {rep: rep, repID: repID, talkingPoints: this.objDesc, offices: offices, goalID: this.goal_id, objectiveID: this.objectiveID});
-            this.callNumber.callNumber(rep.offices[0].phone, true)
+            this.callNumber.callNumber(rep.phone, true)
             .then(() => console.log('Launched dialer!'))
             .catch((error) => console.log('Error launching dialer', error));
 
@@ -480,11 +480,11 @@ finReps(){
 }
 
 
-getRepID(rep, fax, twitter, email, bioguide, offices){
+getRepID(rep, fax, twitter, email, bioguide, offices?){
   this.httpProvider.getJsonData(this.repsEndpoint +bioguide).subscribe( result => {
       console.log("Rally Search", result);
       this.data.representative_id = result[0].id;
-      this.presentActionSheet(rep, result[0].fax_url, result[0].twitter_link, email, result[0].id, offices);
+      this.presentActionSheet(rep, result[0].fax_url, result[0].twitter_link, email, result[0].id, result[0].offices);
   });
 }
 

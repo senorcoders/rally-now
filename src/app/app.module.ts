@@ -106,6 +106,7 @@ import { ThanksPage } from '../pages/thanks/thanks';
 import { RepFollowersPage } from '../pages/rep-followers/rep-followers';
 import { GooglePlacesAutocompleteComponentModule } from 'ionic2-google-places-autocomplete';
 import { Keyboard } from '@ionic-native/keyboard';
+import { CallStatePage } from '../pages/call-state/call-state';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -217,7 +218,8 @@ firebase.initializeApp(config);
         RepresentativeProfilePage,
         IssueScreenPage,
         ThanksPage,
-        RepFollowersPage
+        RepFollowersPage,
+        CallStatePage
     ],
     imports: [
         BrowserModule,
@@ -302,7 +304,8 @@ firebase.initializeApp(config);
         RepresentativeProfilePage,
         IssueScreenPage,
         ThanksPage,
-        RepFollowersPage
+        RepFollowersPage,
+        CallStatePage
     ],
     providers: [
         StatusBar,

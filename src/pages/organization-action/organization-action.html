@@ -75,31 +75,26 @@
                    <ion-icon name="md-create" item-end></ion-icon>
                 </ion-item>
                 <div *ngIf="enableReps">
-                    <div *ngFor="let rep of reps">
-                            <ion-item *ngIf="rep.chamber === 'lower'">
-                        
-                                    <ion-avatar item-start>
-                                        <img src="{{rep.photo_url}}" style="border-radius: 50%;">
-                                    </ion-avatar>
-                                    <h2>{{rep.full_name}}</h2>
-                                    <p><small>House Representative of {{rep.state}}</small></p>
-                                    <button (click)="getRepID(rep, rep.url ,rep.twitter_url,rep.url, rep.id, rep.offices)" item-end ion-button color="dark" class="action-btn">Contact</button>
-                                </ion-item>
-                    </div>
+                    <ion-item *ngFor="let rep of reps">
+                        <ion-avatar item-start>
+                            <img src="{{rep.photo_url}}" style="border-radius: 50%;">
+                        </ion-avatar>
+                        <h2>{{rep.name}}</h2>
+                        <p><small>House Representative of {{rep.state_name}}</small></p>
+                        <button (click)="getRepID(rep, rep.civil_services_url ,rep.twitter_url,rep.contact_page, rep.bioguide)" item-end ion-button color="dark" class="action-btn">Contact</button>
+                    </ion-item>
                     
                 </div>
           
             <div *ngIf="enableSen">
-                <div *ngFor="let rep of senators">
-                        <ion-item *ngIf="rep.chamber === 'upper'">
-                                <ion-avatar item-start>
-                                    <img src="{{rep.photo_url}}" style="border-radius: 50%;">
-                                </ion-avatar>
-                                <h2>{{rep.full_name}}</h2>
-                                <p><small>Senator of {{rep.state}}</small></p>
-                                <button (click)="getRepID(rep, rep.url ,rep.twitter_url,rep.url, rep.id, rep.offices)" item-end ion-button color="dark" class="action-btn">Contact</button>
-                            </ion-item>
-                </div>
+                <ion-item *ngFor="let rep of senators">
+                    <ion-avatar item-start>
+                        <img src="{{rep.photo_url}}" style="border-radius: 50%;">
+                    </ion-avatar>
+                    <h2>{{rep.name}}</h2>
+                    <p><small>Senator of {{rep.state_name}}</small></p>
+                    <button (click)="getRepID(rep, rep.civil_services_url ,rep.twitter_url,rep.contact_page, rep.bioguide)" item-end ion-button color="dark" class="action-btn">Contact</button>
+                </ion-item>
                 
             </div>
 

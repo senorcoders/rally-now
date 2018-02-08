@@ -8,6 +8,7 @@ import { CallPage } from '../call/call';
 import { FaxFeedBackPage } from '../fax-feed-back/fax-feed-back';
 import { EmailFeedBackPage } from '../email-feed-back/email-feed-back';
 import { CallNumber } from '@ionic-native/call-number';
+import { CallStatePage } from '../call-state/call-state';
 
 
 @IonicPage()
@@ -31,7 +32,7 @@ export class MyRepresentativesPage {
   favEndpoint:any = 'actions';
   myrallyID:any;
   followEndpoint:any = 'following_representative';
-
+  statereps:any;
 
 
   constructor(
@@ -52,6 +53,7 @@ export class MyRepresentativesPage {
         this.data.user_id = user.apiRallyID;
         this.getAddress();
         this.getReps();
+        this.getStateReps();
         this.getSenators();
       });
   }
@@ -83,12 +85,22 @@ export class MyRepresentativesPage {
         } 
     });
   }
+  getStateReps(){
+    this.storage.get('statesReps').then((val) => {
+      console.log(val);
+        if (val != null){
+          this.statereps = val;
+        } 
+    });
+  }
+  
 
   finReps(){
     let modal = this.modalCtrl.create(AdressModalPage);
     modal.onDidDismiss(() => {
       this.getReps();
       this.getSenators();
+      this.getStateReps();
       this.getAddress();
     });
     modal.present();
@@ -106,11 +118,11 @@ export class MyRepresentativesPage {
     });
   }
 
-  getRepID(rep, fax, twitter, email, bioguide, offices){ 
+  getRepID(rep, fax, twitter, email, bioguide){
     this.httpProvider.getJsonData(this.repsEndpoint +bioguide).subscribe( result => {
         console.log(result);
         this.data.representative_id = result[0].id;
-        this.presentActionSheet(rep, result[0].fax_url, result[0].twitter_link, email, result[0].id, offices);
+        this.presentActionSheet(rep, result[0].fax_url, twitter, email, result[0].id, result[0].offices);
     });
   }
 
@@ -130,7 +142,7 @@ export class MyRepresentativesPage {
           text: 'Make the Call',
           handler: () => {
             this.navCtrl.push(CallPage, {rep: rep, repID: repID, offices: offices});
-            this.callNumber.callNumber(rep.offices[0].phone, true)
+            this.callNumber.callNumber(rep.phone, true)
             .then(() => console.log('Launched dialer!'))
             .catch((error) => console.log('Error launching dialer', error));
 
@@ -143,7 +155,7 @@ export class MyRepresentativesPage {
 
   presentActionSheet(rep, fax, twitter, email, repID, offices) {
     let actionSheet = this.actionSheetCtrl.create({
-      title: 'Contact ' + rep.first_name,
+      title: 'Contact ' + rep.name,
       buttons: [
         {
           text: 'Call',
@@ -246,6 +258,91 @@ export class MyRepresentativesPage {
       duration: 3000
     });
     toast.present();
+  }
+
+  getRepStateID(rep, fax, twitter, email, bioguide, offices){ 
+    this.httpProvider.getJsonData(this.repsEndpoint +bioguide).subscribe( result => {
+        console.log(result);
+        this.data.representative_id = result[0].id;
+        this.presentActionSheetState(rep, result[0].fax_url, result[0].twitter_link, email, result[0].id, offices);
+    });
+  }
+
+  showCallAlertState(rep, repID, offices){
+    let alert = this.alertCtrl.create({
+      title: 'Are you ready?',
+      message: "If you're not sure what to say, you can review the suggested script with talking points before making the call.",
+      buttons: [
+        {
+          text: 'Review script',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Make the Call',
+          handler: () => {
+            this.navCtrl.push(CallStatePage, {rep: rep, repID: repID, offices: offices});
+            this.callNumber.callNumber(rep.offices[0].phone, true)
+            .then(() => console.log('Launched dialer!'))
+            .catch((error) => console.log('Error launching dialer', error));
+
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  presentActionSheetState(rep, fax, twitter, email, repID, offices) {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Contact ' + rep.first_name,
+      buttons: [
+        {
+          text: 'Call',
+          handler: () => {
+            this.showCallAlertState(rep, repID, offices);
+
+          }
+        },{
+          text: 'Fax',
+          handler: () => {
+            console.log('Fax clicked');
+            // this.data.title = 'fax';
+            // this.data.action_type_id = 'ad3ef19b-d809-45b7-bef2-d470c9af0d1d';
+            // this.httpProvider.addAction(this.favEndpoint, this.data);
+            this.navCtrl.push(FaxFeedBackPage, {iframeUrl: fax, repID: repID});
+
+          }
+        },{
+          text: 'Email',
+          handler: () => {
+            console.log('Email clicked');
+            // this.data.title = 'email';
+            // this.data.action_type_id = 'f9b53bc8-9847-4699-b897-521d8e1a34bb';
+            // this.httpProvider.addAction(this.favEndpoint, this.data);
+            this.navCtrl.push(EmailFeedBackPage, {iframeUrl: email, repID: repID});
+          }
+        },{
+          text: 'Post message via Twitter',
+          handler: () => {
+            console.log('Post message via Twitter clicked');
+            this.data.title = 'tweet';
+            this.data.action_type_id = '9eef1652-ccf9-449a-901e-ad6c0b3a8a6c';
+            this.httpProvider.addAction(this.favEndpoint, this.data);
+            this.navCtrl.push(WebviewPage, {iframeUrl: twitter,  actionType: 'twitter'});
+          }
+        },{
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
   }
 
 }
