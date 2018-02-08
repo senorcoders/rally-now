@@ -216,11 +216,8 @@ export class FeedPage {
     this.httpProvider.loadHome(url, this.start)
       .then(data => {
         console.log("Full Data", data);
-        this.getArray(data['Objectives']);
-        this.getArray(data['Events']);
-        this.getArray(data['Org_Tweets']);
-        this.getArray(data['Reps_Tweets']);
-        this.getArray(data['Objectives_Actions']);
+        this.getArray(data);
+        
 
         //this.organizations = data;
           
