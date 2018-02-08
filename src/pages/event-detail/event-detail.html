@@ -16,7 +16,7 @@
                     <ion-avatar item-start (click)="goToOrganizationProfile(orgId)">
                         <img [src]="orgPhoto ? orgPhoto : testPhoto">
                     </ion-avatar>
-                    <button (click)="goToOrganizationProfile(orgId)" style="background: none; max-width:85%;">
+                    <button (click)="goToOrganizationProfile(orgId)" style="background: none; max-width:85%; padding-left:0;">
                         <h2 text-wrap style="text-align:left;"> <small>via</small> {{orgName}}</h2>
                     </button>
                     <p><small>Event Location: {{locations}} {{state ? state : 'Unlisted'}}</small></p>

@@ -115,6 +115,26 @@
 
         }
 
-        .fab-md-light{
+        .fab-md-light, .fab-ios-light{
             color: #9b9b9b !important;
+        }
+
+        .bar-buttons-ios{
+            margin: 0 16px !important;
+        }
+
+        .item-ios ion-avatar img{
+            width: 40px !important;
+            height: 40px !important;
+        }
+
+        .back-button-icon-ios{
+            height: 20px !important;
+            font-size: 20px !important;
+        }
+
+        .back-button-text-ios{
+            font-size: 17px !important;
+            letter-spacing: -0.41 !important;
+            color: #f2f2f2 !important;
         }
