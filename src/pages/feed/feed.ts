@@ -495,6 +495,25 @@ doRefresh(refresher) {
   }
 
 
+  getColor(actions){
+    if (actions != null){
+      var found = actions.some(el => { 
+          return el == this.myrallyID;
+        
+      });
+      
+      if (!found){
+        return '#b6b6b6';
+        
+      }else{
+        return '#f2f2f2';
+        
+      }
+    }
+
+  }
+
+
 
 
 removeFav(recordID){

@@ -75,7 +75,7 @@ page-feed {
     }
     .button-clear-md, .button-clear-ios {
         background-color: #f2f2f2;
-        color: #bfbfbf !important;
+        color: #bfbfbf;
     }
     .right-border {
         border-right: 1px solid #f2f2f2;
@@ -384,7 +384,7 @@ page-feed {
         
         .button-clear-ios, .button-clear-md {
             background-color: #f2f2f2;
-        color: #bfbfbf;
+        // color: #bfbfbf;
         }
 
         .item-md ion-avatar img,
@@ -415,7 +415,7 @@ page-feed {
         .button-clear-md,
         .button-clear-ios {
              background-color: #f2f2f2;
-            color: #bfbfbf;
+            // color: #bfbfbf;
             // height: 30px;
         }
         .item-md ion-avatar img,

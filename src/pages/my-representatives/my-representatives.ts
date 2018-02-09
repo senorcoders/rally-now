@@ -360,7 +360,7 @@ export class MyRepresentativesPage {
 
   transform(value: any) {
     if (value) {
-      return value.charAt(0).toUpperCase() + value.slice(1);
+      return value.toUpperCase();
   }
   return value;
   }
