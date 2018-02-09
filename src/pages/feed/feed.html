@@ -126,7 +126,7 @@
            
             <ion-row>
                 <button [disabled]="disable" class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, record.id, tweetLike)" [ngStyle]="{'background-color': findInLoop(record.likes)}">
-                    <ion-icon name="ios-heart" ></ion-icon>
+                    <ion-icon name="{{getIcon(record?.likes)}}" ></ion-icon>
                     {{record.likes_count}}
                 </button>
                 <button [disabled]="disable" class="btn-50" ion-button icon-left clear full (click)="shareController(record.tweet, record.image_url, record.id, shareAction, $event)">
@@ -176,7 +176,7 @@
            
             <ion-row>
                 <button [disabled]="disable" class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, record.id, tweetLike)" [ngStyle]="{'background-color': findInLoop(record.likes)}">
-                    <ion-icon name="ios-heart" ></ion-icon>
+                    <ion-icon name="{{getIcon(record?.likes)}}" ></ion-icon>
                     {{record.likes_count}}
                 </button>
                 <button [disabled]="disable" class="btn-50" ion-button icon-left clear full (click)="shareController(record.tweet, record.photo_url, record.id, shareAction, $event)">
@@ -245,7 +245,7 @@
         
                 <ion-row>
                     <button [disabled]="disable" class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, record?.goals[0]?.id, goalLike)" [ngStyle]="{'background-color': findInLoop(record?.goals[0]?.user_likes)}">
-                        <ion-icon name="ios-heart" ></ion-icon>
+                        <ion-icon name="{{getIcon(record?.goals[0]?.user_likes)}}" ></ion-icon>
                         {{record.likes}}
                     </button>
                     <button [disabled]="disable" class="btn-50" ion-button icon-left clear full (click)="shareController(record.title, record.image_url, record?.goals[0]?.id, shareAction, $event)">
@@ -298,7 +298,7 @@
             
                     <ion-row>
                         <button [disabled]="disable" class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, record.id, eventLike)" [ngStyle]="{'background-color': findInLoop(record?.user_likes)}">
-                            <ion-icon name="ios-heart" ></ion-icon>
+                            <ion-icon name="{{getIcon(record?.user_likes)}}" ></ion-icon>
                             {{record.likes}}
                         </button>
                         <button [disabled]="disable" class="btn-50" ion-button icon-left clear full (click)="shareController(record.title, record.image_url, record.id, shareAction, $event)">
@@ -355,7 +355,7 @@
            
                    <ion-row>
                            <button ion-button icon-left clear full [disabled]="disable" class="btn-50 right-border" (click)="getLikeStatus($event, record.id, activityLike)" [ngStyle]="{'background-color': findInLoop(activity?.user_likes)}">
-                                <ion-icon name="md-heart" ios="md-heart" md="ios-heart"></ion-icon>
+                                <ion-icon name="{{getIcon(record?.user_likes)}}"></ion-icon>
                                 {{record.goal_likes_count}}
                            </button>
                            <button ion-button icon-left clear full [disabled]="disable" class="btn-50" (click)="shareController(record.fname, record.photo_url, record.id, shareAction, $event)">

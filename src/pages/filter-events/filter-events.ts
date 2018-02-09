@@ -140,7 +140,15 @@ goToEvents(){
   var string = item.description;
   var numbers = string.match(/\d+/g).map(Number);
   console.log(numbers);
-  this.zipcode = numbers;
+  if(numbers.toString().length <= 4){
+    console.log("Only numbers", '0' + numbers);
+    this.zipcode = '0' + numbers;
+
+  }else{
+    console.log("Only numbers", numbers);
+    this.zipcode = numbers;
+
+  }
 
 }
 }

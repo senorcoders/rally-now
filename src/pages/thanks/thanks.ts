@@ -29,7 +29,8 @@ export class ThanksPage {
     public navParams: NavParams,
     public viewCtrl: ViewController,
     private httpProvider: UsersProvider,
-    private app:App) {
+    private app:App,
+  ) {
     this.httpProvider.returnRallyUserId().then(user =>{
       this.currentRallyID = user.apiRallyID;
         this.getStreaks();
@@ -44,7 +45,7 @@ export class ThanksPage {
 
 
   dismiss() {
-    this.app.getRootNav().setRoot(TabsPage);
+    this.app.getRootNav().setRoot(TabsPage, {tabIndex:3});
    this.viewCtrl.dismiss();
  }
 
