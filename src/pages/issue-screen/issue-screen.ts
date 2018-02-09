@@ -24,7 +24,7 @@ export class IssueScreenPage {
   }
 
   dismiss() {
-    this.app.getRootNav().setRoot(OverlayPage);
+    this.app.getRootNav().setRoot(TabsPage);
    this.viewCtrl.dismiss();
  }
 

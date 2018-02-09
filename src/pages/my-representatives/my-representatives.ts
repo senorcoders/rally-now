@@ -9,6 +9,8 @@ import { FaxFeedBackPage } from '../fax-feed-back/fax-feed-back';
 import { EmailFeedBackPage } from '../email-feed-back/email-feed-back';
 import { CallNumber } from '@ionic-native/call-number';
 import { CallStatePage } from '../call-state/call-state';
+import { ThanksPage } from '../thanks/thanks';
+import { SocialShareProvider } from '../../providers/social-share/social-share';
 
 
 @IonicPage()
@@ -45,7 +47,8 @@ export class MyRepresentativesPage {
     public actionSheetCtrl: ActionSheetController,
     public toastCtrl: ToastController,
     private callNumber: CallNumber,
-    private alertCtrl: AlertController) {    
+    private alertCtrl: AlertController,
+    private shareProvider:SocialShareProvider) {    
       this.httpProvider.returnRallyUserId()
       .then(user => {
         console.log(" Usuario",user);
@@ -122,7 +125,7 @@ export class MyRepresentativesPage {
     this.httpProvider.getJsonData(this.repsEndpoint +bioguide).subscribe( result => {
         console.log(result);
         this.data.representative_id = result[0].id;
-        this.presentActionSheet(rep, result[0].fax_url, twitter, email, result[0].id, result[0].offices);
+        this.presentActionSheet(rep, result[0].fax_url, result[0].twitter_id, email, result[0].id, result[0].offices);
     });
   }
 
@@ -186,10 +189,13 @@ export class MyRepresentativesPage {
           text: 'Post message via Twitter',
           handler: () => {
             console.log('Post message via Twitter clicked');
-            this.data.title = 'tweet';
-            this.data.action_type_id = '9eef1652-ccf9-449a-901e-ad6c0b3a8a6c';
-            this.httpProvider.addAction(this.favEndpoint, this.data);
-            this.navCtrl.push(WebviewPage, {iframeUrl: twitter,  actionType: 'twitter'});
+            
+            this.shareProvider.twitterShare('@' + twitter).then(() => {
+              this.data.title = 'tweet';
+              this.data.action_type_id = '9eef1652-ccf9-449a-901e-ad6c0b3a8a6c';
+              this.httpProvider.addAction(this.favEndpoint, this.data);
+              this.streakModal();
+            }); 
           }
         },{
           text: 'Cancel',
@@ -201,6 +207,11 @@ export class MyRepresentativesPage {
       ]
     });
     actionSheet.present();
+  }
+
+  streakModal() {
+    let modal = this.modalCtrl.create(ThanksPage);
+    modal.present();
   }
 
 
@@ -264,7 +275,7 @@ export class MyRepresentativesPage {
     this.httpProvider.getJsonData(this.repsEndpoint +bioguide).subscribe( result => {
         console.log(result);
         this.data.representative_id = result[0].id;
-        this.presentActionSheetState(rep, result[0].fax_url, result[0].twitter_link, email, result[0].id, offices);
+        this.presentActionSheetState(rep, result[0].fax_url, result[0].twitter_id, email, result[0].id, offices);
     });
   }
 
@@ -328,10 +339,12 @@ export class MyRepresentativesPage {
           text: 'Post message via Twitter',
           handler: () => {
             console.log('Post message via Twitter clicked');
-            this.data.title = 'tweet';
-            this.data.action_type_id = '9eef1652-ccf9-449a-901e-ad6c0b3a8a6c';
-            this.httpProvider.addAction(this.favEndpoint, this.data);
-            this.navCtrl.push(WebviewPage, {iframeUrl: twitter,  actionType: 'twitter'});
+            this.shareProvider.twitterShare('@' + twitter).then(() => {
+              this.data.title = 'tweet';
+              this.data.action_type_id = '9eef1652-ccf9-449a-901e-ad6c0b3a8a6c';
+              this.httpProvider.addAction(this.favEndpoint, this.data);
+              this.streakModal();
+            });
           }
         },{
           text: 'Cancel',
@@ -343,6 +356,13 @@ export class MyRepresentativesPage {
       ]
     });
     actionSheet.present();
+  }
+
+  transform(value: any) {
+    if (value) {
+      return value.charAt(0).toUpperCase() + value.slice(1);
+  }
+  return value;
   }
 
 }

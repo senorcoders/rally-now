@@ -5,8 +5,7 @@
     <ion-row padding class="bordered">
         <ion-col col-8>
             <p class="gray">Calling this office</p>
-            <h3 *ngIf="rep.chamber === 'lower'">REPRESENTATIVE {{rep.full_name}}</h3>
-            <h3 *ngIf="rep.chamber === 'upper'">SENATOR {{rep.full_name}}</h3>
+            <h3>STATE REPRESENTATIVE {{rep.full_name}}</h3>
 
             <p class="gray">
                 <ion-icon name="ios-call-outline" style="color: #f4512c;
@@ -15,12 +14,10 @@
         <ion-col col-4>
             <div class="bob-headshot" [ngStyle]="{ 'background-image' : 'url(' + rep.photo_url +')'}"></div>
         </ion-col>
-        <ion-col col-12 *ngIf="rep.chamber === 'lower'">
-            This is your Representative
+        <ion-col col-12>
+            This is your State Representative
         </ion-col>
-        <ion-col col-12 *ngIf="rep.chamber === 'upper'">
-                This is your Senator
-            </ion-col>
+       
        
     </ion-row>
     <ion-row padding>

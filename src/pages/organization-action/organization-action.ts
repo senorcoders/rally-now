@@ -139,7 +139,7 @@ export class OrganizationActionPage {
 
   presentActionSheet(rep, fax, twitter, email, repID, offices) {
     let actionSheet = this.actionSheetCtrl.create({
-      title: 'Contact ' + rep.first_name,
+      title: 'Contact ' + rep.name,
       buttons: [ 
         {
           text: 'Call', 
@@ -156,7 +156,7 @@ export class OrganizationActionPage {
             this.navCtrl.push(FaxFeedBackPage, {iframeUrl: fax, repID: repID, goalID: this.goal_id, objectiveID: this.objectiveID});
 
           }
-        },{ 
+        },{  
           text: 'Email',
           handler: () => {
             console.log('Email clicked');
@@ -174,7 +174,7 @@ export class OrganizationActionPage {
               this.data.goal_id = this.goal_id;
               this.httpProvider.addAction(this.favEndpoint, this.data);
               this.streakModal();
-            });
+            }); 
           }
         },{
           text: 'Cancel',
@@ -484,7 +484,7 @@ getRepID(rep, fax, twitter, email, bioguide, offices?){
   this.httpProvider.getJsonData(this.repsEndpoint +bioguide).subscribe( result => {
       console.log("Rally Search", result);
       this.data.representative_id = result[0].id;
-      this.presentActionSheet(rep, result[0].fax_url, result[0].twitter_link, email, result[0].id, result[0].offices);
+      this.presentActionSheet(rep, result[0].fax_url, result[0].twitter_id, email, result[0].id, result[0].offices);
   });
 }
 
