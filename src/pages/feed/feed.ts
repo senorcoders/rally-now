@@ -311,6 +311,7 @@ doRefresh(refresher) {
 
 
  shareController(title, imgURI, reference_id, like_type, $event) {
+   console.log($event);
       this.disable = true;
 
    const actionSheet = this.actionSheetCtrl.create({
@@ -321,7 +322,7 @@ doRefresh(refresher) {
          handler: () => {
            this.shareProvider.facebookShare(title, imgURI);
            this.addShareAction(reference_id, like_type);
-           $event.srcElement.lastChild.data++;
+           $event.path[1].lastChild.data++;
            this.presentToast('Objective shared!');
            this.disable = false;
            this.streakModal();
@@ -334,7 +335,7 @@ doRefresh(refresher) {
            this.shareProvider.twitterShare(title, imgURI).then(() => {
             console.log("twitter: Success");
             this.addShareAction(reference_id, like_type);
-           $event.srcElement.lastChild.data++;
+           $event.path[1].lastChild.data++;
            this.presentToast('Objective shared!');
            this.disable = false;
            this.streakModal();

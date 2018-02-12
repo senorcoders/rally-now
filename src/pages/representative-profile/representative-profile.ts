@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, ActionSheetController, ModalController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 import { RepFollowersPage } from '../rep-followers/rep-followers';
+import { ThanksPage } from '../thanks/thanks';
 
 
 @IonicPage()
@@ -28,6 +29,8 @@ export class RepresentativeProfilePage {
   likeendpoint:any = 'likes';
   disable:boolean = false;
   tweetLike:any = 'ab860ccb-9713-49e5-b844-34d18f92af21';
+  favEndpoint:any = 'actions';
+  shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
 
 
   constructor(
@@ -36,7 +39,9 @@ export class RepresentativeProfilePage {
     private httpProvider: UsersProvider,
     private shareProvider: SocialShareProvider,
     public toastCtrl: ToastController,
-    private inAppBrowser: InAppBrowser) {
+    private inAppBrowser: InAppBrowser,
+    public actionSheetCtrl: ActionSheetController,
+    public modalCtrl: ModalController) {
       console.log("Rep ID", navParams.get('repID'));
       this.getRepData(navParams.get('repID'));
       this.httpProvider.returnRallyUserId().then(
@@ -75,6 +80,8 @@ export class RepresentativeProfilePage {
           $event.srcElement.style.backgroundColor = '#f2f2f2';
           $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
           $event.srcElement.lastChild.data--;
+          $event.srcElement.children[0].className = 'icon icon-md ion-md-heart-outline';
+          $event.srcElement.style.color = '#b6b6b6';
           
         }else{
          this.addLike(reference_id, like_type);
@@ -82,6 +89,8 @@ export class RepresentativeProfilePage {
           $event.srcElement.style.backgroundColor = '#296fb7';
           $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
           $event.srcElement.lastChild.data++;
+          $event.srcElement.children[0].className = 'icon icon-md ion-md-heart';
+          $event.srcElement.style.color = '#f2f2f2';
         }
       },
       err =>{
@@ -186,6 +195,44 @@ export class RepresentativeProfilePage {
     }
   }
 
+  getIcon(actions){
+    if (actions != null){
+      var found = actions.some(el => { 
+          return el == this.currentRallyID;
+        
+      });
+      
+      if (!found){
+        return 'md-heart-outline';
+        
+      }else{
+        return 'md-heart';
+        
+      }
+    }
+
+  }
+
+
+  getColor(actions){
+    if (actions != null){
+      var found = actions.some(el => { 
+          return el == this.currentRallyID;
+        
+      });
+      
+      if (!found){
+        return '#b6b6b6';
+        
+      }else{
+        return '#f2f2f2';
+        
+      }
+    }
+
+  }
+
+
   findInLoopColor(actions){
     if (actions != null){
       var found = actions.some(el => { 
@@ -221,6 +268,90 @@ export class RepresentativeProfilePage {
         repID: this.repID
     });
   }
+
+  shareController(title, imgURI, reference_id, like_type, $event) {
+    this.disable = true;
+
+ const actionSheet = this.actionSheetCtrl.create({
+   title: 'Share to where?',
+   buttons: [
+     {
+       text: 'Facebook',
+       handler: () => {
+         this.shareProvider.facebookShare(title, imgURI);
+         this.addShareAction(reference_id, like_type);
+         $event.path[1].lastChild.data++;
+         this.presentToast('Objective shared!');
+         this.disable = false;
+         this.streakModal();
+
+       }
+     }, 
+     {
+       text: 'Twitter',
+       handler: () => {
+         this.shareProvider.twitterShare(title, imgURI).then(() => {
+          this.addShareAction(reference_id, like_type);
+          $event.path[1].lastChild.data++;
+          this.presentToast('Objective shared!');
+          this.disable = false;
+          this.streakModal();
+         }).catch((error) => {
+          console.error("shareViaWhatsapp: failed", error);
+          this.disable = false;
+  
+        });
+         
+
+       }
+     },
+    //  {
+    //   text: 'Copy Link',
+    //   handler: () => {
+    //     this.disable = false;
+
+    //   }
+    // },
+    // {
+    //   text: 'SMS Message',
+    //   handler: () => {
+    //     this.presentToast('Objective shared!');
+    //     this.disable = false;
+
+    //   }
+    // },
+    // {
+    //   text: 'Email',
+    //   handler: () => {
+        
+    //     this.presentToast('Objective shared!');
+    //     this.disable = false;
+
+    //   }
+    // },
+     {
+       text: 'Cancel',
+       role: 'cancel',
+       handler: () => {
+         console.log('Cancel clicked');
+         this.disable = false;
+
+       }
+     }
+   ]
+ });
+
+ actionSheet.present();
+}
+
+streakModal() {
+  let modal = this.modalCtrl.create(ThanksPage);
+  modal.present();
+}
+
+addShareAction(goal_id, action_type_id){
+  this.httpProvider.addShareAction(this.favEndpoint, goal_id, action_type_id, this.currentRallyID);
+}
 
 
 }

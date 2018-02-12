@@ -51,6 +51,8 @@ export class EventDetailPage {
   fbID:any;
   eventEndTime:any;
   end_date:any;
+  textColor:any;
+  icon:any;
 
 
 
@@ -134,9 +136,13 @@ getButtonColor(){
           console.log("Resultado", result);
             if (result.length > 0){
               this.buttonColor = "#296fb7";
+              this.textColor = "#f2f2f2";
+              this.icon = "md-heart";
             }
             else{
               this.buttonColor = "#f2f2f2";
+              this.textColor = "#b6b6b6";
+              this.icon = "md-heart-outline";
             }
         },
     err =>{
@@ -196,6 +202,8 @@ getLikeStatus($event, reference_id, like_type){
         $event.srcElement.style.backgroundColor = '#f2f2f2';
         $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
         $event.srcElement.lastChild.data--;
+        $event.srcElement.children[0].className = 'icon icon-md ion-md-heart-outline';
+        $event.srcElement.style.color = '#b6b6b6';
 
         
       }else{
@@ -204,6 +212,8 @@ getLikeStatus($event, reference_id, like_type){
         $event.srcElement.style.backgroundColor = '#296fb7';
         $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
         $event.srcElement.lastChild.data++;
+        $event.srcElement.children[0].className = 'icon icon-md ion-md-heart';
+        $event.srcElement.style.color = '#f2f2f2';
 
       }
     },
@@ -242,7 +252,7 @@ const actionSheet = this.actionSheetCtrl.create({
      handler: () => {
        this.shareProvider.facebookShare(title, imgURI);
        this.addShareAction(reference_id, like_type);
-       $event.srcElement.lastChild.data++;
+       $event.path[1].lastChild.data++;
        this.presentToast('Objective shared!');
        this.disable = false;
        this.streakModal();
@@ -254,7 +264,7 @@ const actionSheet = this.actionSheetCtrl.create({
      handler: () => {
        this.shareProvider.twitterShare(title, imgURI).then(() =>{
         this.addShareAction(reference_id, like_type);
-        $event.srcElement.lastChild.data++;
+        $event.path[1].lastChild.data++;
         this.presentToast('Objective shared!');
         this.disable = false;
         this.streakModal();

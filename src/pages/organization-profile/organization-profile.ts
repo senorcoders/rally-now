@@ -256,6 +256,44 @@ presentToast(message) {
    
   }
 
+  getIcon(actions){
+    if (actions != null){
+      var found = actions.some(el => { 
+          return el == this.myrallyID;
+        
+      });
+      
+      if (!found){
+        return 'md-heart-outline';
+        
+      }else{
+        return 'md-heart';
+        
+      }
+    }
+
+  }
+
+
+  getColor(actions){
+    if (actions != null){
+      var found = actions.some(el => { 
+          return el == this.myrallyID;
+        
+      });
+      
+      if (!found){
+        return '#b6b6b6';
+        
+      }else{
+        return '#f2f2f2';
+        
+      }
+    }
+
+  }
+
+
 
 
 
@@ -295,6 +333,8 @@ goToActionPage(objectiveID, goal_type, source, goalID, repID){
             $event.srcElement.style.backgroundColor = '#f2f2f2';
             $event.srcElement.offsetParent.style.backgroundColor = '#f2f2f2';
             $event.srcElement.lastChild.data--;
+            $event.srcElement.children[0].className = 'icon icon-md ion-md-heart-outline';
+             $event.srcElement.style.color = '#b6b6b6';
             
           }else{
            this.addLike(reference_id, like_type);
@@ -302,6 +342,8 @@ goToActionPage(objectiveID, goal_type, source, goalID, repID){
             $event.srcElement.style.backgroundColor = '#296fb7';
             $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
             $event.srcElement.lastChild.data++;
+            $event.srcElement.children[0].className = 'icon icon-md ion-md-heart';
+            $event.srcElement.style.color = '#f2f2f2';
           }
         },
         err =>{
@@ -376,7 +418,7 @@ goToActionPage(objectiveID, goal_type, source, goalID, repID){
          handler: () => {
            this.shareProvider.facebookShare(title, imgURI);
            this.addShareAction(reference_id, like_type);
-           $event.srcElement.lastChild.data++;
+           $event.path[1].lastChild.data++;
            this.presentToast('Objective shared!');
            this.disable = false;
  
@@ -387,8 +429,8 @@ goToActionPage(objectiveID, goal_type, source, goalID, repID){
          handler: () => {
            this.shareProvider.twitterShare(title, imgURI).then(() => {
             this.addShareAction(reference_id, like_type);
-           $event.srcElement.lastChild.data++;
-           this.presentToast('Objective shared!');
+            $event.path[1].lastChild.data++;
+            this.presentToast('Objective shared!');
            this.disable = false;
            }).catch((error) => {
             console.error("shareViaWhatsapp: failed", error);
@@ -487,4 +529,6 @@ goToActionPage(objectiveID, goal_type, source, goalID, repID){
               eventPageName: "Home"
         }, {animate:true,animation:'transition',duration:500,direction:'forward'});
     }
+
+    
 }
