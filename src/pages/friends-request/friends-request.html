@@ -19,7 +19,7 @@
         <ion-spinner></ion-spinner>
     </div> -->
 
-    <ion-list class="top-list">
+    <ion-list class="top-list"> 
         <ion-item (click)="goToListOrganizations()">
             <div item-start>
              <img src="assets/img/Org.svg" alt="" style="width:20px; height:20px; margin-top:10px; margin-right:10px;">
@@ -52,7 +52,7 @@
 
            </ion-item>
        
-        <ion-item *ngFor="let item of items">
+        <ion-item *ngFor="let item of items, let i = index">
             <ion-avatar item-start (click)="goToProfile(item.id)">
                 <!-- <img [src]="getPhoto(item.id)"> -->
                 <img src="{{item.photo_url}}" alt="" style="border:2px solid #ada8a8;">
@@ -61,7 +61,7 @@
             <p class="text-wrap">Friends on Facebook</p>
             <ion-row item-end text-right  >
                 <ion-col col-12 style="padding: 0;">
-                    <button ion-button color="dark" class="action-btn btn-friend" (click)="getDeviceID(item.id, $event)">Follow</button>
+                    <button ion-button color="dark" class="action-btn btn-friend" (click)="getDeviceID(item.id, $event, i, facebook)">Follow</button>
                 </ion-col>
               
             </ion-row>
@@ -74,16 +74,16 @@
         <ion-item>
             <p class="list-title">Suggested Friends</p>
         </ion-item>
-        <ion-item *ngFor="let user of records" >
+        <ion-item *ngFor="let user of records, let i = index" >
             <ion-avatar item-start>
                 <img src="{{user.photo_url}}" style="border:2px solid #ada8a8;">
             </ion-avatar>
-            <h2>{{user.name}}</h2>
+            <h2>{{user.name}}</h2> 
             <p class="text-wrap">{{user.name}} is following you</p>
 
             <ion-row item-end text-right >
                 <ion-col col-12 style="padding: 0;">
-                    <button ion-button color="dark" class="action-btn" (click)="getDeviceID(user.id)">FOLLOW</button>
+                    <button ion-button color="dark" class="action-btn" (click)="getDeviceID(user.id. $event, i, suggested)">FOLLOW</button>
                 </ion-col>
 
             </ion-row>

@@ -22,7 +22,7 @@
                     <ion-label style="color: #6b6b6b;">ZIPCODE</ion-label>
                     <ion-input  [(ngModel)]="zipcode" style="color: #6b6b6b; font-size:40px;" class="zip-input" (ionChange)="enableRange()"></ion-input>
                 </ion-item>
-                <google-places-autocomplete  [(ngModel)]="zipcode" [ngModelOptions]="{standalone: true}" (callback)="detail($event[0])" key="AIzaSyAG8YwO3jnFYNYfiV1B35FzICVOYVJYnMQ"></google-places-autocomplete>
+                <google-places-autocomplete placeholder="Ex: 12345" [(ngModel)]="zipcode" [ngModelOptions]="{standalone: true}" (callback)="detail($event[0])" key="AIzaSyAG8YwO3jnFYNYfiV1B35FzICVOYVJYnMQ"></google-places-autocomplete>
 
         <ion-list-header style=" background-color: #f2f2f2; color: #6b6b6b; text-transform: uppercase;">
             Distance from me

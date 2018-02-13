@@ -250,8 +250,17 @@ export class FriendsRequestPage {
       alert.present();
     }
 
+    hideItem(index, array){
+      (array).splice(index, 1);
+    }
 
-    getDeviceID(user_id, $event){
+    getDeviceID(user_id, $event, index, type){
+      if(type === 'facebook'){
+        this.hideItem(index, this.items);
+      }else{
+        this.hideItem(index, this.records);
+
+      }
       //Reemplazar por parametro despues
       this.httpProvicer.getJsonData(this.notificationsEndpoint+'?user_id='+user_id)
         .subscribe(result => {
