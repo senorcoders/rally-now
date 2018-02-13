@@ -74,7 +74,7 @@
       </ion-list-header>
       <ion-item *ngFor="let rep of items, let i = index">
           <ion-avatar item-start (click)="goToRepProfile(rep.id)">
-            <img [src]="rep.photo_url ? rep.photo_url : 'assets/img/icon.png'"  style="border:2px solid #ada8a8;">
+            <img [src]="rep.photo_url ? rep.photo_url : 'assets/img/blank-person.jpg'"  style="border:2px solid #ada8a8;">
           </ion-avatar>
           <h2 text-wrap (click)="goToRepProfile(rep.id)">{{rep.name}}</h2>
           <p class="text-wrap" *ngIf="rep.rep_type === 'sen'"> <small>Senator of {{rep.state}}</small></p>

@@ -42,6 +42,7 @@ export class PublicProfilePage {
   activitiesData:any;
   favEndpoint:any = 'actions';
   shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
+  username:any;
 
   constructor(
     public navCtrl: NavController, 
@@ -107,6 +108,7 @@ export class PublicProfilePage {
       this.id = result.id;
       this.objectiveActions = result.Objectives_Actions;
       this.activitiesData = result.Direct_Actions;
+      this.username = result.username;
       console.log("Success : "+ result);
     },
     err =>{
@@ -434,6 +436,11 @@ goToActionPage(objectiveID, goal_type, source, goalID, repID){
  
 }
 
-
+transform(value: any) {
+  if (value) {
+    return value.charAt(0).toUpperCase() + value.slice(1);
+}
+return value;
+}
 
 }

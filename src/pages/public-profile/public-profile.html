@@ -1,4 +1,4 @@
-<rally-name-header name="Public Profile"></rally-name-header>
+<rally-name-header></rally-name-header>
 <ion-content>
     <ion-row padding>
         <ion-col col-4 class="profile-headshot">
@@ -50,7 +50,7 @@
                                    </ion-avatar>
                                    <h2>{{activity.fname}}</h2>
                                    <div style="display: flex;">
-                                       <p><small>{{activity.username}} . {{activity.created_at | amTimeAgo}}  </small></p>
+                                       <p><small>{{username}} . {{activity.created_at | amTimeAgo}}  </small></p>
                                        
                                    </div>
                                    
@@ -58,7 +58,7 @@
                                  </ion-item>
                            <ion-card-content>
                               
-                                <p style="font-size: 20px;">{{activity.action}}ed  <strong (click)="goToRepProfile(activity.representative_id)">{{activity.representative}}</strong>
+                                <p style="font-size: 20px;">{{transform(activity.action)}}ed  <strong (click)="goToRepProfile(activity.representative_id)">{{activity.representative}}</strong>
                                    for <strong (click)="goToOrganizationProfile(activity.organization_id)">{{activity.organization}}</strong>'s campaign <strong (click)="goToActionPage(activity.objective_id, activity.goal_type, activity.goal_source_link, activity.goal_id, activity.rep_id)">"{{activity.objective}}"</strong>.</p>
                            </ion-card-content>
                   
@@ -106,7 +106,7 @@
                                 </ion-avatar>
                                 <h2>{{activity.fname}}</h2>
                                 <div style="display: flex;">
-                                    <p><small>{{activity.username}} . {{activity.created_at | amTimeAgo}}  </small></p>
+                                    <p><small>{{username}} . {{activity.created_at | amTimeAgo}}  </small></p>
                                     
                                 </div>
                                 
@@ -114,7 +114,7 @@
                               </ion-item>
                         <ion-card-content>
                            
-                             <p style="font-size: 20px;">{{activity.action}}ed  <strong (click)="goToRepProfile(activity.rep_id)">{{activity.representative}}</strong></p>
+                             <p style="font-size: 20px;">{{transform(activity.action)}}ed  <strong (click)="goToRepProfile(activity.rep_id)">{{activity.representative}}</strong>.</p>
                         </ion-card-content>
                
         
@@ -126,7 +126,7 @@
                         <img *ngIf="activity.action === 'sign'" src="assets/img/Sign.svg" alt="" style="width: 25px;">
                         <img *ngIf="activity.action === 'fax'" src="assets/img/Fax.svg" alt="" style="width: 25px;">
                         <img *ngIf="activity.action === 'email'" src="assets/img/Email.svg" alt="" style="width: 25px;">
-        
+                        <img *ngIf="activity.action === 'tweet'" src="assets/img/tweet2.svg" alt="" style="width: 25px;">
         
                     </div>
                 </ion-fab>

@@ -340,7 +340,7 @@
                                  </ion-item>
                            <ion-card-content>
                               
-                                <p style="font-size: 20px;">{{record.action}}ed  <strong (click)="goToRepProfile(record.representative_id)">{{record.representative}}</strong>
+                                <p style="font-size: 20px;">{{transform(record.action)}}ed  <strong (click)="goToRepProfile(record.representative_id)">{{record.representative}}</strong>
                                    for <strong (click)="goToOrganizationProfile(record.objective_organization_id)">{{record.organization}}</strong>'s campaign <strong (click)="goToActionPage(record.objective_id, record.goal_type, record.goal_source_link, record.goal_id, record.rep_id)">"{{record.objective}}"</strong>.</p>
                            </ion-card-content>
                   

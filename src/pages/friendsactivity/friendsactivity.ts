@@ -447,6 +447,13 @@ goToActionPage(objectiveID, goal_type, source, goalID, repID){
  
 }
 
+transform(value: any) {
+  if (value) {
+    return value.charAt(0).toUpperCase() + value.slice(1);
+}
+return value;
+}
+
 
 
 }

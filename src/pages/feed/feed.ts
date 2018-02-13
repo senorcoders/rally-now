@@ -659,7 +659,7 @@ tweetOrgEllipsisController(name, orgID, desc, followers){
   const actionSheet = this.actionSheetCtrl.create({
     buttons: [
     {
-      text: 'Share this event via...',
+      text: 'Share this post via...',
       handler: () => {
         console.log("test");
         this.shareProvider.otherShare(name, desc);
@@ -708,7 +708,7 @@ tweetRepEllipsisController(name, repID, desc, followers){
   const actionSheet = this.actionSheetCtrl.create({
     buttons: [
     {
-      text: 'Share this event via...',
+      text: 'Share this post via...',
       handler: () => {
         console.log("test");
         this.shareProvider.otherShare(name, desc);
@@ -957,5 +957,12 @@ orgStatus(orgID){
         const browser = this.inAppBrowser.create(url, '_blank', options);
     
        // Inject scripts, css and more with browser.X
+      }
+
+      transform(value: any) {
+        if (value) {
+          return value.charAt(0).toUpperCase() + value.slice(1);
+      }
+      return value;
       }
 }

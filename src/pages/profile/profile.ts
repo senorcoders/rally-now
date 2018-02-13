@@ -90,14 +90,16 @@ export class ProfilePage {
     public toastCtrl: ToastController,
     public actionSheetCtrl: ActionSheetController,
     private shareProvider:SocialShareProvider,
-    ) {
-        this.httpProvider.returnRallyUserId().then(user =>{
-            this.currentRallyID = user.apiRallyID;
-            this.getUserData();
-            this.getStreaks();
-            this.getLongest();
-        });
+    ) {}
 
+
+    ionViewWillEnter(){
+    this.httpProvider.returnRallyUserId().then(user =>{
+      this.currentRallyID = user.apiRallyID;
+      this.getUserData();
+      this.getStreaks();
+      this.getLongest();
+  });
   }
 
   presentToast(message) {
@@ -531,6 +533,13 @@ goToActionPage(objectiveID, goal_type, source, goalID, repID){
    this.navCtrl.push(SignFeedBackPage, {iframeUrl: source, repID:repID, goalID: goalID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }  
  
+}
+
+transform(value: any) {
+  if (value) {
+    return value.charAt(0).toUpperCase() + value.slice(1);
+}
+return value;
 }
 
         

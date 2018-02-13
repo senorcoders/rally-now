@@ -50,7 +50,7 @@ export class SocialShareProvider {
   }
 
   shareViaSMS(number){
-    this.socialSharing.shareViaSMS("Join me on Rally, the new app for progressive activism! bit.ly/rallyiphone or bit.ly/rallyandroid #letsrally ", number)
+    this.socialSharing.shareViaSMS("Join me on Rally, the new app for progressive activism! bit.ly/rally-iphone or bit.ly/rally-android #letsrally", number)
     .then(() =>{
       console.log('Success');
     }).catch((error) => {
