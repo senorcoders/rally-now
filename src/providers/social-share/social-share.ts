@@ -57,6 +57,14 @@ export class SocialShareProvider {
       console.log('Error', error);
     })
   }
+
+  sendEmailInvitation(email){
+    this.socialSharing.shareViaEmail("Join me on Rally, the new app for progressive activism! bit.ly/rally-iphone or bit.ly/rally-android #letsrally", "Get Rally Now!", [email])
+    .then(() =>{
+      console.log('Success');
+    }).catch((error) => {
+      console.log('Error', error);
+    })  }
   
 
 

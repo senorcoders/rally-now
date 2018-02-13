@@ -57,4 +57,8 @@ export class InviteFriendsPage {
     this.socialProvider.shareViaSMS(phone);
   } 
 
+  sendEmailInvitation(email){
+    this.socialProvider.sendEmailInvitation(email);
+  }
+
 }
