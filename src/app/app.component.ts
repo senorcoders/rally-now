@@ -48,6 +48,11 @@ export class MyApp {
 
                 }
         }); 
+        
+        this.httpProvider.setToken().subscribe(data =>{
+          console.log("Token", data);
+          this.storage.set('token', data.auth_token);
+        });
           platform.ready().then((readySource) => {
             
 
@@ -58,33 +63,33 @@ export class MyApp {
             statusBar.overlaysWebView(false);
 
             statusBar.backgroundColorByHexString('#f4512c');
-          firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-               this.storage.get('introShown').then((result) => {
-               if (result) {
-                 console.log('Not First Time');
-               }else{
-                 this.httpProvider.returnRallyUserId()
-                   .then(user => {
-                     console.log("Usuario desde Notificaciones", user.apiRallyID);
-                     noti.init(user.apiRallyID);
+          // firebase.auth().onAuthStateChanged(user => {
+          //   if (user) {
+          //      this.storage.get('introShown').then((result) => {
+          //      if (result) {
+          //        console.log('Not First Time');
+          //      }else{
+          //        this.httpProvider.returnRallyUserId()
+          //          .then(user => {
+          //            console.log("Usuario desde Notificaciones", user.apiRallyID);
+          //            noti.init(user.apiRallyID);
 
-                   });
-                 console.log('First Time');
+          //          });
+          //        console.log('First Time');
                 
-                 this.storage.set('introShown', true);
+          //        this.storage.set('introShown', true);
 
-               }
-            });
-              this.push.rx.notification()
-                .subscribe((msg) => {
-                 console.log('I received awesome push: ' + msg);
-                });
-            }else{
-              console.log("No estas logueado para notificaciones");
-            }
+          //      }
+          //   });
+          //     this.push.rx.notification()
+          //       .subscribe((msg) => {
+          //        console.log('I received awesome push: ' + msg);
+          //       });
+          //   }else{
+          //     console.log("No estas logueado para notificaciones");
+          //   }
             
-          });
+          // });
          });
 
 

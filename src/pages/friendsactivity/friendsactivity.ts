@@ -17,7 +17,8 @@ import { OrganizationActionPage } from '../organization-action/organization-acti
 import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
 import { ThanksPage } from '../thanks/thanks';
 import { DomSanitizer } from '@angular/platform-browser';
-
+import { AngularFireDatabase } from 'angularfire2/database';
+import firebase from 'firebase';
 
 
 @IonicPage()
@@ -29,7 +30,7 @@ export class FriendsactivityPage {
 
     activitiesData:any;
     myRallyID:any;
-    endpoint:string = 'community_feed';
+    endpoint:string = 'community_feed/all/';
     all: string = "all";
     objectivesAction:any;
     disable:boolean = false;
@@ -46,6 +47,10 @@ export class FriendsactivityPage {
     loading:any;
     loader:boolean = false;
     enablePlaceholder:boolean = true;
+    followEndpoint:string= 'following_users';
+    notificationsEndpoint:any = 'devices';
+    alertsEndpoint:any = 'ux_events';
+
 
   constructor(
     public navCtrl: NavController, 
@@ -57,9 +62,10 @@ export class FriendsactivityPage {
     public toastCtrl: ToastController,
     public actionSheetCtrl: ActionSheetController,
     private shareProvider:SocialShareProvider,
-  public modalCtrl: ModalController,
-  public loadingCtrl: LoadingController,
-  private sanitizer: DomSanitizer) {
+    public modalCtrl: ModalController,
+    public loadingCtrl: LoadingController,
+    private sanitizer: DomSanitizer,
+    private db: AngularFireDatabase) {
       this.all = "all";
       this.enable = false;
     //   let svg = `<div id="Rallycontainer">
@@ -158,7 +164,7 @@ doRefresh(refresher) {
 getdata(){
   
   return new Promise(resolve => {
-    this.httpProvider.getRecords(this.endpoint)
+    this.httpProvider.getRecords(this.endpoint + this.myRallyID)
     .then(data => {
       console.log("Full Data", data);
       this.getArray(data['Objectives_Actions']);
@@ -453,6 +459,126 @@ transform(value: any) {
 }
 return value;
 }
+
+userEllipsisController(name, userid, followers, message){
+  const actionSheet = this.actionSheetCtrl.create({
+    buttons: [
+    {
+      text: 'Share this post via...',
+      handler: () => {
+        console.log("test");
+        this.shareProvider.otherShare(name, message);
+
+      }
+    },
+    {
+      text: this.getFollowStatus(followers) + ' ' + name,
+      handler: () => {
+        console.log("test");
+        this.followUser(userid);
+
+      }
+    },
+    {
+      text: 'Report',
+      role: 'destructive',
+      handler: () => {
+        console.log("test");
+        this.shareProvider.shareViaEmail();
+
+      }
+    },
+    {
+      text: 'Cancel',
+      role: 'cancel',
+      handler: () => {
+        console.log('Cancel clicked');
+      }
+    }
+  ]
+});
+
+actionSheet.present();
+}
+
+getFollowStatus(actions){
+  if (actions != null){
+    var found = actions.some(el => { 
+        return el == this.myRallyID;
+      
+    });
+    
+    if (!found){
+      return 'Follow';
+      
+    }else{
+      return 'Unfollow';
+      
+    }
+  }
+}
+
+
+followUser(userid){
+      let user:any = firebase.auth().currentUser;
+      let followRef = this.db.database.ref('follow/'+user['uid']+'/'+userid);
+      followRef.once('value', snapshot=>{
+        if (snapshot.hasChildren()) {
+          console.log('You already follow this user');
+          this.getFollowRecordID(userid);
+          this.presentToast('You are not following this user anymore');
+ 
+        }else{
+          //this.followFriend(friendID);
+          this.getDeviceID(userid);
+          this.presentToast('Follow user successfully');
+        }
+      });
+}
+
+getFollowRecordID(parameter){
+  this.usersProvider.getJsonData(this.followEndpoint+'?follower_id='+this.myRallyID+'&following_id='+ parameter).subscribe(
+        result => {
+        console.log("Delete User ID : "+ result[0].id);
+        this.unFollowFriend(result[0].id, parameter);
+        },
+        err =>{
+        console.error("Error : "+err);
+        } ,
+        () => {
+        console.log('getData completed');
+        });
+}
+
+  unFollowFriend(recordID, parameter){
+    this.usersProvider.unfollowOrganization(this.followEndpoint, recordID);
+    this.usersProvider.removeFollowRecordID(parameter, 'follow');
+  }
+
+  getDeviceID(user_id){
+    //Reemplazar por parametro despues
+    this.httpProvider.getJsonData(this.notificationsEndpoint+'?user_id='+user_id)
+      .subscribe(result => {
+          console.log(result[0].id);
+          this.saveNotification(user_id, result[0].id, this.myRallyID);
+      }, err => {
+        console.error("Error: " +err);
+      }, () => {
+        console.log("Data Completed");
+      });
+  }
+
+  saveNotification(user_id, registration_id, sender_id){
+    this.usersProvider.returnRallyUserId().then(user => {
+     this.usersProvider.saveNotification(user_id, registration_id, user.displayName + " wants to follow you",  this.alertsEndpoint, sender_id);
+    this.followFriend(user_id);
+    });
+    //this.httpProvider.sendNotification(registration_id, msg);
+  }
+
+   followFriend(friendID){
+    this.usersProvider.followFriend(this.followEndpoint, this.myRallyID, friendID );
+  }
 
 
 

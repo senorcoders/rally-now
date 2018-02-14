@@ -23,7 +23,7 @@ export class AdressModalPage {
     private nativeGeocoder: NativeGeocoder,
     private httpProvider: UsersProvider,
     private storage: Storage,
-    private keyboard: Keyboard) {
+    private keyboard: Keyboard) { 
       
       this.keyboard.onKeyboardShow().subscribe(() => {
           this.showFooter = false;

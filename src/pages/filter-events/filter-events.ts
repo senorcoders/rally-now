@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ViewController} from 'ionic-angula
 import { EventsResultPage } from '../events-result/events-result';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
 import { Storage } from '@ionic/storage';
+import { Keyboard } from '@ionic-native/keyboard';
 
 
 @IonicPage()
@@ -33,7 +34,10 @@ filter:any = 'all';
     public navParams: NavParams,  
     public viewCtrl: ViewController,
     private httpProvider:OrganizationsProvider,
-    private storage: Storage) {
+    private storage: Storage,
+    private keyboard: Keyboard) {
+      this.keyboard.hideKeyboardAccessoryBar(false);
+
       console.log(this.navParams.get('location'));
       if(this.navParams.get('location') === 'home'){
         this.home = true;

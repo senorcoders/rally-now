@@ -67,6 +67,7 @@ export class CallPage {
      }
 
        goToHome(){
+         
     this.navCtrl.setRoot(FeedPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
@@ -102,19 +103,23 @@ export class CallPage {
       // ]
     });
 
-    for(var i = 0; i< this.offices.length; i++){
-      console.warn(i);
-      var iterator = i;
+    // for(var i = 0; i< this.offices.length; i++){
+      
+      
+    // }
+
+    this.offices.forEach(office => {
       actionSheet.addButton({
-        text: this.offices[i].phone, 
+        text: office.phone, 
         handler: ()=> {
           console.log("Phone Number", this.offices);
-          this.makeCall(this.offices[iterator].phone);
-        console.warn(i);
+          console.log("Iterator", office);
+          this.makeCall(office);
 
         } 
       });
-    }
+    });
+    
     actionSheet.addButton({text: 'Cancel', 'role': 'cancel' });       
 
     actionSheet.present();

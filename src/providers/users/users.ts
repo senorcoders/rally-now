@@ -3,14 +3,14 @@ import { Http, Headers, RequestOptions, Response  } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
 import firebase from 'firebase';
-import { AngularFireDatabase } from 'angularfire2/database/database';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import { NotiModel } from '../../models/notifications';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 
 @Injectable()
-export class UsersProvider {
+export class UsersProvider{
 	base:string = 'https://api.provethisconcept.com/api/';
 	data:any = {};
   recordID:any;
@@ -21,14 +21,58 @@ export class UsersProvider {
   apiKey:any = '&apikey=74c514c1-2ba0-4114-a2ee-066981c0d7b5';
   civilApi:any = 'https://api.civil.services/v1/house/?apikey=FA7D0F9C-3879-F284-9D4A-BD9E595BC89B&latitude=';
   civilApiSenate:any = 'https://api.civil.services/v1/senate/?apikey=FA7D0F9C-3879-F284-9D4A-BD9E595BC89B&latitude=';
+  rallyToken:any;
 
-  constructor(public http: Http, public storage: Storage, public af:AngularFireDatabase) {
-    console.log('Hello Users Provider');
-    //this.getIDonLoad();
+  constructor(public http: Http, public storage: Storage, public af:AngularFireDatabase, requestOptions: RequestOptions) {
+    //super(connectionBackend, requestOptions);
   }
 
+  setToken(){
+    var headers = new Headers();
+    	headers.append('Content-Type', 'application/json' );
+    	headers.append('Access-Control-Allow-Origin', '*');
+    	headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+    	headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+    	headers.append('Access-Control-Max-Age', '1728000');
+    	let options = new RequestOptions({ headers: headers });
+    let adminData = JSON.stringify({
+      email: 'admin@senorcoders.com',
+      password: 'helium33'
+    });
+   
+    return this.http.post('https://api.provethisconcept.com/authenticate', adminData, options)
+    .map(res => res.json())
+    .catch((error:any) => 'Server error'); //...errors if any
+  }
+
+  // getRequestOptionArgs(options?: RequestOptionsArgs) {
+  //   return this.storage.get('token')
+  //   .then((token) => {
+  //     if (options == null) {
+  //       options = new RequestOptions();
+  //     }
+  //     if (options.headers == null) {
+  //         options.headers = new Headers();
+  //     }
+  //     if (token !== null) {
+  //       options.headers.append('Authorization',  token);  
+  //     }
+  //     options.headers.append('Content-Type', 'application/json');
+  //     options.headers.append('Content-Type', 'application/json' );
+  //     options.headers.append('Access-Control-Allow-Origin', '*');
+  //     options.headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+  //     options.headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+  //     options.headers.append('Access-Control-Max-Age', '1728000');
+
+  //     return options;  
+  //   })
+  // }
+
   	getJsonData(endpoint){
-  		return this.http.get(this.base + endpoint).map(res => res.json());
+      // return Observable.fromPromise(
+      //   this.getRequestOptionArgs()
+      // ).mergeMap((options) => {return super.get(this.base + endpoint).map(res => res.json())});
+      return this.http.get(this.base + endpoint).map(res => res.json())
   }
   
   getHouseReps(lat, lng){

@@ -563,7 +563,7 @@ ellipsisController(name, id, index, orgID, desc, followers){
 
       }
     }, 
-    {
+    { 
       text: 'Hide post',
       handler: () => {
        this.hideItem(id, index);
