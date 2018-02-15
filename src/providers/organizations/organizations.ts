@@ -10,33 +10,21 @@ export class OrganizationsProvider {
 	data:any = {};
 	perpage:number = 30;
 	perpageHome:number = 5;
-	apiToken:any;
 
 
 
   constructor(public http: Http, public storage: Storage, public af:AngularFireDatabase) {
 	console.log('Hello OrganizationsProvider Provider');
-	this.getToken();
+	//this.showToken();
 
   }
 
  
-  public showToken(){
-          
-	return new Promise(resolve => {
-	  this.storage.get('token').then(value => {
-		console.log(value);
-		this.apiToken = value;
 
-		  resolve(value)
-	});
-	});
-  }
 
-  public async getToken(){
-	var token = await this.showToken();
-	console.log("Await Token", token);
-  }
+		getToken(){
+			return localStorage.getItem('token');
+		}
 
   	getJsonData(endpoint){ 
 		var headers = new Headers();
@@ -45,7 +33,7 @@ export class OrganizationsProvider {
 		headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
 		headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
 		headers.append('Access-Control-Max-Age', '1728000');
-		headers.append('Authorization', this.apiToken);
+		headers.append('Authorization', `${this.getToken()}`);
 	
 		let options = new RequestOptions({ headers: headers });
   		return this.http.get(this.base + endpoint, options).map(res => res.json());
@@ -58,7 +46,7 @@ export class OrganizationsProvider {
 		headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
 		headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
 		headers.append('Access-Control-Max-Age', '1728000');
-		headers.append('Authorization', this.apiToken);
+		headers.append('Authorization', `${this.getToken()}`);
 	
 		let options = new RequestOptions({ headers: headers });
 		return new Promise(resolve => {
@@ -78,7 +66,7 @@ export class OrganizationsProvider {
 		headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
 		headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
 		headers.append('Access-Control-Max-Age', '1728000');
-		headers.append('Authorization', this.apiToken);
+		headers.append('Authorization', `${this.getToken()}`);
 	
 		let options = new RequestOptions({ headers: headers });
 		console.log(this.base + endpoint + start + '/' + this.perpage);
@@ -99,7 +87,7 @@ export class OrganizationsProvider {
 		headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
 		headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
 		headers.append('Access-Control-Max-Age', '1728000');
-		headers.append('Authorization', this.apiToken);
+		headers.append('Authorization', `${this.getToken()}`);
 	
 		let options = new RequestOptions({ headers: headers });
 		console.log("Home", this.base + endpoint + start + '/' + this.perpageHome, options);

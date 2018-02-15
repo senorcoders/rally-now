@@ -22,10 +22,9 @@ export class UsersProvider{
   civilApi:any = 'https://api.civil.services/v1/house/?apikey=FA7D0F9C-3879-F284-9D4A-BD9E595BC89B&latitude=';
   civilApiSenate:any = 'https://api.civil.services/v1/senate/?apikey=FA7D0F9C-3879-F284-9D4A-BD9E595BC89B&latitude=';
   rallyToken:any;
-  apiToken:any;
   constructor(public http: Http, public storage: Storage, public af:AngularFireDatabase, requestOptions: RequestOptions) {
     //super(connectionBackend, requestOptions);
-    this.getToken();
+    //this.getToken();
   }
 
   setToken(){
@@ -45,24 +44,9 @@ export class UsersProvider{
     .map(res => res.json())
     .catch((error:any) => 'Server error'); //...errors if any
   }
-
-  public showToken(){
-          
-    return new Promise(resolve => {
-      this.storage.get('token').then(value => {
-      console.log(value);
-      this.apiToken = value;
-  
-        resolve(value)
-    });
-    });
-    }
-  
-    public async getToken(){
-    var token = await this.showToken();
-    console.log("Await Token", token);
-    }
-
+  getToken(){
+    return localStorage.getItem('token');
+  }
   	getJsonData(endpoint){
       let token = this.getToken();
       var headers = new Headers();
@@ -71,7 +55,7 @@ export class UsersProvider{
       headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
       headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
       headers.append('Access-Control-Max-Age', '1728000');
-      headers.append('Authorization', this.apiToken);
+      headers.append('Authorization', `${this.getToken()}`);
   
       let options = new RequestOptions({ headers: headers });
     
@@ -145,7 +129,7 @@ export class UsersProvider{
     	headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
     	headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
       headers.append('Access-Control-Max-Age', '1728000');
-      headers.append('Authorization', this.apiToken);
+      headers.append('Authorization', `${this.getToken()}`);
     	let options = new RequestOptions({ headers: headers });
 		let userData = JSON.stringify({fname: data.displayName, photo_url: encodeURI(data.photoURL), searchable: data.searchable, hide_activity: data.hide_activity, facebook_id: data.facebook_id, username: data.username});
 		console.log(this.base + endpoint, userData, options);
@@ -167,7 +151,7 @@ export class UsersProvider{
     	headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
     	headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
       headers.append('Access-Control-Max-Age', '1728000');
-      headers.append('Authorization', this.apiToken);
+      headers.append('Authorization', `${this.getToken()}`);
 
     	let userData = JSON.stringify({
     		fname: data.displayName, 
@@ -196,7 +180,7 @@ export class UsersProvider{
     headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
     headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
     headers.append('Access-Control-Max-Age', '1728000');
-    headers.append('Authorization', this.apiToken);
+    headers.append('Authorization', `${this.getToken()}`);
 
     let userData = JSON.stringify({
       username: username
@@ -217,7 +201,7 @@ export class UsersProvider{
     headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
     headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
     headers.append('Access-Control-Max-Age', '1728000');
-    headers.append('Authorization', this.apiToken);
+    headers.append('Authorization', `${this.getToken()}`);
 
     let notiData = JSON.stringify({
         what: data
@@ -238,7 +222,7 @@ export class UsersProvider{
     headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
     headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
     headers.append('Access-Control-Max-Age', '1728000');
-    headers.append('Authorization', this.apiToken);
+    headers.append('Authorization', `${this.getToken()}`);
 
     let notiData = JSON.stringify({
         approved: true
@@ -259,7 +243,7 @@ export class UsersProvider{
     headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
     headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
     headers.append('Access-Control-Max-Age', '1728000');
-    headers.append('Authorization', this.apiToken);
+    headers.append('Authorization', `${this.getToken()}`);
 
     let userData = JSON.stringify({
       less_data: less_data
@@ -282,7 +266,7 @@ export class UsersProvider{
       headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
       headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
       headers.append('Access-Control-Max-Age', '1728000');
-      headers.append('Authorization', this.apiToken);
+      headers.append('Authorization', `${this.getToken()}`);
 
       let options = new RequestOptions({ headers: headers });
     let actionData = JSON.stringify({follower_id: currentUserRallyID, following_id: friendRallyID, approved: false});
@@ -305,7 +289,7 @@ export class UsersProvider{
     headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
     headers.append('Access-Control-Max-Age', '1728000');
     let options = new RequestOptions({ headers: headers });
-    headers.append('Authorization', this.apiToken);
+    headers.append('Authorization', `${this.getToken()}`);
 
     let actionData = JSON.stringify({user_id: currentUserRallyID, representative_id: repID});
     this.http.post(encodeURI(this.base + endpoint), actionData, options)
@@ -337,7 +321,7 @@ export class UsersProvider{
       headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
       headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
       headers.append('Access-Control-Max-Age', '1728000');
-      headers.append('Authorization', this.apiToken);
+      headers.append('Authorization', `${this.getToken()}`);
 
       let options = new RequestOptions({ headers: headers });
     let actionData = JSON.stringify({follower_id: currentUserRallyID, organization_id: organizationID});
@@ -355,7 +339,7 @@ export class UsersProvider{
   unfollowOrganization(endpoint, recordID){
      var headers = new Headers();
       headers.append('Content-Type', 'application/json' );
-      headers.append('Authorization', this.apiToken);
+      headers.append('Authorization', `${this.getToken()}`);
 
       let options = new RequestOptions({ headers: headers });
      this.http.delete(this.base + endpoint + '/' + recordID, options)
@@ -386,7 +370,7 @@ export class UsersProvider{
       headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
       headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
       headers.append('Access-Control-Max-Age', '1728000');
-      headers.append('Authorization', this.apiToken);
+      headers.append('Authorization', `${this.getToken()}`);
 
       
       let options = new RequestOptions({ headers: headers });
@@ -411,7 +395,7 @@ export class UsersProvider{
       headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
       headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
       headers.append('Access-Control-Max-Age', '1728000');
-      headers.append('Authorization', this.apiToken);
+      headers.append('Authorization', `${this.getToken()}`);
 
       var d1 = new Date();
       d1.toUTCString();
@@ -439,7 +423,7 @@ export class UsersProvider{
     headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
     headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
     headers.append('Access-Control-Max-Age', '1728000');
-    headers.append('Authorization', this.apiToken);
+    headers.append('Authorization', `${this.getToken()}`);
 
     var d1 = new Date();
     d1.toUTCString();
@@ -461,7 +445,7 @@ export class UsersProvider{
     var headers = new Headers();
     headers.append('Content-Type', 'application/json' );
     headers.append('Access-Control-Allow-Origin', '*');
-    headers.append('Authorization', this.apiToken);
+    headers.append('Authorization', `${this.getToken()}`);
 
     let options = new RequestOptions({ headers: headers });
     
@@ -483,7 +467,7 @@ export class UsersProvider{
     headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
     headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
     headers.append('Access-Control-Max-Age', '1728000');
-    headers.append('Authorization', this.apiToken);
+    headers.append('Authorization', `${this.getToken()}`);
 
     
     let options = new RequestOptions({ headers: headers });
@@ -507,7 +491,7 @@ export class UsersProvider{
       headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
       headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
       headers.append('Access-Control-Max-Age', '1728000');
-      headers.append('Authorization', this.apiToken);
+      headers.append('Authorization', `${this.getToken()}`);
 
       let options = new RequestOptions({ headers: headers });
     let userData = JSON.stringify({action_type_id:action_type_id, goal_id:goal_id, user_id: user_id});
@@ -531,7 +515,7 @@ export class UsersProvider{
     headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
     headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
     headers.append('Access-Control-Max-Age', '1728000');
-    headers.append('Authorization', this.apiToken);
+    headers.append('Authorization', `${this.getToken()}`);
 
    
     console.log(updateData);
@@ -591,7 +575,7 @@ saveAction(endpoint, data){
     headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
     headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
     headers.append('Access-Control-Max-Age', '1728000');
-		headers.append('Authorization', this.apiToken);
+		headers.append('Authorization', `${this.getToken()}`);
 
     let options = new RequestOptions({ headers: headers });
   this.http.post(encodeURI(this.base + endpoint), data, options)
@@ -608,7 +592,7 @@ saveAction(endpoint, data){
 removeItem(endpoint, recordID){
   var headers = new Headers();
    headers.append('Content-Type', 'application/json' );
-   headers.append('Authorization', this.apiToken);
+   headers.append('Authorization', `${this.getToken()}`);
 
    
    let options = new RequestOptions({ headers: headers });

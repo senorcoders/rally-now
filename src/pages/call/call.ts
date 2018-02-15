@@ -113,8 +113,8 @@ export class CallPage {
         text: office.phone, 
         handler: ()=> {
           console.log("Phone Number", this.offices);
-          console.log("Iterator", office);
-          this.makeCall(office);
+          console.log("Iterator", office.phone);
+          this.makeCall(office.phone);
 
         } 
       });

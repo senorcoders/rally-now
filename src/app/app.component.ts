@@ -33,6 +33,7 @@ export class MyApp {
       public storage:Storage,
       private httpProvider:UsersProvider,
       public push: Push,
+     
       // private socket: Socket
       //private fcm: FCM
     	) {
@@ -51,7 +52,9 @@ export class MyApp {
         
         this.httpProvider.setToken().subscribe(data =>{
           console.log("Token", data.auth_token );
-          this.storage.set('token', data.auth_token);
+          // this.storage.set();
+          localStorage.setItem('token', data.auth_token);
+       
         });
           platform.ready().then((readySource) => {
             

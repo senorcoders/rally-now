@@ -102,19 +102,18 @@ export class CallStatePage {
       // ]
     });
 
-    for(var i = 0; i< this.offices.length; i++){
-      console.warn(i);
-      var iterator = i;
+    
+    this.offices.forEach(office => {
       actionSheet.addButton({
-        text: this.offices[i].phone, 
+        text: office.phone, 
         handler: ()=> {
           console.log("Phone Number", this.offices);
-          this.makeCall(this.offices[iterator].phone);
-        console.warn(i);
+          console.log("Iterator", office.phone);
+          this.makeCall(office.phone);
 
         } 
       });
-    }
+    });
     actionSheet.addButton({text: 'Cancel', 'role': 'cancel' });       
 
     actionSheet.present();
