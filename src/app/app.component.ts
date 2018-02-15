@@ -50,7 +50,7 @@ export class MyApp {
         }); 
         
         this.httpProvider.setToken().subscribe(data =>{
-          console.log("Token", data);
+          console.log("Token", data.auth_token );
           this.storage.set('token', data.auth_token);
         });
           platform.ready().then((readySource) => {

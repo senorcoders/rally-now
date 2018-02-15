@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
 import { AngularFireDatabase } from 'angularfire2/database/database';
@@ -10,20 +10,59 @@ export class OrganizationsProvider {
 	data:any = {};
 	perpage:number = 30;
 	perpageHome:number = 5;
+	apiToken:any;
 
 
 
   constructor(public http: Http, public storage: Storage, public af:AngularFireDatabase) {
-    console.log('Hello OrganizationsProvider Provider');
+	console.log('Hello OrganizationsProvider Provider');
+	this.getToken();
+
   }
 
-  	getJsonData(endpoint){
-  		return this.http.get(this.base + endpoint).map(res => res.json());
+ 
+  public showToken(){
+          
+	return new Promise(resolve => {
+	  this.storage.get('token').then(value => {
+		console.log(value);
+		this.apiToken = value;
+
+		  resolve(value)
+	});
+	});
+  }
+
+  public async getToken(){
+	var token = await this.showToken();
+	console.log("Await Token", token);
+  }
+
+  	getJsonData(endpoint){ 
+		var headers = new Headers();
+		headers.append('Content-Type', 'application/json' );
+		headers.append('Access-Control-Allow-Origin', '*');
+		headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+		headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+		headers.append('Access-Control-Max-Age', '1728000');
+		headers.append('Authorization', this.apiToken);
+	
+		let options = new RequestOptions({ headers: headers });
+  		return this.http.get(this.base + endpoint, options).map(res => res.json());
 	} 
 
 	getRecords(endpoint){
+		var headers = new Headers();
+		headers.append('Content-Type', 'application/json' );
+		headers.append('Access-Control-Allow-Origin', '*');
+		headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+		headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+		headers.append('Access-Control-Max-Age', '1728000');
+		headers.append('Authorization', this.apiToken);
+	
+		let options = new RequestOptions({ headers: headers });
 		return new Promise(resolve => {
-			this.http.get(this.base + endpoint)
+			this.http.get(this.base + endpoint, options)
 				.map(res => res.json())
 				.subscribe(data => {
 					console.log(data);
@@ -33,9 +72,18 @@ export class OrganizationsProvider {
 	}
 
 	load(endpoint, start:number=0){
+		var headers = new Headers();
+		headers.append('Content-Type', 'application/json' );
+		headers.append('Access-Control-Allow-Origin', '*');
+		headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+		headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+		headers.append('Access-Control-Max-Age', '1728000');
+		headers.append('Authorization', this.apiToken);
+	
+		let options = new RequestOptions({ headers: headers });
 		console.log(this.base + endpoint + start + '/' + this.perpage);
 		return new Promise(resolve => {
-			this.http.get(this.base + endpoint + start + '/' + this.perpage)
+			this.http.get(this.base + endpoint + start + '/' + this.perpage, options)
 				.map(res => res.json())
 				.subscribe(data => {
 					console.log(data);
@@ -45,9 +93,18 @@ export class OrganizationsProvider {
 	}
 
 	loadHome(endpoint, start:number=0){
-		console.log(this.base + endpoint + start + '/' + this.perpageHome);
+		var headers = new Headers();
+		headers.append('Content-Type', 'application/json' );
+		headers.append('Access-Control-Allow-Origin', '*');
+		headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+		headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+		headers.append('Access-Control-Max-Age', '1728000');
+		headers.append('Authorization', this.apiToken);
+	
+		let options = new RequestOptions({ headers: headers });
+		console.log("Home", this.base + endpoint + start + '/' + this.perpageHome, options);
 		return new Promise(resolve => {
-			this.http.get(this.base + endpoint + start + '/' + this.perpageHome)
+			this.http.get(this.base + endpoint + start + '/' + this.perpageHome, options)
 				.map(res => res.json())
 				.subscribe(data => {
 					console.log(data);

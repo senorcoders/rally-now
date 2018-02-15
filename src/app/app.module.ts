@@ -108,6 +108,7 @@ import { GooglePlacesAutocompleteComponentModule } from 'ionic2-google-places-au
 import { Keyboard } from '@ionic-native/keyboard';
 import { CallStatePage } from '../pages/call-state/call-state';
 
+
 //import { FCM } from '@ionic-native/fcm';
 //const configws: SocketIoConfig = { url: 'ws://138.68.19.227:5000/', options: {} };
 
@@ -333,6 +334,7 @@ firebase.initializeApp(config);
         NativeGeocoder,
         Contacts,
         Keyboard,
+       
         
     
     ]
