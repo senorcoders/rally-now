@@ -7,7 +7,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import { NotiModel } from '../../models/notifications';
 import { AngularFireDatabase } from 'angularfire2/database';
-
+import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest} from '@angular/common/http';
 
 @Injectable()
 export class UsersProvider{
