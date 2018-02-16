@@ -13,6 +13,7 @@ import {Push} from '@ionic/cloud-angular';
 import { TabsPage } from '../pages/tabs/tabs';
 //import { FCM } from '@ionic-native/fcm';
 // import { Socket } from 'ng-socket-io';
+declare var Appsee:any;
 
 
  
@@ -57,15 +58,10 @@ export class MyApp {
        
         });
           platform.ready().then((readySource) => {
-            
-
-          
-
-
             console.log("Platform Ready from ", readySource);
             statusBar.overlaysWebView(false);
-
             statusBar.backgroundColorByHexString('#f4512c');
+            Appsee.start("e81f4eb7b562458b80bbd8fb1f6130dc");
           // firebase.auth().onAuthStateChanged(user => {
           //   if (user) {
           //      this.storage.get('introShown').then((result) => {

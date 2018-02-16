@@ -58,6 +58,8 @@ export class UsersProvider{
       headers.append('Authorization', `${this.getToken()}`);
   
       let options = new RequestOptions({ headers: headers });
+
+      console.log(options);
     
       return this.http.get(this.base + endpoint, options).map(res => res.json())
   }
