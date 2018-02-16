@@ -588,6 +588,21 @@ saveAction(endpoint, data){
     });
 }
 
+addItem(endpoint, data){
+  var headers = new Headers();
+    headers.append('Content-Type', 'application/json' );
+    headers.append('Access-Control-Allow-Origin', '*');
+    headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+    headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+    headers.append('Access-Control-Max-Age', '1728000');
+		headers.append('Authorization', `${this.getToken()}`);
+
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(this.base + endpoint, data, options).map(res => res.json())
+
+
+}
+
 
 removeItem(endpoint, recordID){
   var headers = new Headers();

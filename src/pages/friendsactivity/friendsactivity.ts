@@ -174,7 +174,7 @@ getdata(){
       this.loader = false;   
       resolve(true);
 
-    });
+    }); 
 });
   
 }

@@ -4,13 +4,13 @@ import { Storage } from '@ionic/storage';
 import { AdressModalPage } from '../adress-modal/adress-modal';
 import { UsersProvider } from '../../providers/users/users';
 import { WebviewPage } from '../webview/webview';
-import { CallPage } from '../call/call';
 import { FaxFeedBackPage } from '../fax-feed-back/fax-feed-back';
 import { EmailFeedBackPage } from '../email-feed-back/email-feed-back';
 import { CallNumber } from '@ionic-native/call-number';
 import { CallStatePage } from '../call-state/call-state';
 import { ThanksPage } from '../thanks/thanks';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
+import { CallRepPage } from '../call-rep/call-rep';
 
 
 @IonicPage()
@@ -144,7 +144,7 @@ export class MyRepresentativesPage {
         {
           text: 'Make the Call',
           handler: () => {
-            this.navCtrl.push(CallPage, {rep: rep, repID: repID, offices: offices});
+            this.navCtrl.push(CallRepPage, {rep: rep, repID: repID, offices: offices});
             this.callNumber.callNumber(rep.phone, true)
             .then(() => console.log('Launched dialer!'))
             .catch((error) => console.log('Error launching dialer', error));
@@ -163,7 +163,11 @@ export class MyRepresentativesPage {
         {
           text: 'Call',
           handler: () => {
-            this.showCallAlert(rep, repID, offices);
+            //this.showCallAlert(rep, repID, offices);
+            this.navCtrl.push(CallRepPage, {rep: rep, repID: repID, offices: offices});
+            this.callNumber.callNumber(rep.phone, true)
+            .then(() => console.log('Launched dialer!'))
+            .catch((error) => console.log('Error launching dialer', error));
 
           }
         },{
@@ -313,8 +317,10 @@ export class MyRepresentativesPage {
         {
           text: 'Call',
           handler: () => {
-            this.showCallAlertState(rep, repID, offices);
-
+            this.navCtrl.push(CallStatePage, {rep: rep, repID: repID, offices: offices});
+            this.callNumber.callNumber(rep.offices[0].phone, true)
+            .then(() => console.log('Launched dialer!'))
+            .catch((error) => console.log('Error launching dialer', error));
           }
         },{
           text: 'Fax',

@@ -134,6 +134,7 @@ export class FeedPage {
         console.log(" Usuario",user);
         this.myrallyID = user.apiRallyID;
             this.getdata();
+            this.saveLog();
          
             // this.getDataStatus();
             // var connection = new WebSocket('ws://138.68.19.227:5000/');
@@ -170,7 +171,15 @@ export class FeedPage {
 
 
  
-
+  saveLog(){
+    this.usersProv.addItem('log', JSON.stringify({
+      user_id: this.myrallyID,
+      screen: 'Homefeed',
+      message: 'Visited'
+    })).subscribe(data =>{
+      console.log("Log", data);
+    });
+  }
  
 
   

@@ -43,6 +43,7 @@ export class PublicProfilePage {
   favEndpoint:any = 'actions';
   shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
   username:any;
+  public records:any = [];
 
   constructor(
     public navCtrl: NavController, 
@@ -106,8 +107,8 @@ export class PublicProfilePage {
       this.followers_count = result.followers_count;
       this.organizations_count = result.following_count;
       this.id = result.id;
-      this.objectiveActions = result.Objectives_Actions;
-      this.activitiesData = result.Direct_Actions;
+      this.getArray(result.Objectives_Actions);
+      this.getArray(result.Direct_Actions);
       this.username = result.username;
       console.log("Success : "+ result);
     },
@@ -118,6 +119,21 @@ export class PublicProfilePage {
       console.log('getData completed');
     }
   );
+}
+
+sortArray(array){
+  array.sort(function(a, b){
+    var dateA:any = new Date(a.created_at), dateB:any = new Date(b.created_at);
+    return dateB - dateA;
+  });
+}
+
+getArray(array){
+  for(let person of array) {
+    this.records.push(person);
+    this.sortArray(this.records);
+  } 
+
 }
 presentToast(message) {
     let toast = this.toastCtrl.create({

@@ -12,10 +12,10 @@ import { UsersProvider } from '../../providers/users/users';
 
 @IonicPage()
 @Component({
-  selector: 'page-call-state',
-  templateUrl: 'call-state.html',
+  selector: 'page-call-rep',
+  templateUrl: 'call-rep.html',
 })
-export class CallStatePage {
+export class CallRepPage {
   rep:any;
   endpoint:any = 'actions';
   callButtonText:any = 'Call';
@@ -67,6 +67,7 @@ export class CallStatePage {
      }
 
        goToHome(){
+         
     this.navCtrl.setRoot(FeedPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
@@ -102,7 +103,11 @@ export class CallStatePage {
       // ]
     });
 
-    
+    // for(var i = 0; i< this.offices.length; i++){
+      
+      
+    // }
+
     this.offices.forEach(office => {
       actionSheet.addButton({
         text: office.phone, 
@@ -114,6 +119,7 @@ export class CallStatePage {
         } 
       });
     });
+    
     actionSheet.addButton({text: 'Cancel', 'role': 'cancel' });       
 
     actionSheet.present();
@@ -122,10 +128,6 @@ export class CallStatePage {
   giveFeedBack(){
     this.navCtrl.push(FeedbackPage, {repID: this.data.representative_id, goalID: this.data.goal_id, objectiveID: this.objetiveID});
   } 
-
-  pop(){
-    this.navCtrl.pop();
-  }
 
   showCallAlert(phone_number){
     let alert = this.alertCtrl.create({
@@ -166,6 +168,11 @@ export class CallStatePage {
   }
   return value;
   }
+
+  pop(){
+    this.navCtrl.pop();
+  }
   
 
 }
+

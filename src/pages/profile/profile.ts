@@ -76,6 +76,7 @@ export class ProfilePage {
   favEndpoint:any = 'actions';
   shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
   activitiesData:any;
+  public records:any = [];
 
 
   constructor(
@@ -159,11 +160,26 @@ export class ProfilePage {
             this.longest_streak = result[0].longest_streak;
             this.user.username = result[0].username;
             this.user.id = result[0].id;
-            this.objectiveActions = result[0].Objectives_Actions;
-            this.activitiesData = result[0].Direct_Actions;
+            this.getArray(result[0].Objectives_Actions);
+            this.getArray(result[0].Direct_Actions);
           }
         );
      }
+
+     sortArray(array){
+      array.sort(function(a, b){
+        var dateA:any = new Date(a.created_at), dateB:any = new Date(b.created_at);
+        return dateB - dateA;
+      });
+    }
+    
+    getArray(array){
+      for(let person of array) {
+        this.records.push(person);
+        this.sortArray(this.records);
+      } 
+    
+    }
 
 
  
