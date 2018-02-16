@@ -253,39 +253,101 @@ export class FriendsRequestPage {
     hideItem(index, array){
       (array).splice(index, 1);
     }
-
-    getDeviceID(user_id, $event, index, type){
-      if(type === 'facebook'){
-        this.hideItem(index, this.items);
-      }else{
-        this.hideItem(index, this.records);
-
-      }
-      //Reemplazar por parametro despues
-      this.httpProvicer.getJsonData(this.notificationsEndpoint+'?user_id='+user_id)
-        .subscribe(result => {
-            console.log(result[0].id);
-            this.saveNotification(user_id, result[0].id, this.myRallyID);
-            $event.srcElement.innerHTML = "Unfollow";
-            $event.srcElement.innerText = "UNFOLLOW";
-        }, err => {
-          console.error("Error: " +err);
-        }, () => {
-          console.log("Data Completed");
-        });
+ 
+    unFollowUserActionSheet(userID, $event) {
+      
+      let actionSheet = this.actionSheetCtrl.create({
+        title: 'Unfollow this user?' ,
+        cssClass: 'title-img',      
+        buttons: [
+          {
+            text: 'Unfollow',
+            role: 'destructive',
+            handler: () => {
+              console.log('Destructive clicked');
+              this.getFollowRecordID(userID);
+              $event.srcElement.innerText = 'Follow';
+              $event.srcElement.style.backgroundColor = '#296fb7';
+              $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
+              $event.srcElement.style.color = '#f2f2f2';
+              $event.srcElement.parentNode.style.backgroundColor = '#296fb7';
+       }
+          },{
+            text: 'Cancel',
+            role: 'cancel',
+            handler: () => {
+              console.log('Cancel clicked');
+            }
+          }
+        ]
+      });
+      actionSheet.present();
     }
 
-    saveNotification(user_id, registration_id, sender_id){
-      this.httpProvicer.returnRallyUserId().then(user => {
-       this.httpProvicer.saveNotification(user_id, registration_id, user.displayName + " wants to follow you",  this.alertsEndpoint, sender_id);
-      this.followFriend(user_id);
-      }); 
-      //this.httpProvider.sendNotification(registration_id, msg);
-    }
+   
 
-     followFriend(friendID){
-      this.httpProvicer.followFriend(this.followEndpoint, this.myRallyID, friendID );
-      this.presentToast("You're now following this user");
+    addFollowRecordFirebase(friendID, $event){ 
+      let user:any = firebase.auth().currentUser;
+      let followRef = this.db.database.ref('follow/'+user['uid']+'/'+friendID);
+      followRef.once('value', snapshot=>{
+        if (snapshot.hasChildren()) {
+          console.log('You already follow this user');
+          // this.getFollowRecordID(friendID);
+          // this.presentToast('You are not following this user anymore');
+          this.unFollowUserActionSheet(friendID, $event);
+ 
+        }else{
+          //this.followFriend(friendID);
+          this.getDeviceID(friendID);
+          this.presentToast('Follow user successfully');
+        }
+      });
+     }
+
+     getFollowRecordID(parameter){
+      this.httpProvicer.getJsonData(this.followEndpoint+'?follower_id='+this.myRallyID+'&following_id='+ parameter).subscribe(
+        result => {
+          console.log("Delete User ID : "+ result[0].id);
+          this.unFollowFriend(result[0].id, parameter);
+        },
+        err =>{
+          console.error("Error : "+err);
+        } ,
+        () => {
+          console.log('getData completed');
+        }
+
+        );
+        }
+ 
+     getDeviceID(user_id){
+       //Reemplazar por parametro despues
+       this.httpProvicer.getJsonData(this.notificationsEndpoint+'?user_id='+user_id)
+         .subscribe(result => {
+             console.log(result[0].id);
+             this.saveNotification(user_id, result[0].id, this.myRallyID);
+         }, err => {
+           console.error("Error: " +err);
+         }, () => {
+           console.log("Data Completed");
+         });
+     }
+ 
+     saveNotification(user_id, registration_id, sender_id){
+       this.httpProvicer.returnRallyUserId().then(user => {
+        this.httpProvicer.saveNotification(user_id, registration_id, user.displayName + " wants to follow you",  this.alertsEndpoint, sender_id);
+       this.followFriend(user_id);
+       });
+       //this.httpProvider.sendNotification(registration_id, msg);
+     }
+ 
+      followFriend(friendID){
+       this.httpProvicer.followFriend(this.followEndpoint, this.myRallyID, friendID );
+     }
+
+     unFollowFriend(recordID, parameter){
+      this.httpProvicer.unfollowOrganization(this.followEndpoint, recordID);
+      this.httpProvicer.removeFollowRecordID(parameter, 'follow');
     }
 
 
@@ -299,19 +361,27 @@ export class FriendsRequestPage {
 
 
     addOrg(organizationID, $event){
+      console.log($event);
       let user:any = firebase.auth().currentUser;
       let followRef = this.db.database.ref('organizations/'+user['uid']+'/'+organizationID);
       followRef.once('value', snapshot=>{
         if (snapshot.hasChildren()) {
           console.log('You already follow this org');
-          this.unFollowActionSheet(organizationID);
-          $event.srcElement.innerText = 'Follow';
+          this.unFollowActionSheet(organizationID, $event);
+         
+
+         
+
           
           //this.presentToast('You are not following this organization anymore');
-  
+   
         }else{
           this.followOrg(organizationID);
-          $event.srcElement.innerText = 'Unfollow';
+          $event.srcElement.innerText = 'Following';
+          $event.srcElement.style.backgroundColor = '#fff';
+          $event.srcElement.offsetParent.style.backgroundColor = '#fff';
+          $event.srcElement.parentNode.style.backgroundColor = '#fff';
+          $event.srcElement.style.color = '#6D6D72';
           
           this.presentToast('Follow Organization successfully');
         }
@@ -322,7 +392,7 @@ export class FriendsRequestPage {
       this.httpProvicer.followOrganization(this.organizationEndpoint, this.myRallyID, organizationID );
     }
   
-    unFollowActionSheet(organizationID) {
+    unFollowActionSheet(organizationID, $event) {
       
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Unfollow this organization?' ,
@@ -334,8 +404,12 @@ export class FriendsRequestPage {
           handler: () => {
             console.log('Destructive clicked');
             this.getOrganizationFollowRecordID(organizationID);
-            
-          }
+            $event.srcElement.innerText = 'Follow';
+            $event.srcElement.style.backgroundColor = '#296fb7';
+            $event.srcElement.offsetParent.style.backgroundColor = '#296fb7';
+            $event.srcElement.style.color = '#f2f2f2';
+            $event.srcElement.parentNode.style.backgroundColor = '#296fb7';
+     }
         },{
           text: 'Cancel',
           role: 'cancel',

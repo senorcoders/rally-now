@@ -72,6 +72,7 @@ export class FollowedCandidatesPage {
       this.httpProvider.getJsonData(this.endpoint+this.currentApiID)
         .subscribe( result => {
           this.followers = result['follower'];
+          console.log("Follower",result['follower'] );
           this.initializeItems();
           //this.loading.dismiss();
           this.enablePlaceholder = false;
