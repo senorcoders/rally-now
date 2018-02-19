@@ -960,4 +960,33 @@ export const ORG = [{
 	"followers": [],
 	"card_type": "organization",
 	"selected": true
-}];
+},
+{
+	"id": "849585c7-ed2e-4978-8bd8-c83faf8ae044",
+	"name": "Indivisible Guide",
+	"short_desc": null,
+	"description": "We want to hear from you as you #StandIndivisible in your hometowns. Any time you visit a local office for your member of congress, host a meeting, or attend a town hall, upload a photo or video here and tell us why you #StandIndivisible.",
+	"created_at": "2018-01-25T23:03:28.182Z",
+	"updated_at": "2018-01-25T23:03:28.182Z",
+	"image_url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/24059094_346473769149832_2673042355660996943_n.png?oh=1129097dfdd53b0d60bb50a4051830ce&oe=5B20F094",
+	"twitter": "IndivisibleTeam",
+	"facebook_id": "197760674021143",
+	"facebook_url": "https://www.facebook.com/197760674021143",
+	"website": null,
+	"phones": [],
+	"addresses": [],
+	"emails": [],
+	"contacts": [],
+	"follower_count": 0,
+	"objectives_count": 0,
+	"twitter_count": 0,
+	"tweets": [],
+	"post_count": 0,
+	"events_count": 0,
+	"events": [],
+	"followers": [],
+	"card_type": "organization",
+	"selected": true
+
+}
+];

@@ -28,7 +28,7 @@ export class InterestedOrganizationsPage {
   "bf833c81-4930-48ed-8e94-8bf0d01fbbe9", "f4e14dbb-4172-4b5a-9558-d82fca5f1f3c", "b50ee250-3d9e-4bd9-877f-66dcf8d3aeb7", "c57d61d4-6f34-4b4a-a10a-f8ade9a8d111",
   "aa06299b-2bc3-4c04-9f8e-7058421a92a0", "1a5f2b8e-ef1b-49ba-80bc-7727f9b0c580", "dae57e94-bd43-4fde-9724-9c492129ce92", "12c7d94a-1cd7-47f8-b33a-d2264e5ee633",
   "07ac7a27-f6d3-47e0-aa8b-3fa8b8c5b4e0", "4212e03c-458c-4874-a566-9ca20ce52993", "62b21769-572d-4960-9aef-c840fa8a4898", "121308b5-a4f1-4f92-bdfe-670e0bc2ced7",
-  "29f5e542-f76e-4078-962d-09b70d10c52d", "6972b1ad-8fa7-4194-a7ec-e06090359350",  "86651078-0284-416b-9abf-3da3aa582b33", "d18a7f7d-c224-4db7-89d2-c5351f76ede4"];
+  "29f5e542-f76e-4078-962d-09b70d10c52d", "6972b1ad-8fa7-4194-a7ec-e06090359350",  "86651078-0284-416b-9abf-3da3aa582b33", "d18a7f7d-c224-4db7-89d2-c5351f76ede4", "849585c7-ed2e-4978-8bd8-c83faf8ae044"];
   organizationEndpoint:any = 'following_organizations';
   myrallyID:any;
   
