@@ -86,9 +86,10 @@ export class EditProfilePage {
 
 
   }
-
+ 
   refresh(){
     this.getUID();
+    this.navCtrl.pop();
   }
      
      getUID(){

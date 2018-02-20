@@ -271,7 +271,9 @@ doRefresh(refresher) {
   //   content: this.safeSvg,
   //   }); 
   //   this.loading.present();
-  this.getdata();
+  //this.getdata();
+  this.getdata(this.eventStart, this.eventEnd, this.zipcode, this.distance, this.filterBy);
+
   //this.eventFiltered = false;
   //this.enablePlaceholder = true;
   this.loader = true;

@@ -137,7 +137,7 @@ export class EventsPage {
       //   }); 
       //   this.loading.present();
       this.loader = true;
-      this.getdata();
+      this.getdata(this.eventStart, this.eventEnd, this.filterBy, this.zipcode, this.distance);
       this.eventFiltered = false;
     
         setTimeout(() => {

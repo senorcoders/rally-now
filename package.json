@@ -52,7 +52,7 @@
     "com-sarriaroman-photoviewer": "~1.1.11",
     "com.moust.cordova.videoplayer": "https://github.com/moust/cordova-plugin-videoplayer.git",
     "com.synconset.imagepicker": "~2.1.8",
-    "cordova": "^6.5.0",
+    "cordova": "6.5.0",
     "cordova-android": "6.3.0",
     "cordova-ios": "4.5.4",
     "cordova-plugin-browsertab": "^0.2.0",

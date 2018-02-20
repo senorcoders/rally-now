@@ -622,8 +622,17 @@ removeItem(endpoint, recordID){
 
 
 getNotifications(endpoint): Observable<NotiModel[]>{
+  var headers = new Headers();
+  headers.append('Content-Type', 'application/json' );
+  headers.append('Access-Control-Allow-Origin', '*');
+  headers.append('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+  headers.append('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, X-Prototype-Version, content-type, api-token, OLI-Device-ID, OLI-Device-Identifier');
+  headers.append('Access-Control-Max-Age', '1728000');
+  headers.append('Authorization', `${this.getToken()}`);
+
+  let options = new RequestOptions({ headers: headers });
   return this.http
-             .get(this.base + endpoint)
+             .get(this.base + endpoint, options)
              .map((response: Response) => {
                  return <NotiModel[]>response.json();
              })
