@@ -49,6 +49,15 @@ export class SocialShareProvider {
     })
   }
 
+  feedback(){
+    this.socialSharing.shareViaEmail("Rally Feedback:", "App Feedback", ["hello@letsrally.us"])
+    .then(() =>{
+      console.log('Success');
+    }).catch((error) => {
+      console.log('Error', error);
+    })
+  }
+
   shareViaSMS(number){
     this.socialSharing.shareViaSMS("Join me on Rally, the new app for progressive activism! bit.ly/rally-iphone or bit.ly/rally-android #letsrally", number)
     .then(() =>{

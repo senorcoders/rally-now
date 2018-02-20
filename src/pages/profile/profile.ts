@@ -558,5 +558,9 @@ transform(value: any) {
 return value;
 }
 
+giveFeedBack(){
+  this.shareProvider.feedback();
+}
+
         
 }

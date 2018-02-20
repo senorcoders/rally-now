@@ -218,4 +218,5 @@
     <allow-navigation href="http://169.254.248.75:8100" />
     <allow-navigation href="http://169.254.51.118:8100" />
     <plugin name="cordova-plugin-appsee" spec="~2.3.65" />
+    <allow-navigation href="http://169.254.84.13:8100" />
 </widget>
