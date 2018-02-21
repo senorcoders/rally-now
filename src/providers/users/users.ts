@@ -521,6 +521,7 @@ export class UsersProvider{
 
    
     console.log(updateData);
+    console.log(endpoint);
     let options = new RequestOptions({ headers: headers });
   this.http.put(encodeURI(this.base + endpoint), updateData, options)
     .subscribe(data => {
