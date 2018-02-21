@@ -257,7 +257,7 @@ doInfinite(infiniteScroll:any) {
   this.start+=1;
   console.log(this.start);
   
-  this.getdata().then(()=>{
+  this.getdata(this.eventStart, this.eventEnd, this.zipcode, this.distance, this.filterBy).then(()=>{
     infiniteScroll.complete();
   });
   

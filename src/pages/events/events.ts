@@ -228,10 +228,17 @@ doInfinite(infiniteScroll:any) {
   console.log('doInfinite, start is currently '+this.start);
   this.start+=1;
   console.log(this.start);
-  
-  this.getAllEvents().then(()=>{
-    infiniteScroll.complete();
-  });
+  if(this.filterBy === 'followed'){
+    this.getFollowedEvents(this.eventStart, this.eventEnd, this.zipcode, this.distance).then(()=>{
+      infiniteScroll.complete();
+
+    });
+  }else{
+    this.getAllEvents().then(()=>{
+      infiniteScroll.complete();
+    });
+  }
+ 
   
 }
 

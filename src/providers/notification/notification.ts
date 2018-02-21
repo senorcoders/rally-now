@@ -24,13 +24,14 @@ export class NotificationProvider {
   init(rallyID){
   	
   
+    this.httpProvider.saveDevice(this.device.uuid, rallyID,  this.endpoint);
 
-		this.push.register().then((t: PushToken) => {
-		  return this.push.saveToken(t);
-		}).then((t: PushToken) => {
-		  console.log('Token saved:', t.token);
-      this.saveToken(t.token, rallyID);
-		});
+		// this.push.register().then((t: PushToken) => {
+		//   return this.push.saveToken(t);
+		// }).then((t: PushToken) => {
+		//   console.log('Token saved:', t.token);
+    //   this.saveToken(t.token, rallyID);
+		// });
 
     
   }
