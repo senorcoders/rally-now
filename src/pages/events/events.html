@@ -86,6 +86,9 @@
     <!-- <div *ngIf="searching" class="spinner-container">
         <ion-spinner></ion-spinner>
     </div> -->
+    <div *ngIf="events.length < 1" class="flex-center">
+            <p>Sorry, no results matched your criteria</p>
+        </div>
 
       <ion-card class="events-card" *ngFor="let event of events">
 

@@ -120,6 +120,8 @@ export class OrganizationActionPage {
           role: 'cancel',
           handler: () => {
             console.log('Cancel clicked');
+            this.navCtrl.push(CallPage, {rep: rep, repID: repID, talkingPoints: this.objDesc, offices: offices, goalID: this.goal_id, objectiveID: this.objectiveID});
+
           }
         },
         {

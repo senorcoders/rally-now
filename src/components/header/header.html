@@ -36,63 +36,88 @@
 
 
     <ion-list *ngSwitchCase="'people'">
-	<ion-item >
-		<p class="list-title">Results for {{searchTerm}} in users</p>
-	</ion-item>
+      <div class="flex-center" *ngIf="users.length < 1">
+        <p>Sorry, no results matched your criteria</p>
+      </div>
+      <div *ngIf="users.length > 0">
+        	<ion-item >
+              <p class="list-title">Results for {{searchTerm}} in users</p>
+            </ion-item>
+          
+            <ion-item *ngFor="let user of users">
+              <ion-avatar item-start (click)="goToPublicProfile(user.id)">
+                <img src="{{user.photo_url}}" style="width: 70px; height: 70px;">
+              </ion-avatar>
+             <button (click)="goToPublicProfile(user.id)" style="background: none;"><h2>{{user.name}}</h2></button> 
+            
+            </ion-item>
+      </div>
 
-  <ion-item *ngFor="let user of users">
-    <ion-avatar item-start (click)="goToPublicProfile(user.id)">
-      <img src="{{user.photo_url}}" style="width: 70px; height: 70px;">
-    </ion-avatar>
-   <button (click)="goToPublicProfile(user.id)" style="background: none;"><h2>{{user.name}}</h2></button> 
-  
-  </ion-item>
  
 </ion-list>
 
  <ion-list *ngSwitchCase="'organizations'">
-	<ion-item >
-		<p class="list-title">Results for {{searchTerm}} in Organizations</p>
-	</ion-item>
+    <div class="flex-center" *ngIf="organizations.length < 1">
+        <p>Sorry, no results matched your criteria</p>
+      </div>
+      <div *ngIf="organizations.length > 0">
+        	<ion-item >
+              <p class="list-title">Results for {{searchTerm}} in Organizations</p>
+            </ion-item>
+          
+            <ion-item *ngFor="let organization of organizations">
+              <ion-avatar item-start (click)="goToOrganizationProfile(organization.id)" >
+                <img src="{{organization.image_url}}" style="width: 70px; height: 70px;">
+              </ion-avatar>
+              <button (click)="goToOrganizationProfile(organization.id)" style="background: none;"><h2 text-wrap>{{organization.name}}</h2></button>
+              <p>{{organization.short_desc}}</p>
+            
+            </ion-item>
+      </div>
 
-  <ion-item *ngFor="let organization of organizations">
-    <ion-avatar item-start (click)="goToOrganizationProfile(organization.id)" >
-      <img src="{{organization.image_url}}" style="width: 70px; height: 70px;">
-    </ion-avatar>
-    <button (click)="goToOrganizationProfile(organization.id)" style="background: none;"><h2 text-wrap>{{organization.name}}</h2></button>
-    <p>{{organization.short_desc}}</p>
-  
-  </ion-item>
  
 </ion-list>
 
 
 <ion-list *ngSwitchCase="'events'">
-	<ion-item >
-		<p class="list-title">Results for {{searchTerm}} in Events</p>
-	</ion-item>
+    <div class="flex-center" *ngIf="events.length < 1">
+        <p>Sorry, no results matched your criteria</p>
+      </div>
 
-  <ion-item *ngFor="let event of events">
-    <ion-avatar item-start (click)="goToEventDetail(event.id)" >
-      <img src="{{event.image_url}}" style="width: 70px; height: 70px;">
-    </ion-avatar>
-    <button (click)="goToEventDetail(event.id)" style="background: none;"><h2 text-wrap>{{event.title}}</h2></button>  
-  </ion-item>
+      <div *ngIf="events.length > 0">
+        	<ion-item >
+              <p class="list-title">Results for {{searchTerm}} in Events</p>
+            </ion-item>
+          
+            <ion-item *ngFor="let event of events">
+              <ion-avatar item-start (click)="goToEventDetail(event.id)" >
+                <img src="{{event.image_url}}" style="width: 70px; height: 70px;">
+              </ion-avatar>
+              <button (click)="goToEventDetail(event.id)" style="background: none;"><h2 text-wrap>{{event.title}}</h2></button>  
+            </ion-item>
+      </div>
+
  
 </ion-list>
 
 
 <ion-list *ngSwitchCase="'reps'">
-	<ion-item >
-		<p class="list-title">Results for {{searchTerm}} in Representatives</p>
-	</ion-item>
-
-  <ion-item *ngFor="let rep of reps">
-    <ion-avatar item-start (click)="goToRepProfile(rep.id)" >
-      <img src="{{rep.photo_url}}" style="width: 70px; height: 70px;">
-    </ion-avatar>
-    <button (click)="goToRepProfile(rep.id)" style="background: none;"><h2 text-wrap>{{rep.name}}</h2></button>  
-  </ion-item>
+    <div class="flex-center" *ngIf="reps.length < 1">
+        <p>Sorry, no results matched your criteria</p>
+      </div>
+      <div *ngIf="reps.length > 0">
+          <ion-item >
+              <p class="list-title">Results for {{searchTerm}} in Representatives</p>
+            </ion-item>
+          
+            <ion-item *ngFor="let rep of reps">
+              <ion-avatar item-start (click)="goToRepProfile(rep.id)" >
+                <img src="{{rep.photo_url}}" style="width: 70px; height: 70px;">
+              </ion-avatar>
+              <button (click)="goToRepProfile(rep.id)" style="background: none;"><h2 text-wrap>{{rep.name}}</h2></button>  
+            </ion-item>
+      </div>
+	
  
 </ion-list>
 </div>

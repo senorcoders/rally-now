@@ -20,11 +20,11 @@ export class HeaderComponent {
   searchTerm: string = '';
   searchControl: FormControl;
   endpoint: string = 'search/';
-  users:any;
-  organizations:any;
-  results:any;
-  reps:any;
-  events:any;
+  public users:any = [];
+  public organizations:any = [];
+  public results:any = [];
+  public reps:any = [];
+  public events:any = [];
 
 
 
@@ -64,6 +64,7 @@ export class HeaderComponent {
       getdata(){
   this.httpProvider.getJsonData(this.endpoint + this.searchTerm).subscribe(
     result => {
+      console.log(result['users'].length);
       this.users = result['users'];
       this.organizations = result['organizations'];
       this.reps = result['reps'];

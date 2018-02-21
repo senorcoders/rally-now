@@ -296,6 +296,7 @@ goToEventDetail(eventID){
     getFilterType(){
       this.storage.get('filterBy').then((val) => {
         this.filterBy = val;
+        this.start = 1;
         this.getdata(this.eventStart, this.eventEnd, this.filterBy, this.zipcode, this.distance);
         this.events = [];
         this.loading = this.loadingCtrl.create({

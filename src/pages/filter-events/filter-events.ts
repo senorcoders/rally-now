@@ -41,6 +41,7 @@ filter:any = 'all';
       console.log(this.navParams.get('location'));
       if(this.navParams.get('location') === 'home'){
         this.home = true;
+        this.filter = 'followed';
       }else if (this.navParams.get('location') === 'orgs'){
         this.orgs = true;
       }else{

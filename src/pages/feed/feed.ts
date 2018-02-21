@@ -71,7 +71,7 @@ export class FeedPage {
   public repsTweets:any = [];
   public records:any = [];
   zipcode:any;
-  distance:any;
+  distance:any; 
   filterBy:any; 
   safeSvg:any; 
   followEndpoint:any = 'following_representative';
@@ -928,6 +928,7 @@ orgStatus(orgID){
         getFilterType(){
           this.storage.get('filterBy').then((val) => {
             this.filterBy = val;
+            this.start = 1;
             this.getdata(this.eventStart, this.eventEnd, this.zipcode, this.distance, this.filterBy);
             this.records = [];
             // this.loading = this.loadingCtrl.create({

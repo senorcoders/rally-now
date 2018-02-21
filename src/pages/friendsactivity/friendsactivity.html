@@ -141,7 +141,7 @@
                 <ion-card *ngIf="activity.card_type === 'direct_action'">
                     <ion-fab right top style="top: 4px;
                 right: 0;">
-                        <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
+                        <button ion-fab color="light" (click)="userEllipsisController(activity.fname, activity.user_id, activity.followers,  'I ' + activity.action + 'ed ' + activity.representative)"><ion-icon name="ios-more"></ion-icon></button>
                      
                     </ion-fab>
             
@@ -172,7 +172,7 @@
                             <img *ngIf="activity.action === 'sign'" src="assets/img/Sign.svg" alt="" style="width: 25px;">
                             <img *ngIf="activity.action === 'fax'" src="assets/img/Fax.svg" alt="" style="width: 25px;">
                             <img *ngIf="activity.action === 'email'" src="assets/img/Email.svg" alt="" style="width: 25px;">
-            
+                            <img *ngIf="activity.action === 'tweet'" src="assets/img/tweet2.svg" alt="" style="width: 25px;">
             
                         </div>
                     </ion-fab>
@@ -202,7 +202,7 @@
                     <ion-card *ngIf="activity.card_type === 'objective_action'">
                             <ion-fab right top style="top: 4px;
                         right: 0;">
-                                <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
+                                <button ion-fab color="light" (click)="userEllipsisController(activity.fname, activity.user_id, activity.followers, 'I ' + activity.action + 'ed ' + activity.representative + ' for ' + activity.organization +  'campaign ' + activity.objective )"><ion-icon name="ios-more"></ion-icon></button>
                              
                             </ion-fab>
                     
@@ -234,7 +234,7 @@
                                     <img *ngIf="activity.action === 'sign'" src="assets/img/Sign.svg" alt="" style="width: 25px;">
                                     <img *ngIf="activity.action === 'fax'" src="assets/img/Fax.svg" alt="" style="width: 25px;">
                                     <img *ngIf="activity.action === 'email'" src="assets/img/Email.svg" alt="" style="width: 25px;">
-                    
+                                    <img *ngIf="activity.action === 'tweet'" src="assets/img/tweet2.svg" alt="" style="width: 25px;">
                     
                                 </div>
                             </ion-fab>
@@ -260,7 +260,7 @@
                 <ion-card *ngIf="activity.card_type === 'direct_action'">
                     <ion-fab right top style="top: 4px;
                 right: 0;">
-                        <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
+                        <button ion-fab color="light" (click)="userEllipsisController(activity.fname, activity.user_id, activity.followers,  'I ' + activity.action + 'ed ' + activity.representative)"><ion-icon name="ios-more"></ion-icon></button>
                      
                     </ion-fab>
             
@@ -291,7 +291,7 @@
                             <img *ngIf="activity.action === 'sign'" src="assets/img/Sign.svg" alt="" style="width: 25px;">
                             <img *ngIf="activity.action === 'fax'" src="assets/img/Fax.svg" alt="" style="width: 25px;">
                             <img *ngIf="activity.action === 'email'" src="assets/img/Email.svg" alt="" style="width: 25px;">
-            
+                            <img *ngIf="activity.action === 'tweet'" src="assets/img/tweet2.svg" alt="" style="width: 25px;">
             
                         </div>
                     </ion-fab>
