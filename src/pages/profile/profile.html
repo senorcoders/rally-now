@@ -105,7 +105,7 @@
             MY  ACTIVITY FEED
         </ion-list-header>
     
-        <div *ngFor="let activity of records, let i = index">
+        <div *ngFor="let activity of records, let i = index" class="profile-cards">
             <ion-card *ngIf="activity.card_type === 'objective_action'">
                 <ion-fab right top style="top: 4px;
            right: 0;">

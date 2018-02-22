@@ -36,7 +36,7 @@ page-profile {
         border-bottom: 2px solid #e9e9e9;
     }
     ion-content {
-        background-color: #fff !important;
+        background-color:transparent !important;
         top: 0 !important;
     }
     
@@ -209,4 +209,9 @@ page-profile {
 .bar-button-default-ios,
 .bar-button-default-md {
     color: #fff;
+}
+
+.profile-cards{
+    background: #d8d8d8 !important;
+    padding-bottom: 5px;
 }

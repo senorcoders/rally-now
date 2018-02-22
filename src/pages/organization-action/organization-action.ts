@@ -14,6 +14,7 @@ import { FaxFeedBackPage } from '../fax-feed-back/fax-feed-back';
 import { EmailFeedBackPage } from '../email-feed-back/email-feed-back';
 import { OrganizationProfilePage } from '../organization-profile/organization-profile';
 import { ThanksPage } from '../thanks/thanks';
+import { RepresentativeProfilePage } from '../representative-profile/representative-profile';
 
 
 @IonicPage()
@@ -495,6 +496,17 @@ goToOrganizationProfile(organizationID){
      organizationID: organizationID,
      OrgPageName: "Discover"
 }, {animate:true,animation:'transition',duration:500,direction:'forward'});
+}
+
+getID(bioguide){
+  this.httpProvider.getJsonData(this.repsEndpoint +bioguide).subscribe( result => {
+    console.log(result);
+    this.goToRepProfile(result[0].id,);
+});
+}
+
+goToRepProfile(repID){
+  this.navCtrl.push(RepresentativeProfilePage, {repID: repID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
 }
 
 

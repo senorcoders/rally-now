@@ -11,6 +11,7 @@ import { CallStatePage } from '../call-state/call-state';
 import { ThanksPage } from '../thanks/thanks';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
 import { CallRepPage } from '../call-rep/call-rep';
+import { RepresentativeProfilePage } from '../representative-profile/representative-profile';
 
 
 @IonicPage()
@@ -225,6 +226,13 @@ export class MyRepresentativesPage {
       this.followRep(result[0].id, $event);
   });
   }
+
+  getID(bioguide){
+    this.httpProvider.getJsonData(this.repsEndpoint +bioguide).subscribe( result => {
+      console.log(result);
+      this.goToRepProfile(result[0].id,);
+  });
+  }
  
   
   followRep(repID, $event){
@@ -369,6 +377,10 @@ export class MyRepresentativesPage {
       return value.toUpperCase();
   }
   return value;
+  }
+
+  goToRepProfile(repID){
+    this.navCtrl.push(RepresentativeProfilePage, {repID: repID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
 }
