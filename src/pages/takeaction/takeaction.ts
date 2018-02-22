@@ -199,7 +199,7 @@ goToOrganizationProfile(organizationID){
       if(goal_type !== "sign"){
        this.navCtrl.push(OrganizationActionPage, {
          objectiveID: objectiveID,
-         pageName: 'Home'
+         pageName: 'Action'
      }, {animate:true,animation:'transition',duration:500,direction:'forward'});
       } else{
        this.navCtrl.push(SignFeedBackPage, {iframeUrl: source, repID:repID, goalID:goalID}, {animate:true,animation:'transition',duration:500,direction:'forward'});

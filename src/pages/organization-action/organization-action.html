@@ -35,10 +35,10 @@
 
 
 
-        <ion-card-content>
+        <!-- <ion-card-content>
             <p>{{orgDescription}}</p>
 
-        </ion-card-content>
+        </ion-card-content> -->
         <ion-list>
             <ion-item text-wrap *ngFor="let d of information; let i=index" (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
                 <div class="toggle-header">{{d.title}}
@@ -58,7 +58,7 @@
         </ion-row>
   
         <ion-list *ngIf="enable">
-                <ion-item (click)="finReps()">
+                <ion-item (click)="finReps()" *ngIf="!enableSpecificRep">
                    <h2>YOUR REPRESENTATIVES</h2>
                    <p>{{repAddress}}</p>
                    <ion-icon name="md-create" item-end></ion-icon>
