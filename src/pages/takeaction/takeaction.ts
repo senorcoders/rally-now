@@ -16,6 +16,7 @@ import { ThankYouPage } from '../thank-you/thank-you';
 import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
 import { ThanksPage } from '../thanks/thanks';
 import { DomSanitizer } from '@angular/platform-browser';
+import { OrganizationsProvider } from '../../providers/organizations/organizations';
 
 
 @IonicPage()
@@ -25,7 +26,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class TakeactionPage {
 
-  endpoint:string = 'objectives';
+  endpoint:string = 'objectives/take_action';
   objectives:any;
   myrallyID:any;
   favEndpoint:any = 'actions';
@@ -55,7 +56,8 @@ export class TakeactionPage {
     public viewCtrl:ViewController,
     public modalCtrl: ModalController,
     public loadingCtrl: LoadingController,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    public orgProvider: OrganizationsProvider
     ) {
     //   let svg = `<div id="Rallycontainer">
     //   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><title>Loading</title>
@@ -169,7 +171,7 @@ export class TakeactionPage {
 
 
       getdata(){
-  this.httpProvider.getJsonData(this.endpoint).subscribe(
+  this.orgProvider.getJsonData(this.endpoint).subscribe(
     result => {
       this.objectives=result;
       //this.loading.dismiss();
