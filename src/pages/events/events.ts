@@ -262,9 +262,14 @@ goToEventDetail(eventID){
   goToEventFilter(){
       // this.navCtrl.push(FilterEventsPage);
       let modal = this.modalCtrl.create(FilterEventsPage, {location: 'events'});
-      modal.onDidDismiss(() => {
+      modal.onDidDismiss((data) => {
         console.log('Test');
-        this.getStartDate();
+        if(data === 'back'){
+          console.log("No refresh");
+        }else{
+          this.getStartDate();
+
+        }
         
       });
       modal.present();

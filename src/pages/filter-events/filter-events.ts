@@ -76,6 +76,10 @@ filter:any = 'all';
     this.viewCtrl.dismiss();
   }
 
+  pop(){
+    this.viewCtrl.dismiss('back');
+  }
+
  
 
 goToEvents(){  

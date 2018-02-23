@@ -610,9 +610,13 @@ orgStatus(orgID){
         goToEventFilter(){
           // this.navCtrl.push(FilterEventsPage,  {}, {animate:true,animation:'ios-transition',duration:500,direction:'forward'});
           let modal = this.modalCtrl.create(FilterEventsPage, {location: 'orgs'});
-          modal.onDidDismiss(() => {
-            console.log('Test');
-            this.getStartDate();
+          modal.onDidDismiss((data) => {
+            console.log(data);
+            if(data === 'back'){
+              console.log("No refresh");
+            }else{
+              this.getStartDate();
+            }
             
           });
           modal.present();
