@@ -97,7 +97,7 @@
                         <!-- only show icon on verified accounts <h2 style="display: flex;">Senator Bob Jones <img *ngIf="{{rep.verified === true}}" style="width: 12px; height: 12px; margin-left: 5px;" src="assets/img/TwtterVerified.svg" alt=""></h2> -->
         
                         <h2 style="display: flex; font-weight:bold;">{{record.name}}</h2>
-                        <p><small>@{{record.username}} . {{record.created_at | amTimeAgo}}</small></p>
+                        <p><small>@{{record.username}} . {{record.tweet_created_at | amTimeAgo}}</small></p>
                       </ion-item>
                 </ion-card-header>
                 <ion-card-content (click)="openWebpage(record.twitter_username, record.tweet_id)">
@@ -135,7 +135,7 @@
             <ion-card style="position: relative;" *ngIf="record.card_type === 'objective'" class="objectives-card">
     
                     <ion-fab right top>
-                        <button (click)="ellipsisController(record.organization['name'], record.id, i, record.organization_id, record.description, record.organization['followers'] )" ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
+                        <button (click)="ellipsisController(record.organization['name'], record.id, i, record.organization_id, record.description, record.organization['followers'], record.organization['notify'] )" ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
                         <!-- <ion-fab-list side="left">
             
                             <button ion-fab (click)="hideItem(objective.id, i)"><ion-icon name="md-done-all"></ion-icon></button>
@@ -205,7 +205,7 @@
                 <ion-card class="events-card" *ngIf="record.card_type === 'events'">
     
                         <ion-fab right top>
-                            <button ion-fab color="light" (click)="eventEllipsisController(record.organization[0].name, record.organization_id, record.title, record.organization[0].followers)" ><ion-icon name="ios-more"></ion-icon></button>
+                            <button ion-fab color="light" (click)="eventEllipsisController(record.organization[0].name, record.organization_id, record.title, record.organization[0].followers, record.organization[0].notify)" ><ion-icon name="ios-more"></ion-icon></button>
                              <!-- <ion-fab-list side="left">
                 
                                 <button ion-fab><ion-icon name="md-done-all"></ion-icon></button>

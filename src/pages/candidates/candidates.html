@@ -69,7 +69,7 @@
          <!-- Tweet Cards -->
          <ion-card class="reps-card" style="position: relative;" *ngFor="let record of records">
                 <ion-fab right top>
-                    <button ion-fab color="light" (click)="tweetOrgEllipsisController(record.name, record.rep_id, record.tweet, record.followers)">
+                    <button ion-fab color="light" (click)="tweetRepEllipsisController(record.name, record.rep_id, record.tweet, record.followers, record.notify)">
                         <ion-icon name="ios-more"></ion-icon>
                     </button>
                   
@@ -82,7 +82,7 @@
                         <!-- only show icon on verified accounts <h2 style="display: flex;">Senator Bob Jones <img *ngIf="{{rep.verified === true}}" style="width: 12px; height: 12px; margin-left: 5px;" src="assets/img/TwtterVerified.svg" alt=""></h2> -->
         
                         <h2 style="display: flex; font-weight:bold;" (click)="goToRepProfile(record.rep_id)">{{record.name}}</h2>
-                        <p><small>@{{record.twitter_username}} . {{record.created_at | amTimeAgo}}</small></p>
+                        <p><small>@{{record.twitter_username}} . {{record.tweet_created_at | amTimeAgo}}</small></p>
                       </ion-item>
                 </ion-card-header>
                 <ion-card-content (click)="openWebpage(record.twitter_username, record.tweet_id)">

@@ -352,6 +352,84 @@ streakModal() {
 addShareAction(goal_id, action_type_id){
   this.httpProvider.addShareAction(this.favEndpoint, goal_id, action_type_id, this.currentRallyID);
 }
+tweetRepEllipsisController(name, repID, desc, notify){
+  const actionSheet = this.actionSheetCtrl.create({
+    buttons: [
+    {
+      text: 'Share this post via...',
+      handler: () => {
+        console.log("test");
+        this.shareProvider.otherShare(name, desc);
+
+      }
+    }, 
+    {
+      text: this.notifyExist(notify) + name,
+      handler: () => {
+        console.log("test");
+        this.checkNotifiersRep(repID);
+
+      }
+    },
+    {
+      text: 'Report',
+      role: 'destructive',
+      handler: () => {
+        console.log("test");
+        this.shareProvider.shareViaEmail();
+
+      }
+    },
+    {
+      text: 'Cancel',
+      role: 'cancel',
+      handler: () => {
+        console.log('Cancel clicked');
+      }
+    }
+  ]
+});
+
+actionSheet.present();
+}
+
+notifyExist(actions){
+  console.log("IDs", actions);
+  if (actions != null){
+    var found = actions.some(el => { 
+        return el == this.currentRallyID;
+      
+    });
+    
+    if (!found){
+      return 'Turn on notifications for ';
+      
+    }else{
+      return 'Turn off notifications for ';
+      
+    }
+  }
+}
+
+checkNotifiersRep(repID){
+  this.httpProvider.getJsonData(this.followEndpoint + '?user_id=' + this.currentRallyID + '&representative_id=' + repID)
+    .subscribe(result => {
+      console.log("Notifications", result);
+      if(result != ""){
+        console.log(result[0].enable_notifications);
+        if(result[0].enable_notifications == true){
+          this.httpProvider.updateSingleItem(this.followEndpoint + '/' + result[0].id, JSON.stringify({enable_notifications: false}));
+          this.presentToast("You've turned off notifications for this Representative");
+        }else{
+          this.httpProvider.updateSingleItem(this.followEndpoint + '/' + result[0].id, JSON.stringify({enable_notifications: true}));
+          this.presentToast("You've turned on notifications for this Representative");
+
+        }
+      }else{
+        this.presentToast("You need to follow this Representative to enable the notifications");
+      }
+    });
+}
 
 
 }

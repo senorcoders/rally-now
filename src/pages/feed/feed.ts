@@ -101,32 +101,11 @@ export class FeedPage {
     private sanitizer: DomSanitizer,
     private inAppBrowser: InAppBrowser) { 
 
-  
-      
+      let username = '1dayana';
+      console.log("Coincidence", username.match(/[a-z]/i));
 
-      // eventsAng.subscribe('home:scrollToTop', (time) => {
-      //   console.log('home:scrollToTop', 'at', time);
-      //   this.content.scrollToTop();
-      // });
       console.log("Network", this.network.type);
-    //   let svg = `<div id="Rallycontainer">
-    //   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><title>Loading</title>
-    //     <path id="arrow" class="bounce" d="M79.1,44.3c-2.4-0.5-4.1-2.6-4-5V22.6H58.7c-2.4,0.1-4.5-1.6-5-4C53.2,16,55,13.5,57.6,13c0.3,0,0.5-0.1,0.8-0.1h21.5
-    //       c2.7,0,4.8,2.2,4.8,4.8v21.8c0,2.7-2.2,4.8-4.8,4.8C79.7,44.4,79.4,44.4,79.1,44.3z"/>
-    //     <path id="R" d="M67.5,87H52.8L41.4,66.3h-4V87H24.8V33h19.4c6,0,10.7,1.3,14.3,3.8c3.9,2.9,6.1,7.5,5.9,12.4c0,10.3-6.6,14.3-10.6,15.5
-    //       L67.5,87z M48.9,44.2c-1.6-1.2-3.6-1.4-6.5-1.4h-5v13.9h5c2.9,0,4.9-0.3,6.5-1.5c1.8-1.2,2.9-3.3,2.7-5.5
-    //       C51.8,47.5,50.7,45.4,48.9,44.2z"/></svg>
-    //   </div>`;
-
-    // this.safeSvg = this.sanitizer.bypassSecurityTrustHtml(svg);
-      
-    //   this.loading = this.loadingCtrl.create({
-    //     spinner: 'hide',
-    //     content: this.safeSvg, 
-    //     // duration: 5000
-
-    //   }); 
-    //     this.loading.present();
+   
     this.enablePlaceholder = true;
        
         this.usersProv.returnRallyUserId()
@@ -136,33 +115,6 @@ export class FeedPage {
             this.getdata();
             this.saveLog();
          
-            // this.getDataStatus();
-            // var connection = new WebSocket('ws://138.68.19.227:5000/');
-            // var that = this;
-
-            // connection.onopen = function () {
-            //   console.log("Connected!");
-            //   var message:any =  [{'action':'sendid','uid': that.myrallyID}];
-            //   message = JSON.stringify(message);
-            //   connection.send(message);
-                
-            // };
-            // connection.onmessage = function (e) {
-
-            //   var message = JSON.parse(JSON.stringify(e.data || null));
-            //   var obj = message;
-            //   var notifications = "";
-            //   var ol = Object.keys(obj);
-            //   console.log("Obj Count: ", ol.length);
-            //   console.log(obj.tweets);
-
-            //   if(ol.length > 100){
-            //     console.log(JSON.parse(obj));
-            //     that.tweet = JSON.parse(obj);
-            //     that.enableRepCard = true;
-            //   }  
-         
-            // };
       });
         
 
@@ -602,7 +554,7 @@ ellipsisController(name, id, index, orgID, desc, followers, notify){
       handler: () => {
         console.log("test");
         this.shareProvider.shareViaEmail();
-
+  
       }
     },
     {
@@ -618,7 +570,7 @@ ellipsisController(name, id, index, orgID, desc, followers, notify){
 actionSheet.present();
 }
 
-eventEllipsisController(name, orgID, desc, followers, notify){
+eventEllipsisController(name, orgID, desc, followers, notify){ 
   const actionSheet = this.actionSheetCtrl.create({
     buttons: [
     {
@@ -718,7 +670,7 @@ actionSheet.present();
 }
 
 
-tweetRepEllipsisController(name, repID, desc, followers){
+tweetRepEllipsisController(name, repID, desc, followers, notify){
   const actionSheet = this.actionSheetCtrl.create({
     buttons: [
     {
@@ -730,9 +682,11 @@ tweetRepEllipsisController(name, repID, desc, followers){
       }
     }, 
     {
-      text: 'Turn on/off notifications for ' + name,
+      text: this.notifyExist(notify) + name,
       handler: () => {
         console.log("test");
+        this.checkNotifiersRep(repID);
+
 
       }
     },
@@ -1018,6 +972,26 @@ orgStatus(orgID){
               }
             }else{
               this.presentToast("You need to follow this organization to enable the notifications");
+            }
+          });
+      }
+
+      checkNotifiersRep(repID){
+        this.usersProv.getJsonData(this.followEndpoint + '?user_id=' + this.myrallyID + '&representative_id=' + repID)
+          .subscribe(result => {
+            console.log("Notifications", result);
+            if(result != ""){
+              console.log(result[0].enable_notifications);
+              if(result[0].enable_notifications == true){
+                this.usersProv.updateSingleItem(this.followEndpoint + '/' + result[0].id, JSON.stringify({enable_notifications: false}));
+                this.presentToast("You've turned off notifications for this Representative");
+              }else{
+                this.usersProv.updateSingleItem(this.followEndpoint + '/' + result[0].id, JSON.stringify({enable_notifications: true}));
+                this.presentToast("You've turned on notifications for this Representative");
+
+              }
+            }else{
+              this.presentToast("You need to follow this Representative to enable the notifications");
             }
           });
       }

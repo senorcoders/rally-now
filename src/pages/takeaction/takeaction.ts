@@ -430,13 +430,13 @@ hideItem(objective_id, index){
     this.httpProvider.addShareAction(this.favEndpoint, goal_id, action_type_id, this.myrallyID);
   }
 
-  ellipsisController(name, id, index, orgID, followers){
+  ellipsisController(name, id, index, orgID, desc, followers, notify){
     const actionSheet = this.actionSheetCtrl.create({
       buttons: [
       {
         text: 'Share this post via...',
         handler: () => {
-          console.log("test");
+          this.shareProvider.otherShare(name, desc);
   
         }
       }, 
@@ -447,9 +447,10 @@ hideItem(objective_id, index){
         }
       },
       {
-        text: 'Turn on/off notifications for ' + name,
+        text: this.notifyExist(notify) + name,
         handler: () => {
           console.log("test");
+          this.checkNotifiers(orgID);
   
         }
       },
@@ -480,6 +481,43 @@ hideItem(objective_id, index){
   });
   
   actionSheet.present();
+  }
+
+  notifyExist(actions){
+    if (actions != null){
+      var found = actions.some(el => { 
+          return el == this.myrallyID;
+        
+      });
+      
+      if (!found){
+        return 'Turn on notifications for ';
+        
+      }else{
+        return 'Turn off notifications for ';
+        
+      }
+    }
+  }
+  
+  checkNotifiers(orgID){
+    this.httpProvider.getJsonData(this.organizationEndpoint + '?follower_id=' + this.myrallyID + '&organization_id=' + orgID)
+      .subscribe(result => {
+        console.log("Notifications", result);
+        if(result != ""){
+          console.log(result[0].enable_notifications);
+          if(result[0].enable_notifications == true){
+            this.httpProvider.updateSingleItem(this.organizationEndpoint + '/' + result[0].id, JSON.stringify({enable_notifications: false}));
+            this.presentToast("You've turned off notifications for this organization");
+          }else{
+            this.httpProvider.updateSingleItem(this.organizationEndpoint + '/' + result[0].id, JSON.stringify({enable_notifications: true}));
+            this.presentToast("You've turned on notifications for this organization");
+  
+          }
+        }else{
+          this.presentToast("You need to follow this organization to enable the notifications");
+        }
+      });
   }
 
   getOrganizationFollowStatus(actions){

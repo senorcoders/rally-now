@@ -45,7 +45,8 @@ export class OrganizationProfilePage {
   events:any;
   tweets:any;
   eventLike:any = 'd5d1b115-dbb6-4894-8935-322c336ae951';
-
+  notify:any;
+  followersArr:any;
 
 
 
@@ -93,6 +94,9 @@ export class OrganizationProfilePage {
       this.objectives = result.objectives;
       this.posts = result.organization[0]['post_count']; 
       this.followers = result.organization[0]['follower_count'];
+      this.followersArr = result.organization[0]['followers'];
+
+      this.notify = result.organization[0]['notify'];
       this.twitter = result.organization[0]['twitter'];
       this.events = result.organization[0].events;
       this.tweets = result.organization[0].tweets; 
@@ -356,7 +360,46 @@ goToActionPage(objectiveID, goal_type, source, goalID, repID){
         );
     }
 
-    eventEllipsisController(name, orgID, desc, followers){
+    ellipsisController(name, orgID, desc, notify){
+      const actionSheet = this.actionSheetCtrl.create({
+        buttons: [
+        {
+          text: 'Share this post via...',
+          handler: () => {
+            console.log("test");
+            this.shareProvider.otherShare(name, desc);
+    
+          }
+        },
+        {
+          text: this.notifyExist(notify) + name,
+          handler: () => {
+            console.log("test");
+            this.checkNotifiers(orgID);
+          }
+        },
+        {
+          text: 'Report',
+          role: 'destructive',
+          handler: () => {
+            console.log("test");
+    
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    
+    actionSheet.present();
+    }
+
+    eventEllipsisController(name, orgID, desc, followers, notify){
       const actionSheet = this.actionSheetCtrl.create({
         buttons: [
         {
@@ -368,9 +411,10 @@ goToActionPage(objectiveID, goal_type, source, goalID, repID){
           }
         }, 
         {
-          text: 'Turn on/off notifications for ' + name,
-          handler: () => {
-            console.log("test");
+          text: this.notifyExist(notify) + name,
+      handler: () => {
+        console.log("test");
+        this.checkNotifiers(orgID);
     
           }
         },
@@ -394,6 +438,43 @@ goToActionPage(objectiveID, goal_type, source, goalID, repID){
     });
     
     actionSheet.present();
+    }
+
+    notifyExist(actions){
+      if (actions != null){
+        var found = actions.some(el => { 
+            return el == this.myrallyID;
+          
+        });
+        
+        if (!found){
+          return 'Turn on notifications for ';
+          
+        }else{
+          return 'Turn off notifications for ';
+          
+        }
+      }
+    }
+    
+    checkNotifiers(orgID){
+      this.httpProvider.getJsonData(this.organizationEndpoint + '?follower_id=' + this.myrallyID + '&organization_id=' + orgID)
+        .subscribe(result => {
+          console.log("Notifications", result);
+          if(result != ""){
+            console.log(result[0].enable_notifications);
+            if(result[0].enable_notifications == true){
+              this.httpProvider.updateSingleItem(this.organizationEndpoint + '/' + result[0].id, JSON.stringify({enable_notifications: false}));
+              this.presentToast("You've turned off notifications for this organization");
+            }else{
+              this.httpProvider.updateSingleItem(this.organizationEndpoint + '/' + result[0].id, JSON.stringify({enable_notifications: true}));
+              this.presentToast("You've turned on notifications for this organization");
+    
+            }
+          }else{
+            this.presentToast("You need to follow this organization to enable the notifications");
+          }
+        });
     }
 
     
