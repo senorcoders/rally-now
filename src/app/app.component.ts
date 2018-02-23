@@ -9,7 +9,6 @@ import { NotificationProvider } from '../providers/notification/notification';
 import { Storage } from '@ionic/storage';
 import firebase from 'firebase';
 import {UsersProvider} from '../providers/users/users';
-import {Push} from '@ionic/cloud-angular';
 import { TabsPage } from '../pages/tabs/tabs';
 //import { FCM } from '@ionic-native/fcm';
 // import { Socket } from 'ng-socket-io';
@@ -33,7 +32,6 @@ export class MyApp {
       noti: NotificationProvider,
       public storage:Storage,
       private httpProvider:UsersProvider,
-      public push: Push,
      
       // private socket: Socket
       //private fcm: FCM
@@ -67,7 +65,6 @@ export class MyApp {
                this.storage.get('introShown').then((result) => {
                if (result) {
                  console.log('Not First Time');
-                 noti.init(user.apiRallyID);
 
                }else{
                  this.httpProvider.returnRallyUserId()
@@ -82,10 +79,7 @@ export class MyApp {
 
                }
             });
-              this.push.rx.notification()
-                .subscribe((msg) => {
-                 console.log('I received awesome push: ' + msg);
-                });
+              
             }else{
               console.log("No estas logueado para notificaciones");
             }
