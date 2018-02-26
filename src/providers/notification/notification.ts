@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Device } from '@ionic-native/device';
-import { Push, PushOptions, PushToken} from '@ionic/cloud-angular';
 import {UsersProvider} from '../users/users';
+import { FCM } from '@ionic-native/fcm';
 
 
 @Injectable()
@@ -14,9 +14,9 @@ export class NotificationProvider {
 
   constructor(
   	public http: Http,
-  	public push: Push,
     public device: Device,
-    private httpProvider: UsersProvider) {
+    private httpProvider: UsersProvider,
+    private fcm: FCM) {
     
   }
 
@@ -24,14 +24,18 @@ export class NotificationProvider {
   init(rallyID){
   	
   
-    this.httpProvider.saveDevice(this.device.uuid, rallyID,  this.endpoint);
+    //this.httpProvider.saveDevice(this.device.uuid, rallyID,  this.endpoint);
 
 		// this.push.register().then((t: PushToken) => {
 		//   return this.push.saveToken(t);
 		// }).then((t: PushToken) => {
 		//   console.log('Token saved:', t.token);
     //   this.saveToken(t.token, rallyID);
-		// });
+    // });
+    this.fcm.getToken().then(token=>{
+      console.log("Firebase Token", token);
+      this.saveToken(token, this.myRallyID);
+    })
 
     
   }
@@ -56,12 +60,12 @@ export class NotificationProvider {
     const url = "https://noti.provethisconcept.com/devices";
 
     console.log(device);
-    // this.http.post(url, {device}, options)
-    //     .subscribe(data => {
-    //         console.log('token saved', data);
-    //     }, error => {
-    //         console.log('error saving token', error);
-    //     });
+    this.http.post(url, {device}, options)
+        .subscribe(data => {
+            console.log('token saved', data);
+        }, error => {
+            console.log('error saving token', error);
+        });
     this.httpProvider.saveDevice(this.device.uuid, rallyID,  this.endpoint);
 }
 

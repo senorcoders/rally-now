@@ -49,7 +49,6 @@ import {HttpModule} from '@angular/http';
 import { Camera } from '@ionic-native/camera';
 import { Facebook } from '@ionic-native/facebook'
 import { DataProvider } from '../providers/data/data';
-import { TwitterConnect } from '@ionic-native/twitter-connect';
 import {AngularFireDatabase} from 'angularfire2/database';
 import { HeaderComponent } from '../components/header/header';
 import { FilterHeaderComponent } from '../components/filter-header/filter-header';
@@ -57,7 +56,6 @@ import { RallyFooterComponent } from '../components/rally-footer/rally-footer';
 import { PublicProfilePage } from '../pages/public-profile/public-profile';
 import { UsersProvider } from '../providers/users/users';
 import { OrganizationProfilePage } from '../pages/organization-profile/organization-profile';
-import { Push } from '@ionic-native/push';
 import { Device } from '@ionic-native/device';
 import { NotificationProvider } from '../providers/notification/notification';
 import { SocialShareProvider } from '../providers/social-share/social-share';
@@ -108,6 +106,7 @@ import { GooglePlacesAutocompleteComponentModule } from 'ionic2-google-places-au
 import { Keyboard } from '@ionic-native/keyboard';
 import { CallStatePage } from '../pages/call-state/call-state';
 import { CallRepPage } from '../pages/call-rep/call-rep';
+import { FCM } from '@ionic-native/fcm';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -321,11 +320,9 @@ firebase.initializeApp(config);
         Camera,
         Facebook,
         DataProvider,
-        TwitterConnect,
         AngularFireDatabase,
         UsersProvider,
         NotificationProvider,
-        Push,
         Device,
         SocialShareProvider,
         SocialSharing,
@@ -337,6 +334,7 @@ firebase.initializeApp(config);
         NativeGeocoder,
         Contacts,
         Keyboard,
+        FCM
        
         
     

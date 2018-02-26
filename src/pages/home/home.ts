@@ -10,7 +10,6 @@ import firebase from 'firebase';
 import { Storage } from '@ionic/storage';
 import { PublicFeedPage } from '../public-feed/public-feed';
 import { Facebook } from '@ionic-native/facebook';
-import { TwitterConnect } from '@ionic-native/twitter-connect';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import { UsersProvider } from '../../providers/users/users';
 import { TabsPage } from '../tabs/tabs';
@@ -58,7 +57,6 @@ export class HomePage {
     public alertCtrl: AlertController,
     public storage: Storage,
     private facebook: Facebook,
-    private twitter: TwitterConnect,
     private db: AngularFireDatabase,
     private httpProvider:UsersProvider
 
@@ -129,35 +127,35 @@ export class HomePage {
 
 
 
-twLogin(): void {
-  this.twitter.login().then( response => {
-    const twitterCredential = firebase.auth.TwitterAuthProvider
-        .credential(response.token, response.secret);
+// twLogin(): void {
+//   this.twitter.login().then( response => {
+//     const twitterCredential = firebase.auth.TwitterAuthProvider
+//         .credential(response.token, response.secret);
 
-    firebase.auth().signInWithCredential(twitterCredential)
-    .then( res => {
-          console.log(JSON.stringify(res));
-          this.storage.set('UID', res.uid);
-          this.user.uid = res.uid;
-          this.storage.set('DISPLAYNAME', res.displayName);
-          this.user.displayName = res.displayName;
-          this.storage.set('USERNAME', res.username);
-          this.storage.set('PHOTOURL', res.photoURL);
-          this.user.photoURL = res.photoURL;
-          this.storage.set('PROVIDER', 'twitter.com');
-          this.user.provider = 'twitter.com';
-          this.storage.set('EMAIL', res.email);
-          this.user.email = res.email;
-          this.storage.set('LOCATION', res.location);
-          this.storage.set('DESCRIPTION', res.description);
-          this.storage.set(this.HAS_LOGGED_IN, true);
-          this.checkIfUserExists(res.uid);
+//     firebase.auth().signInWithCredential(twitterCredential)
+//     .then( res => {
+//           console.log(JSON.stringify(res));
+//           this.storage.set('UID', res.uid);
+//           this.user.uid = res.uid;
+//           this.storage.set('DISPLAYNAME', res.displayName);
+//           this.user.displayName = res.displayName;
+//           this.storage.set('USERNAME', res.username);
+//           this.storage.set('PHOTOURL', res.photoURL);
+//           this.user.photoURL = res.photoURL;
+//           this.storage.set('PROVIDER', 'twitter.com');
+//           this.user.provider = 'twitter.com';
+//           this.storage.set('EMAIL', res.email);
+//           this.user.email = res.email;
+//           this.storage.set('LOCATION', res.location);
+//           this.storage.set('DESCRIPTION', res.description);
+//           this.storage.set(this.HAS_LOGGED_IN, true);
+//           this.checkIfUserExists(res.uid);
           
-    });
-  }, error => {
-    console.log("Error connecting to twitter: ", error);
-  });
-}
+//     });
+//   }, error => {
+//     console.log("Error connecting to twitter: ", error);
+//   });
+// }
 
  
    
