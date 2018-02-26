@@ -10,7 +10,6 @@ import { Storage } from '@ionic/storage';
 import firebase from 'firebase';
 import {UsersProvider} from '../providers/users/users';
 import { TabsPage } from '../pages/tabs/tabs';
-//import { FCM } from '@ionic-native/fcm';
 // import { Socket } from 'ng-socket-io';
 declare var Appsee:any;
 
@@ -32,6 +31,7 @@ export class MyApp {
       noti: NotificationProvider,
       public storage:Storage,
       private httpProvider:UsersProvider,
+     
      
       // private socket: Socket
       //private fcm: FCM
@@ -56,6 +56,8 @@ export class MyApp {
        
         });
           platform.ready().then((readySource) => {
+              
+
             console.log("Platform Ready from ", readySource);
             statusBar.overlaysWebView(false);
             statusBar.backgroundColorByHexString('#f4512c');
