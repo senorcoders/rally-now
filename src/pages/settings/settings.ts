@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ActionSheetController, AlertController } from 'ionic-angular';
 import { LinkedAccountsPage } from '../linked-accounts/linked-accounts';
 import { FindFriendsPage } from '../find-friends/find-friends';
 import { TermsPage } from '../terms/terms';
@@ -55,7 +55,8 @@ export class SettingsPage {
     public storage: Storage,
     private httpProvider: UsersProvider,
     public userData: UserData,
-    public af:AngularFireDatabase
+    public af:AngularFireDatabase,
+    private alertCtrl: AlertController
     ) {
       this.httpProvider.returnRallyUserId().then(user => {
         this.myRallyID = user.apiRallyID;
@@ -208,6 +209,48 @@ export class SettingsPage {
   sync(){ 
     this.navCtrl.push(SyncContactsPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
 
+  }
+
+  presentConfirm() {
+    let alert = this.alertCtrl.create({
+      title: 'Are you sure?',
+      message: 'Do you want to delete your Rally account?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Delete',
+          handler: () => {
+            this.delete();
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  delete(){
+    let message:any = 'Successfully deleted user';
+
+    this.httpProvider.deleteUser(this.myRallyID).subscribe(data => {
+      console.log(data);
+      if(data.message == message){
+        this.deleteReferences();
+      }
+    });
+  }
+
+  deleteReferences(){
+    this.httpProvider.removeRallyUserReference(this.myRallyID)
+      .subscribe(() =>{
+        this.storage.clear();
+        this.navCtrl.setRoot(HomePage);
+      });
   }
 
  

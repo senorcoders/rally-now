@@ -48,7 +48,7 @@ export class ChangeUsernamePage {
     var format2 = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
     var firstLetter = this.username.charAt(0);
     var lastChar = this.username[this.username.length -1];
-
+    var pattern = /[a-z]/;
 
     if(this.username.length < 3 ){
       this.warning = "Username should contain at least 3 characters long";
@@ -69,6 +69,9 @@ export class ChangeUsernamePage {
       this.enable = false;
     }else if(format2.test(lastChar) == true){
       this.warning = "Username should not end with -, _  or .";
+      this.enable = false;
+    }else if(pattern.test(firstLetter) == false){
+      this.warning = "Username must start with a letter";
       this.enable = false;
     }else{
       this.checkAvailability();

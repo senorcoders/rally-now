@@ -101,16 +101,13 @@ export class FeedPage {
     private sanitizer: DomSanitizer,
     private inAppBrowser: InAppBrowser) { 
 
-      let username = '1dayana';
-      console.log("Coincidence", username.match(/[a-z]/i));
-
       console.log("Network", this.network.type);
    
     this.enablePlaceholder = true;
        
         this.usersProv.returnRallyUserId()
       .then(user => {
-        console.log(" Usuario",user);
+        console.log(" Usuario",user); 
         this.myrallyID = user.apiRallyID;
             this.getdata();
             this.saveLog();
