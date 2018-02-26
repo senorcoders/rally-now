@@ -71,7 +71,7 @@ export class ChangeUsernamePage {
       this.warning = "Username should not end with -, _  or .";
       this.enable = false;
     }else if(pattern.test(firstLetter) == false){
-      this.warning = "Username must start with a letter";
+      this.warning = "Username must start with a lowercase letter";
       this.enable = false;
     }else{
       this.checkAvailability();
