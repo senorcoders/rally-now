@@ -11,7 +11,7 @@ import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest} from '@angular/co
 
 @Injectable()
 export class UsersProvider{
-	base:string = 'https://api.provethisconcept.com/api/';
+	base:string = 'https://api.letsrally.us/api/';
 	data:any = {};
   recordID:any;
   senorcodersEndpoint:any = 'http://senorcoders.com/rally/';
@@ -41,7 +41,7 @@ export class UsersProvider{
       password: 'helium33'
     });
    
-    return this.http.post('https://api.provethisconcept.com/authenticate', adminData, options)
+    return this.http.post('https://api.letsrally.us/authenticate', adminData, options)
     .map(res => res.json())
     .catch((error:any) => 'Server error'); //...errors if any
   }
@@ -662,7 +662,7 @@ removeRallyUserReference(userid){
 
   let options = new RequestOptions({ headers: headers });
 
-  return this.http.get('https://api.provethisconcept.com/rallyapi/user/delete/' + userid, options)
+  return this.http.get('https://api.letsrally.us/rallyapi/user/delete/' + userid, options)
     .map(res => res.json())
 }
 
