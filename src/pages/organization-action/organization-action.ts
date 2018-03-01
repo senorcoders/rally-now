@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, ViewController, NavController, NavParams, ToastController, ActionSheetController, ModalController, AlertController } from 'ionic-angular';
+import { IonicPage, ViewController, NavController, NavParams, ToastController, ActionSheetController, ModalController } from 'ionic-angular';
 import { UsersProvider } from '../../providers/users/users';
 import {AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
-import { CallNumber } from '@ionic-native/call-number';
 import { CallPage } from '../call/call';
 import { WebviewPage } from '../webview/webview';
 import { Storage } from '@ionic/storage';
@@ -79,11 +78,9 @@ export class OrganizationActionPage {
     private db: AngularFireDatabase,
     private shareProvider:SocialShareProvider,
     public actionSheetCtrl: ActionSheetController,
-    private callNumber: CallNumber,
     public viewCtrl: ViewController,
     private storage: Storage,
-    public modalCtrl: ModalController,
-    private alertCtrl: AlertController) {
+    public modalCtrl: ModalController) {
   	  	this.objectiveID = navParams.get('objectiveID');
         this.pageName = navParams.get('pageName');
   	  	this.httpProvider.returnRallyUserId()
@@ -111,34 +108,7 @@ export class OrganizationActionPage {
     this.viewCtrl.setBackButtonText(this.pageName);
   }
 
-  showCallAlert(rep, repID, offices){
-    let alert = this.alertCtrl.create({
-      title: 'Are you ready?',
-      message: "If you're not sure what to say, you can review the suggested script with talking points before making the call.",
-      buttons: [
-        {
-          text: 'Review script',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-            this.navCtrl.push(CallPage, {rep: rep, repID: repID, talkingPoints: this.objDesc, offices: offices, goalID: this.goal_id, objectiveID: this.objectiveID});
-
-          }
-        },
-        {
-          text: 'Make the Call',
-          handler: () => {
-            this.navCtrl.push(CallPage, {rep: rep, repID: repID, talkingPoints: this.objDesc, offices: offices, goalID: this.goal_id, objectiveID: this.objectiveID});
-            this.callNumber.callNumber(rep.phone, true)
-            .then(() => console.log('Launched dialer!'))
-            .catch((error) => console.log('Error launching dialer', error));
-
-          } 
-        }
-      ]
-    });
-    alert.present();
-  }
+  
 
   presentActionSheet(rep, fax, twitter, email, repID, offices) {
     let actionSheet = this.actionSheetCtrl.create({
@@ -147,7 +117,9 @@ export class OrganizationActionPage {
         {
           text: 'Call', 
           handler: () => { 
-            this.showCallAlert(rep, repID, offices);
+            //this.showCallAlert(rep, repID, offices);
+            this.navCtrl.push(CallPage, {rep: rep, repID: repID, talkingPoints: this.objDesc, offices: offices, goalID: this.goal_id, objectiveID: this.objectiveID});
+
       
           }
         },{

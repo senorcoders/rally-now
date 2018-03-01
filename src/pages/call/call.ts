@@ -52,6 +52,7 @@ export class CallPage {
       this.httpProvider.returnRallyUserId().then( user => {
         this.data.user_id = user.apiRallyID;
       });
+      this.showCallAlert(this.rep.phone);
   }
 
   ionViewDidLoad() {
@@ -82,31 +83,8 @@ export class CallPage {
   callOffices() {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Select a different office',
-      // buttons: [
-      //   {
-      //     text: '(123) 456 789',
-      //     handler: () => {
-      //       console.log('test');
-      //     }
-      //   },{
-      //     text: '(987) 654 321',
-      //     handler: () => {
-      //       console.log('Fax clicked');
-      //     }
-      //   },{
-      //     text: 'Cancel',
-      //     role: 'cancel',
-      //     handler: () => {
-      //       console.log('Cancel clicked');
-      //     }
-      //   }
-      // ]
+    
     });
-
-    // for(var i = 0; i< this.offices.length; i++){
-      
-      
-    // }
 
     this.offices.forEach(office => {
       actionSheet.addButton({
