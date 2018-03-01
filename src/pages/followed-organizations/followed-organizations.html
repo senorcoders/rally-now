@@ -6,7 +6,7 @@
           
         </ion-navbar>
     </ion-header>
-
+ 
 
 <ion-content>
         <!-- <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar> -->
@@ -75,30 +75,21 @@
                           <img src="{{organization[2]}}"  style="border:2px solid #ada8a8;">
                         </ion-avatar>
                         <h2 text-wrap (click)="goToOrganizationProfile(organization[0])">{{organization[1]}}</h2>
-                        <button ion-button clear item-end style="background: transparent;
-                        color: gray;
-                        border-radius: 4px;
-                        padding: 10px 15px; border: 1px solid gray;" (click)="getOrganizationFollowRecordID(organization[0], $event)">Following</button>
+                        <button ion-button clear item-end class="action-btn" (click)="getOrganizationFollowRecordID(organization[0], $event)">Following</button>
                       </ion-item>
                       <ion-item *ngFor="let user of users">
                         <ion-avatar item-start (click)="goToPublicProfile(user[0])">
                           <img src="{{user[2]}}"  style="border:2px solid #ada8a8;">
                         </ion-avatar>
                         <h2 text-wrap (click)="goToPublicProfile(user[0])">{{user[1]}}</h2>
-                        <button ion-button clear item-end style="background: transparent;
-                        color: gray;
-                        border-radius: 4px;
-                        padding: 10px 15px; border: 1px solid gray;" (click)="getFollowRecordID(user[0], $event)">Following</button>
+                        <button ion-button clear item-end class="action-btn" (click)="getFollowRecordID(user[0], $event)">Following</button>
                       </ion-item>
                       <ion-item *ngFor="let rep of reps">
                         <ion-avatar item-start (click)="goToRepProfile(rep[0])">
                           <img src="{{rep[2]}}"  style="border:2px solid #ada8a8;">
                         </ion-avatar>
                         <h2 text-wrap (click)="goToRepProfile(rep[0])">{{rep[1]}}</h2>
-                        <button ion-button clear item-end style="background: transparent;
-                        color: gray;
-                        border-radius: 4px;
-                        padding: 10px 15px; border: 1px solid gray;" (click)="followRep(rep[0], $event)">Following</button>
+                        <button ion-button clear item-end class="action-btn" (click)="followRep(rep[0], $event)">Following</button>
                       </ion-item>
         </ion-list>
    

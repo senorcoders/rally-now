@@ -52,6 +52,7 @@ export class CallRepPage {
       this.httpProvider.returnRallyUserId().then( user => {
         this.data.user_id = user.apiRallyID;
       });
+      this.showCallAlert(this.rep.phone);
   }
 
   ionViewDidLoad() {

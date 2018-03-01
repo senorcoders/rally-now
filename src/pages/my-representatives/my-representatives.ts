@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, ModalController, ActionSheetController, ToastController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ModalController, ActionSheetController, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { AdressModalPage } from '../adress-modal/adress-modal';
 import { UsersProvider } from '../../providers/users/users';
 import { WebviewPage } from '../webview/webview';
 import { FaxFeedBackPage } from '../fax-feed-back/fax-feed-back';
 import { EmailFeedBackPage } from '../email-feed-back/email-feed-back';
-import { CallNumber } from '@ionic-native/call-number';
 import { CallStatePage } from '../call-state/call-state';
 import { ThanksPage } from '../thanks/thanks';
 import { SocialShareProvider } from '../../providers/social-share/social-share';
@@ -47,8 +46,6 @@ export class MyRepresentativesPage {
     private httpProvider:UsersProvider,
     public actionSheetCtrl: ActionSheetController,
     public toastCtrl: ToastController,
-    private callNumber: CallNumber,
-    private alertCtrl: AlertController,
     private shareProvider:SocialShareProvider) {    
       this.httpProvider.returnRallyUserId()
       .then(user => {
@@ -130,32 +127,7 @@ export class MyRepresentativesPage {
     });
   }
 
-  showCallAlert(rep, repID, offices){
-    let alert = this.alertCtrl.create({
-      title: 'Are you ready?',
-      message: "If you're not sure what to say, you can review the suggested script with talking points before making the call.",
-      buttons: [
-        {
-          text: 'Review script',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Make the Call',
-          handler: () => {
-            this.navCtrl.push(CallRepPage, {rep: rep, repID: repID, offices: offices});
-            this.callNumber.callNumber(rep.phone, true)
-            .then(() => console.log('Launched dialer!'))
-            .catch((error) => console.log('Error launching dialer', error));
-
-          }
-        }
-      ]
-    });
-    alert.present();
-  }
+  
 
   presentActionSheet(rep, fax, twitter, email, repID, offices) {
     let actionSheet = this.actionSheetCtrl.create({
@@ -164,12 +136,7 @@ export class MyRepresentativesPage {
         {
           text: 'Call',
           handler: () => {
-            //this.showCallAlert(rep, repID, offices);
             this.navCtrl.push(CallRepPage, {rep: rep, repID: repID, offices: offices});
-            this.callNumber.callNumber(rep.phone, true)
-            .then(() => console.log('Launched dialer!'))
-            .catch((error) => console.log('Error launching dialer', error));
-
           }
         },{
           text: 'Fax',
@@ -291,32 +258,7 @@ export class MyRepresentativesPage {
     });
   }
 
-  showCallAlertState(rep, repID, offices){
-    let alert = this.alertCtrl.create({
-      title: 'Are you ready?',
-      message: "If you're not sure what to say, you can review the suggested script with talking points before making the call.",
-      buttons: [
-        {
-          text: 'Review script',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Make the Call',
-          handler: () => {
-            this.navCtrl.push(CallStatePage, {rep: rep, repID: repID, offices: offices});
-            this.callNumber.callNumber(rep.offices[0].phone, true)
-            .then(() => console.log('Launched dialer!'))
-            .catch((error) => console.log('Error launching dialer', error));
-
-          }
-        }
-      ]
-    });
-    alert.present();
-  }
+  
 
   presentActionSheetState(rep, fax, twitter, email, repID, offices) {
     let actionSheet = this.actionSheetCtrl.create({
@@ -326,9 +268,7 @@ export class MyRepresentativesPage {
           text: 'Call',
           handler: () => {
             this.navCtrl.push(CallStatePage, {rep: rep, repID: repID, offices: offices});
-            this.callNumber.callNumber(rep.offices[0].phone, true)
-            .then(() => console.log('Launched dialer!'))
-            .catch((error) => console.log('Error launching dialer', error));
+      
           }
         },{
           text: 'Fax',
