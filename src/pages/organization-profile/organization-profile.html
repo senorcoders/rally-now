@@ -129,23 +129,21 @@
 
      <!-- Events Card -->
 
-     <ion-card class="events-card" *ngFor="let record of events, let i = index">
-
-        <ion-fab right top>
-            <button ion-fab color="light" (click)="eventEllipsisController(name, dataID, record.title, followersArr, notify)" ><ion-icon name="ios-more"></ion-icon></button>
-             <!-- <ion-fab-list side="left">
-
-                <button ion-fab><ion-icon name="md-done-all"></ion-icon></button>
-            </ion-fab-list> -->
-        </ion-fab>
-
+     <ion-card class="events-card Card" *ngFor="let record of events, let i = index">
         <ion-item>
+            <ion-fab>
+                <button ion-fab color="light" (click)="eventEllipsisController(name, dataID, record.title, followersArr, notify)" ><ion-icon name="ios-more"></ion-icon></button>
+                <!-- <ion-fab-list side="left">
+
+                   <button ion-fab><ion-icon name="md-done-all"></ion-icon></button>
+               </ion-fab-list> -->
+            </ion-fab>
             <ion-avatar item-start>
                 <img [src]="data?.image_url ? data?.image_url : 'assets/img/org_icon.svg'">
             </ion-avatar>
-            <button  style="background: none; padding-left:0; max-width: 85%;">
+            <div class="item-heading">
                 <h2 text-wrap style="text-align: left; "> <small>via</small> {{name}}</h2>
-            </button>
+            </div>
             <p><small>Event Location: {{record.city}}</small></p>
         </ion-item>
         <div class="events-bg" (click)="goToEventDetail(record.id)" [ngStyle]="{'background-image': 'url(' + record.image_url + ')'}">

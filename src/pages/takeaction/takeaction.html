@@ -67,23 +67,21 @@
                     </div>
                 </div>
             </div>
-    <ion-card *ngFor="let objective of objectives, let i = index" style="position: relative;">
-
-        <ion-fab right top>
-            <button ion-fab color="light" (click)="ellipsisController(objective.organization['name'], objective.id, i, objective.organization_id,objective.description, objective.organization['followers'], objective.organization['notify'])"><ion-icon name="ios-more"></ion-icon></button>
-            <!-- <ion-fab-list side="left">
-                <button ion-fab (click)="hideItem(objective.id, i)"><ion-icon name="md-done-all"></ion-icon></button>
-              
-            </ion-fab-list> -->
-        </ion-fab>
-
+    <ion-card *ngFor="let objective of objectives, let i = index" class="Card" style="position: relative;">
        <ion-item>
+           <ion-fab>
+               <button ion-fab color="light" (click)="ellipsisController(objective.organization['name'], objective.id, i, objective.organization_id,objective.description, objective.organization['followers'], objective.organization['notify'])"><ion-icon name="ios-more"></ion-icon></button>
+               <!-- <ion-fab-list side="left">
+                   <button ion-fab (click)="hideItem(objective.id, i)"><ion-icon name="md-done-all"></ion-icon></button>
+
+               </ion-fab-list> -->
+           </ion-fab>
             <ion-avatar item-start>
                 <img [src]="objective.organization['image_url'] ? objective.organization['image_url'] : 'assets/img/org_icon.svg'" (click)="goToOrganizationProfile(objective.organization_id)">
             </ion-avatar>
-            <button (click)="goToOrganizationProfile(objective.organization_id)" style="background: none; padding-left:0;">
-        <h2> <small>via</small> {{objective.organization['name']}}</h2>
-    </button>
+            <div class="item-heading" (click)="goToOrganizationProfile(objective.organization_id)">
+                <h2> <small>via</small> {{objective.organization['name']}}</h2>
+             </div>
             <p><small>{{objective.created_at | amTimeAgo}}</small></p>
         </ion-item>
 
