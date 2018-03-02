@@ -178,7 +178,7 @@
     <!-- End Events Card -->
 
      <!-- Tweet Cards -->
-     <ion-card class="reps-card" style="position: relative;" *ngFor="let record of tweets, let i = index">
+     <ion-card class="reps-card Card" style="position: relative;" *ngFor="let record of tweets, let i = index">
         <ion-item>
             <ion-fab>
                 <button ion-fab color="light" (click)="eventEllipsisController(name, dataID, record.tweet, followersArr, notify)">

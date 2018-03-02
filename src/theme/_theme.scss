@@ -150,6 +150,16 @@
   color: #2b2b2b;
 }
 
+.Card .card-content {
+  .col {
+    padding: 0 !important;
+  }
+}
+
+.Card .card-content .icon-logo-twitter {
+  margin-right: -34px !important;
+}
+
 .Card .card-content p {
   color: inherit;
   font-size: inherit;
