@@ -145,6 +145,13 @@ page-public-profile {
         border-radius: 0;
         font-size: 14px;
         width: 100%;
+        //width: auto;
+        //min-width: 100px;
+        height: 32px;
+        margin: 10px auto 0;
+        font-size: 14px;
+        line-height: 20px;
+        padding: 5px 10px;
         border-radius: 6px;
         text-transform: uppercase;
         font-family:'Conv_SanFranciscoDisplay-Semibold',Sans-Serif !important;

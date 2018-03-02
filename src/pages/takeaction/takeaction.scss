@@ -129,23 +129,32 @@ page-takeaction {
             right: 5px;
             bottom: 10px;
 
-            button{
-        background: #f4512c !important;
-            text-transform: uppercase !important;
-            color: #f2f2f2 !important;
-            border-radius: 6px !important;
-            padding: 10px !important;
-            letter-spacing: -0.36px; 
-
-            .button-inner{
-                width: 100px !important;
-                font-family:'Conv_SanFranciscoDisplay-Semibold',Sans-Serif !important;
-                font-size: 14px !important;
-
-
+            .button{
+                background: #f4512c !important;
+                text-transform: uppercase !important;
+                color: #f2f2f2 !important;
+                margin: 0;
+                min-width: 100px;
+                padding: 5px 10px;
+                font-size: 14px;
+                line-height: 20px;
+                font-weight: normal;
+                font-family: 'Conv_SanFranciscoDisplay-Semibold' !important;
+                letter-spacing: -0.36px;
+                height: 30px;
             }
-        }
 
+            .button .button-inner {
+                font-weight: normal;
+                font-family: 'Conv_SanFranciscoDisplay-Semibold' !important;
+                font-size: 14px;
+                height: 20px;
+                display: inline-block;
+                line-height: 20px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
         }
         .fab-md-light,
         .fab-ios-light {
