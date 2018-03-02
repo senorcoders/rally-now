@@ -157,21 +157,16 @@
                         </div> -->
                         <div class="railled-excerpt" *ngIf="record.rallies > 0">
                             <p class="white"><strong>{{record.rallies}}</strong><br> Rallied</p>
+                            <div class="btn-objectives-contact">
+                                <button ion-button *ngIf="record?.goals[0]?.goal_type !== 'sign'">Contact</button>
+                                <button ion-button *ngIf="record?.goals[0]?.goal_type === 'sign'">Sign</button>
+                            </div>
                         </div>
                        <div class="bottom-excerpt">
-                            <p class="white">{{record?.title}}</p>
-                        </div>
-                        <div class="btn-objectives-contact">
-                            <button ion-button *ngIf="record?.goals[0]?.goal_type !== 'sign'">Contact</button>
-                            <button ion-button *ngIf="record?.goals[0]?.goal_type === 'sign'">Sign</button>
-            
-                            
-                            
-                            
+                           <p class="white">{{record?.title}}</p>
                         </div>
                     </div>
-            
-            
+
                     <ion-card-content>
                         <p>{{record.description | truncate : 200 : '...'}}</p>
                        
