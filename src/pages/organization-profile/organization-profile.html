@@ -179,23 +179,19 @@
 
      <!-- Tweet Cards -->
      <ion-card class="reps-card" style="position: relative;" *ngFor="let record of tweets, let i = index">
-        <ion-fab right top>
-            <button ion-fab color="light" (click)="eventEllipsisController(name, dataID, record.tweet, followersArr, notify)">
-                <ion-icon name="ios-more"></ion-icon>
-            </button>
-          
-        </ion-fab>
-        <ion-card-header>
-            <ion-item>
-                <ion-avatar item-start >
-                  <img [src]="data?.image_url">
-                </ion-avatar>
-                <!-- only show icon on verified accounts <h2 style="display: flex;">Senator Bob Jones <img *ngIf="{{rep.verified === true}}" style="width: 12px; height: 12px; margin-left: 5px;" src="assets/img/TwtterVerified.svg" alt=""></h2> -->
-
-                <h2 style="display: flex; font-weight:bold;">{{name}}</h2>
-                <p><small>@{{record.twitter_username}} . {{record.tweet_created_at | amTimeAgo}}</small></p>
-              </ion-item>
-        </ion-card-header>
+        <ion-item>
+            <ion-fab>
+                <button ion-fab color="light" (click)="eventEllipsisController(name, dataID, record.tweet, followersArr, notify)">
+                    <ion-icon name="ios-more"></ion-icon>
+                </button>
+            </ion-fab>
+            <ion-avatar item-start >
+              <img [src]="data?.image_url">
+            </ion-avatar>
+            <!-- only show icon on verified accounts <h2 style="display: flex;">Senator Bob Jones <img *ngIf="{{rep.verified === true}}" style="width: 12px; height: 12px; margin-left: 5px;" src="assets/img/TwtterVerified.svg" alt=""></h2> -->
+            <h2>{{name}}</h2>
+            <p><small>@{{record.twitter_username}} . {{record.tweet_created_at | amTimeAgo}}</small></p>
+          </ion-item>
         <ion-card-content (click)="openWebpage(record.twitter_username, record.tweet_id)">
             <ion-row>
                 <ion-col col-10>

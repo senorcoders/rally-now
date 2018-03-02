@@ -82,24 +82,20 @@
 
         <div *ngFor="let record of records, let i = index">
             <!-- Tweet Cards -->
-            <ion-card class="reps-card" style="position: relative;" *ngIf="record.card_type === 'tweet'">
-                <ion-fab right top>
-                    <button ion-fab color="light">
-                        <ion-icon name="ios-more"></ion-icon>
-                    </button>
-                  
-                </ion-fab>
-                <ion-card-header>
-                    <ion-item>
-                        <ion-avatar item-start>
-                          <img [src]="record.photo_url ? record.photo_url : record.image_url ">
-                        </ion-avatar>
-                        <!-- only show icon on verified accounts <h2 style="display: flex;">Senator Bob Jones <img *ngIf="{{rep.verified === true}}" style="width: 12px; height: 12px; margin-left: 5px;" src="assets/img/TwtterVerified.svg" alt=""></h2> -->
-        
-                        <h2 style="display: flex; font-weight:bold;">{{record.name}}</h2>
-                        <p><small>@{{record.username}} . {{record.tweet_created_at | amTimeAgo}}</small></p>
-                      </ion-item>
-                </ion-card-header>
+            <ion-card class="reps-card Card" style="position: relative;" *ngIf="record.card_type === 'tweet'">
+                <ion-item>
+                    <ion-fab>
+                        <button ion-fab color="light">
+                            <ion-icon name="ios-more"></ion-icon>
+                        </button>
+                    </ion-fab>
+                    <ion-avatar item-start>
+                      <img [src]="record.photo_url ? record.photo_url : record.image_url ">
+                    </ion-avatar>
+                    <!-- only show icon on verified accounts <h2 style="display: flex;">Senator Bob Jones <img *ngIf="{{rep.verified === true}}" style="width: 12px; height: 12px; margin-left: 5px;" src="assets/img/TwtterVerified.svg" alt=""></h2> -->
+                    <h2>{{record.name}}</h2>
+                    <p><small>@{{record.username}} . {{record.tweet_created_at | amTimeAgo}}</small></p>
+                  </ion-item>
                 <ion-card-content (click)="openWebpage(record.twitter_username, record.tweet_id)">
                     <ion-row>
                         <ion-col col-10>
