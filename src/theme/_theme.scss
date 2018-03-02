@@ -1,7 +1,11 @@
+.Card .card {
+  margin-top: 0 !important;
+}
+
 .Card .item.item-block ion-fab {
   position: absolute;
   top: 50%;
-  right: 0;
+  right: -1px;
   transform: translateY(-50%);
 }
 
@@ -10,8 +14,12 @@
   color: #9b9b9b !important;
 }
 
+.Card .item.item-block .fab ion-icon {
+  font-size: 30px;
+}
+
 .Card .item.item-block {
-  padding: 16px 50px 16px 16px;
+  padding: 14px 52px 14px 16px;
 }
 
 .Card .item.item-block .item-inner {
@@ -27,35 +35,38 @@
   height: 40px;
 }
 
-.Card .item.item-block .label-ios {
+.Card .item.item-block .label {
   margin: 0;
 }
 
-.Card .item.item-block .label-ios h2 {
+.Card .item.item-block .label h2 {
   font-size: 17px;
   line-height: 20px;
   color: #3d3935;
   font-family: 'Conv_SanFranciscoDisplay-Semibold' !important;
   letter-spacing: 0.41px;
   font-weight: normal;
-  margin: 0 0 6px;
+  margin: 0 0 3px;
+  white-space: normal !important;
 }
 
-.Card .item.item-block .label-ios h2 small {
+.Card .item.item-block .label h2 small {
   color: #868686;
   font-size: 13px;
   font-family: 'Conv_SF-Pro-Display-Light' !important;
 }
 
-.Card .item.item-block .label-ios p {
+.Card .item.item-block .label p {
   color: #868686;
   font-size: 12px;
   font-family: 'Conv_SF-Pro-Display-Regular' !important;
   letter-spacing: 0.41px;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.Card .item.item-block .label-ios p small {
+.Card .item.item-block .label p small {
   font-size: inherit;
   color: inherit;
 }

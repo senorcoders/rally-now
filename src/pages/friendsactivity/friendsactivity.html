@@ -81,25 +81,19 @@
               <div *ngIf="!enable">
                   <div *ngFor="let activity of records, let i = index">
 
-                    <ion-card *ngIf="activity.card_type === 'objective_action'">
-                             <ion-fab right top style="top: 4px;
-                        right: 0;">
-                                <button ion-fab color="light" (click)="userEllipsisController(activity.fname, activity.user_id, activity.followers, 'I ' + activity.action + 'ed ' + activity.representative + ' for ' + activity.organization +  'campaign ' + activity.objective )"><ion-icon name="ios-more"></ion-icon></button>
-                             
-                            </ion-fab>
-                    
-                               
+                    <ion-card *ngIf="activity.card_type === 'objective_action'" class="Card">
                                         <ion-item>
+                                            <ion-fab>
+                                                <button ion-fab color="light" (click)="userEllipsisController(activity.fname, activity.user_id, activity.followers, 'I ' + activity.action + 'ed ' + activity.representative + ' for ' + activity.organization +  'campaign ' + activity.objective )"><ion-icon name="ios-more"></ion-icon></button>
+                                            </ion-fab>
                                             <ion-avatar item-start (click)="goToPublicProfile(activity.user_id)">
                                                <img src="{{activity.photo_url}}">
                                             </ion-avatar>
                                             <h2 (click)="goToPublicProfile(activity.user_id)">{{activity.fname}}</h2>
-                                            <div style="display: flex;">
+                                            <div>
                                                 <p><small>{{activity.username}} - {{activity.created_at | amTimeAgo}}  </small></p>
                                                 
                                             </div>
-                                            
-                    
                                           </ion-item>
                                     <ion-card-content>
                                        
@@ -138,25 +132,18 @@
             
             
             
-                <ion-card *ngIf="activity.card_type === 'direct_action'">
-                    <ion-fab right top style="top: 4px;
-                right: 0;">
-                        <button ion-fab color="light" (click)="userEllipsisController(activity.fname, activity.user_id, activity.followers,  'I ' + activity.action + 'ed ' + activity.representative)"><ion-icon name="ios-more"></ion-icon></button>
-                     
-                    </ion-fab>
-            
-                       
+                <ion-card *ngIf="activity.card_type === 'direct_action'" class="Card">
                                 <ion-item>
+                                    <ion-fab>
+                                        <button ion-fab color="light" (click)="userEllipsisController(activity.fname, activity.user_id, activity.followers,  'I ' + activity.action + 'ed ' + activity.representative)"><ion-icon name="ios-more"></ion-icon></button>
+                                    </ion-fab>
                                     <ion-avatar item-start (click)="goToPublicProfile(activity.user_id)">
                                        <img src="{{activity.photo_url}}">
                                     </ion-avatar>
                                     <h2 (click)="goToPublicProfile(activity.user_id)">{{activity.fname}}</h2>
-                                    <div style="display: flex;">
+                                    <div>
                                         <p><small>{{activity.username}} - {{activity.created_at | amTimeAgo}}  </small></p>
-                                        
                                     </div>
-                                    
-            
                                   </ion-item>
                             <ion-card-content>
                                
@@ -199,25 +186,18 @@
 
               <div *ngIf="enable">
                   <div *ngFor="let activity of following">
-                    <ion-card *ngIf="activity.card_type === 'objective_action'">
-                            <ion-fab right top style="top: 4px;
-                        right: 0;">
-                                <button ion-fab color="light" (click)="userEllipsisController(activity.fname, activity.user_id, activity.followers, 'I ' + activity.action + 'ed ' + activity.representative + ' for ' + activity.organization +  'campaign ' + activity.objective )"><ion-icon name="ios-more"></ion-icon></button>
-                             
-                            </ion-fab>
-                    
-                               
+                    <ion-card *ngIf="activity.card_type === 'objective_action'" class="Card">
                                         <ion-item>
+                                            <ion-fab>
+                                                <button ion-fab color="light" (click)="userEllipsisController(activity.fname, activity.user_id, activity.followers, 'I ' + activity.action + 'ed ' + activity.representative + ' for ' + activity.organization +  'campaign ' + activity.objective )"><ion-icon name="ios-more"></ion-icon></button>
+                                            </ion-fab>
                                             <ion-avatar item-start (click)="goToPublicProfile(activity.user_id)">
                                                <img src="{{activity.photo_url}}">
                                             </ion-avatar>
                                             <h2 (click)="goToPublicProfile(activity.user_id)">{{activity.fname}}</h2>
-                                            <div style="display: flex;">
+                                            <div>
                                                 <p><small>{{activity.username}} - {{activity.created_at | amTimeAgo}}  </small></p>
-                                                
                                             </div>
-                                            
-                    
                                           </ion-item>
                                     <ion-card-content>
                                        
@@ -257,25 +237,18 @@
             
             
             
-                <ion-card *ngIf="activity.card_type === 'direct_action'">
-                    <ion-fab right top style="top: 4px;
-                right: 0;">
-                        <button ion-fab color="light" (click)="userEllipsisController(activity.fname, activity.user_id, activity.followers,  'I ' + activity.action + 'ed ' + activity.representative)"><ion-icon name="ios-more"></ion-icon></button>
-                     
-                    </ion-fab>
-            
-                       
+                <ion-card *ngIf="activity.card_type === 'direct_action'" class="Card">
                                 <ion-item>
+                                    <ion-fab>
+                                        <button ion-fab color="light" (click)="userEllipsisController(activity.fname, activity.user_id, activity.followers,  'I ' + activity.action + 'ed ' + activity.representative)"><ion-icon name="ios-more"></ion-icon></button>
+                                    </ion-fab>
                                     <ion-avatar item-start (click)="goToPublicProfile(activity.user_id)">
                                        <img src="{{activity.photo_url}}">
                                     </ion-avatar>
                                     <h2 (click)="goToPublicProfile(activity.user_id)">{{activity.fname}}</h2>
-                                    <div style="display: flex;">
+                                    <div>
                                         <p><small>{{activity.username}} - {{activity.created_at | amTimeAgo}}  </small></p>
-                                        
                                     </div>
-                                    
-            
                                   </ion-item>
                             <ion-card-content>
                                

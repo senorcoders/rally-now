@@ -51,23 +51,21 @@
 
   
 
-      <ion-card style="position: relative;" *ngFor="let objective of objectives,let i = index" class="objectives-card">
-
-        <ion-fab right top>
-            <button ion-fab color="light" (click)="ellipsisController(objective.organization['name'], organizationID, objective.description, notify)"><ion-icon name="ios-more"></ion-icon></button>
-            <!-- <ion-fab-list side="left">
-
-                <button ion-fab (click)="hideItem(objective.id, i)"><ion-icon name="md-done-all"></ion-icon></button>
-            </ion-fab-list> -->
-        </ion-fab>
-
+      <ion-card style="position: relative;" *ngFor="let objective of objectives,let i = index" class="objectives-card Card">
         <ion-item>
+            <ion-fab>
+                <button ion-fab color="light" (click)="ellipsisController(objective.organization['name'], organizationID, objective.description, notify)"><ion-icon name="ios-more"></ion-icon></button>
+                <!-- <ion-fab-list side="left">
+
+                    <button ion-fab (click)="hideItem(objective.id, i)"><ion-icon name="md-done-all"></ion-icon></button>
+                </ion-fab-list> -->
+            </ion-fab>
             <ion-avatar item-start>
                 <img [src]="objective.organization['image_url'] ? objective.organization['image_url'] : 'assets/img/org_icon.svg'" (click)="showPhotoViewer(objective.organization['image_url'])">
             </ion-avatar>
-            <button style="background: none;">
-        <h2> <small>via</small> {{objective.organization['name']}}</h2>
-    </button>
+            <div class="item-heading">
+                <h2> <small>via</small> {{objective.organization['name']}}</h2>
+            </div>
             <p><small>{{objective.created_at | amTimeAgo}}</small></p>
         </ion-item>
 

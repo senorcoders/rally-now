@@ -315,25 +315,18 @@
                 <!-- End Events Card -->
 
                 <!-- Friends Activity Card -->
-                <ion-card *ngIf="record.card_type === 'objective_action'" style="position: relative;" class="friends-card">
-                    <ion-fab right top style="top: 4px;
-               right: 0;">
-                       <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
-                    
-                   </ion-fab>
-           
-                      
+                <ion-card *ngIf="record.card_type === 'objective_action'" style="position: relative;" class="friends-card Card">
                                <ion-item>
+                                   <ion-fab>
+                                       <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
+                                   </ion-fab>
                                    <ion-avatar item-start (click)="goToPublicProfile(record.user_id)">
                                       <img src="{{record.photo_url}}"> 
                                    </ion-avatar>
                                    <h2 (click)="goToPublicProfile(record.user_id)">{{record.fname}}</h2>
-                                   <div style="display: flex;">
+                                   <div>
                                        <p><small>{{record.username}} - {{record.created_at | amTimeAgo}}  </small></p>
-                                       
                                    </div>
-                                   
-           
                                  </ion-item>
                            <ion-card-content>
                               
