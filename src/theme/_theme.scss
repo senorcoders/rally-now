@@ -114,7 +114,10 @@
   letter-spacing: 0.35px;
   max-height: 168px;
   overflow: hidden;
-  width: 76% !important;
+}
+
+.Card .events-bg {
+  height: 100px !important;
 }
 
 .Card .events-bg .date-events-spans {
