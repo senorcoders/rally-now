@@ -76,7 +76,7 @@
 }
 
 .Card .organization-bg .railled-excerpt {
-  padding: 14px 16px;
+  padding: 13px 16px;
   bottom: 0;
   font-weight: normal;
   display: block;
@@ -102,7 +102,7 @@
 }
 
 .Card .organization-bg .bottom-excerpt {
-  padding: 12px 16px !important;
+  padding: 10px 16px !important;
 }
 
 .Card .organization-bg .bottom-excerpt p {
@@ -138,10 +138,7 @@
 }
 
 .Card .card-content {
-  padding: 14px 16px;
-  //font-size: 12px;
-  //line-height: 18px;
-  //color: #868686;
+  padding: 14px 50px 16px 14px;
   font-size: 17px;
   line-height: 22px;
   letter-spacing: -0.41px;
@@ -159,6 +156,18 @@
   font-family: 'Conv_SanFranciscoDisplay-Semibold' !important;
   margin: 0 0 10px;
   padding: 0;
+}
+
+.Card .card-content .content-heading {
+  color: #3d3935 !important;
+  font-family: 'Conv_SF-Pro-Display-Regular' !important;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.Card .card-content .content-heading strong {
+  font-weight: normal;
+  font-family: 'Conv_SanFranciscoDisplay-Semibold' !important;
 }
 
 .Card .card-content .event-description {
