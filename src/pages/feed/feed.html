@@ -259,7 +259,7 @@
 
             <!-- Events Card -->
 
-            <ion-card class="events-card" *ngIf="record.card_type === 'events'">
+            <ion-card class="events-card Card" *ngIf="record.card_type === 'events'">
                     <ion-item>
                         <ion-fab>
                             <button ion-fab color="light" (click)="eventEllipsisController(record.organization[0].name, record.organization_id, record.title, record.organization[0].followers, record.organization[0].notify)" ><ion-icon name="ios-more"></ion-icon></button>
