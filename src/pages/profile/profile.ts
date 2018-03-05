@@ -95,6 +95,7 @@ export class ProfilePage {
 
 
     ionViewWillEnter(){
+      this.records = [];
     this.httpProvider.returnRallyUserId().then(user =>{
       this.currentRallyID = user.apiRallyID;
       this.getUserData();

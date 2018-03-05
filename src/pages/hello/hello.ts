@@ -46,7 +46,7 @@ export class HelloPage {
       console.log(uid);
        this.af.database.ref('users/'+uid)
         .on('value', snapshot => {
-         
+         console.log(snapshot);
           this.username = snapshot.val().username;
           let nickname = snapshot.val().displayName.split(" ");
           this.displayName = nickname[0];
