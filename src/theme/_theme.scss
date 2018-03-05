@@ -1,13 +1,18 @@
 // Cards styles
 
-.Card .card {
-  margin-top: 0 !important;
+.Card {
+  position: relative;
+}
+
+.Card ion-fab img {
+  max-width: 20px;
+  height: auto;
 }
 
 .Card .item.item-block ion-fab {
   position: absolute;
   top: 50%;
-  right: -1px;
+  right: 0;
   transform: translateY(-50%);
 }
 
@@ -17,11 +22,11 @@
 }
 
 .Card .item.item-block .fab ion-icon {
-  font-size: 30px;
+  font-size: 32px;
 }
 
 .Card .item.item-block {
-  padding: 14px 52px 14px 16px;
+  padding: 10px 54px 10px 16px;
 }
 
 .Card .item.item-block .item-inner {
@@ -45,24 +50,30 @@
   font-size: 17px;
   line-height: 20px;
   color: #3d3935;
-  font-family: 'Conv_SanFranciscoDisplay-Semibold' !important;
-  letter-spacing: 0.41px;
-  font-weight: normal;
-  margin: 0 0 3px;
+  font-family: 'SF UI Text' !important;
+  letter-spacing: -0.41px;
+  font-weight: 600;
+  margin: 0 0 1px;
   white-space: normal !important;
+  text-align: left;
 }
 
 .Card .item.item-block .label h2 small {
   color: #868686;
   font-size: 13px;
-  font-family: 'Conv_SF-Pro-Display-Light' !important;
+  line-height: 20px;
+  letter-spacing: -0.41px;
+  font-family: 'SF UI Text' !important;
+  font-weight: 200;
 }
 
 .Card .item.item-block .label p {
   color: #868686;
   font-size: 12px;
-  font-family: 'Conv_SF-Pro-Display-Regular' !important;
-  letter-spacing: 0.41px;
+  line-height: 20px;
+  font-family: 'SF UI Text' !important;
+  font-weight: normal;
+  letter-spacing: -0.41px;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -75,6 +86,11 @@
 
 .Card .organization-bg {
   height: 193px !important;
+  background-color: #fff;
+}
+
+.Card .organization-bg .events-filter {
+  background: linear-gradient(to bottom, rgba(14, 14, 14, 0.1), rgba(14, 14, 14, 0.7)) !important;
 }
 
 .Card .organization-bg .railled-excerpt {
@@ -90,12 +106,16 @@
   font-size: 17px;
   line-height: 20px;
   letter-spacing: -0.41px;
+  font-family: 'SF UI Display' !important;
+  font-weight: normal;
 }
 
 .Card .organization-bg .railled-excerpt p strong {
   font-size: 28px;
-  line-height: 32px;
-  letter-spacing: 0;
+  line-height: 34px;
+  letter-spacing: 0.36px;
+  font-family: 'SF UI Display' !important;
+  font-weight: bold;
 }
 
 .Card .organization-bg .railled-excerpt .btn-objectives-contact {
@@ -112,12 +132,19 @@
   font-size: 22px !important;
   line-height: 28px;
   letter-spacing: 0.35px;
+  font-family: 'SF UI Display' !important;
+  font-weight: bold !important;
   max-height: 168px;
   overflow: hidden;
 }
 
 .Card .events-bg {
   height: 100px !important;
+  background-color: #fff;
+}
+
+.Card .events-bg .events-filter {
+  background: linear-gradient(to bottom, rgba(14, 14, 14, 0.1), rgba(14, 14, 14, 0.7)) !important;
 }
 
 .Card .events-bg .date-events-spans {
@@ -143,22 +170,23 @@
 }
 
 .Card .card-content {
-  padding: 14px 50px 14px 16px;
+  padding: 13px 54px 13px 16px;
   font-size: 17px;
   line-height: 22px;
   letter-spacing: -0.41px;
   color: #2b2b2b;
+  position: relative;
 }
 
-.Card .card-content {
-  .col {
-    padding: 0 !important;
-  }
+.Card .card-content .twitter-video {
+  margin: 0;
 }
 
 .Card .card-content .icon-logo-twitter,
-.Card .card-content .ion-logo-twitter{
-  margin-right: -34px !important;
+.Card .card-content .ion-logo-twitter {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
 }
 
 .Card .card-content p {
@@ -168,22 +196,29 @@
 
 .Card .card-content .card-title {
   color: #3d3935 !important;
-  font-weight: normal;
-  font-family: 'Conv_SanFranciscoDisplay-Semibold' !important;
+  font-weight: 600;
+  font-family: 'SF UI Text' !important;
+  font-size: 17px !important;
+  line-height: 22px;
   margin: 0 0 10px;
+  letter-spacing: -0.41px;
   padding: 0;
 }
 
 .Card .card-content .content-heading {
   color: #3d3935 !important;
-  font-family: 'Conv_SF-Pro-Display-Regular' !important;
+  font-weight: normal;
+  font-family: 'San Francisco Text' !important;
   margin: 0 0 10px;
   padding: 0;
+  font-size: 17px !important;
+  line-height: 22px;
+  letter-spacing: -0.41px;
 }
 
 .Card .card-content .content-heading strong {
-  font-weight: normal;
-  font-family: 'Conv_SanFranciscoDisplay-Semibold' !important;
+  font-weight: 600;
+  font-family: 'San Francisco Text' !important;
 }
 
 .Card .card-content .event-description {
@@ -195,5 +230,3 @@
 .Card .card-content *:last-child {
   margin-bottom: 0 !important;
 }
-
-// Button styles

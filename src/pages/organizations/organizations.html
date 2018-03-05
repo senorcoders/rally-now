@@ -92,25 +92,15 @@
                     <ion-avatar item-start>
                       <img [src]="record.photo_url ? record.photo_url : record.image_url ">
                     </ion-avatar>
-                    <!-- only show icon on verified accounts <h2 style="display: flex;">Senator Bob Jones <img *ngIf="{{rep.verified === true}}" style="width: 12px; height: 12px; margin-left: 5px;" src="assets/img/TwtterVerified.svg" alt=""></h2> -->
                     <h2>{{record.name}}</h2>
                     <p><small>@{{record.username}} . {{record.tweet_created_at | amTimeAgo}}</small></p>
                   </ion-item>
                 <ion-card-content (click)="openWebpage(record.twitter_username, record.tweet_id)">
-                    <ion-row>
-                        <ion-col col-10>
-                            <blockquote style="margin: 0 !important;" class="twitter-video" data-lang="es"> 
-                                {{record.tweet}}
-                            </blockquote>               
-                        </ion-col>
-                        <ion-col col-2 text-right style="line-height: 50px;">
-        
-                            <ion-icon name="logo-twitter"></ion-icon>
-                        </ion-col>
-                        
-                    </ion-row>
+                    <blockquote class="twitter-video" data-lang="es">
+                        {{record.tweet}}
+                    </blockquote>
+                    <ion-icon name="logo-twitter"></ion-icon>
                 </ion-card-content>
-               
                 <ion-row>
                     <button [disabled]="disable" class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, record.id, tweetLike)" [ngStyle]="{'background-color': findInLoop(record.likes), 'color': getColor(record.likes)}">
                         <ion-icon name="{{getIcon(record.likes)}}" ></ion-icon>
@@ -120,7 +110,6 @@
                         <img src="assets/img/Share-white.svg" style="width: 17px; margin-right:8px;">
                         {{record.shares_count}}                           
                     </button>
-        
                 </ion-row>
             </ion-card>
     
@@ -204,7 +193,7 @@
                                 <img [src]="record.organization[0].image_url ? record.organization[0].image_url  : 'assets/img/org_icon.svg'" (click)="goToOrganizationProfile(record.organization_id)">
                             </ion-avatar>
                             <div class="item-heading" (click)="goToOrganizationProfile(record.organization_id)">
-                                <h2 text-wrap style="text-align: left; "> <small>via</small> {{record.organization[0].name}}</h2>
+                                <h2 text-wrap> <small>via</small> {{record.organization[0].name}}</h2>
                             </div>
                             <p><small>Event Location: {{record.city}}</small></p>
                         </ion-item>
