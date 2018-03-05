@@ -213,7 +213,7 @@
                     <button (click)="goToOrganizationProfile(record.organization_id)" style="background: none; padding-left:0;">
                 <h2> <small>via</small> {{record.organization['name']}}</h2>
             </button>
-                    <p><small>{{record.created_at | amTimeAgo}}</small></p>
+                    <p><small>{{record.release_date | amTimeAgo}}</small></p>
                 </ion-item>
                 <div (click)="goToActionPage(record.id, record?.goals[0]?.goal_type, record?.goals[0]?.source_link, record?.goals[0]?.id, record?.goals[0]?.reps_goals[0]?.id)" class="organization-bg" [ngStyle]="{ 'background-image' : 'url(' + record.image_url +')'}">
                         
