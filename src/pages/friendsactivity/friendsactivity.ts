@@ -50,6 +50,7 @@ export class FriendsactivityPage {
     followEndpoint:string= 'following_users';
     notificationsEndpoint:any = 'devices';
     alertsEndpoint:any = 'ux_events';
+    singleEndpoint:any = 'community_feed';
 
 
   constructor(
@@ -195,7 +196,7 @@ getArray(array){
 }
 getPersonaldata(){
   return new Promise(resolve => {
-    this.httpProvider.getRecords(this.endpoint + '/' + this.myRallyID)
+    this.httpProvider.getRecords(this.singleEndpoint + '/' + this.myRallyID)
     .then(data => {
       console.log("Full Data", data);
       this.getFollowingArray(data['Objectives_Actions']);
