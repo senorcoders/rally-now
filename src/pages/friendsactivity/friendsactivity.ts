@@ -145,8 +145,8 @@ export class FriendsactivityPage {
 // }
 
 doRefresh(refresher) {
-  this.objectivesAction = [];
-  this.objectivesPersonal = []
+  this.records = [];
+  this.following = []
   // this.loading = this.loadingCtrl.create({
   //   spinner: 'hide',
   //   content: this.safeSvg,

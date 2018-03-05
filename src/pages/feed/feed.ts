@@ -28,6 +28,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { RepresentativeProfilePage } from '../representative-profile/representative-profile';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 import { ThanksPage } from '../thanks/thanks';
+import { DonateFeedBackPage } from '../donate-feed-back/donate-feed-back';
 
 @Component({
   selector: 'page-feed', 
@@ -254,14 +255,17 @@ doRefresh(refresher) {
      }
  
      goToActionPage(objectiveID, goal_type, source, goalID, repID){ 
-       if(goal_type !== "sign"){
+       if(goal_type === "contact"){
         this.navCtrl.push(OrganizationActionPage, {
           objectiveID: objectiveID,
           pageName: 'Home'
       }, {animate:true,animation:'transition',duration:500,direction:'forward'});
-       } else{ 
+       } else if(goal_type === 'sign'){ 
         this.navCtrl.push(SignFeedBackPage, {iframeUrl: source, repID:repID, goalID: goalID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
-       }  
+       }  else if(goal_type === 'donate'){
+        this.navCtrl.push(DonateFeedBackPage, {iframeUrl: source, repID:repID, goalID: goalID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+
+       }
       
      }
 

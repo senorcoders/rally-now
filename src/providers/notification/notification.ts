@@ -32,6 +32,8 @@ export class NotificationProvider {
 		//   console.log('Token saved:', t.token);
     //   this.saveToken(t.token, rallyID);
     // });
+    this.httpProvider.saveDevice(this.device.uuid, rallyID,  this.endpoint);
+
     this.fcm.getToken().then(token=>{
       console.log("Firebase Token", token);
       this.saveToken(token, this.myRallyID);
@@ -66,7 +68,6 @@ export class NotificationProvider {
         }, error => {
             console.log('error saving token', error);
         });
-    this.httpProvider.saveDevice(this.device.uuid, rallyID,  this.endpoint);
 }
 
 }

@@ -228,12 +228,9 @@
                         <p class="white">{{record?.title}}</p> 
                     </div>
                     <div class="btn-objectives-contact">
-                        <button ion-button *ngIf="record?.goals[0]?.goal_type !== 'sign'">Contact</button>
+                        <button ion-button *ngIf="record?.goals[0]?.goal_type ==='contact'">Contact</button>
                         <button ion-button *ngIf="record?.goals[0]?.goal_type === 'sign'">Sign</button>
-        
-                        
-                        
-                        
+                        <button ion-button *ngIf="record?.goals[0]?.goal_type === 'donate'">Donate</button>             
                     </div>
                 </div>
         

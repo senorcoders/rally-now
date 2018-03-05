@@ -17,6 +17,7 @@ import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
 import { ThanksPage } from '../thanks/thanks';
 import { DomSanitizer } from '@angular/platform-browser';
 import { OrganizationsProvider } from '../../providers/organizations/organizations';
+import { DonateFeedBackPage } from '../donate-feed-back/donate-feed-back';
 
 
 @IonicPage()
@@ -198,14 +199,17 @@ goToOrganizationProfile(organizationID){
 
 
      goToActionPage(objectiveID, goal_type, source, goalID, repID){ 
-      if(goal_type !== "sign"){
+      if(goal_type === "contact"){
        this.navCtrl.push(OrganizationActionPage, {
          objectiveID: objectiveID,
          pageName: 'Action'
      }, {animate:true,animation:'transition',duration:500,direction:'forward'});
-      } else{
+      } else if(goal_type === 'sign'){
        this.navCtrl.push(SignFeedBackPage, {iframeUrl: source, repID:repID, goalID:goalID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
-      }  
+      }  else if(goal_type === 'donate'){
+        this.navCtrl.push(DonateFeedBackPage, {iframeUrl: source, repID:repID, goalID:goalID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+
+      }
      
     }
 
