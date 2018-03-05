@@ -107,6 +107,7 @@ import { Keyboard } from '@ionic-native/keyboard';
 import { CallStatePage } from '../pages/call-state/call-state';
 import { CallRepPage } from '../pages/call-rep/call-rep';
 import { FCM } from '@ionic-native/fcm';
+import { NewsPage } from '../pages/news/news';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -220,7 +221,8 @@ firebase.initializeApp(config);
         ThanksPage,
         RepFollowersPage,
         CallStatePage,
-        CallRepPage
+        CallRepPage,
+        NewsPage
     ],
     imports: [
         BrowserModule,
@@ -308,7 +310,8 @@ firebase.initializeApp(config);
         ThanksPage,
         RepFollowersPage,
         CallStatePage,
-        CallRepPage
+        CallRepPage,
+        NewsPage
     ],
     providers: [
         StatusBar,

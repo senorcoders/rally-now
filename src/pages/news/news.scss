@@ -1,0 +1,139 @@
+page-news {
+    a[disabled], button[disabled], [ion-button][disabled]{
+        opacity: 1 !important;
+    }
+    .toolbar-background {
+        background-color: #4a90e2;
+        color: #fff;
+    }
+    ion-title {
+        color: #fff;
+    }
+    p.white {
+        color: #f2f2f2;
+        margin: 0;
+    }
+
+    ion-spinner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+   
+
+    ion-content {
+        top:45px;
+        background: #d8d8d8 !important;
+
+        ion-card {
+            margin-right: 0 !important;
+            margin-left: 0 !important;
+            width: 100% !important;
+            box-shadow: none !important;
+            ion-card-header {
+                max-width: 90%;
+                overflow: visible;
+                white-space: initial;
+            }
+            .button-clear-md,
+            .button-clear-ios {
+                 background-color: #f2f2f2;
+                color: #bfbfbf;
+            }
+            .item-md ion-avatar img,
+        .item-ios ion-avatar img {
+            border: 2px solid #b6b6b6;
+        }
+            .fab-md-light,
+            .fab-ios-light {
+                background: none;
+                border: none;
+                box-shadow: none;
+            }
+
+            .blue {
+                background-color: #f2f2f2;
+                border-right: 1px solid #fff;
+            }
+            .ion-logo-twitter {
+                //background: #4a90e2;
+                padding: 5px;
+                border-radius: 50%;
+                height: 25px;
+                width: 25px;
+                color: #4a90e2;
+            }
+            ion-item{
+            	padding-left: 0 !important;
+            	h2{
+            		font-size: 13px !important;
+            	}
+            }
+        }
+    }
+
+    .btn-50 {
+        width: 50%;
+        height: 50px;
+        margin: 0;
+    }
+
+    .button-clear-md, .button-clear-ios {
+        background-color: #f2f2f2;
+        // color: #bfbfbf !important;
+    }
+    .right-border {
+        border-right: 1px solid #f2f2f2;
+    }
+
+    .reps-card{
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        width: 100% !important;
+        box-shadow: none !important;
+        ion-card-header {
+            max-width: 90%;
+            overflow: visible;
+            white-space: initial;
+        }
+        .button-clear-md,
+        .button-clear-ios {
+             background-color: #f2f2f2;
+            color: #bfbfbf;
+            // height: 30px;
+        }
+        .item-md ion-avatar img,
+    .item-ios ion-avatar img {
+        border: 2px solid #b6b6b6;
+    }
+        .fab-md-light,
+        .fab-ios-light {
+            background: none;
+            border: none;
+            box-shadow: none;
+        }
+
+        .blue {
+            background-color: #f2f2f2;
+            border-right: 1px solid #fff;
+        }
+        .ion-logo-twitter {
+            //background: #4a90e2;
+            padding: 5px;
+            border-radius: 50%;
+            height: 25px;
+            width: 25px;
+            color: #4a90e2;
+        }
+        ion-item{
+            padding-left: 0 !important;
+            h2{
+                font-size: 13px !important;
+            }
+        }
+    }
+}
