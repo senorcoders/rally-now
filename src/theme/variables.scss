@@ -128,8 +128,8 @@ $colors: (primary: #488aff, secondary: #32db64, danger: #f53d3d, light: #f4f4f4,
 }
 @font-face {
     font-family: 'SF UI Text';
-    src: url($font-path + '/fonts/SFUIText-Semibold.woff2') format('woff2'),
-    url($font-path + '/fonts/SFUIText-Semibold.woff') format('woff');
+    src: url($font-path + '/SFUIText-Semibold.woff2') format('woff2'),
+    url($font-path + '/SFUIText-Semibold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
 }

@@ -11,9 +11,8 @@
 
 .Card .item.item-block ion-fab {
   position: absolute;
-  top: 50%;
+  top: 5px;
   right: 0;
-  transform: translateY(-50%);
 }
 
 .Card .item.item-block .fab {
@@ -27,6 +26,7 @@
 
 .Card .item.item-block {
   padding: 10px 54px 10px 16px;
+  align-items: flex-start;
 }
 
 .Card .item.item-block .item-inner {
@@ -34,7 +34,7 @@
 }
 
 .Card .item.item-block ion-avatar {
-  margin: 0 10px 0 0;
+  margin: 2px 10px 0 0;
 }
 
 .Card .item.item-block ion-avatar img {
@@ -89,8 +89,14 @@
   background-color: #fff;
 }
 
-.Card .organization-bg .events-filter {
+.Card .organization-bg .organization-filter {
   background: linear-gradient(to bottom, rgba(14, 14, 14, 0.1), rgba(14, 14, 14, 0.7)) !important;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
 }
 
 .Card .organization-bg .railled-excerpt {
@@ -120,7 +126,7 @@
 
 .Card .organization-bg .railled-excerpt .btn-objectives-contact {
   position: static;
-  margin: 10px 0 2px;
+  margin: 12px 0 2px;
 }
 
 .Card .organization-bg .bottom-excerpt {
@@ -207,7 +213,7 @@
 
 .Card .card-content .content-heading {
   color: #3d3935 !important;
-  font-weight: normal;
+  font-weight: normal !important;
   font-family: 'San Francisco Text' !important;
   margin: 0 0 10px;
   padding: 0;

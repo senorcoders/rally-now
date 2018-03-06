@@ -138,18 +138,20 @@ page-representative-profile {
 
             button{
                 background: #f4512c !important;
-                    text-transform: uppercase !important;
-                    color: #f2f2f2 !important;
-                    border-radius: 6px !important;
-                    padding: 10px !important;
-                    letter-spacing: -0.36px; 
+                text-transform: uppercase !important;
+                color: #f2f2f2 !important;
+                border-radius: 6px !important;
+                padding: 10px !important;
+                font-family: 'SF UI Text' !important;
+                font-weight: 600;
+                letter-spacing: -0.36px;
         
                     .button-inner{
                         width: 100px !important;
-                        font-family:'Conv_SanFranciscoDisplay-Semibold',Sans-Serif !important;
+                        font-family: 'SF UI Text' !important;
+                        font-weight: 600;
+                        letter-spacing: -0.36px;
                         font-size: 14px !important;
-        
-        
                     }
                 }
 
@@ -267,7 +269,9 @@ page-representative-profile {
         line-height: 20px;
         padding: 5px 10px;
         text-transform: uppercase;
-        font-family:'Conv_SanFranciscoDisplay-Semibold',Sans-Serif !important;
+        font-family: 'SF UI Text' !important;
+        font-weight: 600;
+        letter-spacing: -0.36px;
     }
 
     .username-h4{

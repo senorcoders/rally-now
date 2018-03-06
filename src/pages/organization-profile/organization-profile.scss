@@ -143,15 +143,16 @@ page-organization-profile {
                 padding: 5px 10px;
                 font-size: 14px;
                 line-height: 20px;
-                font-weight: normal;
-                font-family: 'Conv_SanFranciscoDisplay-Semibold' !important;
+                font-family: 'SF UI Text' !important;
+                font-weight: 600;
                 letter-spacing: -0.36px;
                 height: 30px;
             }
 
             .button .button-inner {
-                font-weight: normal;
-                font-family: 'Conv_SanFranciscoDisplay-Semibold' !important;
+                font-family: 'SF UI Text' !important;
+                font-weight: 600;
+                letter-spacing: -0.36px;
                 font-size: 14px;
                 height: 20px;
                 display: inline-block;
@@ -274,7 +275,9 @@ page-organization-profile {
         line-height: 20px;
         padding: 5px 10px;
         text-transform: uppercase;
-        font-family:'Conv_SanFranciscoDisplay-Semibold',Sans-Serif !important;
+        font-family: 'SF UI Text' !important;
+        font-weight: 600;
+        letter-spacing: -0.36px;
     }
 
     .username-h4{

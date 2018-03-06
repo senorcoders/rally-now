@@ -73,6 +73,7 @@
             <!-- <div class="days-excerpt">
                 <p class="white">{{objective?.goals[0]?.description}}</p>
             </div> -->
+            <div class="organization-filter"></div>
             <div class="railled-excerpt" *ngIf="objective.rallies > 0">
                 <p class="white"><strong>{{objective.rallies}}</strong><br> Rallied</p>
                 <div class="btn-objectives-contact">
@@ -193,7 +194,6 @@
             <p><small>@{{record.twitter_username}} • {{record.tweet_created_at | amTimeAgo}}</small></p>
         </ion-item>
 
-                <p><small>@{{record.twitter_username}} • {{record.tweet_created_at | amTimeAgo}}</small></p>
         <ion-card-content (click)="openWebpage(record.twitter_username, record.tweet_id)">
             <blockquote class="twitter-video" data-lang="es">
                 {{record.tweet}}

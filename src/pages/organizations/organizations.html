@@ -82,7 +82,6 @@
 
         <div *ngFor="let record of records, let i = index">
             <!-- Tweet Cards -->
-                        <p><small>@{{record.username}} • {{record.tweet_created_at | amTimeAgo}}</small></p>
             <ion-card class="reps-card Card" style="position: relative;" *ngIf="record.card_type === 'tweet'">
                 <ion-item>
                     <ion-fab>
@@ -141,6 +140,7 @@
                         <!-- <div class="days-excerpt">
                             <p class="white">{{objective?.goals[0]?.description}}</p>
                         </div> -->
+                        <div class="organization-filter"></div>
                         <div class="railled-excerpt" *ngIf="record.rallies > 0">
                             <p class="white"><strong>{{record.rallies}}</strong><br> Rallied</p>
                             <div class="btn-objectives-contact">
