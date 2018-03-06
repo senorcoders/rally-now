@@ -190,9 +190,10 @@
               <img [src]="data?.image_url">
             </ion-avatar>
             <h2>{{name}}</h2>
-            <p><small>@{{record.twitter_username}} . {{record.tweet_created_at | amTimeAgo}}</small></p>
+            <p><small>@{{record.twitter_username}} • {{record.tweet_created_at | amTimeAgo}}</small></p>
         </ion-item>
 
+                <p><small>@{{record.twitter_username}} • {{record.tweet_created_at | amTimeAgo}}</small></p>
         <ion-card-content (click)="openWebpage(record.twitter_username, record.tweet_id)">
             <blockquote class="twitter-video" data-lang="es">
                 {{record.tweet}}

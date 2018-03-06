@@ -82,6 +82,7 @@
 
         <div *ngFor="let record of records, let i = index">
             <!-- Tweet Cards -->
+                        <p><small>@{{record.username}} • {{record.tweet_created_at | amTimeAgo}}</small></p>
             <ion-card class="reps-card Card" style="position: relative;" *ngIf="record.card_type === 'tweet'">
                 <ion-item>
                     <ion-fab>
@@ -93,7 +94,7 @@
                       <img [src]="record.photo_url ? record.photo_url : record.image_url ">
                     </ion-avatar>
                     <h2>{{record.name}}</h2>
-                    <p><small>@{{record.username}} . {{record.tweet_created_at | amTimeAgo}}</small></p>
+                    <p><small>@{{record.username}} • {{record.tweet_created_at | amTimeAgo}}</small></p>
                   </ion-item>
                 <ion-card-content (click)="openWebpage(record.twitter_username, record.tweet_id)">
                     <blockquote class="twitter-video" data-lang="es">

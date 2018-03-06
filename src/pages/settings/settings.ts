@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, ActionSheetController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ActionSheetController, AlertController, App } from 'ionic-angular';
 import { LinkedAccountsPage } from '../linked-accounts/linked-accounts';
 import { FindFriendsPage } from '../find-friends/find-friends';
 import { TermsPage } from '../terms/terms';
@@ -56,7 +56,8 @@ export class SettingsPage {
     private httpProvider: UsersProvider,
     public userData: UserData,
     public af:AngularFireDatabase,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private app:App
     ) {
       this.httpProvider.returnRallyUserId().then(user => {
         this.myRallyID = user.apiRallyID;
@@ -130,7 +131,7 @@ export class SettingsPage {
     let actionSheet = this.actionSheetCtrl.create({
       buttons: [
         {
-          text: 'Spam or Abuse',
+          text: 'Spam or Abuse', 
           handler: () => {
             let modal = this.modalCtrl.create(ReportProblemPage);
             modal.present();
@@ -183,18 +184,22 @@ export class SettingsPage {
      }
 
       Logout(){
-        this.fire.auth.signOut();
-        this.storage.remove('UID');
-        this.storage.remove('DISPLAYNAME');
-        this.storage.remove('USERNAME');
-        this.storage.remove('PHOTOURL');
-        this.storage.remove('PROVIDER');
-        this.storage.remove('EMAIL');
-        this.storage.remove('LOCATION');
-        this.storage.remove('GENDER');
-        this.storage.remove('DESCRIPTION');
-        this.storage.set(this.HAS_LOGGED_IN, false);
-        this.navCtrl.setRoot(HomePage);
+        this.fire.auth.signOut().then(() =>{
+          this.storage.clear();
+          //this.navCtrl.setRoot(HomePage);
+          this.app.getRootNav().setRoot(HomePage);
+        });
+        // this.storage.remove('UID');
+        // this.storage.remove('DISPLAYNAME');
+        // this.storage.remove('USERNAME');
+        // this.storage.remove('PHOTOURL');
+        // this.storage.remove('PROVIDER');
+        // this.storage.remove('EMAIL');
+        // this.storage.remove('LOCATION');
+        // this.storage.remove('GENDER');
+        // this.storage.remove('DESCRIPTION');
+        // this.storage.set(this.HAS_LOGGED_IN, false);
+       
   } 
 
   goToEditProfile(){

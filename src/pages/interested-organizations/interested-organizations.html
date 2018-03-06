@@ -30,7 +30,7 @@
                 {{org.short_desc}}</p>
           </div>
             </ion-label>
-              <ion-checkbox (ionChange)="getState($event, org.id)" item-end checked="{{org.selected}}" ></ion-checkbox>
+              <ion-checkbox (ionChange)="getState($event, org.id)" item-end [(ngModel)]="org.selected" ></ion-checkbox>
               
       </ion-item>
     </ion-list>

@@ -104,6 +104,7 @@ export class HomePage {
             nickname = (username[0]+username[1]).toLowerCase();
 
           }
+          console.log("username", nickname);
           this.storage.set('USERNAME', nickname);
           this.user.username = nickname;
           this.storage.set('PHOTOURL', res.photoURL);

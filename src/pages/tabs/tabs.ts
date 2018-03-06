@@ -45,7 +45,7 @@ export class TabsPage {
         this.updateBadge();
 
       });
-      
+       
   }
 
 
@@ -63,25 +63,35 @@ export class TabsPage {
   getNoticationsQty(){ 
     this.httpProvider.getNotifications(this.endpoint+'?user_id='+this.myRallyID+'&what=unread')
       .subscribe( result => {
-        let user:any = firebase.auth().currentUser;
+        firebase.auth().onAuthStateChanged(user => {
+          if(user){
+            let user:any = firebase.auth().currentUser;
 
-        console.log("Badges", result);
-        this.badgeCount = result.length;
-        console.log("Count", this.badgeCount);
-        this.af.database.ref('badges/'+user['uid']).set({
-          badgeCount: this.badgeCount
+            console.log("Badges", result);
+            this.badgeCount = result.length;
+            console.log("Count", this.badgeCount);
+            this.af.database.ref('badges/'+user['uid']).set({
+              badgeCount: this.badgeCount
+            });
+          }
         });
+        
       });
   } 
 
 
   updateBadge(){
-    let user:any = firebase.auth().currentUser;
-    this.af.object('badges/'+user['uid'])
-      .subscribe((data) => {
-          console.log(data);
-          this.badgeCount = data.badgeCount;
-      });
+    firebase.auth().onAuthStateChanged(user => {
+        if(user){
+          let user:any = firebase.auth().currentUser;
+          this.af.object('badges/'+user['uid'])
+            .subscribe((data) => {
+                console.log(data);
+                this.badgeCount = data.badgeCount;
+            });
+        }
+    });
+    
 
   }
   public tapped() {

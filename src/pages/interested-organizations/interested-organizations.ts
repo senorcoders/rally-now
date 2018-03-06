@@ -21,12 +21,12 @@ export class InterestedOrganizationsPage {
   buttonText:any = "Continue";
   followArray:any = ["5f4231c9-c362-4663-b5fa-8bae8c3831f1", "2f20250a-8cd2-493a-9a4c-3f01c8330a92", "cf89151e-5ab0-4a1a-bb60-95035c089a52",
   "13421842-df20-4ebc-b191-89d0d4fe8094", "5d6ba8d7-ba1e-453c-ad91-a8a5de210100", "178daa51-5731-453b-b9fe-3b31ec93eb28",
-  "25109fc7-5c51-4fb7-bf47-d81ec80fa08f", "98c9bc19-dbeb-49cb-9cb5-f744db0738ac", "fd79e7bb-6cea-487b-8a7f-c6f5194b8ec9",
+  "25109fc7-5c51-4fb7-bf47-d81ec80fa08f", "98c9bc19-dbeb-49cb-9cb5-f744db0738ac", 
   "6905e335-dfa7-4865-bd98-f32cec4aa340", "0237382c-f9b0-46fa-aab5-6d383f7813e4", "df5d9984-ebfe-423b-8d71-23cc86a16ad9", "26a234ad-ada5-41e5-bcc8-14452bbd528b",
-  "b7e8b91a-103a-40eb-b6a0-e2f1a7066008", "acb84ea8-1dca-4e4c-8093-6c04827f2539", "fb68fe1b-0e40-47ce-a0ea-73570ee1d852", "d034ff40-0fde-41f0-9868-330327a0e22d",
-  "3d3a6fc4-0a44-4421-a5c6-438ee94e7fa0", "7069eca3-9997-4af5-9e51-03c51b8add68", "801ff562-fe96-43e5-b3d0-1ee19f1c48cc", "651f2dca-957f-43ed-97a5-88efb8b58268",
-  "bf833c81-4930-48ed-8e94-8bf0d01fbbe9", "f4e14dbb-4172-4b5a-9558-d82fca5f1f3c", "b50ee250-3d9e-4bd9-877f-66dcf8d3aeb7", "c57d61d4-6f34-4b4a-a10a-f8ade9a8d111",
-  "aa06299b-2bc3-4c04-9f8e-7058421a92a0", "1a5f2b8e-ef1b-49ba-80bc-7727f9b0c580", "dae57e94-bd43-4fde-9724-9c492129ce92", "12c7d94a-1cd7-47f8-b33a-d2264e5ee633",
+  "acb84ea8-1dca-4e4c-8093-6c04827f2539", "fb68fe1b-0e40-47ce-a0ea-73570ee1d852", 
+  "3d3a6fc4-0a44-4421-a5c6-438ee94e7fa0", "801ff562-fe96-43e5-b3d0-1ee19f1c48cc", 
+  "f4e14dbb-4172-4b5a-9558-d82fca5f1f3c", "b50ee250-3d9e-4bd9-877f-66dcf8d3aeb7", 
+  "1a5f2b8e-ef1b-49ba-80bc-7727f9b0c580", "dae57e94-bd43-4fde-9724-9c492129ce92", "12c7d94a-1cd7-47f8-b33a-d2264e5ee633",
   "07ac7a27-f6d3-47e0-aa8b-3fa8b8c5b4e0", "4212e03c-458c-4874-a566-9ca20ce52993", "62b21769-572d-4960-9aef-c840fa8a4898", "121308b5-a4f1-4f92-bdfe-670e0bc2ced7",
   "29f5e542-f76e-4078-962d-09b70d10c52d", "6972b1ad-8fa7-4194-a7ec-e06090359350",  "86651078-0284-416b-9abf-3da3aa582b33", "d18a7f7d-c224-4db7-89d2-c5351f76ede4", "849585c7-ed2e-4978-8bd8-c83faf8ae044"];
   organizationEndpoint:any = 'following_organizations';

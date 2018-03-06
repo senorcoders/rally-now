@@ -7,6 +7,7 @@ import { CandidatesPage } from '../candidates/candidates';
 import { TakeactionPage } from '../takeaction/takeaction';
 import { FavoritesPage } from '../favorites/favorites';
 import { FriendsRequestPage } from '../friends-request/friends-request';
+import { NewsPage } from '../news/news';
 
 
 @Component({
@@ -32,7 +33,7 @@ export class OverlayPage {
   }
 
   goToCandidates(){
-    this.navCtrl.push(CandidatesPage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+    this.navCtrl.push(NewsPage, {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
   }
 
   goToTakeAction(){
