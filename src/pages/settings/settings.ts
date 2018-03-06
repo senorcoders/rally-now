@@ -207,7 +207,7 @@ export class SettingsPage {
   }
 
   goToUsername(){
-    this.navCtrl.push(ChangeUsernamePage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+    this.navCtrl.push(InterestedOrganizationsPage,  {}, {animate:true,animation:'transition',duration:500,direction:'forward'});
     
   }
 

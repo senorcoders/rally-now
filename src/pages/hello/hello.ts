@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ChangeUsernamePage } from '../change-username/change-username';
 import { InterestedOrganizationsPage } from '../interested-organizations/interested-organizations';
@@ -23,7 +23,9 @@ export class HelloPage {
     public navParams: NavParams,
     public af:AngularFireDatabase,
     private httpProvider:UsersProvider,
-    public userData: UserData) {
+    public userData: UserData,
+    private readonly ngZone: NgZone,
+  ) {
   }
 
   ionViewDidLoad() {
@@ -33,12 +35,12 @@ export class HelloPage {
   }
 
   changeUsername(){
-    this.navCtrl.setRoot(ChangeUsernamePage);
+    this.ngZone.run(() =>    this.navCtrl.setRoot(ChangeUsernamePage)  );
   }
 
   followOrg(){
+    this.ngZone.run(() =>     this.navCtrl.setRoot(InterestedOrganizationsPage));
    
-    this.navCtrl.setRoot(InterestedOrganizationsPage);
   }
 
   getUID(){

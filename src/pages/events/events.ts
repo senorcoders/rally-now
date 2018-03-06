@@ -149,9 +149,9 @@ export class EventsPage {
        getdata(startDate?, endDate?, filterBy?, zipcode?, distance?){
          if(startDate != null){
            if(filterBy === 'all'){
-            this.getAllEvents();
+            this.getFilteredEvents(startDate, endDate, zipcode, distance);
 
-           }else{
+           }else if(filterBy !== 'all'){
             this.getFollowedEvents(startDate, endDate, zipcode, distance);
            }
            this.eventFiltered = true;
@@ -202,11 +202,11 @@ getArray(array){
 
 }
 
-getFilteredEvents(startDate, endDate){
-  this.httpProvider.getJsonData(this.endpointOld + '/' + this.myrallyID + '/' + startDate + '/' + endDate).subscribe(
+getFilteredEvents(startDate, endDate, zipcode, distance){
+  this.orgProvider.load(this.endpointOld + '/' + zipcode + '/' + startDate + '/' + endDate + '/' + distance + '/', this.start).then(
     result => {
       console.log(result);
-     this.events = result.Events;
+     this.events = result['events'];
      //this.loading.dismiss(); 
      this.enablePlaceholder = false;
      this.loader = false;
@@ -214,12 +214,6 @@ getFilteredEvents(startDate, endDate){
     //  this.storage.set('EVENTS', result);
 
      //this.filterItems(this.searchTerm); 
-    },
-    err =>{
-      console.error("Error : "+err);
-    } ,
-    () => {
-      console.log('getData completed');
     });
 }
 
