@@ -1,8 +1,8 @@
 <ion-header>
         <ion-navbar>
             <ion-title>
-                <p class="white">My Feeds</p>
-            </ion-title>
+                    <img class="rally-header-logo" src="assets/img/rally-logo.svg">
+                </ion-title>
 
             <ion-buttons start style="order:1;">
                     <button ion-button icon-only (click)="goToRequests()">
@@ -13,18 +13,21 @@
         </ion-navbar>
     </ion-header>
 <ion-content>
-    <ion-list style="margin-bottom: 0 !important;"> <button full ion-button class="overlay-btn" (click)="goToTakeAction()">
+    <ion-list style="margin-bottom: 0 !important;"> 
+        <button full ion-button class="overlay-btn" (click)="goToTakeAction()">
        	  <img src="assets/img/Star.svg" alt="">	Take Action
        </button>
+       <button full ion-button class="overlay-btn" (click)="goToCandidates()">
+        <img src="assets/img/twitter_outline.svg" alt="">  News &amp; Updates
+    </button>
+            <button full ion-button class="overlay-btn" (click)="goToFriendsActivity()">
+                <img src="assets/img/Community.svg" alt="">  Community
+        </button>
        <button full ion-button class="overlay-btn" (click)="goToEvents()">
        		<img src="assets/img/Events.svg" alt=""> Events
        </button>
-       <button full ion-button class="overlay-btn" (click)="goToFriendsActivity()">
-       		<img src="assets/img/Community.svg" alt="">  Community
-       </button>
-       <button full ion-button class="overlay-btn" (click)="goToCandidates()">
-        <img src="assets/img/Twitter.svg" alt="">  News &amp; Updates
-    </button>
+      
+      
        <!-- <button full ion-button class="overlay-btn" (click)="goToCandidates()">
        		<img src="assets/img/Representatives.svg" alt=""> Representatives
        </button>

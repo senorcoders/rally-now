@@ -9,6 +9,12 @@ page-overlay{
 
     ion-header{
         text-align: center;
+        .rally-header-logo {
+            width: 50px;
+            filter: brightness(0) invert(1);
+            margin-bottom: 30px;
+
+        }
     }
 
 	.toolbar-background {
@@ -38,20 +44,29 @@ page-overlay{
 }
 
 .overlay-btn{
-		height: 20vh !important;
+		height: 21.5vh !important;
 		margin: 0 !important;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #87aed7;
+    background-color: #5b91c8;
     .button-inner{
     	justify-content: flex-start !important;
-    	font-weight: 500;
-    	font-size: 16px;
+        font-size: 28px;
+        color: #f2f2f2;
+        letter-spacing: 0.36px;
+        line-height: 34px;
+        font-family:'Conv_SanFranciscoDisplay-Semibold',Sans-Serif !important;
+
     }
 
     img{
-    	    width: 20px;
+    	    width: 35px;
     margin-right: 10px;
-    margin-bottom: 8px;
+    // margin-bottom: 8px;
     filter: brightness(0) invert(1);
 
     }
-	}
+    }
+    
+    .overlay-btn:focus, .overlay-btn:hover{
+        background-color: #87aed7;
+    }
