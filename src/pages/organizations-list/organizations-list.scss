@@ -32,23 +32,30 @@ page-organizations-list {
     }
 
     .follow-btn{
-            // height: auto;
-        padding: 10px !important;
         background: #296fb7;
         color: #f2f2f2;
         border: 1px solid #296fb7;
-        font-size: 14px;
+        min-width: 100px;
+        padding: 5px 10px !important;
+        height: 32px !important;
+        font-size: 14px !important;
+        line-height: 20px;
         text-transform: uppercase;
         letter-spacing: -0.36px;
         // min-width: 80px;
         box-shadow: none;
         border-radius: 6px;
-        height: 3.6rem !important;
         .button-inner{
-            width: 100px !important;
-            font-family:'Conv_SanFranciscoDisplay-Semibold',Sans-Serif !important;
+            font-family: 'SF UI Text' !important;
+            font-weight: 600;
+            letter-spacing: -0.36px;
             font-size: 14px !important;
-    
+            height: 20px;
+            display: inline-block;
+            line-height: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
     }
 }

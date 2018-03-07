@@ -1,145 +1,243 @@
-        // Ionic Variables and Theming. For more info, please see:
-        // http://ionicframework.com/docs/theming/
-        // Font path is used to include ionicons,
-        // roboto, and noto sans fonts
-        $font-path: "../assets/fonts";
-        // The app direction is used to include
-        // rtl styles in your app. For more info, please see:
-        // http://ionicframework.com/docs/theming/rtl-support/
-        $app-direction: ltr;
-        @import "ionic.globals";
-        // Shared Variables
-        // --------------------------------------------------
-        // To customize the look and feel of this app, you can override
-        // the Sass variables found in Ionic's source scss files.
-        // To view all the possible Ionic variables, see:
-        // http://ionicframework.com/docs/theming/overriding-ionic-variables/
-        // Named Color Variables
-        // --------------------------------------------------
-        // Named colors makes it easy to reuse colors on various components.
-        // It's highly recommended to change the default colors
-        // to match your app's branding. Ionic uses a Sass map of
-        // colors so you can add, rename and remove colors as needed.
-        // The "primary" color is the only required color in the map.
-        $colors: ( primary: #488aff, secondary: #32db64, danger: #f53d3d, light: #f4f4f4, dark: #222, facebook: #3b5998, twitter: #1da1f2, main-red: #d0021b, orange1: #d76f16, orange2: #c25b16, orange3: #ae4815, orange4: #9a3413, orange5: #861e11, orange6: #72000e, );
-        // App iOS Variables
-        // --------------------------------------------------
-        // iOS only Sass variables can go here
-        // App Material Design Variables
-        // --------------------------------------------------
-        // Material Design only Sass variables can go here
-        // App Windows Variables
-        // --------------------------------------------------
-        // Windows only Sass variables can go here
-        // App Theme
-        // --------------------------------------------------
-        // Ionic apps can have different themes applied, which can
-        // then be future customized. This import comes last
-        // so that the above variables are used and Ionic's
-        // default are overridden.
-        @import "ionic.theme.default";
-        // Ionicons
-        // --------------------------------------------------
-        // The premium icon font for Ionic. For more info, please see:
-        // http://ionicframework.com/docs/ionicons/
-        @import "ionic.ionicons";
-        // Fonts
-        // --------------------------------------------------
-        @import "roboto";
-        @import "noto-sans";
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
 
+@import "ionic.globals";
 
-        @font-face {
-            font-family: 'Conv_SF-Pro-Display-Regular';
-            src: url('../assets/fonts/SF-Pro-Display-Regular.eot');
-            src: url('../assets/fonts/SF-Pro-Display-Regular.woff') format('woff'), url('../assets/fonts/SF-Pro-Display-Regular.ttf') format('truetype'), url('../assets/fonts/SF-Pro-Display-Regular.svg') format('svg');
-            font-weight: normal;
-            font-style: normal;
-        }
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+$colors: (primary: #488aff, secondary: #32db64, danger: #f53d3d, light: #f4f4f4, dark: #222, facebook: #3b5998, twitter: #1da1f2, main-red: #d0021b, orange1: #d76f16, orange2: #c25b16, orange3: #ae4815, orange4: #9a3413, orange5: #861e11, orange6: #72000e, );
 
-        @font-face {
-            font-family: 'Conv_SanFranciscoDisplay-Semibold';
-            src: url('../assets/fonts/SanFranciscoDisplay-Semibold.eot');
-            src: local('☺'), url('../assets/fonts/SanFranciscoDisplay-Semibold.woff') format('woff'), url('../assets/fonts/SanFranciscoDisplay-Semibold.ttf') format('truetype'), url('../assets/fonts/SanFranciscoDisplay-Semibold.svg') format('svg');
-            font-weight: normal;
-            font-style: normal;
-        }
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+@import "ionic.theme.default";
 
-;
-        // @font-face {
-        //     font-family: 'Conv_ITCKabelStd-Demi';
-        //     src: url('../assets/fonts/ITCKabelStd-Demi.eot');
-        //     src: url('../assets/fonts/ITCKabelStd-Demi.woff') format('woff'), url('../assets/fonts/ITCKabelStd-Demi.ttf') format('truetype'), url('../assets/fonts/ITCKabelStd-Demi.svg') format('svg');
-        //     font-weight: normal;
-        //     font-style: normal;
-        // }
-        
-        $font-family-base: 'Conv_SF-Pro-Display-Regular',
-        Sans-Serif !default;
-        $font-family-md-base: $font-family-base;
-        $font-family-ios-base: $font-family-base;
-        $font-family-wp-base: $font-family-base;
-        body,h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        button,
-        p,
-        label,
-        ion-label,
-        span,
-        .col,
-        ion-card-header {
-            font-family: 'Conv_SF-Pro-Display-Regular', Sans-Serif !important;
-        }
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+@import "ionic.ionicons";
 
-        .toolbar-title .white{
-            font-family:'Conv_SanFranciscoDisplay-Semibold',Sans-Serif !important;
-            margin-bottom: 40px !important;
-            margin-top: 0 !important;
-            letter-spacing: -0.41px;
+// Fonts
+// --------------------------------------------------
+@import "roboto";
+@import "noto-sans";
 
+@font-face {
+    font-family: 'Conv_SF-Pro-Display-Regular';
+    src: url('../assets/fonts/SF-Pro-Display-Regular.eot');
+    src: url('../assets/fonts/SF-Pro-Display-Regular.woff') format('woff'), url('../assets/fonts/SF-Pro-Display-Regular.ttf') format('truetype'), url('../assets/fonts/SF-Pro-Display-Regular.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
-        }
+@font-face {
+    font-family: 'Conv_SanFranciscoDisplay-Semibold';
+    src: url('../assets/fonts/SanFranciscoDisplay-Semibold.eot');
+    src: local('☺'), url('../assets/fonts/SanFranciscoDisplay-Semibold.woff') format('woff'), url('../assets/fonts/SanFranciscoDisplay-Semibold.ttf') format('truetype'), url('../assets/fonts/SanFranciscoDisplay-Semibold.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
-        .ios ion-tab > .ion-page > ion-header > .toolbar.statusbar-padding:first-child, .toolbar-ios, .toolbar-md{
-            padding-top: 0 !important;
-            min-height: 44px !important;
-            height: 44px !important;
-        }
+// @font-face {
+//     font-family: 'Conv_ITCKabelStd-Demi';
+//     src: url('../assets/fonts/ITCKabelStd-Demi.eot');
+//     src: url('../assets/fonts/ITCKabelStd-Demi.woff') format('woff'), url('../assets/fonts/ITCKabelStd-Demi.ttf') format('truetype'), url('../assets/fonts/ITCKabelStd-Demi.svg') format('svg');
+//     font-weight: normal;
+//     font-style: normal;
+// }
 
-        ion-header{
-            height: 44px !important;
+// SF UI Display
+@font-face {
+    font-family: 'SF UI Display';
+    src: url($font-path + '/SFUIDisplay-Light.woff2') format('woff2'),
+    url($font-path + '/SFUIDisplay-Light.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}
 
-        }
+@font-face {
+    font-family: 'SF UI Display';
+    src: url($font-path + '/SFUIDisplay-Regular.woff2') format('woff2'),
+    url($font-path + '/SFUIDisplay-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
-        .fab-md-light, .fab-ios-light{
-            color: #9b9b9b !important;
-        }
+@font-face {
+    font-family: 'SF UI Display';
+    src: url($font-path + '/SFUIDisplay-Semibold.woff2') format('woff2'),
+    url($font-path + '/SFUIDisplay-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
 
-        .bar-buttons-ios{
-            margin: 0 16px !important;
-        }
+@font-face {
+    font-family: 'SF UI Display';
+    src: url($font-path + '/SFUIDisplay-Bold.woff2') format('woff2'),
+    url($font-path + '/SFUIDisplay-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
 
-        .item-ios ion-avatar img{
-            width: 40px !important;
-            height: 40px !important;
-        }
+// SF UI Text
+@font-face {
+    font-family: 'SF UI Text';
+    src: url($font-path + '/SFUIText-Light.woff2') format('woff2'),
+    url($font-path + '/SFUIText-Light.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}
 
-        .back-button-icon-ios{
-            height: 20px !important;
-            font-size: 20px !important;
-        }
+@font-face {
+    font-family: 'SF UI Text';
+    src: url($font-path + '/SFUIText-Regular.woff2') format('woff2'),
+    url($font-path + '/SFUIText-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SF UI Text';
+    src: url($font-path + '/SFUIText-Semibold.woff2') format('woff2'),
+    url($font-path + '/SFUIText-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
 
-        .back-button-text-ios{
-            font-size: 17px !important;
-            letter-spacing: -0.41 !important;
-            color: #f2f2f2 !important;
-        }
+@font-face {
+    font-family: 'SF UI Text';
+    src: url($font-path + '/SFUIText-Bold.woff2') format('woff2'),
+    url($font-path + '/SFUIText-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
 
-        .right-border{
-            border-right: 1px solid #fff !important;
+// San Francisco Text
+@font-face {
+    font-family: 'San Francisco Text';
+    src: url($font-path + '/SanFranciscoText-Light.woff2') format('woff2'),
+    url($font-path + '/SanFranciscoText-Light.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}
 
-        }
+@font-face {
+    font-family: 'San Francisco Text';
+    src: url($font-path + '/SanFranciscoText-Regular.woff2') format('woff2'),
+    url($font-path + '/SanFranciscoText-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'San Francisco Text';
+    src: url($font-path + '/SanFranciscoText-Semibold.woff2') format('woff2'),
+    url($font-path + '/SanFranciscoText-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'San Francisco Text';
+    src: url($font-path + '/SanFranciscoText-Bold.woff2') format('woff2'),
+    url($font-path + '/SanFranciscoText-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+$font-family-base: 'Conv_SF-Pro-Display-Regular', Sans-Serif !default;
+$font-family-md-base: $font-family-base;
+$font-family-ios-base: $font-family-base;
+$font-family-wp-base: $font-family-base;
+
+body,h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+p,
+label,
+ion-label,
+span,
+.col,
+ion-card-header {
+    font-family: 'Conv_SF-Pro-Display-Regular', Sans-Serif !important;
+}
+
+.toolbar-title .white{
+    font-family:'Conv_SanFranciscoDisplay-Semibold',Sans-Serif !important;
+    margin-bottom: 40px !important;
+    margin-top: 0 !important;
+    letter-spacing: -0.41px;
+}
+
+.ios ion-tab > .ion-page > ion-header > .toolbar.statusbar-padding:first-child, .toolbar-ios, .toolbar-md{
+    padding-top: 0 !important;
+    min-height: 44px !important;
+    height: 44px !important;
+}
+
+ion-header{
+    height: 44px !important;
+
+}
+
+.fab-md-light, .fab-ios-light{
+    color: #9b9b9b !important;
+}
+
+.bar-buttons-ios{
+    margin: 0 16px !important;
+}
+
+.back-button-icon-ios{
+    height: 20px !important;
+    font-size: 20px !important;
+}
+
+.back-button-text-ios{
+    font-size: 17px !important;
+    letter-spacing: -0.41 !important;
+    color: #f2f2f2 !important;
+}
+
+.right-border{
+    border-right: 1px solid #fff !important;
+
+}
+
+// Custom styles
+// --------------------------------------------------
+@import "theme";

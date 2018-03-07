@@ -1,0 +1,238 @@
+// Cards styles
+
+.Card {
+  position: relative;
+}
+
+.Card ion-fab img {
+  max-width: 20px;
+  height: auto;
+}
+
+.Card .item.item-block ion-fab {
+  position: absolute;
+  top: 8px;
+  right: 0;
+}
+
+.Card .item.item-block .fab {
+  padding: 0;
+  color: #9b9b9b !important;
+}
+
+.Card .item.item-block .fab ion-icon {
+  font-size: 32px;
+}
+
+.Card .item.item-block {
+  padding: 14px 54px 14px 16px;
+  align-items: flex-start;
+}
+
+.Card .item.item-block .item-inner {
+  padding: 0;
+}
+
+.Card .item.item-block ion-avatar {
+  margin: 2px 10px 0 0;
+}
+
+.Card .item.item-block ion-avatar img {
+  width: 40px;
+  height: 40px;
+}
+
+.Card .item.item-block .label {
+  margin: 0;
+}
+
+.Card .item.item-block .label h2 {
+  font-size: 17px;
+  line-height: 20px;
+  color: #3d3935;
+  font-family: 'SF UI Text' !important;
+  letter-spacing: -0.41px;
+  font-weight: 600;
+  margin: 3px 0 0;
+  white-space: normal !important;
+  text-align: left;
+}
+
+.Card .item.item-block .label h2 small {
+  color: #868686;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: -0.41px;
+  font-family: 'SF UI Text' !important;
+  font-weight: 200;
+}
+
+.Card .item.item-block .label p {
+  color: #868686;
+  font-size: 12px;
+  line-height: 20px;
+  font-family: 'SF UI Text' !important;
+  font-weight: normal;
+  letter-spacing: -0.41px;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Card .item.item-block .label p small {
+  font-size: inherit;
+  color: inherit;
+}
+
+.Card .organization-bg {
+  height: 193px !important;
+  background-color: #fff;
+}
+
+.Card .organization-bg .organization-filter {
+  background: linear-gradient(to bottom, rgba(14, 14, 14, 0.1), rgba(14, 14, 14, 0.7)) !important;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+}
+
+.Card .organization-bg .railled-excerpt {
+  padding: 14px 16px;
+  bottom: 0;
+  font-weight: normal;
+  display: block;
+  top: auto;
+}
+
+.Card .organization-bg .railled-excerpt p {
+  text-align: right;
+  font-size: 17px;
+  line-height: 20px;
+  letter-spacing: -0.41px;
+  font-family: 'SF UI Display' !important;
+  font-weight: normal;
+}
+
+.Card .organization-bg .railled-excerpt p strong {
+  font-size: 28px;
+  line-height: 34px;
+  letter-spacing: 0.36px;
+  font-family: 'SF UI Display' !important;
+  font-weight: bold;
+}
+
+.Card .organization-bg .railled-excerpt .btn-objectives-contact {
+  position: static;
+  margin: 12px 0 2px;
+}
+
+.Card .organization-bg .bottom-excerpt {
+  padding: 11px 16px !important;
+}
+
+.Card .organization-bg .bottom-excerpt p {
+  margin: 0;
+  font-size: 22px !important;
+  line-height: 28px;
+  letter-spacing: 0.35px;
+  font-family: 'SF UI Display' !important;
+  font-weight: bold !important;
+  max-height: 168px;
+  overflow: hidden;
+}
+
+.Card .events-bg {
+  height: 100px !important;
+  background-color: #fff;
+}
+
+.Card .events-bg .events-filter {
+  background: linear-gradient(to bottom, rgba(14, 14, 14, 0.1), rgba(14, 14, 14, 0.7)) !important;
+}
+
+.Card .events-bg .date-events-spans {
+  left: 16px !important;
+  bottom: 21px !important;
+}
+
+.Card .events-bg .date-events-spans span.day {
+  font-size: 11px !important;
+  line-height: 14px;
+  padding: 8px !important;
+  background-color: #3d3935 !important;
+  color: #f2f2f2 !important;
+}
+
+.Card .events-bg .date-events-spans span.month {
+  font-size: 11px !important;
+  line-height: 14px;
+  padding: 8px !important;
+  text-transform: uppercase;
+  background-color: #f2f2f2 !important;
+  color: #3d3935 !important;
+}
+
+.Card .card-content {
+  padding: 13px 54px 13px 16px;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: -0.41px;
+  color: #2b2b2b;
+  position: relative;
+}
+
+.Card .card-content .twitter-video {
+  margin: 0;
+}
+
+.Card .card-content .icon-logo-twitter,
+.Card .card-content .ion-logo-twitter {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+}
+
+.Card .card-content p {
+  color: inherit;
+  font-size: inherit;
+}
+
+.Card .card-content .card-title {
+  color: #3d3935 !important;
+  font-weight: 600;
+  font-family: 'SF UI Text' !important;
+  font-size: 17px !important;
+  line-height: 22px;
+  margin: 0 0 10px;
+  letter-spacing: -0.41px;
+  padding: 0;
+}
+
+.Card .card-content .content-heading {
+  color: #3d3935 !important;
+  font-weight: normal !important;
+  font-family: 'San Francisco Text' !important;
+  margin: 0 0 10px;
+  padding: 0;
+  font-size: 17px !important;
+  line-height: 22px;
+  letter-spacing: -0.41px;
+}
+
+.Card .card-content .content-heading strong {
+  font-weight: 600;
+  font-family: 'San Francisco Text' !important;
+}
+
+.Card .card-content .event-description {
+  font-size: 12px;
+  line-height: 16px;
+  color: #868686;
+}
+
+.Card .card-content *:last-child {
+  margin-bottom: 0 !important;
+}
