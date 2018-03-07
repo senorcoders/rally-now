@@ -58,7 +58,7 @@ export class FriendsRequestPage {
     private orgProvider: OrganizationsProvider,
     public toastCtrl: ToastController,
     private db: AngularFireDatabase,
-    public actionSheetCtrl: ActionSheetController,
+    public actionSheetCtrl: ActionSheetController, 
     ) {
        //this.searchControl = new FormControl();
        this.httpProvicer.returnRallyUserId().then(user => {

@@ -77,8 +77,14 @@ export class HomePage {
       } else{
         console.log('Nuevo Usuario', that.user);
           that.db.database.ref('users/'+that.user.uid).set(that.user);
-          that.httpProvider.saveNewUser(that.endpoint, that.user);
-          that.navCtrl.setRoot(HelloPage);
+          that.httpProvider.saveNewUser(that.endpoint, that.user).subscribe(data => {
+            console.log("Nuevo Usuario", data);
+            that.storage.set('APIRALLYID', data.id);
+            that.httpProvider.saveApiRallyID(data.id);
+            that.navCtrl.setRoot(HelloPage);
+          }, error => { 
+            console.log("Error", error);
+          });;
       }
     });
   }

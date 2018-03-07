@@ -29,6 +29,7 @@ import { RepresentativeProfilePage } from '../representative-profile/representat
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 import { ThanksPage } from '../thanks/thanks';
 import { DonateFeedBackPage } from '../donate-feed-back/donate-feed-back';
+import { NotificationProvider } from '../../providers/notification/notification';
 
 @Component({
   selector: 'page-feed', 
@@ -100,7 +101,35 @@ export class FeedPage {
     public eventsAng: Events,
     public modalCtrl: ModalController,
     private sanitizer: DomSanitizer,
-    private inAppBrowser: InAppBrowser) { 
+    private inAppBrowser: InAppBrowser,
+    noti: NotificationProvider) { 
+
+
+      firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+           this.storage.get('introShown').then((result) => {
+           if (result) {
+             console.log('Not First Time');
+
+           }else{
+             this.usersProv.returnRallyUserId()
+               .then(user => {
+                 console.log("Usuario desde Notificaciones", user.apiRallyID);
+                 noti.init(user.apiRallyID);
+
+               });
+             console.log('First Time');
+            
+             this.storage.set('introShown', true);
+
+           }
+        });
+          
+        }else{
+          console.log("No estas logueado para notificaciones");
+        }
+        
+      });
 
       console.log("Network", this.network.type);
    

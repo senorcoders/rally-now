@@ -125,7 +125,7 @@ export class UsersProvider{
   }
 
 
-	saveNewUser(endpoint, data):void{
+	saveNewUser(endpoint, data){
 		var headers = new Headers();
     	headers.append('Content-Type', 'application/json' );
     	headers.append('Access-Control-Allow-Origin', '*');
@@ -136,15 +136,9 @@ export class UsersProvider{
     	let options = new RequestOptions({ headers: headers });
 		let userData = JSON.stringify({fname: data.displayName, photo_url: encodeURI(data.photoURL), searchable: data.searchable, hide_activity: data.hide_activity, facebook_id: data.facebook_id, username: data.username});
 		console.log(this.base + endpoint, userData, options);
-		this.http.post(this.base + endpoint, userData, options)
+		return this.http.post(this.base + endpoint, userData, options)
 			.map(res => res.json())
-			.subscribe(data => {
-				console.log("Nuevo Usuario", data);
-				this.storage.set('APIRALLYID', data.id);
-				this.saveApiRallyID(data.id);
-			}, error => { 
-				console.log("Error", error);
-			});
+			
 	}
 
 	updateUser(endpoint, data):void{

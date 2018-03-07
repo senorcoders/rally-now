@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { UserData } from '../providers/user-data';
 import { FeedPage } from '../pages/feed/feed';
-import { NotificationProvider } from '../providers/notification/notification';
 import { Storage } from '@ionic/storage';
 import firebase from 'firebase';
 import {UsersProvider} from '../providers/users/users';
@@ -28,15 +27,9 @@ export class MyApp {
     	public splashScreen: SplashScreen, 
     	public alertCtrl: AlertController,
     	public userData: UserData,
-      noti: NotificationProvider,
       public storage:Storage,
-      private httpProvider:UsersProvider,
-     
-     
-      // private socket: Socket
-      //private fcm: FCM
+      private httpProvider:UsersProvider
     	) {
-        // console.log(this.socket);
        this.userData.hasLoggedIn().then((hasLoggedIn) => {
       
                 if(hasLoggedIn){
@@ -51,7 +44,6 @@ export class MyApp {
         
         this.httpProvider.setToken().subscribe(data =>{
           console.log("Token", data.auth_token );
-          // this.storage.set();
           localStorage.setItem('token', data.auth_token);
        
         });
@@ -62,31 +54,7 @@ export class MyApp {
             statusBar.overlaysWebView(false);
             statusBar.backgroundColorByHexString('#f4512c');
             Appsee.start("e81f4eb7b562458b80bbd8fb1f6130dc");
-          firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-               this.storage.get('introShown').then((result) => {
-               if (result) {
-                 console.log('Not First Time');
-
-               }else{
-                 this.httpProvider.returnRallyUserId()
-                   .then(user => {
-                     console.log("Usuario desde Notificaciones", user.apiRallyID);
-                     noti.init(user.apiRallyID);
-
-                   });
-                 console.log('First Time');
-                
-                 this.storage.set('introShown', true);
-
-               }
-            });
-              
-            }else{
-              console.log("No estas logueado para notificaciones");
-            }
-            
-          });
+         
          });
 
 

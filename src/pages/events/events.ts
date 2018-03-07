@@ -138,7 +138,7 @@ export class EventsPage {
       //   this.loading.present();
       this.loader = true;
       this.getdata(this.eventStart, this.eventEnd, this.filterBy, this.zipcode, this.distance);
-      this.eventFiltered = false;
+      // this.eventFiltered = false;
     
         setTimeout(() => {
           console.log('Async operation has ended');
@@ -203,18 +203,21 @@ getArray(array){
 }
 
 getFilteredEvents(startDate, endDate, zipcode, distance){
-  this.orgProvider.load(this.endpointOld + '/' + zipcode + '/' + startDate + '/' + endDate + '/' + distance + '/', this.start).then(
-    result => {
-      console.log(result);
-     this.events = result['events'];
-     //this.loading.dismiss(); 
-     this.enablePlaceholder = false;
-     this.loader = false;
-
-    //  this.storage.set('EVENTS', result);
-
-     //this.filterItems(this.searchTerm); 
-    });
+  return new Promise(resolve => {
+    this.orgProvider.load(this.endpointOld + '/' + zipcode + '/' + startDate + '/' + endDate + '/' + distance + '/', this.start).then(
+      result => {
+        console.log(result);
+       this.events = result['events'];
+       //this.loading.dismiss(); 
+       this.enablePlaceholder = false;
+       this.loader = false;
+  
+      //  this.storage.set('EVENTS', result);
+  
+       //this.filterItems(this.searchTerm); 
+      });
+  });
+  
 }
 
 doInfinite(infiniteScroll:any) {
@@ -227,6 +230,12 @@ doInfinite(infiniteScroll:any) {
       infiniteScroll.complete();
 
     });
+  }else if(this.filterBy === 'all'){
+    this.getFilteredEvents(this.eventStart, this.eventEnd, this.zipcode, this.distance).then(()=>{
+      infiniteScroll.complete();
+
+    });
+
   }else{
     this.getAllEvents().then(()=>{
       infiniteScroll.complete();
