@@ -9,7 +9,7 @@
             <path url="/__/auth/callback" />
         </host>
     </universal-links>
-    <content original-src="index.html" src="http://169.254.106.164:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="*" />
     <allow-navigation href="http://ionic.local/*" />
@@ -237,4 +237,5 @@
     <allow-navigation href="http://169.254.33.87:8100" />
     <allow-navigation href="http://169.254.101.225:8100" />
     <allow-navigation href="http://169.254.106.164:8100" />
+    <allow-navigation href="http://169.254.146.135:8100" />
 </widget>

@@ -168,12 +168,7 @@ export class EventsPage {
         return new Promise(resolve => {
           this.orgProvider.load(this.endpointOld + '/' + this.myrallyID + '/' + zipcode + '/' + startDate + '/' + endDate + '/' + distance + '/', this.start)
             .then(data => {
-              this.events = data['Events'];
-              //this.loading.dismiss(); 
-              this.enablePlaceholder = false;
-              this.loader = false;
-
-             
+              this.getArray(data['Events']);
               resolve(true);
             });
         });
@@ -207,14 +202,9 @@ getFilteredEvents(startDate, endDate, zipcode, distance){
     this.orgProvider.load(this.endpointOld + '/' + zipcode + '/' + startDate + '/' + endDate + '/' + distance + '/', this.start).then(
       result => {
         console.log(result);
-       this.events = result['events'];
-       //this.loading.dismiss(); 
-       this.enablePlaceholder = false;
-       this.loader = false;
-  
-      //  this.storage.set('EVENTS', result);
-  
-       //this.filterItems(this.searchTerm); 
+       this.getArray(result['events']);
+       resolve(true);
+
       });
   });
   

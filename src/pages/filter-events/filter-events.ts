@@ -12,7 +12,7 @@ import { Keyboard } from '@ionic-native/keyboard';
   templateUrl: 'filter-events.html', 
 })
 export class FilterEventsPage {
-
+ 
   public event = {
     month: '',
     timeStarts: '07:43',
@@ -47,8 +47,16 @@ filter:any = 'all';
       }else{
         this.events = true;
       }
+
+      this.storage.get('homeDistance').then(result =>{
+        if(result != null){
+          this.structure = result;
+        }else{
+          this.structure = 4000;
+
+        }
+      });
       
-      this.text = "ANY DISTANCE";
       console.log(new Date());
       var today = new Date();
       var dd:any = today.getDate();
@@ -64,9 +72,34 @@ filter:any = 'all';
         mm = '0'+mm;
       }
 
-      this.event.month = yyyy + '-' + mm + '-' + dd;
-      this.event.timeEnds = next_year + '-' + mm + '-' + dd;
-      console.log(this.event.month);
+      
+
+      this.storage.get('homeZipcode').then(data => {
+        if(data != null){
+          this.zipcode = data;
+          if(this.zipcode.length >= 5){
+            this.disable = false;
+          }
+        }
+      });
+
+      this.storage.get('startDate').then(data =>{
+          if(data != null){
+            this.event.month = data;
+          } else{
+            this.event.month = yyyy + '-' + mm + '-' + dd;
+          }
+      });
+
+      this.storage.get('endDate').then(data =>{
+        if(data != null){
+          this.event.timeEnds = data;
+        }else{
+          this.event.timeEnds = next_year + '-' + mm + '-' + dd;
+
+        }
+      });
+      
   }
 
   ionViewDidLoad() {
@@ -92,7 +125,8 @@ goToEvents(){
   this.storage.set('homeDistance', this.structure);
   this.storage.set('startDate', this.event.month);
   this.storage.set('endDate', this.event.timeEnds);
-  this.storage.set('filterBy', this.filter);
+  this.storage.set('filterBy', this.filter); 
+
   this.dismiss();
   // this.httpProvider.getJsonData(this.endpoint + this.zipcode + '/' + this.event.month + '/' +  this.event.timeEnds + '/' + this.structure)
   // .subscribe(
