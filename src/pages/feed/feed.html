@@ -94,101 +94,74 @@
        
         <div *ngFor="let record of records, let i = index">
         <!-- Tweet Cards -->
-        <ion-card class="reps-card" style="position: relative;" *ngIf="record.card_type === 'org_tweet'">
-            <ion-fab right top>
-                <button ion-fab color="light" (click)="tweetOrgEllipsisController(record.name, record.org_id, record.tweet, record.followers, record.notify)">
-                    <ion-icon name="ios-more"></ion-icon>
-                </button>
-              
-            </ion-fab>
-            <ion-card-header>
-                <ion-item>
-                    <ion-avatar item-start (click)="goToOrganizationProfile(record.org_id)">
-                      <img [src]="record.image_url ">
-                    </ion-avatar>
-                    <!-- only show icon on verified accounts <h2 style="display: flex;">Senator Bob Jones <img *ngIf="{{rep.verified === true}}" style="width: 12px; height: 12px; margin-left: 5px;" src="assets/img/TwtterVerified.svg" alt=""></h2> -->
-    
-                    <h2 style="display: flex; font-weight:bold;" (click)="goToOrganizationProfile(record.org_id)">{{record.name}}</h2>
-                    <p><small>@{{record.twitter_username}} • {{record.tweet_created_at | amTimeAgo}}</small></p>
-                  </ion-item>
-            </ion-card-header>
+        <ion-card class="Card reps-card has-footer" *ngIf="record.card_type === 'org_tweet'">
+            <ion-item>
+                <ion-fab>
+                    <button ion-fab color="light" (click)="tweetOrgEllipsisController(record.name, record.org_id, record.tweet, record.followers, record.notify)">
+                        <ion-icon name="ios-more"></ion-icon>
+                    </button>
+                </ion-fab>
+                <ion-avatar item-start (click)="goToOrganizationProfile(record.org_id)">
+                  <img [src]="record.image_url ">
+                </ion-avatar>
+                <h2 (click)="goToOrganizationProfile(record.org_id)">{{record.name}}</h2>
+                <p><small>@{{record.twitter_username}} • {{record.tweet_created_at | amTimeAgo}}</small></p>
+            </ion-item>
+
             <ion-card-content (click)="openWebpage(record.twitter_username, record.tweet_id)">
-                <ion-row>
-                    <ion-col col-10>
-                        <blockquote style="margin: 0 !important;" class="twitter-video" data-lang="es"> 
-                            {{record.tweet}}
-                        </blockquote>               
-                    </ion-col>
-                    <ion-col col-2 text-right style="line-height: 50px;">
-    
-                        <ion-icon name="logo-twitter"></ion-icon>
-                    </ion-col>
-                </ion-row>
+                <blockquote class="twitter-video" data-lang="es">
+                    {{record.tweet}}
+                </blockquote>
+                <ion-icon name="logo-twitter"></ion-icon>
             </ion-card-content>
-           
-            <ion-row>
+
+            <ion-row class="card-footer">
                 <button [disabled]="disable" class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, record.id, tweetLike)" [ngStyle]="{'background-color': findInLoop(record.likes), 'color': getColor(record.likes)}">
                     <ion-icon name="{{getIcon(record?.likes)}}" ></ion-icon>
                     {{record.likes_count}}
                 </button>
                 <button [disabled]="disable" class="btn-50" ion-button icon-left clear full (click)="shareController(record.tweet, record.image_url, record.id, shareAction, $event)">
-                        <!-- <ion-icon name="ios-share-alt"></ion-icon> -->
-                        <img src="assets/img/Share-white.svg" style="width: 17px; margin-right:8px;">
-                        {{record.shares_count}}
-
-                    </button>
-    
+                    <!-- <ion-icon name="ios-share-alt"></ion-icon> -->
+                    <img src="assets/img/Share-white.svg" style="width: 17px; margin-right:8px;">
+                    {{record.shares_count}}
+                </button>
             </ion-row>
         </ion-card>
 
         <!-- End Twitter Card -->
  
          <!-- Tweet Cards -->
-         <ion-card class="reps-card" style="position: relative;" *ngIf="record.card_type === 'rep_tweet'">
-            <ion-fab right top>
-                <button ion-fab color="light" (click)="tweetRepEllipsisController(record.name, record.rep_id, record.tweet, record.followers, record.notify)">
-                    <ion-icon name="ios-more"></ion-icon>
-                </button>
-              
-            </ion-fab>
-            <ion-card-header>
-                <ion-item>
-                    <ion-avatar item-start (click)="goToRepProfile(record.rep_id)">
-                      <img [src]="record.photo_url ">
-                    </ion-avatar>
-                    <!-- only show icon on verified accounts <h2 style="display: flex;">Senator Bob Jones <img *ngIf="{{rep.verified === true}}" style="width: 12px; height: 12px; margin-left: 5px;" src="assets/img/TwtterVerified.svg" alt=""></h2> -->
-    
-                    <h2 style="display: flex; font-weight:bold;" (click)="goToRepProfile(record.rep_id)">{{record.name}}</h2>
-                    <p><small>@{{record.twitter_username}} • {{record.tweet_created_at | amTimeAgo}}</small></p>
-                  </ion-item>
-            </ion-card-header>
+         <ion-card class="reps-card Card has-footer" *ngIf="record.card_type === 'rep_tweet'">
+            <ion-item>
+                <ion-fab>
+                    <button ion-fab color="light" (click)="tweetRepEllipsisController(record.name, record.rep_id, record.tweet, record.followers, record.notify)">
+                        <ion-icon name="ios-more"></ion-icon>
+                    </button>
+                </ion-fab>
+                <ion-avatar item-start (click)="goToRepProfile(record.rep_id)">
+                  <img [src]="record.photo_url ">
+                </ion-avatar>
+                <h2 (click)="goToRepProfile(record.rep_id)">{{record.name}}</h2>
+                <p><small>@{{record.twitter_username}} . {{record.tweet_created_at | amTimeAgo}}</small></p>
+            </ion-item>
+
             <ion-card-content (click)="openWebpage(record.twitter_username, record.tweet_id)">
-                <ion-row>
-                    <ion-col col-10>
-                        <blockquote style="margin: 0 !important;" class="twitter-video" data-lang="es"> 
-                            {{record.tweet}}
-                        </blockquote>               
-                    </ion-col>
-                    <ion-col col-2 text-right style="line-height: 50px;">
-    
-                        <ion-icon name="logo-twitter"></ion-icon>
-                    </ion-col>
-                    
-                </ion-row>
+                <blockquote class="twitter-video" data-lang="es">
+                    {{record.tweet}}
+                </blockquote>
+                <ion-icon name="logo-twitter"></ion-icon>
             </ion-card-content>
            
-            <ion-row>
+            <ion-row class="card-footer">
                 <button [disabled]="disable" class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, record.id, tweetLike)" [ngStyle]="{'background-color': findInLoop(record.likes), 'color': getColor(record.likes)}">
                     <ion-icon name="{{getIcon(record?.likes)}}" ></ion-icon>
                     {{record.likes_count}}
                 </button>
                 <button [disabled]="disable" class="btn-50" ion-button icon-left clear full (click)="shareController(record.tweet, record.photo_url, record.id, shareAction, $event)">
-                        <!-- <ion-icon name="ios-share-alt"></ion-icon> -->
-                        <img src="assets/img/Share-white.svg" style="width: 17px; margin-right:8px;">
-                        {{record.shares_count}}
-
-                    </button>
-    
+                    <!-- <ion-icon name="ios-share-alt"></ion-icon> -->
+                    <img src="assets/img/Share-white.svg" style="width: 17px; margin-right:8px;">
+                    {{record.shares_count}}
+                </button>
             </ion-row>
         </ion-card>
 
@@ -196,23 +169,21 @@
 
         <!-- Objectives Card -->
 
-        <ion-card style="position: relative;" *ngIf="record.card_type === 'objective'" class="objectives-card">
-
-                <ion-fab right top>
-                    <button (click)="ellipsisController(record.organization['name'], record.id, i, record.organization_id, record.description, record.organization['followers'], record.organization['notify'] )" ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
-                    <!-- <ion-fab-list side="left">
-        
-                        <button ion-fab (click)="hideItem(objective.id, i)"><ion-icon name="md-done-all"></ion-icon></button>
-                    </ion-fab-list> -->
-                </ion-fab>
-        
+        <ion-card style="position: relative;" *ngIf="record.card_type === 'objective'" class="objectives-card Card">
                 <ion-item>
+                    <ion-fab>
+                        <button (click)="ellipsisController(record.organization['name'], record.id, i, record.organization_id, record.description, record.organization['followers'], record.organization['notify'] )" ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
+                        <!-- <ion-fab-list side="left">
+
+                            <button ion-fab (click)="hideItem(objective.id, i)"><ion-icon name="md-done-all"></ion-icon></button>
+                        </ion-fab-list> -->
+                    </ion-fab>
                     <ion-avatar item-start>
                         <img [src]="record.organization['image_url'] ? record.organization['image_url'] : 'assets/img/org_icon.svg'" (click)="goToOrganizationProfile(record.organization_id)">
                     </ion-avatar>
-                    <button (click)="goToOrganizationProfile(record.organization_id)" style="background: none; padding-left:0;">
-                <h2> <small>via</small> {{record.organization['name']}}</h2>
-            </button>
+                    <div class="item-heading" (click)="goToOrganizationProfile(record.organization_id)">
+                        <h2> <small>via</small> {{record.organization['name']}}</h2>
+                    </div>
                     <p><small>{{record.release_date | amTimeAgo}}</small></p>
                 </ion-item>
                 <div (click)="goToActionPage(record.id, record?.goals[0]?.goal_type, record?.goals[0]?.source_link, record?.goals[0]?.id, record?.goals[0]?.reps_goals[0]?.id)" class="organization-bg" [ngStyle]="{ 'background-image' : 'url(' + record.image_url +')'}">
@@ -221,23 +192,22 @@
                     <!-- <div class="days-excerpt">
                         <p class="white">{{objective?.goals[0]?.description}}</p>
                     </div> -->
+                    <div class="organization-filter"></div>
                     <div class="railled-excerpt" *ngIf="record.rallies > 0">
                         <p class="white"><strong>{{record.rallies}}</strong><br> Rallied</p>
+                        <div class="btn-objectives-contact">
+                            <button ion-button *ngIf="record?.goals[0]?.goal_type ==='contact'">Contact</button>
+                            <button ion-button *ngIf="record?.goals[0]?.goal_type === 'sign'">Sign</button>
+                            <button ion-button *ngIf="record?.goals[0]?.goal_type === 'donate'">Donate</button>
+                        </div>
                  </div>
-                   <div class="bottom-excerpt">
-                        <p class="white">{{record?.title}}</p> 
-                    </div>
-                    <div class="btn-objectives-contact">
-                        <button ion-button *ngIf="record?.goals[0]?.goal_type ==='contact'">Contact</button>
-                        <button ion-button *ngIf="record?.goals[0]?.goal_type === 'sign'">Sign</button>
-                        <button ion-button *ngIf="record?.goals[0]?.goal_type === 'donate'">Donate</button>             
+                 <div class="bottom-excerpt">
+                       <p class="white">{{record?.title}}</p>
                     </div>
                 </div>
         
-        
                 <ion-card-content>
                     <p>{{record.description | truncate : 200 : '...'}}</p>
-                   
                 </ion-card-content>
                 <ion-row>
                   
@@ -254,7 +224,6 @@
                             <img src="assets/img/Share-white.svg" style="width: 17px; margin-right:8px;">
                             {{record.shares}}
                         </button>
-        
                 </ion-row>
         
             </ion-card>
@@ -263,25 +232,24 @@
 
             <!-- Events Card -->
 
-            <ion-card class="events-card" *ngIf="record.card_type === 'events'">
-
-                    <ion-fab right top>
-                        <button ion-fab color="light" (click)="eventEllipsisController(record.organization[0].name, record.organization_id, record.title, record.organization[0].followers, record.organization[0].notify)" ><ion-icon name="ios-more"></ion-icon></button>
-                         <!-- <ion-fab-list side="left">
-            
-                            <button ion-fab><ion-icon name="md-done-all"></ion-icon></button>
-                        </ion-fab-list> -->
-                    </ion-fab>
-            
+            <ion-card class="events-card Card has-footer" *ngIf="record.card_type === 'events'">
                     <ion-item>
+                        <ion-fab>
+                            <button ion-fab color="light" (click)="eventEllipsisController(record.organization[0].name, record.organization_id, record.title, record.organization[0].followers, record.organization[0].notify)" ><ion-icon name="ios-more"></ion-icon></button>
+                            <!-- <ion-fab-list side="left">
+
+                               <button ion-fab><ion-icon name="md-done-all"></ion-icon></button>
+                           </ion-fab-list> -->
+                        </ion-fab>
                         <ion-avatar item-start>
                             <img [src]="record.organization[0].image_url ? record.organization[0].image_url : 'assets/img/org_icon.svg'" (click)="goToOrganizationProfile(record.organization_id)">
                         </ion-avatar>
-                        <button (click)="goToOrganizationProfile(record.organization_id)" style="background: none; padding-left:0; max-width: 85%;">
-                            <h2 text-wrap style="text-align: left; "> <small>via</small> {{record.organization[0].name}}</h2>
-                        </button>
+                        <div class="item-heading" (click)="goToOrganizationProfile(record.organization_id)">
+                            <h2 text-wrap> <small>via</small> {{record.organization[0].name}}</h2>
+                        </div>
                         <p><small>Event Location: {{record.city ? record.city : 'Unlisted   '}}</small></p>
                     </ion-item>
+
                     <div class="events-bg" (click)="goToEventDetail(record.id)" [ngStyle]="{'background-image': 'url(' + record.image_url + ')'}">
                         <div class="events-filter"></div>
                         <div class="events-railled" *ngIf="record.attending > 0">
@@ -293,12 +261,13 @@
                             <span class="month">{{getShortDate(record.start_date)}}</span>
                         </div>
                     </div>
+
                     <ion-card-content (click)="goToEventDetail(record.id)">
                         <ion-card-title>{{record.title}}</ion-card-title>
                         <!-- <p class="event-description">{{event.description}}</p> -->
-                   </ion-card-content>
+                    </ion-card-content>
             
-                    <ion-row>
+                    <ion-row class="card-footer">
                         <button [disabled]="disable" class="btn-50 right-border" ion-button icon-left clear full (click)="getLikeStatus($event, record.id, eventLike)" [ngStyle]="{'background-color': findInLoop(record?.user_likes), 'color': getColor(record?.user_likes)}">
                             <ion-icon name="{{getIcon(record?.user_likes)}}" ></ion-icon>
                             {{record.likes}}
@@ -316,29 +285,21 @@
                 <!-- End Events Card -->
 
                 <!-- Friends Activity Card -->
-                <ion-card *ngIf="record.card_type === 'objective_action'" style="position: relative;" class="friends-card">
-                    <ion-fab right top style="top: 4px;
-               right: 0;">
-                       <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
-                    
-                   </ion-fab>
-           
-                      
+                <ion-card *ngIf="record.card_type === 'objective_action'" style="position: relative;" class="friends-card Card">
                                <ion-item>
+                                   <ion-fab>
+                                       <button ion-fab color="light"><ion-icon name="ios-more"></ion-icon></button>
+                                   </ion-fab>
                                    <ion-avatar item-start (click)="goToPublicProfile(record.user_id)">
                                       <img src="{{record.photo_url}}"> 
                                    </ion-avatar>
                                    <h2 (click)="goToPublicProfile(record.user_id)">{{record.fname}}</h2>
-                                   <div style="display: flex;">
+                                   <div>
                                        <p><small>{{record.username}} • {{record.created_at | amTimeAgo}}  </small></p>
-                                       
                                    </div>
-                                   
-           
                                  </ion-item>
                            <ion-card-content>
-                              
-                                <p style="font-size: 20px;">{{transform(record.action)}}ed  <strong (click)="goToRepProfile(record.representative_id)">{{record.representative}}</strong>
+                                <p class="content-heading">{{transform(record.action)}}ed  <strong (click)="goToRepProfile(record.representative_id)">{{record.representative}}</strong>
                                    for <strong (click)="goToOrganizationProfile(record.objective_organization_id)">{{record.organization}}</strong>'s campaign <strong (click)="goToActionPage(record.objective_id, record.goal_type, record.goal_source_link, record.goal_id, record.rep_id)">"{{record.objective}}"</strong>.</p>
                            </ion-card-content>
                   
