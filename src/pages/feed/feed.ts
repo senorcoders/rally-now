@@ -133,6 +133,14 @@ export class FeedPage {
 
       console.log("Network", this.network.type);
    
+    
+        
+
+
+  }
+
+  ionViewWillEnter(){
+    this.records = [];
     this.enablePlaceholder = true;
        
         this.usersProv.returnRallyUserId()
@@ -143,9 +151,6 @@ export class FeedPage {
             this.saveLog();
          
       });
-        
-
-
   }
 
 
