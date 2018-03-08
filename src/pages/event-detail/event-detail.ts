@@ -102,21 +102,21 @@ export class EventDetailPage {
       this.event_time = result.event_time;
       this.description = result.description;
       this.image_url = result.image_url;
-      this.orgName = result.organization[0].name;
+      this.orgName = result.organization.name;
       this.orgId = result.organization_id;
-      this.orgPhoto = result.organization[0].image_url;
+      this.orgPhoto = result.organization.image_url;
       this.rallies = result.rallies;
       this.likes = result.likes;
       this.shares = result.shares;
       this.start_date = result.start_date;
       this.attending = result.attending;
       this.organization_id = result.organization_id;
-      this.followers = result.organization[0].followers;
+      this.followers = result.organization.followers;
       this.state = result.state;
       this.venue = result.venue;
       this.fbID = result.facebook_id;
       this.end_date = result.end_date;
-      this.notify = result.organization[0].notify;
+      this.notify = result.organization.notify;
       this.getTime();
       this.getEndTime();
 

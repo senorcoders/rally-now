@@ -616,7 +616,6 @@ removeItem(endpoint, recordID){
    
 }
 
-
 getNotifications(endpoint): Observable<NotiModel[]>{
   var headers = new Headers();
   headers.append('Content-Type', 'application/json' );
@@ -659,7 +658,5 @@ removeRallyUserReference(userid){
   return this.http.get('https://api.letsrally.us/rallyapi/user/delete/' + userid, options)
     .map(res => res.json())
 }
-
-
 
 }

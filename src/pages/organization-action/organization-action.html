@@ -69,7 +69,7 @@
                             <img src="{{rep.photo_url}}" style="border-radius: 50%;">
                         </ion-avatar>
                         <h2 (click)="getID(rep.bioguide)">{{rep.name}}</h2>
-                        <p><small>House Representative of {{rep.state_name}}</small></p>
+                        <p><small>US Representative for {{rep.state_name}}</small></p>
                         <button (click)="getRepID(rep, rep.civil_services_url ,rep.twitter_url,rep.contact_page, rep.bioguide)" item-end ion-button color="dark" class="action-btn">Contact</button>
                     </ion-item>
                     
@@ -81,7 +81,7 @@
                         <img src="{{rep.photo_url}}" style="border-radius: 50%;">
                     </ion-avatar>
                     <h2 (click)="getID(rep.bioguide)">{{rep.name}}</h2>
-                    <p><small>Senator of {{rep.state_name}}</small></p>
+                    <p><small>US Senator for {{rep.state_name}}</small></p>
                     <button (click)="getRepID(rep, rep.civil_services_url ,rep.twitter_url,rep.contact_page, rep.bioguide)" item-end ion-button color="dark" class="action-btn">Contact</button>
                 </ion-item>
                 
@@ -107,7 +107,7 @@
                             <img src="{{rep.photo_url}}" style="border-radius: 50%;">
                         </ion-avatar>
                         <h2 (click)="goToRepProfile(rep.id)">{{rep.name}}</h2>
-                        <p><small>Senator of {{rep.state}}</small></p>
+                        <p><small>US Senator for {{rep.state}}</small></p>
                         <button (click)="presentActionSheet(rep, rep.fax_url, rep.twitter_id, rep.url, rep.id, rep.offices)" item-end ion-button color="dark" class="action-btn">Contact</button>
                     </ion-item>
                 </div>
