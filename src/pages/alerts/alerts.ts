@@ -37,6 +37,7 @@ export class AlertsPage {
           this.myRallyID = user.apiRallyID;
           this.getData();
           this.getNoticationsQty();
+          this.updateFireRecord();
       });
 
   }
@@ -95,7 +96,7 @@ export class AlertsPage {
           console.log("To get Follow ID", result);
             if (result != ""){
                 this.httpProvider.updateFollowers(this.followSingleEndpoint + result[0].id);
-                this.updateFireRecord(this.badgeCount - 1 );
+                // this.updateFireRecord(this.badgeCount - 1 );
                 this.presentToast('You got a new follower!');
                 
             }
@@ -103,10 +104,10 @@ export class AlertsPage {
       )
      }
 
-     updateFireRecord(count){
+     updateFireRecord(count?){
       let user:any = firebase.auth().currentUser;
       this.af.database.ref('badges/'+user['uid']).update({
-        badgeCount: count
+        badgeCount: 0
       });
      }
 

@@ -76,7 +76,7 @@
                           <img src="{{follower.followers[0].photo_url}}"  style="border:2px solid #ada8a8;">
                         </ion-avatar>
                         <h2 (click)="goToPublicProfile(follower.follower_id)">{{follower.followers[0].name}}</h2>
-                        <button ion-button clear item-end class="action-btn" (click)="addFollowRecordFirebase(follower.follower_id)">Following</button>
+                        <button *ngIf="follower.followers[0].hide_activity == '0' && follower.followers[0].searchable == '1'" ion-button clear item-end class="action-btn" (click)="addFollowRecordFirebase(follower.follower_id)">Following</button>
                       </ion-item>
         </ion-list>
    
