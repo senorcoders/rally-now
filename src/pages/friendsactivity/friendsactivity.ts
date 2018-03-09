@@ -155,6 +155,7 @@ doRefresh(refresher) {
   //   this.loading.present();
   this.loader = true;
   this.getdata();
+  this.getPersonaldata();
 
     setTimeout(() => {
       console.log('Async operation has ended');
@@ -170,6 +171,7 @@ getdata(){
       console.log("Full Data", data);
       this.getArray(data['Objectives_Actions']);
       this.getArray(data['Direct_Actions']);
+      this.getArray(data['Contact_Actions']);
       //this.loading.dismiss(); 
       this.enablePlaceholder = false;
       this.loader = false;   
@@ -198,9 +200,10 @@ getPersonaldata(){
   return new Promise(resolve => {
     this.httpProvider.getRecords(this.singleEndpoint + '/' + this.myRallyID)
     .then(data => {
-      console.log("Full Data", data);
+      console.log("Personal Data", data);
       this.getFollowingArray(data['Objectives_Actions']);
       this.getFollowingArray(data['Direct_Actions']);
+      this.getFollowingArray(data['Contact_Actions']);
 
         
       resolve(true);
@@ -530,8 +533,8 @@ followUser(userid){
           this.presentToast('You are not following this user anymore');
  
         }else{
-          //this.followFriend(friendID);
-          this.getDeviceID(userid);
+          this.followFriend(userid);
+          // this.getDeviceID(userid);
           this.presentToast('Follow user successfully');
         }
       });
@@ -560,7 +563,6 @@ getFollowRecordID(parameter){
     //Reemplazar por parametro despues
     this.httpProvider.getJsonData(this.notificationsEndpoint+'?user_id='+user_id)
       .subscribe(result => {
-          console.log(result[0].id);
           this.saveNotification(user_id, result[0].id, this.myRallyID);
       }, err => {
         console.error("Error: " +err);
@@ -572,13 +574,18 @@ getFollowRecordID(parameter){
   saveNotification(user_id, registration_id, sender_id){
     this.usersProvider.returnRallyUserId().then(user => {
      this.usersProvider.saveNotification(user_id, registration_id, user.displayName + " wants to follow you",  this.alertsEndpoint, sender_id);
-    this.followFriend(user_id);
     });
     //this.httpProvider.sendNotification(registration_id, msg);
   }
 
    followFriend(friendID){
-    this.usersProvider.followFriend(this.followEndpoint, this.myRallyID, friendID );
+    this.usersProvider.followFriend(this.followEndpoint, this.myRallyID, friendID ).subscribe(data => {
+      console.log(data);
+      this.usersProvider.saveFollowRecordID(data.following_id, data.id, 'follow');
+      this.getDeviceID(friendID);
+    }, error => {
+      console.log("Error", error);
+    });;
   }
 
 

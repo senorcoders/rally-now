@@ -165,6 +165,7 @@ export class ProfilePage {
             this.user.id = result[0].id;
             this.getArray(result[0].Objectives_Actions);
             this.getArray(result[0].Direct_Actions);
+            this.getArray(result[0].Contact_Actions);
           }
         );
      }

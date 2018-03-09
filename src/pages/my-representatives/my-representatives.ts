@@ -270,17 +270,18 @@ export class MyRepresentativesPage {
             this.navCtrl.push(CallStatePage, {rep: rep, repID: repID, offices: offices});
       
           }
-        },{
-          text: 'Fax',
-          handler: () => {
-            console.log('Fax clicked');
-            // this.data.title = 'fax';
-            // this.data.action_type_id = 'ad3ef19b-d809-45b7-bef2-d470c9af0d1d';
-            // this.httpProvider.addAction(this.favEndpoint, this.data);
-            this.navCtrl.push(FaxFeedBackPage, {iframeUrl: fax, repID: repID});
+        }//{
+        //   text: 'Fax',
+        //   handler: () => {
+        //     console.log('Fax clicked');
+        //     // this.data.title = 'fax';
+        //     // this.data.action_type_id = 'ad3ef19b-d809-45b7-bef2-d470c9af0d1d';
+        //     // this.httpProvider.addAction(this.favEndpoint, this.data);
+        //     this.navCtrl.push(FaxFeedBackPage, {iframeUrl: fax, repID: repID});
 
-          }
-        },{
+        //   }
+        // }
+        ,{
           text: 'Email',
           handler: () => {
             console.log('Email clicked');
@@ -289,18 +290,20 @@ export class MyRepresentativesPage {
             // this.httpProvider.addAction(this.favEndpoint, this.data);
             this.navCtrl.push(EmailFeedBackPage, {iframeUrl: email, repID: repID});
           }
-        },{
-          text: 'Post message via Twitter',
-          handler: () => {
-            console.log('Post message via Twitter clicked');
-            this.shareProvider.twitterShare('@' + twitter).then(() => {
-              this.data.title = 'tweet';
-              this.data.action_type_id = '9eef1652-ccf9-449a-901e-ad6c0b3a8a6c';
-              this.httpProvider.addAction(this.favEndpoint, this.data);
-              this.streakModal();
-            });
-          }
-        },{
+        },
+        // {
+        //   text: 'Post message via Twitter',
+        //   handler: () => {
+        //     console.log('Post message via Twitter clicked');
+        //     this.shareProvider.twitterShare('@' + twitter).then(() => {
+        //       this.data.title = 'tweet';
+        //       this.data.action_type_id = '9eef1652-ccf9-449a-901e-ad6c0b3a8a6c';
+        //       this.httpProvider.addAction(this.favEndpoint, this.data);
+        //       this.streakModal();
+        //     });
+        //   }
+        // },
+        {
           text: 'Cancel',
           role: 'cancel',
           handler: () => {

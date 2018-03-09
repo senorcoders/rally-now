@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
@@ -16,6 +16,7 @@ import { TabsPage } from '../tabs/tabs';
 import { WelcomePage } from '../welcome/welcome';
 import { HelloPage } from '../hello/hello';
 import { TermsPage } from '../terms/terms';
+import { PrivacyPolicyPage } from '../privacy-policy/privacy-policy';
 
 
 
@@ -58,7 +59,8 @@ export class HomePage {
     public storage: Storage,
     private facebook: Facebook,
     private db: AngularFireDatabase,
-    private httpProvider:UsersProvider
+    private httpProvider:UsersProvider,
+    private readonly ngZone: NgZone
 
   ) {
       this.users = db.list('/users');
@@ -69,24 +71,25 @@ export class HomePage {
     
   checkIfUserExists(id){
     let userRef = this.db.database.ref('users/'+id);
-    var that = this;
-    userRef.once('value', function (snapshot){
+
+    userRef.once('value').then((snapshot) => {
       if (snapshot.hasChildren()) {
-       console.log('Usuario ya existe');
-       that.navCtrl.setRoot(TabsPage);
-      } else{
-        console.log('Nuevo Usuario', that.user);
-          that.db.database.ref('users/'+that.user.uid).set(that.user);
-          that.httpProvider.saveNewUser(that.endpoint, that.user).subscribe(data => {
-            console.log("Nuevo Usuario", data);
-            that.storage.set('APIRALLYID', data.id);
-            that.httpProvider.saveApiRallyID(data.id);
-            that.navCtrl.setRoot(HelloPage);
-          }, error => { 
-            console.log("Error", error);
-          });;
-      }
+        console.log('Usuario ya existe');
+        this.navCtrl.setRoot(TabsPage);
+       } else{
+         console.log('Nuevo Usuario', this.user);
+           this.db.database.ref('users/'+this.user.uid).set(this.user);
+           this.httpProvider.saveNewUser(this.endpoint, this.user).subscribe(data => {
+             console.log("Nuevo Usuario", data);
+             this.storage.set('APIRALLYID', data.id);
+             this.httpProvider.saveApiRallyID(data.id);
+             this.ngZone.run(() => this.navCtrl.setRoot(HelloPage));
+           }, error => { 
+             console.log("Error", error);
+           });;
+       }
     });
+    
   }
  
 
@@ -177,5 +180,9 @@ export class HomePage {
 
   goToTerms(){
     this.navCtrl.push(TermsPage);
+  }
+
+  goToPrivacy(){
+    this.navCtrl.push(PrivacyPolicyPage);
   }
 }

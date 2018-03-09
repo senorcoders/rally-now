@@ -136,8 +136,8 @@ export class FollowedCandidatesPage {
           this.presentToast('You are not following this user anymore');
  
         }else{
-          //this.followFriend(friendID);
-          this.getDeviceID(friendID);
+          this.followFriend(friendID);
+          // this.getDeviceID(friendID);
           this.presentToast('Follow user successfully');
         }
       });
@@ -159,13 +159,18 @@ export class FollowedCandidatesPage {
      saveNotification(user_id, registration_id, sender_id){
        this.userProvider.returnRallyUserId().then(user => {
         this.userProvider.saveNotification(user_id, registration_id, user.displayName + " wants to follow you",  this.alertsEndpoint, sender_id);
-       this.followFriend(user_id);
        });
        //this.httpProvider.sendNotification(registration_id, msg);
      }
  
       followFriend(friendID){
-       this.userProvider.followFriend(this.followEndpoint, this.currentApiID, friendID );
+       this.userProvider.followFriend(this.followEndpoint, this.currentApiID, friendID ).subscribe(data => {
+        console.log(data);
+        this.userProvider.saveFollowRecordID(data.following_id, data.id, 'follow');
+        this.getDeviceID(friendID);
+      }, error => {
+        console.log("Error", error);
+      });
      }
  
  

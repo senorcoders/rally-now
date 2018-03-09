@@ -256,7 +256,7 @@ export class UsersProvider{
   }
 
 
-	followFriend(endpoint, currentUserRallyID, friendRallyID):void{
+	followFriend(endpoint, currentUserRallyID, friendRallyID){
     var headers = new Headers();
       headers.append('Content-Type', 'application/json' );
       headers.append('Access-Control-Allow-Origin', '*');
@@ -268,14 +268,9 @@ export class UsersProvider{
       let options = new RequestOptions({ headers: headers });
     let actionData = JSON.stringify({follower_id: currentUserRallyID, following_id: friendRallyID, approved: false});
     console.log(this.base + endpoint, actionData, options);
-    this.http.post(encodeURI(this.base + endpoint), actionData, options)
+    return this.http.post(encodeURI(this.base + endpoint), actionData, options)
       .map(res => res.json())
-      .subscribe(data => {
-        console.log(data);
-        this.saveFollowRecordID(data.following_id, data.id, 'follow');
-      }, error => {
-        console.log("Error", error);
-      });
+      
   }
 
   followRep(endpoint, currentUserRallyID, repID){

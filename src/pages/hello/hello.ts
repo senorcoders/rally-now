@@ -26,11 +26,12 @@ export class HelloPage {
     public userData: UserData,
     private readonly ngZone: NgZone,
   ) {
+    this.getUID(); 
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HelloPage');
-    this.getUID(); 
     
   }
 
@@ -47,12 +48,12 @@ export class HelloPage {
     this.userData.getUid().then((uid) => {
       console.log("My Firebase ID", uid);
        this.af.database.ref('users/'+uid)
-        .on('value', snapshot => {
-         console.log(snapshot);
-          this.username = snapshot.val().username;
-          let nickname = snapshot.val().displayName.split(" ");
-          this.displayName = nickname[0];   
-        });
+        .once('value').then(snapshot => {
+          console.log("User from Firebase", snapshot);
+           this.username = snapshot.val().username;
+           let nickname = snapshot.val().displayName.split(" ");
+           this.displayName = nickname[0];   
+         }); 
     });
   }
 

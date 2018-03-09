@@ -298,8 +298,8 @@ export class FriendsRequestPage {
           this.unFollowUserActionSheet(friendID, $event);
  
         }else{
-          //this.followFriend(friendID);
-          this.getDeviceID(friendID, $event);
+          this.followFriend(friendID, $event);
+          // this.getDeviceID(friendID, $event);
           this.presentToast('Follow user successfully');
         }
       });
@@ -321,12 +321,12 @@ export class FriendsRequestPage {
         );
         }
  
-     getDeviceID(user_id, $event){
+     getDeviceID(user_id){
        //Reemplazar por parametro despues
        this.httpProvicer.getJsonData(this.notificationsEndpoint+'?user_id='+user_id)
          .subscribe(result => {
              console.log(result[0].id);
-             this.saveNotification(user_id, result[0].id, this.myRallyID, $event);
+             this.saveNotification(user_id, result[0].id, this.myRallyID);
          }, err => {
            console.error("Error: " +err);
          }, () => {
@@ -334,21 +334,27 @@ export class FriendsRequestPage {
          });
      }
  
-     saveNotification(user_id, registration_id, sender_id, $event){
+     saveNotification(user_id, registration_id, sender_id){
        this.httpProvicer.returnRallyUserId().then(user => {
         this.httpProvicer.saveNotification(user_id, registration_id, user.displayName + " wants to follow you",  this.alertsEndpoint, sender_id);
-       this.followFriend(user_id, $event);
        });
        //this.httpProvider.sendNotification(registration_id, msg);
      }
  
       followFriend(friendID, $event){
-       this.httpProvicer.followFriend(this.followEndpoint, this.myRallyID, friendID );
-          $event.srcElement.innerText = 'Following';
-          $event.srcElement.style.backgroundColor = '#fff';
-          $event.srcElement.offsetParent.style.backgroundColor = '#fff';
-          $event.srcElement.parentNode.style.backgroundColor = '#fff';
-          $event.srcElement.style.color = '#6D6D72';
+       this.httpProvicer.followFriend(this.followEndpoint, this.myRallyID, friendID ).subscribe(data => {
+            console.log(data);
+            this.httpProvicer.saveFollowRecordID(data.following_id, data.id, 'follow');
+            $event.srcElement.innerText = 'Following';
+            $event.srcElement.style.backgroundColor = '#fff';
+            $event.srcElement.offsetParent.style.backgroundColor = '#fff';
+            $event.srcElement.parentNode.style.backgroundColor = '#fff';
+            $event.srcElement.style.color = '#6D6D72';
+            this.getDeviceID(friendID);
+          }, error => {
+            console.log("Error", error);
+          });
+          
      }
 
      unFollowFriend(recordID, parameter){

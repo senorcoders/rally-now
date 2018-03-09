@@ -21,7 +21,7 @@
                
             </ion-row>
             <ion-row>
-                <button class="follow-btn" (click)="followRep(repID, $event)" color="light" ion-button  full outline>{{findInLoop(followers)}}</button>
+                <button *ngIf="twitter_id !== 'not available'" class="follow-btn" (click)="followRep(repID, $event)" color="light" ion-button  full outline>{{findInLoop(followers)}}</button>
             </ion-row>
  
         </ion-col>

@@ -109,6 +109,7 @@ export class PublicProfilePage {
       this.id = result.id;
       this.getArray(result.Objectives_Actions);
       this.getArray(result.Direct_Actions);
+      this.getArray(result.Contact_Actions);
       this.username = result.username;
       console.log("Success : "+ result);
     },
@@ -149,22 +150,23 @@ presentToast(message) {
      followRef.once('value', snapshot=>{
        if (snapshot.hasChildren()) {
          console.log('You already follow this user');
-         this.unFollowActionSheet();
+         this.unFollowActionSheet(); 
          //this.presentToast('You are not following this user anymore');
 
        }else{
          //this.followFriend(friendID);
-         this.getDeviceID(friendID);
+         this.followFriend(friendID);
          this.presentToast('Follow user successfully');
        }
      });
     }
 
     getDeviceID(user_id){
+      console.log("Friend ID", user_id);
       //Reemplazar por parametro despues
       this.httpProvider.getJsonData(this.notificationsEndpoint+'?user_id='+user_id)
         .subscribe(result => {
-            console.log(result[0].id);
+            console.log("Devices", result);
             this.saveNotification(user_id, result[0].id, this.myRallyID);
         }, err => {
           console.error("Error: " +err);
@@ -176,13 +178,18 @@ presentToast(message) {
     saveNotification(user_id, registration_id, sender_id){
       this.httpProvider.returnRallyUserId().then(user => {
        this.httpProvider.saveNotification(user_id, registration_id, user.displayName + " wants to follow you",  this.alertsEndpoint, sender_id);
-      this.followFriend(user_id);
       });
       //this.httpProvider.sendNotification(registration_id, msg);
     }
 
      followFriend(friendID){
-      this.httpProvider.followFriend(this.followEndpoint, this.myRallyID, friendID );
+      this.httpProvider.followFriend(this.followEndpoint, this.myRallyID, friendID ).subscribe(data => {
+        console.log(data);
+        this.httpProvider.saveFollowRecordID(data.following_id, data.id, 'follow');
+        this.getDeviceID(friendID);
+      }, error => {
+        console.log("Error", error);
+      });
     }
 
 

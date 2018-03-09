@@ -22,7 +22,7 @@
           <p class="text-wrap" *ngIf="rep.rep_type === 'sen'"> <small>US Senator for {{rep.state}}</small></p>
           <p class="text-wrap" *ngIf="rep.rep_type === 'rep'"> <small>US Representative for {{rep.state}}</small></p>
 
-          <button (click)="followRep(rep.id, $event)" ion-button clear item-end class="follow-btn">{{findInLoop(rep.followers)}}</button>
+          <button *ngIf="rep.twitter_id !== 'not available'" (click)="followRep(rep.id, $event)" ion-button clear item-end class="follow-btn">{{findInLoop(rep.followers)}}</button>
         </ion-item>
     </ion-list>
     
