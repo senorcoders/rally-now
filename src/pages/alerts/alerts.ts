@@ -9,6 +9,7 @@ import { UsersProvider } from '../../providers/users/users';
 import { Device } from '@ionic-native/device';
 import firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { PublicProfilePage } from '../public-profile/public-profile';
 
 @Component({
   selector: 'page-alerts',
@@ -19,11 +20,12 @@ export class AlertsPage {
 
   endpoint:any = 'ux_events';
   myRallyID:any;
-  alerts:any;
+  public alerts:any = [];
   followEndpoint:any = "following_users?following_id=";
   followSingleEndpoint:any = "following_users/";
   userEndpoint:any = "users/";
   badgeCount:number;
+  public:boolean;
 
   constructor(
     public navCtrl: NavController,
@@ -38,6 +40,7 @@ export class AlertsPage {
           this.getData();
           this.getNoticationsQty();
           this.updateFireRecord();
+          this.getMyAccountStatus();
       });
 
   }
@@ -56,11 +59,23 @@ export class AlertsPage {
        popover.present();
      }
 
+     getMyAccountStatus(){
+        this.httpProvider.getJsonData(this.userEndpoint + this.myRallyID).subscribe(result => {
+          if(result.searchable == '1' && result.hide_activity == '0'){
+            this.public = true;
+          }else{
+            this.public = false;
+          }
+
+        });
+     }
+
      getData(){
-      this.httpProvider.getJsonData(this.endpoint + '?user_id=' + this.myRallyID).subscribe(
+      this.httpProvider.getJsonData(this.endpoint + '?user_id=' + this.myRallyID + '&what=unread').subscribe(
         result => {
+          console.log("Alertas", result);
+          this.getArray(result);
           
-          this.alerts = result;
         },
         err =>{
           console.error("Error : "+err);
@@ -73,6 +88,21 @@ export class AlertsPage {
       );
      }
 
+
+     getArray(array){
+      for(let person of array) {
+        console.log(person);
+        this.getSingleUsersData(person.sender_id);
+      }
+     }
+
+     getSingleUsersData(person){
+      this.httpProvider.getJsonData(this.userEndpoint+person).subscribe(result => {
+        this.alerts.push(result);
+    });
+
+     }
+
      getNoticationsQty(){ 
       this.httpProvider.getNotifications(this.endpoint+'?user_id='+this.myRallyID+'&what=unread')
         .subscribe( result => {
@@ -82,11 +112,36 @@ export class AlertsPage {
           
         });
     }
+    goToPublicProfile(userID){
+      this.navCtrl.push(PublicProfilePage, {
+         param1: userID,
+         profilePageName: "Alerts"
+   }, {animate:true,animation:'transition',duration:500,direction:'forward'});
+    }
 
-     markAsRead(id, sender_id, index){
+    hideNotification(user_id, i){
+        this.httpProvider.getJsonData(this.endpoint+'?sender_id='+user_id+'&user_id='+this.myRallyID)
+          .subscribe(result => {
+              console.log("Notification", result);
+            this.markAsRead(result[0].id);
+            this.goToPublicProfile(user_id);
+          });
+    }
+
+    approveRequest(user_id, i){
+      this.httpProvider.getJsonData(this.endpoint+'?sender_id='+user_id+'&user_id='+this.myRallyID)
+      .subscribe(result => {
+          console.log("Notification", result);
+        this.markAsRead(result[0].id);
+        this.getFollowID(result[0].sender_id);
+        this.hideItem(i);
+      });
+    }
+
+     markAsRead(id){
         this.httpProvider.updateNotificationStatus(this.endpoint+'/'+id, 'read');
-        this.getFollowID(sender_id);
-        this.hideItem(index);
+        // this.getFollowID(sender_id);
+        // this.hideItem(index);
         console.log("Alert updated");
      }
 

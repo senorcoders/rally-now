@@ -168,6 +168,7 @@ presentToast(message) {
         .subscribe(result => {
             console.log("Devices", result);
             this.saveNotification(user_id, result[0].id, this.myRallyID);
+            this.sendPushNotification(result[0].registration_id);
         }, err => {
           console.error("Error: " +err);
         }, () => {
@@ -180,6 +181,13 @@ presentToast(message) {
        this.httpProvider.saveNotification(user_id, registration_id, user.displayName + " wants to follow you",  this.alertsEndpoint, sender_id);
       });
       //this.httpProvider.sendNotification(registration_id, msg);
+    }
+
+    sendPushNotification(device){
+        this.httpProvider.sendPushNotification(device, 'New Follow Request')
+          .subscribe(result =>{
+            console.log("Noti", result);
+          });
     }
 
      followFriend(friendID){

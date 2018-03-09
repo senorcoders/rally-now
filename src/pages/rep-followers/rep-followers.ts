@@ -96,6 +96,8 @@ export class RepFollowersPage {
     this.httpProvider.getJsonData(this.notificationsEndpoint+'?user_id='+user_id)
       .subscribe(result => {
           this.saveNotification(user_id, result[0].id, this.myRallyID);
+          this.sendPushNotification(result[0].registration_id);
+
       }, err => {
         console.error("Error: " +err);
       }, () => {
@@ -109,6 +111,13 @@ export class RepFollowersPage {
     });
     //this.httpProvider.sendNotification(registration_id, msg);
   }
+
+  sendPushNotification(device){
+    this.httpProvider.sendPushNotification(device, 'New Follow Request')
+      .subscribe(result =>{
+        console.log("Noti", result);
+      });
+}
 
    followFriend(friendID, $event){
     this.httpProvider.followFriend(this.followEndpoint, this.myRallyID, friendID ).subscribe(data => {

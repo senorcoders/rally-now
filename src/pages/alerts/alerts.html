@@ -1,20 +1,24 @@
 <rally-name-header name="Alerts"></rally-name-header>
 <ion-content>
-    <ion-list>
+    <!-- <ion-list *ngIf="public"> 
             <ion-list-header>
-                    New
+                    Rally Alerts
                   </ion-list-header>
+    
         <ion-item-sliding *ngFor="let alert of alerts,  let i = index" >
-        <ion-item *ngIf="alert.what !== 'read'">
+        <ion-item >
             <ion-avatar item-start>
-                <img src="assets/img/login-image.jpg">
+                <img [src]="alert.photo_url">
             </ion-avatar>
-            <p>{{alert.data}}</p>
+            <p text-wrap>
+                <strong>{{alert.fname}}</strong> 
+                is now following you
+            </p>
        
              
         </ion-item>
 
-             <ion-item-options side="right">
+             <<ion-item-options side="right">
                 <button ion-button color="primary" (click)="markAsRead(alert.id, alert.sender_id, i)">
                   <ion-icon name="md-done-all"></ion-icon>
                   Accept
@@ -23,23 +27,23 @@
                   <ion-icon name="ios-trash"></ion-icon>
                   Delete
                 </button>
-              </ion-item-options>
+              </ion-item-options> 
         </ion-item-sliding>
 
         
-    </ion-list>
+    </ion-list> -->
 
 
-    <ion-list>
+    <!-- <ion-list>
             <ion-list-header>
                     Previous
                   </ion-list-header>
         <ion-item-sliding *ngFor="let alert of alerts,  let i = index" >
         <ion-item *ngIf="alert.what === 'read'">
             <ion-avatar item-start>
-                <img src="assets/img/login-image.jpg">
+                <img [src]="alert.photo_url">
             </ion-avatar>
-            <p>{{alert.data}}</p>
+            <p>{{alert.fname}}</p>
        
              
         </ion-item>
@@ -54,6 +58,31 @@
         </ion-item-sliding>
 
         
+    </ion-list> -->
+    <ion-list *ngIf="public">
+            <ion-list-header> Rally Alerts </ion-list-header>
+            <ion-item *ngFor="let alert of alerts,  let i = index">
+                  <ion-avatar item-start (click)="hideNotification(alert.id, i)">
+                      <img [src]="alert.photo_url" style="border-radius: 50%;">
+                  </ion-avatar>
+                  <h2 text-wrap (click)="hideNotification(alert.id, i)"><strong>{{alert.fname}}</strong> </h2>
+                  <p text-wrap>wants to follow you<p>
+                         
+              </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="!public">
+      <ion-list-header> Rally Alerts </ion-list-header>
+      <ion-item *ngFor="let alert of alerts,  let i = index">
+            <ion-avatar item-start (click)="hideNotification(alert.id, i)" >
+                <img [src]="alert.photo_url" style="border-radius: 50%;">
+            </ion-avatar>
+            <h2 text-wrap (click)="hideNotification(alert.id, i)"><strong>{{alert.fname}}</strong> </h2>
+            <p text-wrap>wants to follow you</p>
+            
+        <button item-end ion-button color="dark" class="action-btn btn-follow" (click)="approveRequest(alert.id, i)">Approve</button>
+               
+        </ion-item>
     </ion-list>
    
 

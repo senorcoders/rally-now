@@ -149,12 +149,21 @@ export class FollowedCandidatesPage {
          .subscribe(result => {
              console.log(result[0].id);
              this.saveNotification(user_id, result[0].id, this.currentApiID);
+             this.sendPushNotification(result[0].registration_id);
+
          }, err => {
            console.error("Error: " +err);
          }, () => {
            console.log("Data Completed");
          });
      }
+
+     sendPushNotification(device){
+      this.userProvider.sendPushNotification(device, 'New Follow Request')
+        .subscribe(result =>{
+          console.log("Noti", result);
+        });
+  }
  
      saveNotification(user_id, registration_id, sender_id){
        this.userProvider.returnRallyUserId().then(user => {

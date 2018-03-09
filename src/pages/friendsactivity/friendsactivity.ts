@@ -564,6 +564,8 @@ getFollowRecordID(parameter){
     this.httpProvider.getJsonData(this.notificationsEndpoint+'?user_id='+user_id)
       .subscribe(result => {
           this.saveNotification(user_id, result[0].id, this.myRallyID);
+          this.sendPushNotification(result[0].registration_id);
+
       }, err => {
         console.error("Error: " +err);
       }, () => {
@@ -587,6 +589,13 @@ getFollowRecordID(parameter){
       console.log("Error", error);
     });;
   }
+
+  sendPushNotification(device){
+    this.usersProvider.sendPushNotification(device, 'New Follow Request')
+      .subscribe(result =>{
+        console.log("Noti", result);
+      });
+}
 
 
 

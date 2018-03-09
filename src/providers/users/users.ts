@@ -23,6 +23,7 @@ export class UsersProvider{
   civilApiSenate:any = 'https://api.civil.services/v1/senate/?apikey=FA7D0F9C-3879-F284-9D4A-BD9E595BC89B&latitude=';
   rallyToken:any;
   firebaseAdmin:any = 'http://165.227.125.190:8081/users/';
+  notiApi:any = 'https://noti.provethisconcept.com/notification/single/';
   constructor(public http: Http, public storage: Storage, public af:AngularFireDatabase, requestOptions: RequestOptions) {
     //super(connectionBackend, requestOptions);
     //this.getToken();
@@ -47,6 +48,15 @@ export class UsersProvider{
   }
   getToken(){
     return localStorage.getItem('token');
+  }
+
+  sendPushNotification(device, message){
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json' );
+    let options = new RequestOptions({ headers: headers });
+    return this.http.get(this.notiApi + device + '/' + message, options).map(res => res.json())
+
+
   }
   	getJsonData(endpoint){
       let token = this.getToken();
