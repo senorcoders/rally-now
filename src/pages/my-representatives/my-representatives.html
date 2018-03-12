@@ -23,7 +23,9 @@
                         <img src="{{rep.photo_url}}" style="border-radius: 50%;">
                     </ion-avatar>
                     <h2 text-wrap (click)="getID(rep.id)">{{rep.full_name}}</h2>
-                    <p text-wrap><small>{{transform(rep.state)}} State Representative</small></p>
+                    <p *ngIf="rep.chamber === 'lower'" text-wrap><small>{{transform(rep.state)}} State Representative</small></p>
+                    <p *ngIf="rep.chamber === 'upper'" text-wrap><small>{{transform(rep.state)}} State Senator</small></p>
+
                     <ion-row item-end text-right style="display: block; max-width: 120px;" >
                         <ion-col col-6 style="padding: 0;">
                             <button ion-button color="dark" class="action-btn btn-follow" (click)="getRepStatus(rep.id, $event)" >Follow</button>
