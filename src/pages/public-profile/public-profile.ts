@@ -9,6 +9,8 @@ import { OrganizationProfilePage } from '../organization-profile/organization-pr
 import { OrganizationActionPage } from '../organization-action/organization-action';
 import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
 import { RepresentativeProfilePage } from '../representative-profile/representative-profile';
+import { PublicFollowersPage } from '../public-followers/public-followers';
+import { PublicFollowingPage } from '../public-following/public-following';
 
 
 @IonicPage()
@@ -44,6 +46,8 @@ export class PublicProfilePage {
   shareAction:any = '875b4997-f4e0-4014-a808-2403e0cf24f0';
   username:any;
   public records:any = [];
+  status:boolean;
+  amifollowing:boolean;
 
   constructor(
     public navCtrl: NavController, 
@@ -62,6 +66,7 @@ export class PublicProfilePage {
       this.myRallyID = user.apiRallyID;
       this.getdata();
       this.checkUserStatus();
+      this.amIaFollower();
     });
   
   }
@@ -73,6 +78,19 @@ export class PublicProfilePage {
   ionViewWillEnter(){
    
     this.viewCtrl.setBackButtonText(this.profilePageName);
+  }
+
+  amIaFollower(){
+    this.httpProvider.getJsonData(this.followEndpoint+'?follower_id='+this.myRallyID+'&following_id='+this.parameter + '&approved=true').subscribe(
+      result => {
+        console.log("amIaFollower: "+ result);
+        if(result != ''){
+          this.amifollowing = true;
+        }else{
+          this.amifollowing = false;
+
+        }
+      });
   }
 
   checkUserStatus(){
@@ -112,6 +130,12 @@ export class PublicProfilePage {
       this.getArray(result.Contact_Actions);
       this.username = result.username;
       console.log("Success : "+ result);
+      if(result.hide_activity === '0'){
+        this.status = true;
+      }else {
+        this.status = false;
+      }
+      console.log(this.status);
     },
     err =>{
       console.error("Error : "+err);
@@ -191,7 +215,7 @@ presentToast(message) {
     }
 
      followFriend(friendID){
-      this.httpProvider.followFriend(this.followEndpoint, this.myRallyID, friendID ).subscribe(data => {
+      this.httpProvider.followFriend(this.followEndpoint, this.myRallyID, friendID, this.status).subscribe(data => {
         console.log(data);
         this.httpProvider.saveFollowRecordID(data.following_id, data.id, 'follow');
         this.getDeviceID(friendID);
@@ -212,9 +236,7 @@ presentToast(message) {
   } ,
   () => {
     console.log('getData completed');
-  }
-
-  );
+  });
   }
 
     unFollowFriend(recordID){
@@ -472,6 +494,23 @@ transform(value: any) {
     return value.charAt(0).toUpperCase() + value.slice(1);
 }
 return value;
+}
+
+goToFollowers(){
+  if(this.hidden == '0' || this.amifollowing){
+    this.navCtrl.push(PublicFollowersPage,  {
+      profileID: this.id
+    }, {animate:true,animation:'transition',duration:500,direction:'forward'});
+  }
+ 
+}
+
+goToFollowing(){
+  if(this.hidden == '0' || this.amifollowing){
+  this.navCtrl.push(PublicFollowingPage,  {
+    profileID: this.id
+  }, {animate:true,animation:'transition',duration:500,direction:'forward'});
+}
 }
 
 }

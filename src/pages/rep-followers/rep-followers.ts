@@ -120,7 +120,7 @@ export class RepFollowersPage {
 }
 
    followFriend(friendID, $event){
-    this.httpProvider.followFriend(this.followEndpoint, this.myRallyID, friendID ).subscribe(data => {
+    this.httpProvider.followFriend(this.followEndpoint, this.myRallyID, friendID, true ).subscribe(data => {
       console.log(data);
       this.httpProvider.saveFollowRecordID(data.following_id, data.id, 'follow');
       this.getDeviceID(friendID);

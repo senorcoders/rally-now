@@ -108,6 +108,8 @@ import { CallStatePage } from '../pages/call-state/call-state';
 import { CallRepPage } from '../pages/call-rep/call-rep';
 import { FCM } from '@ionic-native/fcm';
 import { NewsPage } from '../pages/news/news';
+import { PublicFollowersPage } from '../pages/public-followers/public-followers';
+import { PublicFollowingPage } from '../pages/public-following/public-following';
 
 
 //import { FCM } from '@ionic-native/fcm';
@@ -222,7 +224,9 @@ firebase.initializeApp(config);
         RepFollowersPage,
         CallStatePage,
         CallRepPage,
-        NewsPage
+        NewsPage,
+        PublicFollowersPage,
+        PublicFollowingPage
     ],
     imports: [
         BrowserModule,
@@ -311,7 +315,9 @@ firebase.initializeApp(config);
         RepFollowersPage,
         CallStatePage,
         CallRepPage,
-        NewsPage
+        NewsPage,
+        PublicFollowersPage,
+        PublicFollowingPage
     ],
     providers: [
         StatusBar,

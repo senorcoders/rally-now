@@ -351,7 +351,7 @@ export class FriendsRequestPage {
      }
  
       followFriend(friendID, $event){
-       this.httpProvicer.followFriend(this.followEndpoint, this.myRallyID, friendID ).subscribe(data => {
+       this.httpProvicer.followFriend(this.followEndpoint, this.myRallyID, friendID, true ).subscribe(data => {
             console.log(data);
             this.httpProvicer.saveFollowRecordID(data.following_id, data.id, 'follow');
             $event.srcElement.innerText = 'Following';

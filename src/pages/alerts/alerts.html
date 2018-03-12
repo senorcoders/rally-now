@@ -65,8 +65,7 @@
                   <ion-avatar item-start (click)="hideNotification(alert.id, i)">
                       <img [src]="alert.photo_url" style="border-radius: 50%;">
                   </ion-avatar>
-                  <h2 text-wrap (click)="hideNotification(alert.id, i)"><strong>{{alert.fname}}</strong> </h2>
-                  <p text-wrap>wants to follow you<p>
+                  <p text-wrap (click)="hideNotification(alert.id, i)"><strong>{{alert.fname}}</strong> is following you<p>
                          
               </ion-item>
     </ion-list>

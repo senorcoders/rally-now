@@ -581,7 +581,7 @@ getFollowRecordID(parameter){
   }
 
    followFriend(friendID){
-    this.usersProvider.followFriend(this.followEndpoint, this.myRallyID, friendID ).subscribe(data => {
+    this.usersProvider.followFriend(this.followEndpoint, this.myRallyID, friendID, true ).subscribe(data => {
       console.log(data);
       this.usersProvider.saveFollowRecordID(data.following_id, data.id, 'follow');
       this.getDeviceID(friendID);

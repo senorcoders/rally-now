@@ -15,11 +15,11 @@
                     <h4>{{actions_taken}}</h4>
                     <p class="small">Actions</p>
                 </ion-col>
-                <ion-col>
+                <ion-col (click)="goToFollowers()">
                     <h4>{{followers_count}}</h4>
                     <p class="small">Followers</p>
                 </ion-col>
-                <ion-col>
+                <ion-col (click)="goToFollowing()">
                     <h4>{{organizations_count}}</h4>
                     <p class="small">Following</p>
                 </ion-col>
@@ -32,7 +32,7 @@
         </ion-col>
         
     </ion-row>
-    <div *ngIf="hidden == '0'" >
+    <div *ngIf="hidden == '0' || amifollowing">
        
             <ion-list-header class="simple-title">
                     ACTIVITY FEED
@@ -159,7 +159,7 @@
 
              
         </div>
-        <ion-row padding *ngIf="hidden == '1'">
+        <ion-row padding *ngIf="hidden == '1' && !amifollowing">
             <ion-list>
                 <ion-item>
                     <ion-icon name="lock" item-start style="font-size: 80px;

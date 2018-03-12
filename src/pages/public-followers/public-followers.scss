@@ -1,0 +1,53 @@
+page-public-followers {
+    .toolbar-background {
+        background-color: #f4512c !important;
+        color: #fff;
+    }
+
+    p.white {
+        color: #f2f2f2;
+        margin: 0;
+    }
+    ion-content {
+        p {
+            font-size: 12px;
+            text-align: center;
+            color: #7b7878;
+        }
+        img {
+            border-radius: 50%;
+            height: 70px;
+            width: 70px;
+        }
+        ion-list {
+            margin-bottom: 0 !important;
+        }
+    }
+
+    .searchbar-input{
+        box-shadow: none !important;
+        background: #e8e7e7 !important;
+        border-radius: 7px !important;
+    }
+    .action-btn {
+        // height: auto;
+        background: #fff;
+        color: #6D6D72;
+        border: 1px solid #989898;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: -0.36px;
+        padding: 10px !important;
+        // min-width: 80px;
+        box-shadow: none;
+        border-radius: 6px;
+        height: 3.6rem !important;
+
+        .button-inner{
+            width: 100px !important;
+            font-family:'Conv_SanFranciscoDisplay-Semibold',Sans-Serif !important;
+            font-size: 14px !important;
+    
+        }
+    }
+}

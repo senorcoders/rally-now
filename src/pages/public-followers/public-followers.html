@@ -1,0 +1,87 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <p class="white">Followers</p>
+        </ion-title>
+      
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <div class="timeline-wrapper" *ngIf="enablePlaceholder">
+        <div class="timeline-item">
+            <div class="animated-background">
+                <div class="background-masker header-top"></div>
+                <div class="background-masker header-left"></div>
+                <div class="background-masker header-right"></div>
+                <div class="background-masker header-bottom"></div>
+                <div class="background-masker subheader-left"></div>
+                <div class="background-masker subheader-right"></div>
+                <div class="background-masker subheader-bottom"></div>
+                <div class="background-masker content-top"></div>
+                <div class="background-masker content-first-end"></div>
+                <div class="background-masker content-second-line"></div>
+                <div class="background-masker content-second-end"></div>
+                <div class="background-masker content-third-line"></div>
+                <div class="background-masker content-third-end"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="timeline-wrapper" *ngIf="enablePlaceholder">
+        <div class="timeline-item">
+            <div class="animated-background">
+                <div class="background-masker header-top"></div>
+                <div class="background-masker header-left"></div>
+                <div class="background-masker header-right"></div>
+                <div class="background-masker header-bottom"></div>
+                <div class="background-masker subheader-left"></div>
+                <div class="background-masker subheader-right"></div>
+                <div class="background-masker subheader-bottom"></div>
+                <div class="background-masker content-top"></div>
+                <div class="background-masker content-first-end"></div>
+                <div class="background-masker content-second-line"></div>
+                <div class="background-masker content-second-end"></div>
+                <div class="background-masker content-third-line"></div>
+                <div class="background-masker content-third-end"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="timeline-wrapper" *ngIf="enablePlaceholder">
+        <div class="timeline-item">
+            <div class="animated-background">
+                <div class="background-masker header-top"></div>
+                <div class="background-masker header-left"></div>
+                <div class="background-masker header-right"></div>
+                <div class="background-masker header-bottom"></div>
+                <div class="background-masker subheader-left"></div>
+                <div class="background-masker subheader-right"></div>
+                <div class="background-masker subheader-bottom"></div>
+                <div class="background-masker content-top"></div>
+                <div class="background-masker content-first-end"></div>
+                <div class="background-masker content-second-line"></div>
+                <div class="background-masker content-second-end"></div>
+                <div class="background-masker content-third-line"></div>
+                <div class="background-masker content-third-end"></div>
+            </div>
+        </div>
+    </div>
+    
+    <ion-list> 
+            <ion-item *ngFor="let follower of items">
+                    <ion-avatar item-start (click)="goToPublicProfile(follower.follower_id)">
+                      <img src="{{follower.followers[0].photo_url}}"  style="border:2px solid #ada8a8;">
+                    </ion-avatar>
+                    <h2 (click)="goToPublicProfile(follower.follower_id)">{{follower.followers[0].name}}</h2>
+                    <button *ngIf="follower.followers[0].hide_activity == '0' && follower.followers[0].searchable == '1'" ion-button clear item-end class="action-btn" (click)="addFollowRecordFirebase(follower.follower_id)">Following</button>
+                  </ion-item>
+    </ion-list>
+
+
+
+</ion-content>
+
+

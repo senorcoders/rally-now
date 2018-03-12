@@ -266,7 +266,7 @@ export class UsersProvider{
   }
 
 
-	followFriend(endpoint, currentUserRallyID, friendRallyID){
+	followFriend(endpoint, currentUserRallyID, friendRallyID, status){
     var headers = new Headers();
       headers.append('Content-Type', 'application/json' );
       headers.append('Access-Control-Allow-Origin', '*');
@@ -276,7 +276,7 @@ export class UsersProvider{
       headers.append('Authorization', `${this.getToken()}`);
 
       let options = new RequestOptions({ headers: headers });
-    let actionData = JSON.stringify({follower_id: currentUserRallyID, following_id: friendRallyID, approved: false});
+    let actionData = JSON.stringify({follower_id: currentUserRallyID, following_id: friendRallyID, approved: status});
     console.log(this.base + endpoint, actionData, options);
     return this.http.post(encodeURI(this.base + endpoint), actionData, options)
       .map(res => res.json())
