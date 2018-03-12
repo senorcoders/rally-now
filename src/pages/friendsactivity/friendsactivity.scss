@@ -27,6 +27,15 @@ page-friendsactivity {
     p.blue{
     	color: #4a90e2;	
     }
+
+    .rally-segment{
+        padding: 10px !important;
+        .segment-button{
+            background: #fff;
+        }
+    }
+
+    
     ion-card {
         margin-left: 0 !important;
         margin-right: 0 !important;
