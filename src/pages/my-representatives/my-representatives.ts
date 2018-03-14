@@ -54,7 +54,7 @@ export class MyRepresentativesPage {
         this.data.user_id = user.apiRallyID;
         this.getAddress();
         this.getReps();
-        this.getStateReps();
+        // this.getStateReps();
         this.getSenators();
       });
   }
@@ -101,7 +101,7 @@ export class MyRepresentativesPage {
     modal.onDidDismiss(() => {
       this.getReps();
       this.getSenators();
-      this.getStateReps();
+      // this.getStateReps();
       this.getAddress();
     });
     modal.present();

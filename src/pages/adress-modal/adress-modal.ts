@@ -86,7 +86,8 @@ export class AdressModalPage {
       result => {
           console.log("Your sen", result.data);
           this.storage.set('senators', result.data);
-          this.getStatesReps(lat, lng);
+          this.dismiss();
+          //this.getStatesReps(lat, lng);
       });
   }
   getStatesReps(lat, lng){
