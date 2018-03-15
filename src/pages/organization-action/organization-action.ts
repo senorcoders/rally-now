@@ -162,7 +162,7 @@ export class OrganizationActionPage {
     });
     actionSheet.present();
   }
-
+ 
   streakModal() {
     let modal = this.modalCtrl.create(ThanksPage);
     modal.present();
@@ -181,7 +181,7 @@ export class OrganizationActionPage {
       this.likes = result.likes;
       this.shares = result.shares;
       this.actions = result.goals[0];
-      this.date = result.created_at;
+      this.date = result.release_date;
       this.objectivesMedia = result.image_url;
       this.objDesc = result.description;
       this.objShort = result.short_desc;

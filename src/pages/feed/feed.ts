@@ -132,16 +132,7 @@ export class FeedPage {
       });
 
       console.log("Network", this.network.type);
-   
-    
-        
-
-
-  }
-
-  ionViewWillEnter(){
-    this.records = [];
-    this.enablePlaceholder = true;
+      this.enablePlaceholder = true;
        
         this.usersProv.returnRallyUserId()
       .then(user => {
@@ -151,6 +142,16 @@ export class FeedPage {
             this.saveLog();
          
       });
+   
+    
+        
+
+
+  }
+
+  ionViewWillEnter(){
+    // this.records = [];
+    
   }
 
 
