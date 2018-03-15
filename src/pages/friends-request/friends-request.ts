@@ -43,6 +43,7 @@ export class FriendsRequestPage {
   organizations:any = ORG;
   organizationEndpoint:any = 'following_organizations';
   public orgs:any = [];
+  discoverEndpoint:any = 'organizations/discover';
 
 
  
@@ -60,12 +61,13 @@ export class FriendsRequestPage {
     private db: AngularFireDatabase,
     public actionSheetCtrl: ActionSheetController, 
     ) {
+      this.getDiscoverOrganizations();
        //this.searchControl = new FormControl();
        this.httpProvicer.returnRallyUserId().then(user => {
          this.myRallyID = user.apiRallyID;
         this.getFacebookFriendsList();
         this.getSuggestedFriend();
-        this.mapOrgs(this.organizations);
+        // this.mapOrgs(this.organizations);
        });
 
   }
@@ -80,13 +82,18 @@ export class FriendsRequestPage {
   //       });
 
   // }
-
+  getDiscoverOrganizations(){  
+    this.orgProvider.getJsonData(this.discoverEndpoint).subscribe(result => {
+      console.log("Organizations", result);
+      this.mapOrgs(result);
+    });
+  }
   getSuggestedFriend(){
 
     return new Promise(resolve => {
       this.orgProvider.getRecords(this.suggestedEndpoint+this.myRallyID)
         .then(data => {
-          console.log("Full Data", data);
+          // console.log("Full Data", data);
           this.getArray(data['not_following']);
         
   
@@ -101,7 +108,7 @@ export class FriendsRequestPage {
   getArray(array){
     // console.log(array);
     for(let person of array) {
-      console.log(person);
+      // console.log(person);
       this.getUserFields(person);
       //this.records.push(person);
       // console.log("Records", this.records);
@@ -113,13 +120,13 @@ export class FriendsRequestPage {
     this.httpProvicer.getJsonData(this.userEndpoint+user_id).subscribe(result => {
         // console.log(result);
         this.records.push(result);
-        console.log("Suggested", this.records);
+        // console.log("Suggested", this.records);
     });
   }
 
   mapFacebookUsers(array){
     for(let person of array) {
-      console.log("From FB", person.id);
+      // console.log("From FB", person.id);
       this.getRallyData(person.id);
      
     }
@@ -128,7 +135,7 @@ export class FriendsRequestPage {
 
   mapOrgs(array){
     for(let item of array){
-      console.log("ORG", item);
+      // console.log("ORG", item);
       this.sortOrgs(item);
     }
   }
@@ -136,7 +143,7 @@ export class FriendsRequestPage {
   getFacebookFriendsList(){
     this.facebook.api('me/friends', ['user_friends']).then(
       list => {
-          console.log("Lista de amigos", list['data']);
+          // console.log("Lista de amigos", list['data']);
           // this.items = list['data'];
           this.mapFacebookUsers(list['data']);
       }, error => {
@@ -153,7 +160,7 @@ export class FriendsRequestPage {
           console.log(result);
           this.sortFacebookFriends(result[0]);
         }else{
-          console.log('Not found', 'This person is not using Rally anymore');
+          // console.log('Not found', 'This person is not using Rally anymore');
         }
          
       });
@@ -165,7 +172,7 @@ export class FriendsRequestPage {
       .subscribe(result => {
         console.log(result);
         if(result != ""){
-          console.log("ya sigues a este usuario");
+          // console.log("ya sigues a este usuario");
         }else{
           this.items.push(user);
         }
@@ -174,11 +181,11 @@ export class FriendsRequestPage {
 
 
   sortOrgs(org){
-    this.httpProvicer.getJsonData(this.organizationEndpoint + '?follower_id=' + this.myRallyID + '&organization_id=' + org.id)
+    this.httpProvicer.getJsonData(this.organizationEndpoint + '?follower_id=' + this.myRallyID + '&organization_id=' + org[0])
       .subscribe(result => {
-        console.log(result);
+        // console.log(result);
         if(result != ""){
-          console.log("ya sigues a esta ORG");
+          // console.log("ya sigues a esta ORG");
         }else{
           this.orgs.push(org);
         }

@@ -95,14 +95,14 @@
             <p class="list-title">Suggested Organizations</p>
         </ion-item>
         <ion-item *ngFor="let org of orgs" >
-            <ion-avatar item-start (click)="goToOrganizationProfile(org.id)">
-                <img [src]="org.image_url ? org.image_url : 'assets/img/org_icon.svg'" style="border:2px solid #ada8a8;">
+            <ion-avatar item-start (click)="goToOrganizationProfile(org[0])">
+                <img [src]="org[2] ? org[2] : 'assets/img/org_icon.svg'" style="border:2px solid #ada8a8;">
             </ion-avatar>
-            <h2 text-wrap (click)="goToOrganizationProfile(org.id)">{{org.name}}</h2>
+            <h2 text-wrap (click)="goToOrganizationProfile(org[0])">{{org[1]}}</h2>
 
             <ion-row item-end text-right >
                 <ion-col col-12 style="padding: 0;">
-                    <button ion-button color="dark" class="action-btn btn-friend" (click)="addOrg(org.id, $event)">FOLLOW</button>
+                    <button ion-button color="dark" class="action-btn btn-friend" (click)="addOrg(org[0], $event)">FOLLOW</button>
                 </ion-col>
 
             </ion-row>
