@@ -198,7 +198,7 @@ goToOrganizationProfile(organizationID){
 }
 
 
-     goToActionPage(objectiveID, goal_type, source, goalID, repID){ 
+     goToActionPage(objectiveID, goal_type, source, goalID, repID){  
       if(goal_type === "contact"){
        this.navCtrl.push(OrganizationActionPage, {
          objectiveID: objectiveID,

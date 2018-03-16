@@ -22,7 +22,7 @@
             <p><small>{{date | amTimeAgo}}</small></p>
         </ion-item>
 
-        <div class="organization-bg" [ngStyle]="{ 'background-image' : 'url(' + objectivesMedia +')'}">
+        <div class="organization-bg" [ngStyle]="{ 'background-image' : 'url(&#34;' + objectivesMedia +'&#34;)'}">
  
             <div class="railled-excerpt" *ngIf="rallies > 0">
                 <p class="white"><strong>{{rallies}}</strong><br> Railled</p>

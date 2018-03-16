@@ -71,7 +71,7 @@
             <p><small>{{objective.created_at | amTimeAgo}}</small></p>
         </ion-item>
 
-        <div (click)="goToActionPage(objective.id, objective?.goals[0]?.goal_type, objective?.goals[0]?.source_link, objective?.goals[0]?.id, objective?.goals[0]?.reps_goals[0]?.id)" class="organization-bg" [ngStyle]="{ 'background-image' : 'url(' + objective.image_url +')'}">
+        <div (click)="goToActionPage(objective.id, objective?.goals[0]?.goal_type, objective?.goals[0]?.source_link, objective?.goals[0]?.id, objective?.goals[0]?.reps_goals[0]?.id)" class="organization-bg" [ngStyle]="{ 'background-image' : 'url(&#34;' + objective.image_url +'&#34;)'}">
             <!-- <div class="days-excerpt">
                 <p class="white">{{objective?.goals[0]?.description}}</p>
             </div> -->
@@ -82,8 +82,9 @@
                 <p class="white">{{objective?.title}}</p>
             </div>
             <div class="btn-objectives-contact">
-                <button ion-button *ngIf="objective?.goals[0]?.goal_type !== 'sign'">Contact</button>
+                <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'contact'">Contact</button>
                 <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'sign'">Sign</button>
+                <button ion-button *ngIf="objective?.goals[0]?.goal_type === 'donate'">Donate</button>
               </div>
         </div>
 

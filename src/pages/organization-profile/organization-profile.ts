@@ -10,6 +10,7 @@ import { OrganizationFollowersPage } from '../organization-followers/organizatio
 import { SignFeedBackPage } from '../sign-feed-back/sign-feed-back';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 import { EventDetailPage } from '../event-detail/event-detail';
+import { DonateFeedBackPage } from '../donate-feed-back/donate-feed-back';
 
 
 @IonicPage()
@@ -313,14 +314,17 @@ removeFav(recordID){
 }
 
 goToActionPage(objectiveID, goal_type, source, goalID, repID){ 
-  if(goal_type !== "sign"){
-   this.navCtrl.push(OrganizationActionPage, {
-     objectiveID: objectiveID,
-     pageName: 'Home'
- }, {animate:true,animation:'transition',duration:500,direction:'forward'});
-  } else{
-   this.navCtrl.push(SignFeedBackPage, {iframeUrl: source, repID:repID, goalID: goalID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
-  }  
+  if(goal_type === "contact"){
+    this.navCtrl.push(OrganizationActionPage, {
+      objectiveID: objectiveID,
+      pageName: 'Action'
+  }, {animate:true,animation:'transition',duration:500,direction:'forward'});
+   } else if(goal_type === 'sign'){
+    this.navCtrl.push(SignFeedBackPage, {iframeUrl: source, repID:repID, goalID:goalID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+   }  else if(goal_type === 'donate'){
+     this.navCtrl.push(DonateFeedBackPage, {iframeUrl: source, repID:repID, goalID:goalID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
+
+   } 
  
 }
 
