@@ -27,7 +27,7 @@ import { DonateFeedBackPage } from '../donate-feed-back/donate-feed-back';
 })
 export class TakeactionPage {
 
-  endpoint:string = 'objectives/take_action';
+  endpoint:string = 'objectives/take_action/';
   objectives:any;
   myrallyID:any;
   favEndpoint:any = 'actions';
@@ -172,7 +172,7 @@ export class TakeactionPage {
 
 
       getdata(){
-  this.orgProvider.getJsonData(this.endpoint).subscribe(
+  this.orgProvider.getJsonData(this.endpoint+ this.myrallyID ).subscribe(
     result => {
       this.objectives=result;
       //this.loading.dismiss();
