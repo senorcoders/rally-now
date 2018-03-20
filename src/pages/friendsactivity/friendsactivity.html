@@ -110,7 +110,7 @@
                                             </p>
                                 
                                         <p style="font-size: 20px;" *ngIf="activity.action === 'sign'">
-                                            {{transform(activity.action)}}ed  to <strong (click)="goToOrganizationProfile(activity.objective_organization_id)">{{activity.organization}}</strong>'s petition <strong (click)="goToActionPage(activity.objective_id, activity.goal_type, activity.goal_source_link, activity.goal_id, activity.rep_id)">"{{activity.objective}}"</strong>.
+                                            {{transform(activity.action)}}ed <strong (click)="goToOrganizationProfile(activity.objective_organization_id)">{{activity.organization}}</strong>'s petition <strong (click)="goToActionPage(activity.objective_id, activity.goal_type, activity.goal_source_link, activity.goal_id, activity.rep_id)">"{{activity.objective}}"</strong>.
                                         </p>
                                     </ion-card-content>
                            
@@ -234,7 +234,7 @@
                                                 {{transform(activity.action)}}ed  to <strong (click)="goToOrganizationProfile(activity.objective_organization_id)">{{activity.organization}}</strong>'s campaign <strong (click)="goToActionPage(activity.objective_id, activity.goal_type, activity.goal_source_link, activity.goal_id, activity.rep_id)">"{{activity.objective}}"</strong>.
                                             </p>
                                             <p style="font-size: 20px;" *ngIf="activity.action === 'sign'">
-                                                {{transform(activity.action)}}ed  to <strong (click)="goToOrganizationProfile(activity.objective_organization_id)">{{activity.organization}}</strong>'s petition <strong (click)="goToActionPage(activity.objective_id, activity.goal_type, activity.goal_source_link, activity.goal_id, activity.rep_id)">"{{activity.objective}}"</strong>.
+                                                {{transform(activity.action)}}ed  <strong (click)="goToOrganizationProfile(activity.objective_organization_id)">{{activity.organization}}</strong>'s petition <strong (click)="goToActionPage(activity.objective_id, activity.goal_type, activity.goal_source_link, activity.goal_id, activity.rep_id)">"{{activity.objective}}"</strong>.
                                             </p>
                                     </ion-card-content>
                            

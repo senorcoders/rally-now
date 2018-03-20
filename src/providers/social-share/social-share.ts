@@ -41,7 +41,7 @@ export class SocialShareProvider {
   }
   
   shareViaEmail(){
-    this.socialSharing.shareViaEmail("My Rally issue is:", "Rally", ["dayana@senorcoders.com"])
+    this.socialSharing.shareViaEmail("My Rally issue is:", "Rally", ["hello@letsrally.us"])
     .then(() =>{
       console.log('Success');
     }).catch((error) => {

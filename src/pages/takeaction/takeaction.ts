@@ -202,7 +202,7 @@ goToOrganizationProfile(organizationID){
       if(goal_type === "contact"){
        this.navCtrl.push(OrganizationActionPage, {
          objectiveID: objectiveID,
-         pageName: 'Action'
+         pageName: 'Take Action'
      }, {animate:true,animation:'transition',duration:500,direction:'forward'});
       } else if(goal_type === 'sign'){
        this.navCtrl.push(SignFeedBackPage, {iframeUrl: source, repID:repID, goalID:goalID}, {animate:true,animation:'transition',duration:500,direction:'forward'});
